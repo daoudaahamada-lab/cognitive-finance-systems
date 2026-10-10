@@ -116,6 +116,10 @@ model LinkedInAccount {
   headline          String        @default("")
   accountType       AccountType   @default(FREE)
   status            AccountStatus @default(ACTIVE)
+  /// Why the engine paused the account (expired session, checkpoint...).
+  statusReason      String?
+  /// Set when LinkedIn warns about the invitation limit: no invitations before this date.
+  invitesPausedUntil DateTime?
   timezone          String        @default("Europe/Paris")
   /// ISO weekdays (1 = Monday ... 7 = Sunday) when actions may be sent.
   sendingDays       Int[]         @default([1, 2, 3, 4, 5])
@@ -178,6 +182,8 @@ model Campaign {
 
   // Targeting
   sources              ProspectSource[] @default([SEARCH])
+  /// Optional LinkedIn people-search URL used as is by the browser provider.
+  searchUrl            String           @default("")
   titles               String[]
   keywords             String[]
   industries           String[]
@@ -417,6 +423,8 @@ enum ActivityType {
   MEETING_BOOKED
   MARKED_NOT_INTERESTED
   MARKED_UNRESPONSIVE
+  /// A LinkedIn action could not be performed (data: { action, code, message }).
+  ACTION_FAILED
 }
 
 model Activity {
@@ -439,7 +447,7 @@ model Activity {
 }
 
 // ---------------------------------------------------------------------------
-// LinkedIn simulator state (only used when LINKEDIN_PROVIDER=simulator)
+// LinkedIn simulator state (only used by accounts connected with the simulator)
 // ---------------------------------------------------------------------------
 
 model SimContact {

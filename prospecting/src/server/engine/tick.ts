@@ -1,5 +1,6 @@
 import type { LinkedInAccount } from "@prisma/client";
 import { MINUTE } from "@/server/domain/time";
+import { ProviderAuthError } from "@/server/linkedin/types";
 import type { EngineDeps } from "./deps";
 import { syncEvents } from "./events";
 import { runOutreach, type OutreachResult } from "./outreach";
@@ -32,6 +33,10 @@ export async function runTick(deps: EngineDeps, options: { workspaceId?: string 
     try {
       results.push(await tickAccount(deps, account));
     } catch (error) {
+      if (error instanceof ProviderAuthError) {
+        // Expired session or LinkedIn checkpoint: stop acting on this account until a human reconnects it.
+        await deps.db.linkedInAccount.update({ where: { id: account.id }, data: { status: "PAUSED", statusReason: error.message } });
+      }
       results.push({
         accountId: account.id, events: 0, sourced: 0, scored: 0, outreach: null,
         error: error instanceof Error ? error.message : String(error),

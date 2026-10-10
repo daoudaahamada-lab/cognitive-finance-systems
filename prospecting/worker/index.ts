@@ -1,13 +1,27 @@
 /**
- * Background worker: runs the prospecting engine on a fixed interval.
+ * Background worker: runs the prospecting engine on a fixed interval and owns the
+ * LinkedIn browsers (the web app reaches them through the local bridge).
  *   npm run worker
  */
-import { db } from "@/server/db";
-import { engineDeps } from "@/server/engine/deps";
-import { runTick } from "@/server/engine/tick";
+export {};
+
+// Set before anything resolves a provider: this process owns the browsers.
+process.env.VELA_ROLE = "worker";
+
+const { db } = await import("@/server/db");
+const { engineDeps } = await import("@/server/engine/deps");
+const { runTick } = await import("@/server/engine/tick");
+const { localBrowserProvider } = await import("@/server/linkedin");
+const { bridgeConfig, startBridge } = await import("@/server/linkedin/bridge");
 
 const intervalMs = Math.max(1, Number(process.env.WORKER_INTERVAL_SECONDS ?? "10")) * 1000;
 let stopping = false;
+
+const bridge = await startBridge(localBrowserProvider()).catch((error: Error) => {
+  console.error(`[bridge] could not listen on 127.0.0.1:${bridgeConfig().port}: ${error.message}`);
+  return null;
+});
+if (bridge) console.log(`[bridge] LinkedIn bridge on 127.0.0.1:${bridgeConfig().port}`);
 
 async function loop() {
   while (!stopping) {
@@ -30,6 +44,8 @@ async function loop() {
     const wait = intervalMs - (Date.now() - started);
     if (wait > 0) await new Promise((resolve) => setTimeout(resolve, wait));
   }
+  bridge?.close();
+  await localBrowserProvider().sessions.closeAll();
   await db.$disconnect();
 }
 

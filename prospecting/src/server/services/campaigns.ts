@@ -55,6 +55,13 @@ export const campaignSchema = z.object({
   companySizes: list(),
   signals: z.preprocess(parseList, z.array(z.enum(["NEW_ROLE", "HIRING", "FUNDRAISING"]))),
   postUrls: z.preprocess(parseList, z.array(z.url("URL de post invalide")).max(10)),
+  searchUrl: z
+    .string()
+    .trim()
+    .default("")
+    .refine((v) => v === "" || /^https:\/\/([a-z]+\.)?linkedin\.com\/search\/results\/people\//i.test(v), {
+      message: "Collez une URL de recherche de personnes LinkedIn (linkedin.com/search/results/people/…). Sales Navigator n'est pas pris en charge.",
+    }),
   exclusions: list(100),
   minScore: z.coerce.number().int().min(0).max(100),
   weeklyProspectTarget: z.coerce.number().int().min(10).max(1000),
@@ -89,7 +96,7 @@ export async function updateCampaign(workspaceId: string, campaignId: string, in
   await checkCampaign(workspaceId, input);
   const existing = await db.campaign.findFirst({ where: { id: campaignId, workspaceId } });
   if (!existing) throw new UserError("Campagne introuvable.");
-  const targetingChanged = (["sources", "titles", "keywords", "industries", "locations", "companySizes", "signals", "postUrls"] as const).some(
+  const targetingChanged = (["sources", "searchUrl", "titles", "keywords", "industries", "locations", "companySizes", "signals", "postUrls"] as const).some(
     (k) => JSON.stringify(existing[k]) !== JSON.stringify(input[k]),
   );
   await db.campaign.update({

@@ -6,7 +6,9 @@ import {
   accountSettingsSchema,
   connectAccount,
   connectAccountSchema,
+  sessionSchema,
   setAccountStatus,
+  updateAccountSession,
   updateAccountSettings,
 } from "@/server/services/accounts";
 import { toActionState, type ActionState } from "@/server/services/errors";
@@ -23,6 +25,19 @@ export async function connectAccountAction(_: ActionState, form: FormData): Prom
   }
   revalidatePath("/", "layout");
   return { ok: true, message: "Compte connecté." };
+}
+
+export async function updateSessionAction(accountId: string, _: ActionState, form: FormData): Promise<ActionState> {
+  const { workspace } = await requireContext();
+  const parsed = parseForm(sessionSchema, Object.fromEntries(form));
+  if ("state" in parsed) return parsed.state;
+  try {
+    await updateAccountSession(workspace.id, accountId, parsed.data.sessionCookie);
+  } catch (error) {
+    return toActionState(error);
+  }
+  revalidatePath("/", "layout");
+  return { ok: true, message: "Session mise à jour : le compte est réactivé." };
 }
 
 export async function updateAccountAction(accountId: string, _: ActionState, form: FormData): Promise<ActionState> {

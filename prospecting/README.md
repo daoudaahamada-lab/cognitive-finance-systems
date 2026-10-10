@@ -12,8 +12,8 @@ C'est une **réimplémentation indépendante** (« clean room ») : aucun code, 
 | Domaine | Ce qui marche |
 | --- | --- |
 | **Compte** | Instance personnelle : le premier compte créé en devient propriétaire, puis les inscriptions se ferment (`ALLOW_SIGNUP=true` pour les rouvrir). Toutes les fonctionnalités sont disponibles, sans facturation |
-| **Comptes LinkedIn** | Connexion via le simulateur, type de compte, horaires et jours d'envoi, fuseau horaire, plafonds personnalisables (uniquement à la baisse) |
-| **Campagnes** | Sources (recherche, signaux d'achat, engagement sur des posts, visiteurs de profil, import), ciblage (postes, secteurs, zones, tailles, mots-clés), exclusions, score minimum, séquence (note d'invitation, premier message, jusqu'à 8 relances), variables `{{firstName}}` et variantes `{Bonjour\|Hello}` avec aperçu en direct |
+| **Comptes LinkedIn** | Votre vrai compte, piloté dans un navigateur automatisé (cookie `li_at` ou connexion manuelle), ou le simulateur pour tester. Type de compte, horaires et jours d'envoi, fuseau horaire, plafonds personnalisables (uniquement à la baisse) |
+| **Campagnes** | Sources (recherche ou URL de recherche LinkedIn, signaux d'achat, engagement sur des posts, visiteurs de profil, import), ciblage (postes, secteurs, zones, tailles, mots-clés), exclusions, score minimum, séquence (note d'invitation, premier message, jusqu'à 8 relances), variables `{{firstName}}` et variantes `{Bonjour\|Hello}` avec aperçu en direct |
 | **Moteur** | Sourcing, scoring expliqué point par point, invitations, premier message après acceptation, relances arrêtées dès la première réponse, reprise après un « absent » |
 | **Setter** | Trois modes : automatique, validation, désactivé. Il classe l'intention (intéressé, question, objection, refus, absent, sensible), répond ou rédige un brouillon, envoie le lien de réservation, et passe la main sur les cas sensibles (RGPD, tarifs, réponse non reconnue, trop d'échanges) |
 | **Agents IA (Claude)** | Scoring par rapport à l'offre et au client idéal, personnalisation de chaque message, setter qui lit la conversation et répond. Garde-fous déterministes et repli automatique sur les règles (voir plus bas) |
@@ -24,7 +24,7 @@ C'est une **réimplémentation indépendante** (« clean room ») : aucun code, 
 | **Serveur MCP** | `/api/mcp` (Streamable HTTP), 25 outils pour piloter Vela depuis Claude Code, Cursor ou tout client MCP, avec des jetons personnels créés dans les réglages |
 | **Site vitrine** | Accueil (`/`), mentions légales, confidentialité, CGU, sitemap et robots.txt |
 
-**Pas encore inclus** (prochaine itération) : fournisseur LinkedIn réel.
+**Pas encore inclus** : recherches Sales Navigator, signaux d'achat sur un vrai compte (simulateur uniquement), synchronisation d'agenda (un rendez-vous pris via le lien de réservation se saisit sur la fiche du prospect).
 
 ## Sécurité des comptes LinkedIn
 
@@ -41,6 +41,8 @@ D'autres règles s'ajoutent :
 - Une personne déjà connue de l'espace n'est jamais recontactée depuis une autre campagne.
 - Un verrou par compte empêche les doubles envois quand deux passages du moteur se chevauchent.
 
+Sur un vrai compte, le navigateur ajoute des pauses humaines entre chaque action. Si LinkedIn affiche l'avertissement de limite d'invitations, les invitations du compte s'arrêtent 24 h. Si la session expire ou si LinkedIn demande une vérification, le compte se met en pause avec la raison affichée.
+
 > ⚠️ Les conditions d'utilisation de LinkedIn interdisent les outils d'automatisation tiers. Même avec ces limites, un compte peut être restreint. Le simulateur, lui, ne contacte personne.
 
 ## Démarrage
@@ -54,6 +56,7 @@ docker compose up -d          # Postgres sur localhost:5432 (vela / vela)
 cp .env.example .env
 npm run db:migrate            # applique les migrations
 npm run db:seed               # données de démo (environ 30 s)
+npx playwright-core install chromium   # seulement pour piloter votre vrai compte LinkedIn
 npm run dev                   # site : http://localhost:3000, app : /login
 npm run worker                # dans un 2e terminal : le moteur tourne toutes les 10 s
 ```
@@ -75,7 +78,6 @@ Les pages publiques vivent dans `src/app/(marketing)/` et sont générées en st
 | Variable | Rôle |
 | --- | --- |
 | `DATABASE_URL` | Connexion PostgreSQL |
-| `LINKEDIN_PROVIDER` | `simulator` (le seul fourni pour l'instant) |
 | `TIME_SCALE` | Accélère les attentes pour les démos (`1` = temps réel) |
 | `WORKER_INTERVAL_SECONDS` | Fréquence du worker (10 s par défaut) |
 | `ANTHROPIC_API_KEY` | Active les agents Claude (sans clé : agents à base de règles) |
@@ -83,7 +85,13 @@ Les pages publiques vivent dans `src/app/(marketing)/` et sont générées en st
 | `ANTHROPIC_MODEL` | Modèle des agents (`claude-opus-5-5` par défaut) |
 | `ALLOW_SIGNUP` | `true` pour autoriser d'autres inscriptions après le premier compte |
 | `SITE_URL` | URL publique du site (sitemap, robots.txt) |
-| `ENGINE_TICK_SECRET` | Active `POST /api/engine/tick` (en-tête `Authorization: Bearer …`) pour un cron externe, à utiliser à la place du worker |
+| `ENGINE_TICK_SECRET` | Active `POST /api/engine/tick` (en-tête `Authorization: Bearer …`) pour un cron externe, à utiliser à la place du worker (simulateur uniquement : le navigateur vit dans le worker) |
+| `LINKEDIN_PROFILES_DIR` | Dossier des profils Chromium, un par compte (`.linkedin-profiles` par défaut). Contient vos sessions : à garder privé |
+| `LINKEDIN_HEADLESS` | `false` pour voir la fenêtre du navigateur |
+| `LINKEDIN_CHROMIUM_PATH` | Chrome ou Chromium déjà installé, à la place de celui de Playwright |
+| `LINKEDIN_PACE` | Multiplie les pauses humaines (`1` par défaut ; ne descendez pas en dessous sur un vrai compte) |
+| `LINKEDIN_EVENTS_INTERVAL_MINUTES` | Écart minimum entre deux lectures des nouvelles connexions et des messages (15 min par défaut) |
+| `LINKEDIN_BRIDGE_PORT`, `LINKEDIN_BRIDGE_SECRET` | Passerelle locale entre l'app et le worker (`4319` ; secret dérivé de `DATABASE_URL` par défaut) |
 
 ## Architecture
 
@@ -97,11 +105,12 @@ src/
     services/             logique métier appelée par l'UI (et demain par le serveur MCP)
     engine/               le moteur : events → sourcing → scoring → invitations → messages → setter
     agents/               scorer, rédacteur, setter : à base de règles, derrière des interfaces
-    linkedin/             contrat LinkedInProvider + simulateur
+    linkedin/             contrat LinkedInProvider, simulateur, navigateur (Playwright), passerelle app ↔ worker
     domain/               quotas, horaires, modèles de messages, temps
     auth/                 mots de passe (scrypt), sessions (cookie httpOnly, jeton haché en base)
     mcp/                  serveur MCP (outils au-dessus des services)
-worker/                   boucle qui exécute le moteur
+worker/                   boucle qui exécute le moteur ; seul processus à ouvrir Chromium
+scripts/                  linkedin:login (connexion manuelle), linkedin:check (diagnostic sans envoi)
 prisma/                   schéma, migrations, données de démo
 tests/                    tests unitaires + intégration (moteur sur 3 semaines simulées)
 ```
@@ -113,13 +122,33 @@ Un passage du moteur (`runTick`) traite chaque compte actif, sous verrou, en cin
 4. Il envoie les invitations, par meilleur score d'abord.
 5. Il envoie les premiers messages et les relances dus, et marque « sans réponse » les séquences terminées.
 
-### Brancher un vrai LinkedIn
+## Connecter votre compte LinkedIn
 
-1. Implémentez `LinkedInProvider` (`src/server/linkedin/types.ts`) : connexion du compte, recherche, recherche par URL, invitation, message et récupération des événements. Un fournisseur comme Unipile s'y prête bien : ses webhooks alimentent `fetchEvents`.
-2. Déclarez-le dans `getProvider()` (`src/server/linkedin/index.ts`).
-3. Choisissez-le via `LINKEDIN_PROVIDER`.
+Le fournisseur « Mon compte LinkedIn » (`src/server/linkedin/browser/`) pilote votre propre session dans un Chromium automatisé, à un rythme humain. Il ne passe par aucune API ni aucun service tiers.
 
-Chaque compte mémorise son fournisseur : le simulateur et un fournisseur réel peuvent donc coexister.
+**Mise en place**
+1. Installez le navigateur une fois : `npx playwright-core install chromium`.
+2. Démarrez le worker (`npm run worker`). C'est lui qui ouvre Chromium, avec un profil persistant par compte. L'app web lui transmet ses actions par une passerelle locale (`127.0.0.1:4319`).
+3. Dans **Comptes LinkedIn**, choisissez **Mon compte LinkedIn**, puis l'une des deux options :
+   - **Cookie `li_at`** : collez-le depuis votre navigateur (Outils de développement → Application → Cookies → linkedin.com ; l'aide est sur la page). Vela vérifie la session, puis lit votre nom et votre titre.
+   - **Connexion manuelle** : laissez le cookie vide ; le compte est créé en pause. Arrêtez le worker, lancez `npm run linkedin:login -- --account <id>` sur une machine avec écran, connectez-vous (mot de passe, double authentification), puis relancez le worker.
+4. **Avant d'activer une campagne**, arrêtez le worker et lancez `npm run linkedin:check -- --account <id>`. Ce diagnostic n'envoie rien : il vérifie la session, une recherche, les boutons d'un profil, vos connexions et vos messages, puis signale chaque point en échec.
+
+**Ce que fait le navigateur**
+
+| Étape | Sur LinkedIn |
+| --- | --- |
+| Sourcing | Recherche de personnes : l'URL collée dans la campagne, ou une recherche construite à partir des postes et mots-clés. Il lit aussi les visiteurs de votre profil et les réactions à un post |
+| Invitation | Ouvre le profil, clique sur Se connecter (ou Plus → Se connecter), ajoute la note et l'envoie. Il détecte une invitation déjà envoyée, une connexion existante ou une adresse e-mail exigée |
+| Message | Ouvre la messagerie depuis le profil, tape le texte avec des pauses, l'envoie, puis vérifie que le champ s'est vidé |
+| Événements | Lit vos nouvelles connexions et les conversations modifiées. Un message du prospect resté sans réponse de votre part devient une réponse à traiter |
+
+**Limites**
+- Les sélecteurs suivent l'interface de LinkedIn en français et en anglais. Ils ont été testés sur une réplique locale (`tests/linkedin-mock.ts`), pas sur linkedin.com : LinkedIn modifie régulièrement son interface. Si `linkedin:check` échoue, ajustez `src/server/linkedin/browser/selectors.ts`.
+- Une seule instance du worker par machine : deux processus ne peuvent pas ouvrir le même profil.
+- Le profil Chromium contient votre session : ne le partagez pas et ne le versionnez pas (`.linkedin-profiles/` est ignoré par git).
+
+Chaque compte mémorise son fournisseur : le simulateur et votre vrai compte peuvent donc coexister. Un autre fournisseur (Unipile, par exemple) s'ajoute en implémentant `LinkedInProvider` (`src/server/linkedin/types.ts`), puis en le déclarant dans `getProvider()`.
 
 ## Agents IA (Claude)
 
@@ -165,6 +194,8 @@ createdb vela_test            # ou via Docker : docker compose exec postgres cre
 npm test                      # environ 1 min 30, sans appel à l'API Anthropic
 npm run typecheck && npm run lint
 ```
+
+Les tests du fournisseur navigateur lancent un vrai Chromium contre une réplique locale de LinkedIn (`tests/linkedin-mock.ts`). Ils sont ignorés si aucun Chromium n'est disponible : installez-le avec `npx playwright-core install chromium` ou indiquez-le via `LINKEDIN_CHROMIUM_PATH`.
 
 La base de test doit s'appeler `*_test` (variable `TEST_DATABASE_URL`, `postgresql://vela:vela@localhost:5432/vela_test` par défaut). Les tests refusent de vider toute autre base.
 

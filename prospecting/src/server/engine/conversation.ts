@@ -1,6 +1,7 @@
 import type { ActivityType, LinkedInAccount, MessageAuthor, Prisma, Prospect } from "@prisma/client";
 import { parseFollowUps, FINAL_WAIT_DAYS } from "@/server/domain/followups";
 import { DAY, addScaled } from "@/server/domain/time";
+import { ProviderActionError } from "@/server/linkedin/types";
 import { logActivity } from "./activity";
 import type { EngineDeps } from "./deps";
 import { accountQuota } from "./quota";
@@ -121,24 +122,29 @@ export async function runSetter(deps: EngineDeps, conversationId: string) {
   }
 
   const quota = await accountQuota(deps.db, prospect.account, deps.now);
-  if (mode === "AUTO" && quota.remaining.messages > 0) {
-    await sendOutbound(deps, {
-      prospect,
-      body: decision.message,
-      author: "AI",
-      activity: "AI_REPLY_SENT",
-      data: { intent: decision.intent, by: decision.agent },
-    });
-    await deps.db.conversation.update({
-      where: { id: conversationId },
-      data: { unread: false, status: decision.closeAfter ? "CLOSED" : "AI_ACTIVE" },
-    });
-    return;
+  let blocked = mode === "AUTO" && quota.remaining.messages <= 0 ? "Quota de messages du jour atteint : validez pour envoyer." : null;
+  if (mode === "AUTO" && !blocked) {
+    try {
+      await sendOutbound(deps, {
+        prospect,
+        body: decision.message,
+        author: "AI",
+        activity: "AI_REPLY_SENT",
+        data: { intent: decision.intent, by: decision.agent },
+      });
+      await deps.db.conversation.update({
+        where: { id: conversationId },
+        data: { unread: false, status: decision.closeAfter ? "CLOSED" : "AI_ACTIVE" },
+      });
+      return;
+    } catch (error) {
+      // The reply is not lost: it waits as a draft for a human to send.
+      if (!(error instanceof ProviderActionError)) throw error;
+      blocked = `Envoi automatique impossible (${error.message}) : validez pour réessayer.`;
+    }
   }
 
-  const rationale = mode === "AUTO"
-    ? `${decision.rationale} (Quota de messages du jour atteint : validez pour envoyer.)`
-    : decision.rationale;
+  const rationale = blocked ? `${decision.rationale} (${blocked})` : decision.rationale;
   await deps.db.draft.create({
     data: { conversationId, body: decision.message, intent: decision.intent, rationale, author: decision.agent, createdAt: deps.now },
   });

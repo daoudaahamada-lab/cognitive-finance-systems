@@ -44,6 +44,7 @@ export default async function NewCampaignPage() {
           companySizes: [],
           signals: ["NEW_ROLE", "HIRING", "FUNDRAISING"],
           postUrls: [],
+          searchUrl: "",
           exclusions: [],
           aiPersonalization: true,
           minScore: 60,

@@ -24,6 +24,7 @@ export type CampaignFormValues = {
   companySizes: string[];
   signals: string[];
   postUrls: string[];
+  searchUrl: string;
   exclusions: string[];
   aiPersonalization: boolean;
   minScore: number;
@@ -118,9 +119,21 @@ export function CampaignForm({ aiEnabled, campaignId, values, accounts, senderFi
             </div>
           </fieldset>
 
+          {sources.includes("SEARCH") ? (
+            <Field
+              label="URL de recherche LinkedIn (facultative)"
+              htmlFor="searchUrl"
+              error={err.searchUrl}
+              hint="Faites votre recherche de personnes sur LinkedIn avec ses filtres (lieu, secteur, entreprise…), puis collez l'URL. Sinon, la recherche est construite à partir des postes et mots-clés ci-dessous."
+            >
+              <Input id="searchUrl" name="searchUrl" type="url" defaultValue={values.searchUrl} placeholder="https://www.linkedin.com/search/results/people/?keywords=…" />
+            </Field>
+          ) : null}
+
           {sources.includes("SIGNALS") ? (
             <fieldset>
-              <legend className="mb-2 text-sm font-medium">Signaux d&apos;achat</legend>
+              <legend className="mb-1 text-sm font-medium">Signaux d&apos;achat</legend>
+              <p className="mb-2 text-xs text-muted">Disponibles avec le simulateur ; avec un vrai compte LinkedIn, cette source ne trouve personne pour l&apos;instant.</p>
               <div className="flex flex-wrap gap-2">
                 {(["NEW_ROLE", "HIRING", "FUNDRAISING"] as const).map((s) => (
                   <Chip key={s} name="signals" value={s} label={SIGNALS[s]!} defaultChecked={values.signals.includes(s)} />

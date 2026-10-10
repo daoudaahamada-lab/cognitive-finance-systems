@@ -98,6 +98,12 @@ export const ACTIVITY_LABELS: Record<string, string> = {
   MEETING_BOOKED: "Rendez-vous réservé",
   MARKED_NOT_INTERESTED: "Marqué pas intéressé",
   MARKED_UNRESPONSIVE: "Séquence terminée sans réponse",
+  ACTION_FAILED: "Action LinkedIn impossible",
+};
+
+export const PROVIDER_LABELS: Record<string, string> = {
+  browser: "Navigateur",
+  simulator: "Simulateur",
 };
 
 export const COMPANY_SIZES = ["1-10", "11-50", "51-200", "201-500", "501-1000", "1000+"];

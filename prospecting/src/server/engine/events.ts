@@ -14,17 +14,19 @@ const REPLYABLE_STAGES = new Set(["INVITED", "CONNECTED", "MESSAGED", "UNRESPONS
 export async function syncEvents(deps: EngineDeps, account: LinkedInAccount): Promise<number> {
   const provider = deps.providerFor(account.provider);
   const events = await provider.fetchEvents({ externalId: account.externalId }, deps.now);
-  for (const event of events) await handleEvent(deps, account, event);
-  return events.length;
+  let applied = 0;
+  // Providers may report the same event again (browser scans re-read pages); only count what changed something.
+  for (const event of events) if (await handleEvent(deps, account, event)) applied += 1;
+  return applied;
 }
 
-export async function handleEvent(deps: EngineDeps, account: LinkedInAccount, event: ProviderEvent) {
+export async function handleEvent(deps: EngineDeps, account: LinkedInAccount, event: ProviderEvent): Promise<boolean> {
   const { db, now } = deps;
   const prospect = await db.prospect.findFirst({
     where: { accountId: account.id, externalId: event.profileId },
   });
   // Someone we never contacted through this product: nothing to track.
-  if (!prospect) return;
+  if (!prospect) return false;
   const base = {
     workspaceId: prospect.workspaceId, campaignId: prospect.campaignId,
     prospectId: prospect.id, accountId: account.id, at: now,
@@ -32,7 +34,7 @@ export async function handleEvent(deps: EngineDeps, account: LinkedInAccount, ev
 
   switch (event.kind) {
     case "invite_accepted": {
-      if (prospect.stage !== "INVITED") return;
+      if (prospect.stage !== "INVITED") return false;
       await db.prospect.update({
         where: { id: prospect.id },
         data: {
@@ -43,7 +45,7 @@ export async function handleEvent(deps: EngineDeps, account: LinkedInAccount, ev
         },
       });
       await logActivity(db, { ...base, type: "INVITE_ACCEPTED" });
-      return;
+      return true;
     }
 
     case "message_received": {
@@ -51,7 +53,7 @@ export async function handleEvent(deps: EngineDeps, account: LinkedInAccount, ev
       const duplicate = await db.message.findFirst({
         where: { conversationId: conversation.id, externalId: event.externalId },
       });
-      if (duplicate) return;
+      if (duplicate) return false;
       await db.message.create({
         data: {
           conversationId: conversation.id, direction: "INBOUND", author: "PROSPECT",
@@ -70,7 +72,7 @@ export async function handleEvent(deps: EngineDeps, account: LinkedInAccount, ev
       });
       await logActivity(db, { ...base, type: "REPLY_RECEIVED" });
       await runSetter(deps, conversation.id);
-      return;
+      return true;
     }
 
     case "meeting_booked": {
@@ -89,7 +91,7 @@ export async function handleEvent(deps: EngineDeps, account: LinkedInAccount, ev
         data: { status: "CLOSED", unread: true, escalationReason: null },
       });
       await logActivity(db, { ...base, type: "MEETING_BOOKED", data: { startsAt: event.startsAt.toISOString() } });
-      return;
+      return true;
     }
   }
 }

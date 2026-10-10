@@ -4,6 +4,7 @@ import { logActivity } from "@/server/engine/activity";
 import { runSetter, sendOutbound } from "@/server/engine/conversation";
 import { engineDeps } from "@/server/engine/deps";
 import { accountQuota } from "@/server/engine/quota";
+import { ProviderActionError, ProviderAuthError, ProviderLimitError } from "@/server/linkedin/types";
 import { UserError } from "./errors";
 
 export const INBOX_TABS = ["todo", "drafts", "ai", "all"] as const;
@@ -92,6 +93,17 @@ async function assertMessageQuota(account: Parameters<typeof accountQuota>[1], n
 
 const normalize = (body: string) => body.replace(/\r\n?/g, "\n").trim();
 
+/** Runs a LinkedIn send, turning provider errors into messages the user can act on. */
+async function sending<T>(fn: () => Promise<T>): Promise<T> {
+  try {
+    return await fn();
+  } catch (error) {
+    if (error instanceof ProviderAuthError) throw new UserError(`Session LinkedIn invalide : ${error.message}`);
+    if (error instanceof ProviderActionError || error instanceof ProviderLimitError) throw new UserError(`LinkedIn : ${error.message}`);
+    throw error;
+  }
+}
+
 export async function sendHumanReply(workspaceId: string, conversationId: string, body: string, handBack: boolean) {
   const text = normalize(body);
   if (!text) throw new UserError("Le message est vide.");
@@ -100,7 +112,7 @@ export async function sendHumanReply(workspaceId: string, conversationId: string
   if (conversation.prospect.account.status === "DISCONNECTED") throw new UserError("Le compte LinkedIn est déconnecté.");
   const deps = engineDeps();
   await assertMessageQuota(conversation.prospect.account, deps.now);
-  await sendOutbound(deps, { prospect: conversation.prospect, body: text, author: "HUMAN", activity: "HUMAN_REPLY_SENT" });
+  await sending(() => sendOutbound(deps, { prospect: conversation.prospect, body: text, author: "HUMAN", activity: "HUMAN_REPLY_SENT" }));
   await db.draft.updateMany({ where: { conversationId, status: "PENDING" }, data: { status: "REJECTED", decidedAt: deps.now } });
   await db.conversation.update({
     where: { id: conversationId },
@@ -119,13 +131,21 @@ export async function approveDraft(workspaceId: string, draftId: string, editedB
   // Claim the draft first so a double click cannot send it twice.
   const claimed = await db.draft.updateMany({ where: { id: draftId, status: "PENDING" }, data: { status: "SENT", decidedAt: deps.now, body } });
   if (claimed.count === 0) throw new UserError("Ce brouillon a déjà été traité.");
-  await sendOutbound(deps, {
-    prospect: conversation.prospect,
-    body,
-    author: "AI",
-    activity: "AI_REPLY_SENT",
-    data: { intent: draft.intent, approved: true, edited: body !== draft.body },
-  });
+  try {
+    await sending(() =>
+      sendOutbound(deps, {
+        prospect: conversation.prospect,
+        body,
+        author: "AI",
+        activity: "AI_REPLY_SENT",
+        data: { intent: draft.intent, approved: true, edited: body !== draft.body },
+      }),
+    );
+  } catch (error) {
+    // Not sent: put the draft back so it can be retried.
+    await db.draft.update({ where: { id: draftId }, data: { status: "PENDING", decidedAt: null, body: draft.body } });
+    throw error;
+  }
   await db.conversation.update({
     where: { id: conversation.id },
     data: { unread: false, status: draft.intent === "NOT_INTERESTED" ? "CLOSED" : "AI_ACTIVE" },

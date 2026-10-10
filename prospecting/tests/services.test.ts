@@ -57,8 +57,8 @@ describe("auth", () => {
 describe("campaigns and accounts", () => {
   it("connects several LinkedIn accounts", async () => {
     const { workspace } = await createWorkspace();
-    await connectAccount(workspace.id, { fullName: "Second", headline: "", accountType: "FREE" });
-    await connectAccount(workspace.id, { fullName: "Third", headline: "", accountType: "PREMIUM" });
+    await connectAccount(workspace.id, { provider: "simulator", fullName: "Second", headline: "", accountType: "FREE", sessionCookie: "" });
+    await connectAccount(workspace.id, { provider: "simulator", fullName: "Third", headline: "", accountType: "PREMIUM", sessionCookie: "" });
     expect(await db.linkedInAccount.count({ where: { workspaceId: workspace.id } })).toBe(3);
   });
 

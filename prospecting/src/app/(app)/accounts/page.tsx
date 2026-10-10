@@ -4,11 +4,11 @@ import { Badge, LabeledBadge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardBody, CardHeader } from "@/components/ui/card";
 import { Avatar, EmptyState, Meter, PageHeader } from "@/components/ui/misc";
-import { formatRelative } from "@/lib/format";
-import { ACCOUNT_STATUS, ACCOUNT_TYPES } from "@/lib/labels";
+import { formatDateTime, formatRelative } from "@/lib/format";
+import { ACCOUNT_STATUS, ACCOUNT_TYPES, PROVIDER_LABELS } from "@/lib/labels";
 import { requireContext } from "@/server/auth/context";
 import { listAccounts } from "@/server/services/accounts";
-import { AccountSettingsForm, ConnectAccountForm } from "./account-forms";
+import { AccountSettingsForm, ConnectAccountForm, SessionForm } from "./account-forms";
 import { setAccountStatusAction } from "./actions";
 
 export const metadata: Metadata = { title: "Comptes LinkedIn" };
@@ -45,11 +45,19 @@ export default async function AccountsPage() {
                 actions={
                   <>
                     <Badge tone="gray">{ACCOUNT_TYPES[a.accountType]}</Badge>
-                    <Badge tone="violet">{a.provider === "simulator" ? "Simulateur" : a.provider}</Badge>
+                    <Badge tone="violet">{PROVIDER_LABELS[a.provider] ?? a.provider}</Badge>
                     <LabeledBadge map={ACCOUNT_STATUS} value={a.status} />
                   </>
                 }
               />
+              {a.statusReason ? (
+                <p className="border-b border-amber-200 bg-amber-50 px-5 py-3 text-sm text-amber-900">{a.statusReason}</p>
+              ) : null}
+              {a.invitesPausedUntil && a.invitesPausedUntil > new Date() ? (
+                <p className="border-b border-amber-200 bg-amber-50 px-5 py-3 text-sm text-amber-900">
+                  LinkedIn a signalé la limite d&apos;invitations : aucune invitation avant le {formatDateTime(a.invitesPausedUntil)}. Les messages continuent.
+                </p>
+              ) : null}
               <CardBody className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
                 <div className="space-y-4">
                   <Meter label="Invitations (24 h)" value={a.quota.usage.invitesLast24h} max={a.quota.limits.dailyInvites} />
@@ -72,6 +80,7 @@ export default async function AccountsPage() {
                       <Button type="submit" variant="danger" size="sm">Déconnecter</Button>
                     </form>
                   </div>
+                  {a.provider === "browser" ? <SessionForm accountId={a.id} /> : null}
                 </div>
                 <AccountSettingsForm account={a} />
               </CardBody>

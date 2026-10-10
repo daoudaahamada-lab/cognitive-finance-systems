@@ -93,6 +93,8 @@ export function buildMcpServer(identity: TokenIdentity): McpServer {
           provider: a.provider,
           type: a.accountType,
           status: a.status,
+          statusReason: a.statusReason,
+          invitesPausedUntil: a.invitesPausedUntil,
           sending: { days: a.sendingDays, from: a.sendingStart, to: a.sendingEnd, timezone: a.timezone },
           limits: a.quota.limits,
           usage: a.quota.usage,
@@ -122,7 +124,7 @@ export function buildMcpServer(identity: TokenIdentity): McpServer {
           name: c.name,
           status: c.status,
           accountId: c.accountId,
-          targeting: { sources: c.sources, titles: c.titles, keywords: c.keywords, industries: c.industries, locations: c.locations, companySizes: c.companySizes, signals: c.signals, postUrls: c.postUrls, exclusions: c.exclusions, minScore: c.minScore, weeklyProspectTarget: c.weeklyProspectTarget },
+          targeting: { sources: c.sources, searchUrl: c.searchUrl, titles: c.titles, keywords: c.keywords, industries: c.industries, locations: c.locations, companySizes: c.companySizes, signals: c.signals, postUrls: c.postUrls, exclusions: c.exclusions, minScore: c.minScore, weeklyProspectTarget: c.weeklyProspectTarget },
           offer: c.offer,
           persona: c.persona,
           sequence: { aiPersonalization: c.aiPersonalization, inviteNote: c.inviteNote, firstMessage: c.firstMessage, followUps: parseFollowUps(c.followUps) },
@@ -339,6 +341,7 @@ export function buildMcpServer(identity: TokenIdentity): McpServer {
     sources: z.array(z.enum(["SEARCH", "SIGNALS", "POST_ENGAGERS", "PROFILE_VISITORS"])).optional(),
     signals: z.array(z.enum(["NEW_ROLE", "HIRING", "FUNDRAISING"])).optional(),
     postUrls: z.array(z.string().url()).max(10).optional(),
+    searchUrl: z.string().optional().describe("URL de recherche de personnes LinkedIn à utiliser telle quelle (vide pour la construire depuis les postes et mots-clés)"),
     exclusions: list("Termes d'exclusion").optional(),
     minScore: z.number().int().min(0).max(100).optional(),
     weeklyProspectTarget: z.number().int().min(10).max(1000).optional(),
@@ -367,7 +370,7 @@ export function buildMcpServer(identity: TokenIdentity): McpServer {
         if (!accountId) throw new UserError("Aucun compte LinkedIn actif : connectez-en un d'abord.");
         const defaults = {
           sources: ["SEARCH"], titles: [], keywords: [], industries: [], locations: [], companySizes: [], signals: [], postUrls: [], exclusions: [],
-          minScore: 60, weeklyProspectTarget: 100, offer: workspace.offer, persona: workspace.persona, aiPersonalization: true,
+          searchUrl: "", minScore: 60, weeklyProspectTarget: 100, offer: workspace.offer, persona: workspace.persona, aiPersonalization: true,
           inviteNote: DEFAULT_INVITE_NOTE, firstMessage: DEFAULT_FIRST_MESSAGE, followUps: DEFAULT_FOLLOW_UPS, setterMode: "APPROVAL", bookingUrl: "",
         };
         const input = campaignSchema.parse({

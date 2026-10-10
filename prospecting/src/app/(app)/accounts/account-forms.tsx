@@ -1,24 +1,62 @@
 "use client";
 
 import type { LinkedInAccount } from "@prisma/client";
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import { Field, FormMessage, Input, Select } from "@/components/ui/form";
 import { SubmitButton } from "@/components/ui/submit-button";
 import { ACCOUNT_TYPES, WEEKDAYS } from "@/lib/labels";
 import { WEEKLY_INVITE_CAP } from "@/server/domain/quotas";
-import { connectAccountAction, updateAccountAction } from "./actions";
+import { connectAccountAction, updateAccountAction, updateSessionAction } from "./actions";
+
+function CookieHelp() {
+  return (
+    <details className="rounded-lg bg-canvas px-3 py-2 text-xs text-muted">
+      <summary className="cursor-pointer select-none font-medium text-ink">Où trouver le cookie li_at ?</summary>
+      <ol className="mt-2 list-decimal space-y-1 pl-4">
+        <li>Connectez-vous à LinkedIn dans Chrome, sur votre ordinateur.</li>
+        <li>Ouvrez les outils de développement (F12), onglet Application, puis Cookies → https://www.linkedin.com.</li>
+        <li>Copiez la valeur du cookie <code>li_at</code> et collez-la ici.</li>
+      </ol>
+      <p className="mt-2">Ce cookie donne accès à votre compte : il reste sur votre instance, dans le profil navigateur du worker. Se déconnecter de LinkedIn ailleurs peut l&apos;invalider.</p>
+    </details>
+  );
+}
 
 export function ConnectAccountForm() {
   const [state, action] = useActionState(connectAccountAction, null);
+  const [provider, setProvider] = useState<"browser" | "simulator">("browser");
+  const err = state?.fieldErrors ?? {};
   return (
     <form action={action} className="space-y-4">
       <FormMessage state={state} />
-      <p className="rounded-lg bg-canvas px-3 py-2 text-xs text-muted">
-        Mode simulateur : aucun vrai compte n&apos;est contacté. Le simulateur génère des profils et des réponses réalistes pour tester tout le parcours.
-      </p>
+      <fieldset className="grid gap-2 sm:grid-cols-2">
+        <legend className="sr-only">Mode de connexion</legend>
+        {(
+          [
+            ["browser", "Mon compte LinkedIn", "Le worker pilote votre session LinkedIn dans un navigateur, à un rythme humain."],
+            ["simulator", "Simulateur", "Aucun vrai compte : profils et réponses simulés, pour tester le parcours."],
+          ] as const
+        ).map(([value, label, description]) => (
+          <label key={value} className="flex cursor-pointer gap-3 rounded-lg border border-line p-3 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-50/60">
+            <input type="radio" name="provider" value={value} checked={provider === value} onChange={() => setProvider(value)} className="mt-0.5 accent-brand-600" />
+            <span>
+              <span className="block text-sm font-medium">{label}</span>
+              <span className="block text-xs text-muted">{description}</span>
+            </span>
+          </label>
+        ))}
+      </fieldset>
+      {provider === "browser" ? (
+        <>
+          <Field label="Cookie de session li_at" htmlFor="sessionCookie" error={err.sessionCookie} hint="Laissez vide pour vous connecter vous-même avec npm run linkedin:login.">
+            <Input id="sessionCookie" name="sessionCookie" type="password" autoComplete="off" placeholder="AQEDAR…" />
+          </Field>
+          <CookieHelp />
+        </>
+      ) : null}
       <div className="grid gap-4 sm:grid-cols-2">
-        <Field label="Nom affiché" htmlFor="fullName" error={state?.fieldErrors?.fullName}>
-          <Input id="fullName" name="fullName" placeholder="Alex Martin" required />
+        <Field label="Nom affiché" htmlFor="fullName" error={err.fullName} hint={provider === "browser" ? "Lu sur LinkedIn quand un cookie est fourni" : undefined}>
+          <Input id="fullName" name="fullName" placeholder="Alex Martin" />
         </Field>
         <Field label="Type de compte" htmlFor="accountType" hint="Fixe le plafond d'invitations hebdomadaire">
           <Select id="accountType" name="accountType" defaultValue="FREE">
@@ -30,10 +68,26 @@ export function ConnectAccountForm() {
           </Select>
         </Field>
       </div>
-      <Field label="Titre du profil" htmlFor="headline">
-        <Input id="headline" name="headline" placeholder="Fondateur · J'aide les PME à …" />
+      {provider === "simulator" ? (
+        <Field label="Titre du profil" htmlFor="headline">
+          <Input id="headline" name="headline" placeholder="Fondateur · J'aide les PME à …" />
+        </Field>
+      ) : null}
+      <SubmitButton pendingLabel={provider === "browser" ? "Vérification de la session…" : "Connexion…"}>Connecter le compte</SubmitButton>
+    </form>
+  );
+}
+
+export function SessionForm({ accountId }: { accountId: string }) {
+  const [state, action] = useActionState(updateSessionAction.bind(null, accountId), null);
+  return (
+    <form action={action} className="space-y-2">
+      <FormMessage state={state} />
+      <Field label="Nouveau cookie li_at" htmlFor={`cookie-${accountId}`} error={state?.fieldErrors?.sessionCookie}>
+        <Input id={`cookie-${accountId}`} name="sessionCookie" type="password" autoComplete="off" required />
       </Field>
-      <SubmitButton pendingLabel="Connexion…">Connecter le compte</SubmitButton>
+      <CookieHelp />
+      <SubmitButton variant="secondary" size="sm" pendingLabel="Vérification…">Mettre à jour la session</SubmitButton>
     </form>
   );
 }

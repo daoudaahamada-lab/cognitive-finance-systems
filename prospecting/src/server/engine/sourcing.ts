@@ -42,6 +42,7 @@ export async function sourceProspects(deps: EngineDeps, campaign: CampaignWithCo
     { externalId: campaign.account.externalId },
     {
       source,
+      searchUrl: campaign.searchUrl || undefined,
       titles: campaign.titles,
       keywords: campaign.keywords,
       industries: campaign.industries,

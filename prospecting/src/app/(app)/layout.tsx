@@ -5,14 +5,20 @@ import { Nav } from "@/components/layout/nav";
 import { Avatar } from "@/components/ui/misc";
 import { SubmitButton } from "@/components/ui/submit-button";
 import { agentLabel } from "@/server/agents";
+import { PROVIDER_LABELS } from "@/lib/labels";
 import { requireContext } from "@/server/auth/context";
+import { db } from "@/server/db";
 import { inboxCounts } from "@/server/services/inbox";
 import { logoutAction } from "../(auth)/actions";
 import { runEngineNow } from "./engine-actions";
 
 export default async function AppLayout({ children }: { children: ReactNode }) {
   const { user, workspace } = await requireContext();
-  const counts = await inboxCounts(workspace.id);
+  const [counts, providers] = await Promise.all([
+    inboxCounts(workspace.id),
+    db.linkedInAccount.findMany({ where: { workspaceId: workspace.id, status: { not: "DISCONNECTED" } }, select: { provider: true }, distinct: ["provider"] }),
+  ]);
+  const linkedinLabel = providers.length ? providers.map((p) => (PROVIDER_LABELS[p.provider] ?? p.provider).toLowerCase()).join(" + ") : "aucun compte";
 
   return (
     <div className="min-h-screen lg:grid lg:grid-cols-[240px_minmax(0,1fr)]">
@@ -49,7 +55,7 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
               <Logo />
             </div>
             <p className="hidden text-xs text-muted lg:block">
-              LinkedIn : <span className="font-medium text-ink">simulateur</span> · Agents : <span className="font-medium text-ink">{agentLabel()}</span> · le moteur tourne en continu via le worker
+              LinkedIn : <span className="font-medium text-ink">{linkedinLabel}</span> · Agents : <span className="font-medium text-ink">{agentLabel()}</span> · le moteur tourne en continu via le worker
             </p>
             <form action={runEngineNow}>
               <SubmitButton variant="secondary" size="sm" pendingLabel="Moteur en cours…">

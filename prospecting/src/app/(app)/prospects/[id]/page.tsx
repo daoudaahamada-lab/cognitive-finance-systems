@@ -104,6 +104,7 @@ export default async function ProspectPage({ params }: { params: Promise<{ id: s
                       <p className="text-xs text-muted">
                         {formatDateTime(a.createdAt)}
                         {typeof data.reason === "string" ? ` · ${data.reason}` : ""}
+                        {typeof data.message === "string" ? ` · ${data.message}` : ""}
                         {typeof data.score === "number" ? ` · score ${data.score}` : ""}
                       </p>
                       {typeof data.note === "string" ? <p className="mt-1 rounded-lg bg-canvas px-3 py-2 text-xs">{data.note}</p> : null}
