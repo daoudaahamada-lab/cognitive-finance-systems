@@ -4,6 +4,7 @@ import { DAY, addScaled } from "@/server/domain/time";
 import { ProviderActionError } from "@/server/linkedin/types";
 import { logActivity } from "./activity";
 import type { EngineDeps } from "./deps";
+import { waitScale } from "./pace";
 import { accountQuota } from "./quota";
 import { templateVars } from "./vars";
 
@@ -46,7 +47,7 @@ export async function sendOutbound(deps: EngineDeps, { prospect, body, author, a
 }
 
 /** Stage changes the setter's reading of a reply implies, whatever the setter mode. */
-async function applyIntent(deps: EngineDeps, prospect: Prospect, intent: string) {
+async function applyIntent(deps: EngineDeps, prospect: Prospect & { account: LinkedInAccount }, intent: string) {
   if (intent === "NOT_INTERESTED") {
     await deps.db.prospect.update({
       where: { id: prospect.id },
@@ -60,7 +61,7 @@ async function applyIntent(deps: EngineDeps, prospect: Prospect, intent: string)
     // Put the prospect back in the sequence a week later.
     await deps.db.prospect.update({
       where: { id: prospect.id },
-      data: { stage: "MESSAGED", stageChangedAt: deps.now, nextActionAt: addScaled(deps.now, FINAL_WAIT_DAYS * DAY) },
+      data: { stage: "MESSAGED", stageChangedAt: deps.now, nextActionAt: addScaled(deps.now, FINAL_WAIT_DAYS * DAY, waitScale(prospect.account)) },
     });
   }
 }
@@ -166,8 +167,8 @@ async function escalate(deps: EngineDeps, conversationId: string, prospect: Pros
 }
 
 /** Next wake-up after `sent` sequence messages (first message counts as 0 follow-ups sent). */
-export function nextSequenceAction(followUpsJson: unknown, followUpsSent: number, now: Date): Date {
+export function nextSequenceAction(followUpsJson: unknown, followUpsSent: number, now: Date, scale: number): Date {
   const steps = parseFollowUps(followUpsJson);
   const next = steps[followUpsSent];
-  return addScaled(now, (next ? next.delayDays : FINAL_WAIT_DAYS) * DAY);
+  return addScaled(now, (next ? next.delayDays : FINAL_WAIT_DAYS) * DAY, scale);
 }

@@ -4,6 +4,7 @@ import type { ProviderEvent } from "@/server/linkedin/types";
 import { logActivity } from "./activity";
 import { ensureConversation, runSetter } from "./conversation";
 import type { EngineDeps } from "./deps";
+import { waitScale } from "./pace";
 
 /** Pause between an accepted invitation and the first message, so it does not look automated. */
 export const FIRST_MESSAGE_DELAY = 4 * HOUR;
@@ -41,7 +42,7 @@ export async function handleEvent(deps: EngineDeps, account: LinkedInAccount, ev
           stage: "CONNECTED",
           stageChangedAt: now,
           connectedAt: event.at,
-          nextActionAt: addScaled(now, FIRST_MESSAGE_DELAY),
+          nextActionAt: addScaled(now, FIRST_MESSAGE_DELAY, waitScale(account)),
         },
       });
       await logActivity(db, { ...base, type: "INVITE_ACCEPTED" });

@@ -28,6 +28,9 @@ export interface LinkedInProvider {
   /** Events that happened since the previous call (each is returned once). */
   fetchEvents(account: AccountRef, now: Date): Promise<ProviderEvent[]>;
 
+  /** Reads a profile (name, title, company...) for prospects known only by their URL, before writing to them. */
+  enrichProfile?(account: AccountRef, profileId: string): Promise<ProfileUpdate>;
+
   /** Replaces the session of an existing account (new cookie). */
   updateSession?(account: AccountRef, sessionCookie: string): Promise<ConnectedAccount>;
 }

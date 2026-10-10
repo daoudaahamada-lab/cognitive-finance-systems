@@ -4,11 +4,12 @@ import type { TemplateVars } from "@/server/domain/templates";
 import { parseFollowUps } from "@/server/domain/followups";
 import { isWithinSendingWindow } from "@/server/domain/schedule";
 import { DAY, HOUR, addScaled } from "@/server/domain/time";
-import { PROSPECT_ERROR_CODES, ProviderActionError, ProviderLimitError, type ProfileUpdate } from "@/server/linkedin/types";
+import { PROSPECT_ERROR_CODES, ProviderActionError, ProviderLimitError, type LinkedInProvider, type ProfileUpdate } from "@/server/linkedin/types";
 import { logActivity } from "./activity";
 import { nextSequenceAction, sendOutbound } from "./conversation";
 import type { EngineDeps } from "./deps";
 import { FIRST_MESSAGE_DELAY } from "./events";
+import { paceBudget, waitScale } from "./pace";
 import { accountQuota } from "./quota";
 import { templateVars } from "./vars";
 
@@ -23,6 +24,15 @@ const MESSAGE_RETRY_DELAY = 6 * HOUR;
 function profileUpdate(update: ProfileUpdate | void): ProfileUpdate {
   if (!update) return {};
   return Object.fromEntries(Object.entries(update).filter(([, v]) => typeof v === "string" && v.trim() !== "")) as ProfileUpdate;
+}
+
+/** Prospects known only by their URL (list import) get their profile read before anything is written to them. */
+async function withFreshProfile<P extends Prospect>(deps: EngineDeps, provider: LinkedInProvider, account: LinkedInAccount, prospect: P): Promise<P> {
+  if (!provider.enrichProfile || prospect.title || prospect.headline) return prospect;
+  const fresh = profileUpdate(await provider.enrichProfile({ externalId: account.externalId }, prospect.externalId));
+  if (Object.keys(fresh).length === 0) return prospect;
+  await deps.db.prospect.update({ where: { id: prospect.id }, data: fresh });
+  return { ...prospect, ...fresh };
 }
 
 function writeInput(
@@ -49,6 +59,7 @@ export async function runOutreach(deps: EngineDeps, account: LinkedInAccount): P
   if (!isWithinSendingWindow(account, now)) return { invites: 0, messages: 0, unresponsive: 0, skipped: "outside_window" };
 
   const quota = await accountQuota(db, account, now);
+  const pace = await paceBudget(db, account, quota.limits, now);
   const provider = deps.providerFor(account.provider);
   const notSnoozed = { OR: [{ snoozedUntil: null }, { snoozedUntil: { lte: now } }] };
   const activeCampaign = { campaign: { status: "ACTIVE" as const } };
@@ -60,15 +71,18 @@ export async function runOutreach(deps: EngineDeps, account: LinkedInAccount): P
     where: { accountId: account.id, stage: "QUALIFIED", ...activeCampaign, ...notSnoozed },
     include: { campaign: true, workspace: true },
     orderBy: [{ score: "desc" }, { createdAt: "asc" }],
-    take: invitesPaused ? 0 : Math.min(quota.remaining.invites, INVITES_PER_TICK),
+    take: invitesPaused ? 0 : Math.min(quota.remaining.invites, INVITES_PER_TICK, pace.invites),
   });
-  for (const prospect of toInvite) {
-    const { campaign, workspace } = prospect;
-    const note = campaign.inviteNote
-      ? await deps.agents.writer.write(writeInput(prospect, campaign.inviteNote, { kind: "invite_note" }, templateVars(prospect, account, campaign, workspace)))
-      : null;
+  for (const queued of toInvite) {
+    const { campaign, workspace } = queued;
+    let prospect = queued;
+    let note: string | null = null;
     let update: ProfileUpdate | void;
     try {
+      prospect = await withFreshProfile(deps, provider, account, queued);
+      note = campaign.inviteNote
+        ? await deps.agents.writer.write(writeInput(prospect, campaign.inviteNote, { kind: "invite_note" }, templateVars(prospect, account, campaign, workspace)))
+        : null;
       update = await provider.sendInvitation({ externalId: account.externalId }, prospect.externalId, note, now);
     } catch (error) {
       if (error instanceof ProviderLimitError) {
@@ -80,7 +94,7 @@ export async function runOutreach(deps: EngineDeps, account: LinkedInAccount): P
         break;
       }
       if (error instanceof ProviderActionError) {
-        const verdict = await handleInviteError(deps, prospect, error);
+        const verdict = await handleInviteError(deps, account, prospect, error);
         if (verdict === "stop") break;
         continue;
       }
@@ -100,7 +114,7 @@ export async function runOutreach(deps: EngineDeps, account: LinkedInAccount): P
   // 2. Sequence messages that are due (first message, follow-ups) and give-ups.
   let messages = 0;
   let unresponsive = 0;
-  let messageBudget = Math.min(quota.remaining.messages, MESSAGES_PER_TICK);
+  let messageBudget = Math.min(quota.remaining.messages, MESSAGES_PER_TICK, pace.messages);
   const due = await db.prospect.findMany({
     where: {
       accountId: account.id,
@@ -163,7 +177,7 @@ async function sendSequenceStep(deps: EngineDeps, prospect: DueProspect, steps: 
         stageChangedAt: now,
         firstMessagedAt: now,
         followUpsSent: 0,
-        nextActionAt: nextSequenceAction(campaign.followUps, 0, now),
+        nextActionAt: nextSequenceAction(campaign.followUps, 0, now, waitScale(prospect.account)),
       },
     });
   } else {
@@ -175,7 +189,7 @@ async function sendSequenceStep(deps: EngineDeps, prospect: DueProspect, steps: 
       where: { id: prospect.id },
       data: {
         followUpsSent: index + 1,
-        nextActionAt: nextSequenceAction(campaign.followUps, index + 1, now),
+        nextActionAt: nextSequenceAction(campaign.followUps, index + 1, now, waitScale(prospect.account)),
       },
     });
   }
@@ -185,7 +199,7 @@ async function sendSequenceStep(deps: EngineDeps, prospect: DueProspect, steps: 
  * What a refused invitation tells us. Prospect-specific problems close the prospect;
  * anything else (unexpected page, worker down) leaves it queued and stops this tick's invitations.
  */
-async function handleInviteError(deps: EngineDeps, prospect: Prospect, error: ProviderActionError): Promise<"next" | "stop"> {
+async function handleInviteError(deps: EngineDeps, account: LinkedInAccount, prospect: Prospect, error: ProviderActionError): Promise<"next" | "stop"> {
   const { db, now } = deps;
   const base = { workspaceId: prospect.workspaceId, campaignId: prospect.campaignId, prospectId: prospect.id, accountId: prospect.accountId, at: now };
   const failure = { ...base, type: "ACTION_FAILED" as const, data: { action: "invite", code: error.code, message: error.message } };
@@ -193,7 +207,7 @@ async function handleInviteError(deps: EngineDeps, prospect: Prospect, error: Pr
     // Already in the network: skip straight to the first message.
     await db.prospect.update({
       where: { id: prospect.id },
-      data: { stage: "CONNECTED", stageChangedAt: now, connectedAt: now, nextActionAt: addScaled(now, FIRST_MESSAGE_DELAY) },
+      data: { stage: "CONNECTED", stageChangedAt: now, connectedAt: now, nextActionAt: addScaled(now, FIRST_MESSAGE_DELAY, waitScale(account)) },
     });
     return "next";
   }

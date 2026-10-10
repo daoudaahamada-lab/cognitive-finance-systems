@@ -247,6 +247,13 @@ export class BrowserProvider implements LinkedInProvider {
     return profileUrls.map(slugFromProfileUrl).filter((s): s is string => Boolean(s)).map((slug) => profileFromSlug(base, slug));
   }
 
+  async enrichProfile(account: AccountRef, profileId: string): Promise<ProfileUpdate> {
+    return this.sessions.withPage(account.externalId, async (page) => {
+      await this.openProfile(page, profileId);
+      return this.readProfile(page);
+    });
+  }
+
   // ----------------------------------------------------------------- actions
 
   async sendInvitation(account: AccountRef, profileId: string, note: string | null, _now?: Date): Promise<ProfileUpdate> {

@@ -100,6 +100,11 @@ describe.skipIf(!chromium)("browser LinkedIn provider (against a local mock)", (
     expect((await provider.search(account, query({ source: "SIGNALS" }), null, 20)).profiles).toEqual([]);
   });
 
+  it("reads a profile known only by its URL, without touching it", async () => {
+    expect(await provider.enrichProfile(account, "in-more")).toMatchObject({ firstName: "Paul", lastName: "Roux", title: "DAF", company: "Atlas", location: "Lyon" });
+    expect(mock.state.invitations).toEqual([]);
+  });
+
   it("sends invitations with and without a note, from the top card only", async () => {
     const details = await provider.sendInvitation(account, "prospect-1", "Bonjour Camille,\nravi d'échanger.", now());
     expect(details).toMatchObject({ title: "CFO", company: "Nova 1 | SaaS".split(" | ")[0], location: "Paris" });
@@ -175,7 +180,7 @@ describe.skipIf(!chromium)("browser LinkedIn provider (against a local mock)", (
       const first = await runTick(deps(at), { workspaceId: workspace.id });
       expect(first[0]?.error).toBeUndefined();
       expect(first[0]).toMatchObject({ sourced: 23 });
-      expect(fresh.state.invitations).toHaveLength(3);
+      expect(fresh.state.invitations).toHaveLength(1); // a real account sends one invitation at a time
 
       const invited = fresh.state.invitations[0]!.slug;
       fresh.accept(invited);

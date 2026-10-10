@@ -38,6 +38,7 @@ LinkedIn ne publie pas de limites officielles. Le moteur applique les seuils obs
 D'autres règles s'ajoutent :
 - Aucune action n'est envoyée hors des horaires du compte.
 - Chaque passage du moteur envoie au plus 3 invitations et 5 messages par compte.
+- Sur un vrai compte, invitations et messages de séquence partent un par un, étalés sur la plage horaire. Avec 40 invitations par jour de 9 h à 18 h, cela fait une invitation toutes les 13 minutes environ ; un plafond abaissé espace encore plus les envois. Les réponses du setter, elles, ne sont pas retardées.
 - Une personne déjà connue de l'espace n'est jamais recontactée depuis une autre campagne.
 - Un verrou par compte empêche les doubles envois quand deux passages du moteur se chevauchent.
 
@@ -63,9 +64,11 @@ npm run worker                # dans un 2e terminal : le moteur tourne toutes le
 
 Connectez-vous avec **demo@vela.local / demo1234**.
 
+Pour utiliser votre vrai compte LinkedIn, sautez `npm run db:seed` et créez votre compte sur `/signup` : le premier compte créé devient propriétaire de l'instance.
+
 Le script de démo rejoue le vrai moteur et le simulateur sur trois semaines passées. Tous les chiffres affichés sont donc cohérents. Le compte de démo envoie 24 h/24, 7 j/7 pour que le worker ait toujours du travail.
 
-Avec `TIME_SCALE=720` (la valeur de `.env.example`), une journée d'attente dure 2 minutes : délais de relance, réactions simulées des prospects. **Les quotas, eux, restent en temps réel.** Le bouton **Lancer le moteur**, en haut de l'app, exécute un passage immédiatement.
+Avec `TIME_SCALE=720` (la valeur de `.env.example`), une journée d'attente dure 2 minutes : délais de relance, réactions simulées des prospects. Cette accélération ne s'applique qu'aux comptes simulés : **un vrai compte LinkedIn attend toujours en temps réel, et les quotas restent en temps réel pour tous.** Le bouton **Lancer le moteur**, en haut de l'app, exécute un passage immédiatement.
 
 ### Site vitrine
 
@@ -78,7 +81,7 @@ Les pages publiques vivent dans `src/app/(marketing)/` et sont générées en st
 | Variable | Rôle |
 | --- | --- |
 | `DATABASE_URL` | Connexion PostgreSQL |
-| `TIME_SCALE` | Accélère les attentes pour les démos (`1` = temps réel) |
+| `TIME_SCALE` | Accélère les attentes des comptes simulés, pour les démos (`1` = temps réel). Sans effet sur un vrai compte |
 | `WORKER_INTERVAL_SECONDS` | Fréquence du worker (10 s par défaut) |
 | `ANTHROPIC_API_KEY` | Active les agents Claude (sans clé : agents à base de règles) |
 | `AGENTS` | Force `claude` ou `rules` (par défaut : `claude` dès qu'une clé est définie) |
@@ -132,7 +135,18 @@ Le fournisseur « Mon compte LinkedIn » (`src/server/linkedin/browser/`) pilote
 3. Dans **Comptes LinkedIn**, choisissez **Mon compte LinkedIn**, puis l'une des deux options :
    - **Cookie `li_at`** : collez-le depuis votre navigateur (Outils de développement → Application → Cookies → linkedin.com ; l'aide est sur la page). Vela vérifie la session, puis lit votre nom et votre titre.
    - **Connexion manuelle** : laissez le cookie vide ; le compte est créé en pause. Arrêtez le worker, lancez `npm run linkedin:login -- --account <id>` sur une machine avec écran, connectez-vous (mot de passe, double authentification), puis relancez le worker.
-4. **Avant d'activer une campagne**, arrêtez le worker et lancez `npm run linkedin:check -- --account <id>`. Ce diagnostic n'envoie rien : il vérifie la session, une recherche, les boutons d'un profil, vos connexions et vos messages, puis signale chaque point en échec.
+4. **Avant d'activer une campagne**, arrêtez le worker et lancez `npm run linkedin:check -- --account <id>` (sans `--account`, il liste les comptes et leurs identifiants). Ce diagnostic n'envoie rien : il vérifie la session, une recherche, les boutons d'un profil, vos connexions et vos messages, puis signale chaque point en échec.
+
+Faites tourner Vela sur l'ordinateur et la connexion internet d'où vous utilisez LinkedIn d'habitude : une session qui apparaît soudain ailleurs déclenche souvent une vérification de sécurité.
+
+**Premier test conseillé**
+1. Sur le compte, baissez les plafonds à 5 invitations et 10 messages par jour, et vérifiez les jours et horaires d'envoi.
+2. Mettez `LINKEDIN_HEADLESS=false` dans `.env` pour voir chaque action dans la fenêtre du navigateur.
+3. Créez une campagne sans source (tout décoché), avec le setter en mode **Validation**. Sur la page de la campagne, importez 2 ou 3 URL de profils de personnes prévenues (collègues, amis), dont au moins une hors de votre réseau.
+4. Lancez la campagne. Les invitations partent une par une, espacées ; pour un profil importé, Vela lit d'abord le profil afin que la note utilise le vrai prénom.
+5. Demandez à une personne d'accepter. L'acceptation est repérée en 15 minutes environ, et le premier message part 4 heures plus tard, pendant vos horaires d'envoi.
+6. Demandez-lui de répondre. Le brouillon du setter apparaît dans la boîte de réception : modifiez-le si besoin, puis validez-le.
+7. Ensuite seulement, passez à une campagne de recherche, en gardant des plafonds bas la première semaine.
 
 **Ce que fait le navigateur**
 

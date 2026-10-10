@@ -26,6 +26,9 @@ const worker = {
   async fetchEvents(): Promise<ProviderEvent[]> {
     return [{ kind: "message_received", profileId: "camille", text: "Ça m'intéresse, à mardi !", externalId: "m1", at }];
   },
+  async enrichProfile(_account: AccountRef, profileId: string) {
+    return { firstName: "Jean", lastName: "Dupont", title: profileId === "jdupont" ? "CFO" : "" };
+  },
   async sendInvitation(_account: AccountRef, profileId: string) {
     if (profileId === "expired") throw new ProviderAuthError("session expirée");
     if (profileId === "limit") throw new ProviderLimitError("limite hebdomadaire");
@@ -64,6 +67,7 @@ describe("LinkedIn bridge (web app → worker)", () => {
   });
 
   it("keeps provider errors typed so the engine can react", async () => {
+    await expect(remote().enrichProfile(account, "jdupont")).resolves.toEqual({ firstName: "Jean", lastName: "Dupont", title: "CFO" });
     await expect(remote().sendInvitation(account, "anna", null, at)).resolves.toEqual({ title: "CFO" });
     await expect(remote().sendInvitation(account, "expired", null, at)).rejects.toBeInstanceOf(ProviderAuthError);
     await expect(remote().sendInvitation(account, "limit", null, at)).rejects.toBeInstanceOf(ProviderLimitError);

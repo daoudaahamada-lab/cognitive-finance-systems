@@ -35,6 +35,13 @@ export function localParts(date: Date, timezone: string): { weekday: number; min
   return { weekday, minutes: Number(get("hour")) * 60 + Number(get("minute")) };
 }
 
+/** Length of the daily sending window in minutes (same start and end: all day). */
+export function sendingWindowMinutes(window: Pick<SendingWindow, "sendingStart" | "sendingEnd">): number {
+  const start = parseHourMinute(window.sendingStart);
+  const end = parseHourMinute(window.sendingEnd);
+  return start === end ? 24 * 60 : (end - start + 24 * 60) % (24 * 60);
+}
+
 export function isWithinSendingWindow(window: SendingWindow, at: Date): boolean {
   const { weekday, minutes } = localParts(at, window.timezone);
   if (!window.sendingDays.includes(weekday)) return false;
