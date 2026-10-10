@@ -21,10 +21,11 @@ C'est une **réimplémentation indépendante** (« clean room ») : aucun code, 
 | **Prospects** | Liste filtrable, vue pipeline (Kanban), fiche avec score détaillé, historique, notes, mise en veille, exclusion, RDV manuel |
 | **Rendez-vous** | À venir et passés, statut (effectué, absent, annulé) |
 | **Tableau de bord** | Indicateurs clés, entonnoir, activité quotidienne, quotas par compte, liste de démarrage |
+| **Site vitrine** | Accueil (`/`), tarifs mensuels ou annuels (`/tarifs`), mentions légales, confidentialité, CGU, sitemap et robots.txt |
 
 **Pas encore inclus** (prochaines itérations) :
 - serveur MCP ;
-- site vitrine et facturation Stripe ;
+- facturation Stripe ;
 - fournisseur LinkedIn réel.
 
 ## Sécurité des comptes LinkedIn
@@ -55,7 +56,7 @@ docker compose up -d          # Postgres sur localhost:5432 (vela / vela)
 cp .env.example .env
 npm run db:migrate            # applique les migrations
 npm run db:seed               # données de démo (environ 30 s)
-npm run dev                   # http://localhost:3000
+npm run dev                   # site : http://localhost:3000, app : /login
 npm run worker                # dans un 2e terminal : le moteur tourne toutes les 10 s
 ```
 
@@ -64,6 +65,13 @@ Connectez-vous avec **demo@vela.local / demo1234**.
 Le script de démo rejoue le vrai moteur et le simulateur sur trois semaines passées. Tous les chiffres affichés sont donc cohérents. Le compte de démo envoie 24 h/24, 7 j/7 pour que le worker ait toujours du travail.
 
 Avec `TIME_SCALE=720` (la valeur de `.env.example`), une journée d'attente dure 2 minutes : délais de relance, réactions simulées des prospects. **Les quotas, eux, restent en temps réel.** Le bouton **Lancer le moteur**, en haut de l'app, exécute un passage immédiatement.
+
+### Site vitrine
+
+Les pages publiques vivent dans `src/app/(marketing)/` et sont générées en statique.
+- **Prix** : ce sont des valeurs de départ, à ajuster dans `src/lib/pricing.ts`. Les limites de chaque plan viennent de `src/server/domain/plans.ts` : la page tarifs reste ainsi cohérente avec ce que l'app applique.
+- **Pages légales** : ce sont des modèles. Les champs entre crochets (raison sociale, SIREN, hébergeur, durées de conservation…) sont à compléter et à faire relire avant la mise en ligne.
+- **URL publique** : définissez `SITE_URL` pour que le sitemap et le robots.txt l'utilisent.
 
 ### Variables d'environnement
 
@@ -76,6 +84,7 @@ Avec `TIME_SCALE=720` (la valeur de `.env.example`), une journée d'attente dure
 | `ANTHROPIC_API_KEY` | Active les agents Claude (sans clé : agents à base de règles) |
 | `AGENTS` | Force `claude` ou `rules` (par défaut : `claude` dès qu'une clé est définie) |
 | `ANTHROPIC_MODEL` | Modèle des agents (`claude-opus-5-5` par défaut) |
+| `SITE_URL` | URL publique du site (sitemap, robots.txt) |
 | `ENGINE_TICK_SECRET` | Active `POST /api/engine/tick` (en-tête `Authorization: Bearer …`) pour un cron externe, à utiliser à la place du worker |
 
 ## Architecture
