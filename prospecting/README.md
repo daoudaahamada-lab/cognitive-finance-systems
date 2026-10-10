@@ -21,11 +21,10 @@ C'est une **réimplémentation indépendante** (« clean room ») : aucun code, 
 | **Prospects** | Liste filtrable, vue pipeline (Kanban), fiche avec score détaillé, historique, notes, mise en veille, exclusion, RDV manuel |
 | **Rendez-vous** | À venir et passés, statut (effectué, absent, annulé) |
 | **Tableau de bord** | Indicateurs clés, entonnoir, activité quotidienne, quotas par compte, liste de démarrage |
+| **Serveur MCP** | `/api/mcp` (Streamable HTTP), 25 outils pour piloter Vela depuis Claude Code, Cursor ou tout client MCP, avec des jetons personnels créés dans les réglages |
 | **Site vitrine** | Accueil (`/`), mentions légales, confidentialité, CGU, sitemap et robots.txt |
 
-**Pas encore inclus** (prochaines itérations) :
-- serveur MCP ;
-- fournisseur LinkedIn réel.
+**Pas encore inclus** (prochaine itération) : fournisseur LinkedIn réel.
 
 ## Sécurité des comptes LinkedIn
 
@@ -101,6 +100,7 @@ src/
     linkedin/             contrat LinkedInProvider + simulateur
     domain/               quotas, horaires, modèles de messages, temps
     auth/                 mots de passe (scrypt), sessions (cookie httpOnly, jeton haché en base)
+    mcp/                  serveur MCP (outils au-dessus des services)
 worker/                   boucle qui exécute le moteur
 prisma/                   schéma, migrations, données de démo
 tests/                    tests unitaires + intégration (moteur sur 3 semaines simulées)
@@ -134,6 +134,29 @@ Avec `ANTHROPIC_API_KEY` défini (serveur **et** worker), trois agents Claude re
 Si Claude est indisponible (erreur réseau, refus, réponse invalide), l'agent à base de règles prend le relais pour cette requête. Après une clé refusée (401 ou 403), Claude est mis en pause 5 minutes au lieu d'échouer à chaque message. Les messages des prospects sont transmis comme des données : le setter a pour consigne de ne jamais suivre une instruction qu'ils contiennent.
 
 Les interfaces `ProspectScorer`, `MessageWriter` et `ReplyAgent` (`src/server/agents/`) restent le point d'extension. Le script de démo et les tests utilisent toujours les agents à base de règles, pour ne déclencher aucun appel payant.
+
+## Serveur MCP
+
+Créez un jeton dans **Réglages → Accès MCP**. Il n'est affiché qu'une fois ; la page donne aussi les commandes prêtes à copier pour Claude Code et Cursor :
+
+```bash
+claude mcp add --transport http vela https://votre-instance/api/mcp --header "Authorization: Bearer vela_..."
+```
+
+| Famille | Outils |
+| --- | --- |
+| Suivre | `get_overview`, `list_accounts`, `list_campaigns`, `get_campaign` |
+| Décider | `list_conversations`, `get_conversation`, `approve_draft`, `reject_draft`, `send_reply`, `hand_back_to_setter`, `take_over_conversation`, `mark_conversation_handled` |
+| Prospects | `list_prospects`, `get_prospect`, `set_prospect_status`, `snooze_prospect`, `save_prospect_notes`, `import_prospects` |
+| Configurer | `create_campaign`, `update_campaign`, `set_campaign_status` |
+| Rendez-vous | `list_meetings`, `log_meeting`, `set_meeting_status` |
+| Moteur | `run_engine` |
+
+Comment ça fonctionne :
+- **Une instance par requête.** Le serveur est sans état : chaque requête crée une instance liée à l'espace du jeton, et tout passe par la même couche de services que l'interface (`src/server/mcp/server.ts`).
+- **Limites intactes.** Les outils ne peuvent ni lire un autre espace, ni dépasser les quotas ou les horaires d'envoi.
+- **Confirmation avant envoi.** Les outils qui envoient de vrais messages (`approve_draft`, `send_reply`, `hand_back_to_setter`) sont annotés comme tels, et les instructions du serveur demandent à l'assistant d'obtenir votre accord avant de les appeler.
+- **Jetons.** Seule leur empreinte SHA-256 est stockée. Un jeton donne accès à tout l'espace : servez l'instance en HTTPS et révoquez les jetons inutilisés.
 
 ## Tests
 

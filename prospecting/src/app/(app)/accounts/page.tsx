@@ -50,7 +50,7 @@ export default async function AccountsPage() {
                   </>
                 }
               />
-              <CardBody className="grid gap-8 lg:grid-cols-[1fr_2fr]">
+              <CardBody className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
                 <div className="space-y-4">
                   <Meter label="Invitations (24 h)" value={a.quota.usage.invitesLast24h} max={a.quota.limits.dailyInvites} />
                   <Meter label="Invitations (7 jours)" value={a.quota.usage.invitesLast7d} max={a.quota.limits.weeklyInvites} />

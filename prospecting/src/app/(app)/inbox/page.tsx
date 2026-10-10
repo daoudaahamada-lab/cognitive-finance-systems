@@ -34,7 +34,7 @@ export default async function InboxPage({ searchParams }: { searchParams: Promis
   return (
     <>
       <PageHeader title="Boîte de réception" description="Les réponses de vos prospects. Le setter traite ce qu'il peut et vous signale le reste." />
-      <Card className="grid overflow-hidden lg:h-[calc(100vh-12rem)] lg:min-h-[560px] lg:grid-cols-[360px_1fr]">
+      <Card className="grid overflow-hidden lg:h-[calc(100vh-12rem)] lg:min-h-[560px] lg:grid-cols-[360px_minmax(0,1fr)]">
         <div className={cn("flex min-h-0 min-w-0 flex-col border-line lg:border-r", thread && "hidden lg:flex")}>
           <nav className="flex gap-1 overflow-x-auto border-b border-line p-2" aria-label="Filtres">
             {INBOX_TABS.map((t) => (

@@ -33,7 +33,7 @@ export default function MarketingLayout({ children }: { children: ReactNode }) {
       <main>{children}</main>
 
       <footer className="border-t border-line bg-canvas">
-        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-[2fr_1fr_1fr]">
+        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)_minmax(0,1fr)]">
           <div className="space-y-3">
             <Logo />
             <p className="max-w-sm text-sm text-muted">{BRAND.tagline}. Il trouve vos prospects, lance la conversation et réserve vos rendez-vous.</p>

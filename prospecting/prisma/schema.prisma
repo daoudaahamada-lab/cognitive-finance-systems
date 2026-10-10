@@ -24,6 +24,7 @@ model User {
   createdAt    DateTime     @default(now())
   memberships  Membership[]
   sessions     Session[]
+  apiTokens    ApiToken[]
 }
 
 model Session {
@@ -54,6 +55,26 @@ model Workspace {
   conversations Conversation[]
   meetings      Meeting[]
   activities    Activity[]
+  apiTokens     ApiToken[]
+}
+
+/// Personal access token for the MCP server (Claude Code, Cursor...).
+model ApiToken {
+  id          String    @id @default(cuid())
+  workspaceId String
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name        String
+  /// sha256 of the token; the token itself is shown once and never stored.
+  tokenHash   String    @unique
+  /// First characters, to recognise the token in the list.
+  prefix      String
+  lastUsedAt  DateTime?
+  revokedAt   DateTime?
+  createdAt   DateTime  @default(now())
+
+  @@index([workspaceId])
 }
 
 model Membership {

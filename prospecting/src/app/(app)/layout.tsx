@@ -15,7 +15,7 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
   const counts = await inboxCounts(workspace.id);
 
   return (
-    <div className="min-h-screen lg:grid lg:grid-cols-[240px_1fr]">
+    <div className="min-h-screen lg:grid lg:grid-cols-[240px_minmax(0,1fr)]">
       <aside className="hidden border-r border-line bg-surface lg:flex lg:h-screen lg:flex-col lg:sticky lg:top-0">
         <div className="px-5 py-5">
           <Logo />

@@ -196,7 +196,7 @@ export function CampaignForm({ aiEnabled, campaignId, values, accounts, senderFi
             </>
           }
         />
-        <CardBody className="grid gap-6 xl:grid-cols-[3fr_2fr]">
+        <CardBody className="grid gap-6 xl:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
           <div className="space-y-4">
             <label className="flex cursor-pointer items-start gap-3 rounded-lg border border-line p-3 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-50/60">
               <input type="checkbox" name="aiPersonalization" defaultChecked={values.aiPersonalization} className="mt-0.5 accent-brand-600" />

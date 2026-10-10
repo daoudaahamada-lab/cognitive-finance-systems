@@ -108,7 +108,7 @@ export default function LandingPage() {
       </Section>
 
       <Section id="securite" eyebrow="Sécurité" title="Des limites prudentes, appliquées automatiquement" intro="LinkedIn ne publie pas de limites officielles. Le moteur applique les seuils couramment observés, sur des fenêtres glissantes, et s'arrête avant de les atteindre.">
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[3fr_2fr]">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
           <div className="overflow-x-auto rounded-2xl border border-line">
             <table className="w-full min-w-[480px] text-left text-sm">
               <thead className="bg-canvas text-xs uppercase tracking-wide text-muted">
@@ -172,7 +172,7 @@ function Hero() {
   return (
     <section className="relative overflow-hidden">
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[520px] bg-gradient-to-b from-brand-50 to-transparent" />
-      <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-4 pb-24 pt-16 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:pt-24">
+      <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-4 pb-24 pt-16 sm:px-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:pt-24">
         <div>
           <p className="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-surface px-3 py-1 text-xs font-medium text-brand-700">
             <Sparkles className="size-3.5" aria-hidden /> Propulsé par Claude

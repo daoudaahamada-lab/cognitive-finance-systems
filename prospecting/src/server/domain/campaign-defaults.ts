@@ -1,4 +1,4 @@
-import type { FollowUpStep } from "@/server/domain/followups";
+import type { FollowUpStep } from "./followups";
 
 export const DEFAULT_INVITE_NOTE = "{Bonjour|Hello} {{firstName}}, je vois que vous êtes {{title}} chez {{company}}. Je serais ravi d'échanger avec vous !";
 

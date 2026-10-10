@@ -6,7 +6,7 @@ import { agentMode } from "@/server/agents";
 import { requireContext } from "@/server/auth/context";
 import { db } from "@/server/db";
 import { CampaignForm } from "../campaign-form";
-import { DEFAULT_FIRST_MESSAGE, DEFAULT_FOLLOW_UPS, DEFAULT_INVITE_NOTE } from "../defaults";
+import { DEFAULT_FIRST_MESSAGE, DEFAULT_FOLLOW_UPS, DEFAULT_INVITE_NOTE } from "@/server/domain/campaign-defaults";
 
 export const metadata: Metadata = { title: "Nouvelle campagne" };
 

@@ -1,21 +1,28 @@
 import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardBody, CardHeader } from "@/components/ui/card";
+import { formatRelative } from "@/lib/format";
 import { PageHeader } from "@/components/ui/misc";
 import { agentMode } from "@/server/agents";
 import { CLAUDE_MODEL } from "@/server/agents/claude/client";
 import { requireContext } from "@/server/auth/context";
+import { listTokens } from "@/server/services/tokens";
+import { publicBaseUrl } from "@/server/url";
+import { revokeTokenAction } from "./actions";
+import { CreateTokenForm } from "./mcp-access";
 import { WorkspaceForm } from "./workspace-form";
 
 export const metadata: Metadata = { title: "Réglages" };
 
 export default async function SettingsPage() {
   const { workspace, user } = await requireContext();
+  const [tokens, endpoint] = await Promise.all([listTokens(workspace.id), publicBaseUrl().then((base) => `${base}/api/mcp`)]);
 
   return (
     <>
       <PageHeader title="Réglages" description="Votre offre, votre lien de réservation et vos agents." />
-      <div className="grid gap-6 xl:grid-cols-[3fr_2fr]">
+      <div className="grid gap-6 xl:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
         <Card>
           <CardHeader title="Espace de travail" />
           <CardBody>
@@ -46,6 +53,34 @@ export default async function SettingsPage() {
                 <li>• Une réponse avec un lien autre que votre lien de réservation n&apos;est jamais envoyée.</li>
                 <li>• Si Claude ne répond pas ou décline, les règles prennent le relais.</li>
               </ul>
+            </CardBody>
+          </Card>
+
+          <Card>
+            <CardHeader title="Accès MCP" description="Pilotez Vela depuis Claude Code, Cursor ou tout client MCP." />
+            <CardBody className="space-y-4 text-sm">
+              <p className="text-muted">
+                Point d&apos;accès : <code className="rounded bg-canvas px-1">{endpoint}</code>. Chaque jeton donne accès à cet espace : vue d&apos;ensemble, conversations, brouillons,
+                prospects, campagnes et rendez-vous. Votre assistant vous demandera confirmation avant d&apos;envoyer un message.
+              </p>
+              <CreateTokenForm endpoint={endpoint} />
+              {tokens.length > 0 ? (
+                <ul className="divide-y divide-line rounded-lg border border-line">
+                  {tokens.map((t) => (
+                    <li key={t.id} className="flex items-center justify-between gap-3 px-3 py-2.5">
+                      <span className="min-w-0">
+                        <span className="block truncate font-medium">{t.name}</span>
+                        <span className="block text-xs text-muted">
+                          <code>{t.prefix}…</code> · créé {formatRelative(t.createdAt)} · {t.lastUsedAt ? `utilisé ${formatRelative(t.lastUsedAt)}` : "jamais utilisé"}
+                        </span>
+                      </span>
+                      <form action={revokeTokenAction.bind(null, t.id)}>
+                        <Button type="submit" variant="danger" size="sm">Révoquer</Button>
+                      </form>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
             </CardBody>
           </Card>
 

@@ -28,7 +28,7 @@ export function FunnelChart({ steps }: { steps: FunnelStep[] }) {
               onPointerLeave={() => setActive(null)}
               onFocus={() => setActive(i)}
               onBlur={() => setActive(null)}
-              className="group grid grid-cols-[110px_1fr] items-center gap-3 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40 sm:grid-cols-[140px_1fr]"
+              className="group grid grid-cols-[110px_minmax(0,1fr)] items-center gap-3 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40 sm:grid-cols-[140px_minmax(0,1fr)]"
               aria-label={`${step.label} : ${step.value}${conversion !== null ? `, ${conversion} % de l'étape précédente` : ""}`}
             >
               <span className="truncate text-sm text-muted">{step.label}</span>
