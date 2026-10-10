@@ -7,7 +7,7 @@ import { SubmitButton } from "@/components/ui/submit-button";
 import { INTENTS } from "@/lib/labels";
 import { approveDraftAction, conversationAction, rejectDraftAction, replyAction } from "./actions";
 
-export function DraftCard({ draft }: { draft: { id: string; conversationId: string; body: string; intent: string; rationale: string } }) {
+export function DraftCard({ draft }: { draft: { id: string; conversationId: string; body: string; intent: string; rationale: string; author: string } }) {
   const [approveState, approve] = useActionState(approveDraftAction.bind(null, draft.id), null);
   const [rejectState, reject] = useActionState(rejectDraftAction.bind(null, draft.id), null);
   return (
@@ -16,6 +16,7 @@ export function DraftCard({ draft }: { draft: { id: string; conversationId: stri
         <Sparkles className="size-4 text-brand-600" aria-hidden />
         <span className="font-medium text-brand-900">Brouillon du setter</span>
         <span className="rounded-md bg-surface px-1.5 py-0.5 text-xs text-muted">{INTENTS[draft.intent] ?? draft.intent}</span>
+        <span className="rounded-md bg-surface px-1.5 py-0.5 text-xs text-muted">{draft.author === "claude" ? "Rédigé par Claude" : "Modèle de réponse"}</span>
       </div>
       <p className="mb-3 text-xs text-muted">{draft.rationale}</p>
       <FormMessage state={approveState?.error ? approveState : rejectState} />

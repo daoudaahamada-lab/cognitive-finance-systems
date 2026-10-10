@@ -105,6 +105,7 @@ export async function runSetter(deps: EngineDeps, conversationId: string) {
     history: conversation.messages.map((m) => ({ direction: m.direction, author: m.author, body: m.body })),
     vars: templateVars(prospect, prospect.account, campaign, workspace),
     offer: campaign.offer || workspace.offer,
+    persona: campaign.persona || workspace.persona,
     prospectStage: prospect.stage,
   });
 
@@ -112,7 +113,7 @@ export async function runSetter(deps: EngineDeps, conversationId: string) {
   await applyIntent(deps, prospect, decision.intent);
 
   if (decision.action === "escalate") {
-    await escalate(deps, conversation.id, prospect, decision.intent, decision.reason);
+    await escalate(deps, conversation.id, prospect, decision.intent, decision.reason, decision.agent);
     return;
   }
   if (decision.action === "wait") {
@@ -127,7 +128,7 @@ export async function runSetter(deps: EngineDeps, conversationId: string) {
       body: decision.message,
       author: "AI",
       activity: "AI_REPLY_SENT",
-      data: { intent: decision.intent },
+      data: { intent: decision.intent, by: decision.agent },
     });
     await deps.db.conversation.update({
       where: { id: conversationId },
@@ -140,7 +141,7 @@ export async function runSetter(deps: EngineDeps, conversationId: string) {
     ? `${decision.rationale} (Quota de messages du jour atteint : validez pour envoyer.)`
     : decision.rationale;
   await deps.db.draft.create({
-    data: { conversationId, body: decision.message, intent: decision.intent, rationale, createdAt: deps.now },
+    data: { conversationId, body: decision.message, intent: decision.intent, rationale, author: decision.agent, createdAt: deps.now },
   });
   await logActivity(deps.db, {
     workspaceId: prospect.workspaceId, campaignId: prospect.campaignId, prospectId: prospect.id,
@@ -148,14 +149,14 @@ export async function runSetter(deps: EngineDeps, conversationId: string) {
   });
 }
 
-async function escalate(deps: EngineDeps, conversationId: string, prospect: Prospect, intent: string, reason: string) {
+async function escalate(deps: EngineDeps, conversationId: string, prospect: Prospect, intent: string, reason: string, by = "rules") {
   await deps.db.conversation.update({
     where: { id: conversationId },
     data: { status: "NEEDS_HUMAN", escalationReason: reason, unread: true },
   });
   await logActivity(deps.db, {
     workspaceId: prospect.workspaceId, campaignId: prospect.campaignId, prospectId: prospect.id,
-    accountId: prospect.accountId, type: "ESCALATED", data: { intent, reason }, at: deps.now,
+    accountId: prospect.accountId, type: "ESCALATED", data: { intent, reason, by }, at: deps.now,
   });
 }
 

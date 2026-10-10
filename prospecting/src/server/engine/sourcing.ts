@@ -106,20 +106,25 @@ export async function insertProspects(
 }
 
 /** Scores NEW prospects. Imported prospects skip the minimum score (someone chose them) but not exclusions. */
-export async function scoreNewProspects(deps: EngineDeps, campaign: Campaign, limit = 100): Promise<number> {
+export async function scoreNewProspects(deps: EngineDeps, campaign: Campaign & { workspace?: Workspace }, limit = 100): Promise<number> {
   const prospects = await deps.db.prospect.findMany({
     where: { campaignId: campaign.id, stage: "NEW" },
     orderBy: { createdAt: "asc" },
     take: limit,
   });
-  for (const prospect of prospects) {
-    const result = deps.agents.scorer.score({ prospect, targeting: campaign });
+  const workspace = campaign.workspace ?? (await deps.db.workspace.findUniqueOrThrow({ where: { id: campaign.workspaceId } }));
+  const context = { offer: campaign.offer || workspace.offer, persona: campaign.persona || workspace.persona };
+  const results = await deps.agents.scorer.scoreBatch(prospects.map((prospect) => ({ id: prospect.id, prospect, targeting: campaign, context })));
+  for (const [i, prospect] of prospects.entries()) {
+    const result = results[i]!;
     const qualified = result.excludedBy === null && (prospect.source === "IMPORT" || result.score >= campaign.minScore);
     await deps.db.prospect.update({
       where: { id: prospect.id },
       data: {
         score: result.score,
         scoreReasons: result.reasons,
+        scoreSummary: result.summary ?? null,
+        scoredBy: result.scoredBy,
         stage: qualified ? "QUALIFIED" : "DISQUALIFIED",
         stageChangedAt: deps.now,
         disqualifiedReason: qualified
@@ -131,7 +136,7 @@ export async function scoreNewProspects(deps: EngineDeps, campaign: Campaign, li
     });
     await logActivity(deps.db, {
       workspaceId: prospect.workspaceId, campaignId: campaign.id, prospectId: prospect.id, accountId: prospect.accountId,
-      type: qualified ? "PROSPECT_QUALIFIED" : "PROSPECT_DISQUALIFIED", data: { score: result.score }, at: deps.now,
+      type: qualified ? "PROSPECT_QUALIFIED" : "PROSPECT_DISQUALIFIED", data: { score: result.score, by: result.scoredBy }, at: deps.now,
     });
   }
   return prospects.length;

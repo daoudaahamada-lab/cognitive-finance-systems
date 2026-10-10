@@ -17,15 +17,22 @@ export type SetterInput = {
   history: ConversationTurn[];
   vars: TemplateVars;
   offer: string;
+  /** Ideal customer description, for context. */
+  persona?: string;
   prospectStage: string;
 };
 
-export type SetterDecision =
+export type AgentName = "rules" | "claude";
+
+export type SetterDecision = { agent: AgentName } & (
   | { action: "reply"; intent: Intent; message: string; rationale: string; closeAfter: boolean }
   | { action: "escalate"; intent: Intent; reason: string }
-  | { action: "wait"; intent: Intent; rationale: string };
+  | { action: "wait"; intent: Intent; rationale: string }
+);
 
-/** Decides what to do with a prospect reply. The LLM setter will implement the same contract. */
+export const INTENTS = ["INTERESTED", "QUESTION", "OBJECTION", "NOT_INTERESTED", "OUT_OF_OFFICE", "SENSITIVE", "UNKNOWN"] as const;
+
+/** Decides what to do with a prospect reply. */
 export interface ReplyAgent {
   decide(input: SetterInput): Promise<SetterDecision>;
 }
@@ -69,29 +76,30 @@ export class RuleBasedSetter implements ReplyAgent {
   async decide({ history, vars, offer, prospectStage }: SetterInput): Promise<SetterDecision> {
     const last = history[history.length - 1];
     if (!last || last.direction !== "INBOUND") {
-      return { action: "wait", intent: "UNKNOWN", rationale: "Aucun message prospect à traiter." };
+      return { agent: "rules", action: "wait", intent: "UNKNOWN", rationale: "Aucun message prospect à traiter." };
     }
     const intent = classifyIntent(last.body);
     const seed = `${vars.firstName}:${history.length}`;
     const render = (template: string) => renderTemplate(template, vars, seed);
 
     if (prospectStage === "MEETING_BOOKED") {
-      return { action: "escalate", intent, reason: "Le prospect a déjà un rendez-vous : réponse humaine recommandée." };
+      return { agent: "rules", action: "escalate", intent, reason: "Le prospect a déjà un rendez-vous : réponse humaine recommandée." };
     }
     const aiReplies = history.filter((t) => t.direction === "OUTBOUND" && t.author === "AI").length;
     if (aiReplies >= MAX_AI_REPLIES && intent !== "NOT_INTERESTED" && intent !== "OUT_OF_OFFICE") {
-      return { action: "escalate", intent, reason: `${aiReplies} réponses IA sans rendez-vous : à reprendre en main.` };
+      return { agent: "rules", action: "escalate", intent, reason: `${aiReplies} réponses IA sans rendez-vous : à reprendre en main.` };
     }
 
     switch (intent) {
       case "SENSITIVE":
-        return { action: "escalate", intent, reason: "Demande sensible (données personnelles, opposition ou juridique)." };
+        return { agent: "rules", action: "escalate", intent, reason: "Demande sensible (données personnelles, opposition ou juridique)." };
       case "UNKNOWN":
-        return { action: "escalate", intent, reason: "Réponse non reconnue : le setter préfère ne pas improviser." };
+        return { agent: "rules", action: "escalate", intent, reason: "Réponse non reconnue : le setter préfère ne pas improviser." };
       case "OUT_OF_OFFICE":
-        return { action: "wait", intent, rationale: "Absence : la séquence reprendra dans une semaine." };
+        return { agent: "rules", action: "wait", intent, rationale: "Absence : la séquence reprendra dans une semaine." };
       case "NOT_INTERESTED":
         return {
+          agent: "rules",
           action: "reply",
           intent,
           closeAfter: true,
@@ -100,9 +108,10 @@ export class RuleBasedSetter implements ReplyAgent {
         };
       case "INTERESTED":
         if (!vars.bookingUrl) {
-          return { action: "escalate", intent, reason: "Prospect intéressé mais aucun lien de réservation n'est configuré." };
+          return { agent: "rules", action: "escalate", intent, reason: "Prospect intéressé mais aucun lien de réservation n'est configuré." };
         }
         return {
+          agent: "rules",
           action: "reply",
           intent,
           closeAfter: false,
@@ -113,13 +122,14 @@ export class RuleBasedSetter implements ReplyAgent {
         };
       case "QUESTION": {
         if (isPricingQuestion(last.body)) {
-          return { action: "escalate", intent, reason: "Question tarifaire : à traiter par un humain." };
+          return { agent: "rules", action: "escalate", intent, reason: "Question tarifaire : à traiter par un humain." };
         }
         const pitch = offerPitch(offer);
         if (!pitch || !vars.bookingUrl) {
-          return { action: "escalate", intent, reason: "Question du prospect : pas assez de contexte (offre ou lien) pour répondre." };
+          return { agent: "rules", action: "escalate", intent, reason: "Question du prospect : pas assez de contexte (offre ou lien) pour répondre." };
         }
         return {
+          agent: "rules",
           action: "reply",
           intent,
           closeAfter: false,
@@ -131,6 +141,7 @@ export class RuleBasedSetter implements ReplyAgent {
       }
       case "OBJECTION":
         return {
+          agent: "rules",
           action: "reply",
           intent,
           closeAfter: false,

@@ -5,7 +5,8 @@ import { syncEvents } from "./events";
 import { runOutreach, type OutreachResult } from "./outreach";
 import { scoreNewProspects, sourceProspects } from "./sourcing";
 
-export const LEASE_MS = 2 * MINUTE;
+/** Covers a tick that waits on several model calls; released as soon as the tick ends. */
+export const LEASE_MS = 15 * MINUTE;
 
 export type AccountTickResult = {
   accountId: string;

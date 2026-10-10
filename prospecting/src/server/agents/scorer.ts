@@ -1,6 +1,8 @@
 import { containsTerm, normalize } from "./text";
 
 export type ScoreInput = {
+  /** Echoed back so batched results can be matched to their prospect. */
+  id?: string;
   prospect: {
     title: string;
     headline: string;
@@ -18,8 +20,11 @@ export type ScoreInput = {
     companySizes: string[];
     exclusions: string[];
   };
+  /** What the campaign sells and to whom: lets an AI scorer judge fit beyond keywords. */
+  context?: { offer: string; persona: string };
 };
 
+/** `max` is 0 for qualitative reasons (AI scorer): `points` > 0 then means "in favour". */
 export type ScoreReason = { label: string; points: number; max: number };
 
 export type ScoreResult = {
@@ -27,11 +32,14 @@ export type ScoreResult = {
   reasons: ScoreReason[];
   /** Set when an exclusion matched: the prospect must not be contacted. */
   excludedBy: string | null;
+  /** One-sentence rationale (AI scorer only). */
+  summary?: string | null;
+  scoredBy: "rules" | "claude";
 };
 
-/** Scores how well a profile fits a campaign. The AI scorer will implement the same contract. */
+/** Scores how well profiles fit a campaign; results come back in input order. */
 export interface ProspectScorer {
-  score(input: ScoreInput): ScoreResult;
+  scoreBatch(inputs: ScoreInput[]): Promise<ScoreResult[]>;
 }
 
 const WEIGHTS = { title: 35, keywords: 15, industry: 15, location: 10, companySize: 10, intent: 15 };
@@ -62,12 +70,23 @@ const INTENT_LABELS: Record<string, string> = {
 
 /** Transparent, rule-based scorer: every point comes with a reason shown in the UI. */
 export class RuleBasedScorer implements ProspectScorer {
-  score({ prospect, targeting }: ScoreInput): ScoreResult {
+  async scoreBatch(inputs: ScoreInput[]): Promise<ScoreResult[]> {
+    return inputs.map((input) => this.score(input));
+  }
+
+  /** Exclusion check alone: shared with the AI scorer, which must never override it. */
+  exclusion({ prospect, targeting }: ScoreInput): string | null {
+    const profileText = [prospect.title, prospect.headline, prospect.company, prospect.industry].join(" | ");
+    return targeting.exclusions.find((term) => containsTerm(profileText, term)) ?? null;
+  }
+
+  score(input: ScoreInput): ScoreResult {
+    const { prospect, targeting } = input;
     const profileText = [prospect.title, prospect.headline, prospect.company, prospect.industry].join(" | ");
 
-    const exclusion = targeting.exclusions.find((term) => containsTerm(profileText, term));
+    const exclusion = this.exclusion(input);
     if (exclusion) {
-      return { score: 0, reasons: [{ label: `Exclu : « ${exclusion} »`, points: 0, max: 0 }], excludedBy: exclusion };
+      return { score: 0, reasons: [{ label: `Exclu : « ${exclusion} »`, points: 0, max: 0 }], excludedBy: exclusion, scoredBy: "rules" };
     }
 
     const reasons: ScoreReason[] = [];
@@ -103,10 +122,10 @@ export class RuleBasedScorer implements ProspectScorer {
 
     if (possible === 0) {
       // No targeting at all: neutral score, intent still counts.
-      return { score: 60 + intentPoints, reasons, excludedBy: null };
+      return { score: 60 + intentPoints, reasons, excludedBy: null, scoredBy: "rules" };
     }
     possible += WEIGHTS.intent;
     earned += intentPoints;
-    return { score: Math.round((100 * earned) / possible), reasons, excludedBy: null };
+    return { score: Math.round((100 * earned) / possible), reasons, excludedBy: null, scoredBy: "rules" };
   }
 }

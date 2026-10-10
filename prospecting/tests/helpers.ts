@@ -1,5 +1,5 @@
 import type { AccountType, Plan, Prisma, SetterMode } from "@prisma/client";
-import { defaultAgents } from "@/server/agents";
+import { ruleAgents } from "@/server/agents";
 import { db } from "@/server/db";
 import type { EngineDeps } from "@/server/engine/deps";
 import { SimulatorProvider } from "@/server/linkedin/simulator/provider";
@@ -16,7 +16,7 @@ export async function resetDb() {
 }
 
 export function deps(now: Date): EngineDeps {
-  return { db, agents: defaultAgents(), providerFor: () => new SimulatorProvider(db, 1), now };
+  return { db, agents: ruleAgents(), providerFor: () => new SimulatorProvider(db, 1), now };
 }
 
 export async function createWorkspace(options: { plan?: Plan; accountType?: AccountType; allWeek?: boolean } = {}) {

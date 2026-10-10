@@ -61,6 +61,7 @@ export const campaignSchema = z.object({
   weeklyProspectTarget: z.coerce.number().int().min(10).max(1000),
   offer: text().pipe(z.string().trim().max(3000)),
   persona: text().pipe(z.string().trim().max(3000)),
+  aiPersonalization: z.preprocess((v) => v === true || v === "on" || v === "true", z.boolean()),
   inviteNote: template("Note d'invitation", INVITE_NOTE_MAX).transform((v) => (v === "" ? null : v)),
   firstMessage: template("Premier message", 2000).refine((v) => v.length > 0, "Premier message requis"),
   followUps: z.preprocess(parseJson, followUpsSchema),

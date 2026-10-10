@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ButtonLink } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { EmptyState, PageHeader } from "@/components/ui/misc";
+import { agentMode } from "@/server/agents";
 import { requireContext } from "@/server/auth/context";
 import { db } from "@/server/db";
 import { planLimits } from "@/server/domain/plans";
@@ -30,6 +31,7 @@ export default async function NewCampaignPage() {
     <>
       <PageHeader title="Nouvelle campagne" description="La campagne est créée en brouillon : vous la lancez quand tout est prêt." />
       <CampaignForm
+        aiEnabled={agentMode() === "claude"}
         campaignId={null}
         accounts={accounts}
         plan={{ label: limits.label, setter: limits.setter, maxFollowUps: limits.maxFollowUps }}
@@ -46,6 +48,7 @@ export default async function NewCampaignPage() {
           signals: ["NEW_ROLE", "HIRING", "FUNDRAISING"],
           postUrls: [],
           exclusions: [],
+          aiPersonalization: true,
           minScore: 60,
           weeklyProspectTarget: 100,
           offer: workspace.offer,

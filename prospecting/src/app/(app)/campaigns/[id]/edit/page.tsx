@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PageHeader } from "@/components/ui/misc";
+import { agentMode } from "@/server/agents";
 import { requireContext } from "@/server/auth/context";
 import { db } from "@/server/db";
 import { parseFollowUps } from "@/server/domain/followups";
@@ -22,6 +23,7 @@ export default async function EditCampaignPage({ params }: { params: Promise<{ i
     <>
       <PageHeader title={`Modifier « ${campaign.name} »`} description="Les changements s'appliquent aux prochaines actions du moteur." />
       <CampaignForm
+        aiEnabled={agentMode() === "claude"}
         campaignId={campaign.id}
         accounts={accounts}
         plan={{ label: limits.label, setter: limits.setter, maxFollowUps: limits.maxFollowUps }}

@@ -1,4 +1,6 @@
-import type { LinkedInAccount } from "@prisma/client";
+import type { Campaign, LinkedInAccount, Prospect, Workspace } from "@prisma/client";
+import type { SequenceStep, WriteInput } from "@/server/agents/writer";
+import type { TemplateVars } from "@/server/domain/templates";
 import { parseFollowUps } from "@/server/domain/followups";
 import { planLimits } from "@/server/domain/plans";
 import { isWithinSendingWindow } from "@/server/domain/schedule";
@@ -11,6 +13,23 @@ import { templateVars } from "./vars";
 /** Per-tick caps spread actions over the day instead of bursting them. */
 export const INVITES_PER_TICK = 3;
 export const MESSAGES_PER_TICK = 5;
+
+function writeInput(
+  prospect: Prospect & { campaign: Campaign; workspace: Workspace },
+  template: string,
+  step: SequenceStep,
+  vars: TemplateVars,
+): WriteInput {
+  return {
+    template,
+    step,
+    vars,
+    prospectId: prospect.id,
+    profile: prospect,
+    offer: prospect.campaign.offer || prospect.workspace.offer,
+    personalize: prospect.campaign.aiPersonalization,
+  };
+}
 
 export type OutreachResult = { invites: number; messages: number; unresponsive: number; skipped?: "outside_window" };
 
@@ -34,7 +53,7 @@ export async function runOutreach(deps: EngineDeps, account: LinkedInAccount): P
   for (const prospect of toInvite) {
     const { campaign, workspace } = prospect;
     const note = campaign.inviteNote
-      ? deps.agents.writer.write(campaign.inviteNote, { kind: "invite_note" }, templateVars(prospect, account, campaign, workspace), prospect.id)
+      ? await deps.agents.writer.write(writeInput(prospect, campaign.inviteNote, { kind: "invite_note" }, templateVars(prospect, account, campaign, workspace)))
       : null;
     await provider.sendInvitation({ externalId: account.externalId }, prospect.externalId, note, now);
     await db.prospect.update({
@@ -85,7 +104,7 @@ export async function runOutreach(deps: EngineDeps, account: LinkedInAccount): P
 
     const vars = templateVars(prospect, account, campaign, workspace);
     if (prospect.stage === "CONNECTED") {
-      const body = deps.agents.writer.write(campaign.firstMessage, { kind: "first_message" }, vars, prospect.id);
+      const body = await deps.agents.writer.write(writeInput(prospect, campaign.firstMessage, { kind: "first_message" }, vars));
       await sendOutbound(deps, { prospect, body, author: "SEQUENCE", activity: "MESSAGE_SENT" });
       await db.prospect.update({
         where: { id: prospect.id },
@@ -100,7 +119,7 @@ export async function runOutreach(deps: EngineDeps, account: LinkedInAccount): P
     } else {
       const index = prospect.followUpsSent;
       const step = steps[index]!;
-      const body = deps.agents.writer.write(step.template, { kind: "follow_up", index }, vars, prospect.id);
+      const body = await deps.agents.writer.write(writeInput(prospect, step.template, { kind: "follow_up", index }, vars));
       await sendOutbound(deps, { prospect, body, author: "SEQUENCE", activity: "FOLLOW_UP_SENT", data: { step: index + 1 } });
       await db.prospect.update({
         where: { id: prospect.id },

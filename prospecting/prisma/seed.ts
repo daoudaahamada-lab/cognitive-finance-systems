@@ -10,7 +10,8 @@ export {};
 // Set before the engine reads it: replayed history uses real-time delays.
 process.env.TIME_SCALE = "1";
 
-const { defaultAgents } = await import("@/server/agents");
+// Rule-based agents: replaying three weeks with Claude would mean hundreds of paid calls.
+const { ruleAgents } = await import("@/server/agents");
 const { hashPassword } = await import("@/server/auth/password");
 const { db } = await import("@/server/db");
 const { DAY, HOUR } = await import("@/server/domain/time");
@@ -137,7 +138,7 @@ async function main() {
     },
   });
 
-  const deps = (now: Date) => ({ db, agents: defaultAgents(), providerFor: () => new SimulatorProvider(db, 1), now });
+  const deps = (now: Date) => ({ db, agents: ruleAgents(), providerFor: () => new SimulatorProvider(db, 1), now });
   // Campaign 2 starts a week later: keep it paused until then.
   const second = await db.campaign.findFirstOrThrow({ where: { workspaceId: workspace.id, name: { startsWith: "Dirigeants" } } });
   await db.campaign.update({ where: { id: second.id }, data: { status: "PAUSED" } });

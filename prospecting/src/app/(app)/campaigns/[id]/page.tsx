@@ -82,6 +82,7 @@ export default async function CampaignPage({ params }: { params: Promise<{ id: s
               {campaign.inviteNote ? "Invitation avec note" : "Invitation sans note"}, premier message, {followUps.length} relance{followUps.length > 1 ? "s" : ""}
               {followUps.length ? ` (J+${followUps.map((f) => f.delayDays).join(", J+")})` : ""}
             </Setting>
+            <Setting label="Personnalisation par Claude">{campaign.aiPersonalization ? "Activée" : "Désactivée (modèles envoyés tels quels)"}</Setting>
             <Setting label="Setter">{limits.setter ? SETTER_MODES[campaign.setterMode]?.label : "Non inclus dans le plan"}</Setting>
           </CardBody>
         </Card>

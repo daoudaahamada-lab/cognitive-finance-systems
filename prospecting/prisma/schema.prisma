@@ -181,6 +181,8 @@ model Campaign {
   persona              String           @default("")
 
   // Sequence
+  /// Let the AI writer adapt each message to the prospect (the template stays the base).
+  aiPersonalization    Boolean          @default(true)
   inviteNote           String?
   firstMessage         String
   /// [{ delayDays: number, template: string }]
@@ -245,8 +247,12 @@ model Prospect {
   signalDetail    String?
 
   score           Int?
-  /// [{ label: string, points: number }]
+  /// [{ label: string, points: number, max: number }]
   scoreReasons    Json?
+  /// One-sentence rationale written by the AI scorer.
+  scoreSummary    String?
+  /// "rules" or "claude"
+  scoredBy        String?
   stage           ProspectStage   @default(NEW)
   stageChangedAt  DateTime        @default(now())
   disqualifiedReason String?
@@ -343,6 +349,8 @@ model Draft {
   body           String
   intent         String
   rationale      String
+  /// Agent that wrote it: "rules" or "claude".
+  author         String       @default("rules")
   status         DraftStatus  @default(PENDING)
   createdAt      DateTime     @default(now())
   decidedAt      DateTime?

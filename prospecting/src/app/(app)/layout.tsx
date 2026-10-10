@@ -6,6 +6,7 @@ import { Avatar } from "@/components/ui/misc";
 import { SubmitButton } from "@/components/ui/submit-button";
 import { daysUntil } from "@/lib/format";
 import { PLANS } from "@/server/domain/plans";
+import { agentLabel } from "@/server/agents";
 import { requireContext } from "@/server/auth/context";
 import { inboxCounts } from "@/server/services/inbox";
 import { logoutAction } from "../(auth)/actions";
@@ -54,7 +55,7 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
               <Logo />
             </div>
             <p className="hidden text-xs text-muted lg:block">
-              LinkedIn : <span className="font-medium text-ink">simulateur</span> · le moteur tourne en continu via le worker
+              LinkedIn : <span className="font-medium text-ink">simulateur</span> · Agents : <span className="font-medium text-ink">{agentLabel()}</span> · le moteur tourne en continu via le worker
             </p>
             <form action={runEngineNow}>
               <SubmitButton variant="secondary" size="sm" pendingLabel="Moteur en cours…">

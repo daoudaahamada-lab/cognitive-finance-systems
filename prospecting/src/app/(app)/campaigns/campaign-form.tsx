@@ -1,6 +1,6 @@
 "use client";
 
-import { Plus, Trash2 } from "lucide-react";
+import { Plus, Sparkles, Trash2 } from "lucide-react";
 import { useActionState, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardBody, CardHeader } from "@/components/ui/card";
@@ -25,6 +25,7 @@ export type CampaignFormValues = {
   signals: string[];
   postUrls: string[];
   exclusions: string[];
+  aiPersonalization: boolean;
   minScore: number;
   weeklyProspectTarget: number;
   offer: string;
@@ -37,6 +38,8 @@ export type CampaignFormValues = {
 };
 
 type Props = {
+  /** Whether Claude agents are configured on this deployment. */
+  aiEnabled: boolean;
   campaignId: string | null;
   values: CampaignFormValues;
   accounts: { id: string; fullName: string }[];
@@ -52,7 +55,7 @@ const TITLE_SUGGESTIONS = ["CEO", "Fondateur", "CFO", "Directeur Administratif e
 const INDUSTRY_SUGGESTIONS = ["Logiciels (SaaS)", "Conseil", "Expertise comptable", "E-commerce", "Industrie", "Immobilier", "Santé", "Services financiers", "Agence marketing", "Formation", "Logistique", "Recrutement"];
 const LOCATION_SUGGESTIONS = ["Paris", "Lyon", "Bordeaux", "Lille", "Nantes", "Marseille", "Toulouse", "Rennes", "Bruxelles", "Genève", "Montréal", "Casablanca"];
 
-export function CampaignForm({ campaignId, values, accounts, plan, senderFirstName }: Props) {
+export function CampaignForm({ aiEnabled, campaignId, values, accounts, plan, senderFirstName }: Props) {
   const [state, action] = useActionState(saveCampaignAction.bind(null, campaignId), null);
   const [sources, setSources] = useState<string[]>(values.sources);
   const [minScore, setMinScore] = useState(values.minScore);
@@ -196,6 +199,16 @@ export function CampaignForm({ campaignId, values, accounts, plan, senderFirstNa
         />
         <CardBody className="grid gap-6 xl:grid-cols-[3fr_2fr]">
           <div className="space-y-4">
+            <label className="flex cursor-pointer items-start gap-3 rounded-lg border border-line p-3 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-50/60">
+              <input type="checkbox" name="aiPersonalization" defaultChecked={values.aiPersonalization} className="mt-0.5 accent-brand-600" />
+              <span>
+                <span className="flex items-center gap-1.5 text-sm font-medium"><Sparkles className="size-3.5 text-brand-600" aria-hidden /> Personnalisation par Claude</span>
+                <span className="block text-xs text-muted">
+                  Claude adapte chaque message au profil (poste, entreprise, signal récent) en gardant votre intention, votre ton et vos liens. Il n&apos;invente aucun fait ; en cas de doute, votre texte part tel quel.
+                  {aiEnabled ? "" : " Inactif tant qu'aucune clé API Anthropic n'est configurée : vos modèles sont envoyés tels quels."}
+                </span>
+              </span>
+            </label>
             <Field label="Note d'invitation (facultative)" htmlFor="inviteNote" error={err.inviteNote} hint={`${inviteNote.length}/${INVITE_NOTE_MAX} caractères · sans note, les invitations sont souvent mieux acceptées`}>
               <Textarea id="inviteNote" name="inviteNote" rows={3} maxLength={INVITE_NOTE_MAX} value={inviteNote} onChange={(e) => setInviteNote(e.target.value)} />
             </Field>
@@ -256,7 +269,9 @@ export function CampaignForm({ campaignId, values, accounts, plan, senderFirstNa
                 </div>
               ))}
             </div>
-            <p className="text-xs text-muted">Exemple avec {SAMPLE.firstName} {SAMPLE.lastName}, {SAMPLE.title} chez {SAMPLE.company}.</p>
+            <p className="text-xs text-muted">
+              Exemple avec {SAMPLE.firstName} {SAMPLE.lastName}, {SAMPLE.title} chez {SAMPLE.company}. Avec la personnalisation, Claude part de ce texte pour chaque prospect.
+            </p>
           </aside>
         </CardBody>
       </Card>

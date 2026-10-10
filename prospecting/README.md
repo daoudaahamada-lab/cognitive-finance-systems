@@ -16,13 +16,13 @@ C'est une **réimplémentation indépendante** (« clean room ») : aucun code, 
 | **Campagnes** | Sources (recherche, signaux d'achat, engagement sur des posts, visiteurs de profil, import), ciblage (postes, secteurs, zones, tailles, mots-clés), exclusions, score minimum, séquence (note d'invitation, premier message, jusqu'à 8 relances), variables `{{firstName}}` et variantes `{Bonjour\|Hello}` avec aperçu en direct |
 | **Moteur** | Sourcing, scoring expliqué point par point, invitations, premier message après acceptation, relances arrêtées dès la première réponse, reprise après un « absent » |
 | **Setter** | Trois modes : automatique, validation, désactivé. Il classe l'intention (intéressé, question, objection, refus, absent, sensible), répond ou rédige un brouillon, envoie le lien de réservation, et passe la main sur les cas sensibles (RGPD, tarifs, réponse non reconnue, trop d'échanges) |
+| **Agents IA (Claude)** | Scoring par rapport à l'offre et au client idéal, personnalisation de chaque message, setter qui lit la conversation et répond. Garde-fous déterministes et repli automatique sur les règles (voir plus bas) |
 | **Boîte de réception** | Onglets À traiter / Brouillons / IA / Toutes. Validation ou modification des brouillons, réponse manuelle, prise de main, retour au setter |
 | **Prospects** | Liste filtrable, vue pipeline (Kanban), fiche avec score détaillé, historique, notes, mise en veille, exclusion, RDV manuel |
 | **Rendez-vous** | À venir et passés, statut (effectué, absent, annulé) |
 | **Tableau de bord** | Indicateurs clés, entonnoir, activité quotidienne, quotas par compte, liste de démarrage |
 
 **Pas encore inclus** (prochaines itérations) :
-- agents LLM ;
 - serveur MCP ;
 - site vitrine et facturation Stripe ;
 - fournisseur LinkedIn réel.
@@ -73,6 +73,9 @@ Avec `TIME_SCALE=720` (la valeur de `.env.example`), une journée d'attente dure
 | `LINKEDIN_PROVIDER` | `simulator` (le seul fourni pour l'instant) |
 | `TIME_SCALE` | Accélère les attentes pour les démos (`1` = temps réel) |
 | `WORKER_INTERVAL_SECONDS` | Fréquence du worker (10 s par défaut) |
+| `ANTHROPIC_API_KEY` | Active les agents Claude (sans clé : agents à base de règles) |
+| `AGENTS` | Force `claude` ou `rules` (par défaut : `claude` dès qu'une clé est définie) |
+| `ANTHROPIC_MODEL` | Modèle des agents (`claude-opus-5-5` par défaut) |
 | `ENGINE_TICK_SECRET` | Active `POST /api/engine/tick` (en-tête `Authorization: Bearer …`) pour un cron externe, à utiliser à la place du worker |
 
 ## Architecture
@@ -110,15 +113,25 @@ Un passage du moteur (`runTick`) traite chaque compte actif, sous verrou, en cin
 
 Chaque compte mémorise son fournisseur : le simulateur et un fournisseur réel peuvent donc coexister.
 
-### Brancher les agents IA
+## Agents IA (Claude)
 
-Le scoring, la rédaction et le setter passent par trois interfaces : `ProspectScorer`, `MessageWriter` et `ReplyAgent` (`src/server/agents/`). Une version LLM remplace la version à base de règles dans `defaultAgents()`, sans toucher au moteur. Les tests d'intégration servent alors de filet de sécurité.
+Avec `ANTHROPIC_API_KEY` défini (serveur **et** worker), trois agents Claude remplacent les agents à base de règles (`src/server/agents/claude/`). Chaque appel utilise des sorties structurées validées par Zod. Il passe aussi par le repli côté serveur (`fallbacks: "default"`) : si un classifieur de sécurité décline, l'API relance la requête sur le modèle recommandé.
+
+| Agent | Ce que fait Claude | Ce qui reste déterministe |
+| --- | --- | --- |
+| **Scorer** | Note chaque profil de 0 à 100 au regard de l'offre, du client idéal et des critères, par lots de 20, avec une synthèse et des raisons favorables ou défavorables | Les exclusions sont appliquées avant l'appel, et les profils exclus ne sont jamais envoyés à Claude |
+| **Rédacteur** | Adapte la note d'invitation, le premier message et les relances au profil (poste, entreprise, signal récent) en gardant l'intention, le ton et les liens du modèle. Désactivable par campagne | Message vide, trop long (300 caractères pour une note), lien ajouté ou variable restante : le modèle part tel quel |
+| **Setter** | Lit la conversation, classe l'intention, répond, attend ou passe la main, et explique sa décision au commercial | Demandes RGPD ou d'arrêt, prospect déjà en rendez-vous, plus de 4 réponses IA : la décision revient aux règles. Une réponse contenant un lien autre que le lien de réservation n'est jamais envoyée |
+
+Si Claude est indisponible (erreur réseau, refus, réponse invalide), l'agent à base de règles prend le relais pour cette requête. Après une clé refusée (401 ou 403), Claude est mis en pause 5 minutes au lieu d'échouer à chaque message. Les messages des prospects sont transmis comme des données : le setter a pour consigne de ne jamais suivre une instruction qu'ils contiennent.
+
+Les interfaces `ProspectScorer`, `MessageWriter` et `ReplyAgent` (`src/server/agents/`) restent le point d'extension. Le script de démo et les tests utilisent toujours les agents à base de règles, pour ne déclencher aucun appel payant.
 
 ## Tests
 
 ```bash
 createdb vela_test            # ou via Docker : docker compose exec postgres createdb -U vela vela_test
-npm test                      # environ 1 min 30
+npm test                      # environ 1 min 30, sans appel à l'API Anthropic
 npm run typecheck && npm run lint
 ```
 

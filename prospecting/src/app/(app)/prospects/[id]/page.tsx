@@ -65,16 +65,25 @@ export default async function ProspectPage({ params }: { params: Promise<{ id: s
           </Card>
 
           <Card>
-            <CardHeader title="Pourquoi ce score" description={`Minimum de la campagne : ${p.campaign.minScore}/100${p.disqualifiedReason ? ` · ${p.disqualifiedReason}` : ""}`} />
+            <CardHeader
+              title="Pourquoi ce score"
+              description={`Minimum de la campagne : ${p.campaign.minScore}/100${p.disqualifiedReason ? ` · ${p.disqualifiedReason}` : ""}`}
+              actions={p.scoredBy ? <Badge tone={p.scoredBy === "claude" ? "indigo" : "gray"}>{p.scoredBy === "claude" ? "Évalué par Claude" : "Évalué par règles"}</Badge> : null}
+            />
             <CardBody>
+              {p.scoreSummary ? <p className="mb-3 rounded-lg bg-canvas px-3 py-2 text-sm">{p.scoreSummary}</p> : null}
               {reasons.length === 0 ? (
                 <p className="text-sm text-muted">Pas encore évalué.</p>
               ) : (
                 <ul className="divide-y divide-line text-sm">
                   {reasons.map((r) => (
-                    <li key={r.label} className="flex items-center justify-between py-2">
+                    <li key={r.label} className="flex items-center justify-between gap-3 py-2">
                       <span className={r.points === 0 ? "text-muted" : undefined}>{r.label}</span>
-                      <span className="tabular-nums text-muted">{r.max ? `${r.points} / ${r.max}` : ""}</span>
+                      {r.max ? (
+                        <span className="tabular-nums text-muted">{r.points} / {r.max}</span>
+                      ) : (
+                        <span className={r.points > 0 ? "text-emerald-700" : "text-muted"}>{r.points > 0 ? "Favorable" : "Défavorable"}</span>
+                      )}
                     </li>
                   ))}
                 </ul>
