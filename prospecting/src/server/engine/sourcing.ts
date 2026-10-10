@@ -1,5 +1,4 @@
 import type { Campaign, LinkedInAccount, Prisma, ProspectSource, Workspace } from "@prisma/client";
-import { planLimits } from "@/server/domain/plans";
 import { WEEK } from "@/server/domain/time";
 import type { ProviderProfile } from "@/server/linkedin/types";
 import { logActivity } from "./activity";
@@ -18,7 +17,7 @@ type CampaignWithContext = Campaign & { account: LinkedInAccount; workspace: Wor
 
 export async function sourceProspects(deps: EngineDeps, campaign: CampaignWithContext): Promise<number> {
   const { db, now } = deps;
-  const weeklyCap = Math.min(campaign.weeklyProspectTarget, planLimits(campaign.workspace.plan).weeklyProspects ?? Infinity);
+  const weeklyCap = campaign.weeklyProspectTarget;
   const foundThisWeek = await db.activity.count({
     where: { campaignId: campaign.id, type: "PROSPECT_FOUND", createdAt: { gt: new Date(now.getTime() - WEEK) } },
   });

@@ -2,7 +2,6 @@ import type { Campaign, LinkedInAccount, Prospect, Workspace } from "@prisma/cli
 import type { SequenceStep, WriteInput } from "@/server/agents/writer";
 import type { TemplateVars } from "@/server/domain/templates";
 import { parseFollowUps } from "@/server/domain/followups";
-import { planLimits } from "@/server/domain/plans";
 import { isWithinSendingWindow } from "@/server/domain/schedule";
 import { logActivity } from "./activity";
 import { nextSequenceAction, sendOutbound } from "./conversation";
@@ -85,8 +84,7 @@ export async function runOutreach(deps: EngineDeps, account: LinkedInAccount): P
   });
   for (const prospect of due) {
     const { campaign, workspace } = prospect;
-    const maxFollowUps = planLimits(workspace.plan).maxFollowUps;
-    const steps = parseFollowUps(campaign.followUps).slice(0, maxFollowUps);
+    const steps = parseFollowUps(campaign.followUps);
 
     if (prospect.stage === "MESSAGED" && prospect.followUpsSent >= steps.length) {
       await db.prospect.update({
@@ -113,7 +111,7 @@ export async function runOutreach(deps: EngineDeps, account: LinkedInAccount): P
           stageChangedAt: now,
           firstMessagedAt: now,
           followUpsSent: 0,
-          nextActionAt: nextSequenceAction(campaign.followUps, 0, maxFollowUps, now),
+          nextActionAt: nextSequenceAction(campaign.followUps, 0, now),
         },
       });
     } else {
@@ -125,7 +123,7 @@ export async function runOutreach(deps: EngineDeps, account: LinkedInAccount): P
         where: { id: prospect.id },
         data: {
           followUpsSent: index + 1,
-          nextActionAt: nextSequenceAction(campaign.followUps, index + 1, maxFollowUps, now),
+          nextActionAt: nextSequenceAction(campaign.followUps, index + 1, now),
         },
       });
     }

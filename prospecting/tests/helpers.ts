@@ -1,4 +1,4 @@
-import type { AccountType, Plan, Prisma, SetterMode } from "@prisma/client";
+import type { AccountType, Prisma, SetterMode } from "@prisma/client";
 import { ruleAgents } from "@/server/agents";
 import { db } from "@/server/db";
 import type { EngineDeps } from "@/server/engine/deps";
@@ -19,11 +19,10 @@ export function deps(now: Date): EngineDeps {
   return { db, agents: ruleAgents(), providerFor: () => new SimulatorProvider(db, 1), now };
 }
 
-export async function createWorkspace(options: { plan?: Plan; accountType?: AccountType; allWeek?: boolean } = {}) {
+export async function createWorkspace(options: { accountType?: AccountType; allWeek?: boolean } = {}) {
   const workspace = await db.workspace.create({
     data: {
       name: "Test",
-      plan: options.plan ?? "PRO",
       offer: "Nous automatisons le reporting financier des PME. Le tout en 2 semaines.",
       bookingUrl: "https://cal.example.com/demo",
     },

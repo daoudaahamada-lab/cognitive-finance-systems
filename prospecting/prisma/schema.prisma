@@ -11,12 +11,6 @@ datasource db {
 // Accounts & tenancy
 // ---------------------------------------------------------------------------
 
-enum Plan {
-  STARTER
-  PRO
-  AGENCY
-}
-
 enum MemberRole {
   OWNER
   MEMBER
@@ -46,8 +40,6 @@ model Session {
 model Workspace {
   id          String    @id @default(cuid())
   name        String
-  plan        Plan      @default(PRO)
-  trialEndsAt DateTime?
   timezone    String    @default("Europe/Paris")
   /// Defaults copied into new campaigns.
   offer       String    @default("")

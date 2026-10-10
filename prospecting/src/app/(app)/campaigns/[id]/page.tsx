@@ -13,7 +13,6 @@ import { CAMPAIGN_STATUS, SETTER_MODES, SIGNALS, SOURCES, STAGE_LABELS } from "@
 import { requireContext } from "@/server/auth/context";
 import { db } from "@/server/db";
 import { parseFollowUps } from "@/server/domain/followups";
-import { planLimits } from "@/server/domain/plans";
 import { funnelFromStages, getCampaign, stageCounts } from "@/server/services/campaigns";
 import { CampaignControls } from "./campaign-controls";
 import { ImportForm } from "./import-form";
@@ -32,7 +31,6 @@ export default async function CampaignPage({ params }: { params: Promise<{ id: s
   ]);
   const funnel = funnelFromStages(counts);
   const followUps = parseFollowUps(campaign.followUps);
-  const limits = planLimits(workspace.plan);
 
   return (
     <>
@@ -83,7 +81,7 @@ export default async function CampaignPage({ params }: { params: Promise<{ id: s
               {followUps.length ? ` (J+${followUps.map((f) => f.delayDays).join(", J+")})` : ""}
             </Setting>
             <Setting label="Personnalisation par Claude">{campaign.aiPersonalization ? "Activée" : "Désactivée (modèles envoyés tels quels)"}</Setting>
-            <Setting label="Setter">{limits.setter ? SETTER_MODES[campaign.setterMode]?.label : "Non inclus dans le plan"}</Setting>
+            <Setting label="Setter">{SETTER_MODES[campaign.setterMode]?.label}</Setting>
           </CardBody>
         </Card>
       </div>
@@ -122,7 +120,7 @@ export default async function CampaignPage({ params }: { params: Promise<{ id: s
         <Card>
           <CardHeader title="Importer une liste" description="Les profils importés sont contactés quel que soit leur score. Les exclusions restent appliquées." />
           <CardBody>
-            {limits.listImport ? <ImportForm campaignId={campaign.id} /> : <p className="text-sm text-muted">L&apos;import est disponible à partir du plan Pro.</p>}
+            <ImportForm campaignId={campaign.id} />
           </CardBody>
         </Card>
       </div>

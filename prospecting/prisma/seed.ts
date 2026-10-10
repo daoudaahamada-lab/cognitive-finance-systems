@@ -36,8 +36,6 @@ async function main() {
   const workspace = await db.workspace.create({
     data: {
       name: "Clarity Finance",
-      plan: "PRO",
-      trialEndsAt: new Date(Date.now() + 9 * DAY),
       offer:
         "Nous automatisons le reporting financier des PME en connectant leur comptabilité et leur banque à un tableau de bord prêt pour le comité de direction. Mise en place en deux semaines, sans changer d'outil comptable.",
       persona: "DAF, CFO et dirigeants de PME de 20 à 500 salariés, SaaS ou conseil, en France et en Belgique.",

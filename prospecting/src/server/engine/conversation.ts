@@ -1,6 +1,5 @@
 import type { ActivityType, LinkedInAccount, MessageAuthor, Prisma, Prospect } from "@prisma/client";
 import { parseFollowUps, FINAL_WAIT_DAYS } from "@/server/domain/followups";
-import { planLimits } from "@/server/domain/plans";
 import { DAY, addScaled } from "@/server/domain/time";
 import { logActivity } from "./activity";
 import type { EngineDeps } from "./deps";
@@ -92,7 +91,7 @@ export async function runSetter(deps: EngineDeps, conversationId: string) {
     return;
   }
 
-  const mode = planLimits(workspace.plan).setter ? campaign.setterMode : "OFF";
+  const mode = campaign.setterMode;
   if (mode === "OFF") {
     await deps.db.conversation.update({
       where: { id: conversationId },
@@ -161,8 +160,8 @@ async function escalate(deps: EngineDeps, conversationId: string, prospect: Pros
 }
 
 /** Next wake-up after `sent` sequence messages (first message counts as 0 follow-ups sent). */
-export function nextSequenceAction(followUpsJson: unknown, followUpsSent: number, maxFollowUps: number, now: Date): Date {
-  const steps = parseFollowUps(followUpsJson).slice(0, maxFollowUps);
+export function nextSequenceAction(followUpsJson: unknown, followUpsSent: number, now: Date): Date {
+  const steps = parseFollowUps(followUpsJson);
   const next = steps[followUpsSent];
   return addScaled(now, (next ? next.delayDays : FINAL_WAIT_DAYS) * DAY);
 }

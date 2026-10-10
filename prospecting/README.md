@@ -11,7 +11,7 @@ C'est une **réimplémentation indépendante** (« clean room ») : aucun code, 
 
 | Domaine | Ce qui marche |
 | --- | --- |
-| **Comptes** | Inscription, connexion, espace de travail, essai Pro de 14 jours, plans Starter / Pro / Agency avec leurs limites (la facturation n'est pas branchée) |
+| **Compte** | Instance personnelle : le premier compte créé en devient propriétaire, puis les inscriptions se ferment (`ALLOW_SIGNUP=true` pour les rouvrir). Toutes les fonctionnalités sont disponibles, sans facturation |
 | **Comptes LinkedIn** | Connexion via le simulateur, type de compte, horaires et jours d'envoi, fuseau horaire, plafonds personnalisables (uniquement à la baisse) |
 | **Campagnes** | Sources (recherche, signaux d'achat, engagement sur des posts, visiteurs de profil, import), ciblage (postes, secteurs, zones, tailles, mots-clés), exclusions, score minimum, séquence (note d'invitation, premier message, jusqu'à 8 relances), variables `{{firstName}}` et variantes `{Bonjour\|Hello}` avec aperçu en direct |
 | **Moteur** | Sourcing, scoring expliqué point par point, invitations, premier message après acceptation, relances arrêtées dès la première réponse, reprise après un « absent » |
@@ -21,11 +21,10 @@ C'est une **réimplémentation indépendante** (« clean room ») : aucun code, 
 | **Prospects** | Liste filtrable, vue pipeline (Kanban), fiche avec score détaillé, historique, notes, mise en veille, exclusion, RDV manuel |
 | **Rendez-vous** | À venir et passés, statut (effectué, absent, annulé) |
 | **Tableau de bord** | Indicateurs clés, entonnoir, activité quotidienne, quotas par compte, liste de démarrage |
-| **Site vitrine** | Accueil (`/`), tarifs mensuels ou annuels (`/tarifs`), mentions légales, confidentialité, CGU, sitemap et robots.txt |
+| **Site vitrine** | Accueil (`/`), mentions légales, confidentialité, CGU, sitemap et robots.txt |
 
 **Pas encore inclus** (prochaines itérations) :
 - serveur MCP ;
-- facturation Stripe ;
 - fournisseur LinkedIn réel.
 
 ## Sécurité des comptes LinkedIn
@@ -69,7 +68,6 @@ Avec `TIME_SCALE=720` (la valeur de `.env.example`), une journée d'attente dure
 ### Site vitrine
 
 Les pages publiques vivent dans `src/app/(marketing)/` et sont générées en statique.
-- **Prix** : ce sont des valeurs de départ, à ajuster dans `src/lib/pricing.ts`. Les limites de chaque plan viennent de `src/server/domain/plans.ts` : la page tarifs reste ainsi cohérente avec ce que l'app applique.
 - **Pages légales** : ce sont des modèles. Les champs entre crochets (raison sociale, SIREN, hébergeur, durées de conservation…) sont à compléter et à faire relire avant la mise en ligne.
 - **URL publique** : définissez `SITE_URL` pour que le sitemap et le robots.txt l'utilisent.
 
@@ -84,6 +82,7 @@ Les pages publiques vivent dans `src/app/(marketing)/` et sont générées en st
 | `ANTHROPIC_API_KEY` | Active les agents Claude (sans clé : agents à base de règles) |
 | `AGENTS` | Force `claude` ou `rules` (par défaut : `claude` dès qu'une clé est définie) |
 | `ANTHROPIC_MODEL` | Modèle des agents (`claude-opus-5-5` par défaut) |
+| `ALLOW_SIGNUP` | `true` pour autoriser d'autres inscriptions après le premier compte |
 | `SITE_URL` | URL publique du site (sitemap, robots.txt) |
 | `ENGINE_TICK_SECRET` | Active `POST /api/engine/tick` (en-tête `Authorization: Bearer …`) pour un cron externe, à utiliser à la place du worker |
 
@@ -100,7 +99,7 @@ src/
     engine/               le moteur : events → sourcing → scoring → invitations → messages → setter
     agents/               scorer, rédacteur, setter : à base de règles, derrière des interfaces
     linkedin/             contrat LinkedInProvider + simulateur
-    domain/               plans, quotas, horaires, modèles de messages, temps
+    domain/               quotas, horaires, modèles de messages, temps
     auth/                 mots de passe (scrypt), sessions (cookie httpOnly, jeton haché en base)
 worker/                   boucle qui exécute le moteur
 prisma/                   schéma, migrations, données de démo

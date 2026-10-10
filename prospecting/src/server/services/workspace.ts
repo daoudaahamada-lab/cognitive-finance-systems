@@ -14,12 +14,6 @@ export async function updateWorkspace(workspaceId: string, input: z.infer<typeof
   await db.workspace.update({ where: { id: workspaceId }, data: input });
 }
 
-/** Billing is not wired yet: this switches plans directly so every tier can be tried. */
-export async function changePlan(workspaceId: string, plan: "STARTER" | "PRO" | "AGENCY") {
-  // Campaign settings are kept: the engine reads plan limits at run time (no setter on Starter).
-  await db.workspace.update({ where: { id: workspaceId }, data: { plan } });
-}
-
 export async function onboardingStatus(workspaceId: string) {
   const [accounts, campaigns, active, workspace] = await Promise.all([
     db.linkedInAccount.count({ where: { workspaceId, status: { not: "DISCONNECTED" } } }),

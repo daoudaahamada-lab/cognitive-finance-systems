@@ -9,7 +9,7 @@ import { SubmitButton } from "@/components/ui/submit-button";
 import { TagInput } from "@/components/ui/tag-input";
 import { cn } from "@/lib/cn";
 import { COMPANY_SIZES, SETTER_MODES, SIGNALS, SOURCES } from "@/lib/labels";
-import type { FollowUpStep } from "@/server/domain/followups";
+import { MAX_FOLLOW_UPS, type FollowUpStep } from "@/server/domain/followups";
 import { INVITE_NOTE_MAX, TEMPLATE_VARIABLES, renderTemplate, type TemplateVars } from "@/server/domain/templates";
 import { saveCampaignAction } from "./actions";
 
@@ -43,7 +43,6 @@ type Props = {
   campaignId: string | null;
   values: CampaignFormValues;
   accounts: { id: string; fullName: string }[];
-  plan: { label: string; setter: boolean; maxFollowUps: number };
   senderFirstName: string;
 };
 
@@ -55,7 +54,7 @@ const TITLE_SUGGESTIONS = ["CEO", "Fondateur", "CFO", "Directeur Administratif e
 const INDUSTRY_SUGGESTIONS = ["Logiciels (SaaS)", "Conseil", "Expertise comptable", "E-commerce", "Industrie", "Immobilier", "Santé", "Services financiers", "Agence marketing", "Formation", "Logistique", "Recrutement"];
 const LOCATION_SUGGESTIONS = ["Paris", "Lyon", "Bordeaux", "Lille", "Nantes", "Marseille", "Toulouse", "Rennes", "Bruxelles", "Genève", "Montréal", "Casablanca"];
 
-export function CampaignForm({ aiEnabled, campaignId, values, accounts, plan, senderFirstName }: Props) {
+export function CampaignForm({ aiEnabled, campaignId, values, accounts, senderFirstName }: Props) {
   const [state, action] = useActionState(saveCampaignAction.bind(null, campaignId), null);
   const [sources, setSources] = useState<string[]>(values.sources);
   const [minScore, setMinScore] = useState(values.minScore);
@@ -218,7 +217,7 @@ export function CampaignForm({ aiEnabled, campaignId, values, accounts, plan, se
             <div className="space-y-3">
               <input type="hidden" name="followUps" value={JSON.stringify(followUps)} />
               <p className="text-sm font-medium">
-                Relances <span className="font-normal text-muted">({followUps.length}/{plan.maxFollowUps} sur le plan {plan.label}, arrêtées dès la première réponse)</span>
+                Relances <span className="font-normal text-muted">({followUps.length}/{MAX_FOLLOW_UPS}, arrêtées dès la première réponse)</span>
               </p>
               {err.followUps ? <p className="text-xs text-red-700">{err.followUps}</p> : null}
               {followUps.map((f, i) => (
@@ -248,7 +247,7 @@ export function CampaignForm({ aiEnabled, campaignId, values, accounts, plan, se
                   />
                 </div>
               ))}
-              {followUps.length < plan.maxFollowUps ? (
+              {followUps.length < MAX_FOLLOW_UPS ? (
                 <Button variant="secondary" size="sm" onClick={() => setFollowUps([...followUps, { delayDays: 4, template: "{{firstName}}, " }])}>
                   <Plus className="size-3.5" /> Ajouter une relance
                 </Button>
@@ -279,13 +278,11 @@ export function CampaignForm({ aiEnabled, campaignId, values, accounts, plan, se
       <Card>
         <CardHeader title="Setter IA" description="Ce qui se passe quand un prospect répond." />
         <CardBody className="space-y-4">
-          {!plan.setter ? <p className="rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-900">Le setter est disponible à partir du plan Pro. Sur le plan {plan.label}, les réponses arrivent dans votre boîte.</p> : null}
           <div className="grid gap-2 md:grid-cols-3">
             {(["AUTO", "APPROVAL", "OFF"] as const).map((mode) => {
-              const disabled = !plan.setter && mode !== "OFF";
               return (
-                <label key={mode} className={cn("flex gap-3 rounded-lg border p-3 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-50/60", disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer", "border-line")}>
-                  <input type="radio" name="setterMode" value={mode} defaultChecked={plan.setter ? values.setterMode === mode : mode === "OFF"} disabled={disabled} className="mt-0.5 accent-brand-600" />
+                <label key={mode} className="flex cursor-pointer gap-3 rounded-lg border border-line p-3 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-50/60">
+                  <input type="radio" name="setterMode" value={mode} defaultChecked={values.setterMode === mode} className="mt-0.5 accent-brand-600" />
                   <span>
                     <span className="block text-sm font-medium">{SETTER_MODES[mode]!.label}</span>
                     <span className="block text-xs text-muted">{SETTER_MODES[mode]!.description}</span>

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { BRAND } from "@/lib/brand";
-import { PRICING } from "@/lib/pricing";
 import { LegalPage } from "../legal";
 
 export const metadata: Metadata = { title: "Conditions d'utilisation" };
@@ -12,13 +11,6 @@ export default function TermsPage() {
         <h2>Objet</h2>
         <p>
           Les présentes conditions encadrent l&apos;utilisation du service {BRAND.name}, logiciel de prospection commerciale sur LinkedIn, édité par [raison sociale].
-        </p>
-      </section>
-      <section>
-        <h2>Essai et abonnement</h2>
-        <p>
-          L&apos;essai gratuit dure {PRICING.trialDays} jours, sans moyen de paiement. Les abonnements sont mensuels ou annuels, aux prix affichés sur la page Tarifs. [Conditions de
-          renouvellement, de résiliation et de remboursement à préciser.]
         </p>
       </section>
       <section>

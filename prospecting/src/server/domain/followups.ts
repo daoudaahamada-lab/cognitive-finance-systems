@@ -5,7 +5,9 @@ export const followUpStepSchema = z.object({
   template: z.string().transform((v) => v.replace(/\r\n?/g, "\n").trim()).pipe(z.string().min(1).max(2000)),
 });
 
-export const followUpsSchema = z.array(followUpStepSchema).max(8);
+export const MAX_FOLLOW_UPS = 8;
+
+export const followUpsSchema = z.array(followUpStepSchema).max(MAX_FOLLOW_UPS, `${MAX_FOLLOW_UPS} relances au maximum`);
 
 export type FollowUpStep = z.infer<typeof followUpStepSchema>;
 

@@ -1,9 +1,8 @@
-import { ArrowRight, Bot, CalendarCheck, Check, Gauge, Inbox, MessageSquareText, Radar, ShieldCheck, Sparkles, Target, Users } from "lucide-react";
+import { Bot, CalendarCheck, Check, Gauge, Inbox, MessageSquareText, Radar, ShieldCheck, Sparkles, Target, Users } from "lucide-react";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { ButtonLink } from "@/components/ui/button";
 import { BRAND } from "@/lib/brand";
-import { PRICING } from "@/lib/pricing";
 
 export const metadata: Metadata = {
   title: { absolute: `${BRAND.name} · ${BRAND.tagline}` },
@@ -47,11 +46,11 @@ const FAQ: { q: string; a: ReactNode }[] = [
   },
   {
     q: "Puis-je gérer plusieurs comptes LinkedIn ?",
-    a: `Oui, avec le plan Agency : deux comptes inclus, puis ${PRICING.extraAccount} € par compte supplémentaire, jusqu'à cinq. Chaque compte a ses horaires et ses plafonds.`,
+    a: "Oui. Chaque compte a sa propre session, ses horaires d'envoi et ses plafonds, et une même personne n'est jamais contactée depuis deux comptes.",
   },
   {
-    q: "Comment fonctionne l'essai ?",
-    a: `${PRICING.trialDays} jours avec toutes les fonctionnalités du plan Pro, sans carte bancaire. À la fin de l'essai, vous choisissez un plan ou vous arrêtez.`,
+    q: "Où sont mes données ?",
+    a: `Sur votre instance : ${BRAND.name} s'héberge sur votre machine ou votre serveur, avec sa propre base PostgreSQL. Seules les informations nécessaires à chaque requête sont envoyées à Claude.`,
   },
 ];
 
@@ -142,20 +141,6 @@ export default function LandingPage() {
         </div>
       </Section>
 
-      <Section eyebrow="Tarifs" title="Un prix fixe, sans surprise">
-        <div className="flex flex-col items-start justify-between gap-6 rounded-2xl border border-line bg-canvas p-8 md:flex-row md:items-center">
-          <div>
-            <p className="text-lg font-semibold">
-              À partir de {PRICING.monthly.STARTER} € par mois, setter IA inclus dès le plan Pro à {PRICING.monthly.PRO} €.
-            </p>
-            <p className="mt-1 text-sm text-muted">{PRICING.trialDays} jours d&apos;essai avec toutes les fonctionnalités Pro, sans carte bancaire.</p>
-          </div>
-          <ButtonLink href="/tarifs" variant="secondary">
-            Comparer les plans <ArrowRight className="size-4" aria-hidden />
-          </ButtonLink>
-        </div>
-      </Section>
-
       <Section id="faq" eyebrow="FAQ" title="Questions fréquentes">
         <div className="mx-auto max-w-3xl divide-y divide-line rounded-2xl border border-line">
           {FAQ.map((item) => (
@@ -174,8 +159,8 @@ export default function LandingPage() {
         <div className="rounded-3xl bg-brand-600 px-6 py-14 text-center text-white sm:px-12">
           <h2 className="text-3xl font-semibold">Votre prochain rendez-vous commence par un bon premier message.</h2>
           <p className="mx-auto mt-3 max-w-xl text-brand-100">Configurez votre première campagne en quelques minutes. Le moteur se charge de la suite.</p>
-          <ButtonLink href="/signup" variant="secondary" className="mt-8 h-11 px-6 text-base">
-            Démarrer l&apos;essai gratuit
+          <ButtonLink href="/login" variant="secondary" className="mt-8 h-11 px-6 text-base">
+            Ouvrir l&apos;application
           </ButtonLink>
         </div>
       </section>
@@ -200,14 +185,14 @@ function Hero() {
             la main sur ce qui compte.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <ButtonLink href="/signup" className="h-11 px-6 text-base">
-              Essayer gratuitement {PRICING.trialDays} jours
+            <ButtonLink href="/login" className="h-11 px-6 text-base">
+              Ouvrir l&apos;application
             </ButtonLink>
             <ButtonLink href="/#fonctionnement" variant="ghost" className="h-11 px-4 text-base">
               Voir comment ça marche
             </ButtonLink>
           </div>
-          <p className="mt-4 text-sm text-muted">Sans carte bancaire · Toutes les fonctionnalités Pro pendant l&apos;essai</p>
+          <p className="mt-4 text-sm text-muted">Votre instance, vos comptes, vos données.</p>
         </div>
         <ProspectMock />
       </div>

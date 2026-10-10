@@ -1,7 +1,6 @@
 import type { AccountType } from "@prisma/client";
 import { z } from "zod";
 import { db } from "@/server/db";
-import { planLimits } from "@/server/domain/plans";
 import { DAILY_INVITE_CAP, DAILY_MESSAGE_CAP, WEEKLY_INVITE_CAP } from "@/server/domain/quotas";
 import { isValidTimezone, parseHourMinute } from "@/server/domain/schedule";
 import { accountQuota } from "@/server/engine/quota";
@@ -25,15 +24,6 @@ export const connectAccountSchema = z.object({
 
 export async function connectAccount(workspaceId: string, input: z.infer<typeof connectAccountSchema>) {
   const workspace = await db.workspace.findUniqueOrThrow({ where: { id: workspaceId } });
-  const limits = planLimits(workspace.plan);
-  const active = await db.linkedInAccount.count({ where: { workspaceId, status: { not: "DISCONNECTED" } } });
-  if (active >= limits.maxAccounts) {
-    throw new UserError(
-      limits.maxAccounts === 1
-        ? `Le plan ${limits.label} inclut un seul compte LinkedIn. Passez au plan Agency pour en connecter plusieurs.`
-        : `Le plan ${limits.label} est limité à ${limits.maxAccounts} comptes LinkedIn.`,
-    );
-  }
   const providerName = process.env.LINKEDIN_PROVIDER ?? "simulator";
   const connected = await getProvider(db, providerName).connectAccount(input);
   return db.linkedInAccount.create({

@@ -104,9 +104,9 @@ describe("prospecting engine on the simulator", () => {
     expect(await db.draft.count({ where: { conversation: { workspaceId: workspace.id } } })).toBeGreaterThan(0);
   });
 
-  it("hands every reply to a human on the Starter plan (no setter)", async () => {
-    const { workspace, account } = await createWorkspace({ plan: "STARTER" });
-    await createCampaign(workspace.id, account.id, { setterMode: "AUTO" });
+  it("hands every reply to a human when the setter is off", async () => {
+    const { workspace, account } = await createWorkspace();
+    await createCampaign(workspace.id, account.id, { setterMode: "OFF" });
     await simulate(workspace.id, START, 14);
     expect(await db.activity.count({ where: { workspaceId: workspace.id, type: "AI_REPLY_SENT" } })).toBe(0);
     const replied = await db.conversation.count({ where: { workspaceId: workspace.id, messages: { some: { direction: "INBOUND" } } } });

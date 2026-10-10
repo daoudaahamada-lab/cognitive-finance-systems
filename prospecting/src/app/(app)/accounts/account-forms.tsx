@@ -8,7 +8,7 @@ import { ACCOUNT_TYPES, WEEKDAYS } from "@/lib/labels";
 import { WEEKLY_INVITE_CAP } from "@/server/domain/quotas";
 import { connectAccountAction, updateAccountAction } from "./actions";
 
-export function ConnectAccountForm({ disabledReason }: { disabledReason?: string }) {
+export function ConnectAccountForm() {
   const [state, action] = useActionState(connectAccountAction, null);
   return (
     <form action={action} className="space-y-4">
@@ -33,8 +33,7 @@ export function ConnectAccountForm({ disabledReason }: { disabledReason?: string
       <Field label="Titre du profil" htmlFor="headline">
         <Input id="headline" name="headline" placeholder="Fondateur · J'aide les PME à …" />
       </Field>
-      {disabledReason ? <p className="text-sm text-amber-800">{disabledReason}</p> : null}
-      <SubmitButton disabled={Boolean(disabledReason)} pendingLabel="Connexion…">Connecter le compte</SubmitButton>
+      <SubmitButton pendingLabel="Connexion…">Connecter le compte</SubmitButton>
     </form>
   );
 }

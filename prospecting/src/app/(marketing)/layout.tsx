@@ -8,7 +8,6 @@ const NAV = [
   { href: "/#fonctionnement", label: "Fonctionnement" },
   { href: "/#setter", label: "Setter IA" },
   { href: "/#securite", label: "Sécurité" },
-  { href: "/tarifs", label: "Tarifs" },
   { href: "/#faq", label: "FAQ" },
 ];
 
@@ -27,12 +26,7 @@ export default function MarketingLayout({ children }: { children: ReactNode }) {
               </Link>
             ))}
           </nav>
-          <div className="flex items-center gap-2">
-            <Link href="/login" className="hidden px-2 text-sm font-medium text-muted hover:text-ink sm:inline">
-              Se connecter
-            </Link>
-            <ButtonLink href="/signup" size="sm">Essai gratuit</ButtonLink>
-          </div>
+          <ButtonLink href="/login" size="sm">Se connecter</ButtonLink>
         </div>
       </header>
 
@@ -45,7 +39,7 @@ export default function MarketingLayout({ children }: { children: ReactNode }) {
             <p className="max-w-sm text-sm text-muted">{BRAND.tagline}. Il trouve vos prospects, lance la conversation et réserve vos rendez-vous.</p>
             <p className="text-xs text-muted">{BRAND.name} n&apos;est ni affilié à LinkedIn, ni approuvé par LinkedIn.</p>
           </div>
-          <FooterColumn title="Produit" links={[["/#fonctionnement", "Fonctionnement"], ["/#setter", "Setter IA"], ["/tarifs", "Tarifs"], ["/signup", "Essai gratuit"]]} />
+          <FooterColumn title="Produit" links={[["/#fonctionnement", "Fonctionnement"], ["/#setter", "Setter IA"], ["/#securite", "Sécurité"], ["/login", "Se connecter"]]} />
           <FooterColumn title="Légal" links={[["/mentions-legales", "Mentions légales"], ["/confidentialite", "Confidentialité"], ["/cgu", "Conditions d'utilisation"]]} />
         </div>
         <p className="border-t border-line py-4 text-center text-xs text-muted">© {new Date().getFullYear()} {BRAND.name}</p>

@@ -2,7 +2,6 @@ import type { Prisma, ProspectStage } from "@prisma/client";
 import { z } from "zod";
 import { db } from "@/server/db";
 import { followUpsSchema } from "@/server/domain/followups";
-import { planLimits } from "@/server/domain/plans";
 import { INVITE_NOTE_MAX, unknownVariables } from "@/server/domain/templates";
 import { engineDeps } from "@/server/engine/deps";
 import { insertProspects, scoreNewProspects } from "@/server/engine/sourcing";
@@ -71,15 +70,7 @@ export const campaignSchema = z.object({
 
 export type CampaignInput = z.infer<typeof campaignSchema>;
 
-async function checkPlan(workspaceId: string, input: CampaignInput) {
-  const workspace = await db.workspace.findUniqueOrThrow({ where: { id: workspaceId } });
-  const limits = planLimits(workspace.plan);
-  if (input.followUps.length > limits.maxFollowUps) {
-    throw new UserError(`Le plan ${limits.label} permet ${limits.maxFollowUps} relances au maximum.`);
-  }
-  if (input.setterMode !== "OFF" && !limits.setter) {
-    throw new UserError(`Le setter IA est disponible à partir du plan Pro.`);
-  }
+async function checkCampaign(workspaceId: string, input: CampaignInput) {
   for (const [i, step] of input.followUps.entries()) {
     if (unknownVariables(step.template).length > 0) throw new UserError(`Relance ${i + 1} : variable inconnue.`);
   }
@@ -88,14 +79,14 @@ async function checkPlan(workspaceId: string, input: CampaignInput) {
 }
 
 export async function createCampaign(workspaceId: string, input: CampaignInput) {
-  await checkPlan(workspaceId, input);
+  await checkCampaign(workspaceId, input);
   return db.campaign.create({
     data: { ...input, workspaceId, followUps: input.followUps as Prisma.InputJsonValue, status: "DRAFT" },
   });
 }
 
 export async function updateCampaign(workspaceId: string, campaignId: string, input: CampaignInput) {
-  await checkPlan(workspaceId, input);
+  await checkCampaign(workspaceId, input);
   const existing = await db.campaign.findFirst({ where: { id: campaignId, workspaceId } });
   if (!existing) throw new UserError("Campagne introuvable.");
   const targetingChanged = (["sources", "titles", "keywords", "industries", "locations", "companySizes", "signals", "postUrls"] as const).some(
@@ -174,9 +165,6 @@ export const IMPORT_MAX = 1000;
 export async function importProspects(workspaceId: string, campaignId: string, text: string) {
   const campaign = await db.campaign.findFirst({ where: { id: campaignId, workspaceId }, include: { account: true, workspace: true } });
   if (!campaign) throw new UserError("Campagne introuvable.");
-  if (!planLimits(campaign.workspace.plan).listImport) {
-    throw new UserError("L'import de listes est disponible à partir du plan Pro.");
-  }
   const urls = [...new Set((text.match(LINKEDIN_PROFILE_URL) ?? []).map((u) => u.replace(/\/+$/, "")))];
   if (urls.length === 0) throw new UserError("Aucune URL de profil LinkedIn (linkedin.com/in/...) trouvée.");
   if (urls.length > IMPORT_MAX) throw new UserError(`${IMPORT_MAX} profils maximum par import.`);

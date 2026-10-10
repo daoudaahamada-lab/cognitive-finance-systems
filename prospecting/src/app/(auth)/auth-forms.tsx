@@ -6,7 +6,7 @@ import { Field, FormMessage, Input } from "@/components/ui/form";
 import { SubmitButton } from "@/components/ui/submit-button";
 import { loginAction, signupAction } from "./actions";
 
-export function LoginForm() {
+export function LoginForm({ signupOpen }: { signupOpen: boolean }) {
   const [state, action] = useActionState(loginAction, null);
   return (
     <form action={action} className="space-y-4">
@@ -18,12 +18,14 @@ export function LoginForm() {
         <Input id="password" name="password" type="password" autoComplete="current-password" required />
       </Field>
       <SubmitButton className="w-full" pendingLabel="Connexion…">Se connecter</SubmitButton>
-      <p className="text-center text-sm text-muted">
-        Pas encore de compte ?{" "}
-        <Link href="/signup" className="font-medium text-brand-700 hover:underline">
-          Essai gratuit de 14 jours
-        </Link>
-      </p>
+      {signupOpen ? (
+        <p className="text-center text-sm text-muted">
+          Pas encore de compte ?{" "}
+          <Link href="/signup" className="font-medium text-brand-700 hover:underline">
+            Créer le compte
+          </Link>
+        </p>
+      ) : null}
     </form>
   );
 }
@@ -45,7 +47,7 @@ export function SignupForm() {
       <Field label="Mot de passe" htmlFor="password" hint="8 caractères minimum">
         <Input id="password" name="password" type="password" autoComplete="new-password" minLength={8} required />
       </Field>
-      <SubmitButton className="w-full" pendingLabel="Création…">Démarrer l&apos;essai gratuit</SubmitButton>
+      <SubmitButton className="w-full" pendingLabel="Création…">Créer mon compte</SubmitButton>
       <p className="text-center text-sm text-muted">
         Déjà inscrit ?{" "}
         <Link href="/login" className="font-medium text-brand-700 hover:underline">

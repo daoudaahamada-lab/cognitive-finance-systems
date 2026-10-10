@@ -7,7 +7,6 @@ import { Avatar, EmptyState, Meter, PageHeader } from "@/components/ui/misc";
 import { formatRelative } from "@/lib/format";
 import { ACCOUNT_STATUS, ACCOUNT_TYPES } from "@/lib/labels";
 import { requireContext } from "@/server/auth/context";
-import { planLimits } from "@/server/domain/plans";
 import { listAccounts } from "@/server/services/accounts";
 import { AccountSettingsForm, ConnectAccountForm } from "./account-forms";
 import { setAccountStatusAction } from "./actions";
@@ -17,8 +16,6 @@ export const metadata: Metadata = { title: "Comptes LinkedIn" };
 export default async function AccountsPage() {
   const { workspace } = await requireContext();
   const accounts = await listAccounts(workspace.id);
-  const limits = planLimits(workspace.plan);
-  const full = accounts.length >= limits.maxAccounts;
 
   return (
     <>
@@ -84,14 +81,9 @@ export default async function AccountsPage() {
       )}
 
       <Card>
-        <CardHeader
-          title="Connecter un compte"
-          description={`Plan ${limits.label} : ${limits.maxAccounts} compte${limits.maxAccounts > 1 ? "s" : ""} maximum (${accounts.length} utilisé${accounts.length > 1 ? "s" : ""}).`}
-        />
+        <CardHeader title="Connecter un compte" description="Chaque compte a ses propres horaires et plafonds." />
         <CardBody>
-          <ConnectAccountForm
-            disabledReason={full ? `Limite du plan ${limits.label} atteinte. ${limits.maxAccounts === 1 ? "Le plan Agency permet plusieurs comptes." : ""}` : undefined}
-          />
+          <ConnectAccountForm />
         </CardBody>
       </Card>
     </>

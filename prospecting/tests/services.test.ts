@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { HOUR } from "@/server/domain/time";
 import { runTick } from "@/server/engine/tick";
 import { connectAccount } from "@/server/services/accounts";
-import { login, signup } from "@/server/services/auth";
+import { login, signup, signupOpen } from "@/server/services/auth";
 import { campaignSchema, createCampaign, importProspects } from "@/server/services/campaigns";
 import { UserError } from "@/server/services/errors";
 import { SimulatorProvider } from "@/server/linkedin/simulator/provider";
@@ -34,35 +34,47 @@ const validCampaign = {
 };
 
 describe("auth", () => {
-  it("signs up into a Pro trial workspace and logs in", async () => {
+  it("lets the first visitor create the account, then closes signup", async () => {
     const user = await signup({ name: "Léa", email: "lea@example.com", password: "password123", company: "Nova" });
     const membership = await db.membership.findFirstOrThrow({ where: { userId: user.id }, include: { workspace: true } });
-    expect(membership.workspace.plan).toBe("PRO");
-    expect(membership.workspace.trialEndsAt!.getTime()).toBeGreaterThan(Date.now());
+    expect(membership).toMatchObject({ role: "OWNER", workspace: { name: "Nova" } });
     expect((await login({ email: "lea@example.com", password: "password123" })).id).toBe(user.id);
     await expect(login({ email: "lea@example.com", password: "wrong-password" })).rejects.toBeInstanceOf(UserError);
-    await expect(signup({ name: "X", email: "lea@example.com", password: "password123", company: "Y" })).rejects.toBeInstanceOf(UserError);
+
+    expect(await signupOpen()).toBe(false);
+    await expect(signup({ name: "X", email: "x@example.com", password: "password123", company: "Y" })).rejects.toThrow(/fermées/);
+
+    process.env.ALLOW_SIGNUP = "true";
+    try {
+      await expect(signup({ name: "X", email: "lea@example.com", password: "password123", company: "Y" })).rejects.toThrow(/existe déjà/);
+      await signup({ name: "X", email: "x@example.com", password: "password123", company: "Y" });
+    } finally {
+      delete process.env.ALLOW_SIGNUP;
+    }
   });
 });
 
-describe("plan limits", () => {
-  it("caps LinkedIn accounts per plan", async () => {
-    const { workspace } = await createWorkspace({ plan: "PRO" });
-    await expect(connectAccount(workspace.id, { fullName: "Second", headline: "", accountType: "FREE" })).rejects.toThrow(/un seul compte/);
-    await db.workspace.update({ where: { id: workspace.id }, data: { plan: "AGENCY" } });
+describe("campaigns and accounts", () => {
+  it("connects several LinkedIn accounts", async () => {
+    const { workspace } = await createWorkspace();
     await connectAccount(workspace.id, { fullName: "Second", headline: "", accountType: "FREE" });
-    expect(await db.linkedInAccount.count({ where: { workspaceId: workspace.id } })).toBe(2);
+    await connectAccount(workspace.id, { fullName: "Third", headline: "", accountType: "PREMIUM" });
+    expect(await db.linkedInAccount.count({ where: { workspaceId: workspace.id } })).toBe(3);
   });
 
-  it("parses campaign forms and refuses what the plan does not include", async () => {
-    const { workspace, account } = await createWorkspace({ plan: "STARTER" });
+  it("parses campaign forms into a draft campaign", async () => {
+    const { workspace, account } = await createWorkspace();
     const parsed = campaignSchema.parse({ ...validCampaign, accountId: account.id });
     expect(parsed.industries).toEqual(["SaaS", "Conseil"]);
     expect(parsed.locations).toEqual(["Paris", "Lyon"]);
     expect(parsed.inviteNote).toBeNull();
-    await expect(createCampaign(workspace.id, parsed)).rejects.toThrow(/setter/i);
-    const created = await createCampaign(workspace.id, { ...parsed, setterMode: "OFF" });
-    expect(created.status).toBe("DRAFT");
+    const created = await createCampaign(workspace.id, parsed);
+    expect(created).toMatchObject({ status: "DRAFT", setterMode: "AUTO" });
+  });
+
+  it("caps sequences at 8 follow-ups", () => {
+    const followUps = JSON.stringify(Array.from({ length: 9 }, () => ({ delayDays: 2, template: "Relance" })));
+    expect(campaignSchema.safeParse({ ...validCampaign, accountId: "x", followUps }).success).toBe(false);
   });
 
   it("normalizes browser line endings in templates", () => {
@@ -111,12 +123,6 @@ describe("list import", () => {
     await importProspects(workspace.id, campaign.id, "https://www.linkedin.com/in/camille-durand\nhttps://www.linkedin.com/in/paul-roux");
     const camille = await db.prospect.findFirstOrThrow({ where: { campaignId: campaign.id, firstName: "Camille" } });
     expect(camille.stage).toBe("DISQUALIFIED");
-  });
-
-  it("is not available on Starter", async () => {
-    const { workspace, account } = await createWorkspace({ plan: "STARTER" });
-    const campaign = await createTestCampaign(workspace.id, account.id, { setterMode: "OFF" });
-    await expect(importProspects(workspace.id, campaign.id, "https://www.linkedin.com/in/a-b")).rejects.toThrow(/Pro/);
   });
 });
 

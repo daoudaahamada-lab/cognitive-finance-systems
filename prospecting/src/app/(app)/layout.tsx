@@ -4,8 +4,6 @@ import { Logo } from "@/components/layout/logo";
 import { Nav } from "@/components/layout/nav";
 import { Avatar } from "@/components/ui/misc";
 import { SubmitButton } from "@/components/ui/submit-button";
-import { daysUntil } from "@/lib/format";
-import { PLANS } from "@/server/domain/plans";
 import { agentLabel } from "@/server/agents";
 import { requireContext } from "@/server/auth/context";
 import { inboxCounts } from "@/server/services/inbox";
@@ -15,7 +13,6 @@ import { runEngineNow } from "./engine-actions";
 export default async function AppLayout({ children }: { children: ReactNode }) {
   const { user, workspace } = await requireContext();
   const counts = await inboxCounts(workspace.id);
-  const trialDays = workspace.trialEndsAt ? daysUntil(workspace.trialEndsAt) : null;
 
   return (
     <div className="min-h-screen lg:grid lg:grid-cols-[240px_1fr]">
@@ -28,10 +25,7 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
         </div>
         <div className="space-y-3 border-t border-line p-4">
           <div className="rounded-lg bg-canvas px-3 py-2 text-xs">
-            <p className="font-medium text-ink">
-              {workspace.name} · {PLANS[workspace.plan].label}
-            </p>
-            {trialDays !== null && trialDays > 0 ? <p className="text-muted">Essai : {trialDays} jour{trialDays > 1 ? "s" : ""} restant{trialDays > 1 ? "s" : ""}</p> : null}
+            <p className="font-medium text-ink">{workspace.name}</p>
           </div>
           <div className="flex items-center gap-2">
             <Avatar first={user.name.split(" ")[0] ?? user.name} last={user.name.split(" ")[1]} size="sm" />

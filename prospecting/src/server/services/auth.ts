@@ -1,7 +1,5 @@
 import { z } from "zod";
 import { db } from "@/server/db";
-import { TRIAL_DAYS } from "@/server/domain/plans";
-import { DAY } from "@/server/domain/time";
 import { hashPassword, verifyPassword } from "@/server/auth/password";
 import { UserError } from "./errors";
 
@@ -12,7 +10,18 @@ export const signupSchema = z.object({
   company: z.string().trim().min(1, "Indiquez le nom de votre entreprise").max(100),
 });
 
+/**
+ * Personal instance: whoever opens it first creates the account, then signup closes
+ * (otherwise anyone finding the URL could use your LinkedIn sessions and Anthropic key).
+ * ALLOW_SIGNUP=true reopens it.
+ */
+export async function signupOpen(): Promise<boolean> {
+  if (process.env.ALLOW_SIGNUP === "true") return true;
+  return (await db.user.count()) === 0;
+}
+
 export async function signup(input: z.infer<typeof signupSchema>) {
+  if (!(await signupOpen())) throw new UserError("Les inscriptions sont fermées sur cette instance.");
   const existing = await db.user.findUnique({ where: { email: input.email } });
   if (existing) throw new UserError("Un compte existe déjà avec cet email.");
   const passwordHash = await hashPassword(input.password);
@@ -24,9 +33,7 @@ export async function signup(input: z.infer<typeof signupSchema>) {
       memberships: {
         create: {
           role: "OWNER",
-          workspace: {
-            create: { name: input.company, plan: "PRO", trialEndsAt: new Date(Date.now() + TRIAL_DAYS * DAY) },
-          },
+          workspace: { create: { name: input.company } },
         },
       },
     },
