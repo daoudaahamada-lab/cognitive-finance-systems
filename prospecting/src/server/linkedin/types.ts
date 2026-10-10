@@ -31,6 +31,9 @@ export interface LinkedInProvider {
   /** Reads a profile (name, title, company...) for prospects known only by their URL, before writing to them. */
   enrichProfile?(account: AccountRef, profileId: string): Promise<ProfileUpdate>;
 
+  /** Read-only check that the account's pages are still understood (session, search, profile, network, messages). */
+  diagnose?(account: AccountRef, query: SearchQuery): Promise<DiagnosticLine[]>;
+
   /** Replaces the session of an existing account (new cookie). */
   updateSession?(account: AccountRef, sessionCookie: string): Promise<ConnectedAccount>;
 }
@@ -73,6 +76,8 @@ export class ProviderActionError extends Error {
 export type ProfileUpdate = Partial<Pick<ProviderProfile, "firstName" | "lastName" | "headline" | "title" | "company" | "location">>;
 
 export type AccountRef = { externalId: string };
+
+export type DiagnosticLine = { check: string; ok: boolean; detail: string };
 
 export type ConnectAccountInput = {
   fullName: string;

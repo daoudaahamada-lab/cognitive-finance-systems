@@ -8,7 +8,7 @@ import { formatDateTime, formatRelative } from "@/lib/format";
 import { ACCOUNT_STATUS, ACCOUNT_TYPES, PROVIDER_LABELS } from "@/lib/labels";
 import { requireContext } from "@/server/auth/context";
 import { listAccounts } from "@/server/services/accounts";
-import { AccountSettingsForm, ConnectAccountForm, SessionForm } from "./account-forms";
+import { AccountSettingsForm, ConnectAccountForm, DiagnoseForm, SessionForm } from "./account-forms";
 import { setAccountStatusAction } from "./actions";
 
 export const metadata: Metadata = { title: "Comptes LinkedIn" };
@@ -80,7 +80,12 @@ export default async function AccountsPage() {
                       <Button type="submit" variant="danger" size="sm">Déconnecter</Button>
                     </form>
                   </div>
-                  {a.provider === "browser" ? <SessionForm accountId={a.id} /> : null}
+                  {a.provider === "browser" ? (
+                    <>
+                      <DiagnoseForm accountId={a.id} />
+                      <SessionForm accountId={a.id} />
+                    </>
+                  ) : null}
                 </div>
                 <AccountSettingsForm account={a} />
               </CardBody>

@@ -16,6 +16,8 @@ const { bridgeConfig, startBridge } = await import("@/server/linkedin/bridge");
 
 const intervalMs = Math.max(1, Number(process.env.WORKER_INTERVAL_SECONDS ?? "10")) * 1000;
 let stopping = false;
+/** Ends the wait between two ticks early, so a stop request is handled at once. */
+let wake: (() => void) | undefined;
 
 const bridge = await startBridge(localBrowserProvider()).catch((error: Error) => {
   console.error(`[bridge] could not listen on 127.0.0.1:${bridgeConfig().port}: ${error.message}`);
@@ -42,18 +44,29 @@ async function loop() {
       console.error("[engine] tick failed", error);
     }
     const wait = intervalMs - (Date.now() - started);
-    if (wait > 0) await new Promise((resolve) => setTimeout(resolve, wait));
+    if (wait > 0 && !stopping) {
+      await new Promise<void>((resolve) => {
+        const timer = setTimeout(resolve, wait);
+        wake = () => {
+          clearTimeout(timer);
+          resolve();
+        };
+      });
+    }
   }
   bridge?.close();
   await localBrowserProvider().sessions.closeAll();
   await db.$disconnect();
+  console.log("[engine] worker stopped");
+  process.exit(0);
 }
 
 for (const signal of ["SIGINT", "SIGTERM"] as const) {
   process.on(signal, () => {
     stopping = true;
+    wake?.();
   });
 }
 
-console.log(`[engine] worker started, tick every ${intervalMs / 1000}s (TIME_SCALE=${process.env.TIME_SCALE ?? "1"})`);
+console.log(`[engine] worker started, tick every ${intervalMs / 1000}s (simulator TIME_SCALE=${process.env.TIME_SCALE ?? "1"})`);
 void loop();

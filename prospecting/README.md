@@ -48,6 +48,19 @@ Sur un vrai compte, le navigateur ajoute des pauses humaines entre chaque action
 
 ## Démarrage
 
+### Sur votre ordinateur, en deux commandes
+
+Prérequis : [Node.js](https://nodejs.org) 22 ou plus récent, et [Docker Desktop](https://www.docker.com/products/docker-desktop/) ouvert (ou un PostgreSQL déjà installé). Dans un terminal ouvert dans le dossier `prospecting` :
+
+```bash
+npm run setup     # une seule fois : dépendances, réglages (.env), base de données, navigateur pour LinkedIn
+npm run local     # à chaque utilisation : base, app et worker ensemble ; Ctrl+C arrête tout
+```
+
+Ouvrez ensuite http://localhost:3000/signup pour créer votre compte : le premier compte créé devient propriétaire de l'instance.
+
+### Démo et développement
+
 Prérequis : Node.js 22 ou plus récent, et PostgreSQL 16 (ou Docker).
 
 ```bash
@@ -64,7 +77,7 @@ npm run worker                # dans un 2e terminal : le moteur tourne toutes le
 
 Connectez-vous avec **demo@vela.local / demo1234**.
 
-Pour utiliser votre vrai compte LinkedIn, sautez `npm run db:seed` et créez votre compte sur `/signup` : le premier compte créé devient propriétaire de l'instance.
+Pour utiliser votre vrai compte LinkedIn, sautez `npm run db:seed` (ou utilisez `npm run setup`) et créez votre compte sur `/signup` : le premier compte créé devient propriétaire de l'instance.
 
 Le script de démo rejoue le vrai moteur et le simulateur sur trois semaines passées. Tous les chiffres affichés sont donc cohérents. Le compte de démo envoie 24 h/24, 7 j/7 pour que le worker ait toujours du travail.
 
@@ -130,12 +143,12 @@ Un passage du moteur (`runTick`) traite chaque compte actif, sous verrou, en cin
 Le fournisseur « Mon compte LinkedIn » (`src/server/linkedin/browser/`) pilote votre propre session dans un Chromium automatisé, à un rythme humain. Il ne passe par aucune API ni aucun service tiers.
 
 **Mise en place**
-1. Installez le navigateur une fois : `npx playwright-core install chromium`.
-2. Démarrez le worker (`npm run worker`). C'est lui qui ouvre Chromium, avec un profil persistant par compte. L'app web lui transmet ses actions par une passerelle locale (`127.0.0.1:4319`).
+1. Installez Vela avec `npm run setup` : il télécharge aussi le navigateur (sinon : `npx playwright-core install chromium`).
+2. Lancez Vela avec `npm run local`, ou démarrez le worker vous-même (`npm run worker`). C'est lui qui ouvre Chromium, avec un profil persistant par compte. L'app web lui transmet ses actions par une passerelle locale (`127.0.0.1:4319`).
 3. Dans **Comptes LinkedIn**, choisissez **Mon compte LinkedIn**, puis l'une des deux options :
    - **Cookie `li_at`** : collez-le depuis votre navigateur (Outils de développement → Application → Cookies → linkedin.com ; l'aide est sur la page). Vela vérifie la session, puis lit votre nom et votre titre.
    - **Connexion manuelle** : laissez le cookie vide ; le compte est créé en pause. Arrêtez le worker, lancez `npm run linkedin:login -- --account <id>` sur une machine avec écran, connectez-vous (mot de passe, double authentification), puis relancez le worker.
-4. **Avant d'activer une campagne**, arrêtez le worker et lancez `npm run linkedin:check -- --account <id>` (sans `--account`, il liste les comptes et leurs identifiants). Ce diagnostic n'envoie rien : il vérifie la session, une recherche, les boutons d'un profil, vos connexions et vos messages, puis signale chaque point en échec.
+4. **Avant d'activer une campagne**, cliquez sur **Vérifier la connexion LinkedIn** sur la fiche du compte. Ce diagnostic n'envoie rien : il vérifie la session, une recherche, les boutons d'un profil, vos relations et vos messages, puis signale chaque point en échec. En ligne de commande, worker arrêté : `npm run linkedin:check -- --account <id>` (sans `--account`, il liste les comptes).
 
 Faites tourner Vela sur l'ordinateur et la connexion internet d'où vous utilisez LinkedIn d'habitude : une session qui apparaît soudain ailleurs déclenche souvent une vérification de sécurité.
 

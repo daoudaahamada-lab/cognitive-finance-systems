@@ -26,6 +26,9 @@ const worker = {
   async fetchEvents(): Promise<ProviderEvent[]> {
     return [{ kind: "message_received", profileId: "camille", text: "Ça m'intéresse, à mardi !", externalId: "m1", at }];
   },
+  async diagnose(_account: AccountRef, query: { titles: string[] }) {
+    return [{ check: "Recherche", ok: true, detail: `recherche : ${query.titles.join(", ")}` }];
+  },
   async enrichProfile(_account: AccountRef, profileId: string) {
     return { firstName: "Jean", lastName: "Dupont", title: profileId === "jdupont" ? "CFO" : "" };
   },
@@ -68,6 +71,8 @@ describe("LinkedIn bridge (web app → worker)", () => {
 
   it("keeps provider errors typed so the engine can react", async () => {
     await expect(remote().enrichProfile(account, "jdupont")).resolves.toEqual({ firstName: "Jean", lastName: "Dupont", title: "CFO" });
+    const query = { source: "SEARCH" as const, titles: ["DAF"], keywords: [], industries: [], locations: [], companySizes: [], signals: [], postUrls: [] };
+    await expect(remote().diagnose(account, query)).resolves.toEqual([{ check: "Recherche", ok: true, detail: "recherche : DAF" }]);
     await expect(remote().sendInvitation(account, "anna", null, at)).resolves.toEqual({ title: "CFO" });
     await expect(remote().sendInvitation(account, "expired", null, at)).rejects.toBeInstanceOf(ProviderAuthError);
     await expect(remote().sendInvitation(account, "limit", null, at)).rejects.toBeInstanceOf(ProviderLimitError);

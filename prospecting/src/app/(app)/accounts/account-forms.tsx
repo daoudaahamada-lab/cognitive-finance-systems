@@ -1,12 +1,13 @@
 "use client";
 
 import type { LinkedInAccount } from "@prisma/client";
+import { CircleCheck, CircleX } from "lucide-react";
 import { useActionState, useState } from "react";
 import { Field, FormMessage, Input, Select } from "@/components/ui/form";
 import { SubmitButton } from "@/components/ui/submit-button";
 import { ACCOUNT_TYPES, WEEKDAYS } from "@/lib/labels";
 import { WEEKLY_INVITE_CAP } from "@/server/domain/quotas";
-import { connectAccountAction, updateAccountAction, updateSessionAction } from "./actions";
+import { connectAccountAction, diagnoseAccountAction, updateAccountAction, updateSessionAction } from "./actions";
 
 function CookieHelp() {
   return (
@@ -74,6 +75,36 @@ export function ConnectAccountForm() {
         </Field>
       ) : null}
       <SubmitButton pendingLabel={provider === "browser" ? "Vérification de la session…" : "Connexion…"}>Connecter le compte</SubmitButton>
+    </form>
+  );
+}
+
+/** Read-only check run by the worker on LinkedIn: tells whether Vela still understands the pages. */
+export function DiagnoseForm({ accountId }: { accountId: string }) {
+  const [state, action] = useActionState(diagnoseAccountAction.bind(null, accountId), null);
+  const failed = state?.lines?.filter((line) => !line.ok).length ?? 0;
+  return (
+    <form action={action} className="space-y-2">
+      <SubmitButton variant="secondary" size="sm" pendingLabel="Vérification sur LinkedIn… (environ 1 minute)">Vérifier la connexion LinkedIn</SubmitButton>
+      <p className="text-xs text-muted">Ouvre votre session, une recherche, un profil, vos relations et vos messages. N&apos;envoie rien.</p>
+      {state?.error ? <FormMessage state={state} /> : null}
+      {state?.lines ? (
+        <div role="status" className={`space-y-2 rounded-lg border px-3 py-2 text-sm ${failed ? "border-amber-200 bg-amber-50 text-amber-900" : "border-emerald-200 bg-emerald-50 text-emerald-900"}`}>
+          <p className="font-semibold">
+            {failed
+              ? `${failed} point${failed > 1 ? "s" : ""} non reconnu${failed > 1 ? "s" : ""} : LinkedIn a peut-être changé son interface. N'activez pas de campagne pour l'instant.`
+              : "Tout est reconnu : vous pouvez lancer une campagne."}
+          </p>
+          <ul className="space-y-1">
+            {state.lines.map((line) => (
+              <li key={line.check} className="flex gap-2">
+                {line.ok ? <CircleCheck className="mt-0.5 size-4 shrink-0 text-emerald-600" aria-label="OK" /> : <CircleX className="mt-0.5 size-4 shrink-0 text-red-600" aria-label="Échec" />}
+                <span className="min-w-0 break-words"><strong className="font-semibold">{line.check}</strong> : {line.detail}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
     </form>
   );
 }

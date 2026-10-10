@@ -8,6 +8,7 @@ export {};
 
 const { db } = await import("@/server/db");
 const { localBrowserProvider } = await import("@/server/linkedin");
+const { diagnosticQuery } = await import("@/server/services/accounts");
 
 function arg(name: string): string | undefined {
   const i = process.argv.indexOf(`--${name}`);
@@ -28,20 +29,7 @@ const campaign = campaignId ? await db.campaign.findUnique({ where: { id: campai
 
 const provider = localBrowserProvider();
 try {
-  const report = await provider.diagnose(
-    { externalId: account.externalId },
-    {
-      source: "SEARCH",
-      searchUrl: campaign?.searchUrl || undefined,
-      titles: campaign?.titles ?? ["CFO"],
-      keywords: campaign?.keywords ?? [],
-      industries: [],
-      locations: campaign?.locations ?? [],
-      companySizes: [],
-      signals: [],
-      postUrls: [],
-    },
-  );
+  const report = await provider.diagnose({ externalId: account.externalId }, diagnosticQuery(campaign));
   for (const line of report) console.log(`${line.ok ? "✓" : "✗"} ${line.check.padEnd(18)} ${line.detail}`);
   const failed = report.filter((l) => !l.ok).length;
   console.log(failed ? `\n${failed} point(s) à vérifier : LinkedIn a peut-être changé son interface (voir src/server/linkedin/browser/selectors.ts).` : "\nTout est reconnu.");

@@ -6,12 +6,14 @@ import {
   accountSettingsSchema,
   connectAccount,
   connectAccountSchema,
+  diagnoseAccount,
   sessionSchema,
   setAccountStatus,
   updateAccountSession,
   updateAccountSettings,
 } from "@/server/services/accounts";
 import { toActionState, type ActionState } from "@/server/services/errors";
+import type { DiagnosticLine } from "@/server/linkedin/types";
 import { parseForm } from "@/server/services/forms";
 
 export async function connectAccountAction(_: ActionState, form: FormData): Promise<ActionState> {
@@ -38,6 +40,17 @@ export async function updateSessionAction(accountId: string, _: ActionState, for
   }
   revalidatePath("/", "layout");
   return { ok: true, message: "Session mise à jour : le compte est réactivé." };
+}
+
+export type DiagnosticState = { lines?: DiagnosticLine[]; error?: string } | null;
+
+export async function diagnoseAccountAction(accountId: string, _: DiagnosticState): Promise<DiagnosticState> {
+  const { workspace } = await requireContext();
+  try {
+    return { lines: await diagnoseAccount(workspace.id, accountId) };
+  } catch (error) {
+    return toActionState(error) as DiagnosticState;
+  }
 }
 
 export async function updateAccountAction(accountId: string, _: ActionState, form: FormData): Promise<ActionState> {

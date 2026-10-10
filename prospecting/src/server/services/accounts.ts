@@ -1,4 +1,4 @@
-import type { AccountType } from "@prisma/client";
+import type { AccountType, Campaign } from "@prisma/client";
 import { randomUUID } from "node:crypto";
 import { z } from "zod";
 import { db } from "@/server/db";
@@ -6,7 +6,7 @@ import { DAILY_INVITE_CAP, DAILY_MESSAGE_CAP, WEEKLY_INVITE_CAP } from "@/server
 import { isValidTimezone, parseHourMinute } from "@/server/domain/schedule";
 import { accountQuota } from "@/server/engine/quota";
 import { PROVIDERS, getProvider } from "@/server/linkedin";
-import { ProviderActionError, ProviderAuthError, ProviderLimitError } from "@/server/linkedin/types";
+import { ProviderActionError, ProviderAuthError, ProviderLimitError, type DiagnosticLine, type SearchQuery } from "@/server/linkedin/types";
 import { UserError } from "./errors";
 
 export async function listAccounts(workspaceId: string, now = new Date()) {
@@ -119,6 +119,31 @@ export async function updateAccountSession(workspaceId: string, accountId: strin
     where: { id: accountId },
     data: { fullName: me.fullName || account.fullName, headline: me.headline || account.headline, status: "ACTIVE", statusReason: null },
   });
+}
+
+/** The search a diagnostic tries: the account's latest campaign, or a generic one. */
+export function diagnosticQuery(campaign: Pick<Campaign, "searchUrl" | "titles" | "keywords" | "locations"> | null): SearchQuery {
+  return {
+    source: "SEARCH",
+    searchUrl: campaign?.searchUrl || undefined,
+    titles: campaign?.titles.length ? campaign.titles : ["CFO"],
+    keywords: campaign?.keywords ?? [],
+    industries: [],
+    locations: campaign?.locations ?? [],
+    companySizes: [],
+    signals: [],
+    postUrls: [],
+  };
+}
+
+/** Read-only check of a browser account (session, search, profile, network, messages). Nothing is sent. */
+export async function diagnoseAccount(workspaceId: string, accountId: string): Promise<DiagnosticLine[]> {
+  const account = await db.linkedInAccount.findFirst({ where: { id: accountId, workspaceId } });
+  if (!account) throw new UserError("Compte introuvable.");
+  const provider = getProvider(db, account.provider);
+  if (!provider.diagnose) throw new UserError("Ce type de compte n'a pas de vérification LinkedIn.");
+  const campaign = await db.campaign.findFirst({ where: { accountId }, orderBy: { createdAt: "desc" } });
+  return linkedin(() => provider.diagnose!({ externalId: account.externalId }, diagnosticQuery(campaign)));
 }
 
 export async function setAccountStatus(workspaceId: string, accountId: string, status: "ACTIVE" | "PAUSED" | "DISCONNECTED") {

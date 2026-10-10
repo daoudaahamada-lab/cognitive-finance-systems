@@ -8,6 +8,8 @@
     "node": ">=22"
   },
   "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "local": "node scripts/local.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

@@ -10,6 +10,7 @@ import {
   type ActionErrorCode,
   type ConnectAccountInput,
   type ConnectedAccount,
+  type DiagnosticLine,
   type LinkedInProvider,
   type ProfileUpdate,
   type ProviderEvent,
@@ -20,7 +21,7 @@ import {
  * Only the worker drives browsers (a Chromium profile can be opened by one process).
  * The web app reaches it through this local bridge: same LinkedInProvider contract, over HTTP on 127.0.0.1.
  */
-const METHODS = ["connectAccount", "updateSession", "search", "enrichProfile", "sendInvitation", "sendMessage", "fetchEvents"] as const;
+const METHODS = ["connectAccount", "updateSession", "search", "enrichProfile", "sendInvitation", "sendMessage", "fetchEvents", "diagnose"] as const;
 type Method = (typeof METHODS)[number];
 
 /** Methods whose last argument is the engine's `now`. */
@@ -106,7 +107,7 @@ export class RemoteBrowserProvider implements LinkedInProvider {
         body: JSON.stringify({ method, args }),
       });
     } catch {
-      throw new ProviderActionError("WORKER_UNAVAILABLE", "le worker LinkedIn ne répond pas : lancez `npm run worker`");
+      throw new ProviderActionError("WORKER_UNAVAILABLE", "le worker LinkedIn ne répond pas : relancez Vela avec « npm run local » (ou lancez « npm run worker »)");
     }
     const body = (await response.json().catch(() => ({ error: { kind: "error", message: `HTTP ${response.status}` } }))) as { result?: T; error?: WireError };
     if (body.error) throw fromWire(body.error);
@@ -129,6 +130,10 @@ export class RemoteBrowserProvider implements LinkedInProvider {
   async lookupProfiles(_account: AccountRef, profileUrls: string[]) {
     const base = browserConfig.baseUrl();
     return profileUrls.map(slugFromProfileUrl).filter((s): s is string => Boolean(s)).map((slug) => profileFromSlug(base, slug));
+  }
+
+  diagnose(account: AccountRef, query: SearchQuery) {
+    return this.call<DiagnosticLine[]>("diagnose", [account, query]);
   }
 
   enrichProfile(account: AccountRef, profileId: string) {

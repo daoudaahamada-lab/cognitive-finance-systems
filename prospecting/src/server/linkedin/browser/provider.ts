@@ -8,6 +8,7 @@ import {
   type AccountRef,
   type ConnectAccountInput,
   type ConnectedAccount,
+  type DiagnosticLine,
   type LinkedInProvider,
   type ProfileUpdate,
   type ProviderEvent,
@@ -382,8 +383,8 @@ export class BrowserProvider implements LinkedInProvider {
    * Read-only check of everything the provider relies on, against the real site:
    * nothing is clicked except opening pages. Used by `npm run linkedin:check`.
    */
-  async diagnose(account: AccountRef, query: SearchQuery): Promise<{ check: string; ok: boolean; detail: string }[]> {
-    const report: { check: string; ok: boolean; detail: string }[] = [];
+  async diagnose(account: AccountRef, query: SearchQuery): Promise<DiagnosticLine[]> {
+    const report: DiagnosticLine[] = [];
     const record = (check: string, ok: boolean, detail: string) => report.push({ check, ok, detail });
     await this.sessions.withPage(account.externalId, async (page) => {
       const me = await this.whoAmI(account.externalId, page);
@@ -419,12 +420,12 @@ export class BrowserProvider implements LinkedInProvider {
       await this.goto(page, "/mynetwork/invite-connect/connections/");
       await pause(2000, 3000);
       const connections = await cardsIn(page, "main");
-      record("Relations", connections.length > 0, `${connections.length} relations lues`);
+      record("Relations", connections.length > 0, connections.length ? `${connections.length} relations lues` : "aucune relation lue (normal seulement si votre compte n'a encore aucune relation)");
 
       await this.goto(page, "/messaging/");
       await pause(2000, 3000);
       const threads = await page.locator('a[href*="/messaging/thread/"]').evaluateAll((as) => as.map((a) => a.getAttribute("href")));
-      record("Messagerie", threads.length > 0, `${threads.length} conversations listées`);
+      record("Messagerie", threads.length > 0, threads.length ? `${threads.length} conversations listées` : "aucune conversation lue (normal seulement si votre messagerie est vide)");
       if (threads[0]) {
         await this.goto(page, threads[0]);
         await pause(2000, 3000);
