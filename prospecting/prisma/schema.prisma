@@ -1,0 +1,452 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------------------------------------------------------------------------
+// Accounts & tenancy
+// ---------------------------------------------------------------------------
+
+enum Plan {
+  STARTER
+  PRO
+  AGENCY
+}
+
+enum MemberRole {
+  OWNER
+  MEMBER
+}
+
+model User {
+  id           String       @id @default(cuid())
+  email        String       @unique
+  name         String
+  passwordHash String
+  createdAt    DateTime     @default(now())
+  memberships  Membership[]
+  sessions     Session[]
+}
+
+model Session {
+  /// sha256 of the cookie token; the raw token never touches the database.
+  id        String   @id
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
+
+model Workspace {
+  id          String    @id @default(cuid())
+  name        String
+  plan        Plan      @default(PRO)
+  trialEndsAt DateTime?
+  timezone    String    @default("Europe/Paris")
+  /// Defaults copied into new campaigns.
+  offer       String    @default("")
+  persona     String    @default("")
+  bookingUrl  String    @default("")
+  createdAt   DateTime  @default(now())
+
+  members       Membership[]
+  accounts      LinkedInAccount[]
+  campaigns     Campaign[]
+  prospects     Prospect[]
+  conversations Conversation[]
+  meetings      Meeting[]
+  activities    Activity[]
+}
+
+model Membership {
+  userId      String
+  workspaceId String
+  role        MemberRole @default(OWNER)
+  createdAt   DateTime   @default(now())
+  user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  workspace   Workspace  @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  @@id([userId, workspaceId])
+}
+
+// ---------------------------------------------------------------------------
+// LinkedIn accounts
+// ---------------------------------------------------------------------------
+
+enum AccountType {
+  FREE
+  PREMIUM
+  SALES_NAVIGATOR
+  RECRUITER
+}
+
+enum AccountStatus {
+  ACTIVE
+  PAUSED
+  DISCONNECTED
+}
+
+model LinkedInAccount {
+  id                String        @id @default(cuid())
+  workspaceId       String
+  workspace         Workspace     @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  /// Provider that owns the session ("simulator", later "unipile", ...).
+  provider          String
+  externalId        String
+  fullName          String
+  headline          String        @default("")
+  accountType       AccountType   @default(FREE)
+  status            AccountStatus @default(ACTIVE)
+  timezone          String        @default("Europe/Paris")
+  /// ISO weekdays (1 = Monday ... 7 = Sunday) when actions may be sent.
+  sendingDays       Int[]         @default([1, 2, 3, 4, 5])
+  /// Local "HH:MM" window.
+  sendingStart      String        @default("09:00")
+  sendingEnd        String        @default("18:00")
+  /// User overrides; they can only lower the safety caps, never raise them.
+  weeklyInviteLimit Int?
+  dailyInviteLimit  Int?
+  dailyMessageLimit Int?
+  lastSyncedAt      DateTime?
+  /// Lease held by the engine while it works on this account, so two ticks never double-send.
+  lockedUntil       DateTime?
+  createdAt         DateTime      @default(now())
+
+  campaigns     Campaign[]
+  prospects     Prospect[]
+  conversations Conversation[]
+  activities    Activity[]
+
+  @@unique([workspaceId, provider, externalId])
+}
+
+// ---------------------------------------------------------------------------
+// Campaigns
+// ---------------------------------------------------------------------------
+
+enum CampaignStatus {
+  DRAFT
+  ACTIVE
+  PAUSED
+  ARCHIVED
+}
+
+enum SetterMode {
+  /// Replies go to the inbox; a human answers.
+  OFF
+  /// The setter drafts replies; a human approves them.
+  APPROVAL
+  /// The setter sends replies itself and escalates what it cannot handle.
+  AUTO
+}
+
+enum ProspectSource {
+  SEARCH
+  SIGNALS
+  POST_ENGAGERS
+  PROFILE_VISITORS
+  IMPORT
+}
+
+model Campaign {
+  id                   String           @id @default(cuid())
+  workspaceId          String
+  workspace            Workspace        @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  accountId            String
+  account              LinkedInAccount  @relation(fields: [accountId], references: [id], onDelete: Restrict)
+  name                 String
+  status               CampaignStatus   @default(DRAFT)
+
+  // Targeting
+  sources              ProspectSource[] @default([SEARCH])
+  titles               String[]
+  keywords             String[]
+  industries           String[]
+  locations            String[]
+  companySizes         String[]
+  signals              String[]
+  postUrls             String[]
+  exclusions           String[]
+  minScore             Int              @default(60)
+  weeklyProspectTarget Int              @default(100)
+
+  // Offer
+  offer                String           @default("")
+  persona              String           @default("")
+
+  // Sequence
+  inviteNote           String?
+  firstMessage         String
+  /// [{ delayDays: number, template: string }]
+  followUps            Json             @default("[]")
+
+  // Setter
+  setterMode           SetterMode       @default(APPROVAL)
+  bookingUrl           String           @default("")
+
+  /// Opaque per-source pagination state for the provider ({ [source]: cursor | null }).
+  sourcingState        Json             @default("{}")
+  launchedAt           DateTime?
+  createdAt            DateTime         @default(now())
+  updatedAt            DateTime         @updatedAt
+
+  prospects  Prospect[]
+  meetings   Meeting[]
+  activities Activity[]
+
+  @@index([workspaceId, status])
+}
+
+// ---------------------------------------------------------------------------
+// Prospects & conversations
+// ---------------------------------------------------------------------------
+
+enum ProspectStage {
+  NEW
+  QUALIFIED
+  DISQUALIFIED
+  INVITED
+  CONNECTED
+  MESSAGED
+  REPLIED
+  MEETING_BOOKED
+  NOT_INTERESTED
+  UNRESPONSIVE
+}
+
+model Prospect {
+  id              String          @id @default(cuid())
+  workspaceId     String
+  workspace       Workspace       @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  campaignId      String
+  campaign        Campaign        @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  accountId       String
+  account         LinkedInAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+
+  externalId      String
+  profileUrl      String
+  firstName       String
+  lastName        String
+  headline        String          @default("")
+  title           String          @default("")
+  company         String          @default("")
+  companySize     String          @default("")
+  industry        String          @default("")
+  location        String          @default("")
+  source          ProspectSource
+  /// Why this person showed up: "NEW_ROLE", "HIRING", "FUNDRAISING", "POST_ENGAGEMENT", "PROFILE_VISIT".
+  signal          String?
+  signalDetail    String?
+
+  score           Int?
+  /// [{ label: string, points: number }]
+  scoreReasons    Json?
+  stage           ProspectStage   @default(NEW)
+  stageChangedAt  DateTime        @default(now())
+  disqualifiedReason String?
+
+  invitedAt       DateTime?
+  connectedAt     DateTime?
+  firstMessagedAt DateTime?
+  lastContactedAt DateTime?
+  repliedAt       DateTime?
+  followUpsSent   Int             @default(0)
+  /// When the engine should look at this prospect again (first message, next follow-up, give-up).
+  nextActionAt    DateTime?
+  snoozedUntil    DateTime?
+  notes           String          @default("")
+  createdAt       DateTime        @default(now())
+
+  conversation Conversation?
+  meetings     Meeting[]
+  activities   Activity[]
+
+  @@unique([workspaceId, externalId])
+  @@index([campaignId, stage])
+  @@index([accountId, stage, nextActionAt])
+}
+
+enum ConversationStatus {
+  /// The setter handles the thread.
+  AI_ACTIVE
+  /// The setter escalated; a human must answer.
+  NEEDS_HUMAN
+  /// A human took over; the setter stays quiet.
+  HUMAN
+  CLOSED
+}
+
+model Conversation {
+  id               String             @id @default(cuid())
+  workspaceId      String
+  workspace        Workspace          @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  prospectId       String             @unique
+  prospect         Prospect           @relation(fields: [prospectId], references: [id], onDelete: Cascade)
+  accountId        String
+  account          LinkedInAccount    @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  status           ConversationStatus @default(AI_ACTIVE)
+  escalationReason String?
+  lastIntent       String?
+  unread           Boolean            @default(false)
+  lastMessageAt    DateTime?
+  createdAt        DateTime           @default(now())
+
+  messages Message[]
+  drafts   Draft[]
+
+  @@index([workspaceId, status, lastMessageAt])
+}
+
+enum MessageDirection {
+  OUTBOUND
+  INBOUND
+}
+
+enum MessageAuthor {
+  /// Templated sequence step (first message, follow-up).
+  SEQUENCE
+  /// Setter reply.
+  AI
+  HUMAN
+  PROSPECT
+}
+
+model Message {
+  id             String           @id @default(cuid())
+  conversationId String
+  conversation   Conversation     @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  direction      MessageDirection
+  author         MessageAuthor
+  body           String
+  externalId     String?
+  sentAt         DateTime         @default(now())
+
+  @@index([conversationId, sentAt])
+}
+
+enum DraftStatus {
+  PENDING
+  SENT
+  REJECTED
+}
+
+model Draft {
+  id             String       @id @default(cuid())
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  body           String
+  intent         String
+  rationale      String
+  status         DraftStatus  @default(PENDING)
+  createdAt      DateTime     @default(now())
+  decidedAt      DateTime?
+
+  @@index([conversationId, status])
+}
+
+enum MeetingStatus {
+  SCHEDULED
+  COMPLETED
+  NO_SHOW
+  CANCELED
+}
+
+model Meeting {
+  id          String        @id @default(cuid())
+  workspaceId String
+  workspace   Workspace     @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  prospectId  String
+  prospect    Prospect      @relation(fields: [prospectId], references: [id], onDelete: Cascade)
+  campaignId  String
+  campaign    Campaign      @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  startsAt    DateTime
+  durationMin Int           @default(30)
+  status      MeetingStatus @default(SCHEDULED)
+  /// "calendar" for booking-link webhooks, "manual" when logged by a human.
+  origin      String        @default("calendar")
+  createdAt   DateTime      @default(now())
+
+  @@index([workspaceId, startsAt])
+}
+
+// ---------------------------------------------------------------------------
+// Activity log: timeline, analytics and quota accounting
+// ---------------------------------------------------------------------------
+
+enum ActivityType {
+  PROSPECT_FOUND
+  PROSPECT_QUALIFIED
+  PROSPECT_DISQUALIFIED
+  INVITE_SENT
+  INVITE_ACCEPTED
+  MESSAGE_SENT
+  FOLLOW_UP_SENT
+  REPLY_RECEIVED
+  AI_REPLY_SENT
+  HUMAN_REPLY_SENT
+  DRAFT_CREATED
+  DRAFT_REJECTED
+  ESCALATED
+  MEETING_BOOKED
+  MARKED_NOT_INTERESTED
+  MARKED_UNRESPONSIVE
+}
+
+model Activity {
+  id          String           @id @default(cuid())
+  workspaceId String
+  workspace   Workspace        @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  campaignId  String?
+  campaign    Campaign?        @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  prospectId  String?
+  prospect    Prospect?        @relation(fields: [prospectId], references: [id], onDelete: Cascade)
+  accountId   String?
+  account     LinkedInAccount? @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  type        ActivityType
+  data        Json?
+  createdAt   DateTime         @default(now())
+
+  @@index([workspaceId, type, createdAt])
+  @@index([accountId, type, createdAt])
+  @@index([prospectId, createdAt])
+}
+
+// ---------------------------------------------------------------------------
+// LinkedIn simulator state (only used when LINKEDIN_PROVIDER=simulator)
+// ---------------------------------------------------------------------------
+
+model SimContact {
+  id                String   @id @default(cuid())
+  accountExternalId String
+  profileId         String
+  firstName         String
+  hasSignal         Boolean  @default(false)
+  connected         Boolean  @default(false)
+  /// Outbound messages received from the account.
+  inboundCount      Int      @default(0)
+  /// Last intent the simulated person expressed.
+  lastIntent        String?
+  booked            Boolean  @default(false)
+  createdAt         DateTime @default(now())
+
+  @@unique([accountExternalId, profileId])
+}
+
+model SimEvent {
+  id                String    @id @default(cuid())
+  accountExternalId String
+  profileId         String
+  /// "invite_accepted" | "message_received" | "meeting_booked"
+  kind              String
+  payload           Json      @default("{}")
+  dueAt             DateTime
+  deliveredAt       DateTime?
+
+  @@index([accountExternalId, deliveredAt, dueAt])
+}

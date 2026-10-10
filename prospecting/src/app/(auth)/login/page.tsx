@@ -1,0 +1,17 @@
+import type { Metadata } from "next";
+import { redirect } from "next/navigation";
+import { currentUser } from "@/server/auth/session";
+import { LoginForm } from "../auth-forms";
+
+export const metadata: Metadata = { title: "Connexion" };
+
+export default async function LoginPage() {
+  if (await currentUser()) redirect("/dashboard");
+  return (
+    <>
+      <h1 className="text-2xl font-semibold tracking-tight">Bon retour</h1>
+      <p className="mb-6 mt-1 text-sm text-muted">Connectez-vous pour suivre votre prospection.</p>
+      <LoginForm />
+    </>
+  );
+}
