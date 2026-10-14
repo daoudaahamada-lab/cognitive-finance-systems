@@ -33,13 +33,13 @@ export const TRAVAUX = {
   defile: 624, // le panneau descend jusqu'à la section Wealth
   clignotes: [658, 678, 698], // Architect, Build, Run
   tous: 718,
-  sortiePanneau: 740,
+  sortiePanneau: 742,
   sortie: 752,
 };
 
 // 5. Tableau de bord : captures 10 (Projets) puis 09 (Aujourd'hui), puis compteurs
 export const COCKPIT = {
-  entree: 762,
+  entree: 754,
   bascule: 822, // Projets -> Aujourd'hui
   zoom: 846,
   morphose: 872,

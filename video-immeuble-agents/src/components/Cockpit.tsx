@@ -328,11 +328,11 @@ export const Cockpit: React.FC<{f: number}> = ({f}) => {
   const left = 60 + (TELEPHONE.left - 60) * m;
   const largeur = LARGEUR + (TELEPHONE.largeur - LARGEUR) * m;
   const top =
+    1920 -
+    (1920 - 560) * prog(f, COCKPIT.entree, 32, easeOut) +
     piste(f, [
-      [COCKPIT.entree, 1920],
-      [COCKPIT.entree + 32, 560],
-      [COCKPIT.morphose, 560],
-      [COCKPIT.morphose + 30, 370],
+      [COCKPIT.morphose, 0],
+      [COCKPIT.morphose + 30, 370 - 560],
     ]) +
     (TELEPHONE.top - 370) * m;
   const hauteur =

@@ -42,8 +42,8 @@ export const camera = (f: number): Camera => ({
     [SALLE.zoom[1], 1.25],
     [TRAVAUX.transition[0], 1.25],
     [TRAVAUX.transition[1], 0.42],
-    [TRAVAUX.sortie, 0.42],
-    [TRAVAUX.sortie + 32, 0.36],
+    [TRAVAUX.sortie - 8, 0.42],
+    [TRAVAUX.sortie + 14, 0.38],
   ]),
   etage: piste(f, clesEtage, easeDouce),
   lx: piste(f, [
@@ -71,8 +71,8 @@ export const camera = (f: number): Camera => ({
     [SALLE.panneau + 24, 600],
     [TRAVAUX.transition[0], 600],
     [TRAVAUX.transition[1], 660],
-    [TRAVAUX.sortie, 660],
-    [TRAVAUX.sortie + 32, 540],
+    [TRAVAUX.sortie - 8, 660],
+    [TRAVAUX.sortie + 14, 260],
   ]),
   ecart: piste(f, [
     [PLONGEE.debut, 780],
@@ -199,7 +199,7 @@ export const Immeuble: React.FC<{f: number}> = ({f}) => {
           const p = chute(f, i);
           const d = Math.abs(i - c.etage);
           const quitte = f >= TRAVAUX.transition[0] && i > c.etage;
-          const distance = Math.min(1, quitte ? d * 1.8 : d);
+          const distance = Math.min(1, quitte ? d * 1.25 : d);
           const visible = clamp01(p * 2.5) * (1 - clamp01((distance - 0.6) / 0.4) * (1 - c.voisins));
           if (visible <= 0.001) return null;
           return (
@@ -277,9 +277,10 @@ export const EtiquettesTour: React.FC<{f: number}> = ({f}) => {
 // Noms des pièces en travaux, lisibles sur téléphone (posés sur les étiquettes d'origine).
 export const EtiquettesTravaux: React.FC<{f: number}> = ({f}) => {
   const c = camera(f);
-  const entree = prog(f, TRAVAUX.panneau, 16, easeOut);
+  const entree = prog(f, TRAVAUX.panneau, 10, easeOut);
+  const opacite = Math.min(1, entree * 3) * clamp01((c.opacite - 0.7) / 0.25);
   return (
-    <AbsoluteFill style={{fontFamily: SANS, opacity: c.opacite * entree}}>
+    <AbsoluteFill style={{fontFamily: SANS, opacity: opacite}}>
       {PIECES_WEALTH.map((piece, k) => {
         const v = intensitePiece(f, k);
         const pos = versEcran(c, IDX_WEALTH, piece.etiquette.x, piece.etiquette.y);
@@ -290,7 +291,7 @@ export const EtiquettesTravaux: React.FC<{f: number}> = ({f}) => {
               position: 'absolute',
               left: pos.x,
               top: pos.y,
-              transform: `translate(-50%, -50%) scale(${1 + 0.08 * v})`,
+              transform: `translate(-50%, -50%) scale(${(0.7 + 0.3 * entree) * (1 + 0.08 * v)})`,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',

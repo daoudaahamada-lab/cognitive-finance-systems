@@ -11,16 +11,16 @@ export const PanneauSales: React.FC<{f: number}> = ({f}) => {
   const sortie = prog(f, SALLE.sortie, 20, easeIn);
   if (entree <= 0 || sortie >= 1) return null;
   const dy = (1 - entree) * 1200 + sortie * 1200;
-  const defile = 370 * prog(f, SALLE.defile, 28, easeInOut);
+  const defile = 400 * prog(f, SALLE.defile, 28, easeInOut);
   const b = BOUTON_FERMER_SALES;
   return (
     <PanneauCapture
       src={CAPTURES.salleSales}
       decoupe={PANNEAU}
-      left={114}
-      top={780}
-      largeur={852}
-      hauteur={1060}
+      left={40}
+      top={770}
+      largeur={1000}
+      hauteur={1090}
       defile={defile}
       dy={dy}
     >

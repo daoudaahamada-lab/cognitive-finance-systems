@@ -85,7 +85,7 @@ export const PANNEAU = {x: 2320, y: 170, w: 851, h: 1603};
 export const SURLIGNAGES_SALES = [
   {x: 22, y: 30, w: 812, h: 160, label: 'Sous-agent'},
   {x: 22, y: 392, w: 812, h: 142, label: 'Projet'},
-  {x: 22, y: 566, w: 812, h: 864, label: 'Tâches'},
+  {x: 22, y: 566, w: 812, h: 644, label: 'Tâches'},
 ] as const;
 // Bouton "×" de la capture 07, masqué sous le cadre "Sous-agent".
 export const BOUTON_FERMER_SALES = {x: 760, y: 22, w: 72, h: 72};

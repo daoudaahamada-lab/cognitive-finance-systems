@@ -17,12 +17,13 @@ export const PanneauCapture: React.FC<{
   hauteur: number;
   defile: number;
   dy: number;
+  opacite?: number;
   // filtre CSS appliqué à la capture (ex. pour blanchir les reflets d'un panneau translucide)
   filtre?: string;
   // fond dégradé en bas de fenêtre : la liste se fond dans la carte au lieu d'être coupée net
   fonduBas?: boolean;
   children?: React.ReactNode;
-}> = ({src, decoupe, left, top, largeur, hauteur, defile, dy, filtre, fonduBas = true, children}) => {
+}> = ({src, decoupe, left, top, largeur, hauteur, defile, dy, opacite = 1, filtre, fonduBas = true, children}) => {
   const k = largeur / decoupe.w;
   return (
     <div
@@ -37,6 +38,7 @@ export const PanneauCapture: React.FC<{
         background: C.carte,
         boxShadow: C.ombre,
         transform: `translateY(${dy}px)`,
+        opacity: opacite,
       }}
     >
       <div

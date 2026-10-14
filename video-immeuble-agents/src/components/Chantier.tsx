@@ -9,9 +9,9 @@ import {Jaune, PanneauCapture} from './PanneauCapture';
 // Chaque badge clignote en même temps que sa pièce sur l'étage Wealth.
 export const PanneauTravaux: React.FC<{f: number}> = ({f}) => {
   const entree = prog(f, TRAVAUX.panneau, 28, easeOut);
-  const sortie = prog(f, TRAVAUX.sortiePanneau, 18, easeIn);
+  const sortie = prog(f, TRAVAUX.sortiePanneau, 14, easeInOut);
   if (entree <= 0 || sortie >= 1) return null;
-  const dy = (1 - entree) * 1000 + sortie * 1000;
+  const dy = (1 - entree) * 1000 - sortie * 220;
   const defile = 772 * prog(f, TRAVAUX.defile, 32, easeInOut);
   const marqueur = prog(f, TRAVAUX.marqueur, 14, easeOut);
   const b = BADGES_TRAVAUX;
@@ -25,6 +25,7 @@ export const PanneauTravaux: React.FC<{f: number}> = ({f}) => {
       hauteur={828}
       defile={defile}
       dy={dy}
+      opacite={1 - sortie}
       filtre="contrast(1.12) brightness(1.015)"
     >
       {/* "9 pièces en travaux" passé au surligneur */}
