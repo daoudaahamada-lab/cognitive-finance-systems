@@ -1,0 +1,5 @@
+node_modules
+out
+.DS_Store
+# Captures personnelles : non versionnées (dépôt public). Voir README, section Captures.
+public/captures/*.png
