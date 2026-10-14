@@ -8,7 +8,7 @@ export {a, DUREE_TOTALE, FPS, R};
 // --- Étape 1 : le problème (pastilles des salles dispersées) ---
 export const CARTES = {
   apparition: R.L01.debut - 22, // une pastille toutes les 5 images
-  domaines: [a('L02', 0.0), a('L02', 0.26), a('L02', 0.52), a('L02', 0.76)], // santé, argent, business, idées
+  domaines: [a('L02', 0.12), a('L02', 0.33), a('L02', 0.5), a('L02', 0.7)], // santé, patrimoine, business, idées
   desordre: [R.L03.debut, R.L03.fin],
 };
 

@@ -133,10 +133,11 @@ export const CARTES_PROJETS: CarteProjet[] = [
 export type Carton = {id: string; a: number; lignes: string[]};
 export const SOUS_TITRES: Carton[] = [
   {id: 'L01', a: 0, lignes: ['J’ai toujours plusieurs', 'projets en même temps.']},
-  {id: 'L02', a: 0, lignes: ['Ma santé, mon argent,', 'mon business, mes idées.']},
+  {id: 'L02', a: 0, lignes: ['Prendre soin de ma santé,', 'faire croître mon patrimoine,']},
+  {id: 'L02', a: 0.44, lignes: ['développer mon business…']},
+  {id: 'L02', a: 0.62, lignes: ['et plusieurs autres idées,', 'pas tout à fait ordonnées.']},
   {id: 'L03', a: 0, lignes: ['Tout avançait en parallèle…']},
-  {id: 'L03', a: 0.3, lignes: ['mais je ne savais jamais', 'vraiment où j’en étais,']},
-  {id: 'L03', a: 0.7, lignes: ['ni où mettre', 'mon énergie.']},
+  {id: 'L03', a: 0.38, lignes: ['mais j’avais besoin de clarté', 'pour savoir où mettre', 'mon énergie.']},
   {id: 'L04', a: 0, lignes: ['Alors j’ai imaginé ma vie', 'comme un immeuble.']},
   {id: 'L05', a: 0, lignes: ['Un immeuble que je', 'construis, étage par étage.']},
   {id: 'L06', a: 0, lignes: ['Chaque étage, c’est', 'un domaine de ma vie.']},
