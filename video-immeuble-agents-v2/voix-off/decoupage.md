@@ -59,7 +59,7 @@ Un surtitre bleu discret nomme l’étape en cours (Le point de départ, L’id�
 | L16 | Je ne gère plus seulement des tâches. | 0:57.3 / 0:59.0 | L’immeuble entier, centré. | Grand recul : les étages se rassemblent. | | Sur place. |
 | L17 | Je vois ce que je construis. Et je sais où j’en suis. | 0:59.9 / 1:03.3 | L’immeuble entier. | Il glisse à gauche, l’avancement de chaque domaine apparaît. | Health 44 %, Wealth 0 %, Business 2 %, SMART 29 %, Life 0 % | La caméra part au début de L18. |
 | L18 | Je joue au jeu de la vie. | 1:03.6 / 1:04.7 | Plan final, début du mouvement. | Un seul mouvement continu commence : descente vers le rez-de-chaussée dans l’immeuble entier. | | Sans coupe. |
-| L19 | Et chaque action me rapproche de l’immeuble que je veux construire. | 1:05.4 / 1:08.6 | Daouda, puis Daouda en plan rapproché, l’immeuble flou derrière lui. | Le mouvement plonge sur Daouda dans le Hall Inbox. Vers « action », l’avatar 3D prend le relais de la capture sans ralentir. L’immeuble recule et se floute en arrière-plan. Le mouvement se pose sur « construire ». | Étiquette « Daouda », comme dans le jeu | Tenue de 3 s sur le personnage, sans texte ni surtitre. |
+| L19 | Et chaque action me rapproche de l’immeuble que je veux construire. | 1:05.4 / 1:08.6 | Daouda, puis Daouda en plan rapproché, l’immeuble flou derrière lui. | Le mouvement plonge sur Daouda dans le Hall Inbox. Vers « action », l’avatar 3D prend le relais de la capture par un raccord dans l’axe (même cadrage à cette image), sans ralentir. L’immeuble recule et se floute en arrière-plan. Le mouvement se pose sur « construire ». | Étiquette « Daouda », comme dans le jeu | Tenue de 3 s sur le personnage, sans texte ni surtitre. |
 
 ## Enregistrer votre propre voix
 

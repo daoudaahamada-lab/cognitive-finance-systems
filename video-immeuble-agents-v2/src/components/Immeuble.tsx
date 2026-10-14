@@ -169,8 +169,8 @@ export const camera = (f: number): Camera => {
     opacite: piste(f, [
       [COCKPIT.entree - 2, 1],
       [COCKPIT.entree + 14, 0],
-      [TRAVAUX.retour, 0],
-      [TRAVAUX.retour + 14, 1],
+      [TRAVAUX.retour + 4, 0],
+      [TRAVAUX.retour + 16, 1],
     ]),
     flou: 0,
   };
@@ -270,6 +270,8 @@ const PiecesEnTravaux: React.FC<{f: number}> = ({f}) => (
 );
 
 // L'avatar de la capture est effacé quand l'avatar 3D prend le relais.
+// Raccord dans l'axe : à l'image de bascule, la caméra 3D et celle de l'immeuble coïncident,
+// donc le personnage et son étiquette sont remplacés d'un coup, sans fondu ni double image.
 const EffaceDaouda: React.FC<{opacite: number}> = ({opacite}) => (
   <>
     {DAOUDA.masque.map((m, k) => (
@@ -329,7 +331,7 @@ export const Immeuble: React.FC<{f: number}> = ({f}) => {
                 </>
               ) : null}
               {i === IDX_WEALTH && f >= TRAVAUX.clignotes[0] - 1 && f < RECUL.fin ? <PiecesEnTravaux f={f} /> : null}
-              {i === IDX_RDC && f >= FINAL.bascule ? <EffaceDaouda opacite={prog(f, FINAL.bascule, 12, easeInOut)} /> : null}
+              {i === IDX_RDC && f >= FINAL.bascule ? <EffaceDaouda opacite={1} /> : null}
             </div>
           );
         })}

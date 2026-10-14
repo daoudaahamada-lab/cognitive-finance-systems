@@ -47,12 +47,12 @@ export const LumiereFinale: React.FC<{f: number}> = ({f}) => {
 export const PlanFinal: React.FC<{f: number}> = ({f}) => {
   if (f < FINAL.bascule - 1) return null;
   const plan = planAvatar(f);
-  const opacite = prog(f, FINAL.bascule, 12, easeInOut);
+  const opacite = f >= FINAL.bascule ? 1 : 0;
   const t = avancement3D(f);
   const respiration = Math.sin(f / 22);
   const tete = Math.sin(f / 47) * 0.5 * clamp01((f - FINAL.arrivee + 30) / 40);
   // étiquette du joueur, comme dans le jeu, au-dessus de la tête
-  const nom = prog(f, FINAL.bascule, 8, easeInOut);
+  const nom = f >= FINAL.bascule ? 1 : 0;
   const pos = projeter(plan, [0, 2.22 + 0.23 * (1 - t), 0]);
   const vignette = prog(f, FINAL.bascule + 10, 40, easeInOut);
   return (
@@ -70,7 +70,9 @@ export const PlanFinal: React.FC<{f: number}> = ({f}) => {
             position: 'absolute',
             left: pos.x,
             top: pos.y,
-            transform: 'translate(-50%, -100%)',
+            // même taille que l'étiquette de la capture au moment de la bascule
+            transform: `translate(-50%, -100%) scale(${1.23 - 0.23 * t})`,
+            transformOrigin: '50% 100%',
             opacity: nom,
             background: '#1c1d22',
             color: '#fff',
