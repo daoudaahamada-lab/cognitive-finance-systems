@@ -1,0 +1,22 @@
+{
+  "name": "video-immeuble-agents",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Video motion design verticale : J'ai mis ma vie dans un immeuble d'agents.",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render ImmeubleAgents out/immeuble-agents.mp4",
+    "still": "remotion still ImmeubleAgents out/apercu.png --frame=60"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.529",
+    "@remotion/fonts": "4.0.529",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "remotion": "4.0.529"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.12",
+    "typescript": "5.9.2"
+  }
+}

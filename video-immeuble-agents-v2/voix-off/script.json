@@ -1,0 +1,116 @@
+[
+  {
+    "id": "L01",
+    "etape": 1,
+    "texte": "J’ai toujours plusieurs projets en même temps.",
+    "prononciation": "J'ai toujours plusieurs projets en même temps."
+  },
+  {
+    "id": "L02",
+    "etape": 1,
+    "texte": "Prendre soin de ma santé, faire croître mon patrimoine, développer mon business… et plusieurs autres idées, pas tout à fait ordonnées.",
+    "prononciation": "Prendre soin de ma santé, faire croître mon patrimoine, développer mon business... et plusieurs autres idées, pas tout à fait ordonnées."
+  },
+  {
+    "id": "L03",
+    "etape": 1,
+    "texte": "Tout avance en parallèle… mais j’ai besoin de clarté pour savoir où mettre mon énergie.",
+    "prononciation": "Tout avance en parallèle... mais j'ai besoin de clarté pour savoir où mettre mon énergie."
+  },
+  {
+    "id": "L04",
+    "etape": 2,
+    "texte": "Alors j’ai imaginé ma vie comme un immeuble.",
+    "prononciation": "Alors, j'ai imaginé ma vie comme un immeuble."
+  },
+  {
+    "id": "L05",
+    "etape": 2,
+    "texte": "Un immeuble que je construis, étage par étage.",
+    "prononciation": "Un immeuble que je construis, étage par étage."
+  },
+  {
+    "id": "L06",
+    "etape": 3,
+    "texte": "Chaque étage, c’est un domaine de ma vie.",
+    "prononciation": "Chaque étage, c'est un domaine de ma vie."
+  },
+  {
+    "id": "L07",
+    "etape": 3,
+    "texte": "Et chacun est piloté par son propre agent IA.",
+    "prononciation": "Et chacun est piloté par son propre agent, i, a."
+  },
+  {
+    "id": "L08",
+    "etape": 3,
+    "texte": "À l’intérieur, chaque salle a son sous-agent, avec une mission précise.",
+    "prononciation": "À l'intérieur, chaque salle a son sous-agent, avec une mission précise."
+  },
+  {
+    "id": "L09",
+    "etape": 4,
+    "texte": "Mes projets ont un objectif.",
+    "prononciation": "Mes projets ont un objectif."
+  },
+  {
+    "id": "L10",
+    "etape": 4,
+    "texte": "Et cet objectif se découpe en tâches concrètes.",
+    "prononciation": "Et cet objectif se découpe en tâches concrètes."
+  },
+  {
+    "id": "L11",
+    "etape": 4,
+    "texte": "Quand j’en valide une, je gagne des crédits.",
+    "prononciation": "Quand j'en valide une, je gagne des crédits."
+  },
+  {
+    "id": "L12",
+    "etape": 4,
+    "texte": "Et ces crédits font avancer la construction.",
+    "prononciation": "Et ces crédits font avancer la construction."
+  },
+  {
+    "id": "L13",
+    "etape": 5,
+    "texte": "Au quotidien, je garde un œil sur mes objectifs du jour,",
+    "prononciation": "Au quotidien, je garde un œil sur mes objectifs du jour,"
+  },
+  {
+    "id": "L14",
+    "etape": 5,
+    "texte": "sur les chantiers en cours…",
+    "prononciation": "sur les chantiers en cours,"
+  },
+  {
+    "id": "L15",
+    "etape": 5,
+    "texte": "et sur les domaines qui demandent plus d’attention.",
+    "prononciation": "et sur les domaines qui demandent plus d'attention."
+  },
+  {
+    "id": "L16",
+    "etape": 6,
+    "texte": "Je ne gère plus seulement des tâches.",
+    "prononciation": "Je ne gère plus seulement des tâches."
+  },
+  {
+    "id": "L17",
+    "etape": 6,
+    "texte": "Je vois ce que je construis. Et je sais où j’en suis.",
+    "prononciation": "Je vois ce que je construis. Et je sais où j'en suis."
+  },
+  {
+    "id": "L18",
+    "etape": 6,
+    "texte": "Je joue au jeu de la vie.",
+    "prononciation": "Je joue au jeu de la vie."
+  },
+  {
+    "id": "L19",
+    "etape": 6,
+    "texte": "Et chaque action me rapproche de l’immeuble que je veux construire.",
+    "prononciation": "Et chaque action me rapproche de l'immeuble que je veux construire."
+  }
+]
