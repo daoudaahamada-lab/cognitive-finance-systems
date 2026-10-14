@@ -12,38 +12,55 @@ export const TOUR = {debut: 92, decalage: 9, chute: 20};
 export const chuteEtage = (i: number) => TOUR.debut + (4 - i) * TOUR.decalage; // S1 d'abord, Health en dernier
 export const PLONGEE = {debut: 180, fin: 205};
 export const ARRETS = [205, 240, 277, 314, 351]; // arrivée de la caméra sur chaque étage
-export const TRAJET = 12; // durée d'un trajet d'ascenseur
+export const TRAJET = 20; // durée d'un trajet d'ascenseur
 
 // 3. Une salle s'ouvre
-export const SALLE = {remontee: [375, 398], zoom: [400, 432], anneau: 428, panneau: 446, surlignages: [480, 500, 520], defile: 520, sortie: 552};
+export const SALLE = {
+  remontee: [368, 400], // S1 -> étage 1
+  zoom: [400, 432],
+  anneau: 428,
+  panneau: 446,
+  surlignages: [462, 490, 504], // Sous-agent, Projet, Tâches
+  defile: 510,
+  sortie: 552,
+};
 
-// 4. Les pièces en travaux
-export const TRAVAUX = {transition: [556, 594], clignotes: [600, 616, 632], tous: [664, 722], panneau: 650, marqueur: 670, cuisine: 680, defile: 690, sortie: 752};
+// 4. Les pièces en travaux : chaque pièce clignote avec son badge dans le panneau
+export const TRAVAUX = {
+  transition: [556, 594],
+  panneau: 596,
+  marqueur: 604, // "9 pièces en travaux" passé au surligneur
+  defile: 624, // le panneau descend jusqu'à la section Wealth
+  clignotes: [658, 678, 698], // Architect, Build, Run
+  tous: 718,
+  sortiePanneau: 740,
+  sortie: 752,
+};
 
-// 5. Tableau de bord
+// 5. Tableau de bord : captures 10 (Projets) puis 09 (Aujourd'hui), puis compteurs
 export const COCKPIT = {
-  entree: 752,
-  bascules: [806, 834], // Projets -> Atelier -> Aujourd'hui
-  zoom: 850,
-  morphose: 868,
-  vecteur: 886,
+  entree: 762,
+  bascule: 822, // Projets -> Aujourd'hui
+  zoom: 846,
+  morphose: 872,
+  vecteur: 880,
   invitations: [916, 928, 940],
   relances: [952],
   commentaires: [966, 972, 978, 984, 990],
   post: [1004],
-  serie: [954],
-  sortie: 1035,
+  serie: [962],
+  sortie: 1035, // la carte se replie en téléphone jusqu'à FIN.telephone
 };
 
 // 6. Fin
-export const FIN = {telephone: 1042, ligne1: 1066, ligne2: 1088, recentrage: 1150};
+export const FIN = {telephone: 1062, ligne1: 1066, ligne2: 1088, recentrage: 1140};
 
-// Légendes du haut d'écran
+// Légendes du haut d'écran : la suivante entre au moins 14 images après la sortie de la précédente.
 export const LEGENDES = {
-  etages: [100, 370],
-  salles: [380, 462],
-  bureaux: [472, 552],
-  travaux: [562, 744],
+  etages: [100, 366],
+  salles: [380, 472],
+  bureaux: [486, 552],
+  travaux: [566, 744],
   cockpit: [758, 1030],
 } as const;
 

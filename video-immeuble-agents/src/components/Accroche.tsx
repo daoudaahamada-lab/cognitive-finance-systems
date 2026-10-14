@@ -32,7 +32,7 @@ export const Accroche: React.FC<{f: number}> = ({f}) => {
       {lignes.map((l, i) => {
         const derniere = i === lignes.length - 1;
         return (
-          <LigneMasquee key={l} f={f} entree={1 + i * 5} sortie={ACCROCHE.sortie + i * 3} style={{paddingBottom: '0.2em', marginBottom: '-0.2em'}}>
+          <LigneMasquee key={l} f={f} entree={-10 + i * 5} sortie={ACCROCHE.sortie + i * 3} style={{paddingBottom: '0.2em', marginBottom: '-0.2em'}}>
             <span style={{position: 'relative', display: 'inline-block'}}>
               {l}
               {derniere ? (

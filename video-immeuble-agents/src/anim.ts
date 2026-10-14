@@ -3,6 +3,8 @@ import {Easing, interpolate} from 'remotion';
 export const easeInOut = Easing.bezier(0.65, 0, 0.35, 1);
 export const easeOut = Easing.bezier(0.22, 1, 0.36, 1);
 export const easeIn = Easing.bezier(0.55, 0, 1, 0.45);
+// Courbe plus douce pour les grands déplacements (trajets d'ascenseur, glissements).
+export const easeDouce = Easing.bezier(0.45, 0, 0.55, 1);
 
 export type Cle = readonly [frame: number, valeur: number];
 

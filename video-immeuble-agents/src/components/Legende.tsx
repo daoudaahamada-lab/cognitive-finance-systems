@@ -12,7 +12,7 @@ export const LigneMasquee: React.FC<{
 }> = ({entree, sortie, f, style, children}) => {
   const p = prog(f, entree, 18, easeOut);
   const q = sortie === undefined ? 0 : prog(f, sortie, 12, easeIn);
-  const y = (1 - p) * 110 - q * 110;
+  const y = (1 - p) * 130 - q * 130;
   return (
     <div style={{overflow: 'hidden', paddingBottom: '0.12em', marginBottom: '-0.12em', ...style}}>
       <div style={{transform: `translateY(${y}%)`, whiteSpace: 'nowrap'}}>{children}</div>
@@ -44,7 +44,7 @@ export const Legende: React.FC<{
             gap: 14,
           }}
         >
-          <span style={{width: 28, height: 4, borderRadius: 2, background: C.accent}} />
+          <span style={{width: 12, height: 12, borderRadius: 6, background: C.accent, flexShrink: 0}} />
           {kicker}
         </div>
       </LigneMasquee>

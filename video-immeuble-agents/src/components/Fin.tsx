@@ -1,47 +1,44 @@
 import React from 'react';
-import {Img, staticFile} from 'remotion';
-import {easeIn, easeInOut, easeOut, piste, prog} from '../anim';
-import {CAPTURES, TEXTES} from '../data';
+import {easeIn, easeInOut, piste, prog} from '../anim';
+import {TEXTES} from '../data';
 import {C, MARGE, SANS} from '../theme';
 import {FIN} from '../timeline';
+import {TELEPHONE} from './Cockpit';
+import {EcranMobile} from './EcranMobile';
 import {LigneMasquee} from './Legende';
 
-const ECRAN_L = 540;
-const ECRAN_H = Math.round((540 * 2532) / 1170); // 1169
-const CADRE = 12;
-
 // Scène 6 : la version mobile (capture 12), puis la phrase de chute.
+// Le téléphone naît du repli de la carte du cockpit (voir Cockpit.tsx) : il est déjà en place ici.
 export const Fin: React.FC<{f: number}> = ({f}) => {
-  const entree = prog(f, FIN.telephone, 32, easeOut);
-  const sortie = prog(f, FIN.recentrage, 24, easeIn);
-  const zoom = 1 + 0.06 * prog(f, FIN.telephone, 120, easeInOut);
+  const sortie = prog(f, FIN.recentrage, 14, easeIn);
+  // lente poussée sur tout le téléphone (l'écran garde son cadrage)
+  const zoom = 1 + 0.04 * prog(f, FIN.telephone, FIN.recentrage - FIN.telephone, easeInOut);
   const topTexte = piste(f, [
-    [FIN.recentrage, 150],
-    [FIN.recentrage + 30, 790],
+    [FIN.recentrage + 8, 150],
+    [FIN.recentrage + 38, 790],
   ]);
-  const largeur = ECRAN_L + CADRE * 2;
+  const T = TELEPHONE;
   return (
     <>
-      {sortie < 1 ? (
+      {f >= FIN.telephone && sortie < 1 ? (
         <div
           style={{
             position: 'absolute',
-            left: (1080 - largeur) / 2,
-            top: 560 + (1 - entree) * 1400 + sortie * 260,
-            width: largeur,
-            height: ECRAN_H + CADRE * 2,
-            borderRadius: 78,
-            background: '#15161a',
-            padding: CADRE,
-            boxShadow: '0 50px 100px rgba(30, 24, 14, 0.25), 0 10px 24px rgba(30, 24, 14, 0.12)',
+            left: T.left,
+            top: T.top + sortie * 260,
+            width: T.largeur,
+            height: T.hauteur,
+            boxSizing: 'border-box',
+            borderRadius: T.rayon,
+            background: T.fond,
+            boxShadow: '0 40px 90px rgba(20, 16, 10, 0.26), 0 8px 20px rgba(20, 16, 10, 0.12)',
             opacity: 1 - sortie,
+            transform: `scale(${zoom})`,
+            transformOrigin: '50% 50%',
           }}
         >
-          <div style={{width: ECRAN_L, height: ECRAN_H, borderRadius: 66, overflow: 'hidden', background: C.fond}}>
-            <Img
-              src={staticFile(CAPTURES.mobileQG)}
-              style={{width: ECRAN_L, height: ECRAN_H, transform: `scale(${zoom})`, transformOrigin: '50% 55%'}}
-            />
+          <div style={{position: 'absolute', inset: T.cadre, borderRadius: T.rayonEcran, overflow: 'hidden', background: C.fond}}>
+            <EcranMobile largeur={T.largeur - T.cadre * 2} hauteur={T.hauteur - T.cadre * 2} />
           </div>
         </div>
       ) : null}

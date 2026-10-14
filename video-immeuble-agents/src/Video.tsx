@@ -5,12 +5,12 @@ import {Ascenseur} from './components/Ascenseur';
 import {PanneauTravaux} from './components/Chantier';
 import {Cockpit} from './components/Cockpit';
 import {Fin} from './components/Fin';
-import {EtiquettesTour, Immeuble} from './components/Immeuble';
+import {EtiquettesTour, EtiquettesTravaux, Immeuble} from './components/Immeuble';
 import {Legende} from './components/Legende';
 import {PanneauSales} from './components/Salle';
 import {TEXTES} from './data';
 import {C} from './theme';
-import {DUREE_TOTALE, LEGENDES} from './timeline';
+import {COCKPIT, DUREE_TOTALE, FIN, LEGENDES, TRAVAUX} from './timeline';
 
 export type VideoProps = {
   // Chemin d'un fichier audio dans public/ (ex. "musique.mp3"). Vide = vidéo muette.
@@ -27,10 +27,11 @@ export const ImmeubleAgents: React.FC<VideoProps> = ({musique}) => {
       {f >= 88 && f < 790 ? <Immeuble f={f} /> : null}
       {f >= 100 && f < 196 ? <EtiquettesTour f={f} /> : null}
       {f >= 180 && f < 430 ? <Ascenseur f={f} /> : null}
+      {f >= TRAVAUX.panneau && f < TRAVAUX.sortie + 14 ? <EtiquettesTravaux f={f} /> : null}
       {f >= 440 && f < 580 ? <PanneauSales f={f} /> : null}
-      {f >= 645 && f < 780 ? <PanneauTravaux f={f} /> : null}
-      {f >= 750 && f < 1062 ? <Cockpit f={f} /> : null}
-      {f >= 1036 ? <Fin f={f} /> : null}
+      {f >= TRAVAUX.panneau && f < TRAVAUX.sortiePanneau + 20 ? <PanneauTravaux f={f} /> : null}
+      {f >= COCKPIT.entree && f < FIN.telephone ? <Cockpit f={f} /> : null}
+      {f >= FIN.telephone - 4 ? <Fin f={f} /> : null}
 
       <Legende f={f} entree={L.etages[0]} sortie={L.etages[1]} {...TEXTES.etages} />
       <Legende f={f} entree={L.salles[0]} sortie={L.salles[1]} {...TEXTES.salles} />

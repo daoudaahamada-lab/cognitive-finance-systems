@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolateColors} from 'remotion';
-import {clamp01, easeIn, easeOut, piste, prog} from '../anim';
+import {clamp01, easeDouce, easeIn, easeOut, piste, prog} from '../anim';
 import {ETAGES} from '../data';
 import {C, MONO, SANS} from '../theme';
 import {clesEtage, PLONGEE, SALLE} from '../timeline';
@@ -11,7 +11,7 @@ const RANG = 98;
 
 // Carte "Ascenseur" reprise de l'application : la sélection suit la caméra.
 export const Ascenseur: React.FC<{f: number}> = ({f}) => {
-  const position = piste(f, clesEtage);
+  const position = f < PLONGEE.fin ? 0 : piste(f, clesEtage, easeDouce);
   const entree = prog(f, PLONGEE.debut + 6, 26, easeOut);
   const sortie = prog(f, SALLE.zoom[0], 22, easeIn);
   const dy = (1 - entree) * 760 + sortie * 760;

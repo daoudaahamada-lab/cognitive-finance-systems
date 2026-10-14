@@ -17,8 +17,12 @@ export const PanneauCapture: React.FC<{
   hauteur: number;
   defile: number;
   dy: number;
+  // filtre CSS appliqué à la capture (ex. pour blanchir les reflets d'un panneau translucide)
+  filtre?: string;
+  // fond dégradé en bas de fenêtre : la liste se fond dans la carte au lieu d'être coupée net
+  fonduBas?: boolean;
   children?: React.ReactNode;
-}> = ({src, decoupe, left, top, largeur, hauteur, defile, dy, children}) => {
+}> = ({src, decoupe, left, top, largeur, hauteur, defile, dy, filtre, fonduBas = true, children}) => {
   const k = largeur / decoupe.w;
   return (
     <div
@@ -48,10 +52,22 @@ export const PanneauCapture: React.FC<{
       >
         <Img
           src={staticFile(src)}
-          style={{position: 'absolute', left: -decoupe.x, top: -decoupe.y, width: CAPTURE_W, height: CAPTURE_H}}
+          style={{position: 'absolute', left: -decoupe.x, top: -decoupe.y, width: CAPTURE_W, height: CAPTURE_H, filter: filtre}}
         />
         {children}
       </div>
+      {fonduBas ? (
+        <div
+          style={{
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            bottom: 0,
+            height: 90,
+            background: `linear-gradient(to bottom, rgba(250, 249, 246, 0), ${C.carte})`,
+          }}
+        />
+      ) : null}
     </div>
   );
 };

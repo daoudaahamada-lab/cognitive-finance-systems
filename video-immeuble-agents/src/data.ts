@@ -39,8 +39,13 @@ export const CAPTURES = {
   cockpitProjets: 'captures/10-cockpit-projets.png',
   cockpitAtelier: 'captures/11-cockpit-atelier.png',
   mobileQG: 'captures/12-mobile-qg.png',
-  mobileCockpit: 'captures/13-mobile-cockpit.png',
+  mobileCockpit: 'captures/13-mobile-cockpit.png', // référence du cockpit recréé, non affichée
 } as const;
+
+// Capture mobile 12 : l'onglet du rez-de-chaussée s'appelle encore "Main" dans l'app.
+// On le renomme comme le brief ("SMART"). Mettre `actif: false` pour garder la capture telle quelle.
+export const MOBILE = {w: 1170, h: 2532};
+export const ONGLET_RDC_MOBILE = {actif: true, texte: 'SMART', x: 735, y: 2410, w: 133, h: 44, fond: 'rgb(233, 232, 230)', encre: 'rgb(27, 29, 34)', taille: 33};
 
 export const CAPTURE_W = 3200;
 export const CAPTURE_H = 1800;
@@ -73,21 +78,24 @@ export const zoneUV = (u0: number, u1: number, v0: number, v1: number) =>
 
 // --- Étage Business : salle Sales ---
 export const PILLULE_SALES = {x: 1860, y: 638, w: 320, h: 47};
-export const CENTRE_SALES = {x: 1990, y: 790};
+export const CENTRE_SALES = {x: 2045, y: 790};
 
 // Panneau "Sales" (capture 07) : découpe et zones à surligner (coordonnées locales au panneau).
 export const PANNEAU = {x: 2320, y: 170, w: 851, h: 1603};
 export const SURLIGNAGES_SALES = [
-  {x: 20, y: 22, w: 790, h: 165, label: 'Sous-agent'},
-  {x: 22, y: 392, w: 812, h: 138, label: 'Projet'},
-  {x: 22, y: 562, w: 812, h: 868, label: 'Tâches'},
+  {x: 22, y: 30, w: 812, h: 160, label: 'Sous-agent'},
+  {x: 22, y: 392, w: 812, h: 142, label: 'Projet'},
+  {x: 22, y: 566, w: 812, h: 864, label: 'Tâches'},
 ] as const;
+// Bouton "×" de la capture 07, masqué sous le cadre "Sous-agent".
+export const BOUTON_FERMER_SALES = {x: 760, y: 22, w: 72, h: 72};
 
 // --- Étage Wealth : pièces en travaux ---
+// `etiquette` : centre de l'étiquette d'origine, recouverte par une étiquette lisible sur téléphone.
 export const PIECES_WEALTH = [
-  {nom: 'Architect', zone: zoneUV(0.05, 0.5, 0.05, 0.44), pillule: {x: 1783, y: 473, w: 125, h: 27}},
-  {nom: 'Build', zone: zoneUV(0.55, 0.95, 0.05, 0.44), pillule: {x: 2353, y: 780, w: 124, h: 27}},
-  {nom: 'Run', zone: zoneUV(0.05, 0.95, 0.5, 0.95), pillule: {x: 1627, y: 847, w: 123, h: 26}},
+  {nom: 'Architect', zone: zoneUV(0.05, 0.5, 0.05, 0.44), pillule: {x: 1783, y: 473, w: 125, h: 27}, etiquette: {x: 1687, y: 485, w: 480}},
+  {nom: 'Build', zone: zoneUV(0.55, 0.95, 0.05, 0.44), pillule: {x: 2353, y: 780, w: 124, h: 27}, etiquette: {x: 2271, y: 791, w: 443}},
+  {nom: 'Run', zone: zoneUV(0.05, 0.95, 0.5, 0.95), pillule: {x: 1627, y: 847, w: 123, h: 26}, etiquette: {x: 1558, y: 858, w: 433}},
 ] as const;
 
 // Badges "EN TRAVAUX" du panneau (capture 08), coordonnées locales au panneau.

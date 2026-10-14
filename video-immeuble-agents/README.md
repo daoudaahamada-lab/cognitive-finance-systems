@@ -7,6 +7,9 @@ Tout est en code : textes, minutage, caméra, surbrillances. L’export MP4 se f
 
 Prérequis : Node.js 18 ou plus récent.
 
+**Déposez d’abord les 13 captures dans `public/captures/`**, avec les noms du tableau « Captures » plus bas.
+Elles ne sont pas versionnées (le dépôt est public) et le rendu échoue sans elles.
+
 ```bash
 npm install
 npm run studio      # aperçu interactif dans le navigateur (timeline, lecture image par image)
@@ -14,9 +17,9 @@ npm run render      # export MP4 -> out/immeuble-agents.mp4
 ```
 
 Le premier rendu télécharge automatiquement le navigateur de rendu de Remotion.
-Les polices (Inter, JetBrains Mono, licence SIL OFL) sont embarquées dans `public/fonts` : aucun accès réseau n’est nécessaire pendant le rendu.
+Les polices (Inter, JetBrains Mono, licence SIL OFL) sont embarquées dans `public/fonts` : hormis ce téléchargement initial, aucun accès réseau n’est nécessaire.
 
-Export H.264, `yuv420p`, CRF 16 : le fichier se lit partout (LinkedIn, Instagram, TikTok, iPhone).
+Export H.264, `yuv420p`, BT.709, CRF 16 : le fichier se lit partout (LinkedIn, Instagram, TikTok, iPhone).
 
 ### Ajouter une musique
 
@@ -26,6 +29,9 @@ Déposez un fichier dans `public/` (par exemple `public/musique.mp3`), puis :
 npx remotion render ImmeubleAgents out/immeuble-agents.mp4 --props='{"musique":"musique.mp3"}'
 ```
 
+Sous Windows, mettez plutôt `{"musique":"musique.mp3"}` dans un fichier `props.json` à la racine du projet et lancez
+`npx remotion render ImmeubleAgents out/immeuble-agents.mp4 --props=props.json`.
+
 Le son monte en 0,5 s au début et redescend sur la dernière seconde et demie.
 
 ## Déroulé
@@ -34,11 +40,11 @@ Le son monte en 0,5 s au début et redescend sur la dernière seconde et demie.
 |---|---|---|---|
 | 0 à 3 s | Accroche | | « J’ai mis ma vie dans un immeuble d’agents. » en très gros, trait bleu sous « d’agents ». |
 | 3 à 6 s | L’immeuble apparaît | 02 à 06 | Les 5 étages se posent l’un sur l’autre, du sous-sol au dernier étage. Légende : « Chaque étage est un agent. » |
-| 6 à 12,5 s | Descente en ascenseur | 02 à 06 | La caméra plonge sur Health puis descend étage par étage. La carte Ascenseur suit la caméra. |
-| 12,5 à 18,5 s | Une salle s’ouvre | 04, 07 | Remontée au 1er, zoom sur la salle Sales, son panneau s’ouvre : sous-agent, projet, tâches. |
-| 18,5 à 25 s | Le chantier | 03, 08 | Les pièces en travaux de Wealth clignotent en jaune, le panneau « Ce qui est en travaux » défile. |
-| 25 à 34,5 s | Le cockpit | 09, 10, 11 | Aperçu des écrans Projets, Atelier, Aujourd’hui, puis les compteurs du jour montent (+1, +1, +1) jusqu’à 3/3 objectifs. |
-| 34,5 à 40,5 s | Fin | 12 | La version mobile dans un téléphone, puis « Mon système tourne. Moi, je prospecte. » |
+| 6 à 12,3 s | Descente en ascenseur | 02 à 06 | La caméra plonge sur Health puis descend étage par étage. La carte Ascenseur suit la caméra. |
+| 12,3 à 18,5 s | Une salle s’ouvre | 04, 07 | Remontée au 1er, zoom sur la salle Sales, son panneau s’ouvre : sous-agent, projet, tâches. |
+| 18,5 à 25 s | Le chantier | 03, 08 | Le panneau « Ce qui est en travaux » descend jusqu’à Wealth, puis chaque pièce clignote en jaune en même temps que son badge. |
+| 25 à 34,5 s | Le cockpit | 10, 09 | Aperçu des écrans Projets puis Aujourd’hui, puis les compteurs du jour montent (+1, +1, +1) jusqu’à 3/3 objectifs. |
+| 34,5 à 40,5 s | Fin | 12 | La carte du cockpit se replie en téléphone (version mobile), puis « Mon système tourne. Moi, je prospecte. » |
 
 ## Où modifier quoi
 
@@ -49,13 +55,14 @@ Le son monte en 0,5 s au début et redescend sur la dernière seconde et demie.
 | `src/theme.ts` | Couleurs (accent bleu `#2f6bff`, fond, cockpit sombre) et polices. |
 | `src/components/` | Une scène par fichier : `Accroche`, `Immeuble` (caméra et étages), `Ascenseur`, `Salle`, `Chantier`, `Cockpit`, `Fin`. |
 
-Le rez-de-chaussée s’appelle **SMART** dans la vidéo, comme dans le brief (la capture affiche encore « Main ») : changez `nom` dans `ETAGES` si besoin.
+Le rez-de-chaussée s’appelle **SMART** dans la vidéo, comme dans le brief, alors que l’application affiche encore « Main ».
+Changez `nom` dans `ETAGES` si besoin. Sur la capture mobile 12, l’onglet « Main » est recouvert par « SMART » : réglez `ONGLET_RDC_MOBILE.actif` dans `src/data.ts` pour garder la capture telle quelle.
 
 Pour garder la règle « pas de tiret cadratin », utilisez des virgules, deux-points ou le point médian `·` dans les textes.
 
 ## Captures
 
-Les captures d’origine sont dans `public/captures/`, renommées par rôle :
+Les captures vont dans `public/captures/` (non versionnées, voir `public/captures/LISEZMOI.md`), renommées par rôle :
 
 | Fichier | Contenu |
 |---|---|
@@ -69,7 +76,7 @@ Les captures d’origine sont dans `public/captures/`, renommées par rôle :
 | `08-travaux.png` | Panneau « Ce qui est en travaux » |
 | `09-cockpit-aujourdhui.png` | Cockpit, onglet Aujourd’hui |
 | `10-cockpit-projets.png` | Cockpit, onglet Projets |
-| `11-cockpit-atelier.png` | Cockpit, onglet Atelier |
+| `11-cockpit-atelier.png` | Cockpit, onglet Atelier (non utilisée) |
 | `12-mobile-qg.png` | QG sur mobile |
 | `13-mobile-cockpit.png` | Cockpit sur mobile (référence du cockpit recréé en vectoriel) |
 

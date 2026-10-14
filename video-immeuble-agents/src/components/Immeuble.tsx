@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, Img, staticFile} from 'remotion';
-import {clamp01, clignote, easeIn, easeOut, piste, prog} from '../anim';
+import {clamp01, clignote, easeDouce, easeIn, easeOut, piste, prog} from '../anim';
 import {
   CAPTURE_H,
   CAPTURE_W,
@@ -45,7 +45,7 @@ export const camera = (f: number): Camera => ({
     [TRAVAUX.sortie, 0.42],
     [TRAVAUX.sortie + 32, 0.36],
   ]),
-  etage: piste(f, clesEtage),
+  etage: piste(f, clesEtage, easeDouce),
   lx: piste(f, [
     [SALLE.zoom[0], CENTRE_ETAGE.x],
     [SALLE.zoom[1], CENTRE_SALES.x],
@@ -80,13 +80,11 @@ export const camera = (f: number): Camera => ({
   ]),
   voisins: piste(f, [
     [PLONGEE.debut, 1],
-    [PLONGEE.fin, 0.2],
-    [SALLE.remontee[1], 0.2],
-    [SALLE.zoom[0] + 16, 0],
+    [PLONGEE.fin, 0],
   ]),
   opacite: piste(f, [
-    [TRAVAUX.sortie, 1],
-    [TRAVAUX.sortie + 28, 0],
+    [TRAVAUX.sortie - 8, 1],
+    [TRAVAUX.sortie + 12, 0],
   ]),
 });
 
@@ -128,11 +126,9 @@ const AnneauSales: React.FC<{f: number}> = ({f}) => {
   );
 };
 
-export const intensitePiece = (f: number, k: number) => {
-  const seule = clignote(f, TRAVAUX.clignotes[k], 2, 14);
-  const ensemble = Math.max(clignote(f, TRAVAUX.tous[0], 2, 16), clignote(f, TRAVAUX.tous[1], 2, 14));
-  return Math.max(seule, ensemble);
-};
+// Une impulsion par pièce (synchronisée avec son badge dans le panneau), puis toutes ensemble.
+export const intensitePiece = (f: number, k: number) =>
+  Math.max(clignote(f, TRAVAUX.clignotes[k], 1, 18), clignote(f, TRAVAUX.tous, 2, 11));
 
 const PiecesEnTravaux: React.FC<{f: number}> = ({f}) => (
   <>
@@ -201,8 +197,10 @@ export const Immeuble: React.FC<{f: number}> = ({f}) => {
       <div style={{position: 'absolute', left: 0, top: 0, transformOrigin: '0 0', transform: `translate(${tx}px, ${ty}px) scale(${c.s})`}}>
         {ETAGES.map((e, i) => {
           const p = chute(f, i);
-          const distance = Math.min(1, Math.abs(i - c.etage));
-          const visible = clamp01(p * 2.5) * (1 - distance * (1 - c.voisins));
+          const d = Math.abs(i - c.etage);
+          const quitte = f >= TRAVAUX.transition[0] && i > c.etage;
+          const distance = Math.min(1, quitte ? d * 1.8 : d);
+          const visible = clamp01(p * 2.5) * (1 - clamp01((distance - 0.6) / 0.4) * (1 - c.voisins));
           if (visible <= 0.001) return null;
           return (
             <div
@@ -220,7 +218,7 @@ export const Immeuble: React.FC<{f: number}> = ({f}) => {
             >
               <Img src={staticFile(e.capture)} style={{position: 'absolute', left: 0, top: 0, width: CAPTURE_W, height: CAPTURE_H}} />
               {i === IDX_BUSINESS && f >= SALLE.anneau ? <AnneauSales f={f} /> : null}
-              {i === IDX_WEALTH && f >= TRAVAUX.clignotes[0] ? <PiecesEnTravaux f={f} /> : null}
+              {i === IDX_WEALTH && f >= TRAVAUX.clignotes[0] - 1 ? <PiecesEnTravaux f={f} /> : null}
             </div>
           );
         })}
@@ -269,6 +267,46 @@ export const EtiquettesTour: React.FC<{f: number}> = ({f}) => {
               {e.numero}
             </span>
             <span style={{fontSize: 40, fontWeight: 800, letterSpacing: '-0.02em', color: C.encre}}>{e.nom}</span>
+          </div>
+        );
+      })}
+    </AbsoluteFill>
+  );
+};
+
+// Noms des pièces en travaux, lisibles sur téléphone (posés sur les étiquettes d'origine).
+export const EtiquettesTravaux: React.FC<{f: number}> = ({f}) => {
+  const c = camera(f);
+  const entree = prog(f, TRAVAUX.panneau, 16, easeOut);
+  return (
+    <AbsoluteFill style={{fontFamily: SANS, opacity: c.opacite * entree}}>
+      {PIECES_WEALTH.map((piece, k) => {
+        const v = intensitePiece(f, k);
+        const pos = versEcran(c, IDX_WEALTH, piece.etiquette.x, piece.etiquette.y);
+        return (
+          <div
+            key={piece.nom}
+            style={{
+              position: 'absolute',
+              left: pos.x,
+              top: pos.y,
+              transform: `translate(-50%, -50%) scale(${1 + 0.08 * v})`,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 12,
+              minWidth: (piece.etiquette.w + 24) * c.s,
+              boxSizing: 'border-box',
+              padding: '10px 20px 10px 16px',
+              borderRadius: 999,
+              background: C.carte,
+              border: `3px solid ${v > 0.02 ? `rgba(242, 180, 0, ${0.35 + 0.65 * v})` : 'rgba(17,18,20,0.06)'}`,
+              boxShadow: `0 8px 22px rgba(40, 32, 20, 0.14), 0 0 0 ${10 * v}px rgba(242, 180, 0, ${0.25 * v})`,
+              whiteSpace: 'nowrap',
+            }}
+          >
+            <span style={{width: 14, height: 14, borderRadius: 7, background: C.travaux}} />
+            <span style={{fontSize: 32, fontWeight: 800, letterSpacing: '-0.02em', color: C.encre}}>{piece.nom}</span>
           </div>
         );
       })}
