@@ -12,13 +12,13 @@ const DUREES = durees as Record<string, number>;
 
 // Durée minimale (s) qu'il faut à l'image pour illustrer chaque phrase (les fichiers audio sont rognés, sans silence).
 const MINIMUM: Record<string, number> = {
-  L01: 2.6, L02: 3.6, L03: 5.6, L04: 3.0, L05: 3.4, L06: 2.8, L07: 3.4, L08: 5.0, L09: 2.6, L10: 3.0,
-  L11: 3.0, L12: 3.3, L13: 3.7, L14: 2.2, L15: 2.8, L16: 2.4, L17: 3.4, L18: 1.6, L19: 0,
+  L01: 2.0, L02: 3.0, L03: 4.6, L04: 2.4, L05: 2.8, L06: 2.2, L07: 2.9, L08: 4.3, L09: 2.0, L10: 2.5,
+  L11: 2.6, L12: 3.0, L13: 3.1, L14: 1.7, L15: 2.3, L16: 1.8, L17: 2.9, L18: 1.3, L19: 0,
 };
-const DEBUT = 1.0; // les cartes projets apparaissent avant la première phrase
-const PAUSE = 0.25; // entre deux phrases d'une même étape
-const PAUSE_ETAPE = 0.7; // entre deux étapes du récit
-const TENUE_FINALE = 3.0; // plan final sur l'avatar, sans texte
+const DEBUT = 0.6; // les cartes projets apparaissent avant la première phrase
+const PAUSE = 0.12; // entre deux phrases d'une même étape
+const PAUSE_ETAPE = 0.35; // entre deux étapes du récit
+const TENUE_FINALE = 2.2; // plan final sur l'avatar, sans texte
 
 export type Repere = {debut: number; finVoix: number; fin: number; duree: number};
 
