@@ -2,7 +2,7 @@
 
 Évolution de la vidéo d’origine (`../video-immeuble-agents/`, conservée intacte) : même identité visuelle, mêmes captures et mêmes animations, mais un récit en 6 étapes porté par une voix off, et un plan final sur l’avatar du joueur.
 
-Vertical **1080 x 1920, 30 i/s, environ 1 min 12 s**, avec [Remotion](https://www.remotion.dev) (React) et Three.js pour l’avatar.
+Vertical **1080 x 1920, 30 i/s, environ 59 s**, avec [Remotion](https://www.remotion.dev) (React) et Three.js pour l’avatar.
 
 ## Démarrer
 
@@ -24,7 +24,7 @@ L’avatar final est rendu en 3D par logiciel (`swangle`) : ça fonctionne sur t
 
 | Étape | Ce que raconte la voix | Ce que montre l’image |
 |---|---|---|
-| 1. Le point de départ | Plusieurs projets en parallèle, sans savoir où j’en suis. | Les vraies salles du jeu en pastilles éparpillées, qui finissent par s’emballer. |
+| 1. Le point de départ | Plusieurs projets en parallèle, et le besoin de clarté pour savoir où mettre son énergie. | Les vraies salles du jeu en pastilles éparpillées, qui finissent par s’emballer. |
 | 2. L’idée | Ma vie comme un immeuble que je construis. | Chaque pastille rejoint son étage, l’immeuble se construit sous nos yeux. |
 | 3. L’organisation | Un domaine par étage, un agent IA par étage, un sous-agent par salle. | Noms des étages, ascenseur où chaque étage reçoit son « Agent IA », salle Sales, son sous-agent et sa mission. |
 | 4. Le jeu | Objectif, tâches, validation, crédits, construction. | Panneau Sales : objectif, tâches, une tâche cochée (0/6 puis 1/6), +30 crédits qui rejoignent le compteur (330 puis 360), la salle passe de 0/17 à 1/17 et l’étage Business de 1 % à 2 %. |
@@ -36,13 +36,12 @@ Découpage complet (phrase, image, moment, mouvement, texte, transition) : **`vo
 ## La voix off
 
 - Texte : `voix-off/script.json`. Le champ `texte` sert aux sous-titres, le champ `prononciation` à la synthèse vocale.
-- La voix fournie est une **voix témoin** (synthèse Pico, `bash outils/voix-temoin.sh`). Elle sert à caler le montage, pas à publier.
+- La voix fournie est générée avec ElevenLabs (modèle v4, voix « Alexandre ») : `voix-off/prise-elevenlabs-v4.mp3` pour la prise complète, `voix-off/prise-elevenlabs-v4-L03.mp3` pour la phrase 3 réécrite ensuite. Une voix témoin (synthèse Pico, `bash outils/voix-temoin.sh`) reste disponible pour caler le montage hors ligne.
 - **Pour une vraie voix** :
   - **Une prise complète** : les 19 phrases dans l’ordre, avec une pause nette entre chacune. Lancez `python3 outils/decouper-prise.py prise.mp3`.
   - **Phrase par phrase** : déposez `L01.wav` à `L19.wav` dans `public/voix/` et lancez `bash outils/mesurer-voix.sh`.
 
   Puis `npm run render`. Les silences sont rognés et le montage se recale seul sur vos durées.
-- Un flow ElevenLabs « Voix off – Je joue au jeu de la vie » contient le texte prêt à générer, avec la voix « Sébastien E » et des pauses longues entre les phrases. La génération a été refusée parce que l’accès gratuit du compte est désactivé ; elle fonctionnera avec un abonnement payant. Téléchargez ensuite la prise et passez-la à `outils/decouper-prise.py`.
 - Musique facultative : `--props='{"voix":true,"sousTitres":true,"musique":"musique.mp3"}'` (fichier dans `public/`). Elle est automatiquement baissée sous la voix.
 
 ## Où modifier quoi
