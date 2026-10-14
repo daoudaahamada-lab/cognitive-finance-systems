@@ -6,12 +6,13 @@ import {C, MARGE, SANS} from '../theme';
 export const LigneMasquee: React.FC<{
   entree: number;
   sortie?: number;
+  dureeSortie?: number;
   f: number;
   style?: React.CSSProperties;
   children: React.ReactNode;
-}> = ({entree, sortie, f, style, children}) => {
+}> = ({entree, sortie, dureeSortie = 12, f, style, children}) => {
   const p = prog(f, entree, 18, easeOut);
-  const q = sortie === undefined ? 0 : prog(f, sortie, 12, easeIn);
+  const q = sortie === undefined ? 0 : prog(f, sortie, dureeSortie, easeIn);
   const y = (1 - p) * 130 - q * 130;
   return (
     <div style={{overflow: 'hidden', paddingBottom: '0.12em', marginBottom: '-0.12em', ...style}}>

@@ -4,7 +4,7 @@ import {Ascenseur} from './components/Ascenseur';
 import {CartesProjets} from './components/Cartes';
 import {CarteCockpit} from './components/Cockpit';
 import {Hud} from './components/Hud';
-import {EtiquetteSousAgent, EtiquettesTour, EtiquettesTravaux, Immeuble} from './components/Immeuble';
+import {EtiquetteSousAgent, EtiquettesTour, EtiquettesTravaux, Immeuble, ProgressionEtage} from './components/Immeuble';
 import {LumiereFinale, PlanFinal} from './components/PlanFinal';
 import {JetonCredits, PanneauSales} from './components/Salle';
 import {SousTitres} from './components/SousTitres';
@@ -51,6 +51,7 @@ export const ImmeubleAgentsV2: React.FC<VideoProps> = ({voix, sousTitres, musiqu
       {f >= SALLE.panneau && f < SALLE.sortie + 22 ? <PanneauSales f={f} /> : null}
       {f >= SALLE.hud && f < SALLE.hudSortie + 16 ? <Hud f={f} /> : null}
       {f >= CREDITS.envol && f < CREDITS.arrivee + 2 ? <JetonCredits f={f} /> : null}
+      {f >= SALLE.recul[0] && f < COCKPIT.entree + 4 ? <ProgressionEtage f={f} /> : null}
 
       {/* 5. Le suivi : objectifs du jour */}
       {f >= COCKPIT.entree && f < COCKPIT.sortie + 4 ? <CarteCockpit f={f} /> : null}

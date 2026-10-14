@@ -49,8 +49,8 @@ export const PlanFinal: React.FC<{f: number}> = ({f}) => {
   const respiration = Math.sin(f / 22);
   const tete = Math.sin(f / 47) * 0.5 * clamp01((f - FINAL.arrivee + 30) / 40);
   // étiquette du joueur, comme dans le jeu, au-dessus de la tête
-  const nom = prog(f, FINAL.arrivee - 14, 16, easeOut);
-  const pos = projeter(plan, [0, 2.3, 0]);
+  const nom = prog(f, FINAL.bascule + 7, 3, easeOut);
+  const pos = projeter(plan, [0, 2.45, 0]);
   const vignette = prog(f, FINAL.bascule + 10, 40, easeInOut);
   return (
     <>
@@ -67,7 +67,7 @@ export const PlanFinal: React.FC<{f: number}> = ({f}) => {
             position: 'absolute',
             left: pos.x,
             top: pos.y,
-            transform: `translate(-50%, -100%) translateY(${(1 - nom) * 14}px)`,
+            transform: 'translate(-50%, -100%)',
             opacity: nom,
             background: '#1c1d22',
             color: '#fff',

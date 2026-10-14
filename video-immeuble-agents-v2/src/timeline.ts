@@ -84,6 +84,7 @@ export const clesEtage: Cle[] = [
   [RECUL.debut, 1],
   [RECUL.fin, 2],
   [FINAL.approche, 2],
+  [FINAL.approche + 26, 3],
   [FINAL.bascule, 3],
   [FINAL.arrivee, 2],
 ];

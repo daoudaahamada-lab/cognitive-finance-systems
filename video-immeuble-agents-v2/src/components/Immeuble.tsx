@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, Img, staticFile} from 'remotion';
-import {clamp01, clignote, easeDouce, easeIn, easeOut, piste, prog} from '../anim';
+import {clamp01, clignote, easeDouce, easeIn, easeInOut, easeOut, piste, prog} from '../anim';
 import {
   CAPTURE_H,
   CAPTURE_W,
@@ -63,6 +63,7 @@ export const camera = (f: number): Camera => ({
     [RECUL.debut, 0.42],
     [RECUL.fin, 0.3],
     [FINAL.approche, 0.3],
+    [FINAL.approche + 26, 0.36],
     [FINAL.bascule, 1.7],
     [FINAL.arrivee, 0.4],
     [FINAL.fin, 0.39],
@@ -73,7 +74,7 @@ export const camera = (f: number): Camera => ({
     [SALLE.zoom[1], CENTRE_SALES.x],
     [SALLE.recul[0], CENTRE_SALES.x],
     [SALLE.recul[1], CENTRE_ETAGE.x],
-    [FINAL.approche, CENTRE_ETAGE.x],
+    [FINAL.approche + 26, CENTRE_ETAGE.x],
     [FINAL.bascule, DAOUDA.centre.x],
     [FINAL.arrivee, CENTRE_ETAGE.x],
   ]),
@@ -82,7 +83,7 @@ export const camera = (f: number): Camera => ({
     [SALLE.zoom[1], CENTRE_SALES.y],
     [SALLE.recul[0], CENTRE_SALES.y],
     [SALLE.recul[1], CENTRE_ETAGE.y],
-    [FINAL.approche, CENTRE_ETAGE.y],
+    [FINAL.approche + 26, CENTRE_ETAGE.y],
     [FINAL.bascule, DAOUDA.centre.y],
     [FINAL.arrivee, CENTRE_ETAGE.y],
   ]),
@@ -94,7 +95,7 @@ export const camera = (f: number): Camera => ({
     [RECUL.debut, 540],
     [RECUL.fin, 430],
     [FINAL.approche, 430],
-    [FINAL.bascule, 540],
+    [FINAL.approche + 26, 540],
   ]),
   ay: piste(f, [
     [PLONGEE.debut, 1130],
@@ -104,8 +105,8 @@ export const camera = (f: number): Camera => ({
     [SALLE.panneau, 860],
     [SALLE.panneau + 28, 640],
     [SALLE.recul[0], 640],
-    [SALLE.recul[1], 1060],
-    [COCKPIT.entree - 2, 1060],
+    [SALLE.recul[1], 960],
+    [COCKPIT.entree - 2, 960],
     [COCKPIT.entree + 16, 760],
     [COCKPIT.sortie, 760],
     [COCKPIT.sortie + 1, 1200],
@@ -116,6 +117,7 @@ export const camera = (f: number): Camera => ({
     [RECUL.debut, 660],
     [RECUL.fin, 1130],
     [FINAL.approche, 1130],
+    [FINAL.approche + 26, 1000],
     [FINAL.bascule, 1150],
     [FINAL.arrivee, 1000],
   ]),
@@ -124,7 +126,7 @@ export const camera = (f: number): Camera => ({
     [PLONGEE.fin, 1650],
     [RECUL.debut, 1650],
     [RECUL.fin, 780],
-    [FINAL.approche, 780],
+    [FINAL.approche + 26, 780],
     [FINAL.bascule, 1650],
     [FINAL.arrivee, 780],
   ]),
@@ -133,8 +135,8 @@ export const camera = (f: number): Camera => ({
     [PLONGEE.fin, 0],
     [RECUL.debut, 0],
     [RECUL.fin, 1],
-    [FINAL.approche, 1],
-    [FINAL.bascule, 0],
+    [FINAL.approche + 26, 1],
+    [FINAL.bascule - 12, 0],
     [FINAL.arrivee, 1],
   ]),
   opacite: piste(f, [
@@ -427,3 +429,40 @@ export const EtiquettesTravaux: React.FC<{f: number}> = ({f}) => {
   );
 };
 
+
+// Étape 4 : la tâche validée fait avancer l'étage Business (carte reprise de l'Ascenseur).
+export const ProgressionEtage: React.FC<{f: number}> = ({f}) => {
+  const entree = prog(f, SALLE.recul[1] - 14, 16, easeOut);
+  const sortie = prog(f, COCKPIT.entree - 10, 12, easeIn);
+  if (entree <= 0 || sortie >= 1) return null;
+  const avance = prog(f, SALLE.niveau, 22, easeInOut);
+  const e = ETAGES[IDX_BUSINESS];
+  const pct = e.pourcentage + avance;
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        left: 90,
+        width: 900,
+        top: 1400 + (1 - entree) * 80,
+        opacity: entree * (1 - sortie),
+        background: C.carte,
+        borderRadius: 30,
+        boxShadow: C.ombre,
+        border: '1px solid rgba(17,18,20,0.05)',
+        padding: '26px 34px 30px',
+        fontFamily: SANS,
+      }}
+    >
+      <div style={{display: 'flex', alignItems: 'center'}}>
+        <span style={{width: 90, fontFamily: MONO, fontSize: 28, fontWeight: 700, color: C.accent}}>{e.numero}</span>
+        <span style={{flex: 1, fontSize: 40, fontWeight: 800, letterSpacing: '-0.02em', color: C.encre}}>{e.nom}</span>
+        <span style={{fontFamily: MONO, fontSize: 40, fontWeight: 700, color: avance > 0.5 ? C.accent : C.encre}}>{Math.round(pct)}%</span>
+      </div>
+      <div style={{marginTop: 18, height: 14, borderRadius: 99, background: '#e9e5de', overflow: 'hidden'}}>
+        <div style={{width: `${Math.max(1.2, pct) * 3}%`, height: '100%', borderRadius: 99, background: C.accent}} />
+      </div>
+      <div style={{marginTop: 14, fontSize: 24, color: C.gris}}>Sales : 1 tâche faite sur 17</div>
+    </div>
+  );
+};
