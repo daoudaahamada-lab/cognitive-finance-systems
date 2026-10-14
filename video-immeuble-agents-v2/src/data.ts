@@ -134,27 +134,27 @@ export type Carton = {id: string; a: number; lignes: string[]};
 export const SOUS_TITRES: Carton[] = [
   {id: 'L01', a: 0, lignes: ['J’ai toujours plusieurs', 'projets en même temps.']},
   {id: 'L02', a: 0, lignes: ['Ma santé, mon argent,', 'mon business, mes idées.']},
-  {id: 'L03', a: 0, lignes: ['Tout avance en parallèle…']},
+  {id: 'L03', a: 0, lignes: ['Tout avançait en parallèle…']},
   {id: 'L03', a: 0.3, lignes: ['mais je ne savais jamais', 'vraiment où j’en étais,']},
   {id: 'L03', a: 0.7, lignes: ['ni où mettre', 'mon énergie.']},
   {id: 'L04', a: 0, lignes: ['Alors j’ai imaginé ma vie', 'comme un immeuble.']},
   {id: 'L05', a: 0, lignes: ['Un immeuble que je', 'construis, étage par étage.']},
   {id: 'L06', a: 0, lignes: ['Chaque étage, c’est', 'un domaine de ma vie.']},
   {id: 'L07', a: 0, lignes: ['Et chacun est piloté par', 'son propre agent IA.']},
-  {id: 'L08', a: 0, lignes: ['À l’intérieur, chaque salle', 'abrite un sous-agent,']},
+  {id: 'L08', a: 0, lignes: ['À l’intérieur, chaque salle', 'a son sous-agent,']},
   {id: 'L08', a: 0.62, lignes: ['avec une mission précise.']},
   {id: 'L09', a: 0, lignes: ['Mes projets ont', 'un objectif.']},
-  {id: 'L10', a: 0, lignes: ['Et chaque objectif se', 'découpe en tâches concrètes.']},
-  {id: 'L11', a: 0, lignes: ['Chaque fois que j’en valide', 'une, je gagne des crédits.']},
+  {id: 'L10', a: 0, lignes: ['Et cet objectif se découpe', 'en tâches concrètes.']},
+  {id: 'L11', a: 0, lignes: ['Quand j’en valide une,', 'je gagne des crédits.']},
   {id: 'L12', a: 0, lignes: ['Et ces crédits font avancer', 'la construction.']},
-  {id: 'L13', a: 0, lignes: ['Chaque jour, je suis', 'mes objectifs.']},
-  {id: 'L14', a: 0, lignes: ['Je vois les chantiers', 'en cours…']},
-  {id: 'L15', a: 0, lignes: ['…et les domaines qui ont', 'besoin de plus d’attention.']},
+  {id: 'L13', a: 0, lignes: ['Au quotidien, je garde un œil', 'sur mes objectifs du jour,']},
+  {id: 'L14', a: 0, lignes: ['sur les chantiers en cours…']},
+  {id: 'L15', a: 0, lignes: ['et sur les domaines qui', 'demandent plus d’attention.']},
   {id: 'L16', a: 0, lignes: ['Je ne gère plus', 'seulement des tâches.']},
   {id: 'L17', a: 0, lignes: ['Je vois ce que je construis.']},
   {id: 'L17', a: 0.5, lignes: ['Je vois ce que je construis.', 'Et je sais où j’en suis.']},
   {id: 'L18', a: 0, lignes: ['Je joue au jeu de la vie.']},
-  {id: 'L19', a: 0, lignes: ['Je joue au jeu de la vie.', 'Et chaque action me rapproche', 'de l’immeuble que je veux', 'construire.']},
+  {id: 'L19', a: 0, lignes: ['Et chaque action me rapproche', 'de l’immeuble que', 'je veux construire.']},
 ];
 
 // Surtitre de chaque étape du récit.
@@ -162,9 +162,9 @@ export const ETAPES: Record<number, string> = {
   1: 'Le point de départ',
   2: 'L’idée',
   3: 'L’organisation',
-  4: 'La mécanique',
-  5: 'Le suivi',
-  6: 'Le sens',
+  4: 'Le jeu',
+  5: 'Au quotidien',
+  6: 'Ce que ça change',
 };
 
 // L'avatar du joueur sur la capture du rez-de-chaussée (05) : centre, silhouette, étiquette.
@@ -180,11 +180,13 @@ export const DAOUDA = {
 
 // Panneau Sales (capture 07) en v2 : zones en coordonnées locales au panneau.
 export const SALES_V2 = {
+  mission: {x: 42, y: 245, w: 768, h: 122}, // « Opérationnelle · 1 agent en service : Agentic Wealth Form Notifications »
   objectif: {x: 22, y: 392, w: 812, h: 142},
-  taches: {x: 22, y: 566, w: 812, h: 490},
+  taches: {x: 22, y: 548, w: 812, h: 508},
   case: {x: 73, y: 720, w: 36, h: 36}, // case à cocher de la première tâche
-  ligne: {x: 110, y: 708, w: 720, h: 128}, // texte de la première tâche
+  ligne: {x: 110, y: 708, w: 695, h: 128}, // texte de la première tâche
   credits: {x: 516, y: 801, w: 103, h: 26}, // « +30 crédits » de la première tâche
+  compteur: {x: 734, y: 600, w: 52, h: 30, fond: 'rgb(246, 244, 242)'}, // « 0/6 » d'Arsenal de prospection
 };
 // Compteur de la pastille « Sales 1 proj. · 0/17 » sur la capture de l'étage Business.
 export const COMPTEUR_SALES = {x: 2104, y: 647, w: 62, h: 32};

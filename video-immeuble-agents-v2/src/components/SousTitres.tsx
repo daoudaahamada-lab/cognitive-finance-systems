@@ -18,7 +18,7 @@ const construire = () => {
   const surtitres: {etape: number; entree: number; sortie: number}[] = [];
   cartons.forEach((c, i) => {
     const suivant = cartons[i + 1];
-    const fin = suivant ? Math.min(suivant.debut - 11, R[c.id].fin + 12) : FINAL.arrivee + 14;
+    const fin = suivant ? Math.min(suivant.debut - 11, R[c.id].fin + 12) : R[c.id].finVoix + 8;
     c.lignes.forEach((texte, rang) => {
       const precedent = actifs[rang];
       if (precedent && precedent.texte === texte && precedent.sortie >= c.debut - 11) {
@@ -32,8 +32,8 @@ const construire = () => {
     for (let r = c.lignes.length; r < actifs.length; r++) actifs[r] = undefined;
     const e = etapeDe(c.id);
     const dernier = surtitres[surtitres.length - 1];
-    if (dernier && dernier.etape === e) dernier.sortie = fin;
-    else surtitres.push({etape: e, entree: c.debut - 2, sortie: fin});
+    if (dernier && dernier.etape === e) dernier.sortie = e === 6 ? Math.min(fin, FINAL.bascule) : fin;
+    else surtitres.push({etape: e, entree: c.debut - 2, sortie: e === 6 ? Math.min(fin, FINAL.bascule) : fin});
   });
   return {items, surtitres};
 };
@@ -47,7 +47,7 @@ export const SousTitres: React.FC<{f: number; texte: boolean}> = ({f, texte}) =>
         <LigneMasquee f={f} entree={s.entree} sortie={s.sortie} dureeSortie={8}>
           <div style={{fontSize: 24, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: C.accent, display: 'flex', alignItems: 'center', gap: 12}}>
             <span style={{width: 11, height: 11, borderRadius: 6, background: C.accent}} />
-            {s.etape}/6 · {ETAPES[s.etape]}
+            {ETAPES[s.etape]}
           </div>
         </LigneMasquee>
       </div>

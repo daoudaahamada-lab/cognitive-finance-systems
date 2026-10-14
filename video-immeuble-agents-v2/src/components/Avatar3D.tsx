@@ -6,7 +6,7 @@ import * as THREE from 'three';
 // Avatar du jeu (« Daouda ») reconstruit en 3D, dans le style low-poly de l'application :
 // tête ronde, cheveux et barbe noirs, pull bleu à col roulé, pantalon et chaussures anthracite.
 export const COULEURS_AVATAR = {
-  peau: '#8f532e',
+  peau: '#7f4628',
   cheveux: '#17120e',
   barbe: '#130f0b',
   pull: '#1b59cc',
@@ -131,21 +131,15 @@ export const Personnage: React.FC<{respiration: number; tete: number}> = ({respi
           <Matiere couleur={C.peau} rugosite={0.55} />
         </mesh>
         {/* cheveux : calotte qui descend plus bas à l'arrière */}
-        <mesh rotation={[-0.38, 0, 0]}>
-          <sphereGeometry args={[0.302, 40, 24, 0, Math.PI * 2, 0, Math.PI * 0.43]} />
+        <mesh rotation={[-0.34, 0, 0]}>
+          <sphereGeometry args={[0.295, 40, 24, 0, Math.PI * 2, 0, Math.PI * 0.45]} />
           <Matiere couleur={C.cheveux} rugosite={0.85} />
         </mesh>
-        {/* barbe : collier sur la mâchoire et le menton, relié aux cheveux par les pattes */}
+        {/* barbe courte : bas du visage et menton, les joues restent visibles */}
         <mesh>
-          <sphereGeometry args={[0.297, 40, 20, 0, Math.PI, Math.PI * 0.63, Math.PI * 0.25]} />
+          <sphereGeometry args={[0.297, 40, 20, Math.PI * 0.1, Math.PI * 0.8, Math.PI * 0.66, Math.PI * 0.22]} />
           <Matiere couleur={C.barbe} rugosite={0.9} />
         </mesh>
-        {[0.01, 0.84].map((debut) => (
-          <mesh key={debut}>
-            <sphereGeometry args={[0.299, 12, 16, Math.PI * debut, Math.PI * 0.15, Math.PI * 0.36, Math.PI * 0.32]} />
-            <Matiere couleur={C.barbe} rugosite={0.9} />
-          </mesh>
-        ))}
         {/* yeux */}
         {[-1, 1].map((s) => (
           <mesh key={s} position={[s * 0.095, 0.035, 0.27]}>
@@ -173,7 +167,7 @@ export const SceneAvatar: React.FC<{plan: PlanCamera; respiration: number; tete:
     shadows
   >
     <CameraPilotee plan={plan} />
-    <hemisphereLight args={['#ffffff', '#d8d0c2', 1.35]} />
+    <hemisphereLight args={['#ffffff', '#d8d0c2', 1.15]} />
     <directionalLight
       position={[-2.5, 5, 4]}
       intensity={2.1}
@@ -188,7 +182,7 @@ export const SceneAvatar: React.FC<{plan: PlanCamera; respiration: number; tete:
       shadow-bias={-0.0004}
     />
     {/* douce lumière de face pour le visage */}
-    <directionalLight position={[1.5, 2.2, 5]} intensity={0.75} color="#fff8f0" />
+    <directionalLight position={[1.5, 2.2, 5]} intensity={0.6} color="#fff8f0" />
     {/* contre-jour froid pour détacher la silhouette du fond */}
     <directionalLight position={[3, 3.5, -4]} intensity={1.6} color="#d9e5ff" />
     <Personnage respiration={respiration} tete={tete} />

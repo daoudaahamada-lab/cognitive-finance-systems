@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolateColors} from 'remotion';
-import {easeIn, easeOut, prog} from '../anim';
+import {easeIn, easeInOut, easeOut, prog} from '../anim';
 import {C, MONO, SANS} from '../theme';
 import {COCKPIT} from '../timeline';
 
@@ -309,9 +309,9 @@ const CorpsCompteurs: React.FC<{f: number}> = ({f}) => {
 
 export const CarteCockpit: React.FC<{f: number}> = ({f}) => {
   const entree = prog(f, COCKPIT.entree, 26, easeOut);
-  const sortie = prog(f, COCKPIT.sortie - 12, 14, easeIn);
+  const sortie = prog(f, COCKPIT.sortie - 12, 14, easeInOut);
   if (entree <= 0 || sortie >= 1) return null;
-  const top = 1920 - (1920 - 372) * entree - sortie * 320;
+  const top = 1920 - (1920 - 372) * entree + sortie * 60;
   return (
     <div
       style={{

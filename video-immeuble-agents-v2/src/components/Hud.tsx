@@ -1,10 +1,11 @@
 import React from 'react';
+import {interpolateColors} from 'remotion';
 import {easeIn, easeInOut, easeOut, prog} from '../anim';
 import {C, MONO, SANS} from '../theme';
 import {CREDITS, SALLE} from '../timeline';
 
 // Barre du haut du QG (capture 01) : niveau, XP, crédits, objectif, jours.
-const TOP = 346;
+const TOP = 322;
 export const POSITION_CREDITS = {x: 565, y: TOP + 40};
 
 const Stat: React.FC<{valeur: React.ReactNode; label: string; couleur?: string; largeur: number}> = ({valeur, label, couleur, largeur}) => (
@@ -18,7 +19,7 @@ export const Hud: React.FC<{f: number}> = ({f}) => {
   const entree = prog(f, SALLE.hud, 16, easeOut);
   const sortie = prog(f, SALLE.hudSortie, 14, easeIn);
   if (entree <= 0 || sortie >= 1) return null;
-  const dy = -(1 - entree) * 220 - sortie * 220;
+  const dy = -(1 - entree) * 20 - sortie * 20;
   const gagne = prog(f, CREDITS.arrivee, 10, easeOut);
   const pulse = Math.sin(Math.PI * Math.min(1, Math.max(0, (f - CREDITS.arrivee) / 14))) * (f >= CREDITS.arrivee ? 1 : 0);
   const niveau = 0.62 + 0.1 * prog(f, SALLE.niveau, 20, easeInOut);
@@ -28,11 +29,11 @@ export const Hud: React.FC<{f: number}> = ({f}) => {
     borderRadius: 26,
     boxShadow: C.ombre,
     border: '1px solid rgba(17,18,20,0.05)',
-    height: 104,
+    height: 100,
     boxSizing: 'border-box',
   };
   return (
-    <div style={{position: 'absolute', left: 40, top: TOP, width: 1000, display: 'flex', gap: 16, transform: `translateY(${dy}px)`, opacity: 1 - sortie, fontFamily: SANS}}>
+    <div style={{position: 'absolute', left: 40, top: TOP, width: 1000, display: 'flex', gap: 16, transform: `translateY(${dy}px)`, opacity: entree * (1 - sortie), fontFamily: SANS}}>
       <div style={{...carte, width: 316, display: 'flex', alignItems: 'center', gap: 16, padding: '0 22px'}}>
         <div
           style={{
@@ -71,14 +72,14 @@ export const Hud: React.FC<{f: number}> = ({f}) => {
               width: 150,
               height: 82,
               borderRadius: 18,
-              background: `rgba(212, 160, 23, ${0.18 * pulse})`,
+              background: `rgba(47, 107, 255, ${0.12 * pulse})`,
             }}
           />
           <div style={{transform: `scale(${1 + 0.12 * pulse})`, transformOrigin: 'left center'}}>
             <Stat
               largeur={170}
               label="CRÉDITS"
-              couleur="#c9940f"
+              couleur={interpolateColors(pulse, [0, 1], [C.encre, C.accent])}
               valeur={
                 <span style={{display: 'inline-block', position: 'relative', height: 38, overflow: 'hidden', verticalAlign: 'bottom'}}>
                   <span style={{display: 'block', transform: `translateY(${(1 - gagne) * 100}%)`, opacity: gagne > 0 ? 1 : 0}}>

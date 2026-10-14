@@ -1,7 +1,7 @@
 import React from 'react';
 import {clamp01, easeIn, easeInOut, easeOut, prog} from '../anim';
 import {BOUTON_FERMER_SALES, CAPTURES, PANNEAU, SALES_V2} from '../data';
-import {C, SANS} from '../theme';
+import {C, MONO, SANS} from '../theme';
 import {CREDITS, SALLE} from '../timeline';
 import {POSITION_CREDITS} from './Hud';
 import {PanneauCapture, Surlignage} from './PanneauCapture';
@@ -12,6 +12,35 @@ const K = P.largeur / PANNEAU.w;
 const defileA = (f: number) => 200 * prog(f, SALLE.defile, 24, easeInOut);
 const dyA = (f: number) => (1 - prog(f, SALLE.panneau, 28, easeOut)) * 1200 + prog(f, SALLE.sortie, 20, easeIn) * 1200;
 const versEcranPanneau = (f: number, x: number, y: number) => ({x: P.left + x * K, y: P.top + (y - defileA(f)) * K + dyA(f)});
+
+// « Arsenal de prospection » passe de 0/6 à 1/6 quand la tâche est cochée.
+const CompteurGroupe: React.FC<{f: number}> = ({f}) => {
+  const p = prog(f, SALLE.coche + 4, 10, easeOut);
+  if (p <= 0) return null;
+  const k = SALES_V2.compteur;
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        left: k.x,
+        top: k.y,
+        width: k.w,
+        height: k.h,
+        background: k.fond,
+        overflow: 'hidden',
+        fontFamily: MONO,
+        fontSize: 25,
+        fontWeight: 500,
+        lineHeight: `${k.h}px`,
+        textAlign: 'right',
+        color: '#55565a',
+      }}
+    >
+      <div style={{transform: `translateY(${(1 - p) * 100}%)`, color: p < 1 ? C.accent : '#55565a'}}>1/6</div>
+      <div style={{position: 'absolute', right: 0, top: 0, transform: `translateY(${-p * 100}%)`}}>0/6</div>
+    </div>
+  );
+};
 
 // Coche animée sur la première tâche.
 const Coche: React.FC<{f: number}> = ({f}) => {
@@ -50,8 +79,10 @@ export const PanneauSales: React.FC<{f: number}> = ({f}) => {
   return (
     <PanneauCapture src={CAPTURES.salleSales} decoupe={PANNEAU} left={P.left} top={P.top} largeur={P.largeur} hauteur={P.hauteur} defile={defileA(f)} dy={dy}>
       <div style={{position: 'absolute', left: b.x, top: b.y, width: b.w, height: b.h, background: C.carte}} />
+      <Surlignage f={f} debut={SALLE.mission} fin={SALLE.objectif - 10} {...SALES_V2.mission} label="Sa mission" />
       <Surlignage f={f} debut={SALLE.objectif} {...SALES_V2.objectif} label="Objectif" />
-      <Surlignage f={f} debut={SALLE.taches} {...SALES_V2.taches} label="Tâches" />
+      <Surlignage f={f} debut={SALLE.taches} hautEtiquette={-4} {...SALES_V2.taches} label="Tâches" />
+      <CompteurGroupe f={f} />
       {/* la tâche validée passe en retrait */}
       <div style={{position: 'absolute', left: l.x, top: l.y, width: l.w, height: l.h, background: C.carte, opacity: 0.45 * fait}} />
       <Coche f={f} />

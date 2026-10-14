@@ -24,6 +24,8 @@ import {
   ETIQUETTES_TOUR,
   FINAL,
   PLONGEE,
+  POURCENTAGES,
+  R,
   RECUL,
   SALLE,
   TOUR,
@@ -49,110 +51,130 @@ export type Camera = {
   flou: number;
 };
 
-export const camera = (f: number): Camera => ({
-  s: piste(f, [
-    [TOUR.debut, 0.3],
-    [PLONGEE.debut, 0.33],
-    [PLONGEE.fin, 0.47],
-    [SALLE.zoom[0], 0.47],
-    [SALLE.zoom[1], 1.25],
-    [SALLE.recul[0], 1.25],
-    [SALLE.recul[1], 0.5],
-    [TRAVAUX.attention, 0.5],
-    [TRAVAUX.attention + 24, 0.42],
-    [RECUL.debut, 0.42],
-    [RECUL.fin, 0.3],
-    [FINAL.approche, 0.3],
-    [FINAL.approche + 26, 0.36],
-    [FINAL.bascule, 1.7],
-    [FINAL.arrivee, 0.4],
-    [FINAL.fin, 0.39],
-  ]),
-  etage: piste(f, clesEtage, easeDouce),
-  lx: piste(f, [
-    [SALLE.zoom[0], CENTRE_ETAGE.x],
-    [SALLE.zoom[1], CENTRE_SALES.x],
-    [SALLE.recul[0], CENTRE_SALES.x],
-    [SALLE.recul[1], CENTRE_ETAGE.x],
-    [FINAL.approche + 26, CENTRE_ETAGE.x],
-    [FINAL.bascule, DAOUDA.centre.x],
-    [FINAL.arrivee, CENTRE_ETAGE.x],
-  ]),
-  ly: piste(f, [
-    [SALLE.zoom[0], CENTRE_ETAGE.y],
-    [SALLE.zoom[1], CENTRE_SALES.y],
-    [SALLE.recul[0], CENTRE_SALES.y],
-    [SALLE.recul[1], CENTRE_ETAGE.y],
-    [FINAL.approche + 26, CENTRE_ETAGE.y],
-    [FINAL.bascule, DAOUDA.centre.y],
-    [FINAL.arrivee, CENTRE_ETAGE.y],
-  ]),
-  ax: piste(f, [
-    [ETIQUETTES_TOUR.entree - 8, 540],
-    [ETIQUETTES_TOUR.entree + 10, 430],
-    [PLONGEE.debut, 430],
-    [PLONGEE.fin, 540],
-    [RECUL.debut, 540],
-    [RECUL.fin, 430],
-    [FINAL.approche, 430],
-    [FINAL.approche + 26, 540],
-  ]),
-  ay: piste(f, [
-    [PLONGEE.debut, 1130],
-    [PLONGEE.fin, 830],
-    [SALLE.zoom[0], 830],
-    [SALLE.zoom[1], 860],
-    [SALLE.panneau, 860],
-    [SALLE.panneau + 28, 640],
-    [SALLE.recul[0], 640],
-    [SALLE.recul[1], 960],
-    [COCKPIT.entree - 2, 960],
-    [COCKPIT.entree + 16, 760],
-    [COCKPIT.sortie, 760],
-    [COCKPIT.sortie + 1, 1200],
-    [TRAVAUX.retour, 1200],
-    [TRAVAUX.retour + 22, 900],
-    [TRAVAUX.attention, 900],
-    [TRAVAUX.attention + 24, 660],
-    [RECUL.debut, 660],
-    [RECUL.fin, 1130],
-    [FINAL.approche, 1130],
-    [FINAL.approche + 26, 1000],
-    [FINAL.bascule, 1150],
-    [FINAL.arrivee, 1000],
-  ]),
-  ecart: piste(f, [
-    [PLONGEE.debut, 780],
-    [PLONGEE.fin, 1650],
-    [RECUL.debut, 1650],
-    [RECUL.fin, 780],
-    [FINAL.approche + 26, 780],
-    [FINAL.bascule, 1650],
-    [FINAL.arrivee, 780],
-  ]),
-  voisins: piste(f, [
-    [PLONGEE.debut, 1],
-    [PLONGEE.fin, 0],
-    [RECUL.debut, 0],
-    [RECUL.fin, 1],
-    [FINAL.approche + 26, 1],
-    [FINAL.bascule - 12, 0],
-    [FINAL.arrivee, 1],
-  ]),
-  opacite: piste(f, [
-    [COCKPIT.entree - 2, 1],
-    [COCKPIT.entree + 14, 0],
-    [TRAVAUX.retour, 0],
-    [TRAVAUX.retour + 14, 1],
-    [FINAL.bascule, 1],
-    [FINAL.arrivee, 0.82],
-  ]),
-  flou: piste(f, [
-    [FINAL.bascule, 0],
-    [FINAL.bascule + 18, 7],
-    [FINAL.arrivee, 10],
-  ]),
-});
+// Plan final : un seul mouvement continu, de l'immeuble entier jusqu'à Daouda.
+// u = avancement global adouci (0 au départ, 1 sur « construire ») ; uB = moment où l'avatar 3D prend le relais.
+const duree = FINAL.arrivee - FINAL.approche;
+export const avancementFinal = (f: number) => easeDouce(clamp01((f - FINAL.approche) / duree));
+export const U_BASCULE = easeDouce((FINAL.bascule - FINAL.approche) / duree);
+const U_RDC = U_BASCULE * 0.3; // fin de la descente vers le rez-de-chaussée
+const lin = (a: number, b: number, t: number) => a + (b - a) * clamp01(t);
+const exp = (a: number, b: number, t: number) => Math.exp(lin(Math.log(a), Math.log(b), t));
+
+const cameraFinale = (f: number): Camera => {
+  const u = avancementFinal(f);
+  const tenue = clamp01((f - FINAL.arrivee) / Math.max(1, FINAL.fin - FINAL.arrivee));
+  if (u <= U_RDC) {
+    const t = u / U_RDC;
+    return {s: exp(0.28, 0.33, t), etage: lin(2, 3, t), lx: CENTRE_ETAGE.x, ly: CENTRE_ETAGE.y, ax: lin(400, 540, t), ay: lin(1150, 1050, t), ecart: 900, voisins: 1, opacite: 1, flou: 0};
+  }
+  if (u <= U_BASCULE) {
+    const t = (u - U_RDC) / (U_BASCULE - U_RDC);
+    return {
+      s: exp(0.33, 1.7, t),
+      etage: 3,
+      lx: lin(CENTRE_ETAGE.x, DAOUDA.centre.x, t),
+      ly: lin(CENTRE_ETAGE.y, DAOUDA.centre.y, t),
+      ax: 540,
+      ay: lin(1050, 1150, t),
+      ecart: lin(900, 1650, t),
+      voisins: 1 - clamp01(t / 0.85),
+      opacite: 1,
+      flou: 0,
+    };
+  }
+  const t = (u - U_BASCULE) / (1 - U_BASCULE);
+  return {
+    s: exp(1.7, 0.4, t) * (1 - 0.03 * tenue),
+    etage: lin(3, 2, t),
+    lx: lin(DAOUDA.centre.x, CENTRE_ETAGE.x, t),
+    ly: lin(DAOUDA.centre.y, CENTRE_ETAGE.y, t),
+    ax: 540,
+    ay: lin(1150, 1000, t),
+    ecart: lin(1650, 780, t),
+    voisins: clamp01(t * 1.4),
+    opacite: lin(1, 0.82, t),
+    flou: Math.min(10, 7 * clamp01(t * 3) + 3 * t),
+  };
+};
+
+export const camera = (f: number): Camera => {
+  if (f >= FINAL.approche) return cameraFinale(f);
+  return {
+    s: piste(f, [
+      [TOUR.debut, 0.28],
+      [PLONGEE.debut, 0.3],
+      [PLONGEE.fin, 0.47],
+      [SALLE.zoom[0], 0.47],
+      [SALLE.zoom[1], 1.18],
+      [SALLE.recul[0], 1.18],
+      [SALLE.recul[1], 0.5],
+      [TRAVAUX.attention, 0.5],
+      [TRAVAUX.attention + 24, 0.42],
+      [RECUL.debut, 0.42],
+      [RECUL.fin, 0.28],
+    ]),
+    etage: piste(f, clesEtage, easeDouce),
+    lx: piste(f, [
+      [SALLE.zoom[0], CENTRE_ETAGE.x],
+      [SALLE.zoom[1], CENTRE_SALES.x],
+      [SALLE.recul[0], CENTRE_SALES.x],
+      [SALLE.recul[1], CENTRE_ETAGE.x],
+    ]),
+    ly: piste(f, [
+      [SALLE.zoom[0], CENTRE_ETAGE.y],
+      [SALLE.zoom[1], CENTRE_SALES.y],
+      [SALLE.recul[0], CENTRE_SALES.y],
+      [SALLE.recul[1], CENTRE_ETAGE.y],
+    ]),
+    ax: piste(f, [
+      [ETIQUETTES_TOUR.entree - 8, 540],
+      [ETIQUETTES_TOUR.entree + 10, 430],
+      [PLONGEE.debut, 430],
+      [PLONGEE.fin, 540],
+      [POURCENTAGES.entree - 4, 540],
+      [POURCENTAGES.entree + 16, 400],
+    ]),
+    ay: piste(f, [
+      [PLONGEE.debut, 1150],
+      [PLONGEE.fin, 830],
+      [SALLE.zoom[0], 830],
+      [SALLE.zoom[1], 860],
+      [SALLE.panneau, 860],
+      [SALLE.panneau + 28, 640],
+      [SALLE.recul[0], 640],
+      [SALLE.recul[1], 960],
+      [COCKPIT.entree - 2, 960],
+      [COCKPIT.entree + 16, 760],
+      [COCKPIT.sortie - 14, 760],
+      [COCKPIT.sortie - 13, 1260],
+      [TRAVAUX.retour, 1260],
+      [TRAVAUX.retour + 22, 1080],
+      [TRAVAUX.attention, 1080],
+      [TRAVAUX.attention + 24, 660],
+      [RECUL.debut, 660],
+      [RECUL.fin, 1150],
+    ]),
+    ecart: piste(f, [
+      [PLONGEE.debut, 900],
+      [PLONGEE.fin, 1650],
+      [RECUL.debut, 1650],
+      [RECUL.fin, 900],
+    ]),
+    voisins: piste(f, [
+      [PLONGEE.debut, 1],
+      [PLONGEE.fin, 0],
+      [RECUL.debut, 0],
+      [RECUL.fin, 1],
+    ]),
+    opacite: piste(f, [
+      [COCKPIT.entree - 2, 1],
+      [COCKPIT.entree + 14, 0],
+      [TRAVAUX.retour, 0],
+      [TRAVAUX.retour + 14, 1],
+    ]),
+    flou: 0,
+  };
+};
 
 export const versEcran = (c: Camera, i: number, x: number, y: number) => ({
   x: c.ax + (x - c.lx) * c.s,
@@ -248,16 +270,19 @@ const PiecesEnTravaux: React.FC<{f: number}> = ({f}) => (
 );
 
 // L'avatar de la capture est effacé quand l'avatar 3D prend le relais.
-const EffaceDaouda: React.FC = () => (
+const EffaceDaouda: React.FC<{opacite: number}> = ({opacite}) => (
   <>
     {DAOUDA.masque.map((m, k) => (
       <div
         key={k}
-        style={{position: 'absolute', left: m.x, top: m.y, width: m.w, height: m.h, borderRadius: 30, background: DAOUDA.sol, filter: 'blur(6px)'}}
+        style={{position: 'absolute', left: m.x, top: m.y, width: m.w, height: m.h, borderRadius: 30, background: DAOUDA.sol, filter: 'blur(6px)', opacity: opacite}}
       />
     ))}
   </>
 );
+
+// Avancement affiché d'un étage : la tâche validée à l'étape 4 fait passer Business de 1 à 2 %.
+export const pourcentageAffiche = (i: number, f: number) => ETAGES[i].pourcentage + (i === IDX_BUSINESS && f >= SALLE.niveau ? 1 : 0);
 
 // --- L'immeuble --------------------------------------------------------
 
@@ -304,7 +329,7 @@ export const Immeuble: React.FC<{f: number}> = ({f}) => {
                 </>
               ) : null}
               {i === IDX_WEALTH && f >= TRAVAUX.clignotes[0] - 1 && f < RECUL.fin ? <PiecesEnTravaux f={f} /> : null}
-              {i === IDX_RDC && f >= FINAL.bascule + 8 ? <EffaceDaouda /> : null}
+              {i === IDX_RDC && f >= FINAL.bascule ? <EffaceDaouda opacite={prog(f, FINAL.bascule, 12, easeInOut)} /> : null}
             </div>
           );
         })}
@@ -326,7 +351,7 @@ export const EtiquettesTour: React.FC<{f: number; entree: number; sortie: number
         return (
           <div
             key={e.nom}
-            style={{position: 'absolute', left: pos.x + 26 + (1 - a) * 30, top: pos.y - 26, opacity: a, display: 'flex', alignItems: 'center', gap: 14}}
+            style={{position: 'absolute', left: pos.x + 8 + (1 - a) * 30, top: pos.y - 26, opacity: a, display: 'flex', alignItems: 'center', gap: 14}}
           >
             <span
               style={{
@@ -343,10 +368,10 @@ export const EtiquettesTour: React.FC<{f: number; entree: number; sortie: number
             >
               {e.numero}
             </span>
-            <span style={{fontSize: 40, fontWeight: 800, letterSpacing: '-0.02em', color: C.encre}}>{e.nom}</span>
+            <span style={{fontSize: 38, fontWeight: 800, letterSpacing: '-0.02em', color: C.encre}}>{e.nom}</span>
             {pourcentage ? (
               <span style={{fontFamily: MONO, fontSize: 26, fontWeight: 700, color: e.statut === 'travaux' ? '#b98a00' : C.accent}}>
-                {e.pourcentage}%
+                {pourcentageAffiche(i, f)}%
               </span>
             ) : null}
           </div>
@@ -359,7 +384,7 @@ export const EtiquettesTour: React.FC<{f: number; entree: number; sortie: number
 // Pastille « Sous-agent » accrochée à la salle Sales.
 export const EtiquetteSousAgent: React.FC<{f: number}> = ({f}) => {
   const c = camera(f);
-  const a = prog(f, SALLE.anneau + 4, 12, easeOut) * (1 - prog(f, SALLE.panneau + 6, 10, easeIn));
+  const a = prog(f, SALLE.anneau + 4, 12, easeOut) * (1 - prog(f, SALLE.objectif - 10, 10, easeIn));
   if (a <= 0) return null;
   const pos = versEcran(c, IDX_BUSINESS, PILLULE_SALES.x + PILLULE_SALES.w + 24, PILLULE_SALES.y + PILLULE_SALES.h / 2);
   return (
@@ -389,7 +414,7 @@ export const EtiquetteSousAgent: React.FC<{f: number}> = ({f}) => {
 // Noms des pièces en travaux, lisibles sur téléphone (posés sur les étiquettes d'origine).
 export const EtiquettesTravaux: React.FC<{f: number}> = ({f}) => {
   const c = camera(f);
-  const entree = prog(f, TRAVAUX.retour + 6, 10, easeOut);
+  const entree = prog(f, R.L14.debut - 4, 10, easeOut);
   const sortie = prog(f, RECUL.debut, 10, easeIn);
   const opacite = Math.min(1, entree * 3) * (1 - sortie);
   if (opacite <= 0) return null;

@@ -9,7 +9,7 @@ import {LumiereFinale, PlanFinal} from './components/PlanFinal';
 import {JetonCredits, PanneauSales} from './components/Salle';
 import {SousTitres} from './components/SousTitres';
 import {C} from './theme';
-import {COCKPIT, CREDITS, DUREE_TOTALE, ETIQUETTES_TOUR, FINAL, PLONGEE, POURCENTAGES, R, RECUL, SALLE, TOUR, TRAVAUX} from './timeline';
+import {chuteEtage, COCKPIT, CREDITS, DUREE_TOTALE, ETIQUETTES_TOUR, FINAL, PLONGEE, POURCENTAGES, R, RECUL, SALLE, TOUR, TRAVAUX} from './timeline';
 import {LIGNES} from './voix';
 
 export type VideoProps = {
@@ -35,7 +35,7 @@ export const ImmeubleAgentsV2: React.FC<VideoProps> = ({voix, sousTitres, musiqu
       {f >= SALLE.anneau && f < SALLE.panneau + 20 ? <EtiquetteSousAgent f={f} /> : null}
 
       {/* 5. Le suivi : pièces en travaux */}
-      {f >= TRAVAUX.retour && f < RECUL.debut + 12 ? <EtiquettesTravaux f={f} /> : null}
+      {f >= R.L14.debut - 6 && f < RECUL.debut + 12 ? <EtiquettesTravaux f={f} /> : null}
 
       {/* 6. Le sens : avancement de chaque domaine */}
       {f >= POURCENTAGES.entree && f < POURCENTAGES.sortie + 14 ? (
@@ -43,7 +43,7 @@ export const ImmeubleAgentsV2: React.FC<VideoProps> = ({voix, sousTitres, musiqu
       ) : null}
 
       {/* 1-2. Le point de départ : les projets en vrac rejoignent l'immeuble */}
-      {f < TOUR.debut + 60 ? <CartesProjets f={f} /> : null}
+      {f < chuteEtage(0) + 40 ? <CartesProjets f={f} /> : null}
 
       {(f >= PLONGEE.debut && f < SALLE.zoom[1] + 4) || (f >= TRAVAUX.attention && f < RECUL.debut + 16) ? <Ascenseur f={f} /> : null}
 

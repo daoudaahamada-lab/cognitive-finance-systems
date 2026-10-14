@@ -1,6 +1,6 @@
 import React from 'react';
 import {Img, staticFile} from 'remotion';
-import {easeOut, prog} from '../anim';
+import {easeIn, easeOut, prog} from '../anim';
 import {CAPTURE_H, CAPTURE_W} from '../data';
 import {C, SANS} from '../theme';
 
@@ -78,13 +78,15 @@ export const PanneauCapture: React.FC<{
 export const Surlignage: React.FC<{
   f: number;
   debut: number;
+  fin?: number; // le cadre s'efface à partir de cette image
+  hautEtiquette?: number; // position verticale de l'étiquette par rapport au cadre
   x: number;
   y: number;
   w: number;
   h: number;
   label: string;
-}> = ({f, debut, x, y, w, h, label}) => {
-  const a = prog(f, debut, 14, easeOut);
+}> = ({f, debut, fin, hautEtiquette = -22, x, y, w, h, label}) => {
+  const a = prog(f, debut, 14, easeOut) * (fin === undefined ? 1 : 1 - prog(f, fin, 10, easeIn));
   if (a <= 0) return null;
   return (
     <div style={{position: 'absolute', left: x, top: y, width: w, height: h, opacity: a}}>
@@ -102,7 +104,7 @@ export const Surlignage: React.FC<{
         style={{
           position: 'absolute',
           right: 22,
-          top: -22,
+          top: hautEtiquette,
           background: C.accent,
           color: '#fff',
           fontFamily: SANS,

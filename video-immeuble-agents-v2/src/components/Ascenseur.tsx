@@ -3,7 +3,8 @@ import {interpolateColors} from 'remotion';
 import {clamp01, clignote, easeDouce, easeIn, easeOut, piste, prog} from '../anim';
 import {ETAGES} from '../data';
 import {C, MONO, SANS} from '../theme';
-import {a, clesEtage, PLONGEE, RECUL, SALLE, TRAVAUX} from '../timeline';
+import {AGENTS, clesEtage, PLONGEE, RECUL, SALLE, TRAVAUX} from '../timeline';
+import {pourcentageAffiche} from './Immeuble';
 
 const HAUT = 1236;
 const ENTETE = 76;
@@ -18,7 +19,7 @@ export const Ascenseur: React.FC<{f: number}> = ({f}) => {
   if (entree <= 0 || sortie >= 1) return null;
   const dy = (1 - entree) * 760 + sortie * 760;
   const position = f < PLONGEE.fin ? 0 : piste(f, clesEtage, easeDouce);
-  const impulsionAgents = clignote(f, a('L07', 0.55), 1, 16);
+  const legende = prog(f, AGENTS - 4, 10, easeOut);
   const alerte = Math.max(0.35, clignote(f, TRAVAUX.alerte, 2, 14));
   return (
     <div
@@ -39,10 +40,32 @@ export const Ascenseur: React.FC<{f: number}> = ({f}) => {
     >
       <div style={{position: 'absolute', left: 36, top: 30, fontSize: 22, fontWeight: 700, letterSpacing: '0.2em', color: C.grisClair}}>ASCENSEUR</div>
       {/* légende des statuts, reprise de l'application */}
-      <div style={{position: 'absolute', right: 40, top: 26, display: 'flex', alignItems: 'center', gap: 10, fontSize: 22, color: C.gris}}>
-        <span style={{width: 12, height: 12, borderRadius: 6, background: attention ? C.travaux : C.accent}} />
-        {attention ? 'En travaux' : 'Agent en service'}
-      </div>
+      {attention ? (
+        <div style={{position: 'absolute', right: 40, top: 26, display: 'flex', alignItems: 'center', gap: 10, fontSize: 22, color: C.gris}}>
+          <span style={{width: 12, height: 12, borderRadius: 6, background: C.travaux}} />
+          En travaux
+        </div>
+      ) : (
+        <div
+          style={{
+            position: 'absolute',
+            right: 30,
+            top: 20,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 10,
+            fontSize: 22,
+            padding: '6px 14px',
+            borderRadius: 999,
+            background: `rgba(47, 107, 255, ${0.1 * legende})`,
+            color: interpolateColors(legende, [0, 1], [C.gris, C.accent]),
+            fontWeight: legende > 0.5 ? 700 : 500,
+          }}
+        >
+          <span style={{width: 12, height: 12, borderRadius: 6, background: C.accent}} />
+          Un agent IA par étage
+        </div>
+      )}
       {!attention ? (
         <div
           style={{
@@ -85,27 +108,38 @@ export const Ascenseur: React.FC<{f: number}> = ({f}) => {
                   {e.description}
                 </div>
               </div>
-              <div style={{display: 'flex', alignItems: 'center', gap: 16}}>
-                <span
-                  style={{
-                    fontFamily: MONO,
-                    fontSize: attention ? 28 : 24,
-                    fontWeight: attention ? 700 : 500,
-                    color: attention ? (enTravaux ? '#b98a00' : C.encre) : C.gris,
-                  }}
-                >
-                  {e.pourcentage}%
-                </span>
-                <span
-                  style={{
-                    width: 14,
-                    height: 14,
-                    borderRadius: 7,
-                    background: enTravaux ? C.travaux : C.accent,
-                    transform: `scale(${1 + (enTravaux ? 0 : 0.6 * impulsionAgents)})`,
-                  }}
-                />
-              </div>
+              {attention ? (
+                <div style={{display: 'flex', alignItems: 'center', gap: 16}}>
+                  <span style={{fontFamily: MONO, fontSize: 28, fontWeight: 700, color: enTravaux ? '#b98a00' : C.encre}}>{pourcentageAffiche(i, f)}%</span>
+                  <span style={{width: 14, height: 14, borderRadius: 7, background: enTravaux ? C.travaux : C.accent}} />
+                </div>
+              ) : (
+                (() => {
+                  // « Agent IA » : une pastille par étage, l'une après l'autre
+                  const p = prog(f, AGENTS + i * 4, 10, easeOut);
+                  return (
+                    <div
+                      style={{
+                        opacity: p,
+                        transform: `translateX(${(1 - p) * 24}px) scale(${0.9 + 0.1 * p})`,
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 8,
+                        padding: '7px 14px',
+                        borderRadius: 999,
+                        background: C.accent,
+                        color: '#fff',
+                        fontSize: 21,
+                        fontWeight: 700,
+                        whiteSpace: 'nowrap',
+                      }}
+                    >
+                      <span style={{width: 9, height: 9, borderRadius: 5, background: '#fff'}} />
+                      Agent IA
+                    </div>
+                  );
+                })()
+              )}
             </div>
           </div>
         );
