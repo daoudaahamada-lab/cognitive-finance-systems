@@ -1,0 +1,27 @@
+{
+  "name": "video-immeuble-agents-v2",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vidéo v2 : storytelling, voix off et plan final sur l'avatar.",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render ImmeubleAgentsV2 out/immeuble-agents-v2.mp4",
+    "still": "remotion still ImmeubleAgentsV2 out/apercu.png --frame=60",
+    "render:muet": "remotion render ImmeubleAgentsV2 out/immeuble-agents-v2-sans-voix.mp4 --props=props-sans-voix.json"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.529",
+    "@remotion/fonts": "4.0.529",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "remotion": "4.0.529",
+    "@remotion/three": "4.0.529",
+    "@react-three/fiber": "9.7.0",
+    "three": "0.185.1"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.12",
+    "typescript": "5.9.2",
+    "@types/three": "0.185.0"
+  }
+}
