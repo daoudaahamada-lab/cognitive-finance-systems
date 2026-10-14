@@ -22,11 +22,41 @@ def silences(seuil_db, duree_min):
 
 total = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', prise],
                              capture_output=True, text=True).stdout)
-blancs = [s for s in silences(-40, 0.25) if s[0] > 0.05 and s[1] < total - 0.05]
+blancs = [s for s in silences(-40, 0.2) if s[0] > 0.05 and s[1] < total - 0.05]
 attendu = len(LIGNES) - 1
 if len(blancs) < attendu:
     sys.exit(f'Seulement {len(blancs)} pauses trouvées, {attendu} attendues : vérifiez la prise.')
-coupes = sorted(sorted(blancs, key=lambda s: s[1] - s[0], reverse=True)[:attendu])
+
+# Choix des coupes : longueur des pauses + durée attendue de chaque phrase (proportionnelle au nombre de caractères).
+poids = [len(l['prononciation']) for l in LIGNES]
+parole = total - sum(b - a for a, b in blancs) * 0.6
+attendues = [parole * w / sum(poids) for w in poids]
+n = len(blancs)
+milieux = [(a + b) / 2 for a, b in blancs]
+INF = float('inf')
+# meilleur[k][j] : meilleur score en ayant placé k coupes, la dernière sur la pause j
+meilleur = [[-INF] * n for _ in range(attendu + 1)]
+precedent = [[-1] * n for _ in range(attendu + 1)]
+def score(debut, fin, k, j):
+    ecart = abs((fin - debut) - attendues[k]) / max(attendues[k], 0.8)
+    return 3 * (blancs[j][1] - blancs[j][0]) - 2.5 * ecart
+for j in range(n):
+    meilleur[1][j] = score(0, milieux[j], 0, j)
+for k in range(2, attendu + 1):
+    for j in range(n):
+        for i in range(j):
+            if meilleur[k - 1][i] == -INF:
+                continue
+            v = meilleur[k - 1][i] + score(milieux[i], milieux[j], k - 1, j)
+            if v > meilleur[k][j]:
+                meilleur[k][j], precedent[k][j] = v, i
+fin_score = lambda j: meilleur[attendu][j] - 2.5 * abs((total - milieux[j]) - attendues[-1]) / attendues[-1]
+j = max(range(n), key=fin_score)
+choix = []
+for k in range(attendu, 0, -1):
+    choix.append(j)
+    j = precedent[k][j]
+coupes = [blancs[j] for j in sorted(choix)]
 print('Pauses retenues (s) :', ', '.join(f'{(a + b) / 2:.2f} ({b - a:.2f})' for a, b in coupes))
 bornes = [0.0] + [(a + b) / 2 for a, b in coupes] + [total]
 dossier = RACINE / 'public' / 'voix'
