@@ -1,6 +1,7 @@
 import { agentMode, type AgentMode } from "@/server/agents";
 import { db } from "@/server/db";
 import { HOUR, MINUTE } from "@/server/domain/time";
+import { LEASE_MS } from "@/server/engine/tick";
 
 /** ok: synced in the last 10 minutes; late: within the hour; down: older, or no active account. */
 export type EngineLevel = "ok" | "late" | "down";
@@ -12,7 +13,7 @@ export type EngineStatus = {
   /** Most recent pass over an ACTIVE account (null: never). */
   lastSyncAt: Date | null;
   level: EngineLevel;
-  /** True while a pass holds an account's lease. */
+  /** True while a pass started in the last 10 minutes still holds an account's lease. */
   syncing: boolean;
   /** Providers of the connected (not disconnected) accounts, e.g. ["simulator"]. */
   providers: string[];
@@ -28,7 +29,10 @@ export async function engineStatus(workspaceId: string, now = new Date()): Promi
     select: { id: true, fullName: true, provider: true, status: true, statusReason: true, lastSyncedAt: true, lockedUntil: true, lastError: true, lastErrorAt: true },
   });
   const active = accounts.filter((a) => a.status === "ACTIVE");
-  const syncing = active.some((a) => a.lockedUntil !== null && a.lockedUntil > now);
+  // A worker killed mid-pass leaves its lease behind: only a recent one counts as a pass in progress.
+  const syncing = active.some(
+    (a) => a.lockedUntil !== null && a.lockedUntil > now && a.lockedUntil.getTime() - LEASE_MS > now.getTime() - ENGINE_LATE_AFTER,
+  );
   const times = active.flatMap((a) => (a.lastSyncedAt ? [a.lastSyncedAt.getTime()] : []));
   const lastSyncAt = times.length ? new Date(Math.max(...times)) : null;
 

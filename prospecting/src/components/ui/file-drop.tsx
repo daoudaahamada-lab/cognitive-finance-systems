@@ -71,7 +71,7 @@ export function FileDrop({
       >
         <UploadCloud className={cn("size-6", dragging ? "text-brand-600" : "text-muted")} aria-hidden />
         <span className="text-sm font-medium text-ink">{label}</span>
-        {hint ? <span className="text-xs text-muted">{hint}</span> : null}
+        {hint ? <span className={cn("text-xs", dragging ? "text-brand-700" : "text-muted")}>{hint}</span> : null}
         <input
           ref={input}
           id={inputId}

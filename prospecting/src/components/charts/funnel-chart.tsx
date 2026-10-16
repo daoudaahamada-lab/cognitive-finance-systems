@@ -24,9 +24,9 @@ export function FunnelChart({ steps }: { steps: FunnelStep[] }) {
           return (
             <li
               key={step.label}
-              className="grid grid-cols-[88px_minmax(0,1fr)_44px_44px] items-center gap-2 sm:grid-cols-[130px_minmax(0,1fr)_56px_64px] sm:gap-3"
+              className="grid grid-cols-[100px_minmax(0,1fr)_40px_40px] items-center gap-2 sm:grid-cols-[130px_minmax(0,1fr)_56px_64px] sm:gap-3"
             >
-              <span className="truncate text-sm text-muted">{step.label}</span>
+              <span className="text-sm leading-tight text-muted break-words">{step.label}</span>
               <span className="h-3.5 overflow-hidden rounded-full bg-canvas">
                 <span
                   className={cn("block h-full rounded-full", i === steps.length - 1 ? "bg-success" : "bg-brand-500")}

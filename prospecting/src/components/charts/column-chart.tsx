@@ -20,7 +20,7 @@ function niceMax(value: number): number {
 }
 
 /**
- * Small single-series column chart: one hue, 50 % and 100 % gridlines, a tooltip under the bars.
+ * Small single-series column chart: one hue, 50 % and 100 % gridlines valued in a left gutter, a tooltip under the bars.
  * The bars form a single tab stop; arrow keys, Home and End move between them and announce each value.
  * `per` names the period of one column ("j" for days, "sem." for weeks).
  */
@@ -63,62 +63,71 @@ export function ColumnChart({ title, points, total, per = "j" }: { title: string
           </span>
         </span>
       </figcaption>
-      <div className="relative">
-        <div
-          role="group"
-          tabIndex={0}
-          aria-label={`${title}, ${points.length} valeurs. Flèches gauche et droite pour les parcourir.`}
-          onKeyDown={onKeyDown}
-          onFocus={() => move(active ?? points.length - 1)}
-          onBlur={() => setActive(null)}
-          onPointerLeave={() => setActive(null)}
-          className="relative flex items-end gap-[2px] border-b border-line outline-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-600"
-          style={{ height: HEIGHT }}
-        >
-          {points.map((p, i) =>
-            p.weekend ? (
-              <span key={`we-${p.label}`} aria-hidden className="absolute inset-y-0 bg-canvas" style={{ left: `${(i / points.length) * 100}%`, width: `${100 / points.length}%` }} />
-            ) : null,
-          )}
-          {[1, 0.5].map((level) => (
-            <span key={level} aria-hidden className="pointer-events-none absolute inset-x-0 border-t border-dashed border-line" style={{ bottom: level * HEIGHT }} />
-          ))}
-          {points.map((p, i) => (
-            <span key={p.label} aria-hidden onPointerEnter={() => setActive(i)} className="relative flex h-full flex-1 items-end justify-center">
-              <span
-                className="block w-full max-w-6 rounded-t-[4px] bg-brand-600 transition-opacity"
-                style={{ height: p.value === 0 ? 0 : Math.max(2, (p.value / max) * HEIGHT), opacity: active === null || active === i ? 1 : 0.45 }}
-              />
-            </span>
-          ))}
+      <div className="flex">
+        {/* Y-axis gutter: the gridline values never sit on a bar. */}
+        <div aria-hidden className="relative w-8 shrink-0" style={{ height: HEIGHT }}>
           {[1, 0.5].map((level) => (
             <span
-              key={`label-${level}`}
-              aria-hidden
-              className="pointer-events-none absolute left-0 bg-surface/80 pr-1 text-2xs leading-4 text-muted tabular-nums"
-              style={{ top: HEIGHT - level * HEIGHT }}
+              key={level}
+              className="absolute right-1.5 translate-y-1/2 whitespace-nowrap text-2xs leading-4 text-muted tabular-nums"
+              style={{ bottom: level * HEIGHT }}
             >
               {decimal.format(max * level)}
             </span>
           ))}
         </div>
-        <span className="sr-only" aria-live="polite">
-          {announced}
-        </span>
-        {hovered ? (
+        <div className="relative min-w-0 flex-1">
           <div
-            aria-hidden
-            className={cn(
-              "pointer-events-none absolute top-full z-10 mt-1 whitespace-nowrap rounded-md bg-ink px-2 py-1 text-xs text-white shadow-pop",
-              active! < points.length / 4 ? "" : active! >= (points.length * 3) / 4 ? "-translate-x-full" : "-translate-x-1/2",
-            )}
-            style={{ left: `${((active! + 0.5) / points.length) * 100}%` }}
+            role="group"
+            tabIndex={0}
+            aria-label={`${title}, ${points.length} valeurs. Flèches gauche et droite pour les parcourir.`}
+            onKeyDown={onKeyDown}
+            onFocus={() => move(active ?? points.length - 1)}
+            onBlur={() => setActive(null)}
+            onPointerLeave={() => setActive(null)}
+            className="relative flex items-end gap-[2px] border-b border-line focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-600"
+            style={{ height: HEIGHT }}
           >
-            <strong className="font-semibold">{formatNumber(hovered.value)}</strong> <span className="text-white/70">{hovered.label}</span>
+            {points.map((p, i) =>
+              p.weekend ? (
+                <span key={`we-${p.label}`} aria-hidden className="absolute inset-y-0 bg-canvas" style={{ left: `${(i / points.length) * 100}%`, width: `${100 / points.length}%` }} />
+              ) : null,
+            )}
+            {/* Marks the selected column, even on a day at 0. */}
+            {active !== null ? (
+              <span aria-hidden className="absolute inset-y-0 bg-brand-50" style={{ left: `${(active / points.length) * 100}%`, width: `${100 / points.length}%` }} />
+            ) : null}
+            {[1, 0.5].map((level) => (
+              <span key={level} aria-hidden className="pointer-events-none absolute inset-x-0 border-t border-dashed border-line" style={{ bottom: level * HEIGHT }} />
+            ))}
+            {points.map((p, i) => (
+              <span key={p.label} aria-hidden onPointerEnter={() => setActive(i)} className="relative flex h-full flex-1 items-end justify-center">
+                <span
+                  className="block w-full max-w-6 rounded-t-[4px] bg-brand-600 transition-opacity"
+                  style={{ height: p.value === 0 ? 0 : Math.max(2, (p.value / max) * HEIGHT), opacity: active === null || active === i ? 1 : 0.45 }}
+                />
+              </span>
+            ))}
           </div>
-        ) : null}
+          <span className="sr-only" aria-live="polite">
+            {announced}
+          </span>
+          {hovered ? (
+            <div
+              aria-hidden
+              className={cn(
+                "pointer-events-none absolute top-full z-10 mt-1 whitespace-nowrap rounded-md bg-ink px-2 py-1 text-xs text-white shadow-pop",
+                active! < points.length / 4 ? "" : active! >= (points.length * 3) / 4 ? "-translate-x-full" : "-translate-x-1/2",
+              )}
+              style={{ left: `${((active! + 0.5) / points.length) * 100}%` }}
+            >
+              <strong className="font-semibold">{formatNumber(hovered.value)}</strong> <span className="text-white/70">{hovered.label}</span>
+            </div>
+          ) : null}
+        </div>
       </div>
-      <div aria-hidden className="mt-1 flex justify-between text-2xs text-muted">
+      {/* Hidden under the tooltip, which covers this row. */}
+      <div aria-hidden className={cn("mt-1 flex justify-between pl-8 text-2xs text-muted", hovered && "invisible")}>
         <span>{points[0]?.label}</span>
         <span>{points.at(-1)?.label}</span>
       </div>

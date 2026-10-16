@@ -36,12 +36,15 @@ export async function runTick(deps: EngineDeps, options: { workspaceId?: string 
     try {
       results.push(await tickAccount(deps, account));
     } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
       if (error instanceof ProviderAuthError) {
         // Expired session or LinkedIn checkpoint: stop acting on this account until a human reconnects it.
-        await deps.db.linkedInAccount.update({ where: { id: account.id }, data: { status: "PAUSED", statusReason: error.message } });
+        // The pause and its reason report it; a lastError would outlive the reconnection.
+        await deps.db.linkedInAccount.update({ where: { id: account.id }, data: { status: "PAUSED", statusReason: message } });
+      } else {
+        lastError = message;
       }
-      lastError = error instanceof Error ? error.message : String(error);
-      results.push({ accountId: account.id, events: 0, sourced: 0, scored: 0, outreach: null, error: lastError });
+      results.push({ accountId: account.id, events: 0, sourced: 0, scored: 0, outreach: null, error: message });
     } finally {
       await deps.db.linkedInAccount.update({
         where: { id: account.id },

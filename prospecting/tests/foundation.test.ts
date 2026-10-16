@@ -5,8 +5,10 @@ import { ACTIVITY_LABELS, ACTIVITY_VISUALS, semanticTone } from "@/lib/labels";
 import { sequenceEndDay, sequenceTimeline } from "@/server/domain/followups";
 import { rates } from "@/server/domain/rates";
 import { HOUR, MINUTE } from "@/server/domain/time";
-import { runTick } from "@/server/engine/tick";
+import { LEASE_MS, runTick } from "@/server/engine/tick";
 import { SimulatorProvider } from "@/server/linkedin/simulator/provider";
+import { ProviderAuthError } from "@/server/linkedin/types";
+import { setAccountStatus } from "@/server/services/accounts";
 import { funnelFromStages } from "@/server/services/campaigns";
 import { engineStatus, isSimulatorOnly } from "@/server/services/engine-status";
 import { createWorkspace, db, deps, resetDb } from "./helpers";
@@ -78,9 +80,18 @@ describe("engine status", () => {
     await at(2 * HOUR);
     expect((await engineStatus(workspace.id, NOW)).level).toBe("down");
 
-    // A pass in progress holds the lease: the engine is working.
-    await db.linkedInAccount.update({ where: { id: account.id }, data: { lockedUntil: new Date(NOW.getTime() + 5 * MINUTE) } });
+    // A pass started 2 minutes ago holds the lease: the engine is working.
+    await db.linkedInAccount.update({ where: { id: account.id }, data: { lockedUntil: new Date(NOW.getTime() + LEASE_MS - 2 * MINUTE) } });
     expect(await engineStatus(workspace.id, NOW)).toMatchObject({ level: "ok", syncing: true });
+  });
+
+  it("ignores a lease left behind by a worker killed mid-pass", async () => {
+    const { workspace, account } = await createWorkspace();
+    await db.linkedInAccount.update({
+      where: { id: account.id },
+      data: { lastSyncedAt: new Date(NOW.getTime() - 20 * MINUTE), lockedUntil: new Date(NOW.getTime() + 2 * MINUTE) },
+    });
+    expect(await engineStatus(workspace.id, NOW)).toMatchObject({ level: "late", syncing: false });
   });
 
   it("lists paused accounts and is down without an active one", async () => {
@@ -107,5 +118,22 @@ describe("engine status", () => {
     expect(ok?.error).toBeUndefined();
     const fixed = await db.linkedInAccount.findUniqueOrThrow({ where: { id: account.id } });
     expect(fixed).toMatchObject({ lastError: null, lastErrorAt: null, lastSyncedAt: later });
+  });
+
+  it("reports an expired session as a pause only, so reconnecting clears the alert", async () => {
+    const { workspace, account } = await createWorkspace();
+    const failing = deps(NOW);
+    const simulator = new SimulatorProvider(db, 1);
+    failing.providerFor = () =>
+      Object.assign(Object.create(simulator), { fetchEvents: () => Promise.reject(new ProviderAuthError("Session LinkedIn expirée")) });
+
+    const [result] = await runTick(failing, { workspaceId: workspace.id });
+    expect(result?.error).toBe("Session LinkedIn expirée");
+    const paused = await engineStatus(workspace.id, NOW);
+    expect(paused.pausedAccounts).toEqual([{ id: account.id, fullName: "Alex Martin", statusReason: "Session LinkedIn expirée" }]);
+    expect(paused.erroredAccounts).toEqual([]);
+
+    await setAccountStatus(workspace.id, account.id, "ACTIVE");
+    expect(await engineStatus(workspace.id, NOW)).toMatchObject({ pausedAccounts: [], erroredAccounts: [] });
   });
 });

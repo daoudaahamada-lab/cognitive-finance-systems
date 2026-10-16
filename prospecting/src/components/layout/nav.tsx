@@ -92,7 +92,7 @@ export function BottomNav({ inboxCount }: { inboxCount: number }) {
   };
 
   return (
-    <nav aria-label="Navigation principale" className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-surface pb-[env(safe-area-inset-bottom)] lg:hidden">
+    <nav aria-label="Navigation principale" className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-surface pr-[env(safe-area-inset-right)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)] lg:hidden">
       <ul className="grid grid-cols-5">
         {tabs.map(({ href, short, icon: Icon, badge }) => {
           const active = isActive(pathname, href);
@@ -115,7 +115,7 @@ export function BottomNav({ inboxCount }: { inboxCount: number }) {
               Plus
             </summary>
             <div aria-hidden className="fixed inset-0 bottom-(--mobile-nav-h) bg-ink/20" onClick={close} />
-            <div className="fixed inset-x-3 bottom-[calc(var(--mobile-nav-h)+0.5rem)] rounded-card border border-line bg-surface p-1.5 shadow-pop">
+            <div className="fixed right-[max(0.75rem,env(safe-area-inset-right))] bottom-[calc(var(--mobile-nav-h)+0.5rem)] left-[max(0.75rem,env(safe-area-inset-left))] rounded-card border border-line bg-surface p-1.5 shadow-pop">
               <ul>
                 {extra.map(({ href, label, icon: Icon }) => {
                   const active = isActive(pathname, href);

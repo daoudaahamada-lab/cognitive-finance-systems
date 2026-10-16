@@ -2,7 +2,7 @@ import { ChevronDown } from "lucide-react";
 import { Fragment, cloneElement, isValidElement, type ComponentProps, type ReactElement, type ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
-/** 16px text below sm so iOS Safari does not zoom on focus. */
+/** 16px text below sm so iOS Safari does not zoom on focus. Heights follow buttons: 44px on phones and touch screens. */
 const control =
   "block w-full rounded-control border border-line bg-surface px-3 text-base text-ink placeholder:text-muted sm:text-sm " +
   "focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-600/50 disabled:bg-canvas disabled:text-muted " +
@@ -12,7 +12,7 @@ const control =
 export const checkbox = "size-4 shrink-0 accent-brand-600 pointer-coarse:size-5";
 
 export function Input({ className, ...props }: ComponentProps<"input">) {
-  return <input className={cn(control, "h-11 sm:h-9", className)} {...props} />;
+  return <input className={cn(control, "h-11 sm:h-9 sm:pointer-coarse:h-11", className)} {...props} />;
 }
 
 export function Textarea({ className, ...props }: ComponentProps<"textarea">) {
@@ -23,7 +23,7 @@ export function Textarea({ className, ...props }: ComponentProps<"textarea">) {
 export function Select({ className, ...props }: ComponentProps<"select">) {
   return (
     <span className={cn("relative block w-full", className)}>
-      <select className={cn(control, "h-11 appearance-none pr-9 sm:h-9")} {...props} />
+      <select className={cn(control, "h-11 appearance-none pr-9 sm:h-9 sm:pointer-coarse:h-11")} {...props} />
       <ChevronDown className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-muted" aria-hidden />
     </span>
   );

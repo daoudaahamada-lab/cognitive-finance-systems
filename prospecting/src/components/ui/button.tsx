@@ -10,12 +10,13 @@ const VARIANTS = {
   success: "bg-success text-white hover:bg-success/90 shadow-card disabled:bg-success/60",
 } as const;
 
+/** Same rule as form controls: 44px on phones and touch screens, compact on desktop. */
 const SIZES = {
-  sm: "h-8 px-3 text-xs gap-1.5 pointer-coarse:h-11",
-  md: "h-9 px-4 text-sm gap-2 pointer-coarse:h-11",
+  sm: "h-8 px-3 text-xs gap-1.5 max-sm:h-11 pointer-coarse:h-11",
+  md: "h-9 px-4 text-sm gap-2 max-sm:h-11 pointer-coarse:h-11",
   lg: "h-11 px-5 text-base gap-2",
   /** Square icon button: give it an aria-label. */
-  icon: "size-9 shrink-0 pointer-coarse:size-11",
+  icon: "size-9 shrink-0 max-sm:size-11 pointer-coarse:size-11",
 } as const;
 
 export type ButtonVariant = keyof typeof VARIANTS;

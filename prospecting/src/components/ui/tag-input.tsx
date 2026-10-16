@@ -45,7 +45,7 @@ export function TagInput({
   return (
     <div
       className={cn(
-        "flex min-h-11 flex-wrap items-center gap-1.5 rounded-control border border-line bg-surface px-2 py-1.5 sm:min-h-9",
+        "flex min-h-11 flex-wrap items-center gap-1.5 rounded-control border border-line bg-surface px-2 py-1.5 sm:min-h-9 sm:pointer-coarse:min-h-11",
         "focus-within:border-brand-600 focus-within:ring-2 focus-within:ring-brand-600/50",
         (aria["aria-invalid"] === true || aria["aria-invalid"] === "true") && "border-danger",
       )}

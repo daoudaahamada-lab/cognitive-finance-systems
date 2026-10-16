@@ -5,71 +5,82 @@ import { formatAgo } from "@/lib/format";
 import type { SemanticTone } from "@/lib/labels";
 import { isSimulatorOnly, type EngineStatus } from "@/server/services/engine-status";
 
-function engineSummary(status: EngineStatus, now: Date): { tone: SemanticTone; label: string; title: string } {
+function engineSummary(status: EngineStatus, now: Date): { tone: SemanticTone; label: string; short: string; title: string } {
   const since = status.lastSyncAt ? `Dernière synchronisation ${formatAgo(status.lastSyncAt, now)}.` : "Aucune synchronisation pour l'instant.";
   if (status.level === "ok") {
     return {
       tone: "success",
       label: status.syncing ? "Moteur actif · synchronisation en cours" : `Moteur actif · synchro ${formatAgo(status.lastSyncAt, now)}`,
+      short: "Actif",
       title: "Vela prospecte en continu tant qu'il reste ouvert sur votre ordinateur.",
     };
   }
   if (status.level === "late") {
-    return { tone: "warning", label: "Moteur en retard", title: `${since} Vela doit rester ouvert sur votre ordinateur pour prospecter.` };
+    return { tone: "warning", label: "Moteur en retard", short: "En retard", title: `${since} Vela doit rester ouvert sur votre ordinateur pour prospecter.` };
   }
   return {
     tone: "danger",
     label: "Moteur arrêté",
+    short: "Arrêté",
     title: status.lastSyncAt ? `${since} Vérifiez que Vela est lancé et qu'un compte LinkedIn est actif.` : "Aucun compte LinkedIn actif : connectez ou réactivez un compte.",
   };
 }
 
-/** Header chips: engine state, LinkedIn mode and AI mode. Below lg, only the engine dot. */
+/**
+ * Header chips: engine state, LinkedIn mode and AI mode. They never wrap (the header has a fixed height):
+ * short engine label below sm, LinkedIn chip from md (test mode always), AI chip from lg.
+ */
 export function EngineStatusChips({ status, now = new Date() }: { status: EngineStatus; now?: Date }) {
   const engine = engineSummary(status, now);
   const simulated = isSimulatorOnly(status);
-  return (
+  const engineText = (
     <>
-      <Link
-        href="/accounts"
-        title={engine.title}
-        className="flex size-9 items-center justify-center rounded-full hover:bg-canvas focus-visible:outline-2 focus-visible:outline-brand-600 pointer-coarse:size-11 lg:hidden"
-      >
-        <Dot tone={engine.tone} className="size-2.5" />
-        <span className="sr-only">{engine.label}</span>
-      </Link>
-      <div className="hidden min-w-0 flex-wrap items-center gap-2 lg:flex">
-        {status.level === "ok" ? (
-          <span title={engine.title} className="inline-flex items-center gap-1.5 text-xs font-medium text-ink-2">
-            <Dot tone="success" />
-            {engine.label}
-          </span>
-        ) : (
-          <Link href="/accounts" title={engine.title} className="inline-flex items-center gap-1.5 text-xs font-medium text-ink-2 hover:text-ink hover:underline">
-            <Dot tone={engine.tone} />
-            {engine.label}
-          </Link>
-        )}
-        {simulated ? (
-          <Badge tone="warning">
-            <TriangleAlert className="size-3" aria-hidden /> Mode test · LinkedIn simulé
-          </Badge>
-        ) : status.providers.length > 0 ? (
-          <Badge tone="neutral">LinkedIn : votre compte</Badge>
-        ) : (
-          <Link href="/accounts" className="rounded-md hover:opacity-80">
-            <Badge tone="neutral">LinkedIn : aucun compte</Badge>
-          </Link>
-        )}
-        {status.agentMode === "claude" ? (
-          <Badge tone="ai">
-            <Sparkles className="size-3" aria-hidden /> IA : Claude
-          </Badge>
-        ) : (
-          <Badge tone="neutral">IA : réponses types</Badge>
-        )}
-      </div>
+      <Dot tone={engine.tone} />
+      <span className="sm:hidden">
+        <span className="sr-only">Moteur </span>
+        {engine.short}
+      </span>
+      <span className="hidden truncate sm:inline">{engine.label}</span>
     </>
+  );
+  return (
+    <div className="flex min-w-0 items-center gap-2">
+      {status.level === "ok" ? (
+        <span title={engine.title} className="inline-flex min-w-0 items-center gap-1.5 text-xs font-medium text-ink-2">
+          {engineText}
+        </span>
+      ) : (
+        <Link
+          href="/accounts"
+          title={engine.title}
+          className="inline-flex min-w-0 items-center gap-1.5 rounded-control text-xs font-medium text-ink-2 hover:text-ink hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 pointer-coarse:min-h-11"
+        >
+          {engineText}
+        </Link>
+      )}
+      {simulated ? (
+        <Badge tone="warning" className="shrink-0">
+          <TriangleAlert className="size-3" aria-hidden /> Mode test<span className="sr-only md:not-sr-only"> · LinkedIn simulé</span>
+        </Badge>
+      ) : status.providers.length > 0 ? (
+        <Badge tone="neutral" className="hidden shrink-0 md:inline-flex">
+          LinkedIn : votre compte
+        </Badge>
+      ) : (
+        <Link href="/accounts" className="hidden shrink-0 rounded-md hover:opacity-80 md:inline-flex">
+          <Badge tone="neutral">LinkedIn : aucun compte</Badge>
+        </Link>
+      )}
+      {status.agentMode === "claude" ? (
+        <Badge tone="ai" className="hidden shrink-0 lg:inline-flex">
+          <Sparkles className="size-3" aria-hidden /> IA : Claude
+        </Badge>
+      ) : (
+        <Badge tone="neutral" className="hidden shrink-0 lg:inline-flex">
+          IA : réponses types
+        </Badge>
+      )}
+    </div>
   );
 }
 

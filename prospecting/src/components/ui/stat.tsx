@@ -29,12 +29,12 @@ export function Stat({
 }) {
   return (
     <div className={cn("min-w-0 rounded-card border px-4 py-3 shadow-card", lead ? "border-brand-200 bg-brand-50" : "border-line bg-surface", className)}>
-      <p className="truncate text-xs text-muted">{label}</p>
+      <p className={cn("truncate text-xs", lead ? "text-brand-700" : "text-muted")}>{label}</p>
       <div className="mt-1 flex flex-wrap items-baseline gap-x-2 gap-y-1">
         <p className={cn("text-kpi font-semibold tabular-nums", lead ? "text-brand-900" : "text-ink")}>{value}</p>
         {delta !== undefined && delta !== null ? <DeltaChip delta={delta} label={deltaLabel} /> : null}
       </div>
-      {hint ? <p className="mt-0.5 text-2xs text-muted">{hint}</p> : null}
+      {hint ? <p className={cn("mt-0.5 text-2xs", lead ? "text-brand-700" : "text-muted")}>{hint}</p> : null}
     </div>
   );
 }

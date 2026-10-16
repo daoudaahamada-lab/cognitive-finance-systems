@@ -25,7 +25,7 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
     <div className="min-h-screen lg:grid lg:grid-cols-[240px_minmax(0,1fr)]">
       <a
         href="#contenu"
-        className="sr-only rounded-control bg-surface px-4 py-2 text-sm font-medium text-ink shadow-pop focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:outline-2 focus:outline-brand-600"
+        className="sr-only rounded-control bg-surface text-sm font-medium text-ink shadow-pop focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:px-4 focus:py-2 focus:outline-2 focus:outline-brand-600"
       >
         Aller au contenu
       </a>
@@ -53,8 +53,8 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
       </aside>
 
       <div className="min-w-0">
-        <header className="sticky top-0 z-20 border-b border-line bg-surface/90 backdrop-blur">
-          <div className="flex items-center justify-between gap-3 px-4 py-2.5 sm:px-8">
+        <header className="sticky top-0 z-20 h-(--app-header-h) border-b border-line bg-surface/90 backdrop-blur">
+          <div className="flex h-full items-center justify-between gap-3 px-4 sm:px-8">
             <Link href="/dashboard" aria-label={homeLabel} className="rounded-control focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-600 lg:hidden">
               <Logo />
             </Link>
