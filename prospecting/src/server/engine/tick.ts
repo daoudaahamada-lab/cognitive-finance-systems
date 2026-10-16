@@ -8,6 +8,7 @@ import { scoreNewProspects, sourceProspects } from "./sourcing";
 
 /** Covers a tick that waits on several model calls; released as soon as the tick ends. */
 export const LEASE_MS = 15 * MINUTE;
+const MAX_ERROR_LENGTH = 500;
 
 export type AccountTickResult = {
   accountId: string;
@@ -30,6 +31,8 @@ export async function runTick(deps: EngineDeps, options: { workspaceId?: string 
   const results: AccountTickResult[] = [];
   for (const account of accounts) {
     if (!(await acquireLease(deps, account))) continue;
+    // Kept on the account until a pass succeeds, so the app can show it.
+    let lastError: string | null = null;
     try {
       results.push(await tickAccount(deps, account));
     } catch (error) {
@@ -37,14 +40,17 @@ export async function runTick(deps: EngineDeps, options: { workspaceId?: string 
         // Expired session or LinkedIn checkpoint: stop acting on this account until a human reconnects it.
         await deps.db.linkedInAccount.update({ where: { id: account.id }, data: { status: "PAUSED", statusReason: error.message } });
       }
-      results.push({
-        accountId: account.id, events: 0, sourced: 0, scored: 0, outreach: null,
-        error: error instanceof Error ? error.message : String(error),
-      });
+      lastError = error instanceof Error ? error.message : String(error);
+      results.push({ accountId: account.id, events: 0, sourced: 0, scored: 0, outreach: null, error: lastError });
     } finally {
       await deps.db.linkedInAccount.update({
         where: { id: account.id },
-        data: { lockedUntil: null, lastSyncedAt: deps.now },
+        data: {
+          lockedUntil: null,
+          lastSyncedAt: deps.now,
+          lastError: lastError?.slice(0, MAX_ERROR_LENGTH) ?? null,
+          lastErrorAt: lastError ? deps.now : null,
+        },
       });
     }
   }

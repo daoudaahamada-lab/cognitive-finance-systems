@@ -11,12 +11,17 @@ export function TagInput({
   placeholder,
   suggestions = [],
   id,
+  ...aria
 }: {
   name: string;
   defaultValue?: string[];
   placeholder?: string;
   suggestions?: string[];
   id?: string;
+  /** Set by Field: forwarded to the text input. */
+  "aria-describedby"?: string;
+  "aria-invalid"?: boolean | "true" | "false";
+  "aria-label"?: string;
 }) {
   const [tags, setTags] = useState<string[]>(defaultValue);
   const [draft, setDraft] = useState("");
@@ -40,15 +45,16 @@ export function TagInput({
   return (
     <div
       className={cn(
-        "flex min-h-9 flex-wrap items-center gap-1.5 rounded-lg border border-line bg-surface px-2 py-1.5 shadow-sm",
-        "focus-within:border-brand-500 focus-within:ring-2 focus-within:ring-brand-500/20",
+        "flex min-h-11 flex-wrap items-center gap-1.5 rounded-control border border-line bg-surface px-2 py-1.5 sm:min-h-9",
+        "focus-within:border-brand-600 focus-within:ring-2 focus-within:ring-brand-600/50",
+        (aria["aria-invalid"] === true || aria["aria-invalid"] === "true") && "border-danger",
       )}
     >
       <input type="hidden" name={name} value={JSON.stringify(tags)} />
       {tags.map((tag) => (
         <span key={tag} className="inline-flex items-center gap-1 rounded-md bg-brand-50 px-2 py-0.5 text-xs font-medium text-brand-700">
           {tag}
-          <button type="button" onClick={() => setTags(tags.filter((t) => t !== tag))} aria-label={`Retirer ${tag}`} className="text-brand-700/60 hover:text-brand-900">
+          <button type="button" onClick={() => setTags(tags.filter((t) => t !== tag))} aria-label={`Retirer ${tag}`} className="rounded text-brand-700/60 hover:text-brand-900 pointer-coarse:p-1">
             <X className="size-3" />
           </button>
         </span>
@@ -61,7 +67,8 @@ export function TagInput({
         onKeyDown={onKeyDown}
         onBlur={() => draft && add(draft)}
         placeholder={tags.length === 0 ? placeholder : undefined}
-        className="min-w-32 flex-1 bg-transparent px-1 text-sm outline-none placeholder:text-muted/70"
+        {...aria}
+        className="min-w-32 flex-1 bg-transparent px-1 text-base outline-none placeholder:text-muted sm:text-sm"
       />
       {listId ? (
         <datalist id={listId}>

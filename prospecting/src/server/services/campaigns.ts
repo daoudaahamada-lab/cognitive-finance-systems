@@ -145,6 +145,7 @@ export function funnelFromStages(c: StageCounts) {
     qualified: afterInvite + n("QUALIFIED"),
     invited: afterInvite,
     connected: afterConnect,
+    messaged: afterMessage,
     replied: afterReply,
     meetings: n("MEETING_BOOKED"),
   };

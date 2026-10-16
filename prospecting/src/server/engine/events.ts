@@ -1,4 +1,5 @@
 import type { LinkedInAccount } from "@prisma/client";
+import { FIRST_MESSAGE_DELAY_HOURS } from "@/server/domain/followups";
 import { HOUR, addScaled } from "@/server/domain/time";
 import type { ProviderEvent } from "@/server/linkedin/types";
 import { logActivity } from "./activity";
@@ -7,7 +8,7 @@ import type { EngineDeps } from "./deps";
 import { waitScale } from "./pace";
 
 /** Pause between an accepted invitation and the first message, so it does not look automated. */
-export const FIRST_MESSAGE_DELAY = 4 * HOUR;
+export const FIRST_MESSAGE_DELAY = FIRST_MESSAGE_DELAY_HOURS * HOUR;
 
 /** Stages a reply moves forward; later stages (meeting, refusal) are never rolled back by a reply. */
 const REPLYABLE_STAGES = new Set(["INVITED", "CONNECTED", "MESSAGED", "UNRESPONSIVE"]);

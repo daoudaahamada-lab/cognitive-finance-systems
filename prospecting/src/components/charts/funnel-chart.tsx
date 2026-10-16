@@ -1,77 +1,71 @@
-"use client";
-
-import { useState } from "react";
+import { cn } from "@/lib/cn";
 import { formatNumber } from "@/lib/format";
 
 export type FunnelStep = { label: string; value: number };
 
+function conversion(steps: FunnelStep[], i: number): number | null {
+  const prev = i > 0 ? steps[i - 1]!.value : 0;
+  return prev > 0 ? Math.round((steps[i]!.value / prev) * 100) : null;
+}
+
 /**
- * Horizontal funnel: one hue (magnitude), value at the bar tip,
- * step-to-step conversion on hover/focus and in the table view.
+ * Horizontal funnel: one hue (magnitude), the last step in success, and the step-to-step
+ * conversion always visible. Screen readers get the same figures as a table.
  */
 export function FunnelChart({ steps }: { steps: FunnelStep[] }) {
-  const [active, setActive] = useState<number | null>(null);
   const max = Math.max(1, ...steps.map((s) => s.value));
 
   return (
-    <div>
-      <ul className="space-y-3">
+    <div className="min-w-0">
+      <ul aria-hidden className="space-y-2.5">
         {steps.map((step, i) => {
-          const prev = i > 0 ? steps[i - 1]!.value : null;
-          const conversion = prev ? Math.round((step.value / prev) * 100) : null;
-          const width = step.value === 0 ? 0 : Math.max(1.5, (step.value / max) * 100);
+          const rate = conversion(steps, i);
+          const width = step.value === 0 ? 0 : Math.max(2, (step.value / max) * 100);
           return (
             <li
               key={step.label}
-              tabIndex={0}
-              onPointerEnter={() => setActive(i)}
-              onPointerLeave={() => setActive(null)}
-              onFocus={() => setActive(i)}
-              onBlur={() => setActive(null)}
-              className="group grid grid-cols-[110px_minmax(0,1fr)] items-center gap-3 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40 sm:grid-cols-[140px_minmax(0,1fr)]"
-              aria-label={`${step.label} : ${step.value}${conversion !== null ? `, ${conversion} % de l'étape précédente` : ""}`}
+              className="grid grid-cols-[88px_minmax(0,1fr)_44px_44px] items-center gap-2 sm:grid-cols-[130px_minmax(0,1fr)_56px_64px] sm:gap-3"
             >
               <span className="truncate text-sm text-muted">{step.label}</span>
-              <div className="relative flex h-6 items-center">
-                <div
-                  className="h-5 rounded-r-[4px] bg-brand-600 transition-opacity"
-                  style={{ width: `${width}%`, opacity: active === null || active === i ? 1 : 0.45 }}
+              <span className="h-3.5 overflow-hidden rounded-full bg-canvas">
+                <span
+                  className={cn("block h-full rounded-full", i === steps.length - 1 ? "bg-success" : "bg-brand-500")}
+                  style={{ width: `${width}%` }}
                 />
-                <span className="ml-2 text-sm font-medium text-ink tabular-nums">{formatNumber(step.value)}</span>
-                {active === i && conversion !== null ? (
-                  <span className="ml-2 rounded-md bg-ink px-2 py-0.5 text-xs text-white">
-                    <strong className="font-semibold">{conversion} %</strong> <span className="text-white/70">de l&apos;étape précédente</span>
-                  </span>
-                ) : null}
-              </div>
+              </span>
+              <span className="text-right text-sm font-medium text-ink tabular-nums">{formatNumber(step.value)}</span>
+              <span className="text-right text-xs text-muted tabular-nums">{i === 0 ? "—" : rate === null ? "—" : `${rate} %`}</span>
             </li>
           );
         })}
       </ul>
-      <details className="mt-4 text-xs text-muted">
-        <summary className="cursor-pointer select-none hover:text-ink">Voir le tableau</summary>
-        <table className="data-table mt-2">
+      <p aria-hidden className="mt-3 text-right text-2xs text-muted">
+        % : part de l&apos;étape précédente
+      </p>
+      {/* The wrapper clips: a table ignores width: 1px and would widen the page. */}
+      <div className="sr-only">
+        <table>
           <thead>
             <tr>
               <th>Étape</th>
-              <th className="text-right">Prospects</th>
-              <th className="text-right">Conversion</th>
+              <th>Prospects</th>
+              <th>Conversion depuis l&apos;étape précédente</th>
             </tr>
           </thead>
           <tbody>
             {steps.map((s, i) => {
-              const prev = i > 0 ? steps[i - 1]!.value : null;
+              const rate = conversion(steps, i);
               return (
                 <tr key={s.label}>
                   <td>{s.label}</td>
-                  <td className="text-right tabular-nums">{formatNumber(s.value)}</td>
-                  <td className="text-right tabular-nums">{prev ? `${Math.round((s.value / prev) * 100)} %` : "—"}</td>
+                  <td>{formatNumber(s.value)}</td>
+                  <td>{rate === null ? "—" : `${rate} %`}</td>
                 </tr>
               );
             })}
           </tbody>
         </table>
-      </details>
+      </div>
     </div>
   );
 }

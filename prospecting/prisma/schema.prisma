@@ -131,6 +131,12 @@ model LinkedInAccount {
   dailyInviteLimit  Int?
   dailyMessageLimit Int?
   lastSyncedAt      DateTime?
+  /// Error of the last engine pass on this account; cleared by the next pass that succeeds.
+  lastError         String?
+  lastErrorAt       DateTime?
+  /// Last read-only connection check ("Vérifier la connexion") and whether it passed.
+  lastDiagnosedAt   DateTime?
+  lastDiagnosisOk   Boolean?
   /// Lease held by the engine while it works on this account, so two ticks never double-send.
   lockedUntil       DateTime?
   createdAt         DateTime      @default(now())

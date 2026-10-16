@@ -1,7 +1,7 @@
 import { ClaudeScorer } from "./claude/scorer";
 import { ClaudeSetter } from "./claude/setter";
 import { ClaudeWriter } from "./claude/writer";
-import { CLAUDE_MODEL, claudeClient, type ClaudeClient } from "./claude/client";
+import { claudeClient, type ClaudeClient } from "./claude/client";
 import { RuleBasedScorer, type ProspectScorer } from "./scorer";
 import { RuleBasedSetter, type ReplyAgent } from "./setter";
 import { TemplateWriter, type MessageWriter } from "./writer";
@@ -18,7 +18,7 @@ export function agentMode(): AgentMode {
 }
 
 export function agentLabel(): string {
-  return agentMode() === "claude" ? `Claude (${CLAUDE_MODEL})` : "règles";
+  return agentMode() === "claude" ? "Claude" : "règles";
 }
 
 export function ruleAgents(): Agents {

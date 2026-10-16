@@ -1,74 +1,76 @@
-import { RefreshCw } from "lucide-react";
+import { LogOut } from "lucide-react";
+import Link from "next/link";
 import type { ReactNode } from "react";
+import { EngineButton } from "@/components/layout/engine-button";
+import { AccountAlerts, EngineStatusChips } from "@/components/layout/engine-status";
 import { Logo } from "@/components/layout/logo";
-import { Nav } from "@/components/layout/nav";
+import { BottomNav, Nav } from "@/components/layout/nav";
+import { StatusRefresh } from "@/components/layout/status-refresh";
+import { Button } from "@/components/ui/button";
 import { Avatar } from "@/components/ui/misc";
-import { SubmitButton } from "@/components/ui/submit-button";
-import { agentLabel } from "@/server/agents";
-import { PROVIDER_LABELS } from "@/lib/labels";
+import { BRAND } from "@/lib/brand";
 import { requireContext } from "@/server/auth/context";
-import { db } from "@/server/db";
+import { engineStatus } from "@/server/services/engine-status";
 import { inboxCounts } from "@/server/services/inbox";
 import { logoutAction } from "../(auth)/actions";
-import { runEngineNow } from "./engine-actions";
+
+const homeLabel = `${BRAND.name}, tableau de bord`;
 
 export default async function AppLayout({ children }: { children: ReactNode }) {
   const { user, workspace } = await requireContext();
-  const [counts, providers] = await Promise.all([
-    inboxCounts(workspace.id),
-    db.linkedInAccount.findMany({ where: { workspaceId: workspace.id, status: { not: "DISCONNECTED" } }, select: { provider: true }, distinct: ["provider"] }),
-  ]);
-  const linkedinLabel = providers.length ? providers.map((p) => (PROVIDER_LABELS[p.provider] ?? p.provider).toLowerCase()).join(" + ") : "aucun compte";
+  const [counts, status] = await Promise.all([inboxCounts(workspace.id), engineStatus(workspace.id)]);
+  const [first = user.name, last] = user.name.split(" ");
 
   return (
     <div className="min-h-screen lg:grid lg:grid-cols-[240px_minmax(0,1fr)]">
-      <aside className="hidden border-r border-line bg-surface lg:flex lg:h-screen lg:flex-col lg:sticky lg:top-0">
+      <a
+        href="#contenu"
+        className="sr-only rounded-control bg-surface px-4 py-2 text-sm font-medium text-ink shadow-pop focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:outline-2 focus:outline-brand-600"
+      >
+        Aller au contenu
+      </a>
+      <aside className="hidden border-r border-line bg-surface lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col">
         <div className="px-5 py-5">
-          <Logo />
+          <Link href="/dashboard" aria-label={homeLabel} className="rounded-control focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-600">
+            <Logo />
+          </Link>
         </div>
         <div className="flex-1 overflow-y-auto px-3">
-          <Nav inboxCount={counts.todo} orientation="vertical" />
+          <Nav inboxCount={counts.todo} />
         </div>
-        <div className="space-y-3 border-t border-line p-4">
-          <div className="rounded-lg bg-canvas px-3 py-2 text-xs">
-            <p className="font-medium text-ink">{workspace.name}</p>
-          </div>
-          <div className="flex items-center gap-2">
-            <Avatar first={user.name.split(" ")[0] ?? user.name} last={user.name.split(" ")[1]} size="sm" />
-            <div className="min-w-0 flex-1">
-              <p className="truncate text-sm font-medium">{user.name}</p>
-              <p className="truncate text-xs text-muted">{user.email}</p>
-            </div>
+        <div className="flex items-center gap-2.5 border-t border-line p-4">
+          <Avatar first={first} last={last} size="sm" />
+          <div className="min-w-0 flex-1">
+            <p className="truncate text-sm font-medium text-ink">{user.name}</p>
+            <p className="truncate text-xs text-muted">{workspace.name}</p>
           </div>
           <form action={logoutAction}>
-            <button type="submit" className="text-xs text-muted hover:text-ink">
-              Se déconnecter
-            </button>
+            <Button type="submit" variant="ghost" size="icon" aria-label="Se déconnecter" title="Se déconnecter">
+              <LogOut className="size-4" aria-hidden />
+            </Button>
           </form>
         </div>
       </aside>
 
       <div className="min-w-0">
-        <div className="sticky top-0 z-10 border-b border-line bg-surface/90 backdrop-blur">
-          <div className="flex items-center justify-between gap-3 px-4 py-3 sm:px-8">
-            <div className="lg:hidden">
+        <header className="sticky top-0 z-20 border-b border-line bg-surface/90 backdrop-blur">
+          <div className="flex items-center justify-between gap-3 px-4 py-2.5 sm:px-8">
+            <Link href="/dashboard" aria-label={homeLabel} className="rounded-control focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-600 lg:hidden">
               <Logo />
+            </Link>
+            <div className="ml-auto flex min-w-0 items-center lg:ml-0 lg:flex-1">
+              <EngineStatusChips status={status} />
             </div>
-            <p className="hidden text-xs text-muted lg:block">
-              LinkedIn : <span className="font-medium text-ink">{linkedinLabel}</span> · Agents : <span className="font-medium text-ink">{agentLabel()}</span> · le moteur tourne en continu via le worker
-            </p>
-            <form action={runEngineNow}>
-              <SubmitButton variant="secondary" size="sm" pendingLabel="Moteur en cours…">
-                <RefreshCw className="size-3.5" aria-hidden /> Lancer le moteur
-              </SubmitButton>
-            </form>
+            <EngineButton />
           </div>
-          <div className="px-3 pb-2 lg:hidden">
-            <Nav inboxCount={counts.todo} orientation="horizontal" />
-          </div>
-        </div>
-        <main className="mx-auto max-w-7xl px-4 py-8 sm:px-8">{children}</main>
+        </header>
+        <AccountAlerts status={status} />
+        <main id="contenu" tabIndex={-1} className="mx-auto max-w-7xl px-4 pt-8 pb-[calc(var(--mobile-nav-h)+2.5rem)] focus:outline-none sm:px-8 lg:pb-8">
+          {children}
+        </main>
       </div>
+      <BottomNav inboxCount={counts.todo} />
+      <StatusRefresh />
     </div>
   );
 }
