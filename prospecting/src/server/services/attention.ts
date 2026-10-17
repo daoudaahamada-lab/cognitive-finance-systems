@@ -37,6 +37,18 @@ const SEVERITY_RANK: Record<AttentionSeverity, number> = { high: 0, medium: 1, l
 /** Same rule as the engine (engine/sourcing.ts): sources it can page through by itself. */
 const AUTOMATIC_SOURCES: ProspectSource[] = ["SEARCH", "SIGNALS", "POST_ENGAGERS", "PROFILE_VISITORS"];
 
+/**
+ * An account's statusReason as it reads away from the account card. The "session to open" reason
+ * (services/accounts.ts) points at a form "ci-dessous" and a terminal command that only make sense on /accounts.
+ */
+export function reasonOutsideAccounts(reason: string): string {
+  return isSessionToOpen(reason) ? "Session LinkedIn à ouvrir : connectez-la depuis la fiche du compte." : reason;
+}
+
+function isSessionToOpen(reason: string): boolean {
+  return reason.startsWith("Session LinkedIn à ouvrir");
+}
+
 /** French reason and what Vela does about it, per ACTION_FAILED code (data.code). */
 const FAILURE_REASONS: Record<ActionErrorCode | "LIMIT", { reason: string; detail: string }> = {
   LIMIT: { reason: "limite d'invitations signalée par LinkedIn", detail: "Vela suspend les invitations de ce compte pendant 24 h." },
@@ -63,6 +75,8 @@ export async function attentionItems(workspaceId: string, now = new Date()): Pro
       select: {
         id: true, fullName: true, status: true, statusReason: true, lastError: true, lastErrorAt: true,
         _count: { select: { campaigns: { where: { status: { not: "ARCHIVED" } } } } },
+        // Where a disconnected account's row leads: its only campaign, else the campaign list.
+        campaigns: { where: { status: { not: "ARCHIVED" } }, orderBy: { createdAt: "asc" }, select: { id: true }, take: 2 },
       },
     }),
     engineStatus(workspaceId, now),
@@ -78,6 +92,7 @@ export async function attentionItems(workspaceId: string, now = new Date()): Pro
       select: {
         id: true, name: true, sources: true, postUrls: true, sourcingState: true,
         _count: { select: { prospects: { where: { stage: { in: ["NEW", "QUALIFIED"] } } } } },
+        prospects: { where: { source: "IMPORT" }, select: { id: true }, take: 1 },
       },
     }),
     db.meeting.count({ where: { workspaceId, status: "SCHEDULED", startsAt: { lt: now } } }),
@@ -88,7 +103,10 @@ export async function attentionItems(workspaceId: string, now = new Date()): Pro
 
   for (const a of accounts) {
     if (a.status === "PAUSED" && a.statusReason) {
-      items.push({ kind: "account_paused", severity: "high", label: `${a.fullName} est en pause`, detail: a.statusReason, href: `/accounts#${a.id}`, count: 1 });
+      items.push({
+        kind: "account_paused", severity: "high", label: `${a.fullName} est en pause`, detail: reasonOutsideAccounts(a.statusReason),
+        href: `/accounts#${a.id}`, count: 1,
+      });
     }
   }
   for (const a of accounts) {
@@ -119,7 +137,18 @@ export async function attentionItems(workspaceId: string, now = new Date()): Pro
   }
 
   for (const c of campaigns) {
-    if (c._count.prospects === 0 && sourcingExhausted(c)) {
+    if (c._count.prospects > 0) continue;
+    const auto = automaticSources(c);
+    if (auto.length === 0) {
+      // Nothing for Vela to page through: only a new list brings prospects, wider targeting would change nothing.
+      items.push({
+        kind: "campaign_exhausted", severity: "medium",
+        label: c.prospects.length > 0
+          ? `Campagne ${c.name} : tous les prospects importés ont été contactés, importez une nouvelle liste`
+          : `Campagne ${c.name} : aucun prospect à contacter, importez une liste`,
+        href: `/campaigns/${c.id}#import`, count: 1,
+      });
+    } else if (sourcingExhausted(c.sourcingState, auto)) {
       items.push({
         kind: "campaign_exhausted", severity: "medium", label: `Campagne ${c.name} : plus aucun prospect à inviter, élargissez le ciblage`,
         href: `/campaigns/${c.id}`, count: 1,
@@ -130,10 +159,16 @@ export async function attentionItems(workspaceId: string, now = new Date()): Pro
   // A disconnected account only matters while campaigns still depend on it (archiving them clears the row).
   for (const a of accounts) {
     if (a.status === "DISCONNECTED" && a.statusReason && a._count.campaigns > 0) {
+      // /accounts no longer lists a disconnected account: the campaign page offers "Choisir un autre compte".
+      const only = a.campaigns.length === 1 ? a.campaigns[0] : undefined;
+      const several = a._count.campaigns > 1;
+      const dependents = `${plural(a._count.campaigns, "campagne en dépend", "campagnes en dépendent")} : choisissez un autre compte ou archivez-${several ? "les" : "la"}.`;
+      // A session that was never opened no longer matters once the account is disconnected (and its card is gone).
+      const reason = isSessionToOpen(a.statusReason) ? null : a.statusReason.replace(/[.\s]+$/, "");
       items.push({
         kind: "account_disconnected", severity: "medium", label: `${a.fullName} est déconnecté`,
-        detail: `${a.statusReason.replace(/[.\s]+$/, "")}. ${plural(a._count.campaigns, "campagne en dépend", "campagnes en dépendent")}.`,
-        href: "/accounts", count: 1,
+        detail: reason ? `${reason}. ${dependents}` : dependents,
+        href: only ? `/campaigns/${only.id}` : "/campaigns", count: 1,
       });
     }
   }
@@ -141,7 +176,7 @@ export async function attentionItems(workspaceId: string, now = new Date()): Pro
   if (pastMeetings > 0) {
     items.push({
       kind: "meetings_to_confirm", severity: "low", label: plural(pastMeetings, "rendez-vous à confirmer", "rendez-vous à confirmer"),
-      detail: "Indiquez s'ils ont eu lieu.", href: "/meetings", count: pastMeetings,
+      detail: pastMeetings > 1 ? "Indiquez s'ils ont eu lieu." : "Indiquez s'il a eu lieu.", href: "/meetings", count: pastMeetings,
     });
   }
 
@@ -152,12 +187,15 @@ export async function attentionItems(workspaceId: string, now = new Date()): Pro
   return items.sort((a, b) => SEVERITY_RANK[a.severity] - SEVERITY_RANK[b.severity]);
 }
 
-/** True when every source the engine could page through has reached its end. */
-function sourcingExhausted(campaign: { sources: ProspectSource[]; postUrls: string[]; sourcingState: unknown }): boolean {
-  const state = (campaign.sourcingState ?? {}) as Partial<Record<ProspectSource, unknown>>;
-  return campaign.sources
-    .filter((s) => AUTOMATIC_SOURCES.includes(s) && (s !== "POST_ENGAGERS" || campaign.postUrls.length > 0))
-    .every((s) => state[s] === "done");
+/** The campaign's sources the engine can page through by itself (engagers need at least one post). */
+function automaticSources(campaign: { sources: ProspectSource[]; postUrls: string[] }): ProspectSource[] {
+  return campaign.sources.filter((s) => AUTOMATIC_SOURCES.includes(s) && (s !== "POST_ENGAGERS" || campaign.postUrls.length > 0));
+}
+
+/** True when each of these automatic sources has reached its end. */
+function sourcingExhausted(sourcingState: unknown, sources: ProspectSource[]): boolean {
+  const state = (sourcingState ?? {}) as Partial<Record<ProspectSource, unknown>>;
+  return sources.every((s) => state[s] === "done");
 }
 
 type Failure = { data: unknown; prospectId: string | null; campaignId: string | null };

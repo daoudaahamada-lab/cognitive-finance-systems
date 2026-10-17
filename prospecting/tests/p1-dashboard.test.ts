@@ -140,7 +140,7 @@ describe("onboardingStatus", () => {
     await db.linkedInAccount.update({ where: { id: account.id }, data: { status: "PAUSED", statusReason: "Session LinkedIn à ouvrir" } });
     const status = await onboardingStatus(workspace.id);
     expect(status.accountReady).toBe(false);
-    expect(status.accountIssue).toEqual({ accountId: account.id, reason: "Session LinkedIn à ouvrir" });
+    expect(status.accountIssue).toEqual({ accountId: account.id, reason: "Session LinkedIn à ouvrir : connectez-la depuis la fiche du compte." });
   });
 
   it("skips the connection check for the simulator and links the launch step to the draft", async () => {

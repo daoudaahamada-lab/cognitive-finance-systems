@@ -66,8 +66,9 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
     />
   );
 
-  // First run: nothing to chart yet, so no zero-filled KPIs or charts.
-  if (!onboarding.campaignLaunched && data.kpis.found === 0) {
+  // First run: nothing to chart yet, so no zero-filled KPIs or charts. Decided on lifetime facts, not on the
+  // selected period: a workspace whose campaigns are all paused still gets its "À traiter" card and period picker.
+  if (!onboarding.everLaunched && !onboarding.hasProspects) {
     return (
       <>
         {header()}
