@@ -9,6 +9,7 @@ import { engineDeps } from "@/server/engine/deps";
 import { runTick } from "@/server/engine/tick";
 import { listAccounts } from "@/server/services/accounts";
 import { dashboard } from "@/server/services/analytics";
+import { attentionItems } from "@/server/services/attention";
 import { campaignSchema, createCampaign, funnelFromStages, getCampaign, importProspects, listCampaigns, setCampaignStatus, stageCounts, updateCampaign } from "@/server/services/campaigns";
 import { UserError } from "@/server/services/errors";
 import { INBOX_TABS, approveDraft, getThread, handBackToAi, listConversations, logMeeting, markHandled, rejectDraft, sendHumanReply, takeOver } from "@/server/services/inbox";
@@ -18,7 +19,7 @@ import type { TokenIdentity } from "@/server/services/tokens";
 import { BRAND } from "@/lib/brand";
 
 const INSTRUCTIONS = `${BRAND.name} automatise la prospection LinkedIn B2B : sourcing, scoring, invitations, messages, relances, et un setter qui répond aux prospects et réserve des rendez-vous.
-Pour faire le point, commence par get_overview puis list_conversations (onglet "todo" : ce qui attend une décision humaine).
+Pour faire le point, commence par get_overview (son champ attention liste ce qui attend l'utilisateur, le plus urgent d'abord) puis list_conversations (onglet "todo" : ce qui attend une décision humaine).
 approve_draft, send_reply et hand_back_to_setter envoient de vrais messages LinkedIn au nom de l'utilisateur : montre-lui le texte et attends son accord avant de les appeler.
 Les quotas LinkedIn et les horaires d'envoi sont appliqués par le moteur ; aucun outil ne permet de les dépasser.`;
 
@@ -63,17 +64,19 @@ export function buildMcpServer(identity: TokenIdentity): McpServer {
     "get_overview",
     {
       title: "Vue d'ensemble",
-      description: "Indicateurs de la période (prospects, invitations, taux d'acceptation et de réponse, rendez-vous), entonnoir, conversations à traiter, prochains rendez-vous, quotas des comptes et agents actifs.",
+      description: "Ce qui attend l'utilisateur (attention : comptes en pause ou en erreur, moteur arrêté, actions LinkedIn impossibles, campagnes épuisées, rendez-vous à confirmer, conversations à traiter), indicateurs de la période et de la période précédente, entonnoir, prochains rendez-vous, quotas des comptes et agents actifs.",
       inputSchema: { days: z.union([z.literal(7), z.literal(30), z.literal(90)]).default(30).describe("Période en jours") },
       annotations: read,
     },
     ({ days }) =>
       run(async () => {
-        const [data, accounts] = await Promise.all([dashboard(ws, days), listAccounts(ws)]);
+        const [data, accounts, attention] = await Promise.all([dashboard(ws, days), listAccounts(ws), attentionItems(ws)]);
         return {
           periodDays: days,
           agents: agentLabel(),
+          attention,
           kpis: data.kpis,
+          previousKpis: data.previousKpis,
           funnel: data.funnel,
           inbox: data.inbox,
           upcomingMeetings: data.upcomingMeetings.map((m) => ({ id: m.id, startsAt: m.startsAt, prospect: name(m.prospect), company: m.prospect.company, prospectId: m.prospect.id })),
@@ -139,7 +142,7 @@ export function buildMcpServer(identity: TokenIdentity): McpServer {
     "list_conversations",
     {
       title: "Conversations",
-      description: "Conversations avec les prospects. Onglets : todo (attend une décision humaine), drafts (brouillons du setter à valider), ai (gérées par le setter), all.",
+      description: "Conversations avec les prospects. Onglets : todo (attend une décision humaine), drafts (réponses proposées par le setter, à valider), ai (gérées par le setter), all.",
       inputSchema: { tab: z.enum(INBOX_TABS).default("todo"), query: z.string().optional().describe("Filtre sur le nom ou l'entreprise"), limit: z.number().int().min(1).max(100).default(30) },
       annotations: read,
     },
@@ -160,7 +163,7 @@ export function buildMcpServer(identity: TokenIdentity): McpServer {
 
   server.registerTool(
     "get_conversation",
-    { title: "Lire une conversation", description: "Fil complet d'une conversation, avec le prospect, le brouillon en attente et la raison d'une éventuelle escalade.", inputSchema: { conversationId: id("de la conversation") }, annotations: read },
+    { title: "Lire une conversation", description: "Fil complet d'une conversation, avec le prospect, la réponse proposée en attente et la raison d'une éventuelle escalade.", inputSchema: { conversationId: id("de la conversation") }, annotations: read },
     ({ conversationId }) =>
       run(async () => {
         const t = await getThread(ws, conversationId);
@@ -181,9 +184,9 @@ export function buildMcpServer(identity: TokenIdentity): McpServer {
   server.registerTool(
     "approve_draft",
     {
-      title: "Valider un brouillon",
-      description: "Envoie sur LinkedIn le brouillon du setter, tel quel ou modifié. Envoie un vrai message : obtiens l'accord de l'utilisateur sur le texte avant.",
-      inputSchema: { draftId: id("du brouillon"), editedMessage: z.string().min(1).max(8000).optional().describe("Texte modifié à envoyer à la place du brouillon") },
+      title: "Valider une réponse proposée",
+      description: "Envoie sur LinkedIn la réponse proposée par le setter, telle quelle ou modifiée. Envoie un vrai message : obtiens l'accord de l'utilisateur sur le texte avant.",
+      inputSchema: { draftId: id("de la réponse proposée"), editedMessage: z.string().min(1).max(8000).optional().describe("Texte modifié à envoyer à la place de la réponse proposée") },
       annotations: { destructiveHint: false, openWorldHint: true },
     },
     ({ draftId, editedMessage }) => run(async () => (await approveDraft(ws, draftId, editedMessage), { sent: true })),
@@ -191,7 +194,7 @@ export function buildMcpServer(identity: TokenIdentity): McpServer {
 
   server.registerTool(
     "reject_draft",
-    { title: "Refuser un brouillon", description: "Écarte le brouillon du setter ; la conversation passe à l'humain.", inputSchema: { draftId: id("du brouillon") }, annotations: { destructiveHint: false, openWorldHint: false } },
+    { title: "Refuser une réponse proposée", description: "Écarte la réponse proposée par le setter ; la conversation passe à l'humain.", inputSchema: { draftId: id("de la réponse proposée") }, annotations: { destructiveHint: false, openWorldHint: false } },
     ({ draftId }) => run(async () => (await rejectDraft(ws, draftId), { rejected: true })),
   );
 
@@ -214,7 +217,7 @@ export function buildMcpServer(identity: TokenIdentity): McpServer {
     "hand_back_to_setter",
     {
       title: "Rendre au setter",
-      description: "Rend la conversation au setter. Si le prospect attend une réponse, le setter répond ou prépare un brouillon selon le mode de la campagne.",
+      description: "Rend la conversation au setter. Si le prospect attend une réponse, le setter répond ou propose une réponse à valider, selon le mode de la campagne.",
       inputSchema: { conversationId: id("de la conversation") },
       annotations: { destructiveHint: false, openWorldHint: true },
     },
@@ -441,8 +444,8 @@ export function buildMcpServer(identity: TokenIdentity): McpServer {
   server.registerTool(
     "run_engine",
     {
-      title: "Lancer le moteur",
-      description: "Exécute un passage du moteur maintenant (le worker le fait en continu) : synchronisation LinkedIn, sourcing, scoring, envois dus dans les quotas et horaires.",
+      title: "Synchroniser maintenant",
+      description: "Exécute un passage du moteur maintenant (Vela le fait en continu tant qu'il est lancé) : synchronisation LinkedIn, sourcing, scoring, envois dus dans les quotas et horaires.",
       annotations: { destructiveHint: false, openWorldHint: true },
     },
     () =>

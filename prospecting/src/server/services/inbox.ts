@@ -6,6 +6,7 @@ import { engineDeps } from "@/server/engine/deps";
 import { accountQuota } from "@/server/engine/quota";
 import { ProviderActionError, ProviderAuthError, ProviderLimitError } from "@/server/linkedin/types";
 import { UserError } from "./errors";
+import { applyManualStage } from "./prospects";
 
 export const INBOX_TABS = ["todo", "drafts", "ai", "all"] as const;
 export type InboxTab = (typeof INBOX_TABS)[number];
@@ -56,23 +57,50 @@ export async function listConversations(workspaceId: string, tab: InboxTab, q?: 
     include: {
       prospect: { select: { firstName: true, lastName: true, company: true, title: true, stage: true } },
       messages: { orderBy: { sentAt: "desc" }, take: 1 },
-      drafts: { where: { status: "PENDING" }, select: { id: true } },
+      drafts: { where: { status: "PENDING" }, orderBy: { createdAt: "desc" }, select: { id: true, body: true, intent: true } },
     },
     orderBy: { lastMessageAt: { sort: "desc", nulls: "last" } },
     take: 100,
   });
 }
 
+/** A conversation with its messages, the pending draft and the booking link to offer (campaign first, then workspace). */
 export async function getThread(workspaceId: string, conversationId: string) {
-  return db.conversation.findFirst({
+  const thread = await db.conversation.findFirst({
     where: { id: conversationId, workspaceId },
     include: {
-      prospect: { include: { campaign: { select: { id: true, name: true, setterMode: true } }, meetings: { orderBy: { startsAt: "desc" }, take: 1 } } },
+      prospect: {
+        include: {
+          campaign: { select: { id: true, name: true, setterMode: true, bookingUrl: true } },
+          meetings: { orderBy: { startsAt: "desc" }, take: 1 },
+        },
+      },
+      workspace: { select: { bookingUrl: true } },
       account: { select: { fullName: true } },
       messages: { orderBy: { sentAt: "asc" } },
       drafts: { where: { status: "PENDING" }, orderBy: { createdAt: "desc" }, take: 1 },
     },
   });
+  if (!thread) return null;
+  return { ...thread, bookingUrl: thread.prospect.campaign.bookingUrl.trim() || thread.workspace.bookingUrl.trim() };
+}
+
+/** The conversation of a tab that has waited longest since its last message (the "Traiter le plus ancien" button). */
+export async function oldestConversationId(workspaceId: string, tab: InboxTab): Promise<string | null> {
+  const oldest = await db.conversation.findFirst({
+    where: tabWhere(workspaceId, tab),
+    orderBy: { lastMessageAt: { sort: "asc", nulls: "last" } },
+    select: { id: true },
+  });
+  return oldest?.id ?? null;
+}
+
+/** True once a campaign has been launched, so an empty inbox can say whether replies are still on their way. */
+export async function hasLaunchedCampaign(workspaceId: string): Promise<boolean> {
+  const launched = await db.campaign.count({
+    where: { workspaceId, OR: [{ launchedAt: { not: null } }, { status: { in: ["ACTIVE", "PAUSED"] } }] },
+  });
+  return launched > 0;
 }
 
 async function ownedConversation(workspaceId: string, conversationId: string) {
@@ -122,7 +150,7 @@ export async function sendHumanReply(workspaceId: string, conversationId: string
 
 export async function approveDraft(workspaceId: string, draftId: string, editedBody?: string) {
   const draft = await db.draft.findFirst({ where: { id: draftId, status: "PENDING", conversation: { workspaceId } } });
-  if (!draft) throw new UserError("Ce brouillon n'est plus disponible.");
+  if (!draft) throw new UserError("Cette réponse proposée n'est plus disponible.");
   const conversation = await ownedConversation(workspaceId, draft.conversationId);
   const body = normalize(editedBody ?? draft.body);
   if (!body) throw new UserError("Le message est vide.");
@@ -130,7 +158,7 @@ export async function approveDraft(workspaceId: string, draftId: string, editedB
   await assertMessageQuota(conversation.prospect.account, deps.now);
   // Claim the draft first so a double click cannot send it twice.
   const claimed = await db.draft.updateMany({ where: { id: draftId, status: "PENDING" }, data: { status: "SENT", decidedAt: deps.now, body } });
-  if (claimed.count === 0) throw new UserError("Ce brouillon a déjà été traité.");
+  if (claimed.count === 0) throw new UserError("Cette réponse proposée a déjà été traitée.");
   try {
     await sending(() =>
       sendOutbound(deps, {
@@ -154,12 +182,12 @@ export async function approveDraft(workspaceId: string, draftId: string, editedB
 
 export async function rejectDraft(workspaceId: string, draftId: string) {
   const draft = await db.draft.findFirst({ where: { id: draftId, status: "PENDING", conversation: { workspaceId } }, include: { conversation: { include: { prospect: true } } } });
-  if (!draft) throw new UserError("Ce brouillon n'est plus disponible.");
+  if (!draft) throw new UserError("Cette réponse proposée n'est plus disponible.");
   const now = new Date();
   await db.draft.update({ where: { id: draftId }, data: { status: "REJECTED", decidedAt: now } });
   await db.conversation.update({
     where: { id: draft.conversationId },
-    data: { status: "NEEDS_HUMAN", escalationReason: "Brouillon refusé : à vous de répondre.", unread: true },
+    data: { status: "NEEDS_HUMAN", escalationReason: "Réponse proposée refusée : à vous de répondre.", unread: true },
   });
   const p = draft.conversation.prospect;
   await logActivity(db, { workspaceId, campaignId: p.campaignId, prospectId: p.id, accountId: p.accountId, type: "DRAFT_REJECTED", at: now });
@@ -196,8 +224,21 @@ export async function logMeeting(workspaceId: string, prospectId: string, starts
   });
   await db.prospect.update({ where: { id: prospectId }, data: { stage: "MEETING_BOOKED", stageChangedAt: now, nextActionAt: null } });
   await db.conversation.updateMany({ where: { prospectId }, data: { status: "CLOSED", unread: false, escalationReason: null } });
+  // The meeting is booked: a proposed reply still waiting would only clutter "À valider".
+  await discardPendingDrafts({ conversation: { prospectId } }, now);
   await logActivity(db, {
     workspaceId, campaignId: prospect.campaignId, prospectId, accountId: prospect.accountId,
     type: "MEETING_BOOKED", data: { startsAt: startsAt.toISOString(), manual: true }, at: now,
   });
+}
+
+async function discardPendingDrafts(where: Prisma.DraftWhereInput, now: Date) {
+  await db.draft.updateMany({ where: { ...where, status: "PENDING" }, data: { status: "REJECTED", decidedAt: now } });
+}
+
+/** Closes the thread as "Pas intéressé" from the inbox; a pending proposed reply is dropped so it can no longer be sent. */
+export async function closeAsNotInterested(workspaceId: string, conversationId: string) {
+  const conversation = await ownedConversation(workspaceId, conversationId);
+  await applyManualStage(workspaceId, conversation.prospectId, "not_interested");
+  await discardPendingDrafts({ conversationId }, new Date());
 }

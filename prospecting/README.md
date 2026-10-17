@@ -81,7 +81,7 @@ Pour utiliser votre vrai compte LinkedIn, sautez `npm run db:seed` (ou utilisez 
 
 Le script de démo rejoue le vrai moteur et le simulateur sur trois semaines passées. Tous les chiffres affichés sont donc cohérents. Le compte de démo envoie 24 h/24, 7 j/7 pour que le worker ait toujours du travail.
 
-Avec `TIME_SCALE=720` (la valeur de `.env.example`), une journée d'attente dure 2 minutes : délais de relance, réactions simulées des prospects. Cette accélération ne s'applique qu'aux comptes simulés : **un vrai compte LinkedIn attend toujours en temps réel, et les quotas restent en temps réel pour tous.** Le bouton **Lancer le moteur**, en haut de l'app, exécute un passage immédiatement.
+Avec `TIME_SCALE=720` (la valeur de `.env.example`), une journée d'attente dure 2 minutes : délais de relance, réactions simulées des prospects. Cette accélération ne s'applique qu'aux comptes simulés : **un vrai compte LinkedIn attend toujours en temps réel, et les quotas restent en temps réel pour tous.** Le bouton **Synchroniser maintenant**, en haut de l'app, exécute un passage immédiatement.
 
 ### Site vitrine
 
@@ -206,7 +206,7 @@ claude mcp add --transport http vela https://votre-instance/api/mcp --header "Au
 | Prospects | `list_prospects`, `get_prospect`, `set_prospect_status`, `snooze_prospect`, `save_prospect_notes`, `import_prospects` |
 | Configurer | `create_campaign`, `update_campaign`, `set_campaign_status` |
 | Rendez-vous | `list_meetings`, `log_meeting`, `set_meeting_status` |
-| Moteur | `run_engine` |
+| Moteur | `run_engine` (« Synchroniser maintenant ») |
 
 Comment ça fonctionne :
 - **Une instance par requête.** Le serveur est sans état : chaque requête crée une instance liée à l'espace du jeton, et tout passe par la même couche de services que l'interface (`src/server/mcp/server.ts`).

@@ -92,7 +92,7 @@ async function main() {
       minScore: 55,
       weeklyProspectTarget: 150,
       firstMessage:
-        "Merci pour la connexion {{firstName}} !\n\n{Je travaille avec|J'accompagne} des DAF de PME sur un point précis : le reporting mensuel qui prend encore plusieurs jours. Comment ça se passe chez {{company}} ?",
+        "Merci d'avoir accepté mon invitation, {{firstName}} !\n\n{Je travaille avec|J'accompagne} des DAF de PME sur un point précis : le reporting mensuel qui prend encore plusieurs jours. Comment ça se passe chez {{company}} ?",
       setterMode: "AUTO",
     },
   });
@@ -113,7 +113,7 @@ async function main() {
       minScore: 50,
       weeklyProspectTarget: 80,
       firstMessage:
-        "{Bonjour|Hello} {{firstName}}, merci d'avoir accepté. Une levée ou une phase de recrutement, c'est souvent le moment où le reporting financier devient un sujet. C'est le cas chez {{company}} ?",
+        "Bonjour {{firstName}}, merci d'avoir accepté mon invitation. {Une levée de fonds|Une phase de recrutement|Une période de forte croissance}, c'est souvent le moment où le reporting financier devient un sujet. C'est le cas chez {{company}} ?",
       setterMode: "APPROVAL",
     },
   });
@@ -131,7 +131,7 @@ async function main() {
       exclusions: [],
       minScore: 60,
       weeklyProspectTarget: 50,
-      firstMessage: "Merci pour la connexion {{firstName}}. Vous accompagnez des PME sur leur reporting ?",
+      firstMessage: "Merci d'avoir accepté mon invitation, {{firstName}}. Vous accompagnez des PME sur leur reporting ?",
       setterMode: "APPROVAL",
     },
   });

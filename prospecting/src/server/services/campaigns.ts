@@ -1,12 +1,21 @@
 import type { Prisma, ProspectStage } from "@prisma/client";
 import { z } from "zod";
 import { db } from "@/server/db";
-import { followUpsSchema } from "@/server/domain/followups";
+import { MAX_FOLLOW_UPS } from "@/server/domain/followups";
 import { INVITE_NOTE_MAX, unknownVariables } from "@/server/domain/templates";
 import { engineDeps } from "@/server/engine/deps";
 import { insertProspects, scoreNewProspects } from "@/server/engine/sourcing";
 import { getProvider } from "@/server/linkedin";
-import { UserError } from "./errors";
+import { UserError, type ActionState } from "./errors";
+
+/** A user error that belongs to one form field: the builder shows it under that field. */
+export class CampaignFieldError extends UserError {
+  field: string;
+  constructor(field: string, message: string) {
+    super(message);
+    this.field = field;
+  }
+}
 
 /** Accepts a JSON array (tag inputs) or newline/comma separated text. */
 function parseList(value: unknown): unknown {
@@ -37,15 +46,37 @@ const list = (max = 50) => z.preprocess(parseList, z.array(z.string().trim().min
 /** Browsers submit textarea content with CRLF line endings; messages use LF. */
 const text = () => z.string().transform((v) => v.replace(/\r\n?/g, "\n"));
 
+/** "variable inconnue {{prenom}}. Utilisez une des variables listées." */
+export function unknownVariablesMessage(names: string[]): string {
+  const quoted = names.map((n) => `{{${n}}}`).join(", ");
+  return `${names.length > 1 ? "variables inconnues" : "variable inconnue"} ${quoted}. Utilisez une des variables listées.`;
+}
+
+const knownVariablesOnly = (prefix: string) => (value: string, ctx: z.RefinementCtx) => {
+  const unknown = unknownVariables(value);
+  if (unknown.length > 0) ctx.addIssue({ code: "custom", message: `${prefix}${unknownVariablesMessage(unknown)}` });
+};
+
 const template = (label: string, max: number) =>
-  text().pipe(
-    z.string().trim().max(max, `${label} : ${max} caractères maximum`).refine((t) => unknownVariables(t).length === 0, {
-      message: `${label} : variable inconnue`,
-    }),
-  );
+  text().pipe(z.string().trim().max(max, `${label} : ${max} caractères maximum`).superRefine(knownVariablesOnly(`${label} : `)));
+
+/** One follow-up. Messages leave out "Relance N : ", which parseCampaignForm adds from the step's position. */
+const followUpStep = z.object({
+  delayDays: z.number({ error: "délai invalide" }).int("délai en jours entiers").min(1, "1 jour minimum").max(30, "30 jours maximum"),
+  template: text().pipe(z.string().trim().min(1, "texte requis").max(2000, "2000 caractères maximum").superRefine(knownVariablesOnly(""))),
+});
+
+/** Searching needs something to search for: a title, a keyword or the user's own LinkedIn search URL. */
+export const SEARCH_TARGETING_MESSAGE = "Ajoutez au moins un poste ou un mot-clé, ou collez une URL de recherche LinkedIn";
+
+export function lacksSearchTargeting(c: { sources: readonly string[]; searchUrl: string; titles: readonly string[]; keywords: readonly string[] }): boolean {
+  return c.sources.includes("SEARCH") && c.searchUrl.trim() === "" && c.titles.length === 0 && c.keywords.length === 0;
+}
+
+const targetingFields = z.object({ sources: z.array(z.string()), searchUrl: z.string(), titles: z.array(z.string()), keywords: z.array(z.string()) });
 
 export const campaignSchema = z.object({
-  name: z.string().trim().min(1, "Nom requis").max(120),
+  name: z.string().trim().min(1, "Nom requis").max(120, "120 caractères maximum"),
   accountId: z.string().min(1, "Choisissez un compte LinkedIn"),
   sources: z.preprocess(parseList, z.array(z.enum(["SEARCH", "SIGNALS", "POST_ENGAGERS", "PROFILE_VISITORS"]))),
   titles: list(),
@@ -63,26 +94,45 @@ export const campaignSchema = z.object({
       message: "Collez une URL de recherche de personnes LinkedIn (linkedin.com/search/results/people/…). Sales Navigator n'est pas pris en charge.",
     }),
   exclusions: list(100),
-  minScore: z.coerce.number().int().min(0).max(100),
-  weeklyProspectTarget: z.coerce.number().int().min(10).max(1000),
-  offer: text().pipe(z.string().trim().max(3000)),
-  persona: text().pipe(z.string().trim().max(3000)),
+  minScore: z.coerce.number().int().min(0, "Score entre 0 et 100").max(100, "Score entre 0 et 100"),
+  weeklyProspectTarget: z.coerce.number().int("Nombre entier attendu").min(10, "10 au minimum").max(1000, "1000 au maximum"),
+  offer: text().pipe(z.string().trim().max(3000, "3000 caractères maximum")),
+  persona: text().pipe(z.string().trim().max(3000, "3000 caractères maximum")),
   aiPersonalization: z.preprocess((v) => v === true || v === "on" || v === "true", z.boolean()),
   inviteNote: template("Note d'invitation", INVITE_NOTE_MAX).transform((v) => (v === "" ? null : v)),
   firstMessage: template("Premier message", 2000).refine((v) => v.length > 0, "Premier message requis"),
-  followUps: z.preprocess(parseJson, followUpsSchema),
+  followUps: z.preprocess(parseJson, z.array(followUpStep, { error: "Relances invalides" }).max(MAX_FOLLOW_UPS, `${MAX_FOLLOW_UPS} relances au maximum`)),
   setterMode: z.enum(["OFF", "APPROVAL", "AUTO"]),
   bookingUrl: z.union([z.url("Lien de réservation invalide"), z.literal("")]),
+}).refine((c) => !lacksSearchTargeting(c), {
+  message: SEARCH_TARGETING_MESSAGE,
+  path: ["titles"],
+  // Also checked when other fields are invalid, so every error shows at once.
+  when: (payload) => targetingFields.safeParse(payload.value).success,
 });
 
 export type CampaignInput = z.infer<typeof campaignSchema>;
 
-async function checkCampaign(workspaceId: string, input: CampaignInput) {
-  for (const [i, step] of input.followUps.entries()) {
-    if (unknownVariables(step.template).length > 0) throw new UserError(`Relance ${i + 1} : variable inconnue.`);
+/**
+ * Validates the builder's form data. Errors are keyed by field, and follow-up errors by step
+ * ("followUps.0" for Relance 1), so each one shows under its own textarea.
+ */
+export function parseCampaignForm(data: unknown): { data: CampaignInput } | { state: ActionState } {
+  const parsed = campaignSchema.safeParse(data);
+  if (parsed.success) return { data: parsed.data };
+  const fieldErrors: Record<string, string> = {};
+  for (const issue of parsed.error.issues) {
+    const [field, index] = issue.path;
+    const step = field === "followUps" && typeof index === "number" ? index : null;
+    if (step === null) fieldErrors[String(field ?? "form")] ??= issue.message;
+    else fieldErrors[`followUps.${step}`] ??= `Relance ${step + 1} : ${issue.message}`;
   }
+  return { state: { error: "Certains champs sont invalides.", fieldErrors } };
+}
+
+async function checkCampaign(workspaceId: string, input: CampaignInput) {
   const account = await db.linkedInAccount.findFirst({ where: { id: input.accountId, workspaceId, status: { not: "DISCONNECTED" } } });
-  if (!account) throw new UserError("Compte LinkedIn introuvable.");
+  if (!account) throw new CampaignFieldError("accountId", "Ce compte LinkedIn n'est plus connecté : choisissez-en un autre.");
 }
 
 export async function createCampaign(workspaceId: string, input: CampaignInput) {
@@ -114,7 +164,10 @@ export async function setCampaignStatus(workspaceId: string, campaignId: string,
   const campaign = await db.campaign.findFirst({ where: { id: campaignId, workspaceId }, include: { account: true } });
   if (!campaign) throw new UserError("Campagne introuvable.");
   if (status === "ACTIVE") {
-    if (campaign.account.status !== "ACTIVE") throw new UserError("Le compte LinkedIn de cette campagne n'est pas actif.");
+    if (campaign.account.status !== "ACTIVE") {
+      throw new UserError("Le compte LinkedIn de cette campagne n'est pas actif : réparez-le dans Comptes LinkedIn.");
+    }
+    if (lacksSearchTargeting(campaign)) throw new CampaignFieldError("titles", `${SEARCH_TARGETING_MESSAGE}.`);
     const hasProspects = await db.prospect.count({ where: { campaignId } });
     if (campaign.sources.length === 0 && hasProspects === 0) {
       throw new UserError("Ajoutez une source de prospects ou importez une liste avant de lancer la campagne.");

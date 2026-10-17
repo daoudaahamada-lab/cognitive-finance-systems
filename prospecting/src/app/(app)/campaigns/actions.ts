@@ -4,14 +4,14 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { requireContext } from "@/server/auth/context";
 import {
-  campaignSchema,
+  CampaignFieldError,
   createCampaign,
   importProspects,
+  parseCampaignForm,
   setCampaignStatus,
   updateCampaign,
 } from "@/server/services/campaigns";
 import { toActionState, type ActionState } from "@/server/services/errors";
-import { parseForm } from "@/server/services/forms";
 
 function formData(form: FormData) {
   return { ...Object.fromEntries(form), sources: form.getAll("sources"), companySizes: form.getAll("companySizes"), signals: form.getAll("signals") };
@@ -19,13 +19,14 @@ function formData(form: FormData) {
 
 export async function saveCampaignAction(campaignId: string | null, _: ActionState, form: FormData): Promise<ActionState> {
   const { workspace } = await requireContext();
-  const parsed = parseForm(campaignSchema, formData(form));
+  const parsed = parseCampaignForm(formData(form));
   if ("state" in parsed) return parsed.state;
   let id = campaignId;
   try {
     if (campaignId) await updateCampaign(workspace.id, campaignId, parsed.data);
     else id = (await createCampaign(workspace.id, parsed.data)).id;
   } catch (error) {
+    if (error instanceof CampaignFieldError) return { error: "Certains champs sont invalides.", fieldErrors: { [error.field]: error.message } };
     return toActionState(error);
   }
   revalidatePath("/campaigns");
