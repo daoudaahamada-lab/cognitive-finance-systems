@@ -30,10 +30,13 @@ export async function notesAction(prospectId: string, _: ActionState, form: Form
   return { ok: true, message: "Notes enregistrées." };
 }
 
+/** The form sends the browser's instant as ISO (startsAtIso); the raw local value is the fallback without JavaScript. */
 export async function logMeetingAction(prospectId: string, _: ActionState, form: FormData): Promise<ActionState> {
   const { workspace } = await requireContext();
+  const raw = String(form.get("startsAtIso") || form.get("startsAt") || "").trim();
+  if (!raw) return { error: "Indiquez la date et l'heure du rendez-vous." };
   try {
-    await logMeeting(workspace.id, prospectId, new Date(String(form.get("startsAt") ?? "")));
+    await logMeeting(workspace.id, prospectId, new Date(raw));
   } catch (error) {
     return toActionState(error);
   }

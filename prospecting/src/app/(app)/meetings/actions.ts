@@ -8,5 +8,6 @@ import { setMeetingStatus } from "@/server/services/meetings";
 export async function meetingStatusAction(meetingId: string, status: MeetingStatus) {
   const { workspace } = await requireContext();
   await setMeetingStatus(workspace.id, meetingId, status);
-  revalidatePath("/meetings");
+  // The meetings page, the prospect page and the dashboard's "à confirmer" count all change.
+  revalidatePath("/", "layout");
 }

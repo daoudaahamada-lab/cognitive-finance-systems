@@ -48,7 +48,7 @@ function fromWire(error: WireError): Error {
   if (error.kind === "auth") return new ProviderAuthError(error.message);
   if (error.kind === "limit") return new ProviderLimitError(error.message);
   if (error.kind === "action") return new ProviderActionError(error.code ?? "UNEXPECTED_PAGE", error.message);
-  return new Error(`Worker LinkedIn : ${error.message}`);
+  return new Error(`Navigateur LinkedIn : ${error.message}`);
 }
 
 function sameSecret(given: string | undefined, expected: string): boolean {
@@ -107,7 +107,7 @@ export class RemoteBrowserProvider implements LinkedInProvider {
         body: JSON.stringify({ method, args }),
       });
     } catch {
-      throw new ProviderActionError("WORKER_UNAVAILABLE", "le worker LinkedIn ne répond pas : relancez Vela avec « npm run local » (ou lancez « npm run worker »)");
+      throw new ProviderActionError("WORKER_UNAVAILABLE", "Vela ne parvient pas à joindre son navigateur LinkedIn. Fermez puis relancez Vela (« npm run local »).");
     }
     const body = (await response.json().catch(() => ({ error: { kind: "error", message: `HTTP ${response.status}` } }))) as { result?: T; error?: WireError };
     if (body.error) throw fromWire(body.error);

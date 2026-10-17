@@ -1,42 +1,71 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import { Field, FormMessage, Input, Textarea } from "@/components/ui/form";
 import { SubmitButton } from "@/components/ui/submit-button";
 import { logMeetingAction, manualStageAction, notesAction } from "../actions";
+import { manualStageActions } from "../stage-rules";
 
+/** Manual stage changes; renders nothing when none applies to the stage. */
 export function StageButtons({ prospectId, stage }: { prospectId: string; stage: string }) {
   const [exState, exclude] = useActionState(manualStageAction.bind(null, prospectId, "exclude"), null);
   const [rqState, requalify] = useActionState(manualStageAction.bind(null, prospectId, "requalify"), null);
   const [niState, notInterested] = useActionState(manualStageAction.bind(null, prospectId, "not_interested"), null);
   const state = exState?.error ? exState : rqState?.error ? rqState : niState?.error ? niState : null;
+  const actions = manualStageActions(stage);
+  if (actions.length === 0 && !state) return null;
   return (
     <div className="space-y-2">
       <FormMessage state={state} />
-      <div className="flex flex-wrap gap-2">
-        {["NEW", "QUALIFIED", "INVITED"].includes(stage) ? (
-          <form action={exclude}><SubmitButton variant="danger" size="sm">Ne pas contacter</SubmitButton></form>
-        ) : null}
-        {stage === "DISQUALIFIED" ? (
-          <form action={requalify}><SubmitButton variant="secondary" size="sm">Requalifier</SubmitButton></form>
-        ) : null}
-        {!["NOT_INTERESTED", "DISQUALIFIED", "MEETING_BOOKED"].includes(stage) ? (
-          <form action={notInterested}><SubmitButton variant="secondary" size="sm">Pas intéressé</SubmitButton></form>
-        ) : null}
-      </div>
+      {actions.length > 0 ? (
+        <div className="flex flex-wrap gap-2">
+          {actions.includes("exclude") ? (
+            <form action={exclude}>
+              <SubmitButton variant="danger" size="sm">Ne pas contacter</SubmitButton>
+            </form>
+          ) : null}
+          {actions.includes("requalify") ? (
+            <form action={requalify}>
+              <SubmitButton variant="secondary" size="sm">Requalifier</SubmitButton>
+            </form>
+          ) : null}
+          {actions.includes("not_interested") ? (
+            <form action={notInterested}>
+              <SubmitButton variant="secondary" size="sm">Pas intéressé</SubmitButton>
+            </form>
+          ) : null}
+        </div>
+      ) : null}
     </div>
   );
 }
 
+/**
+ * Logs a meeting agreed outside Vela. The browser also sends the instant as ISO (startsAtIso),
+ * so the local time typed is kept whatever the server's time zone.
+ */
 export function MeetingForm({ prospectId }: { prospectId: string }) {
   const [state, action] = useActionState(logMeetingAction.bind(null, prospectId), null);
+  const [iso, setIso] = useState("");
   return (
     <form action={action} className="space-y-2">
-      <FormMessage state={state} />
-      <Field label="Rendez-vous pris hors setter" htmlFor="startsAt">
-        <Input id="startsAt" name="startsAt" type="datetime-local" required />
+      {state?.ok ? <FormMessage state={state} /> : null}
+      <Field label="Rendez-vous pris en dehors de Vela" htmlFor="meeting-starts-at" error={state?.error}>
+        <Input
+          id="meeting-starts-at"
+          name="startsAt"
+          type="datetime-local"
+          required
+          onChange={(event) => {
+            const local = new Date(event.target.value);
+            setIso(Number.isNaN(local.getTime()) ? "" : local.toISOString());
+          }}
+        />
       </Field>
-      <SubmitButton variant="secondary" size="sm">Enregistrer le RDV</SubmitButton>
+      <input type="hidden" name="startsAtIso" value={iso} />
+      <SubmitButton variant="secondary" size="sm" pendingLabel="Enregistrement…">
+        Ajouter le rendez-vous
+      </SubmitButton>
     </form>
   );
 }

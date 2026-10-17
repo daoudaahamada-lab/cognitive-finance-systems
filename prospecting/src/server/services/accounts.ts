@@ -1,4 +1,4 @@
-import type { AccountType, Campaign } from "@prisma/client";
+import type { AccountType, Campaign, LinkedInAccount } from "@prisma/client";
 import { randomUUID } from "node:crypto";
 import { z } from "zod";
 import { db } from "@/server/db";
@@ -35,25 +35,38 @@ async function linkedin<T>(fn: () => Promise<T>): Promise<T> {
     return await fn();
   } catch (error) {
     if (error instanceof ProviderAuthError) throw new UserError(`LinkedIn a refusé la session : ${error.message}`);
+    // Vela's own browser is unreachable: LinkedIn has nothing to do with it.
+    if (error instanceof ProviderActionError && error.code === "WORKER_UNAVAILABLE") throw new UserError(error.message);
     if (error instanceof ProviderActionError || error instanceof ProviderLimitError) throw new UserError(`LinkedIn : ${error.message}`);
     throw error;
   }
 }
 
+/** Why a browser account created without a cookie waits. The "Session" prefix marks a session to open. */
+export const SESSION_TO_OPEN_REASON =
+  "Session LinkedIn à ouvrir : collez un cookie li_at ci-dessous, ou connectez-vous via « npm run linkedin:login » dans le terminal de Vela (Vela arrêté).";
+
+/**
+ * A browser account paused because of its LinkedIn session (never opened, expired, security check).
+ * Only a new session (cookie or « npm run linkedin:login ») can bring it back, never a plain "Réactiver".
+ */
+export function needsSession(account: Pick<LinkedInAccount, "provider" | "status" | "statusReason">): boolean {
+  return account.provider === "browser" && account.status === "PAUSED" && Boolean(account.statusReason?.startsWith("Session"));
+}
+
+/** Back to work: the pause reason and any old failure alert go with it. */
+const REACTIVATED = { status: "ACTIVE", statusReason: null, lastError: null, lastErrorAt: null } as const;
+
 export async function connectAccount(workspaceId: string, input: z.infer<typeof connectAccountSchema>) {
   const workspace = await db.workspace.findUniqueOrThrow({ where: { id: workspaceId } });
   const providerName = input.provider;
   if (providerName === "browser" && !input.sessionCookie) {
-    // No cookie: the account waits until someone logs in by hand (npm run linkedin:login).
-    const account = await db.linkedInAccount.create({
+    // No cookie: the account waits until someone logs in by hand (npm run linkedin:login) or pastes one.
+    return db.linkedInAccount.create({
       data: {
         workspaceId, provider: "browser", externalId: `br-${randomUUID()}`, fullName: input.fullName, headline: input.headline,
-        accountType: input.accountType, timezone: workspace.timezone, status: "PAUSED", statusReason: "Session LinkedIn à ouvrir",
+        accountType: input.accountType, timezone: workspace.timezone, status: "PAUSED", statusReason: SESSION_TO_OPEN_REASON,
       },
-    });
-    return db.linkedInAccount.update({
-      where: { id: account.id },
-      data: { statusReason: `Session LinkedIn à ouvrir : lancez « npm run linkedin:login -- --account ${account.id} » sur votre machine, ou collez un cookie li_at.` },
     });
   }
   const connected = await linkedin(() => getProvider(db, providerName).connectAccount(input));
@@ -117,7 +130,7 @@ export async function updateAccountSession(workspaceId: string, accountId: strin
   const me = await linkedin(() => provider.updateSession!({ externalId: account.externalId }, sessionCookie));
   await db.linkedInAccount.update({
     where: { id: accountId },
-    data: { fullName: me.fullName || account.fullName, headline: me.headline || account.headline, status: "ACTIVE", statusReason: null },
+    data: { fullName: me.fullName || account.fullName, headline: me.headline || account.headline, ...REACTIVATED },
   });
 }
 
@@ -136,20 +149,37 @@ export function diagnosticQuery(campaign: Pick<Campaign, "searchUrl" | "titles" 
   };
 }
 
-/** Read-only check of a browser account (session, search, profile, network, messages). Nothing is sent. */
-export async function diagnoseAccount(workspaceId: string, accountId: string): Promise<DiagnosticLine[]> {
+/**
+ * Read-only check of a browser account (session, search, profile, network, messages). Nothing is sent.
+ * The outcome is kept (lastDiagnosedAt, lastDiagnosisOk) whenever LinkedIn answered: a refused session counts
+ * as a failed check, while an unreachable browser leaves the previous result untouched.
+ */
+export async function diagnoseAccount(workspaceId: string, accountId: string, now = new Date()): Promise<DiagnosticLine[]> {
   const account = await db.linkedInAccount.findFirst({ where: { id: accountId, workspaceId } });
   if (!account) throw new UserError("Compte introuvable.");
   const provider = getProvider(db, account.provider);
   if (!provider.diagnose) throw new UserError("Ce type de compte n'a pas de vérification LinkedIn.");
   const campaign = await db.campaign.findFirst({ where: { accountId }, orderBy: { createdAt: "desc" } });
-  return linkedin(() => provider.diagnose!({ externalId: account.externalId }, diagnosticQuery(campaign)));
+  const remember = (ok: boolean) => db.linkedInAccount.update({ where: { id: accountId }, data: { lastDiagnosedAt: now, lastDiagnosisOk: ok } });
+  return linkedin(async () => {
+    try {
+      const lines = await provider.diagnose!({ externalId: account.externalId }, diagnosticQuery(campaign));
+      await remember(lines.length > 0 && lines.every((line) => line.ok));
+      return lines;
+    } catch (error) {
+      if (error instanceof ProviderAuthError) await remember(false);
+      throw error;
+    }
+  });
 }
 
 export async function setAccountStatus(workspaceId: string, accountId: string, status: "ACTIVE" | "PAUSED" | "DISCONNECTED") {
   const account = await db.linkedInAccount.findFirst({ where: { id: accountId, workspaceId } });
   if (!account) throw new UserError("Compte introuvable.");
-  await db.linkedInAccount.update({ where: { id: accountId }, data: { status, ...(status === "ACTIVE" ? { statusReason: null } : {}) } });
+  if (status === "ACTIVE" && needsSession(account)) {
+    throw new UserError("Ouvrez d'abord la session LinkedIn : collez un cookie li_at ou suivez les étapes « Session LinkedIn » du compte.");
+  }
+  await db.linkedInAccount.update({ where: { id: accountId }, data: status === "ACTIVE" ? REACTIVATED : { status } });
   if (status === "DISCONNECTED") {
     await db.campaign.updateMany({ where: { accountId, status: "ACTIVE" }, data: { status: "PAUSED" } });
   }

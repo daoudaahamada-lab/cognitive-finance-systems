@@ -1,31 +1,44 @@
 "use client";
 
 import { Check, Copy } from "lucide-react";
-import { useActionState, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Field, FormMessage, Input } from "@/components/ui/form";
 import { SubmitButton } from "@/components/ui/submit-button";
 import { createTokenAction } from "./actions";
 
 function CopyBlock({ label, text }: { label: string; text: string }) {
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState<"yes" | "no" | null>(null);
+  useEffect(() => {
+    if (!copied) return;
+    const timer = setTimeout(() => setCopied(null), 2000);
+    return () => clearTimeout(timer);
+  }, [copied]);
   return (
     <div>
-      <div className="mb-1 flex items-center justify-between">
+      <div className="mb-1 flex items-center justify-between gap-2">
         <p className="text-xs font-medium text-muted">{label}</p>
         <Button
           variant="ghost"
           size="sm"
+          aria-label={`Copier : ${label}`}
           onClick={async () => {
-            await navigator.clipboard.writeText(text);
-            setCopied(true);
-            setTimeout(() => setCopied(false), 1500);
+            try {
+              await navigator.clipboard.writeText(text);
+              setCopied("yes");
+            } catch {
+              setCopied("no");
+            }
           }}
         >
-          {copied ? <Check className="size-3.5" aria-hidden /> : <Copy className="size-3.5" aria-hidden />} {copied ? "Copié" : "Copier"}
+          {copied === "yes" ? <Check className="size-3.5 text-success" aria-hidden /> : <Copy className="size-3.5" aria-hidden />}
+          <span aria-hidden>{copied === "yes" ? "Copié" : "Copier"}</span>
         </Button>
       </div>
-      <pre className="overflow-x-auto rounded-lg bg-ink px-3 py-2.5 text-xs leading-relaxed text-white">{text}</pre>
+      <pre className="overflow-x-auto rounded-control bg-ink px-3 py-2.5 text-xs leading-relaxed text-white">{text}</pre>
+      <span aria-live="polite" className="sr-only">
+        {copied === "yes" ? "Copié dans le presse-papiers" : copied === "no" ? "Copie impossible : sélectionnez le texte à la main." : ""}
+      </span>
     </div>
   );
 }

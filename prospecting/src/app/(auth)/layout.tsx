@@ -1,6 +1,13 @@
+import { Check } from "lucide-react";
 import type { ReactNode } from "react";
 import { Logo } from "@/components/layout/logo";
 import { BRAND } from "@/lib/brand";
+
+const POINTS = [
+  "Ciblage par critères, signaux d'achat et engagement",
+  "Invitations et relances dans les limites de sécurité LinkedIn",
+  "Setter qui répond, gère les objections et vous passe la main",
+];
 
 export default function AuthLayout({ children }: { children: ReactNode }) {
   return (
@@ -17,9 +24,12 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
           Il trouve vos prospects, lance la conversation et réserve les rendez-vous.
         </h2>
         <ul className="mt-8 space-y-3 text-sm text-brand-100">
-          <li>• Ciblage par critères, signaux d&apos;achat et engagement</li>
-          <li>• Invitations et relances dans les limites de sécurité LinkedIn</li>
-          <li>• Setter qui répond, gère les objections et vous passe la main</li>
+          {POINTS.map((point) => (
+            <li key={point} className="flex gap-3">
+              <Check className="mt-0.5 size-4 shrink-0 text-brand-200" aria-hidden />
+              <span>{point}</span>
+            </li>
+          ))}
         </ul>
       </aside>
     </main>
