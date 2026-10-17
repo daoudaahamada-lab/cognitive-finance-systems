@@ -113,6 +113,37 @@ describe("account repair clears old failure alerts", () => {
   });
 });
 
+describe("a new LinkedIn session needs a new check", () => {
+  it("forgets the previous check result when the session is replaced", async () => {
+    const { workspace, account } = await browserAccount("br-new-session", {
+      status: "PAUSED",
+      statusReason: "Session LinkedIn expirée ou vérification de sécurité demandée : mettez à jour le cookie du compte.",
+      lastDiagnosedAt: FAILED_AT,
+      lastDiagnosisOk: true,
+    });
+
+    await updateAccountSession(workspace.id, account.id, "AQEDAR-a-fresh-li-at-cookie-value");
+
+    expect(await db.linkedInAccount.findUniqueOrThrow({ where: { id: account.id } })).toMatchObject({
+      status: "ACTIVE",
+      lastDiagnosedAt: null,
+      lastDiagnosisOk: null,
+    });
+  });
+
+  it("keeps it when the same session is only resumed", async () => {
+    const { workspace, account } = await browserAccount("br-resumed", { status: "PAUSED", statusReason: null, lastDiagnosedAt: FAILED_AT, lastDiagnosisOk: true });
+
+    await setAccountStatus(workspace.id, account.id, "ACTIVE");
+
+    expect(await db.linkedInAccount.findUniqueOrThrow({ where: { id: account.id } })).toMatchObject({
+      status: "ACTIVE",
+      lastDiagnosedAt: FAILED_AT,
+      lastDiagnosisOk: true,
+    });
+  });
+});
+
 describe("a LinkedIn session to open", () => {
   it("creates a browser account without a cookie as paused, with plain instructions", async () => {
     const { workspace } = await createWorkspace();
@@ -122,6 +153,8 @@ describe("a LinkedIn session to open", () => {
     expect(account).toMatchObject({ status: "PAUSED", statusReason: SESSION_TO_OPEN_REASON });
     expect(SESSION_TO_OPEN_REASON).toMatch(/^Session LinkedIn à ouvrir/);
     expect(SESSION_TO_OPEN_REASON).not.toMatch(/worker/i);
+    // Also read in the header banner, the dashboard and the campaigns, where nothing is "below".
+    expect(SESSION_TO_OPEN_REASON).not.toMatch(/ci-dessous/);
     expect(needsSession(account)).toBe(true);
   });
 

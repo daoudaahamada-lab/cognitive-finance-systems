@@ -2,7 +2,7 @@ import { CircleCheck, CircleDashed, KeyRound, TriangleAlert } from "lucide-react
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 import { SESSION_TO_OPEN_REASON } from "@/server/services/accounts";
-import { CopyCommand, SessionCheck, SessionForm } from "./account-forms";
+import { CopyCommand, OpenSessionForm, SessionCheck, SessionScope } from "./account-forms";
 
 const dayMonth = new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "short" });
 const dayMonthYear = new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "short", year: "numeric" });
@@ -53,6 +53,7 @@ const kbd = "rounded border border-line bg-surface px-1 font-mono text-xs text-i
  * (a) session to open: the terminal steps or a li_at cookie, and nothing else to click;
  * (b) open but never checked: the check is the primary action;
  * (c) checked: when, and whether everything was recognised.
+ * SessionScope sits above the switch, so opening the session (a → b) keeps its confirmation and the focus.
  */
 export function SessionPanel({ account, now = new Date() }: { account: SessionAccount; now?: Date }) {
   const headingId = `session-${account.id}`;
@@ -64,7 +65,9 @@ export function SessionPanel({ account, now = new Date() }: { account: SessionAc
       <h3 id={headingId} className="mb-3 flex items-center gap-2 text-sm font-semibold text-ink">
         <KeyRound className="size-4 text-muted" aria-hidden /> Session LinkedIn
       </h3>
-      {account.needsSession ? <OpenSession account={account} /> : <CheckedSession account={account} now={now} />}
+      <SessionScope accountId={account.id}>
+        {account.needsSession ? <OpenSession account={account} /> : <CheckedSession account={account} now={now} />}
+      </SessionScope>
     </section>
   );
 }
@@ -99,7 +102,7 @@ function OpenSession({ account }: { account: SessionAccount }) {
       </div>
       <div>
         <p className="mb-2 text-sm font-medium text-ink">Collez le cookie li_at de votre session</p>
-        <SessionForm accountId={account.id} submitLabel="Ouvrir la session" />
+        <OpenSessionForm accountId={account.id} />
       </div>
     </div>
   );

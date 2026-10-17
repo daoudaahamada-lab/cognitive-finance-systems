@@ -2,12 +2,13 @@
 
 import type { LinkedInAccount } from "@prisma/client";
 import { Check, CircleCheck, CircleX, Copy, Pause, Play } from "lucide-react";
-import { useActionState, useEffect, useState, type ReactNode } from "react";
+import { createContext, useActionState, useContext, useEffect, useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { Field, FormMessage, Input, Select, checkbox } from "@/components/ui/form";
 import { SubmitButton } from "@/components/ui/submit-button";
 import { ACCOUNT_TYPES, WEEKDAYS } from "@/lib/labels";
 import { WEEKLY_INVITE_CAP } from "@/server/domain/quotas";
+import type { ActionState } from "@/server/services/errors";
 import { connectAccountAction, diagnoseAccountAction, setAccountStatusAction, updateAccountAction, updateSessionAction } from "./actions";
 
 function CookieHelp() {
@@ -127,6 +128,11 @@ export function CopyCommand({ command }: { command: string }) {
   );
 }
 
+type SessionAction = { state: ActionState; action: (form: FormData) => void };
+
+/** The 'Ouvrir la session' action of a 'Session LinkedIn' block, held above the block's state switch. */
+const OpenSessionContext = createContext<SessionAction | null>(null);
+
 /**
  * Read-only check run on LinkedIn by Vela's browser: tells whether Vela still understands the pages.
  * `children` is the stored result (server-rendered); this component keeps the details of the last run,
@@ -134,12 +140,19 @@ export function CopyCommand({ command }: { command: string }) {
  */
 export function SessionCheck({ accountId, primary, children }: { accountId: string; primary: boolean; children: ReactNode }) {
   const [state, action] = useActionState(diagnoseAccountAction.bind(null, accountId), null);
+  // Mounted right after 'Ouvrir la session' replaced its form: focus lands on this next step, not on the page.
+  const sessionJustOpened = useContext(OpenSessionContext)?.state?.ok === true;
   const failed = state?.lines?.filter((line) => !line.ok).length ?? 0;
   return (
     <form action={action} className="space-y-3">
       {children}
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-        <SubmitButton variant={primary ? "primary" : "secondary"} size="sm" pendingLabel="Vérification sur LinkedIn… (environ 1 minute)">
+        <SubmitButton
+          variant={primary ? "primary" : "secondary"}
+          size="sm"
+          autoFocus={sessionJustOpened}
+          pendingLabel="Vérification sur LinkedIn… (environ 1 minute)"
+        >
           Vérifier la connexion LinkedIn
         </SubmitButton>
         <p className="text-xs text-muted">Ouvre votre session, une recherche, un profil, vos relations et vos messages. N&apos;envoie rien.</p>
@@ -172,9 +185,41 @@ export function SessionCheck({ accountId, primary, children }: { accountId: stri
   );
 }
 
-/** Opens or replaces the LinkedIn session with a li_at cookie. The cookie is never shown again. */
-export function SessionForm({ accountId, submitLabel = "Mettre à jour la session" }: { accountId: string; submitLabel?: string }) {
+/**
+ * Wraps every state of a 'Session LinkedIn' block and owns its 'Ouvrir la session' action. A new session
+ * makes the account active, so the refresh swaps the cookie form for the check in the same commit: the
+ * confirmation lives here to survive it, and SessionCheck takes the focus the vanished button held.
+ */
+export function SessionScope({ accountId, children }: { accountId: string; children: ReactNode }) {
   const [state, action] = useActionState(updateSessionAction.bind(null, accountId), null);
+  return (
+    <OpenSessionContext value={{ state, action }}>
+      {/* Always mounted, so the confirmation is announced when it appears. */}
+      <div role="status">
+        {state?.ok && state.message ? (
+          <p className="mb-3 rounded-control border border-success-line bg-success-soft px-3 py-2 text-sm text-success">{state.message}</p>
+        ) : null}
+      </div>
+      {children}
+    </OpenSessionContext>
+  );
+}
+
+/** 'Ouvrir la session' (session to open), inside a SessionScope: the scope shows its success. */
+export function OpenSessionForm({ accountId }: { accountId: string }) {
+  const scope = useContext(OpenSessionContext);
+  if (!scope) throw new Error("OpenSessionForm must be rendered inside SessionScope.");
+  return <SessionCookieForm accountId={accountId} submitLabel="Ouvrir la session" state={scope.state?.ok ? null : scope.state} action={scope.action} />;
+}
+
+/** Replaces the LinkedIn session of an account that has one ('Mettre à jour la session'). */
+export function SessionForm({ accountId }: { accountId: string }) {
+  const [state, action] = useActionState(updateSessionAction.bind(null, accountId), null);
+  return <SessionCookieForm accountId={accountId} submitLabel="Mettre à jour la session" state={state} action={action} />;
+}
+
+/** Opens or replaces the LinkedIn session with a li_at cookie. The cookie is never shown again. */
+function SessionCookieForm({ accountId, submitLabel, state, action }: SessionAction & { accountId: string; submitLabel: string }) {
   return (
     <form action={action} className="space-y-3">
       <FormMessage state={state} />
@@ -198,7 +243,8 @@ function disconnectQuestion(name: string, activeCampaigns: number, sessionHint: 
       : activeCampaigns === 1
         ? "Sa campagne active sera mise en pause et le compte disparaîtra."
         : `Ses ${activeCampaigns} campagnes actives seront mises en pause et le compte disparaîtra.`;
-  return [`Déconnecter ${name} ?`, impact, sessionHint].filter(Boolean).join(" ");
+  // A cookie-connected account can have no name (the card then reads "Compte LinkedIn").
+  return [`Déconnecter ${name.trim() || "ce compte"} ?`, impact, sessionHint].filter(Boolean).join(" ");
 }
 
 /**

@@ -42,9 +42,12 @@ async function linkedin<T>(fn: () => Promise<T>): Promise<T> {
   }
 }
 
-/** Why a browser account created without a cookie waits. The "Session" prefix marks a session to open. */
+/**
+ * Why a browser account created without a cookie waits. The "Session" prefix marks a session to open.
+ * It is read away from the account card too (header banner, MCP, campaigns): it names the card, never "below".
+ */
 export const SESSION_TO_OPEN_REASON =
-  "Session LinkedIn à ouvrir : collez un cookie li_at ci-dessous, ou connectez-vous via « npm run linkedin:login » dans le terminal de Vela (Vela arrêté).";
+  "Session LinkedIn à ouvrir : collez un cookie li_at sur la carte du compte (Comptes LinkedIn), ou connectez-vous via « npm run linkedin:login » dans le terminal de Vela (Vela arrêté).";
 
 /**
  * A browser account paused because of its LinkedIn session (never opened, expired, security check).
@@ -121,7 +124,10 @@ export async function updateAccountSettings(workspaceId: string, accountId: stri
 
 export const sessionSchema = z.object({ sessionCookie: z.string().trim().min(20, "Collez le cookie li_at de votre session LinkedIn").max(2000) });
 
-/** New cookie for an existing account (after an expired session or a security check). */
+/**
+ * New cookie for an existing account (after an expired session or a security check).
+ * The new session has never been checked: the previous check result goes, unlike a plain "Réactiver".
+ */
 export async function updateAccountSession(workspaceId: string, accountId: string, sessionCookie: string) {
   const account = await db.linkedInAccount.findFirst({ where: { id: accountId, workspaceId } });
   if (!account) throw new UserError("Compte introuvable.");
@@ -130,7 +136,7 @@ export async function updateAccountSession(workspaceId: string, accountId: strin
   const me = await linkedin(() => provider.updateSession!({ externalId: account.externalId }, sessionCookie));
   await db.linkedInAccount.update({
     where: { id: accountId },
-    data: { fullName: me.fullName || account.fullName, headline: me.headline || account.headline, ...REACTIVATED },
+    data: { fullName: me.fullName || account.fullName, headline: me.headline || account.headline, ...REACTIVATED, lastDiagnosedAt: null, lastDiagnosisOk: null },
   });
 }
 

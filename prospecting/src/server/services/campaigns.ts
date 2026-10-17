@@ -2,10 +2,11 @@ import type { Prisma, ProspectStage } from "@prisma/client";
 import { z } from "zod";
 import { db } from "@/server/db";
 import { MAX_FOLLOW_UPS } from "@/server/domain/followups";
-import { INVITE_NOTE_MAX, unknownVariables } from "@/server/domain/templates";
+import { INVITE_NOTE_MAX, malformedVariables, suggestVariable, unknownVariables } from "@/server/domain/templates";
 import { engineDeps } from "@/server/engine/deps";
 import { insertProspects, scoreNewProspects } from "@/server/engine/sourcing";
 import { getProvider } from "@/server/linkedin";
+import { launchReadiness } from "./campaign-insights";
 import { UserError, type ActionState } from "./errors";
 
 /** A user error that belongs to one form field: the builder shows it under that field. */
@@ -41,7 +42,14 @@ function parseJson(value: unknown): unknown {
   }
 }
 
-const list = (max = 50) => z.preprocess(parseList, z.array(z.string().trim().min(1).max(200)).max(max));
+/** A tag list. Every message is French: TagInput limits neither the number nor the length of tags. */
+const list = (max = 50) =>
+  z.preprocess(
+    parseList,
+    z
+      .array(z.string({ error: "Élément invalide" }).trim().min(1, "Élément vide").max(200, "200 caractères maximum par élément"), { error: "Liste invalide" })
+      .max(max, `${max} éléments maximum`),
+  );
 
 /** Browsers submit textarea content with CRLF line endings; messages use LF. */
 const text = () => z.string().transform((v) => v.replace(/\r\n?/g, "\n"));
@@ -52,9 +60,19 @@ export function unknownVariablesMessage(names: string[]): string {
   return `${names.length > 1 ? "variables inconnues" : "variable inconnue"} ${quoted}. Utilisez une des variables listées.`;
 }
 
+/** "variable mal écrite {prenom} : utilisez {{firstName}}." */
+export function malformedVariablesMessage(names: string[]): string {
+  const written = names.map((n) => `{${n}}`).join(", ");
+  const meant = names.map((n) => `{{${suggestVariable(n) ?? n}}}`).join(", ");
+  return `${names.length > 1 ? "variables mal écrites" : "variable mal écrite"} ${written} : utilisez ${meant}.`;
+}
+
 const knownVariablesOnly = (prefix: string) => (value: string, ctx: z.RefinementCtx) => {
   const unknown = unknownVariables(value);
   if (unknown.length > 0) ctx.addIssue({ code: "custom", message: `${prefix}${unknownVariablesMessage(unknown)}` });
+  // Single braces ({prenom}) are not variables: they would reach the prospect as written.
+  const malformed = malformedVariables(value);
+  if (malformed.length > 0) ctx.addIssue({ code: "custom", message: `${prefix}${malformedVariablesMessage(malformed)}` });
 };
 
 const template = (label: string, max: number) =>
@@ -76,16 +94,16 @@ export function lacksSearchTargeting(c: { sources: readonly string[]; searchUrl:
 const targetingFields = z.object({ sources: z.array(z.string()), searchUrl: z.string(), titles: z.array(z.string()), keywords: z.array(z.string()) });
 
 export const campaignSchema = z.object({
-  name: z.string().trim().min(1, "Nom requis").max(120, "120 caractères maximum"),
-  accountId: z.string().min(1, "Choisissez un compte LinkedIn"),
-  sources: z.preprocess(parseList, z.array(z.enum(["SEARCH", "SIGNALS", "POST_ENGAGERS", "PROFILE_VISITORS"]))),
+  name: z.string({ error: "Nom requis" }).trim().min(1, "Nom requis").max(120, "120 caractères maximum"),
+  accountId: z.string({ error: "Choisissez un compte LinkedIn" }).min(1, "Choisissez un compte LinkedIn"),
+  sources: z.preprocess(parseList, z.array(z.enum(["SEARCH", "SIGNALS", "POST_ENGAGERS", "PROFILE_VISITORS"], "Source inconnue"), { error: "Sources invalides" })),
   titles: list(),
   keywords: list(),
   industries: list(),
   locations: list(),
   companySizes: list(),
-  signals: z.preprocess(parseList, z.array(z.enum(["NEW_ROLE", "HIRING", "FUNDRAISING"]))),
-  postUrls: z.preprocess(parseList, z.array(z.url("URL de post invalide")).max(10)),
+  signals: z.preprocess(parseList, z.array(z.enum(["NEW_ROLE", "HIRING", "FUNDRAISING"], "Signal inconnu"), { error: "Signaux invalides" })),
+  postUrls: z.preprocess(parseList, z.array(z.url("URL de post invalide"), { error: "Liste invalide" }).max(10, "10 posts maximum")),
   searchUrl: z
     .string()
     .trim()
@@ -94,15 +112,15 @@ export const campaignSchema = z.object({
       message: "Collez une URL de recherche de personnes LinkedIn (linkedin.com/search/results/people/…). Sales Navigator n'est pas pris en charge.",
     }),
   exclusions: list(100),
-  minScore: z.coerce.number().int().min(0, "Score entre 0 et 100").max(100, "Score entre 0 et 100"),
-  weeklyProspectTarget: z.coerce.number().int("Nombre entier attendu").min(10, "10 au minimum").max(1000, "1000 au maximum"),
+  minScore: z.coerce.number({ error: "Score entre 0 et 100" }).int("Score entre 0 et 100").min(0, "Score entre 0 et 100").max(100, "Score entre 0 et 100"),
+  weeklyProspectTarget: z.coerce.number({ error: "Nombre entier attendu" }).int("Nombre entier attendu").min(10, "10 au minimum").max(1000, "1000 au maximum"),
   offer: text().pipe(z.string().trim().max(3000, "3000 caractères maximum")),
   persona: text().pipe(z.string().trim().max(3000, "3000 caractères maximum")),
   aiPersonalization: z.preprocess((v) => v === true || v === "on" || v === "true", z.boolean()),
   inviteNote: template("Note d'invitation", INVITE_NOTE_MAX).transform((v) => (v === "" ? null : v)),
   firstMessage: template("Premier message", 2000).refine((v) => v.length > 0, "Premier message requis"),
   followUps: z.preprocess(parseJson, z.array(followUpStep, { error: "Relances invalides" }).max(MAX_FOLLOW_UPS, `${MAX_FOLLOW_UPS} relances au maximum`)),
-  setterMode: z.enum(["OFF", "APPROVAL", "AUTO"]),
+  setterMode: z.enum(["OFF", "APPROVAL", "AUTO"], "Choisissez un mode du setter"),
   bookingUrl: z.union([z.url("Lien de réservation invalide"), z.literal("")]),
 }).refine((c) => !lacksSearchTargeting(c), {
   message: SEARCH_TARGETING_MESSAGE,
@@ -168,10 +186,10 @@ export async function setCampaignStatus(workspaceId: string, campaignId: string,
       throw new UserError("Le compte LinkedIn de cette campagne n'est pas actif : réparez-le dans Comptes LinkedIn.");
     }
     if (lacksSearchTargeting(campaign)) throw new CampaignFieldError("titles", `${SEARCH_TARGETING_MESSAGE}.`);
-    const hasProspects = await db.prospect.count({ where: { campaignId } });
-    if (campaign.sources.length === 0 && hasProspects === 0) {
-      throw new UserError("Ajoutez une source de prospects ou importez une liste avant de lancer la campagne.");
-    }
+    // Same checklist as the campaign page, so the MCP tools cannot launch what the button refuses.
+    const workspace = await db.workspace.findUniqueOrThrow({ where: { id: workspaceId }, select: { bookingUrl: true, offer: true } });
+    const blocker = (await launchReadiness(campaign, workspace)).checks.find((check) => check.level === "blocker");
+    if (blocker) throw new UserError(blocker.detail);
   }
   await db.campaign.update({
     where: { id: campaignId },

@@ -17,6 +17,7 @@ import {
   TEMPLATE_VARIABLES,
   VARIABLE_LABELS_FR,
   countVariants,
+  malformedVariables,
   renderTemplate,
   suggestVariable,
   unknownVariables,
@@ -118,6 +119,10 @@ function isRealAccount(account: CampaignFormAccount | undefined): boolean {
   return account !== undefined && account.provider !== "simulator";
 }
 
+function malformedVariableHint(name: string): string {
+  return `Variable mal écrite {${name}} : utilisez {{${suggestVariable(name)}}}.`;
+}
+
 function unknownVariableHint(name: string): string {
   const suggestion = suggestVariable(name);
   return suggestion
@@ -140,7 +145,11 @@ export function CampaignForm({ aiEnabled, campaignId, values, accounts, workspac
   const [followUps, setFollowUps] = useState<FollowUpStep[]>(values.followUps);
   const [bookingUrl, setBookingUrl] = useState(values.bookingUrl);
   const [preview, setPreview] = useState(0);
-  const err = state?.fieldErrors ?? {};
+  // The response whose follow-up errors no longer match the steps: they are keyed by position
+  // ("followUps.1" is Relance 2), so adding or deleting a step would move them under the wrong one.
+  const [stepsEditedSince, setStepsEditedSince] = useState<typeof state | undefined>(undefined);
+  const allErrors = state?.fieldErrors ?? {};
+  const err = stepsEditedSince === state ? Object.fromEntries(Object.entries(allErrors).filter(([key]) => !key.startsWith("followUps."))) : allErrors;
 
   const account = accounts.find((a) => a.id === accountId);
   const realAccount = isRealAccount(account);
@@ -163,6 +172,10 @@ export function CampaignForm({ aiEnabled, campaignId, values, accounts, workspac
     event.preventDefault();
     if (pending) return;
     const data = new FormData(event.currentTarget);
+    // Enter submits without a blur, so an emptied delay may not be clamped to 1 yet.
+    const steps = followUps.map((f) => ({ ...f, delayDays: Math.max(1, f.delayDays) }));
+    if (steps.some((f, i) => f.delayDays !== followUps[i]!.delayDays)) setFollowUps(steps);
+    data.set("followUps", JSON.stringify(steps));
     startTransition(() => formAction(data));
   };
 
@@ -171,7 +184,12 @@ export function CampaignForm({ aiEnabled, campaignId, values, accounts, workspac
     .filter((f) => f !== null)
     .sort((a, b) => a.order - b.order);
   const sectionsWithErrors = new Set(errorFields.map((f) => f.section));
-  const barState = state?.error && errorFields.length > 0 ? { error: `Corrigez : ${[...new Set(errorFields.map((f) => f.label))].join(", ")}.` } : state;
+  const barState =
+    state?.error && errorFields.length > 0
+      ? { error: `Corrigez : ${[...new Set(errorFields.map((f) => f.label))].join(", ")}.` }
+      : Object.keys(allErrors).length > 0 && Object.keys(err).length === 0
+        ? null // Only errors of steps since added or deleted: they may be fixed, the next save tells.
+        : state;
 
   const changeAccount = (id: string) => {
     setAccountId(id);
@@ -183,6 +201,14 @@ export function CampaignForm({ aiEnabled, campaignId, values, accounts, workspac
   };
   const toggleSource = (s: string) => setSources(sources.includes(s) ? sources.filter((x) => x !== s) : [...sources, s]);
   const updateFollowUp = (i: number, change: Partial<FollowUpStep>) => setFollowUps(followUps.map((x, j) => (j === i ? { ...x, ...change } : x)));
+  const addFollowUp = () => {
+    setFollowUps([...followUps, { delayDays: 4, template: "{{firstName}}, " }]);
+    setStepsEditedSince(state);
+  };
+  const deleteFollowUp = (i: number) => {
+    setFollowUps(followUps.filter((_, j) => j !== i));
+    setStepsEditedSince(state);
+  };
 
   const vars: TemplateVars = { ...SAMPLE, senderFirstName: account?.fullName.split(" ")[0] ?? "", bookingUrl: bookingUrl.trim() || workspace.bookingUrl };
   const steps = [
@@ -324,7 +350,9 @@ export function CampaignForm({ aiEnabled, campaignId, values, accounts, workspac
           ) : null}
 
           <fieldset className="space-y-4 rounded-control border border-line p-4">
-            <legend className="px-1 text-sm font-semibold text-ink">{usesSearchUrl ? "Critères de note (la recherche utilise votre URL)" : "Critères de recherche et de note"}</legend>
+            <legend className="px-1 text-sm font-semibold text-ink">
+              {usesSearchUrl ? "Critères de note (la recherche utilise votre URL)" : sources.includes("SEARCH") ? "Critères de recherche et de note" : "Critères de note"}
+            </legend>
             <div className="grid gap-4 md:grid-cols-2">
               <Field label="Postes ciblés" htmlFor="titles" error={err.titles} hint="Les équivalents FR/EN sont reconnus (CFO = DAF)">
                 <TagInput id="titles" name="titles" defaultValue={values.titles} suggestions={TITLE_SUGGESTIONS} placeholder="CFO, Head of Sales…" />
@@ -419,7 +447,7 @@ export function CampaignForm({ aiEnabled, campaignId, values, accounts, workspac
             <CadenceLine followUps={followUps} />
 
             <div className="space-y-2">
-              <label className="flex cursor-pointer items-center gap-2.5 text-sm font-medium text-ink">
+              <label className="flex min-h-9 cursor-pointer items-center gap-2.5 text-sm font-medium text-ink max-sm:min-h-11 pointer-coarse:min-h-11">
                 <input type="checkbox" checked={withNote} onChange={(e) => setWithNote(e.target.checked)} className={checkbox} aria-describedby="inviteNote-toggle-desc" />
                 Ajouter une note à l&apos;invitation
               </label>
@@ -489,7 +517,7 @@ export function CampaignForm({ aiEnabled, campaignId, values, accounts, workspac
                         {f.delayDays > 1 ? "jours" : "jour"} après {after}
                       </span>
                       <span className="font-medium tabular-nums text-ink-2">(J+{timeline[i]!.dayFromFirst})</span>
-                      <Button variant="ghost" size="icon" className="ml-auto" onClick={() => setFollowUps(followUps.filter((_, j) => j !== i))} aria-label={`Supprimer la relance ${i + 1}`}>
+                      <Button variant="ghost" size="icon" className="ml-auto" onClick={() => deleteFollowUp(i)} aria-label={`Supprimer la relance ${i + 1}`}>
                         <Trash2 className="size-4" aria-hidden />
                       </Button>
                     </div>
@@ -505,7 +533,7 @@ export function CampaignForm({ aiEnabled, campaignId, values, accounts, workspac
                 );
               })}
               {followUps.length < MAX_FOLLOW_UPS ? (
-                <Button variant="secondary" size="sm" onClick={() => setFollowUps([...followUps, { delayDays: 4, template: "{{firstName}}, " }])}>
+                <Button variant="secondary" size="sm" onClick={addFollowUp}>
                   <Plus className="size-3.5" aria-hidden /> Ajouter une relance
                 </Button>
               ) : null}
@@ -648,8 +676,8 @@ function TemplateEditor({
   const ref = useRef<HTMLTextAreaElement>(null);
   // Until the textarea has been focused, its caret position means nothing: insert at the end.
   const touched = useRef(false);
-  const unknown = unknownVariables(value);
-  const error = unknown.length > 0 ? unknown.map(unknownVariableHint).join(" ") : serverError;
+  const hints = [...unknownVariables(value).map(unknownVariableHint), ...malformedVariables(value).map(malformedVariableHint)];
+  const error = hints.length > 0 ? hints.join(" ") : serverError;
   const tooLong = maxLength !== undefined && value.length > maxLength;
   const variants = countVariants(value);
   const describedBy = [error ? `${id}-error` : null, `${id}-meta`].filter(Boolean).join(" ");

@@ -58,7 +58,8 @@ export async function conversationAction(
         return closeAsNotInterested(ws, conversationId);
     }
   });
-  return kind === "hand_back" ? state : moveOn(state, form, kind);
+  // Taking over means "I write to this prospect now", and handing back keeps the thread in view: both stay here.
+  return kind === "hand_back" || kind === "take_over" ? state : moveOn(state, form, kind);
 }
 
 /**

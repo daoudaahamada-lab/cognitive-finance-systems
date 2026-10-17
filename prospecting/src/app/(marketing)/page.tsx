@@ -64,7 +64,7 @@ export default function LandingPage() {
     <>
       <Hero />
 
-      <Section id="fonctionnement" eyebrow="Fonctionnement" title="De la recherche au rendez-vous, en cinq étapes" intro="Vous fixez la cible, le ton et les limites. Le moteur s'occupe du reste, jour après jour.">
+      <Section id="fonctionnement" eyebrow="Fonctionnement" title="De la recherche au rendez-vous, en cinq étapes" intro={`Vous fixez la cible, le ton et les limites. ${BRAND.name} s'occupe du reste, jour après jour.`}>
         {/* A numbered stepper on a 1px line: vertical on phones, horizontal from lg. */}
         <ol className="grid grid-cols-1 gap-8 lg:grid-cols-5 lg:gap-6">
           {STEPS.map((step, i) => (
@@ -270,8 +270,9 @@ function ProspectMock() {
           <li className="flex justify-between gap-3"><span>Son entreprise recrute</span><span className="text-success">Favorable</span></li>
           <li className="flex justify-between gap-3 text-muted"><span>Hors des zones prioritaires</span><span>Défavorable</span></li>
         </ul>
-        {/* Right-aligned on sm+: the quota chip overlaps the card's bottom-left corner. */}
-        <div className="mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-line pt-4 text-xs sm:justify-end">
+        {/* From sm the quota chip overlaps the card's bottom-left corner (192px into the card): the footer
+            keeps clear of it, right-aligned, and wraps onto two lines when the card is narrow (lg, two columns). */}
+        <div className="mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-line pt-4 text-xs sm:justify-end sm:pl-44">
           <span className="inline-flex items-center gap-1.5 text-ai"><Sparkles className="size-3.5" /> Évalué par Claude</span>
           <span className="rounded-md bg-brand-50 px-2 py-0.5 font-medium text-brand-700">Invitation programmée</span>
         </div>

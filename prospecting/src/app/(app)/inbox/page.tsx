@@ -14,7 +14,7 @@ import { CONVERSATION_STATUS, INTENTS, INTENT_TONES, STAGE_LABELS } from "@/lib/
 import { requireContext } from "@/server/auth/context";
 import { INBOX_TABS, getThread, hasLaunchedCampaign, inboxCounts, listConversations, oldestConversationId, type InboxTab } from "@/server/services/inbox";
 import { formatCompactTime, formatFullTime, formatMessageTime } from "./format";
-import { doneMessage, foldSequence, parseTab, threadNavigation } from "./navigation";
+import { doneMessage, foldSequence, idlePane, parseTab, threadNavigation } from "./navigation";
 import { ReplyBox, ThreadToolbar } from "./thread-controls";
 import { ThreadMessages } from "./thread-messages";
 
@@ -27,6 +27,19 @@ const AUTHOR_LABELS: Record<string, string> = { SEQUENCE: "Séquence", AI: "Sett
 type Conversation = Awaited<ReturnType<typeof listConversations>>[number];
 type Thread = NonNullable<Awaited<ReturnType<typeof getThread>>>;
 type Message = Thread["messages"][number];
+
+/**
+ * "À traiter" with its count as the nav pill (solid brand, white), on every tab, while something waits.
+ * The kit SegmentedControl has no attention option yet, so the pill is part of the label (it stacks under it like the other counts).
+ */
+function TodoTabLabel({ count }: { count: number }) {
+  return (
+    <>
+      {TAB_LABELS.todo}
+      <span className="mx-auto block w-fit rounded-full bg-brand-600 px-1.5 py-0.5 text-2xs leading-none font-semibold text-white tabular-nums">{formatNumber(count)}</span>
+    </>
+  );
+}
 
 function IntentChip({ intent }: { intent: string | null }) {
   if (!intent) return null;
@@ -200,28 +213,29 @@ export default async function InboxPage({ searchParams }: { searchParams: Promis
       case "drafts":
         return { title: "Aucune réponse à valider", description: "Les réponses proposées par le setter attendent ici votre accord." };
       case "ai":
-        return { title: "Aucune conversation au setter", description: "Les conversations que le setter mène seul apparaissent ici." };
+        return { title: "Le setter ne mène aucune conversation pour l'instant", description: "Les conversations que le setter mène seul apparaissent ici." };
       default:
         return { title: "Aucune conversation" };
     }
   })();
+
+  // The right pane with no thread open; "Tout est traité" only once nothing is left to do, not merely in this tab.
+  const pane = idlePane({ listEmpty, q, counts, tabEmptyTitle: empty.title });
 
   const draft = thread?.drafts[0] ?? null;
   const fold = thread ? foldSequence(thread.messages) : null;
 
   return (
     <>
-      {/* On phones an open thread starts with its own header. */}
-      <div className={cn(thread && "max-lg:hidden")}>
+      {/* On phones an open thread starts with its own header; the page heading stays for screen readers (sr-only takes no space). */}
+      <div className={cn(thread && "max-lg:sr-only")}>
         <PageHeader title="Boîte de réception" description="Les réponses de vos prospects. Le setter traite ce qu'il peut et vous signale le reste." />
       </div>
-      <Card
-        className={cn(
-          // overflow-clip (not hidden) keeps the rounded corners without breaking the sticky bars inside.
-          "grid grid-rows-[minmax(0,1fr)] overflow-clip lg:h-[calc(100dvh-12rem)] lg:min-h-[560px] lg:grid-cols-[380px_minmax(0,1fr)]",
-          thread && "max-lg:h-[calc(100dvh-var(--app-header-h)-var(--mobile-nav-h)-3rem)] max-lg:min-h-[30rem]",
-        )}
-      >
+      {/*
+        From lg the card fills the screen and its columns scroll; below lg the thread flows in the page, so the messages get
+        the whole screen above the pinned reply box. overflow-clip (not hidden) keeps the rounded corners without breaking the sticky bars inside.
+      */}
+      <Card className="grid overflow-clip lg:h-[calc(100dvh-12rem)] lg:min-h-[560px] lg:grid-cols-[380px_minmax(0,1fr)] lg:grid-rows-[minmax(0,1fr)]">
         <div className={cn("flex min-h-0 min-w-0 flex-col border-line lg:border-r", thread && "hidden lg:flex")}>
           <div className="sticky top-(--app-header-h) z-10 space-y-2 border-b border-line bg-surface p-2 lg:static">
             <SegmentedControl
@@ -229,7 +243,11 @@ export default async function InboxPage({ searchParams }: { searchParams: Promis
               value={tab}
               fill
               stacked
-              items={INBOX_TABS.map((t) => ({ href: link({ tab: t, c: undefined }), value: t, label: TAB_LABELS[t], count: counts[t] }))}
+              items={INBOX_TABS.map((t) =>
+                t === "todo" && counts.todo > 0
+                  ? { href: link({ tab: t, c: undefined }), value: t, label: <TodoTabLabel count={counts.todo} /> }
+                  : { href: link({ tab: t, c: undefined }), value: t, label: TAB_LABELS[t], count: counts[t] },
+              )}
             />
             <form action="/inbox" role="search" className="relative">
               <input type="hidden" name="tab" value={tab} />
@@ -237,7 +255,7 @@ export default async function InboxPage({ searchParams }: { searchParams: Promis
               <Input type="search" name="q" defaultValue={q} placeholder="Rechercher un prospect…" aria-label="Rechercher une conversation" className="pl-8" />
             </form>
           </div>
-          {!thread ? <div className="lg:hidden">{doneBanner(listEmpty ? "Tout est traité" : undefined)}</div> : null}
+          {!thread ? <div className="lg:hidden">{doneBanner(pane.allDone ? "Tout est traité" : undefined)}</div> : null}
           {conversations.length === 0 ? (
             <EmptyState icon={<Inbox className="size-5" aria-hidden />} title={empty.title} description={empty.description} action={empty.action} />
           ) : (
@@ -255,9 +273,9 @@ export default async function InboxPage({ searchParams }: { searchParams: Promis
               {doneBanner()}
               <div className="flex flex-1 items-center justify-center">
                 <EmptyState
-                  icon={listEmpty && !q ? <CircleCheck className="size-5" aria-hidden /> : <MessageSquare className="size-5" aria-hidden />}
-                  title={!listEmpty ? "Sélectionnez une conversation" : q ? "Aucun résultat" : counts.all > 0 ? "Tout est traité" : "Aucune conversation pour l'instant"}
-                  description={`${formatNumber(counts.todo)} à traiter · ${formatNumber(counts.drafts)} à valider`}
+                  icon={listEmpty && !q && counts.all > 0 ? <CircleCheck className="size-5" aria-hidden /> : <MessageSquare className="size-5" aria-hidden />}
+                  title={pane.title}
+                  description={pane.description}
                   action={oldestTodoId ? <ButtonLink href={`/inbox?tab=todo&c=${encodeURIComponent(oldestTodoId)}`}>Traiter le plus ancien</ButtonLink> : undefined}
                 />
               </div>
@@ -328,7 +346,11 @@ export default async function InboxPage({ searchParams }: { searchParams: Promis
                 </Banner>
               ) : null}
 
-              <ThreadMessages threadId={thread.id} count={thread.messages.length} className="relative min-h-0 flex-1 space-y-4 overflow-y-auto bg-canvas px-4 py-5 sm:px-5">
+              <ThreadMessages
+                threadId={thread.id}
+                count={thread.messages.length}
+                className="relative space-y-4 bg-canvas px-4 py-5 sm:px-5 lg:min-h-0 lg:flex-1 lg:overflow-y-auto"
+              >
                 {fold && fold.folded.length > 0 ? (
                   <li>
                     <details className="group">
@@ -351,8 +373,9 @@ export default async function InboxPage({ searchParams }: { searchParams: Promis
 
               {/* The reply box stays pinned above the mobile tab bar; on desktop it closes the flex column. */}
               <div className="z-10 border-t border-line bg-surface px-4 py-3 max-lg:sticky max-lg:bottom-(--mobile-nav-h) sm:px-5 lg:max-h-[55%] lg:overflow-y-auto">
+                {/* Keyed by thread only: a new proposal must not wipe what the user is typing (ReplyBox adopts it itself). */}
                 <ReplyBox
-                  key={`${thread.id}:${draft?.id ?? "reply"}`}
+                  key={thread.id}
                   conversationId={thread.id}
                   status={thread.status}
                   draft={draft ? { id: draft.id, body: draft.body, intent: draft.intent, rationale: draft.rationale, author: draft.author } : null}

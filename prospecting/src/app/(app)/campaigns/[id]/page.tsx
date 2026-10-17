@@ -92,12 +92,23 @@ export default async function CampaignPage({ params }: { params: Promise<{ id: s
 
         {!draft && campaign.status !== "ACTIVE" && blockers.length > 0 ? (
           <Banner tone="danger">
-            Pour reprendre cette campagne : {blockers.map((b) => b.detail).join(" ")}{" "}
-            {blockers[0]?.fix ? (
-              <Link href={blockers[0].fix.href} className="font-semibold underline underline-offset-2 hover:no-underline">
-                {blockers[0].fix.label}
-              </Link>
-            ) : null}
+            <p className="font-medium">Pour reprendre cette campagne :</p>
+            {/* Each detail reads on its own (no label), with its own fix. */}
+            <ul className={cn("mt-1 space-y-1", blockers.length > 1 && "list-disc pl-5")}>
+              {blockers.map((b) => (
+                <li key={b.key}>
+                  {b.detail}
+                  {b.fix ? (
+                    <>
+                      {" "}
+                      <Link href={b.fix.href} className="font-semibold whitespace-nowrap underline underline-offset-2 hover:no-underline">
+                        {b.fix.label}
+                      </Link>
+                    </>
+                  ) : null}
+                </li>
+              ))}
+            </ul>
           </Banner>
         ) : null}
 
@@ -106,11 +117,11 @@ export default async function CampaignPage({ params }: { params: Promise<{ id: s
         <div className="grid grid-cols-1 items-start gap-6 xl:grid-cols-3">
           <div className="min-w-0 space-y-6 xl:col-span-2">
             {draft && readiness ? (
-              <ReadinessCard readiness={readiness} />
+              <ReadinessCard campaignId={campaign.id} readiness={readiness} />
             ) : (
               <>
                 <FunnelCard campaignId={campaign.id} counts={counts ?? {}} />
-                <RecentCard recent={recent} />
+                <RecentCard recent={recent} empty={recentEmptyText(campaign)} />
               </>
             )}
           </div>
@@ -129,7 +140,7 @@ function Banner({ tone, action, children }: { tone: "warning" | "danger"; action
   return (
     <div className={cn("flex flex-wrap items-start gap-x-2 gap-y-1 rounded-card border px-4 py-3 text-sm", toneClasses(tone).soft, tone === "warning" ? "border-warning-line" : "border-danger-line")}>
       <TriangleAlert className="mt-0.5 size-4 shrink-0" aria-hidden />
-      <p className="min-w-0 flex-1 basis-56 break-words">{children}</p>
+      <div className="min-w-0 flex-1 basis-56 break-words">{children}</div>
       {action ? (
         <Link href={action.href} className="ml-6 shrink-0 font-semibold underline underline-offset-2 hover:no-underline sm:ml-0">
           {action.label}
@@ -150,8 +161,9 @@ const LEVELS: Record<CheckLevel, { icon: LucideIcon; tone: SemanticTone; label: 
 // Draft: launch checklist
 // ---------------------------------------------------------------------------
 
-function ReadinessCard({ readiness }: { readiness: LaunchReadiness }) {
+function ReadinessCard({ campaignId, readiness }: { campaignId: string; readiness: LaunchReadiness }) {
   const blockers = readiness.checks.filter((c) => c.level === "blocker").length;
+  const warnings = readiness.checks.filter((c) => c.level === "warn").length;
   return (
     <Card aria-labelledby="readiness-title">
       <CardHeader
@@ -159,7 +171,17 @@ function ReadinessCard({ readiness }: { readiness: LaunchReadiness }) {
         description={
           blockers > 0
             ? `${blockers} point${blockers > 1 ? "s" : ""} à corriger avant de lancer la campagne.`
-            : "Tout est prêt : lancez la campagne quand vous voulez."
+            : warnings > 0
+              ? `Rien ne bloque le lancement, mais ${warnings} point${warnings > 1 ? "s méritent" : " mérite"} votre attention.`
+              : "Tout est prêt : lancez la campagne quand vous voulez."
+        }
+        actions={
+          // A draft has no funnel card: this is the way to the imported profiles.
+          readiness.prospects.total > 0 ? (
+            <ButtonLink href={`/prospects?campaignId=${campaignId}`} variant="ghost" size="sm">
+              Voir les profils importés
+            </ButtonLink>
+          ) : null
         }
       />
       <ul className="divide-y divide-line">
@@ -198,12 +220,18 @@ function ReadinessCard({ readiness }: { readiness: LaunchReadiness }) {
 // ---------------------------------------------------------------------------
 
 function NextActionsCard({ campaignId, actions, now }: { campaignId: string; actions: NextActions; now: Date }) {
-  const prospects = (stage: string) => `/prospects?campaignId=${campaignId}&stage=${stage}`;
-  const items = [
-    { value: actions.toInvite, one: "qualifié à inviter", many: "qualifiés à inviter", href: prospects("QUALIFIED") },
-    { value: actions.pendingInvites, one: "invitation en attente", many: "invitations en attente", href: prospects("INVITED") },
-    { value: actions.firstMessages, one: "premier message prévu", many: "premiers messages prévus", href: prospects("CONNECTED") },
-    { value: actions.followUpsSoon, one: "relance dans les 24 h", many: "relances dans les 24 h", href: prospects("MESSAGED") },
+  // The counts leave out snoozed prospects; the lists show the whole stage, which the title (read as the link's description) says.
+  const stageList = (stage: string) => ({
+    href: `/prospects?campaignId=${campaignId}&stage=${stage}`,
+    target: `Voir tous les prospects « ${STAGE_LABELS[stage]?.label ?? stage} » de la campagne`,
+  });
+  const items: { value: number; one: string; many: string; link?: { href: string; target: string } }[] = [
+    { value: actions.toInvite, one: "qualifié à inviter", many: "qualifiés à inviter", link: stageList("QUALIFIED") },
+    { value: actions.pendingInvites, one: "invitation en attente", many: "invitations en attente", link: stageList("INVITED") },
+    { value: actions.firstMessages, one: "premier message prévu", many: "premiers messages prévus", link: stageList("CONNECTED") },
+    // No link: /prospects cannot list only the follow-ups due, and the whole sequence is often hundreds.
+    // Due, not sent: overdue ones count, and the sending window can hold them back (see below).
+    { value: actions.followUpsSoon, one: "relance due d'ici 24 h", many: "relances dues d'ici 24 h" },
   ];
   const { account } = actions;
   return (
@@ -214,14 +242,29 @@ function NextActionsCard({ campaignId, actions, now }: { campaignId: string; act
         </h2>
       </div>
       <ul className="grid grid-cols-2 gap-3 px-5 py-3 md:grid-cols-4">
-        {items.map((item) => (
-          <li key={item.one} className="min-w-0">
-            <Link href={item.href} className="block rounded-control px-2 py-1.5 -mx-2 hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-brand-600">
+        {items.map((item) => {
+          const content = (
+            <>
               <span className="block text-title font-semibold text-ink tabular-nums">{formatNumber(item.value)}</span>
               <span className="block text-xs text-muted">{item.value >= 2 ? item.many : item.one}</span>
-            </Link>
-          </li>
-        ))}
+            </>
+          );
+          return (
+            <li key={item.one} className="min-w-0">
+              {item.link ? (
+                <Link
+                  href={item.link.href}
+                  title={item.link.target}
+                  className="-mx-2 block rounded-control px-2 py-1.5 hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-brand-600"
+                >
+                  {content}
+                </Link>
+              ) : (
+                <div className="-mx-2 px-2 py-1.5">{content}</div>
+              )}
+            </li>
+          );
+        })}
       </ul>
       <div className="space-y-1.5 border-t border-line px-5 py-3 text-sm">
         <p className="flex items-start gap-2 text-ink-2">
@@ -316,13 +359,23 @@ function FunnelCard({ campaignId, counts }: { campaignId: string; counts: StageC
 
 type RecentProspect = { id: string; firstName: string; lastName: string; title: string; company: string; score: number | null; stage: string; stageChangedAt: Date };
 
-function RecentCard({ recent }: { recent: RecentProspect[] }) {
+/** The engine only sources ACTIVE campaigns with a source, on an ACTIVE account (engine/tick.ts). */
+function recentEmptyText(campaign: Pick<Campaign, "status" | "sources"> & { account: Pick<LinkedInAccount, "status"> }): string {
+  if (campaign.status !== "ACTIVE") return "Pas encore de prospect. Reprenez la campagne ou importez une liste.";
+  if (campaign.account.status !== "ACTIVE") {
+    return "Pas encore de prospect. Le moteur n'en cherche pas tant que le compte LinkedIn n'est pas actif ; vous pouvez importer une liste.";
+  }
+  if (campaign.sources.length === 0) return "Pas encore de prospect. Cette campagne n'a pas de source automatique : importez une liste.";
+  return "Pas encore de prospect. Le moteur en ajoute à son prochain passage, ou importez une liste.";
+}
+
+function RecentCard({ recent, empty }: { recent: RecentProspect[]; empty: string }) {
   return (
     <Card aria-labelledby="recent-title">
       <CardHeader title={<span id="recent-title">Dernière activité</span>} />
       {recent.length === 0 ? (
         <CardBody>
-          <p className="text-sm text-muted">Pas encore de prospect. Le moteur en ajoute à son prochain passage, ou importez une liste.</p>
+          <p className="text-sm text-muted">{empty}</p>
         </CardBody>
       ) : (
         <ul className="divide-y divide-line">
@@ -481,16 +534,27 @@ function Effective({ setting, empty, link = false }: { setting: EffectiveSetting
       </span>
     );
   }
-  return (
-    <span>
-      {link ? (
-        <a href={setting.value} target="_blank" rel="noreferrer" className="wrap-anywhere text-brand-700 underline underline-offset-2 hover:no-underline">
+  const origin = <span className="text-xs whitespace-nowrap text-muted">{setting.origin === "workspace" ? "(Réglages)" : "(propre à la campagne)"}</span>;
+  if (link) {
+    // One line, cut with an ellipsis rather than mid-word; the origin wraps below when the column is narrow.
+    return (
+      <span className="flex min-w-0 flex-wrap items-baseline gap-x-1">
+        <a
+          href={setting.value}
+          target="_blank"
+          rel="noreferrer"
+          title={setting.value}
+          className="max-w-full truncate text-brand-700 underline underline-offset-2 hover:no-underline"
+        >
           {setting.value.replace(/^https?:\/\/(www\.)?/, "")}
         </a>
-      ) : (
-        setting.value
-      )}{" "}
-      <span className="text-xs whitespace-nowrap text-muted">{setting.origin === "workspace" ? "(Réglages)" : "(propre à la campagne)"}</span>
+        {origin}
+      </span>
+    );
+  }
+  return (
+    <span>
+      {setting.value} {origin}
     </span>
   );
 }

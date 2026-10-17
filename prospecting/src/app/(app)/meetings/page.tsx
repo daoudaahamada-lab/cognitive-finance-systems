@@ -13,7 +13,7 @@ import { requireContext } from "@/server/auth/context";
 import { db } from "@/server/db";
 import { listMeetings } from "@/server/services/meetings";
 import { dateBlock, dayLabel, formatDateTimeIn, formatTime, groupByDay } from "./dates";
-import { CancelMeetingButton, CorrectOutcomeButton, OutcomeButtons } from "./meeting-buttons";
+import { CancelMeetingButton, CorrectOutcomeButton, OutcomeButtons, RestoreMeetingButton } from "./meeting-buttons";
 
 export const metadata: Metadata = { title: "Rendez-vous" };
 
@@ -214,7 +214,12 @@ function HistoryRow({ m, timeZone }: { m: Meeting; timeZone: string }) {
       </div>
       <div className="flex items-center gap-2 sm:shrink-0">
         <LabeledBadge map={MEETING_STATUS} value={m.status} />
-        {m.status === "COMPLETED" || m.status === "NO_SHOW" ? <CorrectOutcomeButton meetingId={m.id} name={name} status={m.status} /> : null}
+        {m.status === "COMPLETED" || m.status === "NO_SHOW" ? (
+          <CorrectOutcomeButton meetingId={m.id} name={name} status={m.status} />
+        ) : m.status === "CANCELED" ? (
+          // A cancellation made by mistake is undone here, not only through MCP.
+          <RestoreMeetingButton meetingId={m.id} name={name} />
+        ) : null}
       </div>
     </li>
   );

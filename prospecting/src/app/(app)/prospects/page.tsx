@@ -91,7 +91,10 @@ export default async function ProspectsPage({ searchParams }: { searchParams: Pr
           <Search className="pointer-events-none absolute left-2.5 top-1/2 size-4 -translate-y-1/2 text-muted" aria-hidden />
           <Input name="q" defaultValue={sp.q} placeholder="Nom, entreprise, poste…" className="pl-8" aria-label="Rechercher un prospect" enterKeyHint="search" />
         </div>
-        <Select name="campaignId" defaultValue={sp.campaignId ?? ""} className="min-w-36 flex-1 sm:w-auto sm:max-w-64 sm:flex-none" aria-label="Campagne">
+        {/* Native selects cannot ellipsize, so below sm nothing shares a row it cannot fit in: the campaign
+            gets its own row, the stage keeps room for its longest label ('Rendez-vous pris', 183px at 16px)
+            and the sort takes its own width; on a narrower phone the sort wraps instead of clipping. */}
+        <Select name="campaignId" defaultValue={sp.campaignId ?? ""} className="basis-full sm:w-auto sm:max-w-64 sm:basis-auto sm:flex-none" aria-label="Campagne">
           <option value="">Toutes les campagnes</option>
           {campaigns.map((c) => (
             <option key={c.id} value={c.id}>
@@ -101,7 +104,7 @@ export default async function ProspectsPage({ searchParams }: { searchParams: Pr
         </Select>
         {view === "table" ? (
           <>
-            <Select name="stage" defaultValue={filters.stage ?? ""} className="min-w-36 flex-1 sm:w-auto sm:flex-none" aria-label="Étape">
+            <Select name="stage" defaultValue={filters.stage ?? ""} className="min-w-46 flex-1 sm:w-auto sm:min-w-36 sm:flex-none" aria-label="Étape">
               <option value="">Toutes les étapes</option>
               {Object.entries(STAGE_LABELS).map(([value, { label }]) => (
                 <option key={value} value={value}>
@@ -109,9 +112,9 @@ export default async function ProspectsPage({ searchParams }: { searchParams: Pr
                 </option>
               ))}
             </Select>
-            <Select name="sort" defaultValue={filters.sort} className="min-w-36 flex-1 sm:w-auto sm:flex-none" aria-label="Tri">
-              <option value="recent">Activité récente</option>
-              <option value="score">Meilleur score</option>
+            <Select name="sort" defaultValue={filters.sort} className="w-auto shrink-0" aria-label="Tri">
+              <option value="recent">Plus récents</option>
+              <option value="score">Mieux notés</option>
             </Select>
           </>
         ) : null}
@@ -326,7 +329,9 @@ async function Board({ workspaceId, filters, href, filtered }: { workspaceId: st
         }
         const more = col.count - col.items.length;
         return (
-          <section key={col.stage} aria-labelledby={titleId} className={cn("w-[82vw] shrink-0 snap-start rounded-card border-t-2 bg-line/40 p-2 sm:w-[272px]", accent)}>
+          // 248px from xl: at 1440 four columns and a collapsed one (4 × 248 + 44 + 4 × 12 gaps = 1084px) end
+          // before the fade of the 1136px scroller, so 'A répondu' and its count stay fully visible.
+          <section key={col.stage} aria-labelledby={titleId} className={cn("w-[82vw] shrink-0 snap-start rounded-card border-t-2 bg-line/40 p-2 sm:w-[272px] xl:w-[248px]", accent)}>
             <header className="mb-2 flex items-center justify-between gap-2 px-1.5 py-1">
               <h2 id={titleId} className="truncate text-sm font-semibold text-ink">
                 {stage.label}
@@ -345,12 +350,13 @@ async function Board({ workspaceId, filters, href, filtered }: { workspaceId: st
               ))}
               {more > 0 ? (
                 <li>
+                  {/* The accessible name starts with the visible text, so a voice command '5 autres' finds it. */}
                   <Link
                     href={href({ view: "table", stage: col.stage, page: "" })}
-                    aria-label={`Voir les ${formatNumber(col.count)} prospects « ${stage.label} » dans la liste`}
                     className="block rounded-control px-2 py-1.5 text-xs font-medium text-brand-700 hover:bg-surface hover:underline focus-visible:outline-2 focus-visible:outline-brand-600"
                   >
                     + {plural(more, "autre")}
+                    <span className="sr-only"> dans « {stage.label} », voir la liste</span>
                   </Link>
                 </li>
               ) : null}

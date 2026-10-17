@@ -10,7 +10,7 @@ import { runTick } from "@/server/engine/tick";
 import { listAccounts } from "@/server/services/accounts";
 import { dashboard } from "@/server/services/analytics";
 import { attentionItems } from "@/server/services/attention";
-import { campaignSchema, createCampaign, funnelFromStages, getCampaign, importProspects, listCampaigns, setCampaignStatus, stageCounts, updateCampaign } from "@/server/services/campaigns";
+import { campaignSchema, createCampaign, funnelFromStages, getCampaign, importProspects, lacksSearchTargeting, listCampaigns, SEARCH_TARGETING_MESSAGE, setCampaignStatus, stageCounts, updateCampaign } from "@/server/services/campaigns";
 import { UserError } from "@/server/services/errors";
 import { INBOX_TABS, approveDraft, getThread, handBackToAi, listConversations, logMeeting, markHandled, rejectDraft, sendHumanReply, takeOver } from "@/server/services/inbox";
 import { listMeetings, setMeetingStatus } from "@/server/services/meetings";
@@ -362,20 +362,21 @@ export function buildMcpServer(identity: TokenIdentity): McpServer {
     "create_campaign",
     {
       title: "Créer une campagne",
-      description: "Crée une campagne en brouillon. Les champs omis prennent des valeurs par défaut (offre et client idéal des réglages, séquence type, setter en validation). Variables de message : {{firstName}}, {{company}}, {{title}}, {{bookingUrl}}…",
+      description: "Crée une campagne en brouillon. La source Recherche (par défaut) exige au moins un poste (titles), un mot-clé (keywords) ou une searchUrl. Les autres champs omis prennent des valeurs par défaut (offre, client idéal et lien de réservation des réglages, séquence type, setter en validation). Variables de message : {{firstName}}, {{company}}, {{title}}, {{bookingUrl}}…",
       inputSchema: { ...campaignFields, name: z.string().min(1).max(120), accountId: z.string().optional().describe("Compte LinkedIn ; par défaut le premier compte actif") },
       annotations: { destructiveHint: false, openWorldHint: false },
     },
     (args) =>
       run(async () => {
-        const workspace = await db.workspace.findUniqueOrThrow({ where: { id: ws } });
         const accountId = args.accountId ?? (await db.linkedInAccount.findFirst({ where: { workspaceId: ws, status: "ACTIVE" }, orderBy: { createdAt: "asc" } }))?.id;
         if (!accountId) throw new UserError("Aucun compte LinkedIn actif : connectez-en un d'abord.");
         const defaults = {
           sources: ["SEARCH"], titles: [], keywords: [], industries: [], locations: [], companySizes: [], signals: [], postUrls: [], exclusions: [],
-          searchUrl: "", minScore: 60, weeklyProspectTarget: 100, offer: workspace.offer, persona: workspace.persona, aiPersonalization: true,
+          searchUrl: "", minScore: 60, weeklyProspectTarget: 100, offer: "", persona: "", aiPersonalization: true,
           inviteNote: DEFAULT_INVITE_NOTE, firstMessage: DEFAULT_FIRST_MESSAGE, followUps: DEFAULT_FOLLOW_UPS, setterMode: "APPROVAL", bookingUrl: "",
         };
+        // Say what is missing in plain words instead of a field-level validation error.
+        if (lacksSearchTargeting({ ...defaults, ...provided(args) })) throw new UserError(`${SEARCH_TARGETING_MESSAGE}.`);
         const input = campaignSchema.parse({
           ...defaults,
           ...provided(args),

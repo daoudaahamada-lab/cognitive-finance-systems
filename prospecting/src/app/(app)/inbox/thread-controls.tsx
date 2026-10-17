@@ -1,7 +1,7 @@
 "use client";
 
 import { Bot, CalendarCheck, Check, Hand, Link2, PenLine, Send, Sparkles, ThumbsDown, UserRound, X } from "lucide-react";
-import { startTransition, useActionState, useRef, useState, type FormEvent, type KeyboardEvent } from "react";
+import { startTransition, useActionState, useEffect, useRef, useState, type FormEvent, type KeyboardEvent } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Field, FormMessage, Input, Textarea, checkbox } from "@/components/ui/form";
@@ -9,10 +9,13 @@ import { SubmitButton } from "@/components/ui/submit-button";
 import { cn } from "@/lib/cn";
 import { INTENTS, INTENT_TONES } from "@/lib/labels";
 import { approveDraftAction, conversationAction, logMeetingFromInboxAction, rejectDraftAction, replyAction } from "./actions";
-import { insertAt, nextBusinessDayAt10 } from "./compose";
+import { insertAt, nextBusinessDayAt10, proposalChange } from "./compose";
 
 /** Hidden fields that let an action open the next thread of the same tab (see navigation.ts). */
 export type ThreadNav = { tab: string; q: string; next: string; name: string };
+
+/** The thread's only text box (ReplyBox); "Prendre la main" focuses it. */
+const REPLY_BODY_ID = "inbox-reply-body";
 
 function NavFields({ nav }: { nav: ThreadNav }) {
   return (
@@ -53,6 +56,11 @@ export function ThreadToolbar({
   const error = [takeState, backState, doneState, niState].find((s) => s?.error) ?? null;
   const showMeetingForm = meetingOpen && !meetingState?.ok;
 
+  // "Prendre la main" stays on the thread because the user is about to write: put the cursor in the reply box.
+  useEffect(() => {
+    if (takeState?.ok) document.getElementById(REPLY_BODY_ID)?.focus();
+  }, [takeState]);
+
   const toggleMeeting = () => {
     // Prefilled in the browser, so "10:00" is the user's own time.
     if (!startsAt) setStartsAt(nextBusinessDayAt10(new Date()));
@@ -72,34 +80,46 @@ export function ThreadToolbar({
   return (
     <div className="mt-3 space-y-2">
       <FormMessage state={error} />
-      {/* One row that scrolls sideways on phones, wraps from sm. py-1 keeps focus rings visible inside the scroller. */}
-      <div className="-mx-4 flex gap-2 overflow-x-auto px-4 py-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
+      {/* Every action stays in view: the row wraps, "RDV pris" comes first, and the long labels are shortened on phones. */}
+      <div className="flex flex-wrap gap-2">
+        {stage !== "MEETING_BOOKED" ? (
+          <Button size="sm" variant="secondary" onClick={toggleMeeting} aria-expanded={showMeetingForm} aria-controls="inbox-meeting-form">
+            <CalendarCheck className="size-3.5 text-success" aria-hidden /> RDV pris
+          </Button>
+        ) : null}
         {status === "AI_ACTIVE" ? (
           <form action={take}>
-            <NavFields nav={nav} />
             <SubmitButton size="sm" variant="secondary" pendingLabel="Prise en main…"><Hand className="size-3.5" aria-hidden /> Prendre la main</SubmitButton>
           </form>
         ) : status !== "CLOSED" ? (
           <form action={back}>
-            <SubmitButton size="sm" variant="secondary" pendingLabel="Retour au setter…"><Bot className="size-3.5 text-ai" aria-hidden /> Rendre au setter</SubmitButton>
+            <SubmitButton size="sm" variant="secondary" pendingLabel="Retour au setter…">
+              <Bot className="size-3.5 text-ai" aria-hidden />
+              <span className="sm:hidden">Au setter</span>
+              <span className="max-sm:hidden">Rendre au setter</span>
+            </SubmitButton>
           </form>
         ) : null}
         {(status === "NEEDS_HUMAN" || unread) && !hasDraft ? (
           <form action={done}>
             <NavFields nav={nav} />
-            <SubmitButton size="sm" variant="secondary" pendingLabel="Enregistrement…"><Check className="size-3.5" aria-hidden /> Marquer comme traité</SubmitButton>
+            <SubmitButton size="sm" variant="secondary" pendingLabel="Enregistrement…">
+              <Check className="size-3.5" aria-hidden />
+              <span className="sm:hidden">Traité</span>
+              <span className="max-sm:hidden">Marquer comme traité</span>
+            </SubmitButton>
           </form>
         ) : null}
         {!["NOT_INTERESTED", "MEETING_BOOKED"].includes(stage) ? (
           <form action={notInterested}>
             <NavFields nav={nav} />
-            <SubmitButton size="sm" variant="secondary" pendingLabel="Classement…"><ThumbsDown className="size-3.5" aria-hidden /> Classer « Pas intéressé »</SubmitButton>
+            <SubmitButton size="sm" variant="secondary" pendingLabel="Classement…">
+              <ThumbsDown className="size-3.5" aria-hidden />
+              <span>
+                <span className="max-sm:hidden">Classer «&nbsp;</span>Pas intéressé<span className="max-sm:hidden">&nbsp;»</span>
+              </span>
+            </SubmitButton>
           </form>
-        ) : null}
-        {stage !== "MEETING_BOOKED" ? (
-          <Button size="sm" variant="secondary" onClick={toggleMeeting} aria-expanded={showMeetingForm} aria-controls="inbox-meeting-form">
-            <CalendarCheck className="size-3.5 text-success" aria-hidden /> RDV pris
-          </Button>
         ) : null}
       </div>
       {showMeetingForm ? (
@@ -134,6 +154,8 @@ type Draft = { id: string; body: string; intent: string; rationale: string; auth
 /**
  * The only text box of a thread. With a pending proposal it holds the setter's text (send or refuse it);
  * "Écrire moi-même" empties it and switches to a plain reply.
+ * Keyed by thread only: when the proposal changes underneath (the setter drafts again, "Refuser", a refresh), the box adopts
+ * the new one unless it holds text of the user's own, which is kept as a plain reply.
  */
 export function ReplyBox({
   conversationId,
@@ -153,6 +175,17 @@ export function ReplyBox({
   const [mode, setMode] = useState<"proposal" | "reply">(draft ? "proposal" : "reply");
   const [body, setBody] = useState(draft?.body ?? "");
   const [last, setLast] = useState<"approve" | "reject" | "reply" | null>(null);
+  // The proposal this box last saw, and whether a newer one arrived while the user kept their own text.
+  const [seen, setSeen] = useState(draft);
+  const [newProposal, setNewProposal] = useState(false);
+  if ((draft?.id ?? null) !== (seen?.id ?? null)) {
+    setSeen(draft);
+    const change = proposalChange({ body, previous: seen, next: draft, refused: last === "reject" });
+    setMode(change.mode);
+    setBody(change.body);
+    setNewProposal(change.newProposal);
+    if (change.adopted) setLast(null);
+  }
   const textarea = useRef<HTMLTextAreaElement>(null);
   // Until the user has placed the cursor, insert chips append to the end.
   const caretPlaced = useRef(false);
@@ -182,6 +215,7 @@ export function ReplyBox({
     setMode("reply");
     setBody("");
     setLast(null);
+    setNewProposal(false);
     caretPlaced.current = false;
     textarea.current?.focus();
   };
@@ -190,6 +224,7 @@ export function ReplyBox({
     setMode("proposal");
     setBody(draft?.body ?? "");
     setLast(null);
+    setNewProposal(false);
   };
 
   const insert = (text: string) => {
@@ -224,23 +259,33 @@ export function ReplyBox({
             <Sparkles className="size-3.5" aria-hidden /> Réponse proposée
           </span>
           <Badge tone={INTENT_TONES[draft.intent] ?? "neutral"} className="shrink-0">{INTENTS[draft.intent] ?? draft.intent}</Badge>
-          {draft.rationale ? <span className="min-w-0 text-muted line-clamp-1 sm:line-clamp-2">{draft.rationale}</span> : null}
+          {/* Hidden on phones, where the messages need the room. */}
+          {draft.rationale ? <span className="min-w-0 text-muted line-clamp-2 max-sm:hidden">{draft.rationale}</span> : null}
         </div>
       ) : (
-        <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
-          <label htmlFor="inbox-reply-body" className="text-sm font-medium text-ink">
-            Votre réponse
-          </label>
-          <label className="flex items-center gap-2 text-xs text-muted">
-            <input type="checkbox" name="handBack" defaultChecked={status === "AI_ACTIVE"} className={checkbox} />
-            Rendre la main au setter après envoi
-          </label>
-        </div>
+        <>
+          {newProposal && draft ? (
+            <p role="status" className="flex items-start gap-1 text-xs font-medium text-ai">
+              <Sparkles className="mt-0.5 size-3.5 shrink-0" aria-hidden /> Le setter a proposé une nouvelle réponse. Votre texte est conservé.
+            </p>
+          ) : null}
+          <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+            {/* The placeholder says it on phones; the label stays for screen readers. */}
+            <label htmlFor={REPLY_BODY_ID} className="text-sm font-medium text-ink max-sm:sr-only">
+              Votre réponse
+            </label>
+            <label className="flex items-center gap-2 text-xs text-muted">
+              {/* Keyed by status so it follows the thread (unticked once you have taken over). */}
+              <input key={status} type="checkbox" name="handBack" defaultChecked={status === "AI_ACTIVE"} className={checkbox} />
+              Rendre la main au setter après envoi
+            </label>
+          </div>
+        </>
       )}
 
       <Textarea
         ref={textarea}
-        id="inbox-reply-body"
+        id={REPLY_BODY_ID}
         name="body"
         rows={3}
         required
@@ -252,39 +297,50 @@ export function ReplyBox({
         onKeyDown={onKeyDown}
         aria-label={proposing ? "Réponse proposée (modifiable)" : undefined}
         placeholder={proposing ? undefined : `Votre message à ${firstName}…`}
-        className={cn("max-h-64 resize-y max-lg:max-h-40", proposing && "border-ai-line")}
+        // Exactly two lines on phones (2 × 26px + padding and border; rows sets the height from sm), so the thread keeps the screen.
+        className={cn("max-h-64 resize-y max-lg:max-h-40 max-sm:h-[4.375rem]", proposing && "border-ai-line")}
       />
 
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <div role="group" aria-label="Insérer dans le message" className="flex flex-wrap gap-2">
+      {/* On phones the insert chips and the secondary actions are icons, so everything fits on one row with "Envoyer". */}
+      <div className="flex flex-wrap items-center justify-between gap-1.5 sm:gap-2">
+        <div role="group" aria-label="Insérer dans le message" className="flex flex-wrap gap-1.5 sm:gap-2">
           {bookingUrl ? (
-            <Button size="sm" variant="secondary" className="rounded-full" onClick={() => insert(bookingUrl)}>
-              <Link2 className="size-3.5" aria-hidden /> Lien de réservation
+            <Button size="sm" variant="secondary" className="rounded-full max-sm:w-11 max-sm:px-0" onClick={() => insert(bookingUrl)}>
+              <Link2 className="size-3.5 max-sm:size-4" aria-hidden />
+              <span className="max-sm:sr-only">Lien de réservation</span>
             </Button>
           ) : null}
-          <Button size="sm" variant="secondary" className="rounded-full" onClick={() => insert(firstName)}>
-            <UserRound className="size-3.5" aria-hidden /> Prénom
+          <Button size="sm" variant="secondary" className="rounded-full max-sm:w-11 max-sm:px-0" onClick={() => insert(firstName)}>
+            <UserRound className="size-3.5 max-sm:size-4" aria-hidden />
+            <span className="max-sm:sr-only">Prénom</span>
           </Button>
         </div>
-        <div className="ml-auto flex flex-wrap items-center justify-end gap-2">
+        <div className="ml-auto flex flex-wrap items-center justify-end gap-1.5 sm:gap-2">
           {proposing ? (
             <>
-              <Button size="sm" variant="ghost" onClick={writeMyself} disabled={pending}>
-                <PenLine className="size-3.5" aria-hidden /> Écrire<span className="max-sm:hidden"> moi-même</span>
+              <Button size="sm" variant="ghost" className="max-sm:w-11 max-sm:px-0" onClick={writeMyself} disabled={pending}>
+                <PenLine className="size-3.5 max-sm:size-4" aria-hidden />
+                <span className="max-sm:sr-only">Écrire moi-même</span>
               </Button>
               <Button size="sm" variant="secondary" onClick={refuse} disabled={pending} aria-busy={rejecting}>
                 {rejecting ? (
                   "Refus…"
                 ) : (
                   <>
-                    <X className="size-3.5" aria-hidden /> Refuser<span className="max-sm:hidden"> la proposition</span>
+                    <X className="size-3.5 max-sm:hidden" aria-hidden />
+                    <span>
+                      Refuser<span className="max-sm:hidden"> la proposition</span>
+                    </span>
                   </>
                 )}
               </Button>
             </>
           ) : draft ? (
             <Button size="sm" variant="ghost" onClick={backToProposal} disabled={pending}>
-              <Sparkles className="size-3.5 text-ai" aria-hidden /> Reprendre la proposition
+              <Sparkles className="size-3.5 text-ai" aria-hidden />
+              <span>
+                Reprendre<span className="max-sm:hidden"> la proposition</span>
+              </span>
             </Button>
           ) : null}
           <Button type="submit" size="sm" disabled={pending} aria-busy={approving || replying} title="Envoyer (Ctrl + Entrée)">

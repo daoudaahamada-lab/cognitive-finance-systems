@@ -106,8 +106,19 @@ const VARIABLE_ALIASES: Record<string, keyof TemplateVars> = {
   calendly: "bookingUrl",
   reservation: "bookingUrl",
   liendereservation: "bookingUrl",
+  lienreservation: "bookingUrl",
+  lienderendezvous: "bookingUrl",
+  rendezvous: "bookingUrl",
   booking: "bookingUrl",
+  url: "bookingUrl",
+  companyname: "company",
+  city: "location",
 };
+
+/** The editor's chip labels ("Votre lien de réservation"), so typing what the chip says gets a suggestion too. */
+const LABEL_ALIASES: Record<string, keyof TemplateVars> = Object.fromEntries(
+  TEMPLATE_VARIABLES.map((v) => [normalizeName(VARIABLE_LABELS_FR[v]), v]),
+);
 
 function normalizeName(name: string): string {
   return name
@@ -121,7 +132,22 @@ function normalizeName(name: string): string {
 export function suggestVariable(name: string): keyof TemplateVars | null {
   const key = normalizeName(name);
   if (!key) return null;
-  return TEMPLATE_VARIABLES.find((v) => v.toLowerCase() === key) ?? VARIABLE_ALIASES[key] ?? null;
+  return TEMPLATE_VARIABLES.find((v) => v.toLowerCase() === key) ?? VARIABLE_ALIASES[key] ?? LABEL_ALIASES[key] ?? null;
+}
+
+/**
+ * Variables written with single braces ({firstName}, {prénom}), which renderTemplate sends as written.
+ * Only single-option groups whose name matches a variable count, so spintax ({A|B}) and other text in
+ * braces are left alone. A brace short of a variable ({{firstName}) is caught too.
+ */
+export function malformedVariables(template: string): string[] {
+  const found = new Set<string>();
+  const text = template.replace(/\{\{[^{}]*\}\}/g, " ");
+  for (const m of text.matchAll(/\{\s*([^{}|]*?)\s*\}/g)) {
+    const name = m[1]!;
+    if (suggestVariable(name) !== null) found.add(name);
+  }
+  return [...found];
 }
 
 /** Number of distinct texts the spintax can produce: "{Bonjour|Salut} … {a|b|c}" gives 6. */

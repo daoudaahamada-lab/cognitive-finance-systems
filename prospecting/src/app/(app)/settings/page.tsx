@@ -68,7 +68,7 @@ export default async function SettingsPage() {
               actions={
                 <Badge tone={claude ? "ai" : "neutral"}>
                   {claude ? <Sparkles className="size-3" aria-hidden /> : null}
-                  {claude ? "Claude actif" : "Claude non configuré"}
+                  {claude ? "Claude actif" : keyConfigured ? "Claude désactivé" : "Claude non configuré"}
                 </Badge>
               }
             />

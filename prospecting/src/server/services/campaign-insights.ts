@@ -123,30 +123,78 @@ export type ReadinessCheck = {
   fix?: { href: string; label: string };
 };
 
+/** Prospects already attached to the campaign, by what the engine can still do with them. */
+export type ProspectTally = {
+  /** Every prospect, whatever its stage. */
+  total: number;
+  /** Still to invite: NEW (scored on the next pass) and QUALIFIED. Imported profiles skip the minimum score. */
+  toContact: number;
+  /** Set aside (DISQUALIFIED, 'Écarté'): an exclusion, a manual exclusion or a refusal from LinkedIn. Never invited. */
+  excluded: number;
+  /** Invited or in the sequence (INVITED, CONNECTED, MESSAGED): a resumed campaign carries on with them. */
+  inSequence: number;
+};
+
+export function prospectTally(counts: Partial<Record<ProspectStage, number>>): ProspectTally {
+  const n = (...stages: ProspectStage[]) => stages.reduce((sum, s) => sum + (counts[s] ?? 0), 0);
+  return {
+    total: Object.values(counts).reduce((sum, c) => sum + (c ?? 0), 0),
+    toContact: n("NEW", "QUALIFIED"),
+    excluded: n("DISQUALIFIED"),
+    inSequence: n("INVITED", "CONNECTED", "MESSAGED"),
+  };
+}
+
+/** A plain number counts every prospect as still to contact (an import nothing set aside). */
+function asTally(prospects: number | ProspectTally): ProspectTally {
+  return typeof prospects === "number" ? { total: prospects, toContact: prospects, excluded: 0, inSequence: 0 } : prospects;
+}
+
+function importedProfiles(n: number): string {
+  return `${formatNumber(n)} profil${n > 1 ? "s" : ""} importé${n > 1 ? "s" : ""}`;
+}
+
+/** "12 profils importés", "12 profils importés, dont 3 écartés", "12 profils importés, tous écartés". */
+function importedSummary(t: ProspectTally): string | null {
+  if (t.total === 0) return null;
+  const base = importedProfiles(t.total);
+  if (t.excluded === 0) return base;
+  if (t.excluded >= t.total) return t.total > 1 ? `${base}, tous écartés` : `${base}, écarté`;
+  return `${base}, dont ${formatNumber(t.excluded)} écarté${t.excluded > 1 ? "s" : ""}`;
+}
+
 export type ReadinessInput = {
   campaign: CampaignWithAccount;
   workspace: WorkspaceDefaults;
-  /** Prospects already attached to the campaign (imports, for a draft). */
-  prospectCount: number;
+  /** Prospects already attached to the campaign (imports, for a draft), by stage: see prospectTally(). */
+  prospectCount: number | ProspectTally;
   now?: Date;
 };
 
-function targetingCheck(campaign: CampaignWithAccount, prospectCount: number): ReadinessCheck {
+function targetingCheck(campaign: CampaignWithAccount, prospects: ProspectTally): ReadinessCheck {
   const base = { key: "targeting" as const, label: "Ciblage renseigné" };
   const fix = { href: editHref(campaign.id, "ciblage"), label: "Compléter le ciblage" };
   const { sources } = campaign;
   const real = isRealAccount(campaign.account);
-  const imported = prospectCount > 0 ? `${formatNumber(prospectCount)} profil${prospectCount > 1 ? "s" : ""} importé${prospectCount > 1 ? "s" : ""}` : null;
+  const imported = importedSummary(prospects);
+  // Prospects the campaign still works on. Set-aside imports are never invited.
+  const reachable = prospects.toContact + prospects.inSequence;
 
-  if (sources.length === 0 && prospectCount === 0) {
-    return { ...base, level: "blocker", detail: "Aucune source de prospects : choisissez-en une ou importez une liste.", fix };
+  if (sources.length === 0 && reachable === 0) {
+    const detail =
+      prospects.total === 0
+        ? "Aucune source de prospects : choisissez-en une ou importez une liste."
+        : prospects.excluded >= prospects.total
+          ? `${imported} : choisissez une source de prospects ou importez une autre liste.`
+          : "Plus aucun prospect à contacter : choisissez une source de prospects ou importez une autre liste.";
+    return { ...base, level: "blocker", detail, fix };
   }
   if (sources.includes("SEARCH") && !campaign.searchUrl.trim() && campaign.titles.length === 0 && campaign.keywords.length === 0) {
     return { ...base, level: "blocker", detail: "La recherche n'a aucun critère : ajoutez au moins un poste ou un mot-clé, ou collez une URL de recherche LinkedIn.", fix };
   }
   // Sources that cannot find anyone on their own.
   const useful = sources.filter((s) => !(s === "SIGNALS" && real) && !(s === "POST_ENGAGERS" && campaign.postUrls.length === 0));
-  if (sources.length > 0 && useful.length === 0 && prospectCount === 0) {
+  if (sources.length > 0 && useful.length === 0 && reachable === 0) {
     const detail = sources.includes("POST_ENGAGERS") && campaign.postUrls.length === 0
       ? "Aucun post à surveiller : ajoutez des URL de posts, une autre source ou importez une liste."
       : "Les sources choisies ne trouvent personne avec ce compte : ajoutez la recherche ou importez une liste.";
@@ -167,6 +215,7 @@ function targetingCheck(campaign: CampaignWithAccount, prospectCount: number): R
 
 /** The checklist shown before launch. Any blocker disables 'Lancer la campagne'. */
 export function readinessChecks({ campaign, workspace, prospectCount, now = new Date() }: ReadinessInput): ReadinessCheck[] {
+  const prospects = asTally(prospectCount);
   const { account } = campaign;
   const checks: ReadinessCheck[] = [];
   const accountFix = { href: `/accounts#${account.id}`, label: "Ouvrir Comptes LinkedIn" };
@@ -208,7 +257,7 @@ export function readinessChecks({ campaign, workspace, prospectCount, now = new 
   }
 
   // 3. Targeting.
-  checks.push(targetingCheck(campaign, prospectCount));
+  checks.push(targetingCheck(campaign, prospects));
 
   // 4. Booking link: the setter sends it to interested prospects.
   const { bookingUrl } = effectiveSettings(campaign, workspace);
@@ -220,7 +269,8 @@ export function readinessChecks({ campaign, workspace, prospectCount, now = new 
   } else if (campaign.setterMode !== "OFF") {
     checks.push({
       key: "booking", level: "blocker", label: "Lien de réservation",
-      detail: "Le setter l'envoie aux prospects intéressés : renseignez-le dans les Réglages (ou dans la campagne).",
+      // Stands on its own: the paused-campaign banner shows the detail without the label.
+      detail: "Aucun lien de réservation : le setter l'envoie aux prospects intéressés. Renseignez-le dans les Réglages (ou dans la campagne).",
       fix: { href: "/settings", label: "Ouvrir les Réglages" },
     });
   } else {
@@ -257,14 +307,20 @@ export function isBlocked(checks: ReadinessCheck[]): boolean {
 }
 
 /** 'Ce qui va se passer': the settings read as what the engine will do. */
-export function launchPlan(campaign: CampaignWithAccount, prospectCount: number): string[] {
+export function launchPlan(campaign: CampaignWithAccount, prospectCount: number | ProspectTally): string[] {
   const followUps = parseFollowUps(campaign.followUps);
+  const { toContact, excluded } = asTally(prospectCount);
   const steps: string[] = [];
   if (campaign.sources.length > 0) {
     steps.push(`~${formatNumber(campaign.weeklyProspectTarget)} profils/semaine`, `invitation si note ≥ ${campaign.minScore}`);
   }
-  if (prospectCount > 0) {
-    steps.push(`${formatNumber(prospectCount)} profil${prospectCount > 1 ? "s" : ""} importé${prospectCount > 1 ? "s" : ""} invité${prospectCount > 1 ? "s" : ""} quelle que soit leur note`);
+  if (toContact > 0) {
+    // Imports skip the minimum score, not the exclusions: set-aside profiles are never invited.
+    const who = excluded > 0 ? `${formatNumber(toContact)} des ${formatNumber(toContact + excluded)} profils importés` : importedProfiles(toContact);
+    const aside = excluded > 0 ? ` (${formatNumber(excluded)} écarté${excluded > 1 ? "s" : ""})` : "";
+    steps.push(`${who} invité${toContact > 1 ? "s" : ""} quelle que soit ${toContact > 1 ? "leur" : "sa"} note${aside}`);
+  } else if (excluded > 0) {
+    steps.push(`${importedProfiles(excluded)} écarté${excluded > 1 ? "s" : ""}, donc jamais invité${excluded > 1 ? "s" : ""}`);
   }
   steps.push(`premier message ${FIRST_MESSAGE_DELAY_HOURS} h après acceptation`);
   steps.push(followUps.length ? `relance${followUps.length > 1 ? "s" : ""} à ${followUpDays(followUps)}` : "sans relance");
@@ -281,12 +337,14 @@ function capitalize(text: string): string {
   return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
-export type LaunchReadiness = { checks: ReadinessCheck[]; blocked: boolean; plan: string[]; prospectCount: number };
+export type LaunchReadiness = { checks: ReadinessCheck[]; blocked: boolean; plan: string[]; prospects: ProspectTally };
 
+/** The checklist, its verdict and the plan, from the campaign's prospects counted by stage. */
 export async function launchReadiness(campaign: CampaignWithAccount, workspace: WorkspaceDefaults, now = new Date()): Promise<LaunchReadiness> {
-  const prospectCount = await db.prospect.count({ where: { campaignId: campaign.id } });
-  const checks = readinessChecks({ campaign, workspace, prospectCount, now });
-  return { checks, blocked: isBlocked(checks), plan: launchPlan(campaign, prospectCount), prospectCount };
+  const rows = await db.prospect.groupBy({ by: ["stage"], where: { campaignId: campaign.id }, _count: true });
+  const prospects = prospectTally(Object.fromEntries(rows.map((r) => [r.stage, r._count])));
+  const checks = readinessChecks({ campaign, workspace, prospectCount: prospects, now });
+  return { checks, blocked: isBlocked(checks), plan: launchPlan(campaign, prospects), prospects };
 }
 
 // ---------------------------------------------------------------------------
@@ -300,7 +358,7 @@ export type NextActions = {
   pendingInvites: number;
   /** Accepted invitations whose first message is scheduled. */
   firstMessages: number;
-  /** Follow-ups due in the next 24 hours. */
+  /** Follow-ups due by 24 hours from now, overdue ones included; the sending window may hold them back. */
   followUpsSoon: number;
   window: { label: string; open: boolean };
   /** LinkedIn warned about the invitation limit: no invitations before this date. */

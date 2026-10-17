@@ -8,7 +8,6 @@ import { Button, ButtonLink, buttonClass } from "@/components/ui/button";
 import { Card, CardBody, CardHeader } from "@/components/ui/card";
 import { Avatar, PageHeader, ScorePill } from "@/components/ui/misc";
 import { Timeline, activityVisual, type TimelineItem } from "@/components/ui/timeline";
-import { cn } from "@/lib/cn";
 import { ACTIVITY_LABELS, CONVERSATION_STATUS, INTENTS, MEETING_STATUS, SOURCES, STAGE_LABELS } from "@/lib/labels";
 import { requireContext } from "@/server/auth/context";
 import type { ScoreReason } from "@/server/agents/scorer";
@@ -17,8 +16,9 @@ import { formatDateTimeIn, formatTime, groupByDay } from "../../meetings/dates";
 import { OutcomeButtons } from "../../meetings/meeting-buttons";
 import { snoozeAction } from "../actions";
 import { SignalBadge } from "../signal-badge";
-import { canLogMeeting, canSnooze, manualStageActions } from "../stage-rules";
+import { canLogMeeting, manualStageActions, snoozeControl } from "../stage-rules";
 import { MeetingForm, NotesForm, StageButtons } from "./prospect-actions";
+import { ReasonRow } from "./score-reasons";
 
 export const metadata: Metadata = { title: "Prospect" };
 
@@ -33,12 +33,11 @@ export default async function ProspectPage({ params }: { params: Promise<{ id: s
   const now = new Date();
   const timeZone = workspace.timezone;
   const reasons = (p.scoreReasons ?? []) as ScoreReason[];
-  const snoozed = p.snoozedUntil !== null && p.snoozedUntil > now;
   const name = `${p.firstName} ${p.lastName}`;
 
   // Each block of the Actions card shows only when it applies; with none, the card is left out.
   const hasStageButtons = manualStageActions(p.stage).length > 0;
-  const showSnooze = canSnooze(p.stage) || snoozed;
+  const snooze = snoozeControl(p.stage, p.snoozedUntil, now);
   const showMeetingForm = canLogMeeting(p.stage);
 
   return (
@@ -136,12 +135,12 @@ export default async function ProspectPage({ params }: { params: Promise<{ id: s
         </div>
 
         <div className="min-w-0 space-y-6 xl:col-start-3 xl:row-span-2 xl:row-start-1">
-          {hasStageButtons || showSnooze || showMeetingForm ? (
+          {hasStageButtons || snooze || showMeetingForm ? (
             <Card>
               <CardHeader title="Actions" />
               <CardBody className="space-y-5">
                 <StageButtons prospectId={p.id} stage={p.stage} />
-                {showSnooze ? <SnoozeControl prospectId={p.id} stage={p.stage} until={snoozed ? p.snoozedUntil : null} timeZone={timeZone} /> : null}
+                {snooze ? <SnoozeControl prospectId={p.id} until={snooze.until} timeZone={timeZone} /> : null}
                 {showMeetingForm ? <MeetingForm prospectId={p.id} /> : null}
               </CardBody>
             </Card>
@@ -220,33 +219,8 @@ function Info({ label, children }: { label: string; children: ReactNode }) {
   );
 }
 
-/** Label, a bar filled to points / max (success when full), then "x / y". AI reasons have no scale: favourable or not. */
-function ReasonRow({ reason }: { reason: ScoreReason }) {
-  const { label, points, max } = reason;
-  if (!max) {
-    return (
-      <li className="flex items-center justify-between gap-3 py-2">
-        <span className={points > 0 ? "text-ink" : "text-muted"}>{label}</span>
-        <span className={cn("shrink-0", points > 0 ? "text-success" : "text-muted")}>{points > 0 ? "Favorable" : "Défavorable"}</span>
-      </li>
-    );
-  }
-  const ratio = Math.min(1, Math.max(0, points / max));
-  const fill = ratio >= 1 ? "bg-success" : ratio <= 0 ? "bg-line-strong" : "bg-brand-600";
-  return (
-    <li className="flex items-center gap-3 py-2">
-      <span className={cn("min-w-0 flex-1", points <= 0 ? "text-muted" : "text-ink")}>{label}</span>
-      <span aria-hidden className="h-1.5 w-20 shrink-0 overflow-hidden rounded-full bg-surface-2 ring-1 ring-line ring-inset sm:w-[120px]">
-        <span className={cn("block h-full rounded-full", fill)} style={{ width: `${ratio * 100}%` }} />
-      </span>
-      <span className="min-w-14 shrink-0 text-right whitespace-nowrap tabular-nums text-muted">
-        {points} / {max}
-      </span>
-    </li>
-  );
-}
-
-function SnoozeControl({ prospectId, stage, until, timeZone }: { prospectId: string; stage: string; until: Date | null; timeZone: string }) {
+/** Rendered only where sends can be suspended (snoozeControl), so the durations always apply. */
+function SnoozeControl({ prospectId, until, timeZone }: { prospectId: string; until: Date | null; timeZone: string }) {
   return (
     <div role="group" aria-labelledby="envois-titre" aria-describedby="envois-aide">
       <p id="envois-titre" className="text-sm font-medium text-ink">
@@ -261,15 +235,13 @@ function SnoozeControl({ prospectId, stage, until, timeZone }: { prospectId: str
         </p>
       ) : null}
       <div className="mt-2 flex flex-wrap gap-2">
-        {canSnooze(stage)
-          ? [3, 7, 30].map((days) => (
-              <form key={days} action={snoozeAction.bind(null, prospectId, days)}>
-                <Button type="submit" variant="secondary" size="sm">
-                  {days} jours
-                </Button>
-              </form>
-            ))
-          : null}
+        {[3, 7, 30].map((days) => (
+          <form key={days} action={snoozeAction.bind(null, prospectId, days)}>
+            <Button type="submit" variant="secondary" size="sm">
+              {days} jours
+            </Button>
+          </form>
+        ))}
         {until ? (
           <form action={snoozeAction.bind(null, prospectId, 0)}>
             <Button type="submit" variant="ghost" size="sm">

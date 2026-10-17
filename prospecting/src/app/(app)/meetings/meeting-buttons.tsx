@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, UserX, X } from "lucide-react";
+import { Check, RotateCcw, UserX, X } from "lucide-react";
 import { SubmitButton } from "@/components/ui/submit-button";
 import { cn } from "@/lib/cn";
 import { meetingStatusAction } from "./actions";
@@ -35,6 +35,20 @@ export function CancelMeetingButton({ meetingId, name, when, className }: { meet
     >
       <SubmitButton variant="ghost" size="sm" className="w-full" aria-label={`Annuler le RDV – ${name}`} pendingLabel="Annulation…">
         <X className="size-3.5" aria-hidden /> Annuler le RDV
+      </SubmitButton>
+    </form>
+  );
+}
+
+/**
+ * Undoes 'Annuler le RDV': the meeting is scheduled again, so it returns to 'À venir',
+ * or to 'À confirmer' when its time has passed.
+ */
+export function RestoreMeetingButton({ meetingId, name }: { meetingId: string; name: string }) {
+  return (
+    <form action={meetingStatusAction.bind(null, meetingId, "SCHEDULED")}>
+      <SubmitButton variant="ghost" size="sm" className="w-full" aria-label={`Rétablir – ${name}`} pendingLabel="Enregistrement…">
+        <RotateCcw className="size-3.5" aria-hidden /> Rétablir
       </SubmitButton>
     </form>
   );
