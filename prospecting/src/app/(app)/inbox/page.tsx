@@ -241,7 +241,7 @@ export default async function InboxPage({ searchParams }: { searchParams: Promis
           {conversations.length === 0 ? (
             <EmptyState icon={<Inbox className="size-5" aria-hidden />} title={empty.title} description={empty.description} action={empty.action} />
           ) : (
-            <ul className="min-h-0 flex-1 divide-y divide-line overflow-y-auto" aria-label={`Conversations : ${TAB_LABELS[tab]}`}>
+            <ul className="relative min-h-0 flex-1 divide-y divide-line overflow-y-auto" aria-label={`Conversations : ${TAB_LABELS[tab]}`}>
               {conversations.map((c) => (
                 <ConversationRow key={c.id} c={c} href={link({ c: c.id })} selected={c.id === thread?.id} showProposal={tab === "drafts"} now={now} timeZone={timeZone} />
               ))}
@@ -328,7 +328,7 @@ export default async function InboxPage({ searchParams }: { searchParams: Promis
                 </Banner>
               ) : null}
 
-              <ThreadMessages threadId={thread.id} count={thread.messages.length} className="min-h-0 flex-1 space-y-4 overflow-y-auto bg-canvas px-4 py-5 sm:px-5">
+              <ThreadMessages threadId={thread.id} count={thread.messages.length} className="relative min-h-0 flex-1 space-y-4 overflow-y-auto bg-canvas px-4 py-5 sm:px-5">
                 {fold && fold.folded.length > 0 ? (
                   <li>
                     <details className="group">
