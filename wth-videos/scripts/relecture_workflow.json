@@ -1,0 +1,1968 @@
+{
+  "V01": {
+    "valide": true,
+    "tours": [
+      {
+        "round": 1,
+        "mots": 141,
+        "erreurs_auto": 1,
+        "bloquants": 1,
+        "mineurs": 9,
+        "relecteurs_ok": [
+          "ok",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 2,
+        "mots": 146,
+        "erreurs_auto": 0,
+        "bloquants": 0,
+        "mineurs": 15,
+        "relecteurs_ok": [
+          "ok",
+          "ok"
+        ]
+      }
+    ],
+    "erreurs_auto": [],
+    "avertissements": [],
+    "problemes_restants": [
+      {
+        "severity": "mineur",
+        "champ": "texte (structure des étapes) + slides montrées",
+        "extrait": "Première étape : … Ensuite, demande un brief d’une page. … Dernière étape : relis, corrige, décide.",
+        "probleme": "L’accroche est calée sur la slide 1, qui affiche « Comment le préparer avec l’IA en 5 étapes ». La voix, elle, ne présente que trois étapes (Première / Ensuite / Dernière). Les étapes 2 et 3 sont fusionnées sous « Ensuite », et l’étape 4 (« prépare les questions, pas les réponses », slide 6) est absente du script comme du mapping. À l’écran, on voit donc défiler Étape 1, 2, 3 puis 5 pendant que la voix dit « Dernière étape ». Le nombre annoncé à l’écran (5) contredit le nombre d’étapes traitées, et la méthode paraît complète en trois temps alors que la source en compte cinq.",
+        "correction": "Couvrir l’étape 4 et numéroter comme la source. Par exemple : « Première étape : … Deuxième étape : demande un brief structuré d’une page. Troisième étape : exige une source pour chaque info. … Quatrième étape : prépare les questions, pas les réponses. Demande à l’IA ce qui manque ou paraît incohérent. Dernière étape : relis, corrige, décide. » Mapper la slide 6 sur cette phrase. Sinon, ne pas afficher la mention « en 5 étapes » de la slide 1 ni les numéros d’étape dans la vidéo.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "texte (contexte → slide 2)",
+        "extrait": "Le vrai problème : ton temps part dans la recherche, pas dans le conseil.",
+        "probleme": "Le périmètre est élargi. La source limite le constat à la préparation d’un rendez-vous (« Le vrai problème avant un RDV »). Sans cette limite, la phrase peut s’entendre comme une affirmation générale sur tout le temps de travail du conseiller.",
+        "correction": "« Le vrai problème avant un rendez-vous : ton temps part dans la recherche, pas dans le conseil. »",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "texte (point1 → slide 3)",
+        "extrait": "Tes données client ne vont pas dans une IA grand public non encadrée.",
+        "probleme": "La source pose une interdiction (« Pas de données client dans une IA grand public non encadrée »). La tournure à l’indicatif peut s’entendre comme un constat ou une assurance (« tes données n’y vont pas ») plutôt que comme une règle à appliquer.",
+        "correction": "« Pas de données client dans une IA grand public non encadrée : le RGPD et ta politique interne s’appliquent. »",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "texte (point2 → slide 4)",
+        "extrait": "Ensuite, demande un brief d’une page.",
+        "probleme": "Le mot « structuré » a disparu, et avec lui l’idée centrale de l’étape 2 : un brief organisé selon des rubriques définies (situation actuelle, changements depuis le dernier RDV, décisions et engagements passés, points ouverts, échéances). Sans ce mot, la consigne est affaiblie.",
+        "correction": "« Ensuite, demande un brief structuré d’une page. »",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "texte (cta → slide 9) + légende",
+        "extrait": "Abonne-toi pour comprendre ton argent.",
+        "probleme": "Cet appel à l’action n’est pas dans la source, alors que le segment est calé sur la slide 9, dont le CTA est différent (« Tu prépares tes RDV comment aujourd’hui ? Dis-le en commentaire… »). De plus, « ton argent » change de sujet : le contenu s’adresse au CGP et à sa pratique professionnelle, pas aux finances personnelles du spectateur. Ce n’est pas une promesse de rendement, mais l’angle annoncé ne correspond pas au contenu.",
+        "correction": "Dans la voix, reprendre le CTA de la source : « Tu prépares tes rendez-vous comment aujourd’hui ? Dis-le en commentaire. » Si la signature de chaîne est obligatoire, la mettre après ce CTA et la remplacer par une formule cohérente avec le sujet, sans parler de « ton argent ».",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point1",
+        "extrait": "Première étape : tu limites ce que l’IA peut lire. Elle lit uniquement le dossier client, dans un outil validé par ton cabinet. Tes données client ne vont pas dans une IA grand public non encadrée. Le RGPD et ta politique interne s’appliquent.",
+        "probleme": "C’est le passage le plus « écrit » du script. On a quatre affirmations à la suite, sans lien entre elles. Plusieurs expressions sont reprises telles quelles de la slide 3 (« dans un outil validé par ton cabinet », « IA grand public non encadrée », « le RGPD et ta politique interne s’appliquent »), et la dernière phrase sonne comme une mention légale. On entend aussi « lire / lit » deux fois de suite. Enfin, ce point utilise l’indicatif (« tu limites ») alors que les autres étapes sont à l’impératif (« demande », « exige », « relis »).",
+        "correction": "Première étape : limite ce que l’IA peut lire. Seulement le dossier client, dans un outil validé par ton cabinet. Une IA grand public non encadrée ? Non : le RGPD et ta politique interne s’appliquent.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "mapping slides / structure",
+        "extrait": "[point2 → slides 4,5] … [point3 → slides 7]",
+        "probleme": "La slide 6 (Étape 4) n’est jamais affichée. À l’écran, on passe donc de « Étape 3 » à « Étape 5 », alors que la slide 1 annonce « 5 étapes » et que la voix dit « Dernière étape ». Le spectateur peut avoir l’impression qu’il manque un passage.",
+        "correction": "Associer le point 2 aux slides 4, 5 et 6 : la phrase « Une info sans source, c’est une question à poser au client » fait déjà le lien avec la slide 6 (« prépare les questions, pas les réponses »). Le texte ne change pas.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "contexte",
+        "extrait": "ton temps part dans la recherche, pas dans le conseil.",
+        "probleme": "« La recherche » est abstrait et peut s’entendre comme « faire de la recherche » au sens d’étudier. À l’oral, un verbe est plus concret et plus rythmé.",
+        "correction": "Le vrai problème : ton temps part à chercher l’info, pas à conseiller.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point2",
+        "extrait": "Ensuite, demande un brief d’une page.",
+        "probleme": "« brief » est un anglicisme : la voix peut dire « bri-èf », et il est moins clair pour un public non expert. On perd aussi le mot « structuré » de la source, qui rend la consigne plus concrète.",
+        "correction": "Ensuite, demande une synthèse structurée d’une page. Si tu gardes « brief », garde l’alias « brif » prévu dans les notes.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point3",
+        "extrait": "Toi, tu gardes le conseil, l’adéquation et la responsabilité.",
+        "probleme": "Employé seul, « l’adéquation » est du jargon réglementaire. Les CGP le comprennent, mais pas le grand public.",
+        "correction": "Toi, tu gardes le conseil, son adéquation au client, et la responsabilité.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "chute",
+        "extrait": "Avant, tu arrives en ayant cherché. Après, tu arrives en ayant compris.",
+        "probleme": "La chute arrive sans transition juste après « devant le client ». On peut entendre « Avant » au sens de « avant le rendez-vous ». Le présent après « Avant » est aussi moins naturel à l’oral que l’imparfait.",
+        "correction": "Résultat : avant, tu arrivais en ayant cherché. Maintenant, tu arrives en ayant compris.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "titre",
+        "extrait": "Préparer ton entretien client avec l’IA",
+        "probleme": "Le titre fait 39 caractères, donc la longueur est bonne. Mais il mélange un infinitif et le tutoiement (« ton »), alors que tout le script parle au spectateur à l’impératif.",
+        "correction": "Prépare ton entretien client avec l’IA (38 caractères).",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "légende",
+        "extrait": "Les étapes clés pour arriver en ayant compris, avec plus de temps pour écouter.",
+        "probleme": "Sans la vidéo, « en ayant compris » n’a pas de complément et reste flou à la lecture.",
+        "correction": "Les étapes clés pour arriver en ayant compris le dossier, avec plus de temps pour écouter.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "notes de prononciation",
+        "extrait": "Si la voix garde le [f] ou lit mal le chiffre, ajoute un alias « neuf heures »",
+        "probleme": "Un alias « neuf heures » règle la lecture du chiffre, mais pas le [f] : la voix peut toujours dire « neuf-f-heures ».",
+        "correction": "Si le [f] reste, utiliser l’alias « neuve heures » pour « 9 heures », uniquement dans le texte envoyé à ElevenLabs, sans toucher aux sous-titres.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "ponctuation / sous-titres",
+        "extrait": "Client à 9 heures ? … Le vrai problème : … Première étape : … Dernière étape :",
+        "probleme": "Si l’espace avant « ? » et « : » est une espace normale, les sous-titres mot à mot peuvent afficher la ponctuation comme un mot à part, ou la renvoyer seule en début de ligne.",
+        "correction": "Mettre une espace fine insécable (U+202F) ou insécable (U+00A0) avant « ? » et « : » dans le texte des sous-titres.",
+        "relecteur": "oral"
+      }
+    ]
+  },
+  "V02": {
+    "valide": false,
+    "tours": [
+      {
+        "round": 1,
+        "mots": 143,
+        "erreurs_auto": 0,
+        "bloquants": 3,
+        "mineurs": 14,
+        "relecteurs_ok": [
+          "a_reviser",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 2,
+        "mots": 146,
+        "erreurs_auto": 0,
+        "bloquants": 1,
+        "mineurs": 11,
+        "relecteurs_ok": [
+          "ok",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 3,
+        "mots": 145,
+        "erreurs_auto": 0,
+        "bloquants": 3,
+        "mineurs": 10,
+        "relecteurs_ok": [
+          "a_reviser",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 4,
+        "mots": 146,
+        "erreurs_auto": 0,
+        "bloquants": 3,
+        "mineurs": 11,
+        "relecteurs_ok": [
+          "a_reviser",
+          "a_reviser"
+        ]
+      }
+    ],
+    "erreurs_auto": [],
+    "avertissements": [
+      "Phrase longue (14 mots) : « Ta banque doit ouvrir tes comptes aux services tiers autorisés, seulement avec ton accord. »"
+    ],
+    "problemes_restants": [
+      {
+        "severity": "bloquant",
+        "champ": "texte (contexte → slide 2)",
+        "extrait": "Ta banque doit ouvrir tes comptes aux services tiers autorisés, seulement avec ton accord.",
+        "probleme": "La règle perd son cadre et son objet change. (1) La source rattache l'obligation à « la directive européenne DSP2 ». La voix supprime ce cadre et présente l'obligation comme valable partout. Un spectateur francophone hors UE (Suisse, Québec, Afrique) peut croire que sa banque y est tenue. (2) La source dit « ouvrir l'accès à tes comptes à des services tiers autorisés ». La voix dit « ouvrir tes comptes aux services tiers autorisés », ce qui suggère un accès complet aux comptes, et non l'accès encadré à certaines données décrit en slide 3. Le risque est d'autant plus grand que la vidéo omet l'erreur 3 de la source : un service qui consulte tes comptes ne peut pas, pour autant, déplacer ton argent. (3) « aux services tiers » généralise « à des services tiers ».",
+        "correction": "« Depuis une directive européenne, ta banque doit ouvrir l’accès à tes comptes à des services tiers autorisés. Mais seulement avec ton accord. » Cette version garde le cadre européen sans prononcer « DSP2 », qui reste sur le visuel de la slide 2.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "bloquant",
+        "champ": "visuels / notes (slides 1, 3, 6, 7, 8)",
+        "extrait": "Dans la version vidéo des slides 6 et 7, masquer les numéros, pour que le spectateur ne croie pas avoir manqué des erreurs.",
+        "probleme": "Le nombre annoncé contredit le nombre de points traités. La slide 1, affichée pendant l'accroche, annonce « 5 erreurs ». La voix n'en traite que 3 (erreurs 1, 4 et 5) et saute « autoriser sans lire » et « confondre lire et payer ». La slide 8 affiche ensuite une checklist de 5 points, dont 2 ne sont jamais expliqués. Masquer les numéros des slides 6 et 7 ne règle pas la contradiction : cela cache au spectateur qu'il a bien manqué deux erreurs annoncées. La vidéo est trompeuse sur son propre contenu, alors que la légende dit justement « trois des erreurs ».",
+        "correction": "Deux options. Option A : dans la version vidéo, remplacer « 5 erreurs quand tu connectes ta banque à une app » en slide 1 par « Trois erreurs quand tu connectes ta banque à une app ». Ou bien garder le visuel et ajouter en surimpression « 3 des 5 erreurs – les 5 dans le carrousel ». Ensuite, n'afficher en slide 8 que les points 1, 4 et 5 de la checklist, et ne pas masquer les numéros pour cacher l'omission. Option B : traiter aussi les erreurs 2 et 3 de la source, sans les déformer.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "titre",
+        "extrait": "Connecter ta banque : les erreurs à éviter",
+        "probleme": "L'article défini « les erreurs » laisse entendre que la vidéo couvre toutes les erreurs à éviter. Elle n'en traite que 3 sur les 5 de la source. La légende, elle, est exacte (« trois des erreurs »).",
+        "correction": "« Connecter ta banque : des erreurs à éviter » ou « Connecter ta banque : 3 erreurs à éviter ». « 3 » est ici un nombre structurel qui correspond aux points traités.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "texte (chute → slide 8)",
+        "extrait": "Bref : tu t’identifies chez ta banque.",
+        "probleme": "À l'indicatif, la phrase peut se lire comme un fait absolu (« ça se passe toujours chez ta banque »). La précaution « En principe » de la slide 3 disparaît. La source formule ce point comme un réflexe de checklist (« Je m’identifie chez ma banque »), pas comme un constat.",
+        "correction": "Passer à l'impératif pour en faire un réflexe : « Bref : identifie-toi chez ta banque. Vérifie sur REGAFI. Et tous les 6 mois, fais le tri. »",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "bloquant",
+        "champ": "accroche",
+        "extrait": "Tu connectes ta banque à une appli ? Attention.",
+        "probleme": "L’accroche fait exactement 8 mots, la limite, et dure environ 3 secondes avec la pause du « ? ». Il n’y a donc aucune marge. Surtout, « Attention. » est un signal d’alerte générique qui ne promet rien au spectateur : la source promettait des erreurs et comment les éviter, et cette promesse a disparu. En plus, l’alerte retombe tout de suite, parce que le contexte qui suit est rassurant (l’accès est légal et soumis à ton accord). L’accroche est plate.",
+        "correction": "« Appli connectée à ta banque ? Évite ces erreurs. » Elle fait 8 mots, dure environ 2,5 secondes, annonce clairement ce qui vient et n’annonce aucun nombre total, ce qui reste compatible avec les notes. Le É majuscule est bien accentué.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "contexte",
+        "extrait": "Ta banque doit ouvrir tes comptes aux services tiers autorisés, seulement avec ton accord.",
+        "probleme": "À l’oral, « ouvrir tes comptes » s’entend d’abord comme « créer des comptes ». La source dit « ouvrir l’accès à tes comptes ». « Services tiers » est du jargon pour un public non expert. Sans « mais », « seulement avec ton accord » arrive de façon abrupte.",
+        "correction": "« Ta banque doit ouvrir l’accès à tes comptes aux applis autorisées, mais seulement avec ton accord. » (15 mots : mettre à jour la note « Aucune phrase ne dépasse 14 mots ».)",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point2",
+        "extrait": "En France, ce type de service doit être enregistré auprès de l’ACPR. Vérifie-le gratuitement sur le registre REGAFI, en tapant le nom de la société.",
+        "probleme": "C’est le passage le plus « lu » : registre administratif, tournure passive, presque une copie de la slide 6. Il enchaîne deux sigles en deux phrases. L’ACPR n’est jamais expliquée à un non-expert et la voix risque de l’angliciser. « Ce type de service » renvoie à une mention trop lointaine.",
+        "correction": "« En France, ces services doivent être enregistrés. Pour vérifier, c’est gratuit : tape le nom de la société sur le registre REGAFI. » L’ACPR reste affichée sur le visuel de la slide 6, comme DSP2 sur la slide 2. L’alias ACPR devient inutile.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "transitions des points",
+        "extrait": "Autre erreur : … / Encore une erreur : …",
+        "probleme": "Après « Première erreur », l’oreille attend « Deuxième ». « Encore une erreur » sonne comme de la lassitude ou un reproche, et casse le rythme de la liste.",
+        "correction": "« Deuxième erreur : … » puis « Troisième erreur : … ». Cela n’annonce pas de total, et les numéros des slides 6 et 7 sont déjà masqués comme prévu.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "notes / visuels",
+        "extrait": "Elle reste donc compatible avec « 5 erreurs » en slide 1 et la checklist à 5 points en slide 8.",
+        "probleme": "L’accroche passe sur la slide 1, qui affiche « 5 erreurs ». La vidéo n’en traite que 3, et la slide 8 affiche 5 points alors que la voix en résume 3. Le spectateur croit avoir manqué deux erreurs : la promesse du visuel n’est pas tenue.",
+        "correction": "Dans la version vidéo, masquer le « 5 » de la slide 1 (« Les erreurs quand tu connectes ta banque à une app »). Sur la slide 8, mettre en avant les points 1, 4 et 5, ou n’afficher que ces trois-là, comme c’est déjà prévu pour les numéros des slides 6 et 7.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "chiffres / prononciation",
+        "extrait": "Une appli testée il y a 6 mois … Et tous les 6 mois, tu fais le tri.",
+        "probleme": "La voix risque de dire [sis mwa]. L’alias « 6 mois » → « six mois » corrige mal le problème si le [s] vient de la normalisation du chiffre. Un alias sur deux mots est aussi moins fiable qu’un alias sur un seul mot.",
+        "correction": "Écrire « six mois » dans le texte envoyé à la voix. Ne garder « 6 mois » que dans les sous-titres, si l’outil travaille sur un texte séparé ; sinon, « six mois » en lettres reste tout à fait lisible.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "chute",
+        "extrait": "Bref : tu t’identifies chez ta banque. Tu vérifies sur REGAFI. Et tous les 6 mois, tu fais le tri.",
+        "probleme": "C’est un bon récapitulatif en trois temps, mais il ressemble plus à une checklist qu’à une formule à retenir. « Tu vérifies sur REGAFI » n’a pas de complément : on ne sait pas ce qu’on vérifie.",
+        "correction": "« Bref : tes codes, c’est chez ta banque. L’appli, tu la vérifies sur REGAFI. Et tous les six mois, tu fais le tri. » La structure est parallèle et n’ajoute aucun fait.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "notes de prononciation",
+        "extrait": "appli, l’appli (8 occurrences)",
+        "probleme": "Le texte compte 7 occurrences, pas 8 : 1 dans l’accroche, 3 dans le point 1, 1 dans le point 2 et 2 dans le point 3.",
+        "correction": "« appli, l’appli (7 occurrences) ». Recompter si l’accroche est modifiée.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "notes / ponctuation",
+        "extrait": "une espace fine insécable U+202F précède chaque « : » et « ? »",
+        "probleme": "En typographie française, on met devant « : » une espace insécable normale (U+00A0) ; la fine (U+202F) est réservée à ; ! ?. Surtout, U+202F et U+00A0 sont des espaces Unicode (catégorie Zs) que la plupart des outils qui découpent le texte en mots (\\s en JavaScript, str.split() en Python) traitent comme des séparateurs. Le « : » ou le « ? » risque donc de s’afficher seul, ce qui est justement l’effet qu’on voulait éviter.",
+        "correction": "Dans l’outil de sous-titres, rattacher explicitement au mot précédent tout signe de ponctuation isolé, ou découper uniquement sur l’espace normale U+0020. Mettre U+00A0 devant « : ».",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "notes / légende",
+        "extrait": "Le titre n’utilise pas le chiffre « 3 », qui est absent de la source. / Voici trois des erreurs à éviter, avec le bon réflexe pour chacune.",
+        "probleme": "La note présente « 3 » comme un chiffre à éviter, mais la légende dit « trois ». La légende a raison de préciser que la vidéo présente une sélection ; c’est la note qui prête à confusion.",
+        "correction": "Reformuler la note ainsi : « Le titre et la voix n’annoncent aucun nombre ; seule la légende précise “trois des erreurs”, ce qui décrit la vidéo sans contredire les 5 erreurs du carrousel. »",
+        "relecteur": "oral"
+      }
+    ]
+  },
+  "V03": {
+    "valide": true,
+    "tours": [
+      {
+        "round": 1,
+        "mots": 146,
+        "erreurs_auto": 0,
+        "bloquants": 3,
+        "mineurs": 9,
+        "relecteurs_ok": [
+          "ok",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 2,
+        "mots": 146,
+        "erreurs_auto": 0,
+        "bloquants": 2,
+        "mineurs": 14,
+        "relecteurs_ok": [
+          "a_reviser",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 3,
+        "mots": 147,
+        "erreurs_auto": 0,
+        "bloquants": 2,
+        "mineurs": 11,
+        "relecteurs_ok": [
+          "a_reviser",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 4,
+        "mots": 146,
+        "erreurs_auto": 0,
+        "bloquants": 0,
+        "mineurs": 14,
+        "relecteurs_ok": [
+          "ok",
+          "ok"
+        ]
+      }
+    ],
+    "erreurs_auto": [],
+    "avertissements": [],
+    "problemes_restants": [
+      {
+        "severity": "mineur",
+        "champ": "texte (point3)",
+        "extrait": "Ton intermédiaire doit te les communiquer, en euros et en pourcentage.",
+        "probleme": "La source nomme clairement l'objet de l'obligation : « les coûts et frais ». Le script le remplace par le pronom « les », qui peut renvoyer à trois choses : « le document d'informations clés et le détail des frais » (l'antécédent le plus proche), « d'autres frais » (la phrase précédente, ce qui réduit le périmètre) ou les frais en général. Pour une obligation, l'objet doit rester explicite.",
+        "correction": "Ton intermédiaire doit te communiquer les coûts et frais, en euros et en pourcentage. (Même correction dans le texte audio : « Ton intermédiaire doit te communiquer les coûts et frais, en euros et en pourcentage. »)",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "texte (point2)",
+        "extrait": "Ensuite, les frais de gestion sont prélevés chaque année sur l'encours. Sur la durée, ils pèsent le plus.",
+        "probleme": "La source précise que les frais de gestion regroupent deux couches : « frais du contrat ou du compte, plus les frais propres des fonds ». Le script supprime cette précision. Le spectateur peut donc penser que seuls les frais du contrat comptent, et la phrase « ils pèsent le plus » ne couvre plus clairement le même périmètre que dans la source.",
+        "correction": "Ensuite, les frais de gestion sont prélevés chaque année sur l'encours : frais du contrat ou du compte, plus les frais propres des fonds. Sur la durée, ce sont eux qui pèsent le plus.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "texte (point1)",
+        "extrait": "Ajoute 1 % de frais : à 4 % net, c'est environ 21 900 €.",
+        "probleme": "La phrase précédente est au conditionnel (« deviendraient environ 26 500 € »). Celle-ci passe à l'indicatif (« c'est »), alors que le calcul reste un exemple théorique. Le chiffre peut alors être lu comme un résultat acquis. La source n'emploie aucun verbe affirmatif (« donc 4 % net : environ 21 900 € »).",
+        "correction": "Ajoute 1 % de frais : à 4 % net, ce serait environ 21 900 €.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "texte (contexte / point1)",
+        "extrait": "Sur 10 000 € placés 20 ans, ça peut coûter plus de 4 600 €.",
+        "probleme": "Le chiffre de 4 600 € arrive avant la précaution « exemple théorique » et sans l'hypothèse de 5 % par an. Le texte parlé ne le présente jamais ensuite comme l'écart du calcul théorique, alors que la source le fait (slide 3 : « Écart : plus de 4 600 €. Exemple théorique, rendement non garanti. »). Le chiffre est fidèle à la slide 1, mais sa précaution n'est rattachée qu'implicitement.",
+        "correction": "Garder le contexte tel quel et ajouter à la fin du calcul du point1 : « Écart : plus de 4 600 €. » (dans le texte audio : « Écart : plus de quatre mille six cents euros. »). Le chiffre est ainsi explicitement rattaché à l'exemple théorique, comme dans la source.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "accroche",
+        "extrait": "1 % de frais par an ? Pas si peu.",
+        "probleme": "L'accroche respecte la limite (8 mots si « 1 % » compte pour un seul mot, moins de 3 s), mais « Pas si peu » sonne figé et peu idiomatique. À l'oral, la suite de « p » (pour, par, pas, peu) est aussi un peu pâteuse. La phrase pose peu de tension : elle donne la conclusion sans créer d'attente.",
+        "correction": "« 1 % de frais par an ? Pas si anodin. » (8 mots). Audio : « Un pour cent de frais par an ? Pas si anodin. » Reporter la même formule en première ligne de la légende.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point1",
+        "extrait": "Voici un exemple théorique, sans rendement garanti.",
+        "probleme": "Le point 1 s'ouvre sur la mention de prudence. Cela sonne comme la note de bas de slide lue à voix haute et casse l'élan créé par le contexte.",
+        "correction": "Intégrer la mention dans la phrase de calcul, au tutoiement : « Prends un exemple théorique, sans garantie de rendement : à 5 % par an, ces 10 000 € deviendraient environ 26 500 €. » Déplacer la pause prévue après « garanti » sur les deux-points.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point1",
+        "extrait": "Car l’argent prélevé chaque année ne travaille plus pour toi.",
+        "probleme": "« Car » en tête de phrase est déconseillé, surtout dans des sous-titres affichés. L'enchaînement juste après un chiffre est aussi abrupt : l'auditeur ne comprend pas tout de suite ce que la phrase explique.",
+        "correction": "« Pourquoi autant ? Parce que l’argent prélevé chaque année ne travaille plus pour toi. » Audio identique, avec une pause après « Pourquoi autant ? ».",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point2",
+        "extrait": "Il y a plusieurs frais : d’abord ceux d’entrée, prélevés sur chaque versement.",
+        "probleme": "« ceux d’entrée » est elliptique. À la première écoute, l'auditeur doit reconstituer « les frais d’entrée ». L'apposition au participe passé fait aussi un peu écrit.",
+        "correction": "« Il y a plusieurs frais. D’abord, les frais d’entrée : ils sont prélevés sur chaque versement. »",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point2",
+        "extrait": "Ensuite, les frais de gestion sont prélevés chaque année sur l’encours.",
+        "probleme": "« l’encours » est du jargon pour un public non expert. Il présente aussi un risque de prononciation avec eleven_multilingual_v2, qui n'accepte pas les balises phonème (par exemple « l’en-course »).",
+        "correction": "« Ensuite, les frais de gestion sont prélevés chaque année sur tout ce que tu as placé. » Mettre à jour le texte audio et retirer la consigne « lan-cour » des notes.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point2",
+        "extrait": "Sur la durée, ils pèsent le plus.",
+        "probleme": "La formule est tronquée et plate. Le superlatif ne ressort pas, alors que c'est l'idée clé du point.",
+        "correction": "« Sur la durée, ce sont eux qui pèsent le plus. » (formulation de la source)",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point3",
+        "extrait": "Selon le produit, d’autres frais peuvent s’ajouter.",
+        "probleme": "La phrase est vague et ne donne rien de concret, alors que la source cite ces frais.",
+        "correction": "« Selon le produit, des frais de sortie, d’arbitrage ou de garde peuvent s’ajouter. » (tous cités slide 6)",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point3",
+        "extrait": "Comment les trouver ? Demande le document d’informations clés et le détail des frais. Ton intermédiaire doit te les communiquer, en euros et en pourcentage.",
+        "probleme": "Les pronoms sont ambigus. Le premier « les » renvoie grammaticalement aux seuls « autres frais ». Le second peut renvoyer au document et au détail plutôt qu'aux coûts.",
+        "correction": "« Comment connaître tous tes frais ? Demande le document d’informations clés et le détail des frais. Ton intermédiaire doit te communiquer ces coûts, en euros et en pourcentage. »",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "chute",
+        "extrait": "Tu ne contrôles pas les marchés. Tu contrôles les frais.",
+        "probleme": "La chute est bonne, mais elle arrive sans transition juste après une consigne administrative. Elle risque de passer pour la suite de l'énumération au lieu de sonner comme une conclusion.",
+        "correction": "« Retiens ça : tu ne contrôles pas les marchés. Tu contrôles les frais. » Ajouter une pause avant « Retiens ça ».",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "légende",
+        "extrait": "1 % de frais en plus peut coûter plus de 4 600 €.",
+        "probleme": "La répétition « en plus… plus de » alourdit la phrase.",
+        "correction": "« Sur 10 000 € placés 20 ans à 5 % par an, 1 % de frais supplémentaires peut te coûter plus de 4 600 €. »",
+        "relecteur": "oral"
+      }
+    ]
+  },
+  "V04": {
+    "valide": false,
+    "tours": [
+      {
+        "round": 1,
+        "mots": 144,
+        "erreurs_auto": 0,
+        "bloquants": 1,
+        "mineurs": 13,
+        "relecteurs_ok": [
+          "ok",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 2,
+        "mots": 145,
+        "erreurs_auto": 0,
+        "bloquants": 2,
+        "mineurs": 8,
+        "relecteurs_ok": [
+          "a_reviser",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 3,
+        "mots": 144,
+        "erreurs_auto": 0,
+        "bloquants": 1,
+        "mineurs": 6,
+        "relecteurs_ok": [
+          "ok",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 4,
+        "mots": 147,
+        "erreurs_auto": 0,
+        "bloquants": 1,
+        "mineurs": 6,
+        "relecteurs_ok": [
+          "ok",
+          "a_reviser"
+        ]
+      }
+    ],
+    "erreurs_auto": [],
+    "avertissements": [
+      "Phrase longue (14 mots) : « Exemple : tu as 800 €, mais 600 € de prélèvements partent d’ici la fin du mois. »"
+    ],
+    "problemes_restants": [
+      {
+        "severity": "mineur",
+        "champ": "texte (point1, slide 3)",
+        "extrait": "Voici trois pièges.",
+        "probleme": "La source annonce « 4 erreurs qu’on fait tous ». Le script n’en traite que trois et oublie l’erreur 4 (« regarder le solde un seul jour », point bas du mois, risque de découvert) sans dire qu’il y en a d’autres. Le nombre annoncé correspond bien aux points traités, donc rien ne se contredit. Mais la phrase peut faire croire que la liste est complète, alors que la légende, elle, précise bien « trois des pièges ».",
+        "correction": "Voici trois pièges, parmi d’autres.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "bloquant",
+        "champ": "point2 (texte voix off)",
+        "extrait": "Carte à débit différé, paiement en plusieurs fois : l’achat est fait. Mais l’argent n’est pas encore parti.",
+        "probleme": "C’est la slide 4 recopiée mot pour mot : une énumération de noms sans article ni verbe, suivie de deux-points. À l’oral, ça sonne comme une puce de slide, et la voix de synthèse lit ces noms nus de façon hachée et mécanique. Ce passage est aussi celui qui pèse le plus dans l’excès de deux-points du script (8 pour 147 mots).",
+        "correction": "« Avec une carte à débit différé ou un paiement en plusieurs fois, l’achat est fait. Mais l’argent n’est pas encore parti. » La première phrase fait 15 mots. Le script gagne 4 mots et passe de 147 à 151, au-dessus de la limite de 150 mots de lint.py. Pour compenser, retire « Exemple : » au point 1 et « encore » ou « déjà » au point 3. Variante plus courte (+2 mots) : « Avec le débit différé ou le paiement en plusieurs fois, l’achat est fait. »",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point1 (texte voix off)",
+        "extrait": "Exemple : tu as 800 €, mais 600 € de prélèvements partent d’ici la fin du mois.",
+        "probleme": "L’étiquette « Exemple : » vient de la slide 3. Isolée par les deux-points, elle crée une pause artificielle et fait entendre un intitulé, pas une phrase parlée.",
+        "correction": "« Tu as 800 €, mais 600 € de prélèvements partent d’ici la fin du mois. » (−1 mot), ou « Par exemple, tu as 800 €, mais 600 € de prélèvements partent d’ici la fin du mois. » (+1 mot).",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point1 (transition) / cohérence avec les slides",
+        "extrait": "Voici trois pièges. Premier piège :",
+        "probleme": "Le pipeline affiche la slide en fond. Pendant l’accroche, on lit donc « 4 erreurs qu’on fait tous… », puis la voix annonce « trois pièges », et la quatrième erreur n’arrive jamais. Les slides 3 à 5 sont titrées « Erreur 1/2/3 » alors que la voix dit « Premier/Deuxième/Troisième piège ». Ce qu’on lit et ce qu’on entend ne concordent pas.",
+        "correction": "« Voici les trois premiers pièges. » (+2 mots) : la phrase reconnaît que la liste en compte quatre sans rien ajouter à la source. Autre option : passer au mot de la slide, « Voici les trois premières erreurs. Première erreur : … », et l’accorder de la même façon aux points 2 et 3. Dans les deux cas, garde le total à 150 mots maximum.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "chute",
+        "extrait": "Retiens ça : ne décide jamais d’une dépense sur le chiffre affiché. Décide en fonction de ce qui restera après les échéances.",
+        "probleme": "« En fonction de » casse le parallélisme de la source (« décide jamais… sur » / « Décide sur… »). La chute devient une consigne administrative plutôt qu’une formule qu’on retient. Or la source contient une image bien plus forte, que le script n’utilise pas (slide 2) : « Un solde, c’est une photo. Un budget, c’est un film. »",
+        "correction": "« Retiens ça : un solde, c’est une photo. Un budget, c’est un film. Avant de dépenser, regarde ce qui restera après les échéances. » (22 mots au lieu de 21). Version courte (20 mots) : « … Un budget, c’est un film. Décide sur ce qui restera après les échéances. »",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point2 / point3",
+        "extrait": "Tu comptes déjà sur un virement qui n’est pas encore arrivé. Un remboursement en cours ou un salaire attendu n’est pas encore à toi.",
+        "probleme": "« Pas encore » revient trois fois en une trentaine de mots (« pas encore parti », « pas encore arrivé », « pas encore à toi ») et « n’est pas » cinq fois. La répétition s’entend à l’oral et affaiblit le rythme.",
+        "correction": "« Troisième piège : tu comptes déjà sur un virement qui n’est pas arrivé. » (−1 mot). Le « pas encore à toi » de la phrase suivante, qui porte l’idée, reste inchangé.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "légende",
+        "extrait": "trois des pièges à connaître avant de dépenser.",
+        "probleme": "Le partitif « trois des pièges » est maladroit : il suggère d’autres pièges sans les nommer et alourdit la ligne d’accroche de la légende.",
+        "correction": "« Prélèvements à venir, paiements différés, virements pas encore arrivés : trois pièges à connaître avant de dépenser. »",
+        "relecteur": "oral"
+      }
+    ]
+  },
+  "V05": {
+    "valide": true,
+    "tours": [
+      {
+        "round": 1,
+        "mots": 141,
+        "erreurs_auto": 1,
+        "bloquants": 0,
+        "mineurs": 11,
+        "relecteurs_ok": [
+          "ok",
+          "ok"
+        ]
+      },
+      {
+        "round": 2,
+        "mots": 147,
+        "erreurs_auto": 0,
+        "bloquants": 1,
+        "mineurs": 10,
+        "relecteurs_ok": [
+          "a_reviser",
+          "ok"
+        ]
+      },
+      {
+        "round": 3,
+        "mots": 147,
+        "erreurs_auto": 0,
+        "bloquants": 0,
+        "mineurs": 11,
+        "relecteurs_ok": [
+          "ok",
+          "ok"
+        ]
+      }
+    ],
+    "erreurs_auto": [],
+    "avertissements": [
+      "Phrase longue (16 mots) : « Une IA générative peut compléter une donnée manquante avec aplomb : dans un dossier patrimonial, c’est risqué. »",
+      "Phrase longue (14 mots) : « Une date de vente absente du dossier ne doit pas apparaître comme un fait. »",
+      "Phrase longue (16 mots) : « Un texte bien écrit inspire confiance : ralentis sur les chiffres, les dates, les noms, les montants. »"
+    ],
+    "problemes_restants": [
+      {
+        "severity": "mineur",
+        "champ": "texte (point1 → slide 3)",
+        "extrait": "Une date de vente absente du dossier ne doit pas apparaître comme un fait.",
+        "probleme": "La règle de la slide 3 est réduite à un seul exemple. La source vise toute info absente du dossier : « Date de vente d’un bien, montant d’un contrat, intention du client : si l’info n’est pas dans le dossier, elle ne doit pas apparaître comme un fait ». Lue seule, la phrase du script peut laisser croire que la règle ne concerne que la date de vente.",
+        "correction": "« Date de vente, montant d’un contrat, intention du client : si l’info n’est pas dans le dossier, elle ne doit pas apparaître comme un fait. »",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "texte (cta → slide 9) et légende",
+        "extrait": "Abonne-toi pour comprendre ton argent.",
+        "probleme": "Ce CTA n’est pas dans la source. Il remplace dans le texte lu l’appel de la slide 9 (« CGP : tu as déjà repéré une erreur dans un texte généré par IA ? Raconte en commentaire. »). Il change aussi le public et l’objet du message : la source parle à des CGP de leur pratique professionnelle (brief, RDV client), alors que « comprendre ton argent » s’adresse à un particulier qui gère son propre patrimoine.",
+        "correction": "Dans le texte lu, reprendre le CTA de la slide 9 : « CGP : tu as déjà repéré une erreur dans un texte généré par IA ? Raconte en commentaire. » Si la marque impose un CTA d’abonnement, le placer après celui-ci, sans « pour comprendre ton argent » (par exemple « Abonne-toi pour d’autres conseils pratiques sur l’IA en cabinet »). Appliquer la même correction dans la légende.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "structure (points 1 à 3)",
+        "extrait": "Premier piège : laisser l’IA combler les vides. […] Quatrième piège : relire en diagonale. […] Et la parade ?",
+        "probleme": "Le découpage compte bien trois blocs, mais on entend cinq éléments à la suite (quatre pièges puis la parade). Rien n’annonce le nombre de pièges : « Premier piège » arrive sans repère, et le spectateur ne sait pas combien il en reste. En 147 mots (environ 55 à 60 s), chaque piège n’a qu’une ou deux phrases, donc la vidéo est dense.",
+        "correction": "Annoncer le compte au début du point 1, à partir de la source (slide 1 : « 4 erreurs à éviter avant ton RDV client ») : « Quatre pièges avant ton rendez-vous client. Le premier : laisser l’IA combler les vides. » Si la vidéo est trop longue, on peut aussi regrouper les pièges 1 et 2, qui disent la même chose (une info sans source) : « Premier piège : laisser l’IA combler les vides. Une info absente du dossier ne doit pas devenir un fait : exige un document pour chacune. »",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point3 (parade) / clarté",
+        "extrait": "Ajoute au brief une rubrique fixe : « Informations non confirmées ».",
+        "probleme": "La voix n’a jamais présenté le « brief ». Dans la source, il est introduit à la slide 1 (« Ton agent IA a préparé le brief »), mais l’accroche orale a retiré ce passage. « Au brief » renvoie donc à quelque chose que le spectateur n’a pas entendu. L’inversion « Ajoute au brief une rubrique » fait aussi plus écrit qu’oral.",
+        "correction": "« Ajoute une rubrique fixe à ton brief client : « Informations non confirmées ». » Le possessif suffit à présenter le mot, et l’ordre des mots devient naturel à l’oral.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point2 (quatrième piège) / transitions",
+        "extrait": "Un texte bien écrit inspire confiance : ralentis sur les chiffres, les dates, les noms, les montants.",
+        "probleme": "Le deux-points présente « ralentis » comme une conséquence logique de « inspire confiance », alors que l’idée est contre-intuitive (c’est justement parce que le texte rassure qu’il faut se méfier). Le lien « justement » de la source a disparu. La liste finit aussi sans « et », ce qui donne à la voix de synthèse une intonation qui reste en suspens au lieu de conclure.",
+        "correction": "« Un texte bien écrit inspire confiance. C’est justement là qu’il faut ralentir : sur les chiffres, les dates, les noms et les montants. »",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point2 (troisième piège) / oral",
+        "extrait": "« Le client prévoit de vendre » et « il pourrait vendre », ce n’est pas pareil.",
+        "probleme": "À l’oral, les guillemets ne s’entendent pas. Les deux citations reliées par « et » peuvent être comprises comme une seule phrase (« le client prévoit de vendre et il pourrait vendre »), et l’opposition entre les deux formulations se perd, d’autant que la voix de synthèse ne marque que de courtes pauses.",
+        "correction": "Mettre un verbe d’énonciation et « ou » : « Dire « le client prévoit de vendre » ou « il pourrait vendre », ce n’est pas pareil. »",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "contexte",
+        "extrait": "Une IA générative peut compléter une donnée manquante avec aplomb : dans un dossier patrimonial, c’est risqué.",
+        "probleme": "« Compléter une donnée manquante » est imprécis : on complète un dossier, on comble ou on invente une donnée. Le passage de « Ton agent IA » à « Une IA générative » est aussi un peu brusque, et la raison du problème donnée par la source (l’IA est conçue pour produire une réponse plausible) a disparu. C’est pourtant elle qui répond à la question que pose l’accroche.",
+        "correction": "Correction minimale : « Une IA générative peut inventer une donnée manquante avec aplomb : dans un dossier patrimonial, c’est risqué. » Variante qui garde la raison de la source, toujours en une phrase : « Normal : une IA générative vise une réponse plausible, et quand une donnée manque, elle l’invente avec aplomb. »",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point1 (deuxième piège) / lecture de slide",
+        "extrait": "Deuxième piège : ne pas exiger de source. Chaque info doit renvoyer à un document.",
+        "probleme": "Les quatre pièges reprennent mot pour mot les titres des slides, sur le même modèle « Nième piège : infinitif ». La répétition aide à suivre, mais le deuxième piège manque de relief : la formule orale la plus percutante de la source a été retirée.",
+        "correction": "Reprendre la formule de la source (slide 4) : « Deuxième piège : ne pas exiger de source. Chaque info doit renvoyer à un document. Pas de source, pas de certitude. » Pour un ton plus oral, on peut aussi tutoyer dans un ou deux pièges, par exemple « Deuxième piège : tu n’exiges pas de source. »",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "accroche",
+        "extrait": "Ton agent IA vient d’inventer une info.",
+        "probleme": "L’accroche fait 7 mots (moins de 3 s) et pique la curiosité, mais « une info » reste vague : elle ne dit pas ce qui est en jeu pour un CGP, c’est-à-dire le dossier client.",
+        "correction": "Rester à 8 mots maximum en ajoutant l’enjeu : « Ton agent IA vient d’inventer une info client. »",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "notes de prononciation",
+        "extrait": "un dictionnaire de prononciation ElevenLabs avec des règles d’alias : IA → i-a",
+        "probleme": "Le trait d’union ne force pas de coupure : eleven_multilingual_v2 peut encore lire l’alias « i-a » comme « ya » en une syllabe. L’alias ne règle pas non plus la liaison possible dans « agent IA », qui ouvre la vidéo.",
+        "correction": "Tester d’abord « i-a ». S’il est lu « ya », essayer les alias « I.A. » ou « i a ». Si la liaison « agen-ti-a » reste, ajouter une règle d’alias sur le groupe « agent IA → agent i a ». Elle ne touche que l’audio, pas les sous-titres mot à mot.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "légende",
+        "extrait": "4 erreurs à éviter avant ton rendez-vous client, et une parade simple.",
+        "probleme": "La voix dit « pièges » et la légende dit « erreurs » : le vocabulaire n’est pas le même entre la vidéo et sa légende.",
+        "correction": "« 4 pièges à éviter avant ton rendez-vous client, et une parade simple. » Autre option : garder « erreurs » dans la légende et dire « Première erreur… » dans la voix.",
+        "relecteur": "oral"
+      }
+    ]
+  },
+  "V06": {
+    "valide": true,
+    "tours": [
+      {
+        "round": 1,
+        "mots": 146,
+        "erreurs_auto": 0,
+        "bloquants": 3,
+        "mineurs": 12,
+        "relecteurs_ok": [
+          "a_reviser",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 2,
+        "mots": 145,
+        "erreurs_auto": 0,
+        "bloquants": 1,
+        "mineurs": 8,
+        "relecteurs_ok": [
+          "ok",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 3,
+        "mots": 147,
+        "erreurs_auto": 0,
+        "bloquants": 0,
+        "mineurs": 14,
+        "relecteurs_ok": [
+          "ok",
+          "ok"
+        ]
+      }
+    ],
+    "erreurs_auto": [],
+    "avertissements": [
+      "Phrase longue (16 mots) : « C’est une question de liquidité : transformer un actif en argent disponible, vite, sans perdre de valeur. »",
+      "Phrase longue (15 mots) : « Pour récupérer l’argent, il faut vendre : plusieurs mois, des frais, et un prix non garanti. »"
+    ],
+    "problemes_restants": [
+      {
+        "severity": "mineur",
+        "champ": "script — point2 (slides 4,5,6)",
+        "extrait": "Et le plan d’épargne retraite reste bloqué jusqu’à la retraite, sauf déblocage anticipé.",
+        "probleme": "La source dit « sauf cas de déblocage anticipé ». Sans le mot « cas », on peut comprendre que le déblocage anticipé est une simple option ouverte à tous. En réalité, il n’est possible que dans des cas précis. La précaution est donc un peu affaiblie.",
+        "correction": "Et le plan d’épargne retraite reste bloqué jusqu’à la retraite, sauf cas de déblocage anticipé.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "script — contexte (slide 2)",
+        "extrait": "C’est une question de liquidité : transformer un actif en argent disponible, vite, sans perdre de valeur.",
+        "probleme": "La source définit la liquidité comme « la facilité à transformer un actif en argent disponible ». En retirant « la facilité à », le script ne parle plus d’un degré (plus ou moins liquide) mais d’une opération, et l’idée centrale de la source est déformée.",
+        "correction": "C’est une question de liquidité : la facilité à transformer un actif en argent disponible, vite, sans perdre de valeur.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "script — chute (slide 8)",
+        "extrait": "La vraie question, ce n’est pas combien tu possèdes.",
+        "probleme": "La source parle de « la question utile ». Dire « la vraie question » durcit l’idée : la question « combien je possède ? » devient fausse ou sans intérêt, alors que la source la dit seulement moins utile.",
+        "correction": "La question utile, ce n’est pas combien tu possèdes. C’est : si demain tu as besoin de ton argent, comment tu le récupères ?",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "script — accroche (slide 1)",
+        "extrait": "Riche sur le papier, coincé par une facture ?",
+        "probleme": "Le mot « riche » ne vient pas de la source. Elle parle seulement d’« avoir 200 000 € de patrimoine », sans juger ce montant. L’ajout reste mineur parce que l’idée de « valeur sur le papier » est bien dans la source (slide 3).",
+        "correction": "Du patrimoine sur le papier, coincé par une facture ?",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "contexte",
+        "extrait": "C’est une question de liquidité : transformer un actif en argent disponible, vite, sans perdre de valeur.",
+        "probleme": "La définition est imprécise. Avec les deux-points et l’infinitif, la liquidité devient l’acte de transformer, alors que la source parle de « la facilité à transformer ». Le mot « actif » est aussi du jargon pour un public non expert.",
+        "correction": "C’est une question de liquidité : la facilité à transformer ce que tu possèdes en argent disponible, vite, sans perdre de valeur.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point1",
+        "extrait": "Ton appartement est estimé 200 000 € ? Pour récupérer l’argent, il faut vendre : plusieurs mois, des frais, et un prix non garanti.",
+        "probleme": "Il manque la bascule orale après la question : sans « Mais », la seconde phrase arrive à plat. « il faut vendre », sans complément, sonne écrit. « estimé à » est plus naturel à l’oral.",
+        "correction": "Ton appartement est estimé à 200 000 € ? Mais pour récupérer cet argent, il faut le vendre : plusieurs mois, des frais, et un prix non garanti. (texte voix : « estimé à deux cent mille euros »)",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point1",
+        "extrait": "D’abord, une valeur sur le papier n’est pas de l’argent disponible.",
+        "probleme": "« argent disponible » se répète d’une phrase à l’autre, après le contexte. « argent » revient 6 fois en 147 mots, et l’oreille le remarque.",
+        "correction": "D’abord, une valeur sur le papier, ce n’est pas de l’argent sur ton compte.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point2",
+        "extrait": "Un livret, c’est en général sous quelques jours, sans perte.",
+        "probleme": "La puce de la slide 4 est presque recopiée. « c’est… sous quelques jours » ne renvoie à rien d’explicite, et cela sonne comme une ligne de slide plutôt que comme une phrase dite.",
+        "correction": "Un livret, tu récupères ton argent en général en quelques jours, sans perte.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point2",
+        "extrait": "l’assureur doit te verser les fonds en deux mois maximum",
+        "probleme": "Un non-expert peut entendre « les fonds » comme les fonds d’investissement, surtout à propos d’une assurance-vie.",
+        "correction": "l’assureur doit te verser les sommes en deux mois maximum",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point2",
+        "extrait": "Et le plan d’épargne retraite reste bloqué jusqu’à la retraite, sauf déblocage anticipé.",
+        "probleme": "« retraite » est répété dans la même phrase, et l’enchaînement « bloqué… sauf déblocage » est lourd à l’oral. La source dit « sauf cas de déblocage anticipé ».",
+        "correction": "Et le plan d’épargne retraite ? Bloqué jusqu’à ta retraite, sauf cas de déblocage anticipé.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point3",
+        "extrait": "Puis les frais, et le risque que le prix varie.",
+        "probleme": "Ce fragment sans verbe se lit comme une liste à puces, et sa relation avec « note » n’est pas immédiate à l’écoute.",
+        "correction": "Puis note les frais, et le risque que le prix varie.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "transitions (point1 à point3)",
+        "extrait": "D’abord, … Ensuite, … Enfin,",
+        "probleme": "Ce plan en trois connecteurs fait un peu scolaire, comme un exposé. Il reste fonctionnel, mais le rythme serait plus vivant si on en variait un.",
+        "correction": "Garder « D’abord » et « Enfin ». Remplacer « Ensuite, chaque actif a son délai. » par « Et chaque actif a son propre délai. »",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "accroche",
+        "extrait": "Riche sur le papier, coincé par une facture ?",
+        "probleme": "Avec 8 mots, l’accroche est à la limite. La virgule et l’intonation de question peuvent faire dépasser 3 s en eleven_multilingual_v2.",
+        "correction": "Mesurer après génération. Si la durée dépasse 3 s : « Riche, mais coincé par une facture ? » (6 mots).",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "légende",
+        "extrait": "ce qui l’est avec délai",
+        "probleme": "Sans article, la tournure est un peu raide et calquée sur le titre de la slide.",
+        "correction": "ce qui l’est avec un délai",
+        "relecteur": "oral"
+      }
+    ]
+  },
+  "V07": {
+    "valide": true,
+    "tours": [
+      {
+        "round": 1,
+        "mots": 141,
+        "erreurs_auto": 0,
+        "bloquants": 1,
+        "mineurs": 13,
+        "relecteurs_ok": [
+          "ok",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 2,
+        "mots": 145,
+        "erreurs_auto": 0,
+        "bloquants": 0,
+        "mineurs": 8,
+        "relecteurs_ok": [
+          "ok",
+          "ok"
+        ]
+      }
+    ],
+    "erreurs_auto": [],
+    "avertissements": [
+      "« S&P 500 » présent : prononciation à vérifier"
+    ],
+    "problemes_restants": [
+      {
+        "severity": "mineur",
+        "champ": "légende",
+        "extrait": "Trois erreurs fréquentes avec les ETF, expliquées simplement.",
+        "probleme": "La source annonce « 4 erreurs fréquentes avec les ETF ». La légende parle de trois, ce qui colle aux trois erreurs traitées dans la vidéo. Il n'y a donc pas de contradiction interne. En revanche, la phrase laisse croire qu'il n'y a que trois erreurs fréquentes. L'erreur 4 de la source, « ignorer les frais et la fiche » (frais courants, DIC), passe sous silence sans être signalée. C'est pourtant le seul point de la source qui porte sur une précaution (coût, document d'informations clés).",
+        "correction": "Écrire « Trois des 4 erreurs fréquentes avec les ETF, expliquées simplement. » ou ajouter après : « Et avant d'acheter, lis le document d'informations clés (DIC) : frais, réplication, éligibilité au PEA. »",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "texte (point2)",
+        "extrait": "Prends un indice mondial où chaque entreprise compte selon sa taille.",
+        "probleme": "Dans une vidéo sur l'achat d'ETF, l'impératif « Prends » peut s'entendre « choisis » ou « achète » un indice mondial, et pas seulement « prenons l'exemple de ». La source pose un constat sans impératif : « Dans les indices mondiaux pondérés par la taille des entreprises… ». Le risque d'y lire une incitation reste faible, mais il existe.",
+        "correction": "« Dans un indice mondial où chaque entreprise compte selon sa taille, les États-Unis pèsent aujourd'hui autour de 70 %. »",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "contexte",
+        "extrait": "En une fois, tu achètes tout un panier de titres, mais lequel ?",
+        "probleme": "La phrase de contexte ne nomme ni l’ETF ni l’indice. « En une fois » placé en tête reste en l’air, sans sujet. Le point 1 parle ensuite de « l’indice suivi » alors que l’idée qu’un ETF copie un indice n’a jamais été posée, ce qui gêne le public non expert. La source (slide 2) fournit pourtant ce lien.",
+        "correction": "Avec un ETF, tu achètes en une fois tout un panier de titres qui copie un indice. Mais lequel ?",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point1 / point2 / point3",
+        "extrait": "Première erreur : ne pas lire l’indice suivi. […] Deuxième erreur : croire qu’un ETF « Monde » est équilibré. […] Troisième erreur : empiler des ETF qui se ressemblent.",
+        "probleme": "Les trois annonces reprennent presque mot pour mot les titres des slides, à l’infinitif (« ne pas lire l’indice suivi »). C’est une tournure d’écrit qui rompt avec le tutoiement du reste. Le corps de chaque point est bien oralisé, mais ces annonces sonnent comme des intertitres lus.",
+        "correction": "Première erreur : tu ne regardes pas quel indice suit ton ETF. / Deuxième erreur : tu crois qu’un ETF « Monde » est équilibré. / Troisième erreur : tu empiles des ETF qui se ressemblent.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point3 (prononciation et sens)",
+        "extrait": "Plus d’ETF, mais pas plus de diversification.",
+        "probleme": "En tête de phrase et sans verbe, « Plus d’ETF » lu « plu » s’entend comme « il n’y a plus d’ETF ». Le contresens dépend de la manière dont la voix prononce « plus », ce qu’on ne règle pas facilement par un alias : la même graphie revient juste après dans « pas plus de », qui doit rester « plu ».",
+        "correction": "Tu as plus d’ETF, mais pas plus de diversification.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "chute (transition)",
+        "extrait": "Plus d’ETF, mais pas plus de diversification. Ne regarde pas seulement le nom de ton ETF.",
+        "probleme": "On passe sans transition du point 3 à la conclusion. À l’oral, rien ne signale que c’est la phrase à retenir, et la chute perd en impact.",
+        "correction": "Retiens ça : ne regarde pas seulement le nom de ton ETF. Regarde ce qu’il y a dedans.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point3 (typographie et sous-titres)",
+        "extrait": "Un ETF Monde, un ETF S&P 500 et un ETF Nasdaq ?",
+        "probleme": "Le nom « Monde » est entre guillemets aux points 1 et 2 (« Monde ») mais sans guillemets au point 3. Les sous-titres mot à mot affichent donc le même nom de deux façons.",
+        "correction": "Un ETF « Monde », un ETF S&P 500 et un ETF Nasdaq ? (avec des espaces insécables à l’intérieur des guillemets, comme ailleurs)",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "notes de prononciation",
+        "extrait": "à lire « S and P cinq cents » ; […] sinon alias S&P → « S and P »",
+        "probleme": "Avec une voix française, l’alias « S and P » insère un mot anglais au milieu de la phrase. Cela peut faire basculer l’accent, le risque même que la note signale pour « World ». On obtiendrait alors « èss and pé » avec une intonation hybride, juste avant « cinq cents » en français.",
+        "correction": "Par défaut, définir l’alias S&P → « S et P » (prononcé « èss é pé cinq cents »). Ne garder « S and P » que si l’écoute confirme qu’il ne change pas l’accent. Dans les deux cas, le texte affiché reste « S&P 500 ».",
+        "relecteur": "oral"
+      }
+    ]
+  },
+  "V08": {
+    "valide": true,
+    "tours": [
+      {
+        "round": 1,
+        "mots": 146,
+        "erreurs_auto": 0,
+        "bloquants": 2,
+        "mineurs": 12,
+        "relecteurs_ok": [
+          "a_reviser",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 2,
+        "mots": 143,
+        "erreurs_auto": 0,
+        "bloquants": 2,
+        "mineurs": 8,
+        "relecteurs_ok": [
+          "ok",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 3,
+        "mots": 146,
+        "erreurs_auto": 0,
+        "bloquants": 0,
+        "mineurs": 7,
+        "relecteurs_ok": [
+          "ok",
+          "ok"
+        ]
+      }
+    ],
+    "erreurs_auto": [],
+    "avertissements": [],
+    "problemes_restants": [
+      {
+        "severity": "mineur",
+        "champ": "texte (point2 → slide 5)",
+        "extrait": "Deuxième étape : liste tes charges fixes, du loyer aux abonnements.",
+        "probleme": "Le périmètre des charges fixes est un peu réduit. La slide 5 dit « loyer ou crédit » et la slide 3 cite les « remboursements de crédit » parmi les charges incontournables. « du loyer aux abonnements » ne mentionne aucun crédit dans l'étape de calcul. Un propriétaire ou une personne qui rembourse un prêt pourrait l'oublier dans ses charges et surestimer son reste à vivre. Le contexte cite bien « crédits », mais pas l'étape elle-même.",
+        "correction": "Deuxième étape : liste tes charges fixes, du loyer ou du crédit jusqu'aux abonnements.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "texte (point2, contenu de la slide 7)",
+        "extrait": "La moyenne donne une base plus honnête.",
+        "probleme": "La source dit « La moyenne sur 3 mois donne une base plus honnête ». Sans « sur 3 mois », on ne sait pas de quoi on fait la moyenne. Le sens se devine grâce à « Trois, pas un », mais la phrase est moins précise que la source.",
+        "correction": "La moyenne sur trois mois donne une base plus honnête.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point2",
+        "extrait": "Deuxième étape : liste tes charges fixes, du loyer aux abonnements. Ouvre tes trois derniers relevés. Trois, pas un : un seul mois peut tromper. La moyenne donne une base plus honnête.",
+        "probleme": "Les gestes sont dans le mauvais ordre : on demande de lister les charges avant d’ouvrir les relevés. En plus, « La moyenne donne une base plus honnête » ne dit pas clairement qu’il faut calculer une moyenne. L’auditeur ne sait pas quoi faire des trois mois.",
+        "correction": "Deuxième étape : ouvre tes trois derniers relevés et liste tes charges fixes, du loyer aux abonnements. Trois, pas un : un seul mois peut tromper. Fais la moyenne, c’est une base plus honnête.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point3",
+        "extrait": "Exemple : 2 200 € de revenus, moins 1 350 € de charges fixes.",
+        "probleme": "« Exemple : » suivi de groupes nominaux reprend presque mot pour mot l’étiquette de la slide 6. Le passage sonne un peu comme une lecture de slide, alors que le reste du script est très oral.",
+        "correction": "Prends 2 200 € de revenus. Enlève 1 350 € de charges fixes. Il te reste 850 € par mois. Il faut ensuite mettre à jour la note de prononciation : une pause après chaque phrase, au lieu de la pause avant « moins ».",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "chute",
+        "extrait": "Pour un crédit, ta banque ne regarde pas seulement ton taux d’endettement.",
+        "probleme": "On passe sans transition de l’énumération « courses, loisirs, imprévus, épargne » au crédit bancaire. Le changement de sujet est sec, et la chute perd de sa force parce que le lien avec le chiffre qu’on vient de calculer n’est pas dit.",
+        "correction": "Et ce chiffre, ta banque le regarde aussi. Pour un crédit, elle ne s’arrête pas à ton taux d’endettement : elle vérifie ton reste à vivre, une fois la mensualité payée. Et toi, tu le connais ?",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "contexte",
+        "extrait": "le chiffre utile, c’est ton reste à vivre.",
+        "probleme": "L’expression « reste à vivre » arrive sans explication. Un débutant ne sait pas encore ce qu’elle recouvre. La source donne pourtant la clé : « ce qui reste après ».",
+        "correction": "Le chiffre utile, c’est ce qui reste une fois loyer, factures et crédits payés : ton reste à vivre. (Le contexte reste en une seule phrase.)",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "notes de prononciation",
+        "extrait": "Les primes, les rentrées exceptionnelles ? Laisse-les de côté",
+        "probleme": "Les notes ne demandent de vérifier l’intonation que sur deux questions. Or le script en compte trois. Avec une question sans verbe, la voix de synthèse risque une intonation plate, qui donnerait l’impression d’une simple liste.",
+        "correction": "Ajouter aux notes : « “Les primes, les rentrées exceptionnelles ?” : vérifier que l’intonation monte, puis marquer une courte pause avant “Laisse-les”. »",
+        "relecteur": "oral"
+      }
+    ]
+  },
+  "V09": {
+    "valide": true,
+    "tours": [
+      {
+        "round": 1,
+        "mots": 145,
+        "erreurs_auto": 0,
+        "bloquants": 0,
+        "mineurs": 15,
+        "relecteurs_ok": [
+          "ok",
+          "ok"
+        ]
+      },
+      {
+        "round": 2,
+        "mots": 145,
+        "erreurs_auto": 0,
+        "bloquants": 0,
+        "mineurs": 13,
+        "relecteurs_ok": [
+          "ok",
+          "ok"
+        ]
+      }
+    ],
+    "erreurs_auto": [],
+    "avertissements": [],
+    "problemes_restants": [
+      {
+        "severity": "mineur",
+        "champ": "accroche (texte parlé)",
+        "extrait": "Capital garanti, 5 %, disponible ? Vraiment ?",
+        "probleme": "À l'oral, les guillemets disparaissent, et « 5 % » n'est plus rattaché à « rendement de ». Rien ne dit non plus qu'il s'agit d'une promesse commerciale citée (la source enchaîne aussitôt : « Trois promesses, trois réalités différentes. »). Un spectateur peut entendre un taux de 5 % sans savoir ce qu'il désigne, voire le prendre pour un chiffre mis en avant. Le « Vraiment ? » atténue ce risque sans le supprimer.",
+        "correction": "« Capital garanti, rendement de 5 %, disponible à tout moment. » Trois promesses, trois réalités différentes.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "titre",
+        "extrait": "« Capital garanti, 5 %, disponible » ?",
+        "probleme": "Seul dans le fil ou sur la miniature, ce titre reprend la promesse sans le mot « rendement » et sans le recadrage de la source (trois promesses à vérifier). On peut le lire comme une accroche qui vante un produit à 5 %.",
+        "correction": "« Capital garanti, rendement de 5 %, disponible » : trois promesses à vérifier",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point1 (slide 3)",
+        "extrait": "D’abord, ton capital garanti : garanti par qui ?",
+        "probleme": "La source met « Capital garanti » entre guillemets : c'est une promesse qu'on remet en question. Dans le script, ces guillemets se perdent à l'oral, et « ton capital garanti » laisse entendre que le capital du spectateur est garanti. Le point 2, lui, garde bien la distance (« le rendement qu'on t'annonce »).",
+        "correction": "D’abord, le capital qu’on te dit garanti : garanti par qui ?",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point3 (slide 6)",
+        "extrait": "Faux : tu peux perdre en sortant avant l’échéance, ou ne rien gagner.",
+        "probleme": "La source dit : « Un produit peut protéger ton capital à l'échéance, mais te faire perdre si tu sors avant, ou ne rien rapporter du tout. » Le script retire la première partie (la protection vaut à l'échéance) et le sujet « un produit », qui limitait l'affirmation à certains produits. La phrase devient une règle générale adressée au spectateur, et on ne comprend plus pourquoi l'échéance compte.",
+        "correction": "Faux : un produit peut protéger ton capital à l’échéance, mais te faire perdre si tu sors avant, ou ne rien rapporter du tout.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point1",
+        "extrait": "Parfois, elle exclut les frais, ou ne joue qu’à une date précise.",
+        "probleme": "Pour un public non expert, « elle exclut les frais » est ambigu : on peut comprendre « sans frais », donc quelque chose de positif. C’est l’inverse de « hors frais ». Le t final de « exclut » est aussi un risque pour la voix de synthèse (la note le signale déjà). « Ne joue qu’à » relève du jargon d’assureur.",
+        "correction": "Parfois, elle ne couvre pas les frais, ou ne s’applique qu’à une date précise.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point3",
+        "extrait": "Certains produits imposent une durée, des pénalités de sortie ou un délai.",
+        "probleme": "C’est l’énumération de la slide 5 reprise mot pour mot. À l’oral, « une durée » et « un délai » sont vagues et se confondent. La question « disponible à tout moment ? » reste sans réponse directe, ce qui casse le rythme question-réponse des autres points.",
+        "correction": "Pas forcément. Certains produits t’imposent une durée, des pénalités si tu sors, ou un délai avant de récupérer ton argent.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point3",
+        "extrait": "Faux : tu peux perdre en sortant avant l’échéance, ou ne rien gagner.",
+        "probleme": "« Perdre » sans complément et le gérondif « en sortant » sonnent écrits. À l’oral, la phrase est un peu compacte pour un public non expert.",
+        "correction": "Faux : si tu sors avant l’échéance, tu peux perdre de l’argent. Ou ne rien gagner du tout.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "contexte",
+        "extrait": "Le piège : croire que ces trois promesses vont toujours ensemble.",
+        "probleme": "Une phrase sans verbe avec deux-points ressemble à un titre de slide. Avec la voix de synthèse, le « : » après « Le piège » donne souvent une pause hachée.",
+        "correction": "Le piège, c’est de croire que ces trois promesses vont toujours ensemble. (C’est la formulation exacte de la slide 2.)",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "accroche / prononciation",
+        "extrait": "Capital garanti, 5 %, disponible ? Vraiment ?",
+        "probleme": "L’accroche fait 7 mots et fonctionne. Mais « 5 % » arrive dans les trois premières secondes : un « % » sauté ou mal lu ruinerait l’accroche. Avec « cinq pour cent » prononcé et trois pauses, la durée frôle les 3 secondes.",
+        "correction": "Envoyer directement « Capital garanti, cinq pour cent, disponible ? Vraiment ? » au TTS et garder « 5 % » à l’écran. Mesurer la durée : si elle dépasse 3 s, raccourcir les pauses (vitesse, stabilité) plutôt que de couper des mots.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point2",
+        "extrait": "Un taux dit « boosté » ?",
+        "probleme": "Les guillemets font doublon avec « dit », qui signale déjà le terme marketing. Dans les sous-titres mot à mot, ils risquent de s’afficher seuls (« « » ou « » ? »).",
+        "correction": "Un taux dit boosté ? (sans guillemets, dans le texte TTS comme dans les sous-titres ; italique à l’écran si besoin)",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "typographie / sous-titres",
+        "extrait": "disponible ? Vraiment ? / ton capital garanti : garanti par qui ? / Faux : tu peux…",
+        "probleme": "La note de prononciation ne prévoit l’espace insécable que pour « 5 % ». Si les espaces avant ? et :, et à l’intérieur des guillemets « », sont des espaces normales, le découpage mot à mot affichera « ? » ou « : » tout seuls à l’écran.",
+        "correction": "Dans le titre, les sous-titres et la légende, remplacer chaque espace avant ? : ; ! et à l’intérieur de « » par une espace fine insécable (U+202F) ou une espace insécable (U+00A0).",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "chute",
+        "extrait": "ou ne rien gagner. Quand une promesse paraît simple, ce sont les conditions qui la rendent vraie.",
+        "probleme": "On passe du mythe à la chute sans transition : la phrase finale risque d’être entendue comme la suite du point 3 et perd son effet de conclusion.",
+        "correction": "Retiens ça : quand une promesse paraît simple, ce sont les conditions qui la rendent vraie. Lis-les avant de signer.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "titre",
+        "extrait": "« Capital garanti, 5 %, disponible » ?",
+        "probleme": "Le titre fait 38 caractères, ce qui respecte la limite de 45. Mais c’est une simple énumération sans tension. Seul à l’écran, « 5 % » sans « rendement » reste obscur. Le « ? » détaché après le guillemet peut passer seul à la ligne.",
+        "correction": "Garanti, 5 %, disponible : le vrai du faux (42 caractères, cohérent avec le format Myth vs Fact), ou « Garanti, 5 %, disponible » : vraiment ? (41 caractères). Dans les deux cas, mettre une espace insécable avant % et avant : ou ?.",
+        "relecteur": "oral"
+      }
+    ]
+  },
+  "V10": {
+    "valide": true,
+    "tours": [
+      {
+        "round": 1,
+        "mots": 143,
+        "erreurs_auto": 0,
+        "bloquants": 2,
+        "mineurs": 8,
+        "relecteurs_ok": [
+          "ok",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 2,
+        "mots": 148,
+        "erreurs_auto": 0,
+        "bloquants": 0,
+        "mineurs": 8,
+        "relecteurs_ok": [
+          "ok",
+          "ok"
+        ]
+      }
+    ],
+    "erreurs_auto": [],
+    "avertissements": [],
+    "problemes_restants": [
+      {
+        "severity": "mineur",
+        "champ": "texte (point2 → slides 4,5)",
+        "extrait": "Pour un intermédiaire, c'est l'Orias. L'AMF publie ces listes noires : deux minutes peuvent t'éviter de tout perdre.",
+        "probleme": "Le script supprime ce que sont les listes noires (« de sites et d'acteurs non autorisés »). Placé juste après Regafi et Orias, le démonstratif « ces » peut laisser croire à l'écoute que ces registres d'acteurs autorisés sont les listes noires publiées par l'AMF. La source distingue clairement deux choses : les registres d'autorisation (REGAFI, ORIAS) et les listes noires de l'AMF. Par ailleurs, « une recherche de deux minutes » devient « deux minutes », ce qui enlève l'idée qu'il s'agit d'une recherche.",
+        "correction": "L'AMF publie aussi des listes noires de sites et d'acteurs non autorisés : une recherche de deux minutes peut t'éviter de tout perdre.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "texte (point3 → slides 6,7)",
+        "extrait": "Méfie-toi plutôt d'un rendement élevé garanti ou d'un contact non sollicité.",
+        "probleme": "« Plutôt » présente les signaux d'alerte comme un remplacement du critère de l'apparence. On peut comprendre qu'une offre soignée sans ces signaux est rassurante. Dans la source, les signaux d'alerte forment une rubrique à part (slide 7), qui s'ajoute à la mise en garde sur l'apparence et ne la remplace pas.",
+        "correction": "Méfie-toi aussi de ces signaux d'alerte : rendement élevé garanti, contact non sollicité, paiement en crypto ou vers un compte à l'étranger.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point2",
+        "extrait": "Deuxième piège : ne pas vérifier l’autorisation ni les listes noires.",
+        "probleme": "« l’autorisation » sans complément reste flou à l’oral : on ne sait pas qui doit être autorisé. Un auditeur non expert ne comprend pas tout de suite qu’il s’agit de l’acteur qui propose l’offre (la source dit « vérifie que l’acteur est autorisé »).",
+        "correction": "Deuxième piège : ne pas vérifier que l’acteur est autorisé.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point2",
+        "extrait": "L’AMF publie ces listes noires : deux minutes peuvent t’éviter de tout perdre.",
+        "probleme": "« ces listes noires » renvoie à une mention faite deux phrases plus tôt, avant Regafi et Orias, donc la reprise est difficile à suivre à l’oral. « deux minutes » est elliptique : on ne sait pas deux minutes de quoi. Le sigle AMF n’est pas développé pour le public non expert et présente un léger risque de lecture « lamf ».",
+        "correction": "Vérifie aussi les listes noires de l’Autorité des marchés financiers. Deux minutes de recherche peuvent t’éviter de tout perdre. (Ou garder « l’AMF » avec l’alias AMF → « A M F » dans le dictionnaire de prononciation.)",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point1",
+        "extrait": "Une vraie opportunité supporte quelques jours de réflexion. Si on te refuse ce délai, c’est pour éviter que tu vérifies.",
+        "probleme": "« supporte quelques jours de réflexion » sonne écrit, c’est la phrase reprise mot pour mot de la slide. La seconde phrase répète presque le contexte (« L’urgence t’empêche de vérifier ») : « vérifier » revient quatre fois dans le script, ce qui affaiblit l’effet de ce point.",
+        "correction": "Une vraie opportunité peut attendre quelques jours. Si on te refuse ce délai, c’est qu’on veut t’empêcher de regarder de plus près.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point3",
+        "extrait": "Site soigné, nom proche d’une institution connue : les escrocs savent inspirer confiance. Méfie-toi plutôt d’un rendement élevé garanti",
+        "probleme": "La liste nominale sans article reprend directement la syntaxe de la slide 6 et passe un peu comme un texte lu. « Méfie-toi plutôt » met mal en regard « se fier à » et « se méfier de » : on peut comprendre qu’il ne faut pas se méfier de l’apparence.",
+        "correction": "Un site soigné, un nom proche d’une institution connue : les escrocs savent inspirer confiance. Repère plutôt les vrais signaux : un rendement élevé garanti, un contact non sollicité. Et un paiement en crypto ou vers un compte à l’étranger.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "prononciation",
+        "extrait": "consulte le registre Regafi. Pour un intermédiaire, c’est l’Orias.",
+        "probleme": "La note dit que « Regafi » se lit « ré-ga-fi », mais écrit sans accent, la voix le lira plutôt « re-ga-fi » (e muet). Les notes se contredisent donc, même si les deux lectures restent compréhensibles. Pour « Orias », le risque d’un s final muet (« o-ri-a ») est réel. Enfin, les sous-titres « Regafi » et « Orias » ne correspondent pas à « REGAFI » et « ORIAS » affichés sur les slides.",
+        "correction": "Écrire REGAFI et ORIAS en capitales, comme sur les slides, et ajouter les alias REGAFI → « Régafi » et ORIAS → « Oriasse » dans le dictionnaire de prononciation. Les alias fonctionnent avec eleven_multilingual_v2. Écouter le rendu avant export.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "titre",
+        "extrait": "Offre urgente : le moment de ralentir",
+        "probleme": "Le titre (37 caractères, conforme) reste abstrait. Il ne dit rien de l’enjeu, l’arnaque, qui est pourtant ce qui fait cliquer.",
+        "correction": "Offre urgente ? Le réflexe anti-arnaque (39 caractères)",
+        "relecteur": "oral"
+      }
+    ]
+  },
+  "V11": {
+    "valide": false,
+    "tours": [
+      {
+        "round": 1,
+        "mots": 137,
+        "erreurs_auto": 2,
+        "bloquants": 0,
+        "mineurs": 12,
+        "relecteurs_ok": [
+          "ok",
+          "ok"
+        ]
+      },
+      {
+        "round": 2,
+        "mots": 144,
+        "erreurs_auto": 0,
+        "bloquants": 1,
+        "mineurs": 10,
+        "relecteurs_ok": [
+          "ok",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 3,
+        "mots": 144,
+        "erreurs_auto": 2,
+        "bloquants": 0,
+        "mineurs": 9,
+        "relecteurs_ok": [
+          "ok",
+          "ok"
+        ]
+      },
+      {
+        "round": 4,
+        "mots": 146,
+        "erreurs_auto": 0,
+        "bloquants": 1,
+        "mineurs": 13,
+        "relecteurs_ok": [
+          "ok",
+          "a_reviser"
+        ]
+      }
+    ],
+    "erreurs_auto": [],
+    "avertissements": [
+      "Phrase longue (16 mots) : « Ton dossier client est figé, mais la vie, elle, continue : un conseil peut alors devenir inadapté. »",
+      "Phrase longue (14 mots) : « Il crée son entreprise, perd son emploi, est promu ou part à la retraite ? »"
+    ],
+    "problemes_restants": [
+      {
+        "severity": "mineur",
+        "champ": "texte (contexte → slide 2)",
+        "extrait": "un conseil peut alors devenir inadapté",
+        "probleme": "La source limite le risque à « un conseil fondé sur une situation dépassée ». Le script remplace cette condition par « alors », ce qui élargit un peu l'idée à tout conseil.",
+        "correction": "Ton dossier client est figé, mais la vie, elle, continue : un conseil fondé sur une situation dépassée peut devenir inadapté.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "texte (point1 → slide 3)",
+        "extrait": "Régime matrimonial, donation, transmission : tout peut être à revoir.",
+        "probleme": "La « clause bénéficiaire » manque dans la liste de la slide 3 (mariage, PACS, séparation). Le « tout » renvoie donc à une liste plus courte que dans la source.",
+        "correction": "Régime matrimonial, clause bénéficiaire, donation, transmission : tout peut être à revoir.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "texte (point1 → slide 4)",
+        "extrait": "Nouvel objectif d’épargne, prévoyance, clause bénéficiaire à mettre à jour.",
+        "probleme": "La « protection du foyer », citée dans la slide 4 pour une naissance, a disparu.",
+        "correction": "Nouvel objectif d’épargne, protection du foyer, prévoyance, clause bénéficiaire à mettre à jour.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "texte (point3 → slide 6)",
+        "extrait": "Son patrimoine se recompose, son endettement évolue.",
+        "probleme": "La conséquence « de nouvelles liquidités peuvent apparaître » de la slide 6 a disparu. Elle est formulée au conditionnel dans la source.",
+        "correction": "Son patrimoine se recompose, son endettement évolue, et de nouvelles liquidités peuvent apparaître.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "texte (point3 → slide 7)",
+        "extrait": "Quitter la France change sa fiscalité et les produits auxquels il a accès.",
+        "probleme": "La source cite trois points (fiscalité, résidence, produits accessibles) et conclut « change beaucoup de choses ». Le script supprime « résidence » et transforme cette liste ouverte en une affirmation fermée sur deux effets précis.",
+        "correction": "Un départ hors de France change beaucoup de choses : fiscalité, résidence, produits accessibles.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "texte (structure point3 / légende)",
+        "extrait": "Enfin, l’immobilier : ton client achète ou vend un bien ? […] Et s’il déménage, surtout à l’étranger ?",
+        "probleme": "La source fait du déménagement un 5e changement à part. Le script le range sous « l’immobilier », après « Enfin ». À l’oral, la vidéo semble donc présenter 3 blocs (D’abord / Ensuite / Enfin), alors que la légende annonce « 5 changements de vie ». Le déménagement à l’étranger porte sur la résidence et la fiscalité, pas sur l’immobilier.",
+        "correction": "Puis, l’immobilier : ton client achète ou vend un bien ? Son patrimoine se recompose, son endettement évolue, et de nouvelles liquidités peuvent apparaître. Enfin, s’il déménage, surtout à l’étranger ? Un départ hors de France change beaucoup de choses : fiscalité, résidence, produits accessibles.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "texte (chute → slide 8)",
+        "extrait": "Simple, ouverte, c’est souvent la question la plus utile.",
+        "probleme": "La source dit « souvent la plus utile de l’entretien ». Sans « de l’entretien », la portée devient plus générale. La précaution « souvent » est bien conservée.",
+        "correction": "Simple, ouverte, c’est souvent la question la plus utile de l’entretien.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "texte (cta → slide 9) et légende",
+        "extrait": "Abonne-toi pour comprendre ton argent.",
+        "probleme": "Cette phrase est absente de la source. Dans le script, elle remplace l’appel de la slide 9 (question aux CGP). « Ton argent » s’adresse à un particulier, alors que toute la vidéo vise des professionnels (« ton client »). On peut donc croire à tort que le contenu s’adresse à l’épargnant.",
+        "correction": "Dans le script : « CGP : quel changement de vie tes clients oublient de te signaler ? Réponds en commentaire. » Dans la légende, supprimer « Abonne-toi pour comprendre ton argent. » ou garder un appel neutre adressé aux CGP, si c’est un appel standard de la chaîne déjà validé.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "bloquant",
+        "champ": "point1",
+        "extrait": "Une naissance ? Nouvel objectif d’épargne, prévoyance, clause bénéficiaire à mettre à jour.",
+        "probleme": "La phrase reprend presque mot pour mot la puce de la slide 4. C’est une liste de noms sans sujet ni verbe : à l’oral, on a l’impression d’entendre lire une slide. La portée de « à mettre à jour » est aussi ambiguë : on ne sait pas si elle porte sur toute la liste ou seulement sur la clause. La voix de synthèse risque de lire l’ensemble d’un ton plat, comme un inventaire.",
+        "correction": "Une naissance ? Fixe avec lui un nouvel objectif d’épargne, revois sa prévoyance et mets à jour sa clause bénéficiaire.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point1",
+        "extrait": "Régime matrimonial, donation, transmission : tout peut être à revoir.",
+        "probleme": "Cette ligne est elle aussi copiée de la slide 3. La structure « liste + deux-points » passe à l’oral, mais elle s’enchaîne avec une deuxième liste de noms dans le même point, ce qui donne un effet catalogue. Sans possessif, « transmission » reste abstrait pour un public non expert.",
+        "correction": "Son régime matrimonial, ses donations, la transmission de son patrimoine : tout peut être à revoir.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point2",
+        "extrait": "Ensuite, le travail. Il crée son entreprise, perd son emploi, est promu ou part à la retraite ?",
+        "probleme": "À l’écoute, « Il » se rattache au dernier nom masculin entendu, « le travail », et non au client : le sens est ambigu pendant une seconde. Ce point rompt aussi le parallélisme avec les points 1 et 3 (« thème : ton client… ? »).",
+        "correction": "Ensuite, le travail : ton client crée son entreprise, perd son emploi, est promu ou part à la retraite ?",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "chute",
+        "extrait": "Alors, à chaque entretien, demande-lui ce qui a changé depuis le dernier échange. Simple, ouverte, c’est souvent la question la plus utile.",
+        "probleme": "Le discours indirect affaiblit la chute : l’auditeur n’entend jamais la question telle qu’il pourrait la reprendre en entretien, alors que c’est l’élément le plus mémorable de la source (slide 8). « Simple, ouverte » arrive aussi avant que le mot « question » ait été prononcé. La suppression de « notre » n’imposait pas le discours indirect : on peut garder une question directe sans « vous » ni « notre ».",
+        "correction": "Alors, à chaque entretien, pose-lui cette question : qu’est-ce qui a changé depuis la dernière fois ? Simple, ouverte, c’est souvent la plus utile.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "contexte",
+        "extrait": "Ton dossier client est figé, mais la vie, elle, continue : un conseil peut alors devenir inadapté.",
+        "probleme": "La voix ne dit jamais à qui elle s’adresse. Un spectateur grand public entend « ton dossier client », « ton client » puis « comprendre ton argent » sans comprendre qu’on parle aux conseillers ; seule la légende le précise. « Un conseil » est aussi moins direct que le tutoiement du reste du script, et « figé » est moins parlant que l’image de la photo donnée par la source.",
+        "correction": "Si tu es conseiller, ton dossier client est une photo figée, mais la vie, elle, continue : ton conseil peut alors devenir inadapté.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point3",
+        "extrait": "Enfin, l’immobilier : ton client achète ou vend un bien ?",
+        "probleme": "L’étiquette « l’immobilier » couvre aussi « Et s’il déménage, surtout à l’étranger ? », qui relève surtout de la résidence et de la fiscalité, pas de l’achat ou de la vente d’un bien. Le troisième point paraît donc moins nettement délimité que les deux premiers.",
+        "correction": "Enfin, le logement : ton client achète ou vend un bien ? (garder la suite telle quelle ; « le logement » couvre à la fois l’achat ou la vente et le déménagement)",
+        "relecteur": "oral"
+      }
+    ]
+  },
+  "V12": {
+    "valide": true,
+    "tours": [
+      {
+        "round": 1,
+        "mots": 146,
+        "erreurs_auto": 0,
+        "bloquants": 1,
+        "mineurs": 10,
+        "relecteurs_ok": [
+          "ok",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 2,
+        "mots": 148,
+        "erreurs_auto": 0,
+        "bloquants": 0,
+        "mineurs": 10,
+        "relecteurs_ok": [
+          "ok",
+          "ok"
+        ]
+      }
+    ],
+    "erreurs_auto": [],
+    "avertissements": [],
+    "problemes_restants": [
+      {
+        "severity": "mineur",
+        "champ": "accroche (texte) + légende (1re ligne)",
+        "extrait": "Tes euros dorment. Leur pouvoir d’achat, lui, fond.",
+        "probleme": "La slide 1 dit « Leur pouvoir d’achat, si » : il bouge, sans plus. « Fond » durcit l’idée. Le mot évoque une perte rapide et massive, sans horizon de temps. Or la source dit que l’érosion « devient importante » sur 10 ou 20 ans, et elle la chiffre à environ 18 % sur 10 ans dans un exemple illustratif. Le mot dramatise et peut alarmer pour pousser à agir. La même phrase revient dans la légende.",
+        "correction": "Reprendre la formule de la source dans le script et dans la légende : « Tes euros ne bougent pas. Leur pouvoir d’achat, si. » On peut aussi écrire : « Tes euros dorment. Leur pouvoir d’achat, lui, bouge. »",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point3 (texte)",
+        "extrait": "Alors sépare ton argent : à court terme, garde-le sûr et disponible. À long terme, cherche au moins à compenser l’inflation, en acceptant un risque.",
+        "probleme": "La slide 7 pose un principe général : « Sépare les horizons », puis deux objectifs sans verbe conjugué (« Court terme : sécurité et disponibilité. Long terme : chercher à faire progresser l’argent au moins aussi vite que les prix, en acceptant un risque »). Le script en fait des ordres directs sur l’argent du spectateur (« sépare ton argent », « garde-le », « cherche »), introduits par « Alors ». On peut les lire comme une recommandation personnelle de prendre du risque avec son épargne. De plus, « sûr » peut laisser croire à une garantie que la source ne donne pas (elle dit « sécurité »). Enfin, « cherche au moins à » déplace « au moins », qui portait sur « aussi vite que les prix ».",
+        "correction": "« Alors, sépare les horizons. À court terme : sécurité et disponibilité. À long terme : chercher à faire progresser l’argent au moins aussi vite que les prix, en acceptant un risque. »",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "cta (texte) + légende (dernière ligne)",
+        "extrait": "Abonne-toi pour comprendre ton argent.",
+        "probleme": "Le script rattache ce CTA à la slide 9. Mais l’appel de la source est « Tu as de l’argent qui dort sans objectif ? Dis-le en commentaire, et enregistre ce post. » L’appel à s’abonner, et ce qu’il promet (« comprendre ton argent »), ne figurent pas dans le carrousel. Ce n’est ni un conseil ni une promesse de rendement, mais rien dans la source ne le soutient.",
+        "correction": "Dans le texte lu, reprendre l’appel de la slide 9 : « Tu as de l’argent qui dort sans objectif ? Dis-le en commentaire, et enregistre cette vidéo. » Si l’appel à s’abonner est une règle maison, le garder mais ne plus le présenter comme la slide 9.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point3",
+        "extrait": "Alors sépare ton argent : à court terme, garde-le sûr et disponible. À long terme, cherche au moins à compenser l’inflation, en acceptant un risque.",
+        "probleme": "À l’oral, « à court terme / à long terme » s’entendent comme deux moments (« pour l’instant… plus tard… ») qui s’appliquent au même argent, puisque « garde-le » reprend « ton argent » en entier. La source parle au contraire de deux parts séparées selon l’horizon. En plus, « cherche au moins à » veut dire « essaie au moins », alors que la source dit « au moins aussi vite que les prix ». C’est le conseil concret de la vidéo : il doit être clair pour un non-expert.",
+        "correction": "Alors sépare ton argent en deux. Celui du court terme : garde-le sûr et disponible. Celui du long terme : cherche à le faire progresser au moins aussi vite que les prix, en acceptant un risque.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point3",
+        "extrait": "Enfin, l’inflation pèse sur l’argent immobile dont tu n’as pas besoin avant longtemps. Sur 10 ou 20 ans, l’érosion devient importante.",
+        "probleme": "Le passage reprend presque mot pour mot la slide 6, dans un registre écrit (« argent immobile », relative en « dont », « l’érosion devient importante »). Après « le cash a un rôle », il ne marque pas non plus clairement le changement d’idée (« là où ça fait mal »).",
+        "correction": "Enfin, là où l’inflation fait mal, c’est sur l’argent qui dort, celui dont tu n’as pas besoin avant longtemps. Sur 10 ou 20 ans, cette perte devient lourde.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point2",
+        "extrait": "Faut-il fuir le cash ? Non. Il sert à faire face aux imprévus, ou à financer un projet proche.",
+        "probleme": "Rien n’annonce ce point entre « D’abord » et « Enfin ». De plus, « cash » n’est jamais défini : un public non expert peut comprendre « billets, espèces », alors que la source précise « l’argent disponible ». Or toute la chute repose sur ce mot.",
+        "correction": "Ensuite, faut-il fuir le cash ? Non. L’argent disponible a un rôle : faire face aux imprévus ou financer un projet proche.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point1",
+        "extrait": "D’abord, un exemple pour illustrer.",
+        "probleme": "La phrase n’a pas de verbe et contient un pléonasme (« un exemple pour illustrer »). Elle reprend la mention « Exemple illustratif » de la slide, sonne comme une lecture et ralentit l’entrée dans le point.",
+        "correction": "D’abord, prends un exemple simple.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "accroche",
+        "extrait": "Tes euros dorment. Leur pouvoir d’achat, lui, fond.",
+        "probleme": "L’accroche fait 8 mots, soit exactement la limite, avec trois pauses (un point et deux virgules). Avec la voix de synthèse, elle risque de dépasser 3 secondes. Le dernier mot, « fond », est une seule syllabe et peut être écrasé par la voix.",
+        "correction": "Garder l’accroche, mais la chronométrer après génération. Si elle dépasse 3 secondes : « Tes euros dorment. Leur pouvoir d’achat fond. » (7 mots, une seule pause).",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "notes de prononciation",
+        "extrait": "Dans le texte envoyé à ElevenLabs, écris de préférence « dix mille euros », « huit mille deux cents euros »… À défaut, relie les groupes de chiffres et l’unité par une espace insécable U+00A0, puis réécoute.",
+        "probleme": "L’option « à défaut » laisse un vrai risque que la voix lise les chiffres séparément (« dix… zéro zéro zéro », « huit… deux cents »). De plus, la version en lettres n’est pas fournie : la personne qui génère l’audio doit la refaire elle-même.",
+        "correction": "Faire de l’écriture en lettres la règle et fournir le texte prêt à envoyer à la voix, par exemple : « Imagine dix mille euros qui ne rapportent rien, avec deux pour cent d’inflation par an. Après dix ans, ils n’achètent plus que l’équivalent d’environ huit mille deux cents euros d’aujourd’hui. Pourtant, ton solde affiche toujours dix mille euros : la perte est invisible. […] Sur dix ou vingt ans […] ».",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "ponctuation / sous-titres",
+        "extrait": "Faut-il fuir le cash ? / 10 000 € : la perte est invisible / sépare ton argent : à court terme / L’inflation : la perte que tu ne vois pas",
+        "probleme": "Si l’espace placée avant « ? » et « : » est une espace simple, comme pour les montants, un découpage des sous-titres mot à mot sur les espaces affichera « ? » ou « : » seul à l’écran. Le titre peut aussi passer à la ligne juste avant les deux-points.",
+        "correction": "Mettre une espace fine insécable (U+202F) avant « ? » et une espace insécable (U+00A0) avant « : », y compris dans le titre. Sinon, rattacher la ponctuation au mot précédent lors du découpage des sous-titres.",
+        "relecteur": "oral"
+      }
+    ]
+  },
+  "V13": {
+    "valide": true,
+    "tours": [
+      {
+        "round": 1,
+        "mots": 143,
+        "erreurs_auto": 0,
+        "bloquants": 3,
+        "mineurs": 9,
+        "relecteurs_ok": [
+          "a_reviser",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 2,
+        "mots": 144,
+        "erreurs_auto": 0,
+        "bloquants": 1,
+        "mineurs": 11,
+        "relecteurs_ok": [
+          "ok",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 3,
+        "mots": 145,
+        "erreurs_auto": 0,
+        "bloquants": 0,
+        "mineurs": 9,
+        "relecteurs_ok": [
+          "ok",
+          "ok"
+        ]
+      }
+    ],
+    "erreurs_auto": [],
+    "avertissements": [
+      "Phrase longue (14 mots) : « Attention, ce chiffre mélange du disponible et du bloqué, du sûr et du risqué. »",
+      "Phrase longue (15 mots) : « Retiens ça : pas ton solde, mais ce que tu possèdes moins ce que tu dois. »"
+    ],
+    "problemes_restants": [
+      {
+        "severity": "mineur",
+        "champ": "texte (point3 → slide 6)",
+        "extrait": "Attention, ce chiffre mélange du disponible et du bloqué, du sûr et du risqué.",
+        "probleme": "La slide 6 cite trois limites : disponibles/bloqués, sûrs/risqués, estimés/réels. Le script retire la troisième. Or l'exemple repose justement sur une estimation (« un appartement estimé à 250 000 € »). Sans cette limite, on peut croire que le chiffre obtenu est exact, alors qu'une partie des valeurs est estimée. La condition finale de la source (« ne pas oublier liquidité et risques ») est bien conservée, d'où la sévérité mineure.",
+        "correction": "Attention, ce chiffre mélange du disponible et du bloqué, du sûr et du risqué, de l'estimé et du réel.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "texte (point2 → slide 5)",
+        "extrait": "Il ne représente pas 250 000 € de patrimoine, mais environ 70 000 €.",
+        "probleme": "La source dit « environ 70 000 € nets ». Le mot « nets » a été retiré (pour la prononciation, selon les notes). Il marquait que 70 000 € est une valeur nette, une fois le crédit déduit, et non une deuxième valeur brute. Le sens reste clair grâce au contexte, mais le contraste brut/net de la source est moins net.",
+        "correction": "Il ne représente pas 250 000 € de patrimoine, mais environ 70 000 € de patrimoine net.",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point2",
+        "extrait": "Il ne représente pas 250 000 € de patrimoine, mais environ 70 000 €.",
+        "probleme": "À l’oral, « Il » suit directement « 180 000 € de crédit restant ». L’auditeur peut donc le rattacher à « crédit » plutôt qu’à « appartement ». En plus, « nets » a été retiré : l’exemple ne relie plus clairement le montant à la notion de patrimoine net.",
+        "correction": "Cet appartement ne représente pas 250 000 € de patrimoine net, mais environ 70 000 €.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point3",
+        "extrait": "Attention, ce chiffre mélange du disponible et du bloqué, du sûr et du risqué.",
+        "probleme": "« ce chiffre » arrive juste après « environ 70 000 € ». L’auditeur peut croire qu’il désigne le montant de l’exemple, et pas le patrimoine net en général.",
+        "correction": "Attention, ton patrimoine net mélange du disponible et du bloqué, du sûr et du risqué.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point3",
+        "extrait": "Alors utilise-le comme repère, sans oublier la part bloquée ni la part risquée.",
+        "probleme": "La phrase répète « bloqué / risqué », déjà dit dans la phrase précédente. Le passage traîne et sonne comme une redite.",
+        "correction": "C’est un bon repère, à condition de garder ça en tête. (reprend la slide 6 : « Un chiffre utile, à condition de ne pas oublier liquidité et risques »)",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point2",
+        "extrait": "retire le capital restant dû […] le montant restant à rembourser. […] avec 180 000 € de crédit restant.",
+        "probleme": "« restant » revient trois fois en trois phrases. À l’oral, ça alourdit le passage, qui est déjà le plus dense du script.",
+        "correction": "Imagine un appartement estimé à 250 000 €, avec encore 180 000 € à rembourser.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "chute",
+        "extrait": "Retiens ça : pas ton solde, mais ce que tu possèdes moins ce que tu dois.",
+        "probleme": "La phrase n’a pas de sujet : « pas ton solde » ne se rattache à rien de dit à voix haute. La formule à retenir perd de sa force, alors qu’elle pourrait faire écho à l’accroche.",
+        "correction": "Retiens ça : ton patrimoine net, ce n’est pas ton solde. C’est ce que tu possèdes moins ce que tu dois.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "contexte",
+        "extrait": "Ton patrimoine net, c’est la photo la plus honnête de ta situation.",
+        "probleme": "Le contexte n’annonce pas qu’on va calculer quelque chose. Le passage à « D’abord, additionne… » est donc un peu brusque.",
+        "correction": "Voici comment calculer ton patrimoine net, la photo la plus honnête de ta situation. (une seule phrase, reprend « Comment le calculer » de la slide 1)",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "legende",
+        "extrait": "Comment le calculer, et pourquoi ce chiffre a ses limites.",
+        "probleme": "La virgule avant « et » ne sert à rien et coupe la phrase à la lecture.",
+        "correction": "Comment le calculer et pourquoi ce chiffre a ses limites.",
+        "relecteur": "oral"
+      }
+    ]
+  },
+  "V14": {
+    "valide": true,
+    "tours": [
+      {
+        "round": 1,
+        "mots": 143,
+        "erreurs_auto": 1,
+        "bloquants": 1,
+        "mineurs": 10,
+        "relecteurs_ok": [
+          "ok",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 2,
+        "mots": 146,
+        "erreurs_auto": 0,
+        "bloquants": 1,
+        "mineurs": 13,
+        "relecteurs_ok": [
+          "ok",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 3,
+        "mots": 146,
+        "erreurs_auto": 1,
+        "bloquants": 1,
+        "mineurs": 8,
+        "relecteurs_ok": [
+          "ok",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 4,
+        "mots": 147,
+        "erreurs_auto": 0,
+        "bloquants": 0,
+        "mineurs": 12,
+        "relecteurs_ok": [
+          "ok",
+          "ok"
+        ]
+      }
+    ],
+    "erreurs_auto": [],
+    "avertissements": [
+      "Phrase longue (15 mots) : « Le problème : même sans l’info, une IA générative peut fabriquer une réponse qui paraît crédible. »"
+    ],
+    "problemes_restants": [
+      {
+        "severity": "mineur",
+        "champ": "texte (point3 → slide 7)",
+        "extrait": "Pour choisir ton IA, teste-la avec une question dont tu connais la réponse.",
+        "probleme": "La slide 7 « Comment choisir un outil » donne d'abord un critère : « Privilégie les outils qui montrent leurs sources et signalent l'incertitude ». Le test n'est que le second conseil. Le script supprime ce critère et fait du test avec une question connue la seule méthode de choix. Or ce test ne vérifie pas à lui seul que l'outil signale ses incertitudes, ce qui est le sujet de la vidéo. L'idée de la source est donc tronquée.",
+        "correction": "« Pour choisir ton IA, privilégie celles qui montrent leurs sources et signalent l'incertitude. Et teste-les avec une question dont tu connais la réponse. »",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "texte (point2 → slides 4,5)",
+        "extrait": "Prudente et sourcée, cette réponse te dit où vérifier.",
+        "probleme": "« Cette réponse » renvoie à l'exemple cité juste avant (« cette règle s'applique en général, mais dépend de ta situation »), qui ne contient aucune source. Le script le qualifie pourtant de « sourcée ». La slide 5 parle de façon générale d'« une réponse prudente avec ses sources et ses limites ». Elle ne parle pas de cet exemple précis. Le mot « limites » disparaît aussi de la formulation.",
+        "correction": "« Une réponse prudente, avec ses sources et ses limites, te dit où vérifier. C'est souvent plus utile qu'une certitude affichée. »",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "texte (cta → slide 9)",
+        "extrait": "Abonne-toi pour comprendre ton argent.",
+        "probleme": "Le segment est rattaché à la slide 9, mais il ne reprend pas son contenu (« Tu as déjà vu une IA dire « je ne sais pas » ? Dis-le en commentaire. »). « Comprendre ton argent » ne figure pas dans la source. Ce n'est ni une promesse de gain ni une incitation à investir. C'est toutefois un ajout non soutenu par le carrousel.",
+        "correction": "Si c'est la signature standard validée de la chaîne, la garder. Sinon, reprendre la slide 9 : « Tu as déjà vu une IA dire « je ne sais pas » ? Dis-le en commentaire. »",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "chute",
+        "extrait": "Retiens bien : une IA qui dit « je ne sais pas » montre ses limites. Et la confiance naît aussi de là.",
+        "probleme": "En français, « montrer ses limites » se comprend souvent de façon négative (« il a montré ses limites » = il a été dépassé). Entendue seule, la première phrase sonne comme une critique de l’IA, alors que c’est justement le message clé. La source évite ce piège avec « la capacité à montrer ses limites ». La chute se termine aussi sur « de là », un mot vague et peu mémorable. Enfin, le « signe de qualité » annoncé par le carrousel n’est jamais dit clairement.",
+        "correction": "Retiens bien : une IA qui sait dire « je ne sais pas », c’est un signe de qualité. Montrer ses limites, ça crée aussi la confiance.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point1",
+        "extrait": "Dite avec aplomb, une erreur peut coûter cher.",
+        "probleme": "À l’oreille, « Dite » se confond avec l’impératif « Dites », qui casse en plus le tutoiement. La phrase commence par un participe détaché, une tournure d’écrit. « aplomb » ajoute un risque de prononciation (b muet), alors que la source dit « assurance ».",
+        "correction": "Et une erreur dite avec assurance peut te coûter cher.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point2",
+        "extrait": "Prudente et sourcée, cette réponse te dit où vérifier. C’est souvent plus utile qu’une certitude affichée.",
+        "probleme": "La phrase commence par deux adjectifs détachés, une tournure d’écrit. « sourcée » est un peu technique. « cette réponse » renvoie à l’exemple cité juste avant, qui ne contient ni source ni date : le lien logique ne tient pas. Enfin, on ne sait pas bien à quoi renvoie « C’est ».",
+        "correction": "Une réponse prudente, avec ses sources, te dit où vérifier. Et ça, c’est souvent plus utile qu’une certitude affichée.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point2",
+        "extrait": "Du genre « cette règle s’applique en général, mais dépend de ta situation ».",
+        "probleme": "Les notes demandent une pause avant « cette », mais aucun signe de ponctuation ne la provoque, et ElevenLabs ne lit pas les guillemets. Pour une phrase complète citée, la typographie française veut un deux-points, une majuscule et le point à l’intérieur des guillemets.",
+        "correction": "Du genre : « Cette règle s’applique en général, mais dépend de ta situation. »",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point2",
+        "extrait": "Une bonne réponse donne sa source, sa date et ses limites.",
+        "probleme": "On passe sans transition du danger (point 1) au modèle de bonne réponse. À l’oral, l’enchaînement est sec.",
+        "correction": "À l’inverse, une bonne réponse te donne sa source, sa date et ses limites.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point3",
+        "extrait": "Là, l’outil doit te signaler qu’une vérification humaine s’impose, pas le cacher.",
+        "probleme": "« pas le cacher » arrive après une subordonnée : à l’oral, l’auditeur doit retrouver tout seul à quoi renvoie « le ». La phrase est lourde à suivre en une seule écoute.",
+        "correction": "Là, un bon outil ne le cache pas : il te dit qu’une vérification humaine s’impose.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point3",
+        "extrait": "Pour choisir ton IA, teste-la avec une question dont tu connais la réponse.",
+        "probleme": "Le point 3 passe brutalement à une autre idée (choisir son outil) sans transition, et il ne contient donc plus une seule idée. Le critère de choix donné par la source (slide 7) a aussi disparu.",
+        "correction": "Et pour choisir ton IA ? Privilégie celle qui montre ses sources et signale l’incertitude. Puis teste-la avec une question dont tu connais déjà la réponse.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "accroche",
+        "extrait": "Ton IA avoue quand elle ne sait pas ?",
+        "probleme": "L’accroche est assez courte (8 mots, moins de 3 s), mais c’est une question fermée : on peut y répondre « non » et faire défiler. Elle ne porte pas l’idée inattendue de la vidéo : dire « je ne sais pas » est un signe de qualité (slide 1).",
+        "correction": "Ton IA avoue ne pas savoir ? Bon signe.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "hashtags",
+        "extrait": "#IAGenerative",
+        "probleme": "Il manque l’accent sur « Générative ». C’est incohérent avec le texte du script, qui écrit « générative » avec ses accents.",
+        "correction": "#IAGénérative (ou supprimer ce hashtag ajouté, absent de la source)",
+        "relecteur": "oral"
+      }
+    ]
+  },
+  "V15": {
+    "valide": true,
+    "tours": [
+      {
+        "round": 1,
+        "mots": 145,
+        "erreurs_auto": 0,
+        "bloquants": 1,
+        "mineurs": 11,
+        "relecteurs_ok": [
+          "ok",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 2,
+        "mots": 138,
+        "erreurs_auto": 0,
+        "bloquants": 1,
+        "mineurs": 7,
+        "relecteurs_ok": [
+          "ok",
+          "a_reviser"
+        ]
+      },
+      {
+        "round": 3,
+        "mots": 144,
+        "erreurs_auto": 0,
+        "bloquants": 0,
+        "mineurs": 8,
+        "relecteurs_ok": [
+          "ok",
+          "ok"
+        ]
+      }
+    ],
+    "erreurs_auto": [],
+    "avertissements": [
+      "Phrase longue (16 mots) : « Budget, épargne, placements, papiers : on veut tout reprendre en un week-end, et le lundi, on abandonne. »",
+      "Phrase longue (14 mots) : « Tu n’as pas besoin de tout maîtriser pour commencer à mieux comprendre ton argent. »"
+    ],
+    "problemes_restants": [
+      {
+        "severity": "mineur",
+        "champ": "texte (cta → slide 9)",
+        "extrait": "Abonne-toi pour comprendre ton argent.",
+        "probleme": "Le segment est rattaché à la slide 9, mais il remplace son contenu (« Quelle est ta petite action de cette semaine ? Écris-la en commentaire. L’écrire, c’est déjà s’engager. ») par un appel à s’abonner qui n’est pas dans la source. La formule « pour comprendre ton argent » est aussi plus absolue que la nuance de la slide 8 (« commencer à mieux comprendre ton argent »). On peut la lire comme une petite promesse de résultat liée à l’abonnement.",
+        "correction": "Reprendre la slide 9 : « Quelle est ta petite action de cette semaine ? Écris-la en commentaire. L’écrire, c’est déjà s’engager. » Si un appel à s’abonner est imposé, l’ajouter sans promesse, par exemple « Abonne-toi pour la suite. », ou garder la nuance de la source : « Abonne-toi pour commencer à mieux comprendre ton argent. »",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "légende",
+        "extrait": "Abonne-toi pour comprendre ton argent.",
+        "probleme": "Cette phrase n’est pas dans la légende source. Elle durcit aussi la formule de la slide 8 (« commencer à mieux comprendre ») en une promesse plus absolue liée à l’abonnement.",
+        "correction": "Supprimer la ligne pour garder la légende source. Sinon, la remplacer par « Abonne-toi pour commencer à mieux comprendre ton argent. »",
+        "relecteur": "fidélité"
+      },
+      {
+        "severity": "mineur",
+        "champ": "accroche",
+        "extrait": "Ton argent ? Commence par une seule décision.",
+        "probleme": "L’accroche fait 7 mots, donc la longueur est bonne. Mais elle commence par un conseil, sans tension ni soulagement. « Ton argent ? » est une ouverture générique, et une question sans verbe risque d’être lue à plat par la voix de synthèse. L’idée la plus forte de la source, le soulagement de ne pas avoir à tout réorganiser, ne se trouve que dans le titre.",
+        "correction": "« Pas besoin de tout réorganiser ce soir. » : 7 mots, intonation affirmative sans risque, même promesse que la slide 1 et le titre. Pour garder l’ouverture actuelle : « Ton argent ? Une décision suffit pour commencer. » (7 mots). Avec « suffit », on passe d’un ordre à une promesse d’effort minimal.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "contexte / point1",
+        "extrait": "on veut tout reprendre en un week-end, et le lundi, on abandonne.",
+        "probleme": "Le contexte et le point 1 sont au « on » (« on veut », « on abandonne », « pourquoi on abandonne ? », « on repousse »). Le « tu » n’arrive qu’au point 2. Il n’y a pas de vouvoiement, mais on perd l’adresse directe pendant les 15 premières secondes.",
+        "correction": "« Budget, épargne, placements, papiers : tu veux tout reprendre en un week-end, et le lundi, tu abandonnes. » Puis : « D’abord, pourquoi tu abandonnes ? » Si vous gardez le « on » exprès, pour ne pas culpabiliser, gardez-le jusqu’à la fin du point 1 seulement.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point1",
+        "extrait": "Parce que c’était trop. Tout réorganiser d’un coup demande trop d’énergie et trop de décisions.",
+        "probleme": "« Trop » revient trois fois en deux phrases. « Parce que c’était trop » ne dit rien que la phrase suivante ne dise déjà. Le passage sonne comme deux slides mises bout à bout.",
+        "correction": "« D’abord, pourquoi on abandonne ? Parce que tout réorganiser d’un coup, c’est trop d’énergie et trop de décisions. Et plus la marche est haute, plus on repousse le départ. »",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point2",
+        "extrait": "Ensuite, fais l’inverse.",
+        "probleme": "On ne sait pas de quoi c’est l’inverse. La phrase d’avant parle de « repousser le départ », et le « grand plan » n’a pas encore été nommé. Pourtant, le point 3 y fait référence (« qu’avec un grand plan jamais commencé »).",
+        "correction": "« Ensuite, fais l’inverse du grand plan. » Cela donne le repère et prépare le rappel du point 3 (« grand plan » vient du titre de la slide 2).",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "point3",
+        "extrait": "En quelques semaines, tu as avancé plus qu’avec un grand plan jamais commencé.",
+        "probleme": "La phrase est construite comme un texte écrit (« un grand plan jamais commencé »). Le « plus » comparatif devrait se dire « pluss », mais la voix peut dire « plu », ce qui rend la phrase floue à l’oreille. C’est aussi le point le plus chargé (41 mots, contre une trentaine pour les deux autres).",
+        "correction": "« En quelques semaines, tu iras plus loin qu’avec un grand plan jamais commencé. » Ici, « plus loin » ne pose aucun problème de prononciation, et on garde le sens sans ajouter de fait.",
+        "relecteur": "oral"
+      },
+      {
+        "severity": "mineur",
+        "champ": "chute",
+        "extrait": "Tu n’as pas besoin de tout maîtriser pour commencer à mieux comprendre ton argent.",
+        "probleme": "La chute se termine par « comprendre ton argent », et le CTA qui suit immédiatement aussi (« Abonne-toi pour comprendre ton argent. »). Entendu deux fois en quatre secondes, ça fait un écho maladroit. De plus, avec 14 mots, la chute est longue et peu percutante.",
+        "correction": "« Tu n’as pas besoin de tout maîtriser, juste de commencer. » C’est plus court, ça reprend le « Commence » de l’accroche et ça évite la répétition avec le CTA.",
+        "relecteur": "oral"
+      }
+    ]
+  }
+}

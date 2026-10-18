@@ -9,7 +9,7 @@ IDS ?= V01 V02 V03 V04 V05 V06 V07 V08 V09 V10 V11 V12 V13 V14 V15
 
 .NOTPARALLEL:
 
-.PHONY: help setup extract lint assets voices video tts words subs render qa upload lock planning all publish check-id
+.PHONY: help setup extract lint revue assets voices video tts words subs render qa upload lock planning all publish check-id
 
 help:
 	@sed -n '1,5p' Makefile
@@ -19,6 +19,9 @@ setup:
 
 extract:
 	$(PY) -m pipeline.extract
+
+revue:
+	$(PY) -m pipeline.review
 
 lint:
 	$(PY) -m pipeline.lint $(ID)

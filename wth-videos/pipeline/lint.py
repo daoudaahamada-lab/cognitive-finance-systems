@@ -11,7 +11,7 @@ FORBIDDEN = [
     (re.compile(r"\bRDV\b", re.I), "abréviation « RDV »"),
     (re.compile(r"\b\d+\s?h\d*\b", re.I), "heure abrégée"),
     (re.compile(r"[/()\[\]≠−=+*#@<>≈•]"), "symbole non lisible à l’oral"),
-    (re.compile(r"\b(vous|votre|vos)\b", re.I), "vouvoiement"),
+    (re.compile(r"(?<![\w-])(vous|votre|vos)\b", re.I), "vouvoiement (hors « rendez-vous »)"),
     (re.compile(r"\b(slides?|carrousels?|glisse|swipe|ce post)\b", re.I), "référence au carrousel"),
 ]
 
