@@ -471,7 +471,7 @@ Source **WTH-086** · publication **15/11/2026 à 17:00** · 147 mots · ≈ 54 
 
 ## V15 — Pas besoin de tout réorganiser ce soir
 
-Source **WTH-090** · publication **17/11/2026 à 17:00** · 144 mots · ≈ 53 s
+Source **WTH-090** · publication **17/11/2026 à 17:00** · 139 mots · ≈ 51 s
 
 | Partie | Slides | Texte |
 |---|---|---|
@@ -480,7 +480,7 @@ Source **WTH-090** · publication **17/11/2026 à 17:00** · 144 mots · ≈ 53 
 | Point 1 | 3 | D’abord, pourquoi on abandonne ? Parce que c’était trop. Tout réorganiser d’un coup demande trop d’énergie et trop de décisions. Et plus la marche est haute, plus on repousse le départ. |
 | Point 2 | 4, 5 | Ensuite, fais l’inverse. Choisis une seule petite action, fais-la, puis note la suivante. Par exemple, en 10 minutes, tu peux résilier un abonnement inutile. L’élan vient de l’action, pas du plan. |
 | Point 3 | 6, 7 | Et enfin, chaque petite action réussie rend la suivante plus facile. En quelques semaines, tu as avancé plus qu’avec un grand plan jamais commencé. D’où la règle : une décision par semaine. À la fin de l’année, ça fait 52 décisions financières. |
-| Chute | 8 | Tu n’as pas besoin de tout maîtriser pour commencer à mieux comprendre ton argent. |
+| Chute | 8 | Tu n’as pas besoin de tout maîtriser pour commencer. |
 | CTA | 9 | Abonne-toi pour comprendre ton argent. |
 
 **Légende**

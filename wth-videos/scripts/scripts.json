@@ -972,7 +972,7 @@
     "source": "WTH-090",
     "date": "2026-11-17",
     "titre": "Pas besoin de tout réorganiser ce soir",
-    "texte": "Ton argent ? Commence par une seule décision. Budget, épargne, placements, papiers : on veut tout reprendre en un week-end, et le lundi, on abandonne. D’abord, pourquoi on abandonne ? Parce que c’était trop. Tout réorganiser d’un coup demande trop d’énergie et trop de décisions. Et plus la marche est haute, plus on repousse le départ. Ensuite, fais l’inverse. Choisis une seule petite action, fais-la, puis note la suivante. Par exemple, en 10 minutes, tu peux résilier un abonnement inutile. L’élan vient de l’action, pas du plan. Et enfin, chaque petite action réussie rend la suivante plus facile. En quelques semaines, tu as avancé plus qu’avec un grand plan jamais commencé. D’où la règle : une décision par semaine. À la fin de l’année, ça fait 52 décisions financières. Tu n’as pas besoin de tout maîtriser pour commencer à mieux comprendre ton argent. Abonne-toi pour comprendre ton argent.",
+    "texte": "Ton argent ? Commence par une seule décision. Budget, épargne, placements, papiers : on veut tout reprendre en un week-end, et le lundi, on abandonne. D’abord, pourquoi on abandonne ? Parce que c’était trop. Tout réorganiser d’un coup demande trop d’énergie et trop de décisions. Et plus la marche est haute, plus on repousse le départ. Ensuite, fais l’inverse. Choisis une seule petite action, fais-la, puis note la suivante. Par exemple, en 10 minutes, tu peux résilier un abonnement inutile. L’élan vient de l’action, pas du plan. Et enfin, chaque petite action réussie rend la suivante plus facile. En quelques semaines, tu as avancé plus qu’avec un grand plan jamais commencé. D’où la règle : une décision par semaine. À la fin de l’année, ça fait 52 décisions financières. Tu n’as pas besoin de tout maîtriser pour commencer. Abonne-toi pour comprendre ton argent.",
     "legende": "Tu n’as pas besoin de tout réorganiser ce soir.\n\nUne seule décision suffit pour commencer.\n\nQuelle est ta petite action de cette semaine ? Écris-la en commentaire. L’écrire, c’est déjà s’engager.\n\nAbonne-toi pour comprendre ton argent.",
     "hashtags": [
       "#WealthTechHorizon",
@@ -1023,7 +1023,7 @@
         "slides": [
           8
         ],
-        "texte": "Tu n’as pas besoin de tout maîtriser pour commencer à mieux comprendre ton argent."
+        "texte": "Tu n’as pas besoin de tout maîtriser pour commencer."
       },
       {
         "partie": "cta",
@@ -1033,7 +1033,7 @@
         "texte": "Abonne-toi pour comprendre ton argent."
       }
     ],
-    "mots": 144,
+    "mots": 139,
     "notes_prononciation": "- Nombres lus correctement : 10, 52"
   }
 ]
