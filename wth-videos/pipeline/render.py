@@ -6,24 +6,45 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
+from .subs import WEAK
 from .common import ASSETS, OUTPUT, build_dir, ffprobe, load_config, read_json, run, script
 
 
 # ---------- audio ----------
 
+def measure(path):
+    """Loudness intégrée (LUFS) et true peak (dBTP) d'un fichier audio."""
+    out = run(["ffmpeg", "-hide_banner", "-nostats", "-i", str(path), "-af", "ebur128=peak=true",
+               "-f", "null", "-"]).stderr
+    summary = out[out.rfind("Summary:"):]
+    integrated = float(re.search(r"I:\s+(-?[\d.]+) LUFS", summary).group(1))
+    peak = float(re.search(r"Peak:\s+(-?[\d.]+|-inf) dBFS", summary).group(1))
+    return integrated, peak
+
+
 def normalize_audio(src, dst, cfg):
-    """Loudnorm en deux passes vers -14 LUFS, true peak -1,5 dBTP, 48 kHz stéréo, avec une fin silencieuse."""
+    """Voix ramenée à -14 LUFS sans dépasser le true peak cible, 48 kHz stéréo, avec une fin silencieuse.
+
+    Compression douce puis gain calculé et limiteur de crête ; la loudness obtenue est mesurée
+    et le gain corrigé jusqu'à être à ±0,3 LU de la cible (loudnorm seul reste souvent sous la cible
+    quand il doit protéger les crêtes).
+    """
     ln = cfg["loudness"]
-    target = f"I={ln['integrated']}:TP={ln['true_peak']}:LRA={ln['lra']}"
-    first = run(["ffmpeg", "-hide_banner", "-nostats", "-i", str(src), "-af",
-                 f"loudnorm={target}:print_format=json", "-f", "null", "-"])
-    m = json.loads(re.search(r"\{[^{}]*\"input_i\"[^{}]*\}", first.stderr, re.S).group(0))
-    second = (f"loudnorm={target}:measured_I={m['input_i']}:measured_TP={m['input_tp']}:"
-              f"measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:"
-              f"linear=true:print_format=summary")
+    target, tp = ln["integrated"], ln["true_peak"]
     tail = cfg["video"]["tail_seconds"]
-    run(["ffmpeg", "-hide_banner", "-y", "-i", str(src), "-af",
-         f"{second},aresample=48000,apad=pad_dur={tail}", "-ac", "2", "-c:a", "pcm_s16le", str(dst)])
+    limit = 10 ** ((tp - 1.0) / 20)  # marge de 1 dB entre crête échantillon et true peak
+    source_i, _ = measure(src)
+    gain = target - source_i
+    for _ in range(4):
+        chain = (f"aresample=48000,acompressor=threshold=-24dB:ratio=2.5:attack=10:release=120,"
+                 f"volume={gain:.2f}dB,alimiter=limit={limit:.4f}:attack=3:release=60:level=false,"
+                 f"apad=pad_dur={tail}")
+        run(["ffmpeg", "-hide_banner", "-y", "-i", str(src), "-af", chain, "-ac", "2", "-c:a", "pcm_s16le",
+             str(dst)])
+        integrated, _ = measure(dst)
+        if abs(integrated - target) <= 0.3:
+            break
+        gain += target - integrated
     return float(ffprobe(dst)["format"]["duration"])
 
 
@@ -42,18 +63,41 @@ def slide_files(source):
 
 
 def wrap(draw, text, font, max_width):
-    lines, cur = [], ""
-    for word in text.split():
+    """Coupe le titre en lignes de largeur équilibrée (pas de mot orphelin sur la dernière ligne)."""
+    words = [w for w in text.split(" ") if w]  # les espaces insécables (« banque : ») ne coupent pas
+    greedy, cur = [], ""
+    for word in words:
         trial = f"{cur} {word}".strip()
-        if draw.textlength(trial, font=font) <= max_width:
+        if draw.textlength(trial, font=font) <= max_width or not cur:
             cur = trial
         else:
-            if cur:
-                lines.append(cur)
+            greedy.append(cur)
             cur = word
-    if cur:
-        lines.append(cur)
-    return lines
+    greedy.append(cur)
+    n = len(greedy)
+
+    def score(lines):
+        # Largeur de la ligne la plus longue, avec un bonus pour les coupures après une ponctuation.
+        width = max(draw.textlength(l, font=font) for l in lines)
+        bonus = 120 * sum(l.endswith((":", "?", ",", "!")) for l in lines[:-1])
+        weak = 150 * sum(l.split(" ")[-1].lower() in WEAK for l in lines[:-1])
+        return width - bonus + weak
+
+    best, best_score = greedy, score(greedy)
+
+    def search(start, lines_left, acc):
+        nonlocal best, best_score
+        if lines_left == 1:
+            lines = acc + [" ".join(words[start:])]
+            if max(draw.textlength(l, font=font) for l in lines) <= max_width and score(lines) < best_score:
+                best, best_score = lines, score(lines)
+            return
+        for end in range(start + 1, len(words) - lines_left + 2):
+            search(end, lines_left - 1, acc + [" ".join(words[start:end])])
+
+    if len(words) <= 14:
+        search(0, n, [])
+    return best
 
 
 def title_background(title, path, cfg):
@@ -65,13 +109,22 @@ def title_background(title, path, cfg):
     label = "W E A L T H T E C H   H O R I Z O N"
     d.text((v["width"] / 2, 150), label, font=label_font, fill=b["bordeaux"], anchor="mm")
     d.rectangle([v["width"] / 2 - 60, 190, v["width"] / 2 + 60, 196], fill=b["rouge"])
-    size = 88
-    while True:
-        font = ImageFont.truetype(b["font_bold_file"], size)
-        lines = wrap(d, title, font, v["width"] - 160)
-        if len(lines) <= 3 or size <= 60:
+    # Plus grande taille qui tient en 2 lignes (jusqu'à 72 px), sinon en 3 lignes.
+    # Une ligne qui finit par un article (« le | moment ») fait descendre d'une taille si une autre coupe existe.
+    choice = fallback = None
+    for max_lines, smallest in ((2, 72), (3, 56)):
+        for size in range(88, smallest - 1, -4):
+            font = ImageFont.truetype(b["font_bold_file"], size)
+            lines = wrap(d, title, font, v["width"] - 160)
+            if len(lines) > max_lines:
+                continue
+            fallback = fallback or (size, font, lines)
+            if not any(l.split(" ")[-1].lower() in WEAK for l in lines[:-1]):
+                choice = (size, font, lines)
+                break
+        if choice:
             break
-        size -= 4
+    size, font, lines = choice or fallback or (size, font, lines)
     y = 280
     for line in lines:
         d.text((v["width"] / 2, y), line, font=font, fill=b["bordeaux"], anchor="ma")

@@ -43,6 +43,13 @@ def pcm(path, rate=16000):
     return np.frombuffer(raw, dtype=np.float32)
 
 
+def raw_samples(path):
+    """Échantillons de tous les canaux, au taux d'origine, sans mixage (pour compter l'écrêtage)."""
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(path), "-map", "0:a", "-f", "f32le", "-"],
+                         check=True, capture_output=True).stdout
+    return np.frombuffer(raw, dtype=np.float32)
+
+
 def audio_offset(ref, test, rate=16000, window=20.0, max_lag=1.0):
     """Décalage (s) de la piste du MP4 par rapport à l'audio en cache, par corrélation croisée."""
     a = ref[: int(window * rate)]
@@ -53,6 +60,31 @@ def audio_offset(ref, test, rate=16000, window=20.0, max_lag=1.0):
     idx = int(np.argmax(lags))
     lag = idx if idx < int(max_lag * rate) else idx - 2 * int(max_lag * rate)
     return lag / rate
+
+
+def silences(path, noise="-40dB", min_len=0.2):
+    """Pauses réellement présentes dans l'audio (silencedetect)."""
+    out = run(["ffmpeg", "-hide_banner", "-nostats", "-i", str(path), "-af",
+               f"silencedetect=n={noise}:d={min_len}", "-f", "null", "-"]).stderr
+    starts = [float(x) for x in re.findall(r"silence_start: (-?[\d.]+)", out)]
+    ends = [float(x) for x in re.findall(r"silence_end: (-?[\d.]+)", out)]
+    return list(zip(starts, ends))
+
+
+def pause_conflicts(words, pauses, margin=0.15):
+    """Mots horodatés incompatibles avec une pause mesurée dans l'audio.
+
+    Un mot ne doit ni commencer au milieu d'une pause, ni l'enjamber (de plus de `margin` des deux côtés).
+    Le dernier mot est seulement contrôlé sur son début : sa fin est souvent prolongée jusqu'à la fin du fichier.
+    """
+    bad = []
+    for s0, s1 in pauses:
+        for i, w in enumerate(words):
+            starts_inside = s0 + margin < w["start"] < s1 - margin
+            spans = w["start"] < s1 - margin and w["end"] > s0 + margin and i < len(words) - 1
+            if starts_inside or spans:
+                bad.append(f"« {w['w']} » ({w['start']:.2f}–{w['end']:.2f}) dans la pause {s0:.2f}–{s1:.2f}")
+    return bad
 
 
 def loudness(path):
@@ -122,10 +154,14 @@ def qa_video(video_id):
     ref, test = pcm(tts["audio"]), pcm(mp4)
     offset = audio_offset(ref, test)
     total_ms = (sub_err + abs(offset)) * 1000
-    results.append(check("Synchro sous-titres", total_ms < q["max_sync_ms"], f"{total_ms:.0f} ms",
+    pauses = [(a, b) for a, b in silences(tts["audio"]) if a > 0.05 and b < len(ref) / 16000 - 0.05]
+    conflicts = pause_conflicts(words, pauses)
+    source = read_json(tts["meta"]).get("alignment_source", "with-timestamps")
+    results.append(check("Synchro sous-titres", total_ms < q["max_sync_ms"] and not conflicts, f"{total_ms:.0f} ms",
                          f"< {q['max_sync_ms']} ms",
                          f"sous-titres/alignement + image : {sub_err * 1000:.0f} ms ; décalage audio MP4 : "
-                         f"{offset * 1000:.0f} ms"))
+                         f"{offset * 1000:.0f} ms ; alignement {source} vérifié sur {len(pauses)} pauses mesurées"
+                         + (f", conflits : {'; '.join(conflicts[:3])}" if conflicts else ", aucun conflit")))
 
     # Mots coupés
     tokens = [wdata["text"][a:b] for a, b in tokenize(wdata["text"])]
@@ -173,7 +209,7 @@ def qa_video(video_id):
 
     # Saturation et loudness
     integrated, true_peak = loudness(mp4)
-    clipped = int(np.sum(np.abs(test) >= 0.999))
+    clipped = int(np.sum(np.abs(raw_samples(mp4)) >= 0.999))
     tol = q["loudness_tolerance"]
     target = cfg["loudness"]["integrated"]
     results.append(check("Pas de saturation", clipped == 0 and true_peak <= q["max_true_peak"],

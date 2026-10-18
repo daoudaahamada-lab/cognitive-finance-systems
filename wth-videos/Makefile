@@ -9,7 +9,7 @@ IDS ?= V01 V02 V03 V04 V05 V06 V07 V08 V09 V10 V11 V12 V13 V14 V15
 
 .NOTPARALLEL:
 
-.PHONY: help setup extract lint revue assets voices video tts words subs render qa upload lock planning all publish check-id
+.PHONY: help setup extract lint revue assets voices import video tts words subs render qa upload lock planning all publish check-id
 
 help:
 	@sed -n '1,5p' Makefile
@@ -31,6 +31,10 @@ assets:
 
 voices:
 	$(PY) -m pipeline.tts voices
+
+# Voix générée par le connecteur ElevenLabs (API injoignable) : make import ID=V01 AUDIO=prise.mp3 WORDS=mots.json GEN=<generation_id>
+import: check-id
+	$(PY) -m pipeline.connector $(ID) --audio $(AUDIO) --words $(WORDS) --generation-id $(GEN)
 
 video: check-id tts words subs render qa
 

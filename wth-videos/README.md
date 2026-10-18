@@ -18,6 +18,7 @@ script → voix ElevenLabs → sous-titres mot à mot → montage → MP4 → Cl
 | `make lint` | vérifie `scripts/scripts.json` (130–150 mots, CTA, chiffres présents dans la source…) |
 | `make voices` | liste les voix françaises et génère un extrait de 10 s pour chaque voix présélectionnée |
 | `make assets ID=V02` | télécharge les PNG de carrousel V2 depuis Cloudinary dans `assets/WTH-XXX/` |
+| `make import ID=V01 AUDIO=… WORDS=… GEN=…` | si l'API ElevenLabs n'est pas joignable : range dans le cache une voix générée par le connecteur ElevenLabs et ses temps de mots Scribe (même clé de cache que l'endpoint with-timestamps) |
 | `make video ID=V07` | voix → mots horodatés → `.ass` → montage → contrôle qualité, pour une vidéo |
 | `make lock ID=V07` | verrouille la voix validée : elle ne sera plus jamais régénérée |
 | `make upload ID=V07` | upload sur Cloudinary `WTH-V2/videos/WTH-V07` (refusé si le contrôle qualité échoue) |
@@ -37,6 +38,14 @@ Chaque étape lit les sorties de la précédente dans `build/Vxx/` et peut être
 - `cache/tts/` : audio et alignement ElevenLabs, indexés par hash (texte, voix, modèle, réglages). Versionné.
 - `locks/` : vidéos dont la voix est validée.
 - `output/` : MP4 (non versionnés), `qa_report.md`, `qa/Vxx.json`, `uploads.json`, `planning_videos.csv`.
+
+## Voix
+
+Chemin normal : `make video` appelle `text-to-speech/{voice}/with-timestamps` (eleven_multilingual_v2) et met
+en cache l'audio et l'alignement par caractère. Si l'API n'est pas joignable depuis la machine, la voix est générée
+par le connecteur ElevenLabs puis importée avec `make import` : l'alignement vient alors de la transcription Scribe
+du même audio, reconstruite caractère par caractère sur le texte exact du script. Le contrôle qualité vérifie dans
+les deux cas qu'aucun mot horodaté ne tombe dans une pause réellement mesurée dans l'audio.
 
 ## Règles de montage
 

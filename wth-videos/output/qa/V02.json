@@ -1,0 +1,58 @@
+{
+  "id": "V02",
+  "source": "WTH-002",
+  "file": "output/WTH-V02.mp4",
+  "checked_at": "2026-10-18T17:51:57+00:00",
+  "ok": true,
+  "checks": [
+    {
+      "check": "Durée",
+      "ok": true,
+      "value": "55.97 s",
+      "expected": "45 à 60 s",
+      "detail": ""
+    },
+    {
+      "check": "Format",
+      "ok": true,
+      "value": "h264 1080x1920 30/1 yuv420p + aac",
+      "expected": "h264 1080x1920 30/1 yuv420p + aac",
+      "detail": ""
+    },
+    {
+      "check": "Synchro sous-titres",
+      "ok": true,
+      "value": "38 ms",
+      "expected": "< 150 ms",
+      "detail": "sous-titres/alignement + image : 35 ms ; décalage audio MP4 : 3 ms ; alignement scribe vérifié sur 14 pauses mesurées, aucun conflit"
+    },
+    {
+      "check": "Aucun mot coupé",
+      "ok": true,
+      "value": "ok",
+      "expected": "tous les mots, entiers, dans la largeur",
+      "detail": "149 mots, groupe le plus large 724/860 px"
+    },
+    {
+      "check": "Accents et caractères",
+      "ok": true,
+      "value": "ok",
+      "expected": "UTF-8 NFC, glyphes présents, aucun mojibake",
+      "detail": "mots hors dictionnaire à relire : Appli, appli"
+    },
+    {
+      "check": "Pas de saturation",
+      "ok": true,
+      "value": "true peak -1.9 dBTP, 0 échantillon(s) écrêté(s)",
+      "expected": "≤ -1.0 dBTP, 0 écrêtage",
+      "detail": ""
+    },
+    {
+      "check": "Loudness",
+      "ok": true,
+      "value": "-14.3 LUFS",
+      "expected": "-14 ± 1 LUFS",
+      "detail": ""
+    }
+  ]
+}

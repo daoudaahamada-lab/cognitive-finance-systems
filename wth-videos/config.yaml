@@ -3,7 +3,7 @@
 
 tts:
   # Voix retenue pour les 15 vidéos. Vide tant que le choix n'est pas validé (make voices).
-  voice_id: ""
+  voice_id: SWPcnF19luPOF81eOcxl   # Abdelatif - Clear & Direct (choisie le 18/10, modifiable)
   model_id: eleven_multilingual_v2
   output_format: mp3_44100_128   # 192 kb/s exige l’offre Creator
   seed: 4242
