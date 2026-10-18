@@ -1,0 +1,65 @@
+{
+  "id": "WTH-014",
+  "famille": "Tech & patrimoine",
+  "format": "Mistakes",
+  "accroche": "« J’ai acheté un ETF, donc je suis diversifié. »",
+  "sujet": "Beaucoup d'ETF suivent un indice précis, avec ses régles et ses limites. Tous ne couvrent pas l'ensemble du marché.",
+  "legende": "« J’ai acheté un ETF, donc je suis diversifié. »\n\nPas si vite. 4 erreurs fréquentes avec les ETF.\n\nTu as un ETF en portefeuille ? Tu sais quel indice il suit ? Dis-le en commentaire.",
+  "hashtags": "#WealthTechHorizon #WealthTech #FinTech #Patrimoine",
+  "slides": [
+    {
+      "n": 1,
+      "fichier": "WTH-014-01.png",
+      "titre": "« J’ai acheté un ETF, donc je suis diversifié. »",
+      "texte": "Pas si vite. 4 erreurs fréquentes avec les ETF."
+    },
+    {
+      "n": 2,
+      "fichier": "WTH-014-02.png",
+      "titre": "Un ETF, c’est quoi ?",
+      "texte": "Un fonds coté en Bourse qui cherche à reproduire un indice. Tu achètes en une fois un panier de titres, avec des frais en général plus bas qu’un fonds géré activement."
+    },
+    {
+      "n": 3,
+      "fichier": "WTH-014-03.png",
+      "titre": "Erreur 1 : ne pas lire l’indice suivi",
+      "texte": "« Monde », « USA », « Tech » : derrière chaque nom, un indice avec ses règles. Le MSCI World, par exemple, couvre les pays développés, mais pas les pays émergents."
+    },
+    {
+      "n": 4,
+      "fichier": "WTH-014-04.png",
+      "titre": "Erreur 2 : croire que « monde » veut dire équilibré",
+      "texte": "Dans les indices mondiaux pondérés par la taille des entreprises, les États-Unis pèsent aujourd’hui autour de 70 %. Ton « monde » est surtout américain."
+    },
+    {
+      "n": 5,
+      "fichier": "WTH-014-05.png",
+      "titre": "Erreur 3 : empiler des ETF qui se ressemblent",
+      "texte": "Un ETF Monde, un ETF S&P 500 et un ETF Nasdaq : tu achètes plusieurs fois les mêmes grandes entreprises. Plus de lignes, pas plus de diversification."
+    },
+    {
+      "n": 6,
+      "fichier": "WTH-014-06.png",
+      "titre": "Erreur 4 : ignorer les frais et la fiche",
+      "texte": "Frais courants annuels, taille du fonds, méthode de réplication, éligibilité au PEA : tout est dans le document d’informations clés (DIC). Lis-le avant d’acheter."
+    },
+    {
+      "n": 7,
+      "fichier": "WTH-014-07.png",
+      "titre": "Le bon réflexe",
+      "texte": "Pour chaque ETF, trois questions : quel indice ? Quels pays et secteurs dedans ? Combien il me coûte par an ?"
+    },
+    {
+      "n": 8,
+      "fichier": "WTH-014-08.png",
+      "titre": "À retenir",
+      "texte": "Un nom et un code ne suffisent pas à savoir ce que tu achètes. La composition, si."
+    },
+    {
+      "n": 9,
+      "fichier": "WTH-014-09.png",
+      "titre": "Tu as un ETF en portefeuille ?",
+      "texte": "Tu sais quel indice il suit ? Dis-le en commentaire."
+    }
+  ]
+}

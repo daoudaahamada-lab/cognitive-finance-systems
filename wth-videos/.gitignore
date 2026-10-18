@@ -1,0 +1,8 @@
+# Fichiers de travail régénérables
+build/
+__pycache__/
+*.pyc
+# Les MP4 et extraits de voix vivent sur Cloudinary / en local, pas dans git.
+output/*.mp4
+output/voices/*.mp3
+# Le cache audio (cache/tts) EST versionné : il garantit qu'une voix validée n'est jamais régénérée.

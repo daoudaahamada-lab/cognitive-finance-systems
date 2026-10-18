@@ -1,0 +1,65 @@
+{
+  "id": "WTH-086",
+  "famille": "IA & conseil",
+  "format": "Educational",
+  "accroche": "Une IA financière devrait savoir dire « je ne sais pas »",
+  "sujet": "Une réponse prudente avec source et limites est parfois plus utile qu'une certitude.",
+  "legende": "Une IA financière devrait savoir dire « je ne sais pas »\n\nPourquoi c’est un signe de qualité, en 7 points.\n\nTu as déjà vu une IA dire « je ne sais pas » ? Dis-le en commentaire.",
+  "hashtags": "#WealthTechHorizon #IA #CGP #GestionDePatrimoine",
+  "slides": [
+    {
+      "n": 1,
+      "fichier": "WTH-086-01.png",
+      "titre": "Une IA financière devrait savoir dire « je ne sais pas »",
+      "texte": "Pourquoi c’est un signe de qualité, en 7 points."
+    },
+    {
+      "n": 2,
+      "fichier": "WTH-086-02.png",
+      "titre": "Le réflexe des IA",
+      "texte": "Une IA générative est conçue pour produire une réponse. Même quand elle n’a pas l’information, elle peut en fabriquer une qui paraît crédible."
+    },
+    {
+      "n": 3,
+      "fichier": "WTH-086-03.png",
+      "titre": "Pourquoi c’est dangereux en finance",
+      "texte": "Une règle fiscale inventée, un plafond erroné, une date fausse : en finance, une erreur dite avec assurance peut coûter cher."
+    },
+    {
+      "n": 4,
+      "fichier": "WTH-086-04.png",
+      "titre": "Ce qu’une bonne réponse contient",
+      "texte": "La réponse, sa source, sa date, et ses limites : « Cette règle s’applique en général, mais dépend de ta situation. »"
+    },
+    {
+      "n": 5,
+      "fichier": "WTH-086-05.png",
+      "titre": "La valeur de l’incertitude",
+      "texte": "Une réponse prudente avec ses sources et ses limites est souvent plus utile qu’une certitude affichée. Elle te dit où vérifier."
+    },
+    {
+      "n": 6,
+      "fichier": "WTH-086-06.png",
+      "titre": "Quand une vérification humaine s’impose",
+      "texte": "Question réglementaire hors contexte, situation personnelle complexe, montant important : l’outil doit le signaler, pas le cacher."
+    },
+    {
+      "n": 7,
+      "fichier": "WTH-086-07.png",
+      "titre": "Comment choisir un outil",
+      "texte": "Privilégie les outils qui montrent leurs sources et signalent l’incertitude. Teste-les avec une question dont tu connais la réponse."
+    },
+    {
+      "n": 8,
+      "fichier": "WTH-086-08.png",
+      "titre": "À retenir",
+      "texte": "La confiance naît aussi de la capacité à montrer ses limites."
+    },
+    {
+      "n": 9,
+      "fichier": "WTH-086-09.png",
+      "titre": "Tu as déjà vu une IA dire « je ne sais pas » ?",
+      "texte": "Dis-le en commentaire."
+    }
+  ]
+}
