@@ -10,6 +10,12 @@ import difflib
 from .common import build_dir, read_json, script, write_json
 
 SEPARATORS = {" ", "\n", "\t"}
+OPENING = set("«“‘‹„([¿¡")
+
+
+def canon(text):
+    """Les espaces insécables comptent comme des espaces pour comparer avec l'alignement renvoyé."""
+    return text.replace("\u00a0", " ").replace("\u202f", " ")
 
 
 def char_times(text, alignment):
@@ -17,14 +23,15 @@ def char_times(text, alignment):
     chars = alignment["characters"]
     starts = alignment["character_start_times_seconds"]
     ends = alignment["character_end_times_seconds"]
-    aligned = "".join(chars)
+    aligned = canon("".join(chars))
     times = [None] * len(text)
-    if aligned == text:
-        return list(zip(starts, ends)), True
-    sm = difflib.SequenceMatcher(None, text, aligned, autojunk=False)
+    if aligned == canon(text):
+        return list(zip(starts, ends)), True, 0
+    sm = difflib.SequenceMatcher(None, canon(text), aligned, autojunk=False)
     for block in sm.get_matching_blocks():
         for k in range(block.size):
             times[block.a + k] = (starts[block.b + k], ends[block.b + k])
+    unmatched = sum(1 for i, t in enumerate(times) if t is None and text[i].isalnum())
     # Caractères non retrouvés : on reprend le temps du voisin connu le plus proche.
     last = (0.0, 0.0)
     for i, t in enumerate(times):
@@ -32,7 +39,7 @@ def char_times(text, alignment):
             times[i] = (last[1], last[1])
         else:
             last = t
-    return times, False
+    return times, False, unmatched
 
 
 def tokenize(text):
@@ -47,13 +54,21 @@ def tokenize(text):
             start = i
     if start is not None:
         spans.append((start, len(text)))
-    # Une ponctuation isolée (ex. « — ») est rattachée au mot précédent.
-    merged = []
+    # Une ponctuation isolée est rattachée à son mot : au suivant si elle ouvre (« ( …), sinon au précédent.
+    merged, pending = [], None
     for a, b in spans:
-        if merged and not any(c.isalnum() for c in text[a:b]):
-            merged[-1] = (merged[-1][0], b)
-        else:
-            merged.append((a, b))
+        chunk = text[a:b]
+        if not any(c.isalnum() for c in chunk):
+            if all(c in OPENING for c in chunk):
+                pending = a if pending is None else pending
+                continue
+            if merged and pending is None:
+                merged[-1] = (merged[-1][0], b)
+                continue
+        merged.append((pending if pending is not None else a, b))
+        pending = None
+    if pending is not None:
+        merged.append((pending, len(text)))
     return merged
 
 
@@ -71,7 +86,7 @@ def words_for(video_id):
     tts = read_json(build_dir(video_id) / "tts.json")
     meta = read_json(tts["meta"])
     text = meta["request"]["text"]
-    times, exact = char_times(text, meta["alignment"])
+    times, exact, unmatched = char_times(text, meta["alignment"])
     bounds = segment_index(s["segments"]) if text == s["texte"] else None
     words = []
     for a, b in tokenize(text):
@@ -87,8 +102,9 @@ def words_for(video_id):
             "segment": seg,
         })
     out = build_dir(video_id) / "words.json"
-    write_json(out, {"exact_alignment": exact, "text": text, "words": words})
-    print(f"{video_id} : {len(words)} mots horodatés ({'alignement exact' if exact else 'alignement recalé'})")
+    write_json(out, {"exact_alignment": exact, "unmatched_chars": unmatched, "text": text, "words": words})
+    state = "alignement exact" if exact else f"alignement recalé, {unmatched} caractère(s) non retrouvé(s)"
+    print(f"{video_id} : {len(words)} mots horodatés ({state})")
     return words
 
 

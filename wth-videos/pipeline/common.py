@@ -47,7 +47,7 @@ def script(video_id):
 
 
 def build_dir(video_id):
-    path = BUILD / video_id
+    path = (BUILD / video_id).resolve()
     path.mkdir(parents=True, exist_ok=True)
     return path
 

@@ -119,10 +119,10 @@ def slide_schedule(s, words, duration, available, cfg):
     return cleaned
 
 
-def prescale(src, dst, box):
-    """Slide redimensionnée au double de sa boîte d'affichage pour un zoom sans saccade."""
+def prescale(src, dst, box, factor=4):
+    """Slide agrandie (x4) : zoompan travaille au pixel entier, d'où un zoom lent plus fluide."""
     img = Image.open(src).convert("RGB")
-    w, h = box["w"] * 2, box["h"] * 2
+    w, h = box["w"] * factor, box["h"] * factor
     img = img.resize((w, h), Image.LANCZOS)
     img.save(dst)
     return dst
@@ -147,7 +147,13 @@ def render(video_id):
     schedule = slide_schedule(s, words, duration, available, cfg) if available else []
     inputs, filters = [], []
     fonts = cfg["brand"]["fonts_dir"]
-    sub_filter = f"subtitles=f={subs}:fontsdir={fonts}"
+    # ffmpeg tourne dans build/Vxx avec un lien « fonts » : aucun chemin externe dans le filtergraph,
+    # donc rien à échapper même si le dossier contient ' : , [ ] ou des espaces.
+    link = out_dir / "fonts"
+    if link.is_symlink() or link.exists():
+        link.unlink()
+    link.symlink_to(Path(fonts).resolve(), target_is_directory=True)
+    sub_filter = f"subtitles=f={subs.name}:fontsdir=fonts"
 
     if schedule:
         canvas = out_dir / "canvas.png"
@@ -161,12 +167,13 @@ def render(video_id):
             length = times[k + 1] - start
             offsets.append(start)
             img = prescale(available[n], out_dir / f"slide{n:02d}.png", box)
-            inputs += ["-loop", "1", "-framerate", str(fps), "-t", f"{length:.3f}", "-i", str(img)]
+            # Une seule image en entrée : zoompan en tire toutes les images du plan (d = nombre d'images).
+            inputs += ["-i", str(img)]
             frames = max(1, round(length * fps))
             z = v["zoom_max"] - 1
             filters.append(
                 f"[{k + 1}:v]zoompan=z='1+{z}*on/{frames}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
-                f":d=1:s={box['w']}x{box['h']}:fps={fps},setsar=1,format=rgb24[s{k}]")
+                f":d={frames}:s={box['w']}x{box['h']}:fps={fps},setsar=1,format=rgb24[s{k}]")
         last = "s0"
         for k in range(1, len(schedule)):
             filters.append(f"[{last}][s{k}]xfade=transition=fade:duration={fade}:offset={offsets[k]:.3f}[x{k}]")
@@ -192,8 +199,8 @@ def render(video_id):
            "-pix_fmt", "yuv420p", "-r", str(fps), "-g", str(fps * 2),
            "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", "-color_range", "tv",
            "-c:a", "aac", "-b:a", v["audio_bitrate"], "-ar", str(v["audio_rate"]), "-ac", "2",
-           "-movflags", "+faststart", str(mp4)]
-    run(cmd)
+           "-movflags", "+faststart", str(mp4.resolve())]
+    run(cmd, cwd=out_dir)
     (out_dir / "render.json").write_text(json.dumps({"mode": mode, "schedule": schedule, "duration": duration},
                                                     ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"{video_id} : {mp4} ({duration:.1f} s, {mode})")

@@ -126,6 +126,7 @@ def build_ass(words, cfg, title=""):
         "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text",
     ]
     events = []
+    cursor = 0.0
     for gi, group in enumerate(groups):
         nxt = groups[gi + 1][0]["start"] if gi + 1 < len(groups) else None
         last_end = group[-1]["end"]
@@ -134,9 +135,10 @@ def build_ass(words, cfg, title=""):
         else:
             group_end = last_end + 0.3
         for wi, w in enumerate(group):
-            start = w["start"]
+            start = max(w["start"], cursor)
             end = group[wi + 1]["start"] if wi + 1 < len(group) else group_end
             end = max(end, start + 0.04)
+            cursor = end
             parts = []
             for k, other in enumerate(group):
                 if k == wi:

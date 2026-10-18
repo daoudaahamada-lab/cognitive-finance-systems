@@ -140,8 +140,8 @@ def qa_video(video_id):
         problems.append(f"{len(shown)} mots surlignés pour {len(tokens)} mots dans le texte")
     if widest > sc["max_width_px"]:
         problems.append(f"groupe trop large : {widest:.0f} px")
-    if not wdata["exact_alignment"]:
-        problems.append("alignement ElevenLabs différent du texte envoyé")
+    if wdata.get("unmatched_chars", 0):
+        problems.append(f"{wdata['unmatched_chars']} caractère(s) du texte absents de l'alignement ElevenLabs")
     if words[-1]["end"] > ref_dur - 0.02:
         problems.append("dernier mot collé à la fin du fichier audio")
     if tail_db > -40:
