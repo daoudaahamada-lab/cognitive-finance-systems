@@ -10,6 +10,7 @@ et fait le bilan de ce qui a été exécuté.
   python3 -m pipeline.carousel_jobs record WTH-004 post tiktok update|create ID UUID
   python3 -m pipeline.carousel_jobs record WTH-004 error "message"
   python3 -m pipeline.carousel_jobs status    bilan à partir de data/v2pro_state/WTH-XXX.json
+  python3 -m pipeline.carousel_jobs verify    compare au calendrier relu (data/metricool_verification.jsonl)
 
 Entrées : data/publication_plan.json (date, heure, texte), data/metricool_actions.json
 (post V1 à remplacer ou post à créer, par réseau), data/drive_v2pro_files.json (id Drive des
@@ -171,6 +172,39 @@ def status():
         print("  à faire :", line)
 
 
+def verify(listing="data/metricool_verification.jsonl"):
+    """Compare le calendrier relu dans Metricool (une ligne JSON par post) aux posts attendus."""
+    expected = {}
+    for entry in read_json(DATA / "publication_plan.json"):
+        state = read_json(STATE / f"{entry['id']}.json")
+        for net, post in state["posts"].items():
+            expected[post["uuid"]] = (entry["id"], f"{entry['date']}T{entry['heure']}:00", net,
+                                      entry["texte"].split("\n", 1)[0])
+    seen, problems, others = set(), [], []
+    for line in (ROOT / listing).read_text(encoding="utf-8").splitlines():
+        post = json.loads(line)
+        exp = expected.get(post["uuid"])
+        if exp is None:
+            others.append(post)
+            continue
+        carousel, when, net, first = exp
+        seen.add(post["uuid"])
+        checks = {"date": post["dateTime"] == when, "réseau": post["network"] == net,
+                  "brouillon": post["draft"] is False, "auto": post["autoPublish"] is True,
+                  "9 slides": post["media"] == 9, "png": post["ext"] == "png",
+                  "texte": first.startswith(post["first"].rstrip("…").strip()[:40])}
+        bad = [k for k, ok in checks.items() if not ok]
+        if bad:
+            problems.append(f"{carousel} {net} {post['dateTime']} : {', '.join(bad)}")
+    missing = [f"{c} {n} {w}" for u, (c, w, n, _) in expected.items() if u not in seen]
+    print(f"Attendus : {len(expected)}  retrouvés : {len(seen)}  autres posts : {len(others)}")
+    for label, items in (("écarts", problems), ("absents", missing)):
+        for item in items:
+            print(f"  {label} : {item}")
+    for post in others:
+        print(f"  autre : {post['dateTime']} {post['network']} draft={post['draft']} « {post['first']} »")
+
+
 if __name__ == "__main__":
     command, *args = sys.argv[1:] or ["status"]
-    {"jobs": jobs, "show": show, "record": record, "status": status}[command](*args)
+    {"jobs": jobs, "show": show, "record": record, "status": status, "verify": verify}[command](*args)
