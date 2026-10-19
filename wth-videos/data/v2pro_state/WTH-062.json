@@ -1,0 +1,51 @@
+{
+  "carrousel": "WTH-062",
+  "cloudinary": [
+    {
+      "public_id": "WTH-V2-Pro-062-01",
+      "secure_url": "https://res.cloudinary.com/byfnwwcw/image/upload/v1792444878/WTH-V2-Pro-062-01.png",
+      "existing": false
+    },
+    {
+      "public_id": "WTH-V2-Pro-062-02",
+      "secure_url": "https://res.cloudinary.com/byfnwwcw/image/upload/v1792444880/WTH-V2-Pro-062-02.png",
+      "existing": false
+    },
+    {
+      "public_id": "WTH-V2-Pro-062-03",
+      "secure_url": "https://res.cloudinary.com/byfnwwcw/image/upload/v1792444882/WTH-V2-Pro-062-03.png",
+      "existing": false
+    },
+    {
+      "public_id": "WTH-V2-Pro-062-04",
+      "secure_url": "https://res.cloudinary.com/byfnwwcw/image/upload/v1792444884/WTH-V2-Pro-062-04.png",
+      "existing": false
+    },
+    {
+      "public_id": "WTH-V2-Pro-062-05",
+      "secure_url": "https://res.cloudinary.com/byfnwwcw/image/upload/v1792444887/WTH-V2-Pro-062-05.png",
+      "existing": false
+    },
+    {
+      "public_id": "WTH-V2-Pro-062-06",
+      "secure_url": "https://res.cloudinary.com/byfnwwcw/image/upload/v1792444889/WTH-V2-Pro-062-06.png",
+      "existing": false
+    },
+    {
+      "public_id": "WTH-V2-Pro-062-07",
+      "secure_url": "https://res.cloudinary.com/byfnwwcw/image/upload/v1792444891/WTH-V2-Pro-062-07.png",
+      "existing": false
+    },
+    {
+      "public_id": "WTH-V2-Pro-062-08",
+      "secure_url": "https://res.cloudinary.com/byfnwwcw/image/upload/v1792444893/WTH-V2-Pro-062-08.png",
+      "existing": false
+    },
+    {
+      "public_id": "WTH-V2-Pro-062-09",
+      "secure_url": "https://res.cloudinary.com/byfnwwcw/image/upload/v1792444896/WTH-V2-Pro-062-09.png",
+      "existing": false
+    }
+  ],
+  "posts": {}
+}
