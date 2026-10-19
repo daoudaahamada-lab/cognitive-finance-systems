@@ -47,5 +47,33 @@
       "existing": false
     }
   ],
-  "posts": {}
+  "posts": {
+    "tiktok": {
+      "op": "update",
+      "id": "400496146",
+      "uuid": "4114970465911590047",
+      "draft": false,
+      "autoPublish": true,
+      "media": 9,
+      "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=6791889&openWithPostUuid=4114970465911590047"
+    },
+    "instagram": {
+      "op": "update",
+      "id": "400496214",
+      "uuid": "-980046394012057407",
+      "draft": false,
+      "autoPublish": true,
+      "media": 9,
+      "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=6791889&openWithPostUuid=-980046394012057407"
+    },
+    "facebook": {
+      "op": "update",
+      "id": "400496259",
+      "uuid": "6556229169094347658",
+      "draft": false,
+      "autoPublish": true,
+      "media": 9,
+      "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=6791889&openWithPostUuid=6556229169094347658"
+    }
+  }
 }
