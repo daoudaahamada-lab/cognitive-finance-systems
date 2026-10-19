@@ -1,0 +1,173 @@
+{
+  "carrousel": "WTH-069",
+  "date": "2026-11-11",
+  "heure": "19:30",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1eBWNruXtjpJ6wRmdSMNqop7wQUUEGoHA",
+        "public_id": "WTH-V2-Pro-069-01",
+        "asset_folder": "WTH-V2/WTH-069",
+        "display_name": "WTH-V2-Pro-069-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-069"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1jaPH950qeeQVs6vajNN2Qvc90Kf0zL1v",
+        "public_id": "WTH-V2-Pro-069-02",
+        "asset_folder": "WTH-V2/WTH-069",
+        "display_name": "WTH-V2-Pro-069-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-069"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1MO3-4jSPeqbSd4Ijgh3_GPtnkaJN0CBx",
+        "public_id": "WTH-V2-Pro-069-03",
+        "asset_folder": "WTH-V2/WTH-069",
+        "display_name": "WTH-V2-Pro-069-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-069"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1PFWs_279OBP2eztkqlKjFOsqcHm17SQP",
+        "public_id": "WTH-V2-Pro-069-04",
+        "asset_folder": "WTH-V2/WTH-069",
+        "display_name": "WTH-V2-Pro-069-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-069"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1_aGMv3QV8PH8DsoWx4p2SXF_ICX5xGfn",
+        "public_id": "WTH-V2-Pro-069-05",
+        "asset_folder": "WTH-V2/WTH-069",
+        "display_name": "WTH-V2-Pro-069-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-069"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1iadQZE0nPrDK3mxpkzVi3FUXSqWgnhvM",
+        "public_id": "WTH-V2-Pro-069-06",
+        "asset_folder": "WTH-V2/WTH-069",
+        "display_name": "WTH-V2-Pro-069-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-069"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1K7EbeawJ8IXBaAYLp92T38X_CNLttvsw",
+        "public_id": "WTH-V2-Pro-069-07",
+        "asset_folder": "WTH-V2/WTH-069",
+        "display_name": "WTH-V2-Pro-069-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-069"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1i63zqb6g-MWaez91nnbSdNvF02R154SM",
+        "public_id": "WTH-V2-Pro-069-08",
+        "asset_folder": "WTH-V2/WTH-069",
+        "display_name": "WTH-V2-Pro-069-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-069"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1L7Yla_JHyjCFPAW3GJFHa4w1WsnVU8gc",
+        "public_id": "WTH-V2-Pro-069-09",
+        "asset_folder": "WTH-V2/WTH-069",
+        "display_name": "WTH-V2-Pro-069-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-069"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-11T19:30:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-11-11T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"L’agent a préparé le RDV. Et après ?\\n\\nComment transformer chaque promesse faite au client en action suivie, en 4 étapes.\\n\\nCGP : combien de promesses faites en RDV sont tenues dans les délais ? Sois honnête en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"L’agent a préparé le RDV. Et après ?\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-11T19:30:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-11T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"L’agent a préparé le RDV. Et après ?\\n\\nComment transformer chaque promesse faite au client en action suivie, en 4 étapes.\\n\\nCGP : combien de promesses faites en RDV sont tenues dans les délais ? Sois honnête en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-11T19:30:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-11T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"L’agent a préparé le RDV. Et après ?\\n\\nComment transformer chaque promesse faite au client en action suivie, en 4 étapes.\\n\\nCGP : combien de promesses faites en RDV sont tenues dans les délais ? Sois honnête en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-069-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

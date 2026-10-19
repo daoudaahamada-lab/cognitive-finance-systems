@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-009",
+  "date": "2026-10-22",
+  "heure": "19:30",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=11b6sMx8pL-2LdHOxITk_YVup-oO-tDLF",
+        "public_id": "WTH-V2-Pro-009-01",
+        "asset_folder": "WTH-V2/WTH-009",
+        "display_name": "WTH-V2-Pro-009-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-009"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1f2gCsxfLpQnukKePIEDPd6FYt8o6qW9V",
+        "public_id": "WTH-V2-Pro-009-02",
+        "asset_folder": "WTH-V2/WTH-009",
+        "display_name": "WTH-V2-Pro-009-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-009"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1BTpGX7gpkqqrUCDoRG7A9wfnKnpNeV5d",
+        "public_id": "WTH-V2-Pro-009-03",
+        "asset_folder": "WTH-V2/WTH-009",
+        "display_name": "WTH-V2-Pro-009-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-009"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1J-Inxa2g_036vR-SoBlrI0R-JetT_QEK",
+        "public_id": "WTH-V2-Pro-009-04",
+        "asset_folder": "WTH-V2/WTH-009",
+        "display_name": "WTH-V2-Pro-009-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-009"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1wkPlZtc6Jn29tiCyJK4W-wXVvgTltWIR",
+        "public_id": "WTH-V2-Pro-009-05",
+        "asset_folder": "WTH-V2/WTH-009",
+        "display_name": "WTH-V2-Pro-009-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-009"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1oR89hyNIaHxlertKSLfRYSV_XrpnDp17",
+        "public_id": "WTH-V2-Pro-009-06",
+        "asset_folder": "WTH-V2/WTH-009",
+        "display_name": "WTH-V2-Pro-009-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-009"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1qdK2CXDEpyqI5xW5Dytb4TJrb1T-zjqW",
+        "public_id": "WTH-V2-Pro-009-07",
+        "asset_folder": "WTH-V2/WTH-009",
+        "display_name": "WTH-V2-Pro-009-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-009"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1tP4YWhc8-2GwL8-h81-S7RVma9R5-QPi",
+        "public_id": "WTH-V2-Pro-009-08",
+        "asset_folder": "WTH-V2/WTH-009",
+        "display_name": "WTH-V2-Pro-009-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-009"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1P7G2HDH7kZXEeYNT1OnJbp6KhuPKMnht",
+        "public_id": "WTH-V2-Pro-009-09",
+        "asset_folder": "WTH-V2/WTH-009",
+        "display_name": "WTH-V2-Pro-009-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-009"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "IA de conseil : à quel moment passe-t-on la main ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386573383",
+        "uuid": "8618674689927826717",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-22T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Ton agent IA a préparé le brief. Il est fluide, complet… et une info est inventée.\\n\\n4 erreurs à éviter avant ton RDV client.\\n\\nCGP : tu as déjà repéré une erreur dans un texte généré par IA ? Raconte en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Ton agent IA a préparé le brief. Il est fluide, complet… et une info est inventée.\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "IA de conseil : à quel moment passe-t-on la main ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386573924",
+        "uuid": "3009699660357715187",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-22T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Ton agent IA a préparé le brief. Il est fluide, complet… et une info est inventée.\\n\\n4 erreurs à éviter avant ton RDV client.\\n\\nCGP : tu as déjà repéré une erreur dans un texte généré par IA ? Raconte en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "IA de conseil : à quel moment passe-t-on la main ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386573654",
+        "uuid": "-8273654551759467184",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-22T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Ton agent IA a préparé le brief. Il est fluide, complet… et une info est inventée.\\n\\n4 erreurs à éviter avant ton RDV client.\\n\\nCGP : tu as déjà repéré une erreur dans un texte généré par IA ? Raconte en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-009-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "carrousel": "WTH-076",
+  "date": "2026-11-14",
+  "heure": "08:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1XjQwXnxd1lPoIw8OcMpqXlIEiHlpBZVP",
+        "public_id": "WTH-V2-Pro-076-01",
+        "asset_folder": "WTH-V2/WTH-076",
+        "display_name": "WTH-V2-Pro-076-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-076"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1dIyG9qH2dwovfVnvho0KSaULWB-0G5eT",
+        "public_id": "WTH-V2-Pro-076-02",
+        "asset_folder": "WTH-V2/WTH-076",
+        "display_name": "WTH-V2-Pro-076-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-076"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1Za_ycT5O7UplC6kLz6zFRfWgjfgSoKg1",
+        "public_id": "WTH-V2-Pro-076-03",
+        "asset_folder": "WTH-V2/WTH-076",
+        "display_name": "WTH-V2-Pro-076-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-076"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1cp_-bF0uCiHLJmGA8rqV99fcVijOgp-v",
+        "public_id": "WTH-V2-Pro-076-04",
+        "asset_folder": "WTH-V2/WTH-076",
+        "display_name": "WTH-V2-Pro-076-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-076"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1AXWCDaUg99uplxVVmNTkRcbcXSiyLy47",
+        "public_id": "WTH-V2-Pro-076-05",
+        "asset_folder": "WTH-V2/WTH-076",
+        "display_name": "WTH-V2-Pro-076-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-076"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1kDJDrklVJVePp7cGQXKrWXnwCbuZU03z",
+        "public_id": "WTH-V2-Pro-076-06",
+        "asset_folder": "WTH-V2/WTH-076",
+        "display_name": "WTH-V2-Pro-076-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-076"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=19L4mHBwcjZ0tki_8gTv-9khTni7RqT4l",
+        "public_id": "WTH-V2-Pro-076-07",
+        "asset_folder": "WTH-V2/WTH-076",
+        "display_name": "WTH-V2-Pro-076-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-076"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=19KFCGKQtJq5tN7p0JbXQHcUXVutf4il9",
+        "public_id": "WTH-V2-Pro-076-08",
+        "asset_folder": "WTH-V2/WTH-076",
+        "display_name": "WTH-V2-Pro-076-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-076"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1FJcgY_twy1aeFIBxnR0hJCmwjQBSCd1k",
+        "public_id": "WTH-V2-Pro-076-09",
+        "asset_folder": "WTH-V2/WTH-076",
+        "display_name": "WTH-V2-Pro-076-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-076"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-14T08:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-11-14T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Épargner plus » n’est pas un objectif\\n\\nComment écrire un objectif d’épargne qui tient en une phrase, en 7 points.\\n\\nTon objectif d’épargne en une phrase ? Écris-le en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"« Épargner plus » n’est pas un objectif\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-14T08:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-14T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Épargner plus » n’est pas un objectif\\n\\nComment écrire un objectif d’épargne qui tient en une phrase, en 7 points.\\n\\nTon objectif d’épargne en une phrase ? Écris-le en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-14T08:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-14T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Épargner plus » n’est pas un objectif\\n\\nComment écrire un objectif d’épargne qui tient en une phrase, en 7 points.\\n\\nTon objectif d’épargne en une phrase ? Écris-le en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-076-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

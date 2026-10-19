@@ -1,0 +1,173 @@
+{
+  "carrousel": "WTH-061",
+  "date": "2026-11-09",
+  "heure": "08:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=126wa9t97DPElXt2UedWiKI5rjWwMr-tz",
+        "public_id": "WTH-V2-Pro-061-01",
+        "asset_folder": "WTH-V2/WTH-061",
+        "display_name": "WTH-V2-Pro-061-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-061"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1D98MvBqQ6C3vBjlvBG7wY_-U_sjMbgWX",
+        "public_id": "WTH-V2-Pro-061-02",
+        "asset_folder": "WTH-V2/WTH-061",
+        "display_name": "WTH-V2-Pro-061-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-061"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1xd_6-uEA2Zw-XfDME5C4y1i1n1eLt9us",
+        "public_id": "WTH-V2-Pro-061-03",
+        "asset_folder": "WTH-V2/WTH-061",
+        "display_name": "WTH-V2-Pro-061-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-061"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1b5rVaAfcFFuCSqJZcA2EKinUQcAnaG1x",
+        "public_id": "WTH-V2-Pro-061-04",
+        "asset_folder": "WTH-V2/WTH-061",
+        "display_name": "WTH-V2-Pro-061-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-061"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1Vp4EtKjytGjSrKAAF7g5Rd6hHmDREbC0",
+        "public_id": "WTH-V2-Pro-061-05",
+        "asset_folder": "WTH-V2/WTH-061",
+        "display_name": "WTH-V2-Pro-061-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-061"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1Jm97t1eUlOflaKxsuOpXMx4TRa0NFGzc",
+        "public_id": "WTH-V2-Pro-061-06",
+        "asset_folder": "WTH-V2/WTH-061",
+        "display_name": "WTH-V2-Pro-061-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-061"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1_vYIe77-wGlTzBqmcoHPsl70151pNwVD",
+        "public_id": "WTH-V2-Pro-061-07",
+        "asset_folder": "WTH-V2/WTH-061",
+        "display_name": "WTH-V2-Pro-061-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-061"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1r9IN_ifhIlJH7HCzszV_jhky1xwqOqH5",
+        "public_id": "WTH-V2-Pro-061-08",
+        "asset_folder": "WTH-V2/WTH-061",
+        "display_name": "WTH-V2-Pro-061-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-061"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1V0GuVFTGm1eRLn1p-S5beKWfr_C5zLbQ",
+        "public_id": "WTH-V2-Pro-061-09",
+        "asset_folder": "WTH-V2/WTH-061",
+        "display_name": "WTH-V2-Pro-061-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-061"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-09T08:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-11-09T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Ce fonds a fait +25 % l’an dernier, c’est le meilleur. »\\n\\nMythe ou réalité ? 4 idées reçues sur les performances.\\n\\nTu as déjà choisi un placement sur sa performance de l’an dernier ? Raconte en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"« Ce fonds a fait +25 % l’an dernier, c’est le meilleur. »\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-09T08:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-09T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Ce fonds a fait +25 % l’an dernier, c’est le meilleur. »\\n\\nMythe ou réalité ? 4 idées reçues sur les performances.\\n\\nTu as déjà choisi un placement sur sa performance de l’an dernier ? Raconte en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-09T08:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-09T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Ce fonds a fait +25 % l’an dernier, c’est le meilleur. »\\n\\nMythe ou réalité ? 4 idées reçues sur les performances.\\n\\nTu as déjà choisi un placement sur sa performance de l’an dernier ? Raconte en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-061-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

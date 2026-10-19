@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-003",
+  "date": "2026-10-20",
+  "heure": "19:30",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1cZICR0q2ZYqjlWIxQaRk6iCjkzRinlr0",
+        "public_id": "WTH-V2-Pro-003-01",
+        "asset_folder": "WTH-V2/WTH-003",
+        "display_name": "WTH-V2-Pro-003-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-003"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1MZaQpguo_ptC3xMCd70at0RzPdkxcNUF",
+        "public_id": "WTH-V2-Pro-003-02",
+        "asset_folder": "WTH-V2/WTH-003",
+        "display_name": "WTH-V2-Pro-003-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-003"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1ZT_GpYIItcXWTU3lvkGQgMehlo-lKHi0",
+        "public_id": "WTH-V2-Pro-003-03",
+        "asset_folder": "WTH-V2/WTH-003",
+        "display_name": "WTH-V2-Pro-003-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-003"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1tKS7pQr7wSwqZXgmoM6pRAkEEDDPj1XL",
+        "public_id": "WTH-V2-Pro-003-04",
+        "asset_folder": "WTH-V2/WTH-003",
+        "display_name": "WTH-V2-Pro-003-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-003"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1PzhNoTJl5ToGgvGG5HiBDm9r_o1J4hg2",
+        "public_id": "WTH-V2-Pro-003-05",
+        "asset_folder": "WTH-V2/WTH-003",
+        "display_name": "WTH-V2-Pro-003-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-003"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1k6qb5GirIYcmPi3TSu_ZWmIaYOMOS-Le",
+        "public_id": "WTH-V2-Pro-003-06",
+        "asset_folder": "WTH-V2/WTH-003",
+        "display_name": "WTH-V2-Pro-003-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-003"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1k2MYBWlsc0TRIbMhOavHwIA_GhJIYDH1",
+        "public_id": "WTH-V2-Pro-003-07",
+        "asset_folder": "WTH-V2/WTH-003",
+        "display_name": "WTH-V2-Pro-003-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-003"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=15TXfPJnljTFCZDZPXTnaoIcNUDmlaYhG",
+        "public_id": "WTH-V2-Pro-003-08",
+        "asset_folder": "WTH-V2/WTH-003",
+        "display_name": "WTH-V2-Pro-003-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-003"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=18dv3AnBiIaoV69ms_YPZkeDaGj8Rra32",
+        "public_id": "WTH-V2-Pro-003-09",
+        "asset_folder": "WTH-V2/WTH-003",
+        "display_name": "WTH-V2-Pro-003-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-003"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "Le client devrait-il connaître l'usage de l'IA ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386572137",
+        "uuid": "-3233974020237211653",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-20T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Ton RDV client est à 9h. Comment le préparer avec l’IA en 5 étapes\\n\\n(sans perdre le contrôle)\\n\\nTu prépares tes RDV comment aujourd’hui ? Dis-le en commentaire, et enregistre ce post pour ton prochain client.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Ton RDV client est à 9h. Comment le préparer avec l’IA en 5 étapes\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "Le client devrait-il connaître l'usage de l'IA ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386572461",
+        "uuid": "6012427282450301542",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-20T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Ton RDV client est à 9h. Comment le préparer avec l’IA en 5 étapes\\n\\n(sans perdre le contrôle)\\n\\nTu prépares tes RDV comment aujourd’hui ? Dis-le en commentaire, et enregistre ce post pour ton prochain client.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "Le client devrait-il connaître l'usage de l'IA ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386572360",
+        "uuid": "-8128754797620147317",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-20T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Ton RDV client est à 9h. Comment le préparer avec l’IA en 5 étapes\\n\\n(sans perdre le contrôle)\\n\\nTu prépares tes RDV comment aujourd’hui ? Dis-le en commentaire, et enregistre ce post pour ton prochain client.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-003-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

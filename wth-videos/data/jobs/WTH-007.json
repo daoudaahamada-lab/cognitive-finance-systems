@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-007",
+  "date": "2026-10-22",
+  "heure": "08:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1jjFAY_fLCr3B8KCo6zm5h3JNh6mp3FlG",
+        "public_id": "WTH-V2-Pro-007-01",
+        "asset_folder": "WTH-V2/WTH-007",
+        "display_name": "WTH-V2-Pro-007-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-007"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1OkYNXJ8rAYKEQjPnXvms3TFdmHEQ1Ny2",
+        "public_id": "WTH-V2-Pro-007-02",
+        "asset_folder": "WTH-V2/WTH-007",
+        "display_name": "WTH-V2-Pro-007-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-007"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1XuT9r8B6bQiixuvc1ZYF6ZmQDNo2P7IP",
+        "public_id": "WTH-V2-Pro-007-03",
+        "asset_folder": "WTH-V2/WTH-007",
+        "display_name": "WTH-V2-Pro-007-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-007"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1zL5yifpIK7jkRkLrF5izvx9tEAX2Z0ij",
+        "public_id": "WTH-V2-Pro-007-04",
+        "asset_folder": "WTH-V2/WTH-007",
+        "display_name": "WTH-V2-Pro-007-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-007"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1ep0Wrn1AxRzb0KlqZlyMCR4DveE6pNhA",
+        "public_id": "WTH-V2-Pro-007-05",
+        "asset_folder": "WTH-V2/WTH-007",
+        "display_name": "WTH-V2-Pro-007-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-007"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1475IYdWFHV2E5m4z8Qo2wkye0c7oAz7w",
+        "public_id": "WTH-V2-Pro-007-06",
+        "asset_folder": "WTH-V2/WTH-007",
+        "display_name": "WTH-V2-Pro-007-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-007"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1r9Ov5XzLbYGaXWhAn-2pXG-xkNT7Zot-",
+        "public_id": "WTH-V2-Pro-007-07",
+        "asset_folder": "WTH-V2/WTH-007",
+        "display_name": "WTH-V2-Pro-007-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-007"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1bN38IL6ed4wmQ70ybVEHbcHaGPmLB3-P",
+        "public_id": "WTH-V2-Pro-007-08",
+        "asset_folder": "WTH-V2/WTH-007",
+        "display_name": "WTH-V2-Pro-007-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-007"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1VPjO7vqg_SgaXkeBwS1PRORWily4Jt9h",
+        "public_id": "WTH-V2-Pro-007-09",
+        "asset_folder": "WTH-V2/WTH-007",
+        "display_name": "WTH-V2-Pro-007-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-007"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "Le rendement passé n'est pas une promesse.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386573289",
+        "uuid": "983753903927020505",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-22T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"9 € par mois, ce n’est rien. Sauf que ça fait 108 € par an.\\n\\n5 prélèvements invisibles à vérifier ce soir.\\n\\nCombien d’abonnements tu paies en ce moment ? Compte-les et dis-le en commentaire. Le but n’est pas de tout couper : c’est de choisir.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"9 € par mois, ce n’est rien. Sauf que ça fait 108 € par an.\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "Le rendement passé n'est pas une promesse.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386573812",
+        "uuid": "608477623062839972",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-22T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"9 € par mois, ce n’est rien. Sauf que ça fait 108 € par an.\\n\\n5 prélèvements invisibles à vérifier ce soir.\\n\\nCombien d’abonnements tu paies en ce moment ? Compte-les et dis-le en commentaire. Le but n’est pas de tout couper : c’est de choisir.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "Le rendement passé n'est pas une promesse.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386573728",
+        "uuid": "6833301804730896109",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-22T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"9 € par mois, ce n’est rien. Sauf que ça fait 108 € par an.\\n\\n5 prélèvements invisibles à vérifier ce soir.\\n\\nCombien d’abonnements tu paies en ce moment ? Compte-les et dis-le en commentaire. Le but n’est pas de tout couper : c’est de choisir.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-007-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

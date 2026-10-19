@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-023",
+  "date": "2026-10-27",
+  "heure": "13:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1VQQyJgWMgIvXJMYn9wQIa2o1U230iwYA",
+        "public_id": "WTH-V2-Pro-023-01",
+        "asset_folder": "WTH-V2/WTH-023",
+        "display_name": "WTH-V2-Pro-023-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-023"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1Uh32FelXm7VrIU3fWW7dY1InHO8lV8Z4",
+        "public_id": "WTH-V2-Pro-023-02",
+        "asset_folder": "WTH-V2/WTH-023",
+        "display_name": "WTH-V2-Pro-023-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-023"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1S_IGWExX2ZiG4ZsXsEZuFCE70w6VbRhr",
+        "public_id": "WTH-V2-Pro-023-03",
+        "asset_folder": "WTH-V2/WTH-023",
+        "display_name": "WTH-V2-Pro-023-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-023"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1zcFvXbOm7DseeOTFEh-o12mZe4nGB-cd",
+        "public_id": "WTH-V2-Pro-023-04",
+        "asset_folder": "WTH-V2/WTH-023",
+        "display_name": "WTH-V2-Pro-023-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-023"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=15v44ysdmOaWvN4iruCMGLTB-2RBInUDl",
+        "public_id": "WTH-V2-Pro-023-05",
+        "asset_folder": "WTH-V2/WTH-023",
+        "display_name": "WTH-V2-Pro-023-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-023"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1CJkq7G4qh7uqD2LNDzr25O04ODkGNgln",
+        "public_id": "WTH-V2-Pro-023-06",
+        "asset_folder": "WTH-V2/WTH-023",
+        "display_name": "WTH-V2-Pro-023-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-023"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1l4UNMV_0HfWMCEJKxSu8ly2DPJLNu4U9",
+        "public_id": "WTH-V2-Pro-023-07",
+        "asset_folder": "WTH-V2/WTH-023",
+        "display_name": "WTH-V2-Pro-023-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-023"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1_7SIXqEV44_L3sb9UdsAEqyUockmrbVf",
+        "public_id": "WTH-V2-Pro-023-08",
+        "asset_folder": "WTH-V2/WTH-023",
+        "display_name": "WTH-V2-Pro-023-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-023"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1kR8P0LtTFBQrgpGzyndh4tnpjnpJ7Oi4",
+        "public_id": "WTH-V2-Pro-023-09",
+        "asset_folder": "WTH-V2/WTH-023",
+        "display_name": "WTH-V2-Pro-023-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-023"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "Le meilleur produit wealthtech n'est pas forcément une app.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386576827",
+        "uuid": "-839763955519634661",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-27T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Ton dashboard financier est plein de graphiques. Et pourtant, il ne t’aide pas.\\n\\n4 erreurs de tableau de bord.\\n\\nQuel chiffre regardes-tu en premier dans ton app ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Ton dashboard financier est plein de graphiques. Et pourtant, il ne t’aide pas.\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "Le meilleur produit wealthtech n'est pas forcément une app.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386577312",
+        "uuid": "-1871624162795369995",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-27T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Ton dashboard financier est plein de graphiques. Et pourtant, il ne t’aide pas.\\n\\n4 erreurs de tableau de bord.\\n\\nQuel chiffre regardes-tu en premier dans ton app ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "Le meilleur produit wealthtech n'est pas forcément une app.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386577092",
+        "uuid": "-7311317413265325350",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-27T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Ton dashboard financier est plein de graphiques. Et pourtant, il ne t’aide pas.\\n\\n4 erreurs de tableau de bord.\\n\\nQuel chiffre regardes-tu en premier dans ton app ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-023-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-002",
+  "date": "2026-10-20",
+  "heure": "13:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1R5gFIfKwm9UD4whsF0h1TwUbH6NuSNGq",
+        "public_id": "WTH-V2-Pro-002-01",
+        "asset_folder": "WTH-V2/WTH-002",
+        "display_name": "WTH-V2-Pro-002-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-002"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1NBKqIE_b_aBi7sPewt9k3b3ssfppQVMz",
+        "public_id": "WTH-V2-Pro-002-02",
+        "asset_folder": "WTH-V2/WTH-002",
+        "display_name": "WTH-V2-Pro-002-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-002"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1O-CUNbWjXOqNoeLwvSJ-Ly9jOM8iC98q",
+        "public_id": "WTH-V2-Pro-002-03",
+        "asset_folder": "WTH-V2/WTH-002",
+        "display_name": "WTH-V2-Pro-002-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-002"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1NeKKuC8C6aTnRH_g4l9aM-ZIdsbkTusJ",
+        "public_id": "WTH-V2-Pro-002-04",
+        "asset_folder": "WTH-V2/WTH-002",
+        "display_name": "WTH-V2-Pro-002-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-002"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1wm9Wc6JJ7QbXFTZP5S00GyEhNKjCglnV",
+        "public_id": "WTH-V2-Pro-002-05",
+        "asset_folder": "WTH-V2/WTH-002",
+        "display_name": "WTH-V2-Pro-002-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-002"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1pO43ji8HVyRuAjo5xa1ekEtqpiFpt29l",
+        "public_id": "WTH-V2-Pro-002-06",
+        "asset_folder": "WTH-V2/WTH-002",
+        "display_name": "WTH-V2-Pro-002-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-002"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1fFJUt2vvFeWs_WD7MN-YijsKZIVeSsaP",
+        "public_id": "WTH-V2-Pro-002-07",
+        "asset_folder": "WTH-V2/WTH-002",
+        "display_name": "WTH-V2-Pro-002-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-002"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1WArR2-nbq-WlN_nVSOYr9OYhuDWPmR_K",
+        "public_id": "WTH-V2-Pro-002-08",
+        "asset_folder": "WTH-V2/WTH-002",
+        "display_name": "WTH-V2-Pro-002-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-002"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1iiX1LdD3h360pjZ4S9m2_61EZfvPtpw3",
+        "public_id": "WTH-V2-Pro-002-09",
+        "asset_folder": "WTH-V2/WTH-002",
+        "display_name": "WTH-V2-Pro-002-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-002"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "Le vrai défi de l'open wealth.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386572084",
+        "uuid": "6493453645150833144",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-20T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"5 erreurs quand tu connectes ta banque à une app\\n\\n(et comment les éviter)\\n\\nApp de budget, agrégateur, app d’investissement : si tu as déjà cliqué sur « Connecter ma banque », ce post est pour toi.\\n\\nCombien d’apps lisent tes comptes en ce moment ? Réponds en commentaire, et enregistre ce post pour faire le tri ce week-end.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"5 erreurs quand tu connectes ta banque à une app\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "Le vrai défi de l'open wealth.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386572591",
+        "uuid": "5546646689224738725",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-20T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"5 erreurs quand tu connectes ta banque à une app\\n\\n(et comment les éviter)\\n\\nApp de budget, agrégateur, app d’investissement : si tu as déjà cliqué sur « Connecter ma banque », ce post est pour toi.\\n\\nCombien d’apps lisent tes comptes en ce moment ? Réponds en commentaire, et enregistre ce post pour faire le tri ce week-end.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "Le vrai défi de l'open wealth.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386572203",
+        "uuid": "2568548779585979576",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-20T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"5 erreurs quand tu connectes ta banque à une app\\n\\n(et comment les éviter)\\n\\nApp de budget, agrégateur, app d’investissement : si tu as déjà cliqué sur « Connecter ma banque », ce post est pour toi.\\n\\nCombien d’apps lisent tes comptes en ce moment ? Réponds en commentaire, et enregistre ce post pour faire le tri ce week-end.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-002-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

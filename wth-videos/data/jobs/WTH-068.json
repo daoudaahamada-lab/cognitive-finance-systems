@@ -1,0 +1,173 @@
+{
+  "carrousel": "WTH-068",
+  "date": "2026-11-11",
+  "heure": "13:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1SnLEj14L0OG2612Wo_zs5MWgEZIDumGy",
+        "public_id": "WTH-V2-Pro-068-01",
+        "asset_folder": "WTH-V2/WTH-068",
+        "display_name": "WTH-V2-Pro-068-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-068"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1vd3WM96WXNGO6JTW9wALfLnBVZjauY_v",
+        "public_id": "WTH-V2-Pro-068-02",
+        "asset_folder": "WTH-V2/WTH-068",
+        "display_name": "WTH-V2-Pro-068-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-068"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1d-vv_m7R9wEQqfsRFIk7PHoeem_K5MVr",
+        "public_id": "WTH-V2-Pro-068-03",
+        "asset_folder": "WTH-V2/WTH-068",
+        "display_name": "WTH-V2-Pro-068-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-068"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1hAlCx-D7vNNVGfPq-MTcZx5C1H0XHTuL",
+        "public_id": "WTH-V2-Pro-068-04",
+        "asset_folder": "WTH-V2/WTH-068",
+        "display_name": "WTH-V2-Pro-068-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-068"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1xiT_zc1bJ-A-zYI-RUClDUaRnbb1pKFT",
+        "public_id": "WTH-V2-Pro-068-05",
+        "asset_folder": "WTH-V2/WTH-068",
+        "display_name": "WTH-V2-Pro-068-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-068"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1eXXrLgyvs3Y90rkLoZFseovbLwgeSrGF",
+        "public_id": "WTH-V2-Pro-068-06",
+        "asset_folder": "WTH-V2/WTH-068",
+        "display_name": "WTH-V2-Pro-068-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-068"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1rQlH4Uojl38tBv1OrADXnYw1Z0NF9snY",
+        "public_id": "WTH-V2-Pro-068-07",
+        "asset_folder": "WTH-V2/WTH-068",
+        "display_name": "WTH-V2-Pro-068-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-068"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1TPW0P83IfR0MSKQxyMsrXzDGVAWZLwdj",
+        "public_id": "WTH-V2-Pro-068-08",
+        "asset_folder": "WTH-V2/WTH-068",
+        "display_name": "WTH-V2-Pro-068-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-068"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=17Ygl9foy6W3wH3fjhcRokLdRAsAtcn26",
+        "public_id": "WTH-V2-Pro-068-09",
+        "asset_folder": "WTH-V2/WTH-068",
+        "display_name": "WTH-V2-Pro-068-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-068"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-11T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-11-11T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Tes données financières t’appartiennent\\n\\n5 droits et réflexes pour garder la main.\\n\\nTu as déjà demandé à un service quelles données il avait sur toi ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Tes données financières t’appartiennent\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-11T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-11T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Tes données financières t’appartiennent\\n\\n5 droits et réflexes pour garder la main.\\n\\nTu as déjà demandé à un service quelles données il avait sur toi ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-11T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-11T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Tes données financières t’appartiennent\\n\\n5 droits et réflexes pour garder la main.\\n\\nTu as déjà demandé à un service quelles données il avait sur toi ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-068-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

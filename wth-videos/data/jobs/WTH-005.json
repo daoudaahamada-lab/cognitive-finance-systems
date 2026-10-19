@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-005",
+  "date": "2026-10-21",
+  "heure": "13:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1PgpPjXF3YeCDeEMe3YWyKXDG0rKODH9A",
+        "public_id": "WTH-V2-Pro-005-01",
+        "asset_folder": "WTH-V2/WTH-005",
+        "display_name": "WTH-V2-Pro-005-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-005"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1m5O8RIY79gfBCggoVi4WkI2yl6VmxmLP",
+        "public_id": "WTH-V2-Pro-005-02",
+        "asset_folder": "WTH-V2/WTH-005",
+        "display_name": "WTH-V2-Pro-005-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-005"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1UZlq7op6HUCXXWQYJRqIUYkh4DnTICev",
+        "public_id": "WTH-V2-Pro-005-03",
+        "asset_folder": "WTH-V2/WTH-005",
+        "display_name": "WTH-V2-Pro-005-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-005"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1Mjs-weH3OlFgfqvt4ZFFubOyP6UGcpPW",
+        "public_id": "WTH-V2-Pro-005-04",
+        "asset_folder": "WTH-V2/WTH-005",
+        "display_name": "WTH-V2-Pro-005-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-005"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1bBtxh9tHiCfYDpTAVhm-v6kTSq7RyozH",
+        "public_id": "WTH-V2-Pro-005-05",
+        "asset_folder": "WTH-V2/WTH-005",
+        "display_name": "WTH-V2-Pro-005-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-005"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1XHsPcrrjfcg7NAo8ryjtYeBgcBzZCuoH",
+        "public_id": "WTH-V2-Pro-005-06",
+        "asset_folder": "WTH-V2/WTH-005",
+        "display_name": "WTH-V2-Pro-005-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-005"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1FmTsMvhJmKsAcPrLNAzWKxJoJOyJJGFd",
+        "public_id": "WTH-V2-Pro-005-07",
+        "asset_folder": "WTH-V2/WTH-005",
+        "display_name": "WTH-V2-Pro-005-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-005"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1FyI77jfZbatiG3wbGMiasMXHcVAnm6ji",
+        "public_id": "WTH-V2-Pro-005-08",
+        "asset_folder": "WTH-V2/WTH-005",
+        "display_name": "WTH-V2-Pro-005-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-005"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1C4d8g83pOa4UapgRBER1Ifsd2rWAiRyh",
+        "public_id": "WTH-V2-Pro-005-09",
+        "asset_folder": "WTH-V2/WTH-005",
+        "display_name": "WTH-V2-Pro-005-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-005"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "Pourquoi la cybersécurité fait partie de la wealthtech ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386572675",
+        "uuid": "1552415955193512287",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-21T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Une app qui regroupe tous mes comptes me dit tout sur mon argent. »\\n\\nMythe ou réalité ? 4 idées reçues sur les agrégateurs.\\n\\nTu utilises une app qui regroupe tes comptes ? Laquelle, et qu’est-ce qu’elle t’a appris ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"« Une app qui regroupe tous mes comptes me dit tout sur mon argent. »\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "Pourquoi la cybersécurité fait partie de la wealthtech ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386573122",
+        "uuid": "2055180393417231530",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-21T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Une app qui regroupe tous mes comptes me dit tout sur mon argent. »\\n\\nMythe ou réalité ? 4 idées reçues sur les agrégateurs.\\n\\nTu utilises une app qui regroupe tes comptes ? Laquelle, et qu’est-ce qu’elle t’a appris ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "Pourquoi la cybersécurité fait partie de la wealthtech ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386573007",
+        "uuid": "-7841854603417141136",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-21T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Une app qui regroupe tous mes comptes me dit tout sur mon argent. »\\n\\nMythe ou réalité ? 4 idées reçues sur les agrégateurs.\\n\\nTu utilises une app qui regroupe tes comptes ? Laquelle, et qu’est-ce qu’elle t’a appris ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-005-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

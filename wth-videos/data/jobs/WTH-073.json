@@ -1,0 +1,173 @@
+{
+  "carrousel": "WTH-073",
+  "date": "2026-11-13",
+  "heure": "08:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1BAqGmgYDFiPdigFJ2ivarAT0v-JcUQAf",
+        "public_id": "WTH-V2-Pro-073-01",
+        "asset_folder": "WTH-V2/WTH-073",
+        "display_name": "WTH-V2-Pro-073-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-073"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1lyhn0Y2fdLw9dRKCsFbO9y1JQu-eGfDH",
+        "public_id": "WTH-V2-Pro-073-02",
+        "asset_folder": "WTH-V2/WTH-073",
+        "display_name": "WTH-V2-Pro-073-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-073"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1EyyfUbimGyW0DDaWJY9MUwTgNJmqhxro",
+        "public_id": "WTH-V2-Pro-073-03",
+        "asset_folder": "WTH-V2/WTH-073",
+        "display_name": "WTH-V2-Pro-073-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-073"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1mjaOtSaWossMBrCr1Axbn-GFk7QsIL6R",
+        "public_id": "WTH-V2-Pro-073-04",
+        "asset_folder": "WTH-V2/WTH-073",
+        "display_name": "WTH-V2-Pro-073-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-073"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1W_rrS1hHaWvt5YsfDg5VnxsmI6ye6tCS",
+        "public_id": "WTH-V2-Pro-073-05",
+        "asset_folder": "WTH-V2/WTH-073",
+        "display_name": "WTH-V2-Pro-073-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-073"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=19Rf3idLFkapncoqqvnzBh6gdB2VnYb0N",
+        "public_id": "WTH-V2-Pro-073-06",
+        "asset_folder": "WTH-V2/WTH-073",
+        "display_name": "WTH-V2-Pro-073-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-073"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=16lH4wTZ77XtTxPPeeuWv9NjahKd7Bqdw",
+        "public_id": "WTH-V2-Pro-073-07",
+        "asset_folder": "WTH-V2/WTH-073",
+        "display_name": "WTH-V2-Pro-073-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-073"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1_NS-eT_IeVkGQrDg-vgTEnb9uILDTsAI",
+        "public_id": "WTH-V2-Pro-073-08",
+        "asset_folder": "WTH-V2/WTH-073",
+        "display_name": "WTH-V2-Pro-073-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-073"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1UAGdj7xWhI3L4RiLg6khH1zAR3WPG7z-",
+        "public_id": "WTH-V2-Pro-073-09",
+        "asset_folder": "WTH-V2/WTH-073",
+        "display_name": "WTH-V2-Pro-073-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-073"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-13T08:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-11-13T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"10 minutes par semaine pour éviter les mauvaises surprises\\n\\nComment faire ton point argent, en 4 étapes.\\n\\nTu fais un point sur tes comptes chaque semaine ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"10 minutes par semaine pour éviter les mauvaises surprises\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-13T08:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-13T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"10 minutes par semaine pour éviter les mauvaises surprises\\n\\nComment faire ton point argent, en 4 étapes.\\n\\nTu fais un point sur tes comptes chaque semaine ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-13T08:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-13T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"10 minutes par semaine pour éviter les mauvaises surprises\\n\\nComment faire ton point argent, en 4 étapes.\\n\\nTu fais un point sur tes comptes chaque semaine ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-073-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

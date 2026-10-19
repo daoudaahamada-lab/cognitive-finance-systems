@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-021",
+  "date": "2026-10-26",
+  "heure": "19:30",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1NsP_sSobw5Stl188uX1JNfRiqefDStGk",
+        "public_id": "WTH-V2-Pro-021-01",
+        "asset_folder": "WTH-V2/WTH-021",
+        "display_name": "WTH-V2-Pro-021-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-021"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1htvKC74dZxyua7LwwkDezYIEiHqqKoYL",
+        "public_id": "WTH-V2-Pro-021-02",
+        "asset_folder": "WTH-V2/WTH-021",
+        "display_name": "WTH-V2-Pro-021-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-021"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1shs028vt4VWIW8h-MfOsgeBSf_guiwTb",
+        "public_id": "WTH-V2-Pro-021-03",
+        "asset_folder": "WTH-V2/WTH-021",
+        "display_name": "WTH-V2-Pro-021-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-021"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1dmng_yBJNYzXQpfUkJWYET_e72MmTkjH",
+        "public_id": "WTH-V2-Pro-021-04",
+        "asset_folder": "WTH-V2/WTH-021",
+        "display_name": "WTH-V2-Pro-021-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-021"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1rDskPNy1SxGxFvmz0rxQzYhUOzSOqMwU",
+        "public_id": "WTH-V2-Pro-021-05",
+        "asset_folder": "WTH-V2/WTH-021",
+        "display_name": "WTH-V2-Pro-021-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-021"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1QHZEJf-e9HMiFxhJRhbcebGEn18tMWyM",
+        "public_id": "WTH-V2-Pro-021-06",
+        "asset_folder": "WTH-V2/WTH-021",
+        "display_name": "WTH-V2-Pro-021-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-021"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1bjnXl4PVI2RgCg-3yu0qugwVM--_L-00",
+        "public_id": "WTH-V2-Pro-021-07",
+        "asset_folder": "WTH-V2/WTH-021",
+        "display_name": "WTH-V2-Pro-021-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-021"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=14CC2v1zEdPvlS5FO4_YihCEe9Pd2kTh5",
+        "public_id": "WTH-V2-Pro-021-08",
+        "asset_folder": "WTH-V2/WTH-021",
+        "display_name": "WTH-V2-Pro-021-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-021"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1ivj6mtqFXb7bi5oH4Ki9RLN7bL4N16Sk",
+        "public_id": "WTH-V2-Pro-021-09",
+        "asset_folder": "WTH-V2/WTH-021",
+        "display_name": "WTH-V2-Pro-021-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-021"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "Ton rendez-vous financier : prépare ces trois choses.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386576151",
+        "uuid": "-8561690418441008094",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-26T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"La meilleure info du dossier client n’est pas dans le dossier\\n\\n5 changements de vie qui doivent tout faire revoir.\\n\\nCGP : quel changement de vie tes clients oublient de te signaler ? Réponds en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"La meilleure info du dossier client n’est pas dans le dossier\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "Ton rendez-vous financier : prépare ces trois choses.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386576550",
+        "uuid": "7604684927963385454",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-26T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"La meilleure info du dossier client n’est pas dans le dossier\\n\\n5 changements de vie qui doivent tout faire revoir.\\n\\nCGP : quel changement de vie tes clients oublient de te signaler ? Réponds en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "Ton rendez-vous financier : prépare ces trois choses.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386576349",
+        "uuid": "-7227743989400452133",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-26T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"La meilleure info du dossier client n’est pas dans le dossier\\n\\n5 changements de vie qui doivent tout faire revoir.\\n\\nCGP : quel changement de vie tes clients oublient de te signaler ? Réponds en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-021-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

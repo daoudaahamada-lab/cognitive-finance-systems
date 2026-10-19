@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-006",
+  "date": "2026-10-21",
+  "heure": "19:30",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1IdDfWeT-eOYnt2Lre9Kfpk7jGGa7I6nn",
+        "public_id": "WTH-V2-Pro-006-01",
+        "asset_folder": "WTH-V2/WTH-006",
+        "display_name": "WTH-V2-Pro-006-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-006"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=17-XIndNkdiOC4_3sb562SpgUilV9ZkxZ",
+        "public_id": "WTH-V2-Pro-006-02",
+        "asset_folder": "WTH-V2/WTH-006",
+        "display_name": "WTH-V2-Pro-006-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-006"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1_kPa9S4acNCaRi5RqG2LHJ0qjWsxGTkN",
+        "public_id": "WTH-V2-Pro-006-03",
+        "asset_folder": "WTH-V2/WTH-006",
+        "display_name": "WTH-V2-Pro-006-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-006"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1rJ7E6mJmsjIzHyUvqUtOhfEffsFu3XrP",
+        "public_id": "WTH-V2-Pro-006-04",
+        "asset_folder": "WTH-V2/WTH-006",
+        "display_name": "WTH-V2-Pro-006-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-006"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1JCz_GA97YqqtKlgFyr6112b1P6-XuETc",
+        "public_id": "WTH-V2-Pro-006-05",
+        "asset_folder": "WTH-V2/WTH-006",
+        "display_name": "WTH-V2-Pro-006-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-006"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=15_0VKPQTK1K89HfdOg5bAhM-wZYl1Zwe",
+        "public_id": "WTH-V2-Pro-006-06",
+        "asset_folder": "WTH-V2/WTH-006",
+        "display_name": "WTH-V2-Pro-006-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-006"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1MUfbX1FTWxxKykQsid1RXAtwU68LgH6O",
+        "public_id": "WTH-V2-Pro-006-07",
+        "asset_folder": "WTH-V2/WTH-006",
+        "display_name": "WTH-V2-Pro-006-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-006"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1fhrqXJo-8Z0hRiPhqY_1bVR2IuYqNxUQ",
+        "public_id": "WTH-V2-Pro-006-08",
+        "asset_folder": "WTH-V2/WTH-006",
+        "display_name": "WTH-V2-Pro-006-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-006"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1qJ77MqlDx6ZmW04dTgW0j2bqsqztdVBR",
+        "public_id": "WTH-V2-Pro-006-09",
+        "asset_folder": "WTH-V2/WTH-006",
+        "display_name": "WTH-V2-Pro-006-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-006"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "Le paiement fractionné reste une dépense.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386572764",
+        "uuid": "4602483452084701352",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-21T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Ton solde n’est pas ton budget\\n\\n4 erreurs qu’on fait tous en regardant son compte.\\n\\nTu regardes ton solde combien de fois par jour ? Enregistre ce post et fais le calcul ce soir.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Ton solde n’est pas ton budget\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "Le paiement fractionné reste une dépense.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386573206",
+        "uuid": "-1240635445508881869",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-21T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Ton solde n’est pas ton budget\\n\\n4 erreurs qu’on fait tous en regardant son compte.\\n\\nTu regardes ton solde combien de fois par jour ? Enregistre ce post et fais le calcul ce soir.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "Le paiement fractionné reste une dépense.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386572867",
+        "uuid": "-8691024547214047254",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-21T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Ton solde n’est pas ton budget\\n\\n4 erreurs qu’on fait tous en regardant son compte.\\n\\nTu regardes ton solde combien de fois par jour ? Enregistre ce post et fais le calcul ce soir.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-006-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

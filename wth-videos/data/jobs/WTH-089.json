@@ -1,0 +1,173 @@
+{
+  "carrousel": "WTH-089",
+  "date": "2026-11-18",
+  "heure": "13:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1FcG3ABW1K6I0b-il5_sm-_pVl8h2Wvpu",
+        "public_id": "WTH-V2-Pro-089-01",
+        "asset_folder": "WTH-V2/WTH-089",
+        "display_name": "WTH-V2-Pro-089-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-089"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1w2TPtzxei92UUdJ0ykJD_osPksszA7eI",
+        "public_id": "WTH-V2-Pro-089-02",
+        "asset_folder": "WTH-V2/WTH-089",
+        "display_name": "WTH-V2-Pro-089-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-089"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1c5eBt-8Uj5oHUuJokcRXYnCcnlWUujwd",
+        "public_id": "WTH-V2-Pro-089-03",
+        "asset_folder": "WTH-V2/WTH-089",
+        "display_name": "WTH-V2-Pro-089-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-089"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1Yubm8_dQUCinpwc1j0WVSBkpj1AbJ_ZH",
+        "public_id": "WTH-V2-Pro-089-04",
+        "asset_folder": "WTH-V2/WTH-089",
+        "display_name": "WTH-V2-Pro-089-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-089"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1Fos9Bu61zWW-dOSjjGksLzunOvSzSwxX",
+        "public_id": "WTH-V2-Pro-089-05",
+        "asset_folder": "WTH-V2/WTH-089",
+        "display_name": "WTH-V2-Pro-089-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-089"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1o1C36SBVdH4SEtZJGj2F0MdeQyTiRHkD",
+        "public_id": "WTH-V2-Pro-089-06",
+        "asset_folder": "WTH-V2/WTH-089",
+        "display_name": "WTH-V2-Pro-089-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-089"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1hrZWp2jI26zVobWuo-z3Yj0LXLx5SYC-",
+        "public_id": "WTH-V2-Pro-089-07",
+        "asset_folder": "WTH-V2/WTH-089",
+        "display_name": "WTH-V2-Pro-089-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-089"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1JIxz4uUGp59fRl5mk5hWTt8k7jBMolG2",
+        "public_id": "WTH-V2-Pro-089-08",
+        "asset_folder": "WTH-V2/WTH-089",
+        "display_name": "WTH-V2-Pro-089-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-089"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1D33G3BzozkdLC1mtUxyQYWCWWbB2-ox_",
+        "public_id": "WTH-V2-Pro-089-09",
+        "asset_folder": "WTH-V2/WTH-089",
+        "display_name": "WTH-V2-Pro-089-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-089"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-18T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-11-18T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Qu’est-ce qui manque encore à la wealthtech ?\\n\\n5 problèmes que la technologie n’a toujours pas réglés.\\n\\nQuelle friction financière la tech n’a toujours pas réglée pour toi ? Dis-la en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Qu’est-ce qui manque encore à la wealthtech ?\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-18T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-18T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Qu’est-ce qui manque encore à la wealthtech ?\\n\\n5 problèmes que la technologie n’a toujours pas réglés.\\n\\nQuelle friction financière la tech n’a toujours pas réglée pour toi ? Dis-la en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-18T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-18T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Qu’est-ce qui manque encore à la wealthtech ?\\n\\n5 problèmes que la technologie n’a toujours pas réglés.\\n\\nQuelle friction financière la tech n’a toujours pas réglée pour toi ? Dis-la en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-089-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

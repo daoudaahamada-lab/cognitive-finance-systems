@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-024",
+  "date": "2026-10-27",
+  "heure": "19:30",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1o50PVaPMDRjx131xNTk0wz_TcWwPUyJ5",
+        "public_id": "WTH-V2-Pro-024-01",
+        "asset_folder": "WTH-V2/WTH-024",
+        "display_name": "WTH-V2-Pro-024-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-024"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1-ktCv5GrIzQklGe_-kX65HN18Zbu4Axn",
+        "public_id": "WTH-V2-Pro-024-02",
+        "asset_folder": "WTH-V2/WTH-024",
+        "display_name": "WTH-V2-Pro-024-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-024"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1jJWUy8xuT-xogL-vt_VDQDtAuYjB9TJz",
+        "public_id": "WTH-V2-Pro-024-03",
+        "asset_folder": "WTH-V2/WTH-024",
+        "display_name": "WTH-V2-Pro-024-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-024"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1K6OpQeylNkGJZv9bCgvEgI1GMq8L6U0H",
+        "public_id": "WTH-V2-Pro-024-04",
+        "asset_folder": "WTH-V2/WTH-024",
+        "display_name": "WTH-V2-Pro-024-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-024"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1SoUbN7M1_6q26nocynLta2YVFQiWIyZ7",
+        "public_id": "WTH-V2-Pro-024-05",
+        "asset_folder": "WTH-V2/WTH-024",
+        "display_name": "WTH-V2-Pro-024-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-024"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1q-X42fuXbQJFtMUSL5TgZoOuCDtRxjLY",
+        "public_id": "WTH-V2-Pro-024-06",
+        "asset_folder": "WTH-V2/WTH-024",
+        "display_name": "WTH-V2-Pro-024-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-024"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1ZZkfBznjMaQPmc01gzWPmEVfTlz5gWZ5",
+        "public_id": "WTH-V2-Pro-024-07",
+        "asset_folder": "WTH-V2/WTH-024",
+        "display_name": "WTH-V2-Pro-024-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-024"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=14PU2ys5KppACw6e1hw-AhuxCyFxFcIgZ",
+        "public_id": "WTH-V2-Pro-024-08",
+        "asset_folder": "WTH-V2/WTH-024",
+        "display_name": "WTH-V2-Pro-024-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-024"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1e9-eguv1VrZPNgbtjqOPoVegxIlpWrce",
+        "public_id": "WTH-V2-Pro-024-09",
+        "asset_folder": "WTH-V2/WTH-024",
+        "display_name": "WTH-V2-Pro-024-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-024"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "Un budget serré n'est pas une faute personnelle.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386576901",
+        "uuid": "-6975442773126199314",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-27T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Le virement automatique, c’est l’arme anti-procrastination de l’épargne\\n\\nComment bien le régler en 4 étapes.\\n\\nTu as un virement automatique vers ton épargne ? Dis-le en commentaire. Sinon, enregistre ce post et programme-le à ta prochaine paie.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Le virement automatique, c’est l’arme anti-procrastination de l’épargne\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "Un budget serré n'est pas une faute personnelle.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386577374",
+        "uuid": "-7093320872972366034",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-27T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Le virement automatique, c’est l’arme anti-procrastination de l’épargne\\n\\nComment bien le régler en 4 étapes.\\n\\nTu as un virement automatique vers ton épargne ? Dis-le en commentaire. Sinon, enregistre ce post et programme-le à ta prochaine paie.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "Un budget serré n'est pas une faute personnelle.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386577147",
+        "uuid": "-9112196772911559705",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-27T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Le virement automatique, c’est l’arme anti-procrastination de l’épargne\\n\\nComment bien le régler en 4 étapes.\\n\\nTu as un virement automatique vers ton épargne ? Dis-le en commentaire. Sinon, enregistre ce post et programme-le à ta prochaine paie.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-024-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

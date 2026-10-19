@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-016",
+  "date": "2026-10-25",
+  "heure": "08:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1Avyx84qwNaUlFfTJjgThNT4KHMbeZo0Z",
+        "public_id": "WTH-V2-Pro-016-01",
+        "asset_folder": "WTH-V2/WTH-016",
+        "display_name": "WTH-V2-Pro-016-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-016"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1iP__q8Vvh3qZJW7xAsM0kRZOIdmnm_tM",
+        "public_id": "WTH-V2-Pro-016-02",
+        "asset_folder": "WTH-V2/WTH-016",
+        "display_name": "WTH-V2-Pro-016-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-016"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1_JMJMqdxLdENVyP1QzTxFiZwyzo5yxs_",
+        "public_id": "WTH-V2-Pro-016-03",
+        "asset_folder": "WTH-V2/WTH-016",
+        "display_name": "WTH-V2-Pro-016-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-016"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1M03je0yEOcW1yjqoRb1rvSjjap_PlyiC",
+        "public_id": "WTH-V2-Pro-016-04",
+        "asset_folder": "WTH-V2/WTH-016",
+        "display_name": "WTH-V2-Pro-016-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-016"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=14lC-5pWAEJiW4lQBdyh0RJIyxG6LZNlS",
+        "public_id": "WTH-V2-Pro-016-05",
+        "asset_folder": "WTH-V2/WTH-016",
+        "display_name": "WTH-V2-Pro-016-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-016"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1D6mSNmJW6RRsAXFO392K0MZ_cywyMsOk",
+        "public_id": "WTH-V2-Pro-016-06",
+        "asset_folder": "WTH-V2/WTH-016",
+        "display_name": "WTH-V2-Pro-016-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-016"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1uq90KGidDUwZTfxOH_ixH7M3Fj9RL_H-",
+        "public_id": "WTH-V2-Pro-016-07",
+        "asset_folder": "WTH-V2/WTH-016",
+        "display_name": "WTH-V2-Pro-016-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-016"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1NMJdnNgye3dq51qRZ_ZfvRwSBMTYa8R-",
+        "public_id": "WTH-V2-Pro-016-08",
+        "asset_folder": "WTH-V2/WTH-016",
+        "display_name": "WTH-V2-Pro-016-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-016"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=10Anak309MUfi2F1ILcc72W23AqaL-Vmm",
+        "public_id": "WTH-V2-Pro-016-09",
+        "asset_folder": "WTH-V2/WTH-016",
+        "display_name": "WTH-V2-Pro-016-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-016"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "Un compte commun ne remplace pas une conversation.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386575220",
+        "uuid": "4114970465911590047",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-25T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"1 % de frais par an, ça paraît rien\\n\\nSur 20 ans, ça peut coûter plus de 4 600 € sur 10 000 € investis. Explication.\\n\\nTu connais le total des frais de ton assurance-vie ou de ton PEA ? Oui, non, à peu près ? Réponds en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"1 % de frais par an, ça paraît rien\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "Un compte commun ne remplace pas une conversation.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386575749",
+        "uuid": "-980046394012057407",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-25T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"1 % de frais par an, ça paraît rien\\n\\nSur 20 ans, ça peut coûter plus de 4 600 € sur 10 000 € investis. Explication.\\n\\nTu connais le total des frais de ton assurance-vie ou de ton PEA ? Oui, non, à peu près ? Réponds en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "Un compte commun ne remplace pas une conversation.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386575505",
+        "uuid": "6556229169094347658",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-25T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"1 % de frais par an, ça paraît rien\\n\\nSur 20 ans, ça peut coûter plus de 4 600 € sur 10 000 € investis. Explication.\\n\\nTu connais le total des frais de ton assurance-vie ou de ton PEA ? Oui, non, à peu près ? Réponds en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-016-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

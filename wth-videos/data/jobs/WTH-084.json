@@ -1,0 +1,173 @@
+{
+  "carrousel": "WTH-084",
+  "date": "2026-11-16",
+  "heure": "19:30",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1SzGIz958A70ul6O3UiCp2RAG5VjN6Dnh",
+        "public_id": "WTH-V2-Pro-084-01",
+        "asset_folder": "WTH-V2/WTH-084",
+        "display_name": "WTH-V2-Pro-084-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-084"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1R4eeleSZJg4wOUUHvGDrYIP5HCQCYHZ7",
+        "public_id": "WTH-V2-Pro-084-02",
+        "asset_folder": "WTH-V2/WTH-084",
+        "display_name": "WTH-V2-Pro-084-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-084"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=14nd9hmlbax6ckSkgblypqetd9ADuCMpw",
+        "public_id": "WTH-V2-Pro-084-03",
+        "asset_folder": "WTH-V2/WTH-084",
+        "display_name": "WTH-V2-Pro-084-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-084"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1tncUdgLDhIjsgh3rzQWY8ghr7sHfhFDe",
+        "public_id": "WTH-V2-Pro-084-04",
+        "asset_folder": "WTH-V2/WTH-084",
+        "display_name": "WTH-V2-Pro-084-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-084"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1UBpWR1rDRJdvOLTFzn5bBf0S7XTZ3-f_",
+        "public_id": "WTH-V2-Pro-084-05",
+        "asset_folder": "WTH-V2/WTH-084",
+        "display_name": "WTH-V2-Pro-084-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-084"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1x_ahhUGY0Ai9XsyzIkfr9XX0c1Ma37eJ",
+        "public_id": "WTH-V2-Pro-084-06",
+        "asset_folder": "WTH-V2/WTH-084",
+        "display_name": "WTH-V2-Pro-084-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-084"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1gEysHChtY-0-R6wapoJnxxHthY6m1TN2",
+        "public_id": "WTH-V2-Pro-084-07",
+        "asset_folder": "WTH-V2/WTH-084",
+        "display_name": "WTH-V2-Pro-084-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-084"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1nX-CLU8j4tsz7psKD0KZWJRkuZN85NhO",
+        "public_id": "WTH-V2-Pro-084-08",
+        "asset_folder": "WTH-V2/WTH-084",
+        "display_name": "WTH-V2-Pro-084-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-084"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=19WwIUugBQgoz3UG4ulZieilH7WOjgoBw",
+        "public_id": "WTH-V2-Pro-084-09",
+        "asset_folder": "WTH-V2/WTH-084",
+        "display_name": "WTH-V2-Pro-084-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-084"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-16T19:30:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-11-16T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Moitié-moitié, ou au prorata des revenus ?\\n\\n3 façons de partager les dépenses dans un couple, expliquées.\\n\\nDans ton couple, c’est 50/50, prorata ou tout en commun ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Moitié-moitié, ou au prorata des revenus ?\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-16T19:30:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-16T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Moitié-moitié, ou au prorata des revenus ?\\n\\n3 façons de partager les dépenses dans un couple, expliquées.\\n\\nDans ton couple, c’est 50/50, prorata ou tout en commun ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-16T19:30:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-16T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Moitié-moitié, ou au prorata des revenus ?\\n\\n3 façons de partager les dépenses dans un couple, expliquées.\\n\\nDans ton couple, c’est 50/50, prorata ou tout en commun ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-084-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

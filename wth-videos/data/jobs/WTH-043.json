@@ -1,0 +1,173 @@
+{
+  "carrousel": "WTH-043",
+  "date": "2026-11-03",
+  "heure": "08:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1YG4eoERJf-wQj7Gi4EMor40ZJZ9DQBMq",
+        "public_id": "WTH-V2-Pro-043-01",
+        "asset_folder": "WTH-V2/WTH-043",
+        "display_name": "WTH-V2-Pro-043-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-043"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=194OvQAMgKtVIjziBHiFOdDE2cUppuN3U",
+        "public_id": "WTH-V2-Pro-043-02",
+        "asset_folder": "WTH-V2/WTH-043",
+        "display_name": "WTH-V2-Pro-043-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-043"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1Ea4rXsjcuGt84GQe18zvsos3YvKN118r",
+        "public_id": "WTH-V2-Pro-043-03",
+        "asset_folder": "WTH-V2/WTH-043",
+        "display_name": "WTH-V2-Pro-043-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-043"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1nTGBCJ0_ea1Nq_IiU95PlSKhRajL2trH",
+        "public_id": "WTH-V2-Pro-043-04",
+        "asset_folder": "WTH-V2/WTH-043",
+        "display_name": "WTH-V2-Pro-043-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-043"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1kJbY0q_6m9v1BDHpOHP7Ni6JYCqumzOf",
+        "public_id": "WTH-V2-Pro-043-05",
+        "asset_folder": "WTH-V2/WTH-043",
+        "display_name": "WTH-V2-Pro-043-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-043"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1ll-rJ4T3Y5eZst8rlmvwnhq1AuNRiZQF",
+        "public_id": "WTH-V2-Pro-043-06",
+        "asset_folder": "WTH-V2/WTH-043",
+        "display_name": "WTH-V2-Pro-043-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-043"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1FmXi08hKdxlpeW_vmBetDwtIRnSSO_Q4",
+        "public_id": "WTH-V2-Pro-043-07",
+        "asset_folder": "WTH-V2/WTH-043",
+        "display_name": "WTH-V2-Pro-043-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-043"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1Y5mO4B1vMxvNSBcUKnCZOV2XIWZ6Vvgz",
+        "public_id": "WTH-V2-Pro-043-08",
+        "asset_folder": "WTH-V2/WTH-043",
+        "display_name": "WTH-V2-Pro-043-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-043"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1h0wEwh6PT7lkZPHVFxXf2c4V_-8r_u7f",
+        "public_id": "WTH-V2-Pro-043-09",
+        "asset_folder": "WTH-V2/WTH-043",
+        "display_name": "WTH-V2-Pro-043-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-043"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-03T08:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-11-03T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« La bonne app va enfin m’aider à gérer mon argent. »\\n\\nMythe ou réalité ? Pourquoi aucun outil ne répare un objectif flou.\\n\\nTon objectif financier en une phrase, c’est quoi ? Écris-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"« La bonne app va enfin m’aider à gérer mon argent. »\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-03T08:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-03T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« La bonne app va enfin m’aider à gérer mon argent. »\\n\\nMythe ou réalité ? Pourquoi aucun outil ne répare un objectif flou.\\n\\nTon objectif financier en une phrase, c’est quoi ? Écris-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-03T08:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-03T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« La bonne app va enfin m’aider à gérer mon argent. »\\n\\nMythe ou réalité ? Pourquoi aucun outil ne répare un objectif flou.\\n\\nTon objectif financier en une phrase, c’est quoi ? Écris-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-043-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

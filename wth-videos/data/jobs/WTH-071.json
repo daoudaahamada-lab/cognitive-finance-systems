@@ -1,0 +1,173 @@
+{
+  "carrousel": "WTH-071",
+  "date": "2026-11-12",
+  "heure": "13:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1T502BvgV1WWmclbTWMOUHSwrXr5QaYt5",
+        "public_id": "WTH-V2-Pro-071-01",
+        "asset_folder": "WTH-V2/WTH-071",
+        "display_name": "WTH-V2-Pro-071-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-071"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=11I_obsccLy7xaz--QQlZa79_lYGguMEO",
+        "public_id": "WTH-V2-Pro-071-02",
+        "asset_folder": "WTH-V2/WTH-071",
+        "display_name": "WTH-V2-Pro-071-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-071"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1GW8F87fnWGvhmCpKpKqykBcCR5hJkXax",
+        "public_id": "WTH-V2-Pro-071-03",
+        "asset_folder": "WTH-V2/WTH-071",
+        "display_name": "WTH-V2-Pro-071-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-071"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1K7luY4vw9ibzVwqBwiEGRHA_5I4PvvoD",
+        "public_id": "WTH-V2-Pro-071-04",
+        "asset_folder": "WTH-V2/WTH-071",
+        "display_name": "WTH-V2-Pro-071-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-071"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1FD2ub6p-EsHsuSwz92FVhpgsxhdGUC9S",
+        "public_id": "WTH-V2-Pro-071-05",
+        "asset_folder": "WTH-V2/WTH-071",
+        "display_name": "WTH-V2-Pro-071-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-071"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1NwiFv_6Ty9jnTlMHRwKHO9cHPgjTg6N_",
+        "public_id": "WTH-V2-Pro-071-06",
+        "asset_folder": "WTH-V2/WTH-071",
+        "display_name": "WTH-V2-Pro-071-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-071"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1QnEjgeTHoNhiWDpcw5tmpthl3MK-rt_8",
+        "public_id": "WTH-V2-Pro-071-07",
+        "asset_folder": "WTH-V2/WTH-071",
+        "display_name": "WTH-V2-Pro-071-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-071"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1WbQ7Rz0-R1IyFZMnblnXELOkr5IP-vvm",
+        "public_id": "WTH-V2-Pro-071-08",
+        "asset_folder": "WTH-V2/WTH-071",
+        "display_name": "WTH-V2-Pro-071-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-071"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1YjodDiZWt-kMAKOFT2IOMNjL2hxZNBed",
+        "public_id": "WTH-V2-Pro-071-09",
+        "asset_folder": "WTH-V2/WTH-071",
+        "display_name": "WTH-V2-Pro-071-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-071"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-12T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-11-12T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Pourquoi ton app affiche un patrimoine « estimé » ?\\n\\nMythe ou réalité ? 4 idées reçues sur les estimations.\\n\\nTon app estime la valeur de ton logement ? Tu trouves l’estimation réaliste ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Pourquoi ton app affiche un patrimoine « estimé » ?\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-12T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-12T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Pourquoi ton app affiche un patrimoine « estimé » ?\\n\\nMythe ou réalité ? 4 idées reçues sur les estimations.\\n\\nTon app estime la valeur de ton logement ? Tu trouves l’estimation réaliste ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-12T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-12T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Pourquoi ton app affiche un patrimoine « estimé » ?\\n\\nMythe ou réalité ? 4 idées reçues sur les estimations.\\n\\nTon app estime la valeur de ton logement ? Tu trouves l’estimation réaliste ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-071-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-020",
+  "date": "2026-10-26",
+  "heure": "13:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1d3aOk7fkiCz6luhWtQFr9TZYz9lji_LK",
+        "public_id": "WTH-V2-Pro-020-01",
+        "asset_folder": "WTH-V2/WTH-020",
+        "display_name": "WTH-V2-Pro-020-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-020"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=11DdmVT-lL37ef8Y6XOA1uxpQUJLea_1P",
+        "public_id": "WTH-V2-Pro-020-02",
+        "asset_folder": "WTH-V2/WTH-020",
+        "display_name": "WTH-V2-Pro-020-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-020"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=12nm-P84ZQ2gXL5rTExKRyF96cdeoXm5v",
+        "public_id": "WTH-V2-Pro-020-03",
+        "asset_folder": "WTH-V2/WTH-020",
+        "display_name": "WTH-V2-Pro-020-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-020"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1K0xP5SvFX4vtbAi81_pP0WfTzCnIpzhR",
+        "public_id": "WTH-V2-Pro-020-04",
+        "asset_folder": "WTH-V2/WTH-020",
+        "display_name": "WTH-V2-Pro-020-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-020"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1erB2EsqBt149c4KWIJPlLgF2rpvvEuqj",
+        "public_id": "WTH-V2-Pro-020-05",
+        "asset_folder": "WTH-V2/WTH-020",
+        "display_name": "WTH-V2-Pro-020-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-020"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1tD5L37ppbfXnjhCS6_gNnzt9dltRZ0GV",
+        "public_id": "WTH-V2-Pro-020-06",
+        "asset_folder": "WTH-V2/WTH-020",
+        "display_name": "WTH-V2-Pro-020-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-020"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1p9jddDqe_3VZkNPcxUB786by6RGin3xP",
+        "public_id": "WTH-V2-Pro-020-07",
+        "asset_folder": "WTH-V2/WTH-020",
+        "display_name": "WTH-V2-Pro-020-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-020"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1LDyKKMhmvgE02O81VKmcIvbGa5ALa0UZ",
+        "public_id": "WTH-V2-Pro-020-08",
+        "asset_folder": "WTH-V2/WTH-020",
+        "display_name": "WTH-V2-Pro-020-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-020"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1tISI5ecUyTfxR7zaFaU_I8memxtf1Eg0",
+        "public_id": "WTH-V2-Pro-020-09",
+        "asset_folder": "WTH-V2/WTH-020",
+        "display_name": "WTH-V2-Pro-020-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-020"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "Un outil IA peut se tromper avec un air sûr de lui.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386576055",
+        "uuid": "-7519365944129532459",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-26T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Paiement, épargne, investissement, crypto : une seule app\\n\\nMais plusieurs contrats. Ce que ça change pour toi.\\n\\nTu utilises une app qui fait tout ? Tu sais quelles protections s’appliquent ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Paiement, épargne, investissement, crypto : une seule app\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "Un outil IA peut se tromper avec un air sûr de lui.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386576671",
+        "uuid": "5948648139285678211",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-26T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Paiement, épargne, investissement, crypto : une seule app\\n\\nMais plusieurs contrats. Ce que ça change pour toi.\\n\\nTu utilises une app qui fait tout ? Tu sais quelles protections s’appliquent ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "Un outil IA peut se tromper avec un air sûr de lui.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386576427",
+        "uuid": "6044918845932326738",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-26T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Paiement, épargne, investissement, crypto : une seule app\\n\\nMais plusieurs contrats. Ce que ça change pour toi.\\n\\nTu utilises une app qui fait tout ? Tu sais quelles protections s’appliquent ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-020-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

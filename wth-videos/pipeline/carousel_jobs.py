@@ -5,6 +5,10 @@ depuis la machine). Ce module prépare, pour chaque carrousel, la liste exacte d
 et fait le bilan de ce qui a été exécuté.
 
   python3 -m pipeline.carousel_jobs jobs      écrit data/jobs/WTH-XXX.json
+  python3 -m pipeline.carousel_jobs show WTH-004              appels à faire, prêts à copier
+  python3 -m pipeline.carousel_jobs record WTH-004 slide 01 URL existing
+  python3 -m pipeline.carousel_jobs record WTH-004 post tiktok update|create ID UUID
+  python3 -m pipeline.carousel_jobs record WTH-004 error "message"
   python3 -m pipeline.carousel_jobs status    bilan à partir de data/v2pro_state/WTH-XXX.json
 
 Entrées : data/publication_plan.json (date, heure, texte), data/metricool_actions.json
@@ -113,6 +117,43 @@ def jobs():
     print(f"{len(plan)} jobs écrits dans {JOBS.relative_to(ROOT)}")
 
 
+def show(carousel):
+    job = read_json(JOBS / f"{carousel}.json")
+    print(f"{carousel} — {job['date']} {job['heure']}")
+    print("UPLOADS (mcp__Cloudinary__upload-asset, resource_type image, upload_request :)")
+    for u in job["uploads"]:
+        print(json.dumps(u["upload_request"], ensure_ascii=False))
+    for post in job["posts"]:
+        args = post["args"]
+        print(f"\nPOST {post['network']} : {post['tool']}")
+        for key in ("blogId", "id", "uuid", "date"):
+            if key in args:
+                print(f"{key}: {args[key]}")
+        print("info: " + args["info"])
+
+
+def record(carousel, kind, *values):
+    path = STATE / f"{carousel}.json"
+    state = read_json(path) if path.exists() else {"carrousel": carousel, "cloudinary": [], "posts": {}}
+    if kind == "slide":
+        num, url, existing = values
+        pid = public_id(carousel, num)
+        state["cloudinary"] = [u for u in state["cloudinary"] if u["public_id"] != pid]
+        state["cloudinary"].append({"public_id": pid, "secure_url": url, "existing": existing == "true"})
+        state["cloudinary"].sort(key=lambda u: u["public_id"])
+    elif kind == "post":
+        network, op, post_id, uuid = values
+        state["posts"][network] = {
+            "op": op, "id": post_id, "uuid": uuid, "draft": False, "autoPublish": True, "media": 9,
+            "plannerUrl": f"https://app.metricool.com/planner/calendar?blogId={BLOG_ID}&openWithPostUuid={uuid}"}
+    elif kind == "error":
+        state.setdefault("errors", []).append(" ".join(values))
+    else:
+        raise SystemExit(f"type inconnu : {kind}")
+    STATE.mkdir(exist_ok=True)
+    write_json(path, state)
+
+
 def status():
     plan = read_json(DATA / "publication_plan.json")
     done, todo = [], []
@@ -122,6 +163,8 @@ def status():
         slides = sum(1 for u in state.get("cloudinary", []) if u.get("secure_url"))
         posts = [n for n in NETWORKS if state.get("posts", {}).get(n, {}).get("id")]
         line = f"{entry['id']} {entry['date']} {entry['heure']}  slides {slides}/9  posts {','.join(posts) or '-'}"
+        if state.get("errors"):
+            line += "  ERREURS : " + " | ".join(state["errors"])
         (done if slides == 9 and len(posts) == 3 else todo).append(line)
     print(f"Terminés : {len(done)}/{len(plan)}")
     for line in todo:
@@ -129,4 +172,5 @@ def status():
 
 
 if __name__ == "__main__":
-    {"jobs": jobs, "status": status}[sys.argv[1] if len(sys.argv) > 1 else "status"]()
+    command, *args = sys.argv[1:] or ["status"]
+    {"jobs": jobs, "show": show, "record": record, "status": status}[command](*args)

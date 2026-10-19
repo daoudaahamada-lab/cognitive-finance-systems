@@ -1,0 +1,173 @@
+{
+  "carrousel": "WTH-086",
+  "date": "2026-11-17",
+  "heure": "13:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1RUkwwH0jia3iPUNQC7vIKqVNcZnLiDDD",
+        "public_id": "WTH-V2-Pro-086-01",
+        "asset_folder": "WTH-V2/WTH-086",
+        "display_name": "WTH-V2-Pro-086-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-086"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1sbUmGma1Pw719IstFcXKP6Dv_W_-RCX9",
+        "public_id": "WTH-V2-Pro-086-02",
+        "asset_folder": "WTH-V2/WTH-086",
+        "display_name": "WTH-V2-Pro-086-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-086"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1fYjaEstvhM-dwy2yZccQP2wMxQviR59G",
+        "public_id": "WTH-V2-Pro-086-03",
+        "asset_folder": "WTH-V2/WTH-086",
+        "display_name": "WTH-V2-Pro-086-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-086"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1AHmrh-ykxgbl7Z44GUjTjWiL_tTkJaDG",
+        "public_id": "WTH-V2-Pro-086-04",
+        "asset_folder": "WTH-V2/WTH-086",
+        "display_name": "WTH-V2-Pro-086-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-086"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1wAItSJLRRpSOuIfYlEx-vFDY4XfTM24r",
+        "public_id": "WTH-V2-Pro-086-05",
+        "asset_folder": "WTH-V2/WTH-086",
+        "display_name": "WTH-V2-Pro-086-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-086"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=15WDNlfHle5VJIsnUP-FVnHWqQQUmZeM5",
+        "public_id": "WTH-V2-Pro-086-06",
+        "asset_folder": "WTH-V2/WTH-086",
+        "display_name": "WTH-V2-Pro-086-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-086"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1cpoqhX78Js1IVALsO-w7_tgGirTPlEUV",
+        "public_id": "WTH-V2-Pro-086-07",
+        "asset_folder": "WTH-V2/WTH-086",
+        "display_name": "WTH-V2-Pro-086-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-086"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=14aomF3l2uud-DWdumeionbrpmdlB8YYW",
+        "public_id": "WTH-V2-Pro-086-08",
+        "asset_folder": "WTH-V2/WTH-086",
+        "display_name": "WTH-V2-Pro-086-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-086"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1mbi1tops88NQptjuCq9z1RDJqoQuxZ4w",
+        "public_id": "WTH-V2-Pro-086-09",
+        "asset_folder": "WTH-V2/WTH-086",
+        "display_name": "WTH-V2-Pro-086-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-086"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-17T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-11-17T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Une IA financière devrait savoir dire « je ne sais pas »\\n\\nPourquoi c’est un signe de qualité, en 7 points.\\n\\nTu as déjà vu une IA dire « je ne sais pas » ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Une IA financière devrait savoir dire « je ne sais pas »\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-17T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-17T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Une IA financière devrait savoir dire « je ne sais pas »\\n\\nPourquoi c’est un signe de qualité, en 7 points.\\n\\nTu as déjà vu une IA dire « je ne sais pas » ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-17T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-17T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Une IA financière devrait savoir dire « je ne sais pas »\\n\\nPourquoi c’est un signe de qualité, en 7 points.\\n\\nTu as déjà vu une IA dire « je ne sais pas » ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-086-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

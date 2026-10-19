@@ -1,0 +1,173 @@
+{
+  "carrousel": "WTH-058",
+  "date": "2026-11-08",
+  "heure": "08:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1C1CB2NxKO21nEiVvGZDJbfaxIDsUknUK",
+        "public_id": "WTH-V2-Pro-058-01",
+        "asset_folder": "WTH-V2/WTH-058",
+        "display_name": "WTH-V2-Pro-058-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-058"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1E6_p1fdImGFjowiYuYZMajRtGMy7aVu5",
+        "public_id": "WTH-V2-Pro-058-02",
+        "asset_folder": "WTH-V2/WTH-058",
+        "display_name": "WTH-V2-Pro-058-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-058"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1BCed3beaDRnOnCcUxpJI2Koniri3OFDp",
+        "public_id": "WTH-V2-Pro-058-03",
+        "asset_folder": "WTH-V2/WTH-058",
+        "display_name": "WTH-V2-Pro-058-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-058"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=18zYudzjLjAYJywNXSBDeT_3621CVAAz9",
+        "public_id": "WTH-V2-Pro-058-04",
+        "asset_folder": "WTH-V2/WTH-058",
+        "display_name": "WTH-V2-Pro-058-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-058"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1B-fAOGGSf6bcJ2JPmsiTxqgs4jeA6Hkc",
+        "public_id": "WTH-V2-Pro-058-05",
+        "asset_folder": "WTH-V2/WTH-058",
+        "display_name": "WTH-V2-Pro-058-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-058"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1KZG56N2fvAtrlqXQcmEj6RiKAZsXeFd_",
+        "public_id": "WTH-V2-Pro-058-06",
+        "asset_folder": "WTH-V2/WTH-058",
+        "display_name": "WTH-V2-Pro-058-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-058"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1b998PvSUz2H15zIahJKDz-c0jP_zsxcd",
+        "public_id": "WTH-V2-Pro-058-07",
+        "asset_folder": "WTH-V2/WTH-058",
+        "display_name": "WTH-V2-Pro-058-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-058"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1jZkvyxS_xXlRKenGfvlCpW2owhduQ3q4",
+        "public_id": "WTH-V2-Pro-058-08",
+        "asset_folder": "WTH-V2/WTH-058",
+        "display_name": "WTH-V2-Pro-058-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-058"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=19SqVZyuFFwi8W1CvR38ZqlYTo6iq0QOU",
+        "public_id": "WTH-V2-Pro-058-09",
+        "asset_folder": "WTH-V2/WTH-058",
+        "display_name": "WTH-V2-Pro-058-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-058"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-08T08:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-11-08T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Ton patrimoine net n’est pas le solde de tes comptes\\n\\nComment le calculer en 7 points.\\n\\nTu as déjà calculé ton patrimoine net ? Oui, non, jamais pensé ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Ton patrimoine net n’est pas le solde de tes comptes\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-08T08:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-08T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Ton patrimoine net n’est pas le solde de tes comptes\\n\\nComment le calculer en 7 points.\\n\\nTu as déjà calculé ton patrimoine net ? Oui, non, jamais pensé ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-08T08:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-08T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Ton patrimoine net n’est pas le solde de tes comptes\\n\\nComment le calculer en 7 points.\\n\\nTu as déjà calculé ton patrimoine net ? Oui, non, jamais pensé ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-058-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "carrousel": "WTH-042",
+  "date": "2026-11-02",
+  "heure": "19:30",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=18BM5ZRZWkqCs1KTXywU3qVoVVzV1JLyi",
+        "public_id": "WTH-V2-Pro-042-01",
+        "asset_folder": "WTH-V2/WTH-042",
+        "display_name": "WTH-V2-Pro-042-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-042"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1MfNturtuALwZiPFWKLFnsM7lSkFTE-rd",
+        "public_id": "WTH-V2-Pro-042-02",
+        "asset_folder": "WTH-V2/WTH-042",
+        "display_name": "WTH-V2-Pro-042-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-042"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1EW2ZBb1EyBI-qcOKC3TFvANEcBQPYpfL",
+        "public_id": "WTH-V2-Pro-042-03",
+        "asset_folder": "WTH-V2/WTH-042",
+        "display_name": "WTH-V2-Pro-042-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-042"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1riu6C4qUXqZfGidrn0su_8ApT59U7rvz",
+        "public_id": "WTH-V2-Pro-042-04",
+        "asset_folder": "WTH-V2/WTH-042",
+        "display_name": "WTH-V2-Pro-042-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-042"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1OE5QeHwWsk5JeuPMHmQe-FRtqhwV6egW",
+        "public_id": "WTH-V2-Pro-042-05",
+        "asset_folder": "WTH-V2/WTH-042",
+        "display_name": "WTH-V2-Pro-042-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-042"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1zFtugTVWEtZtvsknr7057x0SzDp5JDMT",
+        "public_id": "WTH-V2-Pro-042-06",
+        "asset_folder": "WTH-V2/WTH-042",
+        "display_name": "WTH-V2-Pro-042-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-042"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1fTKK8pJs9RMVyYJ83TFtfJktAYUEbqX0",
+        "public_id": "WTH-V2-Pro-042-07",
+        "asset_folder": "WTH-V2/WTH-042",
+        "display_name": "WTH-V2-Pro-042-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-042"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1_kQQtF7Y7UBA6jDtW3Yg08kw9z1MOMKi",
+        "public_id": "WTH-V2-Pro-042-08",
+        "asset_folder": "WTH-V2/WTH-042",
+        "display_name": "WTH-V2-Pro-042-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-042"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1dhsCKYg0-GS32wQFko1yMaNaf5UNt_9m",
+        "public_id": "WTH-V2-Pro-042-09",
+        "asset_folder": "WTH-V2/WTH-042",
+        "display_name": "WTH-V2-Pro-042-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-042"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-02T19:30:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-11-02T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Un déménagement coûte plus qu’un camion\\n\\n6 dépenses qu’on oublie de prévoir.\\n\\nQuelle dépense t’a surpris lors de ton dernier déménagement ? Avant de partir, fais ta liste : montant estimé et date de paiement pour chaque poste. Et raconte en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Un déménagement coûte plus qu’un camion\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-02T19:30:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-02T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Un déménagement coûte plus qu’un camion\\n\\n6 dépenses qu’on oublie de prévoir.\\n\\nQuelle dépense t’a surpris lors de ton dernier déménagement ? Avant de partir, fais ta liste : montant estimé et date de paiement pour chaque poste. Et raconte en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-02T19:30:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-02T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Un déménagement coûte plus qu’un camion\\n\\n6 dépenses qu’on oublie de prévoir.\\n\\nQuelle dépense t’a surpris lors de ton dernier déménagement ? Avant de partir, fais ta liste : montant estimé et date de paiement pour chaque poste. Et raconte en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-042-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

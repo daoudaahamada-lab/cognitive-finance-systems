@@ -1,0 +1,173 @@
+{
+  "carrousel": "WTH-054",
+  "date": "2026-11-06",
+  "heure": "19:30",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1dcfqwCvWK9foROjo4ol0fpkuJoGoA7eF",
+        "public_id": "WTH-V2-Pro-054-01",
+        "asset_folder": "WTH-V2/WTH-054",
+        "display_name": "WTH-V2-Pro-054-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-054"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1O1DAB_KV1zboY0w-NI9qTINPZ-sFqfBz",
+        "public_id": "WTH-V2-Pro-054-02",
+        "asset_folder": "WTH-V2/WTH-054",
+        "display_name": "WTH-V2-Pro-054-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-054"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1S6h1ZDakQEIBRbCVZmBO_aC3zfpbzN9k",
+        "public_id": "WTH-V2-Pro-054-03",
+        "asset_folder": "WTH-V2/WTH-054",
+        "display_name": "WTH-V2-Pro-054-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-054"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1u6hlmVPHVei6nFLxasvBKf7WK90LADMb",
+        "public_id": "WTH-V2-Pro-054-04",
+        "asset_folder": "WTH-V2/WTH-054",
+        "display_name": "WTH-V2-Pro-054-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-054"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1Czn9yfvaMx0URFtQTctDH1wh0K38PTsA",
+        "public_id": "WTH-V2-Pro-054-05",
+        "asset_folder": "WTH-V2/WTH-054",
+        "display_name": "WTH-V2-Pro-054-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-054"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1OfA8lT4AaINEYm34vAdPMbGLAQWOMyZ5",
+        "public_id": "WTH-V2-Pro-054-06",
+        "asset_folder": "WTH-V2/WTH-054",
+        "display_name": "WTH-V2-Pro-054-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-054"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1qmsKtgUwxFT-XwFvqXNolCH2iKN9E1eQ",
+        "public_id": "WTH-V2-Pro-054-07",
+        "asset_folder": "WTH-V2/WTH-054",
+        "display_name": "WTH-V2-Pro-054-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-054"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=14wquo1dEPMKeWL0HVfJLlHcTJb5B1w7h",
+        "public_id": "WTH-V2-Pro-054-08",
+        "asset_folder": "WTH-V2/WTH-054",
+        "display_name": "WTH-V2-Pro-054-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-054"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1UUTL2ZoVmp9i0R7Vv4alBmyqU3Kkk1we",
+        "public_id": "WTH-V2-Pro-054-09",
+        "asset_folder": "WTH-V2/WTH-054",
+        "display_name": "WTH-V2-Pro-054-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-054"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-06T19:30:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-11-06T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Tu paies peut-être deux assurances pour le même risque\\n\\n4 erreurs à éviter avant de résilier une garantie.\\n\\nTu sais quelles assurances sont incluses dans ta carte bancaire ? Oui ou non ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Tu paies peut-être deux assurances pour le même risque\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-06T19:30:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-06T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Tu paies peut-être deux assurances pour le même risque\\n\\n4 erreurs à éviter avant de résilier une garantie.\\n\\nTu sais quelles assurances sont incluses dans ta carte bancaire ? Oui ou non ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-06T19:30:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-06T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Tu paies peut-être deux assurances pour le même risque\\n\\n4 erreurs à éviter avant de résilier une garantie.\\n\\nTu sais quelles assurances sont incluses dans ta carte bancaire ? Oui ou non ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-054-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "carrousel": "WTH-041",
+  "date": "2026-11-02",
+  "heure": "13:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1dQa4davzwkm7luVzh0JVnJANsRHcLQCj",
+        "public_id": "WTH-V2-Pro-041-01",
+        "asset_folder": "WTH-V2/WTH-041",
+        "display_name": "WTH-V2-Pro-041-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-041"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1LhQdDFCsU28nrrr5hKr4_RM2uoJw16e8",
+        "public_id": "WTH-V2-Pro-041-02",
+        "asset_folder": "WTH-V2/WTH-041",
+        "display_name": "WTH-V2-Pro-041-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-041"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=17Nwap-wJFtNxpWlaApjXfe6wub84be3B",
+        "public_id": "WTH-V2-Pro-041-03",
+        "asset_folder": "WTH-V2/WTH-041",
+        "display_name": "WTH-V2-Pro-041-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-041"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1RKr_ynnzu5xzp5wKr547CIcGCQaRfzHO",
+        "public_id": "WTH-V2-Pro-041-04",
+        "asset_folder": "WTH-V2/WTH-041",
+        "display_name": "WTH-V2-Pro-041-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-041"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=18RAGLpRuWuC31fSFXb0xaDJmAlqzHdYS",
+        "public_id": "WTH-V2-Pro-041-05",
+        "asset_folder": "WTH-V2/WTH-041",
+        "display_name": "WTH-V2-Pro-041-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-041"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1txH1VS61VOrl3cTpiQamDjSnAkpzpL3R",
+        "public_id": "WTH-V2-Pro-041-06",
+        "asset_folder": "WTH-V2/WTH-041",
+        "display_name": "WTH-V2-Pro-041-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-041"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1Mu3T0kGkj7HDEs1qflbSkaZc2fvrGm5U",
+        "public_id": "WTH-V2-Pro-041-07",
+        "asset_folder": "WTH-V2/WTH-041",
+        "display_name": "WTH-V2-Pro-041-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-041"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1qinOt0Hi1cRCcsmii8p4CyfuPQU7pAHu",
+        "public_id": "WTH-V2-Pro-041-08",
+        "asset_folder": "WTH-V2/WTH-041",
+        "display_name": "WTH-V2-Pro-041-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-041"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1xi6n9HX46I8jgRdNP25byneys7xWml2I",
+        "public_id": "WTH-V2-Pro-041-09",
+        "asset_folder": "WTH-V2/WTH-041",
+        "display_name": "WTH-V2-Pro-041-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-041"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-02T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-11-02T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Plus de notifications ne veut pas dire plus de contrôle\\n\\nLes 5 alertes bancaires qui servent vraiment.\\n\\nCombien de notifications bancaires tu reçois par jour ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Plus de notifications ne veut pas dire plus de contrôle\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-02T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-02T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Plus de notifications ne veut pas dire plus de contrôle\\n\\nLes 5 alertes bancaires qui servent vraiment.\\n\\nCombien de notifications bancaires tu reçois par jour ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-02T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-02T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Plus de notifications ne veut pas dire plus de contrôle\\n\\nLes 5 alertes bancaires qui servent vraiment.\\n\\nCombien de notifications bancaires tu reçois par jour ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-041-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

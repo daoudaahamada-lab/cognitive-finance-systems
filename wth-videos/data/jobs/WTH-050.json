@@ -1,0 +1,173 @@
+{
+  "carrousel": "WTH-050",
+  "date": "2026-11-05",
+  "heure": "13:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1czCQaoZT8bcNgy8ygQ9uebLNdyveCeBG",
+        "public_id": "WTH-V2-Pro-050-01",
+        "asset_folder": "WTH-V2/WTH-050",
+        "display_name": "WTH-V2-Pro-050-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-050"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=18QIj385upZBdJ9DwxGZc1jDpd69rjD0t",
+        "public_id": "WTH-V2-Pro-050-02",
+        "asset_folder": "WTH-V2/WTH-050",
+        "display_name": "WTH-V2-Pro-050-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-050"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1F_IuZM9VkhcnCq3x6w7UDuZSPtDRZodZ",
+        "public_id": "WTH-V2-Pro-050-03",
+        "asset_folder": "WTH-V2/WTH-050",
+        "display_name": "WTH-V2-Pro-050-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-050"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1zrrHMgvh_CTWgQEowQgr8fz78kizSt28",
+        "public_id": "WTH-V2-Pro-050-04",
+        "asset_folder": "WTH-V2/WTH-050",
+        "display_name": "WTH-V2-Pro-050-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-050"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1paTLV1CQ-A0Ijdve8C5g2zVMUqcKzyTJ",
+        "public_id": "WTH-V2-Pro-050-05",
+        "asset_folder": "WTH-V2/WTH-050",
+        "display_name": "WTH-V2-Pro-050-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-050"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=13TKVe3OQWv02sRK3FjgpAZIFuquPF3Ph",
+        "public_id": "WTH-V2-Pro-050-06",
+        "asset_folder": "WTH-V2/WTH-050",
+        "display_name": "WTH-V2-Pro-050-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-050"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1pbPlleyjSz8vh1czF9ZaRXCgU9UWH0On",
+        "public_id": "WTH-V2-Pro-050-07",
+        "asset_folder": "WTH-V2/WTH-050",
+        "display_name": "WTH-V2-Pro-050-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-050"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1GrKhU-XiU7rgXqvBIeJfm_-mBGM6jQhs",
+        "public_id": "WTH-V2-Pro-050-08",
+        "asset_folder": "WTH-V2/WTH-050",
+        "display_name": "WTH-V2-Pro-050-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-050"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1FDTpLQxNiwWo6JXORwgLU2XdonjcZy1D",
+        "public_id": "WTH-V2-Pro-050-09",
+        "asset_folder": "WTH-V2/WTH-050",
+        "display_name": "WTH-V2-Pro-050-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-050"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-05T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-11-05T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Un portefeuille personnalisé en 2 minutes. »\\n\\n4 erreurs quand on croit une app sur parole.\\n\\nLa dernière app financière que tu as installée t’a posé combien de questions ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"« Un portefeuille personnalisé en 2 minutes. »\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-05T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-05T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Un portefeuille personnalisé en 2 minutes. »\\n\\n4 erreurs quand on croit une app sur parole.\\n\\nLa dernière app financière que tu as installée t’a posé combien de questions ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-05T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-05T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Un portefeuille personnalisé en 2 minutes. »\\n\\n4 erreurs quand on croit une app sur parole.\\n\\nLa dernière app financière que tu as installée t’a posé combien de questions ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-050-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

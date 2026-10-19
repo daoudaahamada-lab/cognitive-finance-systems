@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-026",
+  "date": "2026-10-28",
+  "heure": "13:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1mO4FpGgjAOx2-UjnwxUE0uEpr9av71XV",
+        "public_id": "WTH-V2-Pro-026-01",
+        "asset_folder": "WTH-V2/WTH-026",
+        "display_name": "WTH-V2-Pro-026-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-026"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1hbJMi-38eYfTSGq0LZaQZiHUsnK0jli1",
+        "public_id": "WTH-V2-Pro-026-02",
+        "asset_folder": "WTH-V2/WTH-026",
+        "display_name": "WTH-V2-Pro-026-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-026"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1Yk4aagZLPTpKOyn4xBptwfVWZyD3ILQk",
+        "public_id": "WTH-V2-Pro-026-03",
+        "asset_folder": "WTH-V2/WTH-026",
+        "display_name": "WTH-V2-Pro-026-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-026"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1ZGpHo8gwPnF7IBcuRSCm--W_sK8Q_nVr",
+        "public_id": "WTH-V2-Pro-026-04",
+        "asset_folder": "WTH-V2/WTH-026",
+        "display_name": "WTH-V2-Pro-026-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-026"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1vdD-6ww988kSz5LO7n2huiGOHPXYLMWa",
+        "public_id": "WTH-V2-Pro-026-05",
+        "asset_folder": "WTH-V2/WTH-026",
+        "display_name": "WTH-V2-Pro-026-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-026"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1O8AE_eFO6nOBw4Nobh-lfrfwD-L2MMk_",
+        "public_id": "WTH-V2-Pro-026-06",
+        "asset_folder": "WTH-V2/WTH-026",
+        "display_name": "WTH-V2-Pro-026-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-026"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=17GlBDK6sW-GvweZx65Q7MqppyFVCmEP1",
+        "public_id": "WTH-V2-Pro-026-07",
+        "asset_folder": "WTH-V2/WTH-026",
+        "display_name": "WTH-V2-Pro-026-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-026"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1p8LGvkWx_2ZcfTbuo8mQ7P92Sq_kqur6",
+        "public_id": "WTH-V2-Pro-026-08",
+        "asset_folder": "WTH-V2/WTH-026",
+        "display_name": "WTH-V2-Pro-026-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-026"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=16_lWMI_neFNGqTz936OV1XgAEJmp8BYX",
+        "public_id": "WTH-V2-Pro-026-09",
+        "asset_folder": "WTH-V2/WTH-026",
+        "display_name": "WTH-V2-Pro-026-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-026"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "La portabilité de tes données est un vrai critère.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386577550",
+        "uuid": "-2265900451672800566",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-28T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Tu utilises peut-être déjà une wealthtech sans le savoir\\n\\n5 technologies cachées dans les coulisses du conseil patrimonial.\\n\\nQuelle étape de ta relation avec ta banque ou ton conseiller est encore 100 % papier ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Tu utilises peut-être déjà une wealthtech sans le savoir\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "La portabilité de tes données est un vrai critère.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386578008",
+        "uuid": "1508771624906345522",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-28T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Tu utilises peut-être déjà une wealthtech sans le savoir\\n\\n5 technologies cachées dans les coulisses du conseil patrimonial.\\n\\nQuelle étape de ta relation avec ta banque ou ton conseiller est encore 100 % papier ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "La portabilité de tes données est un vrai critère.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386577841",
+        "uuid": "8112106044174385748",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-28T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Tu utilises peut-être déjà une wealthtech sans le savoir\\n\\n5 technologies cachées dans les coulisses du conseil patrimonial.\\n\\nQuelle étape de ta relation avec ta banque ou ton conseiller est encore 100 % papier ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-026-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

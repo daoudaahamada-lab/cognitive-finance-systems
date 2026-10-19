@@ -1,0 +1,173 @@
+{
+  "carrousel": "WTH-064",
+  "date": "2026-11-10",
+  "heure": "08:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=15hLBGFUE6yj-PzypaKCxmUAJE6FkNqZv",
+        "public_id": "WTH-V2-Pro-064-01",
+        "asset_folder": "WTH-V2/WTH-064",
+        "display_name": "WTH-V2-Pro-064-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-064"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1s9eZ2eyKelx53prgYB8At6XZvJHq0P9R",
+        "public_id": "WTH-V2-Pro-064-02",
+        "asset_folder": "WTH-V2/WTH-064",
+        "display_name": "WTH-V2-Pro-064-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-064"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1ynW4_SxcV2eKVaTjYd-x4wSVifFsEICj",
+        "public_id": "WTH-V2-Pro-064-03",
+        "asset_folder": "WTH-V2/WTH-064",
+        "display_name": "WTH-V2-Pro-064-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-064"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1HSEWKhxOfSZdr8pvaHnzf5RoeGN7paSG",
+        "public_id": "WTH-V2-Pro-064-04",
+        "asset_folder": "WTH-V2/WTH-064",
+        "display_name": "WTH-V2-Pro-064-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-064"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1WsJsHnBF3ZYTpGaJ-hiizd3uQXYSTW6P",
+        "public_id": "WTH-V2-Pro-064-05",
+        "asset_folder": "WTH-V2/WTH-064",
+        "display_name": "WTH-V2-Pro-064-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-064"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1ePy_3TRIHgQqmHl3J31VJKtdXbDRC0U9",
+        "public_id": "WTH-V2-Pro-064-06",
+        "asset_folder": "WTH-V2/WTH-064",
+        "display_name": "WTH-V2-Pro-064-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-064"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=16KLELnIRFNYh-K70Yq_mwlo15bAuQZPg",
+        "public_id": "WTH-V2-Pro-064-07",
+        "asset_folder": "WTH-V2/WTH-064",
+        "display_name": "WTH-V2-Pro-064-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-064"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=19Z1oNDuyhsaDGtYjXQj4gchQfzosouw-",
+        "public_id": "WTH-V2-Pro-064-08",
+        "asset_folder": "WTH-V2/WTH-064",
+        "display_name": "WTH-V2-Pro-064-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-064"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1sQw3w8TRL-PRVkyG0QrGdbomS2Mn0noW",
+        "public_id": "WTH-V2-Pro-064-09",
+        "asset_folder": "WTH-V2/WTH-064",
+        "display_name": "WTH-V2-Pro-064-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-064"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-10T08:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-11-10T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Offre réservée jusqu’à ce soir minuit. »\\n\\nC’est précisément le moment de ralentir. 4 erreurs face à une offre urgente.\\n\\nOn t’a déjà proposé une offre « à saisir avant ce soir » ? Raconte en commentaire pour prévenir les autres.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-09.png\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"« Offre réservée jusqu’à ce soir minuit. »\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-10T08:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-10T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Offre réservée jusqu’à ce soir minuit. »\\n\\nC’est précisément le moment de ralentir. 4 erreurs face à une offre urgente.\\n\\nOn t’a déjà proposé une offre « à saisir avant ce soir » ? Raconte en commentaire pour prévenir les autres.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-10T08:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-10T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Offre réservée jusqu’à ce soir minuit. »\\n\\nC’est précisément le moment de ralentir. 4 erreurs face à une offre urgente.\\n\\nOn t’a déjà proposé une offre « à saisir avant ce soir » ? Raconte en commentaire pour prévenir les autres.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-064-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}
