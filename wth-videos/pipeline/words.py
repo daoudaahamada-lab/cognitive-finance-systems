@@ -11,6 +11,7 @@ from .common import build_dir, read_json, script, write_json
 
 SEPARATORS = {" ", "\n", "\t"}
 OPENING = set("«“‘‹„([¿¡")
+SPOKEN_SYMBOLS = set("€%$£")
 
 
 def canon(text):
@@ -90,7 +91,8 @@ def words_for(video_id):
     bounds = segment_index(s["segments"]) if text == s["texte"] else None
     words = []
     for a, b in tokenize(text):
-        core = [i for i in range(a, b) if text[i].isalnum()] or list(range(a, b))
+        # Les symboles prononcés (« € » = « euros », « % » = « pour cent ») font partie du mot.
+        core = [i for i in range(a, b) if text[i].isalnum() or text[i] in SPOKEN_SYMBOLS] or list(range(a, b))
         seg = None
         if bounds:
             seg = max(k for k, start in enumerate(bounds) if start <= a)

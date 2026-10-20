@@ -24,24 +24,46 @@ def norm(word):
     return re.sub(r"[^\w’']", "", word.lower().replace(" ", " ")).replace("'", "’")
 
 
+# Espaces insécables : le script garde « 10 000 € » en un seul mot, Scribe le découpe.
+NBSP = re.compile("[\u00a0\u202f]")
+# « € », « % » : prononcés « euros », « pour cent » ; Scribe compte souvent la pause qui suit
+# dans leur durée, d'où ce plafond.
+MAX_SYMBOL_TAIL = 0.45
+
+
 def scribe_words(path):
+    """Mots Scribe, y compris les symboles seuls (« € », « % ») utilisés pour la fin des montants."""
     data = read_json(path)
     words = data.get("words", data) if isinstance(data, dict) else data
-    return [w for w in words if w.get("type", "word") == "word" and norm(w["text"])]
+    return [w for w in words if w.get("type", "word") == "word" and w["text"].strip()]
 
 
 def build_alignment(text, words):
     """Alignement caractère par caractère reconstruit à partir des temps de mots Scribe."""
     spans = tokenize(text)
-    ours = [norm(text[a:b]) for a, b in spans]
-    theirs = [norm(w["text"]) for w in words]
-    times = [None] * len(spans)
-    sm = difflib.SequenceMatcher(None, ours, theirs, autojunk=False)
+    # Un mot du script peut couvrir plusieurs mots Scribe (« 4 600 € ») : on aligne les morceaux.
+    parts = [(i, n) for i, (a, b) in enumerate(spans) for n in map(norm, NBSP.split(text[a:b])) if n]
+    spoken = [k for k, w in enumerate(words) if norm(w["text"])]
+    sm = difflib.SequenceMatcher(None, [n for _, n in parts], [norm(words[k]["text"]) for k in spoken],
+                                 autojunk=False)
+    hits = {}
     for block in sm.get_matching_blocks():
         for k in range(block.size):
-            w = words[block.b + k]
-            times[block.a + k] = (float(w["start"]), float(w["end"]))
-    matched = sum(t is not None for t in times)
+            hits.setdefault(parts[block.a + k][0], []).append(spoken[block.b + k])
+    expected = {}
+    for i, _ in parts:
+        expected[i] = expected.get(i, 0) + 1
+    times = [None] * len(spans)
+    for i, idx in hits.items():
+        first, last = min(idx), max(idx)
+        end = float(words[last]["end"])
+        # Symboles seuls qui suivent (« € ») : la fin du montant inclut « euros ».
+        k = last + 1
+        while k < len(words) and not norm(words[k]["text"]):
+            end = max(end, min(float(words[k]["end"]), float(words[k]["start"]) + MAX_SYMBOL_TAIL))
+            k += 1
+        times[i] = (float(words[first]["start"]), end)
+    matched = sum(1 for i in range(len(spans)) if len(hits.get(i, [])) == expected.get(i, 1))
     # Mots non retrouvés : répartis entre les voisins connus, au prorata de leur longueur.
     i = 0
     while i < len(spans):
