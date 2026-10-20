@@ -1,0 +1,59 @@
+{
+  "_doc": "Géométrie partagée de la composition Story (px, repère local de chaque entité, origine au centre). Lue par entities.tsx / draw.tsx / entities_kit.tsx et par pipeline/story.py (GEOM) : une seule source pour les ancres du constructeur.",
+  "FIGURE": {
+    "_doc": "Figurine (conseiller encre / client papier) : tête ronde + buste trapèze arrondi. h = du haut de la tête (top) à la base ; pivot = base (inclinaison `lean`) ; shoulder / hand = épaule et main au repos (bras `limb`) ; arm = longueurs fixes bras / avant-bras (IK à 2 os du kit) et trait du bras.",
+    "h": 191,
+    "top": -96,
+    "base": 95,
+    "pivot": [0, 95],
+    "bust": "M-27 -26 H27 Q39 -26 41 -14 L57 80 Q59 95 45 95 H-45 Q-59 95 -57 80 L-41 -14 Q-39 -26 -27 -26 Z",
+    "head": {"cy": -64, "r": 32},
+    "sw": 5,
+    "shoulder": [-30, -16],
+    "hand": [-58, -6],
+    "arm": {"upper": 84, "fore": 80, "sw": 13}
+  },
+  "PEN": {
+    "_doc": "Stylo : origine = prise, pointe en (len, 0) ; r = demi-épaisseur du corps, tip = longueur de la pointe.",
+    "len": 120,
+    "r": 11,
+    "tip": 26
+  },
+  "STAMP_HANDLE": {
+    "_doc": "Poignée du tampon au-dessus du cadre (h = hauteur du tampon) : prise = [0, -(h / 2 + neck + knobH / 2)].",
+    "neck": 14,
+    "neckW": 22,
+    "knobW": 56,
+    "knobH": 20
+  },
+  "TAG": {
+    "_doc": "Puce-date / étiquette-source : pictogramme à iconX du bord gauche, texte à textX, coin plié fold, pastille discR.",
+    "r": 12,
+    "fold": 10,
+    "discR": 15,
+    "iconX": 24,
+    "textX": 46,
+    "shadow": 3
+  },
+  "DOC_DISC": {
+    "_doc": "Pastille du pictogramme du document compact, à inset px du bord droit.",
+    "r": 20,
+    "inset": 32
+  },
+  "BULLET": {
+    "r": 22
+  },
+  "TICK": {
+    "_doc": "Coche : 3 points pour size = 31 px (mis à l'échelle size / 31). Variante 'ai' : coche fine en pointillés dans un carré tireté de côté aiBox * size.",
+    "size": 31,
+    "pts": [[-15, 1], [-5, 11], [16, -12]],
+    "aiBox": 1.3
+  },
+  "MARKER": {
+    "_doc": "Repère 1-2-3 : disques r, disque actif activeR ; légende (labels) à labelDy sous la ligne.",
+    "r": 20,
+    "activeR": 32,
+    "labelDy": 62,
+    "labelSize": 26
+  }
+}
