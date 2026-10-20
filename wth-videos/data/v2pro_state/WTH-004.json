@@ -49,8 +49,9 @@
   ],
   "posts": {
     "tiktok": {
-      "op": "update",
-      "id": "400481768",
+      "jpg": true,
+      "op": "jpgfix",
+      "id": "400974156",
       "uuid": "-1139356884516845115",
       "draft": false,
       "autoPublish": true,
