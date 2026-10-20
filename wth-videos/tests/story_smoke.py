@@ -10,7 +10,9 @@ vont dans un dossier temporaire (WTH_BUILD, WTH_OUTPUT), où sont copiés build/
 - --check sur V01.json : aucune erreur, sauf « idees_cles » tant que le storyboard v3 ne l'a pas ;
 - mise en scène en paquet (scripts/story/Vxx/__init__.py + parties), règle des illustrations de carrousel, garde-fou
   qui protège un film Story contre le montage classique et `make motion` ;
-- bras à cinématique inverse (pipeline/story_kit.py, s'il existe) : longueurs d'os constantes sur un trajet.
+- bras à cinématique inverse (pipeline/story_kit.py, s'il existe) : longueurs d'os constantes sur un trajet, et
+  image par image sur la figurine articulée (entrée, marche, tapotement, relecture, trait, tampon, sortie) ;
+- macros du kit : pop, move et morph posent les clés documentées (build/kit_demo/KIT.md).
 """
 import contextlib
 import io
@@ -258,6 +260,91 @@ def ik_arm():
         worst = max(worst, abs(math.dist(shoulder, elbow) - l1), abs(math.dist(elbow, hand) - l2))
     assert worst < 1e-6, f"écart de longueur {worst:.2e} px"
     return f"écart max {worst:.1e} px sur 60 images"
+
+
+def _keys(S, id, track):
+    """Clés d'une piste après la valeur initiale : (image, valeur, durée, assouplissement, arc)."""
+    return [(k["f"], k["v"], k.get("d", 0), k.get("e"), k.get("arc")) for k in S.ents[id]["t"][track][1:]]
+
+
+@case("kit : clés de pop, move, morph")
+def kit_keys():
+    try:
+        from pipeline import story_kit as K
+    except ImportError:
+        raise SkipTest("pipeline/story_kit.py absent (E4)")
+    S = story.Story("VZZ", [], {"scenes": []})
+    kit = K.Kit(S)
+    for id, pos, sc in (("a", [100, 200], 0), ("b", [300, 400], 1), ("c", [500, 600], 0)):
+        S.add(id, "shape", z=1)
+        S.set(id, pos=pos, scale=sc)
+    P, M, MV = story.POP, story.MORPH, story.MOVE
+    # pop : échelle 0 -> 1 en POP (ease-out) ; déjà à 0 : pas de clé à f - 1
+    assert kit.pop("a", 10) == 10 + P
+    assert _keys(S, "a", "scale") == [(10, 1, P, "out", None)], _keys(S, "a", "scale")
+    # pop depuis un point : 0 à f - 1, naît en from_pt et glisse à sa place
+    kit.pop("a", 40, scale=2, from_pt=[0, 0])
+    assert _keys(S, "a", "scale")[1:] == [(39, 0, 0, None, None), (40, 2, P, "out", None)], _keys(S, "a", "scale")
+    assert _keys(S, "a", "pos") == [(39, [0, 0], 0, None, None), (40, [100, 200], P, "out", None)], _keys(S, "a", "pos")
+    assert S.val("a", "scale", 39) == 0 and S.val("a", "scale", 40 + P - 1) == 2
+    # move : pos (+ arc) et scale, MOVE en ease-in-out
+    assert kit.move("b", 20, [350, 420], arc=30, scale=1.5) == 20 + MV
+    assert _keys(S, "b", "pos") == [(20, [350, 420], MV, "inOut", 30)], _keys(S, "b", "pos")
+    assert _keys(S, "b", "scale") == [(20, 1.5, MV, "inOut", None)], _keys(S, "b", "scale")
+    # morph apparié b -> c : b se réduit vers la place de c, c naît à la place de b, mêmes images
+    assert kit.morph(["b"], ["c"], 60) == 60 + M
+    assert _keys(S, "b", "scale")[-1] == (60, 0, M, "out", None)
+    assert _keys(S, "b", "pos")[-1] == (60, [500, 600], M, "out", None)
+    assert _keys(S, "b", "opacity") == [(60 + M, 0, 0, None, None)]
+    assert _keys(S, "c", "pos") == [(59, [350, 420], 0, None, None), (60, [500, 600], M, "out", None)]
+    assert _keys(S, "c", "scale") == [(60, 1, M, "out", None)]
+    assert S.val("b", "scale", 60 + M - 1) == 0 and S.val("c", "scale", 60 + M - 1) == 1
+    return "pop (0 à f - 1, from_pt), move (arc, scale), morph apparié : clés et valeurs attendues"
+
+
+@case("figurine : bras de longueur fixe image par image")
+def rig_arm():
+    try:
+        from pipeline import story_kit as K
+    except ImportError:
+        raise SkipTest("pipeline/story_kit.py absent (E4)")
+    import math
+    S = story.Story("VZZ", [], {"scenes": []})
+    kit = K.Kit(S)
+    sheet = K.Sheet(3)
+    sheet.add(kit, "fiche", [("Dossier", "12 docs", "bars"), ("Contrat", "AV 2019", "shield"),
+                             ("Objectif", "retraite", "cal")], pos=[390, 820], scale=0.9)
+    S.add("tampon", "stamp", z=11.8, parent="fiche", text="OK", w=200, h=68, size=36)
+    S.set("tampon", pos=[118, 196], rot=-8, scale=0, opacity=0)
+    toi = K.Figure(kit, "toi", pos=[880, 955], show=False)
+
+    def ticks(n):
+        return [sheet.world(S, i, "tick", n=n) for i in range(3)]
+    f = toi.enter(10)
+    f = toi.walk(f + 2, toi.place_for(ticks(f), f))
+    hit = toi.tap(f + 2, ticks(f)[0])
+    hits = toi.trace(hit + 6, ticks(hit))
+    a, b = (S.to_world("fiche", q, hits[-1]) for q in sheet.value_span(2))
+    end = toi.strike(hits[-1] + 2, a, b, line="fiche_L3")
+    h2 = toi.stamp(end + 12, "tampon", shake="fiche")
+    last = toi.exit(toi.rest(h2 + 14) + 2)
+    assert not kit.warnings, kit.warnings
+    G = story.GEOM["FIGURE"]
+    worst, frames = 0.0, 0
+    for n in range(last + 1):
+        s = S.world_scale("toi", n)
+        if s < 0.05:
+            continue
+        lean = S.val("toi", "lean", n, 0)   # épaule calculée comme entities.tsx Limb (penché autour du pied)
+        sh = K.rotate_about(G["shoulder"], lean, G["pivot"]) if lean else G["shoulder"]
+        A, E, B = S.to_world("toi", sh, n), S.val("toi_bras", "elbow", n), S.val("toi_stylo", "pos", n)
+        worst = max(worst, abs(math.dist(A, E) - G["arm"]["upper"] * s), abs(math.dist(E, B) - G["arm"]["fore"] * s))
+        frames += 1
+    assert worst < 0.01, f"écart de longueur {worst:.3f} px"
+    assert math.dist(toi.tip(hit), ticks(hit)[0]) < 0.5, "pointe hors de la cible au contact"
+    off = max(math.dist(toi.tip(n), t) for n, t in zip(hits, ticks(hits[0])))
+    assert off < 0.5, f"relecture : pointe à {off:.2f} px des coches"
+    return f"écart max {worst:.1e} px sur {frames} images (entrée, marche, tapotement, relecture, trait, tampon, sortie)"
 
 
 @case("QA story : contrôles image sur l'extrait validé", optional=True)

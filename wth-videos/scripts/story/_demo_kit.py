@@ -16,7 +16,7 @@ from pathlib import Path
 if __name__ == "__main__":
     sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from pipeline.story import GEOM, STYLE  # noqa: E402
+from pipeline.story import STYLE  # noqa: E402
 from pipeline.story_kit import Figure, Kit, Sheet  # noqa: E402
 
 T_FROM, T_TO = 51.038, 99.0          # S18 « Avant, » -> fin de la voix

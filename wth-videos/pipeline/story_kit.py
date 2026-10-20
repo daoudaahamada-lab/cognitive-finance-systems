@@ -7,7 +7,7 @@ fixe), fiche, repère d'étapes, carte de fin, et une fonction de déclaration p
     kit.pop("loupe", f)                            # apparition 300 ms
     kit.morph(["dossier"], ["outil"], f)           # passage d'une composition à l'autre, mêmes images
     toi = Figure(kit, "toi", pos=[800, 1040])      # figurine encre + bras + stylo
-    hit = toi.tap(f, sheet.world(S, "fiche", 0, "tick", n=f))   # image du contact : déclenche la coche
+    hit = toi.tap(f, sheet.world(S, 0, "tick", n=f))   # image du contact : déclenche la coche
 
 Tout passe par l'API Story (key, keys, path, fly, val, to_world) : le rendu ne change pas. Images = images du FILM ;
 chaque macro renvoie l'image qui suit son mouvement (f + d), sauf mention contraire. Référence complète (signatures,
@@ -26,7 +26,6 @@ REACH = 0.94          # au-delà de 94 % de l'allonge (bras + stylo), la figurin
 REACH_STAMP = 0.98    # coup de tampon : bras presque tendu (main seule, sans stylo)
 WRIST = 0.35          # cible trop près de l'épaule : la prise reste à 35 % de (bras + avant-bras), le poignet plie
 REST_UP = 255         # stylo levé au repos (V01) : pointe en haut, un peu vers l'extérieur (bras à gauche)
-REST_WRITE = 218      # stylo tenu pour écrire (V01 REST_ROT)
 TAP = 8               # images d'un tapotement (approche + coup)
 STEP = 8              # images du pas fait avant un coup de tampon hors d'atteinte
 _TRACKS0 = {"draw": 0, "chars": 0, "value": 0, "ring": 0, "press": 0, "mark": 0, "under": 0, "strike": 0, "pulse": 0,
@@ -100,8 +99,8 @@ def format_fr(v, decimals=0, sign=False):
     """Nombre en typographie française (copie de entities_kit.tsx formatFr) : 12 500, 3,5, −40."""
     x = round(abs(v) * 10 ** decimals) / 10 ** decimals
     ent, _, dec = f"{x:.{decimals}f}".partition(".")
-    grouped = f"{int(ent):,}".replace(",", " ")
-    s = "" if x == 0 else "−" if v < 0 else "+" if sign else ""
+    grouped = f"{int(ent):,}".replace(",", "\u202f")
+    s = "" if x == 0 else "\u2212" if v < 0 else "+" if sign else ""
     return s + grouped + ("," + dec if dec else "")
 
 
@@ -326,7 +325,8 @@ class Kit:
         return self._add(id, "gauge", pos, z, parent, scale, opacity, None, {"value": value}, w=w, h=h, **p)
 
     def counter(self, id, pos, value=0, size=96, z=10, parent=None, scale=1, opacity=1, **p):
-        """Compteur en typographie française (decimals, prefix, suffix «  € », sign) : piste value."""
+        """Compteur en typographie française (decimals, prefix, suffix " €" : l'espace devient insécable, sign) :
+        piste value."""
         return self._add(id, "counter", pos, z, parent, scale, opacity, None, {"value": value}, size=size, **p)
 
     def curve(self, id, pos, pts, draw=0, z=10, parent=None, scale=1, opacity=1, **p):
@@ -605,6 +605,8 @@ class Figure:
         marchant depuis x (même y ; attention à la zone x > 940 réservée). Renvoie f + d."""
         S = self.S
         at = list(at) if at is not None else S.val(self.id, "pos", f - 1)
+        if S.val(self.id, "opacity", f - 1) < 1:                 # après une sortie (exit)
+            S.key(self.id, "opacity", f - 1, 1)
         if frm is not None:
             S.key(self.id, "pos", f - 1, r3([frm, at[1]]))
             S.key(self.id, "scale", f - 1, self.size)
@@ -624,15 +626,18 @@ class Figure:
         return f + d
 
     def exit(self, f, d=POP):
-        """Sortie : se réduit vers son centre (bras et stylo avec elle). Renvoie f + d."""
+        """Sortie : se réduit vers son centre (bras et stylo avec elle, la main rejoint le repos). Renvoie f + d."""
         S = self.S
         s0 = S.val(self.id, "scale", f - 1)
         if self.pen:
             S.key(self.arm, "opacity", f, 0, 2, "linear")
+            rel0, r0 = self._start(f)
         for n, p in frames(f, d, "out"):
             S.key(self.id, "scale", n, round(s0 * (1 - p), 5), 1, "linear")
             if self.pen:
-                self._pose(n, self._rest_grip(n), self._rest_rot(n), pen_scale=s0 * (1 - p))
+                A, k = self._shoulder(n), 1 - p
+                self._pose(n, lerp([A[0] + rel0[0] * k, A[1] + rel0[1] * k], self._rest_grip(n), p),
+                           ang_lerp(r0, self._rest_rot(n), p), pen_scale=s0 * k)
         S.key(self.id, "opacity", f + d, 0)
         return f + d
 
@@ -641,6 +646,8 @@ class Figure:
         suit le corps. d par défaut : distance / 7 px par image (8 images au moins). Renvoie f + d."""
         p0 = self.S.val(self.id, "pos", f - 1)
         to = [to, p0[1]] if isinstance(to, (int, float)) else list(to)
+        if math.dist(p0, to) < 0.5:
+            return f
         d = d or max(8, math.ceil(math.dist(p0, to) / WALK_SPEED))
         self._move_body(f, d, to, e)
         if self.pen:
