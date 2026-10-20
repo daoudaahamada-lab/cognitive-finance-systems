@@ -1,0 +1,645 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-20T19:33:57+00:00",
+  "checkpoints": {
+    "v01_full_approved": {
+      "state": "pending",
+      "label": "V01 complète validée par l'utilisateur (avant la série V02-V15)",
+      "updated_at": "2026-10-20T19:24:49+00:00",
+      "note": "extrait S11-S14 validé le 20/10 (« C'est absolument parfait ») ; le film entier V01 doit être envoyé (avec et sans sous-titres) et validé avant V02-V15"
+    },
+    "publication_dates_approved": {
+      "state": "pending",
+      "label": "dates de publication validées (avant toute programmation Metricool)",
+      "updated_at": "2026-10-20T19:24:49+00:00",
+      "note": "proposer une vidéo tous les 2 jours à 17:00, décalée par rapport au plan d'origine (config/videos.csv) ; rien n'est programmé sans accord"
+    },
+    "elevenlabs_credits": {
+      "state": "pending",
+      "label": "crédits ElevenLabs suffisants pour le prochain lot de voix",
+      "updated_at": "2026-10-20T19:24:48+00:00",
+      "note": "quota 40 000 crédits par période ; épuisé une fois le 20/10 (580 restants à V06), V06 générée ensuite ; ≈ 870-1 010 crédits par prise, 4 prises par vidéo (≈ 3 500-4 000) : faire confirmer le solde par l'utilisateur avant chaque lot"
+    },
+    "publication_questions": {
+      "state": "pending",
+      "label": "licence Remotion et déclaration « contenu IA » tranchées (avant publication)",
+      "updated_at": "2026-10-20T19:24:49+00:00",
+      "note": "licence Remotion (gratuite jusqu'à 3 personnes) et déclaration contenu IA (isAigc TikTok, isAiGenerated Instagram) à demander avant la première publication"
+    }
+  },
+  "notes": [
+    "Méthode Story (validée sur V01) ; skills wth-video, wth-storyboard, wth-story-build ; branche claude/wth-video-pipeline.",
+    "Ordre : V01 complète d'abord (point de validation), puis V02 à V15 dans l'ordre de publication."
+  ],
+  "videos": {
+    "V01": {
+      "title": "Préparer ton entretien client avec l’IA",
+      "source": "WTH-003",
+      "date_initiale": "2026-10-20",
+      "stages": {
+        "voice": {
+          "state": "done",
+          "updated_at": "2026-10-20T19:24:36+00:00",
+          "note": "Abdelatif ; pas encore verrouillée (make lock ID=V01 après l'accord sur le film)",
+          "take": "MZxU9jlSx16rAM83bkR8",
+          "duration_s": 57.68,
+          "cache_key": "f5f1bee70cbb9146580be456",
+          "aligned": "147/147"
+        },
+        "storyboard": {
+          "state": "done",
+          "updated_at": "2026-10-20T19:24:36+00:00",
+          "note": "scripts/storyboards/V01.json + .md (v2)",
+          "pending": "v3 : revise.wf.js avec les points faibles du contrôle sans son de l'extrait (lessons-v01.md) ; v2 n'a ni idees_cles ni objet_fil, --check la refuse",
+          "version": "v2 · révisé après le test sans son"
+        },
+        "spec": {
+          "state": "partial",
+          "updated_at": "2026-10-20T19:24:36+00:00",
+          "note": "scripts/story/V01.py : S10-S14 (extrait validé) ; écrit avant le kit",
+          "pending": "S01-S09 et S15-S20 à mettre en scène, S11-S14 à ajuster au storyboard v3 (paquet scripts/story/V01/ conseillé)"
+        },
+        "render": {
+          "state": "pending",
+          "updated_at": "2026-10-20T19:24:36+00:00",
+          "note": "extrait S11-S14 rendu et validé (« C'est absolument parfait », 20/10) : output/extraits/WTH-V01_extrait_S11-S14.mp4 ; film entier jamais rendu (output/WTH-V01.mp4 = ancien rendu motion)"
+        },
+        "review": {
+          "state": "pending"
+        },
+        "mute_verify": {
+          "state": "pending",
+          "updated_at": "2026-10-20T19:24:37+00:00",
+          "note": "extrait : 2 spectateurs muets, 12 points faibles devenus règles (wth-storyboard/references/lessons-v01.md)"
+        },
+        "qa": {
+          "state": "pending"
+        },
+        "delivered": {
+          "state": "pending"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": []
+    },
+    "V02": {
+      "title": "Connecter ta banque : les erreurs à éviter",
+      "source": "WTH-002",
+      "date_initiale": "2026-10-22",
+      "stages": {
+        "voice": {
+          "state": "done",
+          "updated_at": "2026-10-20T19:24:37+00:00",
+          "take": "1O1ikf3i8CYM3vzqtp84",
+          "duration_s": 55.41,
+          "cache_key": "6b2a8141e637284825cf3fb3",
+          "aligned": "149/149"
+        },
+        "storyboard": {
+          "state": "pending"
+        },
+        "spec": {
+          "state": "pending"
+        },
+        "render": {
+          "state": "pending"
+        },
+        "review": {
+          "state": "pending"
+        },
+        "mute_verify": {
+          "state": "pending"
+        },
+        "qa": {
+          "state": "pending"
+        },
+        "delivered": {
+          "state": "pending"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": []
+    },
+    "V03": {
+      "title": "1 % de frais par an : ce que ça coûte",
+      "source": "WTH-016",
+      "date_initiale": "2026-10-24",
+      "stages": {
+        "voice": {
+          "state": "done",
+          "updated_at": "2026-10-20T19:24:37+00:00",
+          "note": "aucune prise sous 59,4 s : 60,6 s acceptée, durée maximale 62 s approuvée par l'utilisateur le 20/10 (config.yaml qa.max_duration_by_video)",
+          "take": "4GUyNlztRyg1DFD6Zq97",
+          "duration_s": 60.6,
+          "cache_key": "e43c18019584620a96b6a204",
+          "aligned": "139/139"
+        },
+        "storyboard": {
+          "state": "pending"
+        },
+        "spec": {
+          "state": "pending"
+        },
+        "render": {
+          "state": "pending"
+        },
+        "review": {
+          "state": "pending"
+        },
+        "mute_verify": {
+          "state": "pending"
+        },
+        "qa": {
+          "state": "pending"
+        },
+        "delivered": {
+          "state": "pending"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": [],
+      "max_duration_s": 62.0
+    },
+    "V04": {
+      "title": "Ton solde n’est pas ton budget",
+      "source": "WTH-006",
+      "date_initiale": "2026-10-26",
+      "stages": {
+        "voice": {
+          "state": "done",
+          "updated_at": "2026-10-20T19:24:37+00:00",
+          "take": "QggUPPRCk4Ex3CjjGdrC",
+          "duration_s": 54.15,
+          "cache_key": "87613f4399ba8ad213cba19a",
+          "aligned": "147/147"
+        },
+        "storyboard": {
+          "state": "pending"
+        },
+        "spec": {
+          "state": "pending"
+        },
+        "render": {
+          "state": "pending"
+        },
+        "review": {
+          "state": "pending"
+        },
+        "mute_verify": {
+          "state": "pending"
+        },
+        "qa": {
+          "state": "pending"
+        },
+        "delivered": {
+          "state": "pending"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": []
+    },
+    "V05": {
+      "title": "Ton agent IA a inventé une info",
+      "source": "WTH-009",
+      "date_initiale": "2026-10-28",
+      "stages": {
+        "voice": {
+          "state": "done",
+          "updated_at": "2026-10-20T19:24:37+00:00",
+          "take": "JkZRPildZNQclvYrTOUd",
+          "duration_s": 57.76,
+          "cache_key": "0bd37f9cfd33a5ff41ff8e16",
+          "aligned": "147/147"
+        },
+        "storyboard": {
+          "state": "pending"
+        },
+        "spec": {
+          "state": "pending"
+        },
+        "render": {
+          "state": "pending"
+        },
+        "review": {
+          "state": "pending"
+        },
+        "mute_verify": {
+          "state": "pending"
+        },
+        "qa": {
+          "state": "pending"
+        },
+        "delivered": {
+          "state": "pending"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": []
+    },
+    "V06": {
+      "title": "Ton patrimoine est-il vraiment disponible ?",
+      "source": "WTH-025",
+      "date_initiale": "2026-10-30",
+      "stages": {
+        "voice": {
+          "state": "done",
+          "updated_at": "2026-10-20T19:33:57+00:00",
+          "note": "générée le 20/10 après la recharge des crédits (commit 74aeb7e)",
+          "take": "0WdAGwDgr43atUwUrPI3",
+          "duration_s": 56.92,
+          "aligned": "146/146",
+          "cache_key": "eeea80de0c5a44f4347363bb"
+        },
+        "storyboard": {
+          "state": "pending"
+        },
+        "spec": {
+          "state": "pending"
+        },
+        "render": {
+          "state": "pending"
+        },
+        "review": {
+          "state": "pending"
+        },
+        "mute_verify": {
+          "state": "pending"
+        },
+        "qa": {
+          "state": "pending"
+        },
+        "delivered": {
+          "state": "pending"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": []
+    },
+    "V07": {
+      "title": "Ton ETF te rend vraiment diversifié ?",
+      "source": "WTH-014",
+      "date_initiale": "2026-11-01",
+      "stages": {
+        "voice": {
+          "state": "in_progress",
+          "updated_at": "2026-10-20T19:24:37+00:00",
+          "note": "4 prises téléchargées le 20/10 (62,8 à 68,2 s) : aucune sous 59,4 s",
+          "pending": "choix à faire avec l'utilisateur (pick_take.py V07) : accélérer, accepter une durée plus longue, ou raccourcir le script ; ne pas régénérer"
+        },
+        "storyboard": {
+          "state": "pending"
+        },
+        "spec": {
+          "state": "pending"
+        },
+        "render": {
+          "state": "pending"
+        },
+        "review": {
+          "state": "pending"
+        },
+        "mute_verify": {
+          "state": "pending"
+        },
+        "qa": {
+          "state": "pending"
+        },
+        "delivered": {
+          "state": "pending"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": []
+    },
+    "V08": {
+      "title": "Ton vrai reste à vivre en 3 étapes",
+      "source": "WTH-004",
+      "date_initiale": "2026-11-03",
+      "stages": {
+        "voice": {
+          "state": "in_progress",
+          "updated_at": "2026-10-20T19:33:57+00:00",
+          "note": "4 prises téléchargées le 20/10 (61,0 à 62,7 s) : aucune sous 59,4 s",
+          "pending": "choix à faire avec l'utilisateur (pick_take.py V08 : ×1,027 suffirait) : accélérer, accepter une durée plus longue, ou raccourcir le script ; ne pas régénérer"
+        },
+        "storyboard": {
+          "state": "pending"
+        },
+        "spec": {
+          "state": "pending"
+        },
+        "render": {
+          "state": "pending"
+        },
+        "review": {
+          "state": "pending"
+        },
+        "mute_verify": {
+          "state": "pending"
+        },
+        "qa": {
+          "state": "pending"
+        },
+        "delivered": {
+          "state": "pending"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": []
+    },
+    "V09": {
+      "title": "« Capital garanti, 5 %, disponible » ?",
+      "source": "WTH-019",
+      "date_initiale": "2026-11-05",
+      "stages": {
+        "voice": {
+          "state": "done",
+          "updated_at": "2026-10-20T19:33:57+00:00",
+          "note": "commit d2ca7e8",
+          "take": "Q4umh8iWdwekVL3Yf3Dd",
+          "duration_s": 56.03,
+          "cache_key": "5346a6389fa50e424a79971a",
+          "aligned": "145/145"
+        },
+        "storyboard": {
+          "state": "pending"
+        },
+        "spec": {
+          "state": "pending"
+        },
+        "render": {
+          "state": "pending"
+        },
+        "review": {
+          "state": "pending"
+        },
+        "mute_verify": {
+          "state": "pending"
+        },
+        "qa": {
+          "state": "pending"
+        },
+        "delivered": {
+          "state": "pending"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": []
+    },
+    "V10": {
+      "title": "Offre urgente : le moment de ralentir",
+      "source": "WTH-064",
+      "date_initiale": "2026-11-07",
+      "stages": {
+        "voice": {
+          "state": "pending",
+          "updated_at": "2026-10-20T19:24:48+00:00",
+          "note": "en attente de crédits ElevenLabs (une vidéo à la fois, coût estimé avant chaque lot)"
+        },
+        "storyboard": {
+          "state": "pending"
+        },
+        "spec": {
+          "state": "pending"
+        },
+        "render": {
+          "state": "pending"
+        },
+        "review": {
+          "state": "pending"
+        },
+        "mute_verify": {
+          "state": "pending"
+        },
+        "qa": {
+          "state": "pending"
+        },
+        "delivered": {
+          "state": "pending"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": []
+    },
+    "V11": {
+      "title": "La meilleure info n’est pas dans le dossier",
+      "source": "WTH-021",
+      "date_initiale": "2026-11-09",
+      "stages": {
+        "voice": {
+          "state": "pending",
+          "updated_at": "2026-10-20T19:24:48+00:00",
+          "note": "en attente de crédits ElevenLabs (une vidéo à la fois, coût estimé avant chaque lot)"
+        },
+        "storyboard": {
+          "state": "pending"
+        },
+        "spec": {
+          "state": "pending"
+        },
+        "render": {
+          "state": "pending"
+        },
+        "review": {
+          "state": "pending"
+        },
+        "mute_verify": {
+          "state": "pending"
+        },
+        "qa": {
+          "state": "pending"
+        },
+        "delivered": {
+          "state": "pending"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": []
+    },
+    "V12": {
+      "title": "L’inflation : la perte que tu ne vois pas",
+      "source": "WTH-049",
+      "date_initiale": "2026-11-11",
+      "stages": {
+        "voice": {
+          "state": "pending",
+          "updated_at": "2026-10-20T19:24:48+00:00",
+          "note": "en attente de crédits ElevenLabs (une vidéo à la fois, coût estimé avant chaque lot)"
+        },
+        "storyboard": {
+          "state": "pending"
+        },
+        "spec": {
+          "state": "pending"
+        },
+        "render": {
+          "state": "pending"
+        },
+        "review": {
+          "state": "pending"
+        },
+        "mute_verify": {
+          "state": "pending"
+        },
+        "qa": {
+          "state": "pending"
+        },
+        "delivered": {
+          "state": "pending"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": []
+    },
+    "V13": {
+      "title": "Ton patrimoine net n’est pas ton solde",
+      "source": "WTH-058",
+      "date_initiale": "2026-11-13",
+      "stages": {
+        "voice": {
+          "state": "pending",
+          "updated_at": "2026-10-20T19:24:48+00:00",
+          "note": "en attente de crédits ElevenLabs (une vidéo à la fois, coût estimé avant chaque lot)"
+        },
+        "storyboard": {
+          "state": "pending"
+        },
+        "spec": {
+          "state": "pending"
+        },
+        "render": {
+          "state": "pending"
+        },
+        "review": {
+          "state": "pending"
+        },
+        "mute_verify": {
+          "state": "pending"
+        },
+        "qa": {
+          "state": "pending"
+        },
+        "delivered": {
+          "state": "pending"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": []
+    },
+    "V14": {
+      "title": "Ton IA financière dit « je ne sais pas » ?",
+      "source": "WTH-086",
+      "date_initiale": "2026-11-15",
+      "stages": {
+        "voice": {
+          "state": "pending",
+          "updated_at": "2026-10-20T19:24:48+00:00",
+          "note": "en attente de crédits ElevenLabs (une vidéo à la fois, coût estimé avant chaque lot)"
+        },
+        "storyboard": {
+          "state": "pending"
+        },
+        "spec": {
+          "state": "pending"
+        },
+        "render": {
+          "state": "pending"
+        },
+        "review": {
+          "state": "pending"
+        },
+        "mute_verify": {
+          "state": "pending"
+        },
+        "qa": {
+          "state": "pending"
+        },
+        "delivered": {
+          "state": "pending"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": []
+    },
+    "V15": {
+      "title": "Pas besoin de tout réorganiser ce soir",
+      "source": "WTH-090",
+      "date_initiale": "2026-11-17",
+      "stages": {
+        "voice": {
+          "state": "pending",
+          "updated_at": "2026-10-20T19:24:48+00:00",
+          "note": "en attente de crédits ElevenLabs (une vidéo à la fois, coût estimé avant chaque lot)"
+        },
+        "storyboard": {
+          "state": "pending"
+        },
+        "spec": {
+          "state": "pending"
+        },
+        "render": {
+          "state": "pending"
+        },
+        "review": {
+          "state": "pending"
+        },
+        "mute_verify": {
+          "state": "pending"
+        },
+        "qa": {
+          "state": "pending"
+        },
+        "delivered": {
+          "state": "pending"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": []
+    }
+  }
+}
