@@ -28,7 +28,8 @@ export type Anchor = {id: string; at: Vec2};
 export type Entity = {
   id: string;
   /** Component: pill, figure, png, window, doc, fiche, sheen, line, tick, label, case, wire, qmark, bubble, pen, limb,
-   *  stamp, marker, bullet, burst (entities.tsx). */
+   *  stamp, marker, bullet, burst (entities.tsx) ; kit générique : shape, text, icon, sector, gauge, counter, curve,
+   *  seesaw, cursor, endcard, crowd (entities_kit.tsx). */
   type: string;
   /** Scene-graph parent: local tracks are expressed in the parent's coordinates (translate, rotate, scale). */
   parent?: string;

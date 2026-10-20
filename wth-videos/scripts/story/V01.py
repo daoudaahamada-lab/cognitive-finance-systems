@@ -26,7 +26,7 @@ Un seul objet suivi : la fiche du client de 9 h.
 """
 import math
 
-from pipeline.story import (DRAW, DROP, FADE, LEAD, MORPH, MOVE, POP, SCALE, STYLE, TILT, _ease, cubic_at,
+from pipeline.story import (DRAW, DROP, FADE, GEOM, LEAD, MORPH, MOVE, POP, SCALE, STYLE, TILT, _ease, cubic_at,
                             line_crack_point, point_at_length, text_width, wire_cubic)
 
 # ---------- couleurs (storyboard, section « style » = pipeline.story.STYLE) ----------
@@ -57,10 +57,10 @@ LINES = [
     ("Horizon", "5 ans", "none", None, None),          # L5 : née dans la tête de l'IA, aucun document
 ]
 
-# Puce-date / étiquette-source (entities.tsx TAG : pictogramme à 24 px du bord gauche, texte à 46 px) et document
+# Puce-date / étiquette-source (geometry.json TAG : pictogramme à iconX du bord gauche, texte à textX) et document
 # compact = [bande de la date | pastille du pictogramme] (entities.tsx Doc, DOC_DISC).
-TAG_SIZE, TAG_H, TAG_ICON_X = 28, 42, 24
-TAG_W = round(46 + max(text_width(l[4], TAG_SIZE, 600) for l in LINES[:4]) + 14)
+TAG_SIZE, TAG_H, TAG_ICON_X = 28, 42, GEOM["TAG"]["iconX"]
+TAG_W = round(GEOM["TAG"]["textX"] + max(text_width(l[4], TAG_SIZE, 600) for l in LINES[:4]) + 14)
 TAG_CX = VALUE_X - TAG_W / 2                               # la date finit au bout de la valeur, sur la 2e ligne
 DOC_CW, DOC_CH, DOC_TITLE = TAG_W + 70, 64, 30
 DOC_CHIP_X = -DOC_CW / 2 + 8 + TAG_W / 2                   # la date posée sur la bande gauche du document
@@ -95,20 +95,22 @@ IA_S10 = ([230, 880], 0.9)
 IA_S11 = [150, 1020]
 BUBBLE = [698, 880]                            # bulle du conseiller : au-dessus de lui, déborde vers le client
 
-# Conseiller : bras (épaule -> prise du stylo), stylo de 120 px tenu par sa prise.
-SHOULDER = [-30, -16]
-HAND = [-58, -6]
-PEN_LEN = 120
+# Conseiller : bras (épaule -> prise du stylo), stylo de 120 px tenu par sa prise (geometry.json FIGURE, PEN).
+SHOULDER = list(GEOM["FIGURE"]["shoulder"])
+HAND = list(GEOM["FIGURE"]["hand"])
+PEN_LEN = GEOM["PEN"]["len"]
 REST_ROT = 218                                 # stylo tenu pour écrire : pointe en haut à gauche
 REST_UP = 255                                  # stylo levé au repos (ne pointe sur rien)
 REST_DOWN = 110                                # stylo baissé le long du corps (S13 : il parle, il ne pointe plus)
-STAMP_GRIP = [0, -(72 / 2 + 14 + 10)]          # prise du tampon (entities.tsx STAMP_HANDLE), repère du tampon
+STAMP_W, STAMP_H = 230, 72                     # tampon VALIDÉ
+# prise du tampon (geometry.json STAMP_HANDLE), repère du tampon
+STAMP_GRIP = [0, -(STAMP_H / 2 + GEOM["STAMP_HANDLE"]["neck"] + GEOM["STAMP_HANDLE"]["knobH"] / 2)]
 STAMP_ELBOW = [702, 1004]                      # coude du bras pendant le coup de tampon (monde, hors de la page)
 
 # Bulle (S13) et autocollant (S14) : « ? » ExtraBold + mini-figurine du client (entities.tsx Bubble, ClientGlyph).
 BIG = dict(w=236, h=136, r=30, q=100, qx=-52, px=60, ps=64, sw=5, shadow=6, gs=4)
 SMALL = dict(w=112, h=60, r=30, q=44, qx=-26, px=27, ps=36, sw=4, shadow=4, gs=3)
-FIGURE_H = 191                                 # figurine : tête (-96) -> base (95)
+FIGURE_H = GEOM["FIGURE"]["h"]                  # figurine : haut de la tête (top) -> base
 
 
 def hand_of(fig, s=1.0):
@@ -248,14 +250,14 @@ def build(story):
     S.set("pastille", pos=S.to_local("fiche", title_pt, 0), scale=1 / PAGE_S10_SCALE)
 
     # La 5e pastille, vide (le trait pointillé de l'IA) : elle naîtra de la tête de l'IA (S10 puis S11).
-    S.add("pastille5", "bullet", z=13, icon="none", r=22)
+    S.add("pastille5", "bullet", z=13, icon="none", r=GEOM["BULLET"]["r"])
     S.set("pastille5", pos=[0, 0], scale=0, opacity=1)
 
     # Conseiller, son bras et son stylo (le bras va de l'épaule à la prise du stylo ; ils n'entrent qu'avec lui).
     S.add("conseiller", "figure", z=15, variant="ink")
     S.set("conseiller", pos=ADV_S10[0], scale=ADV_S10[1], lean=0)
-    S.add("bras", "limb", z=15.5, a={"id": "conseiller", "at": SHOULDER}, b={"id": "stylo", "at": [0, 0]}, sw=13,
-          pivot=[0, 95], pivotTrack="lean")
+    S.add("bras", "limb", z=15.5, a={"id": "conseiller", "at": SHOULDER}, b={"id": "stylo", "at": [0, 0]},
+          sw=GEOM["FIGURE"]["arm"]["sw"], pivot=list(GEOM["FIGURE"]["pivot"]), pivotTrack="lean")
     S.set("bras", opacity=0, bend=0, elbow=[0, 0])
     S.add("stylo", "pen", z=16, len=PEN_LEN)
     S.set("stylo", pos=hand_of(ADV_S12), rot=REST_ROT, scale=0, opacity=1)
@@ -293,7 +295,7 @@ def build(story):
           color=DEEP, sw=5, dots=True, dashAlt=[14, 11])
     S.set("fil5", draw=0, pb=[0, 0], sag=0, dashed=0, **{"from": 0})
 
-    tail_tip = [ADV_S13[0] - BUBBLE[0], ADV_S13[1] - 96 - 4 - BUBBLE[1]]   # sur la tête du conseiller
+    tail_tip = [ADV_S13[0] - BUBBLE[0], ADV_S13[1] + GEOM["FIGURE"]["top"] - 4 - BUBBLE[1]]   # sur la tête du conseiller
     bubble_p = dict(big=BIG, small=SMALL, tail=tail_tip, tailBase=[-74, -40])
     S.add("question", "qmark", z=17)
     S.set("question", pos=[0, 0], scale=0, gs=110, opacity=1)
@@ -302,7 +304,7 @@ def build(story):
     # L'autocollant posé sur la page (enfant de la fiche) : il prend le relais de la bulle à son arrivée.
     S.add("autocollant", "bubble", z=11.6, parent="fiche", **bubble_p)
     S.set("autocollant", pos=list(STICKER_PARK), scale=1, s=1, q=1, pulse=0, opacity=0)
-    S.add("tampon", "stamp", z=11.8, parent="fiche", text="VALIDÉ", w=230, h=72, size=40)
+    S.add("tampon", "stamp", z=11.8, parent="fiche", text="VALIDÉ", w=STAMP_W, h=STAMP_H, size=40)
     S.set("tampon", pos=list(STAMP_AT), rot=-8, scale=0, handle=1, opacity=0)
 
     # ======================= S10 « … d’une page. » (amorce de l'extrait) =======================

@@ -5,15 +5,24 @@
     python3 -m pipeline.story V01 --from 26.378 --to 41.309 --props        props seulement (pas de rendu)
     python3 -m pipeline.story V01 --from 26.378 --to 41.309 --stills 0 40  images fixes (numéros d'image de l'extrait)
     python3 -m pipeline.story V01 --full                                    le film entier (0 -> fin de audio.wav)
+    python3 -m pipeline.story V01 --full --props --allow-partial            props du film, mise en scène incomplète admise
+    python3 -m pipeline.story V01 --check                                   contrôle du storyboard (sans rendu)
+    python3 -m pipeline.story V01 --audio                                   seulement build/V01/audio.wav (voix normalisée)
+
+Film entier : toutes les scènes du storyboard doivent être mises en scène (sinon arrêt, sauf --allow-partial) ; sorties
+build/Vxx/story/props_film.json, props_film_nocap.json, muet_film*.mp4, film_sans_sous_titres.mp4 et output/WTH-Vxx.mp4
+(un output/WTH-Vxx.mp4 d'un autre rendu est d'abord rangé dans build/Vxx/archive/), fiche build/Vxx/story_render.json
+(empreintes props, storyboard, mise en scène, MP4) pour la QA. Un seul rendu Remotion à la fois : verrou build/.render.lock.
 
 Numéros d'image : image de l'extrait # = round(t × 30) − meta.window_frames[0] (la fenêtre s'ouvre juste avant
 l'attaque audible du premier mot, pas forcément à round(from × 30)) ; le tableau des temps forts est imprimé dans les
 deux numérotations.
 
-Entrées : scripts/storyboards/Vxx.json (scènes, temps forts calés sur des mots), scripts/story/Vxx.py (mise en scène :
-distribution, états et pistes image par image, écrite avec l'API Story ci-dessous), build/Vxx/words.json,
-build/Vxx/audio.wav. Sorties : build/Vxx/story/ (props, vidéo muette, planches), output/extraits/WTH-Vxx_extrait_Sa-Sb.mp4
-et build/Vxx/story/extrait_sans_sous_titres.mp4.
+Entrées : scripts/storyboards/Vxx.json (scènes, temps forts calés sur des mots), scripts/story/Vxx.py ou le paquet
+scripts/story/Vxx/__init__.py (mise en scène : distribution, états et pistes image par image, écrite avec l'API Story
+ci-dessous), build/Vxx/words.json, build/Vxx/audio.wav (motion.ensure_audio : refait depuis la voix en cache).
+Sorties d'un extrait : build/Vxx/story/ (props, vidéo muette, planches), output/extraits/WTH-Vxx_extrait_Sa-Sb.mp4 et
+build/Vxx/story/extrait_sans_sous_titres.mp4.
 
 Le temps est celui du FILM (image n = n / 30 s) : chaque temps fort du storyboard est résolu sur l'image de début de son
 mot dans words.json (round(start × 30)). Un extrait est une fenêtre [F0, F1) sur ce temps : sa première image montre
@@ -23,24 +32,41 @@ long d'un fil) avec les nombres mêmes du rendu.
 """
 import argparse
 import bisect
+import contextlib
+import fcntl
+import hashlib
 import importlib.util
 import json
 import math
+import os
+import re
+import shutil
 import subprocess
+import sys
+import tempfile
 import time
+import unicodedata
 import wave
 from pathlib import Path
 
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
-from .common import OUTPUT, ROOT, build_dir, ffprobe, load_config, read_json, run, write_json
-from .motion import GENERATED, ILLUSTRATIONS, MOTION, CaptionMeasure, _norm, caption_groups, clean_word, remotion_env
+from .common import BUILD, OUTPUT, ROOT, build_dir, ffprobe, load_config, read_json, run, script, write_json
+from .motion import (CAROUSEL_ASSET, GENERATED, ILLUSTRATIONS, MOTION, CaptionMeasure, _norm, caption_groups,
+                     clean_word, ensure_audio, remotion_env, sha1_file)
 
 STORYBOARDS = ROOT / "scripts" / "storyboards"
 SPECS = ROOT / "scripts" / "story"
 FONTS = MOTION / "public" / "fonts"
 PNG_VERSION = 1  # à incrémenter si la recette des PNG (alpha strict) change
+STORY_SIDECAR = "story_render.json"   # fiche du dernier rendu du film entier (QA : empreintes, chemins)
+RENDER_LOCK = BUILD / ".render.lock"  # un seul rendu Remotion à la fois (rendus et images fixes)
+
+# Géométrie partagée avec le rendu (figurine, stylo, tampon, étiquettes...) : motion/src/story/geometry.json, lue
+# aussi par entities.tsx et draw.tsx. Vide tant que le fichier n'existe pas.
+GEOM_FILE = MOTION / "src" / "story" / "geometry.json"
+GEOM = read_json(GEOM_FILE) if GEOM_FILE.exists() else {}
 
 # Jetons du storyboard (section « style ») : fond ivoire quadrillé, encre, un seul accent cyan, rouge d'alerte.
 STYLE = {
@@ -457,6 +483,12 @@ class Story:
 
     # --- PNG ---
     def png(self, name, keep_largest=False):
+        # Règle de la série (comme motion.check_series_assets) : son propre carrousel (WTH-<source>-xx) et les
+        # illustrations génériques seulement, jamais l'image d'un autre épisode.
+        m = CAROUSEL_ASSET.match(name)
+        if m and m.group(1) != (source := script(self.video_id).get("source", "")):
+            raise SystemExit(f"{self.video_id} (carrousel {source}) : illustration {name} d'un autre carrousel de la "
+                             f"série. Règle : son propre carrousel + illustrations génériques seulement.")
         out_dir = GENERATED / "story" / self.video_id
         out_dir.mkdir(parents=True, exist_ok=True)
         src = ILLUSTRATIONS / f"{name}.png"
@@ -485,8 +517,10 @@ class Story:
 # ---------- sous-titres ----------
 
 def caption_track(words, fps, f0, f1, overrides=None, snapped=None, alert_words=None):
-    """Groupes karaoké (2-3 mots) des mots qui commencent dans [f0, f1), en images du film. `overrides` : découpes
-    imposées par la mise en scène (même format que « captions.groups » des plans, voir motion._fixed_groups).
+    """Groupes karaoké (2-3 mots) des mots qui commencent dans [f0, f1), en images du film. La découpe est faite sur
+    TOUT le texte puis coupée à la fenêtre : un extrait montre les groupes mêmes du film (un groupe entamé avant F0
+    n'en garde que les mots de la fenêtre) et une découpe imposée hors de la fenêtre ne l'arrête plus. `overrides` :
+    découpes imposées par la mise en scène (même format que « captions.groups » des plans, voir motion._fixed_groups).
     `snapped` : {indice du mot: image} des temps forts calés sur l'attaque audible (Story.beat) ; le mot s'allume
     alors sur la même image que l'événement, la voix, le surlignage et l'image coïncident. `alert_words` : mots en
     rouge (ALERT_WORDS du fichier de mise en scène)."""
@@ -496,25 +530,26 @@ def caption_track(words, fps, f0, f1, overrides=None, snapped=None, alert_words=
         for g in run:
             if len(g.split()) > OVERRIDE_MAX_WORDS:
                 raise SystemExit(f"Découpe imposée de plus de {OVERRIDE_MAX_WORDS} mots : « {g} »")
-    idx = [i for i, w in enumerate(words) if f0 <= round(w["start"] * fps) < f1]
-    sub = [words[i] for i in idx]
     cap = STYLE["caption"]
     measure = CaptionMeasure(size=cap["size"], tracking_em=0.0, font_file=FONTS / "Inter-Bold.otf")
-    groups = caption_groups(sub, measure, cap=cap, overrides=overrides)
+    groups = caption_groups(words, measure, cap=cap, overrides=overrides)
     out = []
     for g in groups:
         ws, prev = [], None
-        for j in g:
-            f = snapped.get(idx[j], round(sub[j]["start"] * fps))
+        for i in g:
+            if not f0 <= round(words[i]["start"] * fps) < f1:
+                continue
+            f = snapped.get(i, round(words[i]["start"] * fps))
             if prev is not None and f <= prev:
                 f = prev + 1
             prev = f
-            text = clean_word(sub[j]["w"])
-            w = {"text": text, "i": idx[j], "from": f}
+            text = clean_word(words[i]["w"])
+            w = {"text": text, "i": i, "from": f}
             if _norm(text) in alert:
                 w["tone"] = "alert"
             ws.append(w)
-        out.append({"words": ws})
+        if ws:
+            out.append({"words": ws})
     for g in out:
         g["from"] = g["words"][0]["from"]   # un groupe ne s'affiche jamais avant son premier mot
     for k, g in enumerate(out):
@@ -603,12 +638,49 @@ def cut_audio(audio, f0, f1, fps, out, fade_in=0.005, fade_out=0.08):
 
 # ---------- rendu ----------
 
+def spec_path(video_id):
+    """Mise en scène : scripts/story/Vxx.py, ou le paquet scripts/story/Vxx/__init__.py (parties p1.py… écrites en
+    parallèle, importées en relatif : « from . import p1 »)."""
+    single, pkg = SPECS / f"{video_id}.py", SPECS / video_id / "__init__.py"
+    if single.exists() and pkg.exists():
+        raise SystemExit(f"Deux mises en scène pour {video_id} : {single} et {pkg.parent}/ (en garder une)")
+    if pkg.exists():
+        return pkg
+    if single.exists():
+        return single
+    raise SystemExit(f"Mise en scène absente : {single} (ou {pkg})")
+
+
+def spec_files(path):
+    """Fichiers source de la mise en scène (le .py, ou tous les .py du paquet, triés)."""
+    if path.name != "__init__.py":
+        return [path]
+    return sorted(p for p in path.parent.rglob("*.py") if "__pycache__" not in p.parts)
+
+
+def spec_sha1(path):
+    """Empreinte de la mise en scène : SHA-1 du fichier, ou des fichiers du paquet mis bout à bout."""
+    files = spec_files(path)
+    if len(files) == 1:
+        return sha1_file(files[0])
+    h = hashlib.sha1()
+    for f in files:
+        h.update(f.read_bytes())
+    return h.hexdigest()
+
+
 def load_spec(video_id):
-    path = SPECS / f"{video_id}.py"
-    if not path.exists():
-        raise SystemExit(f"Mise en scène absente : {path}")
-    spec = importlib.util.spec_from_file_location(f"story_spec_{video_id}", path)
+    path = spec_path(video_id)
+    name = f"story_spec_{video_id}"
+    if path.name == "__init__.py":
+        spec = importlib.util.spec_from_file_location(name, path, submodule_search_locations=[str(path.parent)])
+    else:
+        spec = importlib.util.spec_from_file_location(name, path)
     mod = importlib.util.module_from_spec(spec)
+    # Inscrit avant l'exécution : les imports relatifs des parties (from . import p1) passent par sys.modules.
+    for k in [k for k in sys.modules if k == name or k.startswith(name + ".")]:
+        del sys.modules[k]
+    sys.modules[name] = mod
     spec.loader.exec_module(mod)
     return mod, path
 
@@ -641,15 +713,49 @@ def lead_in_scenes(storyboard, t_from, t_to):
     return [i for i, _, _ in scene_overlaps(storyboard, t_from, t_to) if not lo <= ids.index(i) <= hi]
 
 
-def build_props(video_id, t_from, t_to, captions=True):
+def load_inputs(video_id, cfg):
+    """words.json, storyboard et build/Vxx/audio.wav (motion.ensure_audio : refait s'il manque ou si la voix en cache
+    est plus récente), vérifiés avant tout."""
+    bdir = build_dir(video_id)
+    for name, hint in (("tts.json", "make tts"), ("words.json", "make words")):
+        if not (bdir / name).exists():
+            raise SystemExit(f"{video_id} : build/{video_id}/{name} absent ({hint} ID={video_id}, ou make voice "
+                             f"ID={video_id}) : la voix et ses temps de mots sont nécessaires")
+    sb = STORYBOARDS / f"{video_id}.json"
+    if not sb.exists():
+        raise SystemExit(f"Storyboard absent : {sb}")
+    return read_json(bdir / "words.json")["words"], read_json(sb), ensure_audio(video_id, cfg)
+
+
+def last_frame(audio, fps):
+    """Dernière image du film : celle qui contient encore de la voix (fin de audio.wav, entamée comprise)."""
+    return math.ceil(audio_duration(audio) * fps - 1e-6)
+
+
+def outputs(video_id, label, full):
+    """Fichiers d'un rendu : « film » (film entier -> output/WTH-Vxx.mp4) ou l'étiquette Sa-Sb d'un extrait."""
+    d = build_dir(video_id) / "story"
+    tag = "film" if full else label
+    return {
+        "props": {True: d / f"props_{tag}.json", False: d / f"props_{tag}_nocap.json"},
+        "silent": {True: d / f"muet_{tag}.mp4", False: d / f"muet_{tag}_nocap.mp4"},
+        "mp4": {True: OUTPUT / f"WTH-{video_id}.mp4" if full else OUTPUT / "extraits" / f"WTH-{video_id}_extrait_{label}.mp4",
+                False: d / ("film_sans_sous_titres.mp4" if full else "extrait_sans_sous_titres.mp4")},
+        "wav": d / f"voix_{tag}.wav",
+    }
+
+
+def build_props(video_id, t_from, t_to, captions=True, allow_partial=False):
+    """Props de la fenêtre [t_from, t_to] (film entier si elle couvre tout audio.wav). Film entier : arrêt si une
+    scène du storyboard n'a aucun temps fort mis en scène, si un temps fort n'a pas d'événement ou si le début n'est
+    pas mis en scène, sauf `allow_partial` (rendu de travail : simples avertissements)."""
     cfg = load_config()
     fps = cfg["video"]["fps"]
     out_dir = build_dir(video_id) / "story"
     out_dir.mkdir(parents=True, exist_ok=True)
-    words = read_json(build_dir(video_id) / "words.json")["words"]
-    storyboard = read_json(STORYBOARDS / f"{video_id}.json")
-    audio = build_dir(video_id) / "audio.wav"
+    words, storyboard, audio = load_inputs(video_id, cfg)
     f0, f1, on0, on1 = excerpt_window(audio, t_from, t_to, fps)
+    full = f0 == 0 and f1 >= last_frame(audio, fps)
     mod, spec_path = load_spec(video_id)
     snap = None
     if getattr(mod, "ACOUSTIC_SNAP", None):
@@ -675,6 +781,17 @@ def build_props(video_id, t_from, t_to, captions=True):
     staged = sorted({b["scene"] for b in story.beats})
     first_staged = min((round(s["t_start"] * fps) for s in storyboard["scenes"] if s["id"] in staged), default=f0)
     unstaged_before = f0 < first_staged - fps // 2     # tolérance : la pré-attaque acoustique d'un extrait
+    # Film entier : chaque scène du storyboard doit être mise en scène (au moins un temps fort posé).
+    unstaged = [s["id"] for s in storyboard["scenes"] if s["id"] not in staged] if full else []
+    partly = [m for m in missing if m.split(" ")[0] not in unstaged]   # temps forts manquants des scènes mises en scène
+    problems = [p for p in (
+        f"scènes sans aucun temps fort mis en scène : {', '.join(unstaged)}" if unstaged else "",
+        f"temps forts du storyboard sans événement : {', '.join(partly)}" if partly else "",
+        f"rien n'est mis en scène avant l'image {first_staged} ({first_staged / fps:.2f} s) : l'image y resterait figée"
+        if unstaged_before else "") if p] if full else []
+    if problems and not allow_partial:
+        raise SystemExit(f"{video_id} : film entier refusé, mise en scène incomplète ({spec_path.relative_to(ROOT)}) :\n  "
+                         + "\n  ".join(problems) + "\n(--allow-partial / ALLOW_PARTIAL=1 pour un rendu de travail)")
     props = {
         "id": f"{video_id}_{label}",
         "fps": fps, "width": story.width, "height": story.height,
@@ -699,8 +816,7 @@ def build_props(video_id, t_from, t_to, captions=True):
                                              if f0 <= b["frame"] < f1 and b["frame"] in starts}),
                  "unstaged_before_frame": first_staged if unstaged_before else None},
     }
-    suffix = "" if captions else "_nocap"
-    path = out_dir / f"props_{label}{suffix}.json"
+    path = outputs(video_id, label, full)["props"][captions]
     text = json.dumps(props, ensure_ascii=False, indent=1) + "\n"
     if not path.exists() or path.read_text(encoding="utf-8") != text:
         path.write_text(text, encoding="utf-8")
@@ -725,7 +841,34 @@ def build_props(video_id, t_from, t_to, captions=True):
         print(f"  attention : la mise en scène ({spec_path.name}) ne couvre que {staged[0]}-{staged[-1]} ; "
               f"de l'image {f0} à {first_staged} ({f0 / fps:.2f}-{first_staged / fps:.2f} s) l'image reste figée sur "
               f"l'état initial reconstitué")
+    if unstaged:
+        print(f"  attention : film INCOMPLET (--allow-partial), scènes non mises en scène : {', '.join(unstaged)}")
     return path, props
+
+
+@contextlib.contextmanager
+def render_lock(what):
+    """Un seul rendu Remotion à la fois (machine à 4 cœurs) : verrou exclusif build/.render.lock (fcntl.flock),
+    attendu s'il est pris, rendu à la sortie (même si le processus meurt). Le rendu reçoit son propre dossier
+    temporaire (TMPDIR) : les dossiers de bundle remotion-webpack-bundle-*, profils Chrome et images de travail qu'il
+    crée sont supprimés à la fin, sans toucher à ceux d'un autre processus."""
+    RENDER_LOCK.parent.mkdir(parents=True, exist_ok=True)
+    with open(RENDER_LOCK, "a+") as fh:
+        try:
+            fcntl.flock(fh, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            fh.seek(0)
+            print(f"  {what} : en attente de {RENDER_LOCK} (tenu par {fh.read().strip() or '?'})", flush=True)
+            fcntl.flock(fh, fcntl.LOCK_EX)
+        fh.seek(0)
+        fh.truncate()
+        fh.write(f"pid {os.getpid()} : {what}\n")
+        fh.flush()
+        tmp = Path(tempfile.mkdtemp(prefix="wth-render-"))
+        try:
+            yield {"TMPDIR": str(tmp)}
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
 
 
 def remotion_render(props_path, silent):
@@ -737,9 +880,10 @@ def remotion_render(props_path, silent):
     # Images clés forcées sur les temps forts (motion/remotion.config.ts lit WTH_KEYFRAMES, en secondes de la
     # vidéo rendue, juste avant l'image visée) : jamais de rafraîchissement GOP dans une tenue.
     kf = props.get("meta", {}).get("keyframes", [off])
-    env = remotion_env(WTH_KEYFRAMES=",".join(f"{max(0.0, (f - off) / fps - 0.001):.4f}" for f in kf))
-    t0 = time.time()
-    proc = subprocess.run(cmd, cwd=MOTION, text=True, capture_output=True, env=env)
+    with render_lock(f"rendu {Path(silent).name}") as tmp_env:
+        env = remotion_env(WTH_KEYFRAMES=",".join(f"{max(0.0, (f - off) / fps - 0.001):.4f}" for f in kf), **tmp_env)
+        t0 = time.time()
+        proc = subprocess.run(cmd, cwd=MOTION, text=True, capture_output=True, env=env)
     if proc.returncode != 0:
         print(proc.stdout[-4000:], proc.stderr[-4000:])
         raise SystemExit(f"Rendu Remotion en échec ({proc.returncode})")
@@ -802,47 +946,227 @@ def contact_sheets(mp4, out_dir, f0, fps, step=5, cols=10, thumb_w=180):
     return keyframes
 
 
-def stills(video_id, t_from, t_to, frames, captions=True):
-    props_path, _ = build_props(video_id, t_from, t_to, captions)
+def stills(video_id, t_from, t_to, frames, captions=True, allow_partial=False):
+    props_path, _ = build_props(video_id, t_from, t_to, captions, allow_partial)
     out = build_dir(video_id) / "story" / "stills"
-    proc = subprocess.run(["node", "scripts/story_stills.mjs", str(props_path), str(out), *map(str, frames)], cwd=MOTION,
-                          text=True, capture_output=True, env=remotion_env())
+    with render_lock(f"images fixes {video_id}") as tmp_env:
+        proc = subprocess.run(["node", "scripts/story_stills.mjs", str(props_path), str(out), *map(str, frames)],
+                              cwd=MOTION, text=True, capture_output=True, env=remotion_env(**tmp_env))
     if proc.returncode != 0:
         print(proc.stdout[-3000:], proc.stderr[-3000:])
         raise SystemExit("Images fixes en échec")
     print(f"{video_id} : {len(frames)} images fixes -> {out}")
 
 
-def excerpt(video_id, t_from, t_to, captions=True, sheets=True):
-    """Rendu de l'extrait : version sans sous-titres (build/Vxx/story/) et, sauf --no-captions, version avec
-    sous-titres (output/extraits/), toutes deux avec la voix coupée image par image."""
+def rel(path):
+    path = Path(path).resolve()
+    return str(path.relative_to(ROOT)) if path.is_relative_to(ROOT) else str(path)
+
+
+def archive_previous(video_id, mp4):
+    """Un output/WTH-Vxx.mp4 qui n'est pas un rendu Story (montage classique, motion) est rangé dans
+    build/Vxx/archive/ avant d'être remplacé par le film Story."""
+    if not mp4.exists():
+        return
+    tags = {k.lower(): v for k, v in (ffprobe(mp4).get("format", {}).get("tags", {}) or {}).items()}
+    if tags.get("wth_mode") == "story":
+        return
+    mode = tags.get("wth_mode") or ("motion" if "Made with Remotion" in tags.get("comment", "") else "classique")
+    stamp = time.strftime("%Y%m%d-%H%M%S", time.localtime(mp4.stat().st_mtime))
+    dst = build_dir(video_id) / "archive" / f"{mp4.stem}_{mode}_{stamp}.mp4"
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    shutil.move(str(mp4), str(dst))
+    print(f"  {rel(mp4)} (rendu {mode}) rangé dans {rel(dst)}")
+
+
+def write_record(video_id, f0, f1, spec, done):
+    """build/Vxx/story_render.json (comme motion_render.json) : ce qui a été rendu pour le film entier, avec les
+    empreintes que la QA compare aux fichiers actuels. `done` : {avec sous-titres ?: (props, mp4)}."""
+    path = build_dir(video_id) / STORY_SIDECAR
+    rec = read_json(path) if path.exists() else {}
+    if rec.get("window_frames") != [f0, f1]:
+        rec = {}
+    sb = STORYBOARDS / f"{video_id}.json"
+    rec.update({"mode": "story", "video": video_id, "window_frames": [f0, f1], "frames": f1 - f0,
+                "storyboard": rel(sb), "storyboard_sha1": sha1_file(sb),
+                "spec": rel(spec if spec.name != "__init__.py" else spec.parent), "spec_sha1": spec_sha1(spec),
+                "rendered_at": time.strftime("%Y-%m-%dT%H:%M:%S%z")})
+    for cap, (props_path, mp4) in done.items():
+        k = "" if cap else "_nocap"
+        rec.update({f"props{k}": rel(props_path), f"props{k}_sha1": sha1_file(props_path)})
+        rec.update({"file" if cap else "nocap": rel(mp4), "mp4_sha1" if cap else "nocap_sha1": sha1_file(mp4)})
+    write_json(path, rec)
+    return path
+
+
+def excerpt(video_id, t_from, t_to, captions=True, sheets=True, allow_partial=False):
+    """Rendu d'une fenêtre : version sans sous-titres (build/Vxx/story/) et, sauf --no-captions, version avec
+    sous-titres (extrait : output/extraits/ ; film entier : output/WTH-Vxx.mp4), toutes deux avec la voix coupée image
+    par image. Les MP4 portent les balises wth_* (mode, empreintes props / storyboard / mise en scène) ; le film entier
+    écrit aussi la fiche build/Vxx/story_render.json."""
     cfg = load_config()
     fps = cfg["video"]["fps"]
-    out_dir = build_dir(video_id) / "story"
-    storyboard = read_json(STORYBOARDS / f"{video_id}.json")
+    _, storyboard, audio = load_inputs(video_id, cfg)
     label = scene_range(storyboard, t_from, t_to)
-    results = {}
+    spec = spec_path(video_id)
+    results, done = {}, {}
     variants = [False] + ([True] if captions else [])
-    wav = None
+    wav = full = paths = None
     for cap in variants:
-        props_path, props = build_props(video_id, t_from, t_to, captions=cap)
+        props_path, props = build_props(video_id, t_from, t_to, captions=cap, allow_partial=allow_partial)
         f0, f1 = props["meta"]["window_frames"]
-        if wav is None:
-            wav = out_dir / f"voix_{label}.wav"
-            dur = cut_audio(build_dir(video_id) / "audio.wav", f0, f1, fps, wav)
-        silent = out_dir / f"muet_{label}{'' if cap else '_nocap'}.mp4"
+        if paths is None:
+            full = f0 == 0 and f1 >= last_frame(audio, fps)
+            paths = outputs(video_id, label, full)
+            wav = paths["wav"]
+            cut_audio(audio, f0, f1, fps, wav)
+        silent, mp4 = paths["silent"][cap], paths["mp4"][cap]
         remotion_render(props_path, silent)
-        full = props["meta"]["window_frames"][0] == 0 and f1 >= math.ceil(audio_duration(build_dir(video_id) / "audio.wav") * fps - 1e-6)
-        if cap:
-            mp4 = (OUTPUT / f"WTH-{video_id}_story.mp4") if full else (OUTPUT / "extraits" / f"WTH-{video_id}_extrait_{label}.mp4")
-        else:
-            mp4 = out_dir / ("film_sans_sous_titres.mp4" if full else "extrait_sans_sous_titres.mp4")
+        if full and cap:
+            archive_previous(video_id, mp4)
         mux(silent, wav, mp4, (f1 - f0) / fps, cfg,
-            {"wth_mode": "story", "wth_scenes": label, "wth_window": f"{f0}-{f1}", "wth_captions": int(cap)})
+            {"wth_mode": "story", "wth_scenes": label, "wth_window": f"{f0}-{f1}", "wth_captions": int(cap),
+             "wth_props": sha1_file(props_path), "wth_storyboard": sha1_file(STORYBOARDS / f"{video_id}.json"),
+             "wth_spec": spec_sha1(spec)})
         results[cap] = mp4
-    if sheets:
-        contact_sheets(results[captions], out_dir, props["meta"]["window_frames"][0], fps)
+        done[cap] = (props_path, mp4)
+    if full:
+        print(f"  fiche de rendu -> {write_record(video_id, f0, f1, spec, done)}")
+    if sheets and full:
+        from .story_review import review       # planches JPEG demi-résolution (build/Vxx/review/)
+        review(video_id, ["sheets"], src="cap" if captions else "nocap")
+    elif sheets:
+        contact_sheets(results[captions], build_dir(video_id) / "story", f0, fps)
     return results
+
+
+# ---------- contrôle du storyboard (--check) ----------
+
+SB_FIELDS = ("version", "thread", "cast", "style", "scenes")
+SCENE_FIELDS = ("id", "t_start", "t_end", "texte", "elements", "etat_initial", "action", "resultat", "transition",
+                "beats", "lecture_sans_son")
+BEAT_FIELDS = ("t", "mot", "evenement")
+IDEES_CLES = (6, 10)   # nombre d'idées-clés attendues (le contrôle sans son les note une à une)
+ONSET_TOL = 0.03       # s : un début de scène ou un temps fort tombe sur le début d'un mot de words.json
+
+
+def _flat_text(s):
+    """Texte comparé : NFC, espaces (insécables comprises) ramenées à une seule espace ordinaire."""
+    return re.sub(r"\s+", " ", unicodedata.normalize("NFC", s).replace(" ", " ").replace(" ", " ")).strip()
+
+
+def check_storyboard(video_id, words=None, storyboard=None):
+    """Contrôle d'un storyboard avant la mise en scène -> (erreurs, avertissements) :
+    champs obligatoires ; scènes contiguës de 0 à la fin du dernier mot ; début de chaque scène sur le début d'un mot
+    (± 30 ms) ; chaque temps fort (mot, t) résolu dans words.json et dans sa scène ; textes des scènes mis bout à bout
+    = texte du script (NFC, espaces normalisées) ; idées-clés (« idees_cles », 6 à 10 {id, idee, scenes})."""
+    sb_path = STORYBOARDS / f"{video_id}.json"
+    if storyboard is None:
+        if not sb_path.exists():
+            return [f"storyboard absent : {sb_path}"], []
+        storyboard = read_json(sb_path)
+    if words is None:
+        wp = build_dir(video_id) / "words.json"
+        if not wp.exists():
+            return [f"build/{video_id}/words.json absent (make voice ID={video_id})"], []
+        words = read_json(wp)["words"]
+    errors, warnings = [], []
+    errors += [f"champ « {k} » absent" for k in SB_FIELDS if k not in storyboard]
+    scenes = storyboard.get("scenes") or []
+    if not scenes:
+        errors.append("aucune scène")
+    keys = [_norm(w["w"]) for w in words]
+    starts = [w["start"] for w in words]
+    for s in scenes:
+        sid = s.get("id", "?")
+        miss = [k for k in SCENE_FIELDS if k not in s]
+        if miss:
+            errors.append(f"{sid} : champs absents : {', '.join(miss)}")
+        for j, b in enumerate(s.get("beats", [])):
+            bm = [k for k in BEAT_FIELDS if k not in b]
+            if bm:
+                errors.append(f"{sid} temps fort n° {j + 1} : champs absents : {', '.join(bm)}")
+    if not scenes or any(k not in s for s in scenes for k in ("id", "t_start", "t_end")):
+        return errors, warnings
+    # Scènes contiguës, de 0 à la fin du dernier mot.
+    if abs(scenes[0]["t_start"]) > 1e-3:
+        errors.append(f"{scenes[0]['id']} commence à {scenes[0]['t_start']} s (attendu : 0)")
+    for a, b in zip(scenes, scenes[1:]):
+        if abs(b["t_start"] - a["t_end"]) > 1e-3:
+            errors.append(f"{a['id']} finit à {a['t_end']} s mais {b['id']} commence à {b['t_start']} s")
+    for s in scenes:
+        if s["t_end"] <= s["t_start"]:
+            errors.append(f"{s['id']} : scène vide ou à l'envers ({s['t_start']} -> {s['t_end']} s)")
+    if scenes[-1]["t_end"] < words[-1]["end"] - ONSET_TOL:
+        errors.append(f"{scenes[-1]['id']} finit à {scenes[-1]['t_end']} s, avant la fin du dernier mot "
+                      f"({words[-1]['end']} s)")
+    # Débuts de scène sur un début de mot.
+    for s in scenes:
+        near = min(starts, key=lambda t: abs(t - s["t_start"]))
+        if abs(near - s["t_start"]) > ONSET_TOL:
+            errors.append(f"{s['id']} commence à {s['t_start']} s, hors début de mot (le plus proche : {near} s)")
+    # Temps forts résolus (comme Story.beat) et dans leur scène.
+    for s in scenes:
+        for b in s.get("beats", []):
+            if "t" not in b or "mot" not in b:
+                continue
+            q = _norm(b["mot"])
+            hits = [i for i, k in enumerate(keys) if k == q]
+            i = min(hits, key=lambda j: abs(starts[j] - b["t"])) if hits else None
+            if i is None or abs(starts[i] - b["t"]) > ONSET_TOL:
+                errors.append(f"{s['id']} « {b['mot']} » ({b['t']} s) : mot introuvable à ce temps dans words.json")
+            elif not s["t_start"] - ONSET_TOL <= b["t"] < s["t_end"]:
+                errors.append(f"{s['id']} « {b['mot']} » ({b['t']} s) : hors de sa scène ({s['t_start']}-{s['t_end']} s)")
+    # Texte des scènes = texte du script.
+    try:
+        texte = script(video_id)["texte"]
+    except SystemExit as e:
+        errors.append(str(e))
+    else:
+        joined = _flat_text(" ".join(s.get("texte", "") for s in scenes))
+        if joined != _flat_text(texte):
+            a, b = joined, _flat_text(texte)
+            k = next((i for i in range(min(len(a), len(b))) if a[i] != b[i]), min(len(a), len(b)))
+            errors.append(f"textes des scènes ≠ texte du script (scripts.json) à partir du caractère {k} : "
+                          f"« …{a[max(0, k - 20):k + 30]}… » au lieu de « …{b[max(0, k - 20):k + 30]}… »")
+    # Idées-clés (contrôle sans son).
+    idees = storyboard.get("idees_cles")
+    if not idees:
+        errors.append(f"« idees_cles » absent : il faut {IDEES_CLES[0]} à {IDEES_CLES[1]} idées-clés "
+                      f"{{id, idee, scenes}} (le contrôle sans son les note une à une)")
+    else:
+        ids = {s["id"] for s in scenes}
+        if not IDEES_CLES[0] <= len(idees) <= IDEES_CLES[1]:
+            errors.append(f"{len(idees)} idées-clés (attendu : {IDEES_CLES[0]} à {IDEES_CLES[1]})")
+        for k, idea in enumerate(idees):
+            miss = [f for f in ("id", "idee", "scenes") if f not in idea]
+            if miss:
+                errors.append(f"idée-clé n° {k + 1} : champs absents : {', '.join(miss)}")
+                continue
+            bad = [x for x in idea["scenes"] if x not in ids]
+            if bad or not idea["scenes"]:
+                errors.append(f"idée-clé {idea['id']} : scènes inconnues ou absentes : {', '.join(bad) or '—'}")
+    if "objet_fil" not in storyboard:
+        warnings.append("« objet_fil » absent (l'objet du fil conducteur)")
+    if "test_sans_son" not in storyboard:
+        warnings.append("« test_sans_son » absent (résultat du test du spectateur muet)")
+    return errors, warnings
+
+
+def print_check(video_id):
+    errors, warnings = check_storyboard(video_id)
+    sb = STORYBOARDS / f"{video_id}.json"
+    n = len(read_json(sb).get("scenes", [])) if sb.exists() else 0
+    for w in warnings:
+        print(f"  attention : {w}")
+    if errors:
+        print(f"{video_id} : storyboard REFUSÉ ({len(errors)} erreur(s), {n} scènes) :")
+        for e in errors:
+            print(f"  ✘ {e}")
+        return False
+    print(f"{video_id} : storyboard OK ({n} scènes : champs, scènes contiguës, débuts de mot, temps forts, texte, "
+          f"idées-clés)")
+    return True
 
 
 def main():
@@ -855,17 +1179,27 @@ def main():
     p.add_argument("--props", action="store_true", help="props seulement, sans rendu")
     p.add_argument("--stills", nargs="+", type=int, metavar="IMAGE", help="images fixes (images de l'extrait)")
     p.add_argument("--no-sheets", action="store_true", help="sans planches de contrôle")
+    p.add_argument("--allow-partial", action="store_true",
+                   help="film entier : scènes non mises en scène admises (avertissements ; rendu de travail)")
+    p.add_argument("--check", action="store_true", help="contrôle du storyboard seulement (code 1 si refusé)")
+    p.add_argument("--audio", action="store_true", help="seulement build/Vxx/audio.wav (motion.ensure_audio)")
     a = p.parse_args()
+    if a.check:
+        raise SystemExit(0 if print_check(a.id) else 1)
+    if a.audio:
+        print(f"{a.id} : {rel(ensure_audio(a.id, load_config()))}")
+        return
     if a.full:
-        a.t_from, a.t_to = 0.0, audio_duration(build_dir(a.id) / "audio.wav")
+        a.t_from, a.t_to = 0.0, audio_duration(load_inputs(a.id, load_config())[2])
     elif a.t_from is None or a.t_to is None:
         p.error("--from et --to sont requis (ou --full)")
     if a.stills:
-        stills(a.id, a.t_from, a.t_to, a.stills, captions=not a.no_captions)
+        stills(a.id, a.t_from, a.t_to, a.stills, captions=not a.no_captions, allow_partial=a.allow_partial)
     elif a.props:
-        build_props(a.id, a.t_from, a.t_to, captions=not a.no_captions)
+        build_props(a.id, a.t_from, a.t_to, captions=not a.no_captions, allow_partial=a.allow_partial)
     else:
-        excerpt(a.id, a.t_from, a.t_to, captions=not a.no_captions, sheets=not a.no_sheets)
+        excerpt(a.id, a.t_from, a.t_to, captions=not a.no_captions, sheets=not a.no_sheets,
+                allow_partial=a.allow_partial)
 
 
 if __name__ == "__main__":

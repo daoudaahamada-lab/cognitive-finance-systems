@@ -21,11 +21,13 @@ script → voix ElevenLabs → sous-titres mot à mot → montage → MP4 → Cl
 | `make import ID=V01 AUDIO=… WORDS=… GEN=…` | si l'API ElevenLabs n'est pas joignable : range dans le cache une voix générée par le connecteur ElevenLabs et ses temps de mots Scribe (même clé de cache que l'endpoint with-timestamps) |
 | `make video ID=V07` | voix → mots horodatés → `.ass` → montage → contrôle qualité, pour une vidéo |
 | `make motion ID=V01` | rendu motion design (Remotion) sur la voix existante → `output/WTH-V01.mp4` → contrôle qualité (voir plus bas) |
+| `make story ID=V07` | film « Story » (méthode validée) sur la voix existante → `output/WTH-V07.mp4` + version sans sous-titres → contrôle qualité (voir plus bas) |
 | `make lock ID=V07` | verrouille la voix validée : elle ne sera plus jamais régénérée |
 | `make upload ID=V07` | upload sur Cloudinary `WTH-V2/videos/WTH-V07` (refusé si le contrôle qualité échoue) |
 | `make planning` | écrit `output/planning_videos.csv` |
 | `make all`, `make publish` | toutes les vidéos de `IDS` (par défaut V01 à V15) |
 | `python3 -m tests.smoke [--slides]` | test hors ligne du montage et du contrôle qualité avec une voix factice |
+| `python3 -m tests.story_smoke [--qa]` | test sans rendu de l'outillage Story (props, storyboard, garde-fous ; `--qa` : contrôles image sur l'extrait validé) |
 
 Chaque étape lit les sorties de la précédente dans `build/Vxx/` et peut être relancée seule
 (`make subs ID=V07`, `make render ID=V07`, `make qa ID=V07`).
@@ -105,6 +107,71 @@ prononcé et aux traits fins (anneaux, crochets, ligne de lecture, repère). Le 
 - `make video` (montage classique) refuse d'écraser un `output/WTH-Vxx.mp4` rendu en motion (commentaire
   « Made with Remotion »), sauf `FORCE=1` ; `make all` passe par `make motion` pour les vidéos qui ont un plan de tournage.
 
+## Story (méthode validée)
+
+Méthode retenue pour les 15 films, validée sur un extrait de V01 (S11-S14, `make story ID=V01 FROM=25.612 TO=41.309`,
+copie de référence dans `build/V01/baseline/`). Fond ivoire quadrillé, encre, un seul accent cyan, rouge d'alerte ; un
+fil conducteur suivi d'un bout à l'autre ; chaque scène = état initial → action visible → résultat, calée sur les
+débuts de mots de la voix ; lisible sans le son. Le film est un graphe de scène : des entités persistantes (composition
+Remotion `Story`, `motion/src/story/`) dont les pistes sont posées image par image par `pipeline/story.py`.
+
+- **Entrées** : la voix (`build/Vxx/tts.json`, `words.json` ; `build/Vxx/audio.wav` est refait par
+  `motion.ensure_audio` s'il manque ou si la voix en cache est plus récente) ; le storyboard
+  `scripts/storyboards/Vxx.json` (+ `.md`) : scènes contiguës, temps forts `{t, mot, evenement}` sur des débuts de
+  mots, `idees_cles` (6 à 10 `{id, idee, scenes}`, notées par le contrôle sans son), `objet_fil` ; la mise en scène
+  `scripts/story/Vxx.py` ou le paquet `scripts/story/Vxx/__init__.py` (+ parties `p1.py`… écrites en parallèle,
+  importées en relatif), qui définit `build(story)` avec l'API `Story` (`add`, `set`, `key`, `keys`, `path`, `fly`,
+  `along_wire`, `beat`, `word`, `word_after`, `png`…) et, au besoin, `CAPTION_GROUPS`, `ALERT_WORDS`, `ACOUSTIC_SNAP`.
+  La géométrie partagée avec le rendu (figurine, stylo, tampon…) est dans `motion/src/story/geometry.json`
+  (`pipeline.story.GEOM`). Illustrations : celles du carrousel de la vidéo (`WTH-<source>-xx`) et les génériques.
+- **Commandes** :
+
+  | Commande | Effet |
+  |---|---|
+  | `make voice ID=V07` | `tts` (voix en cache, aucun appel) + `words` + `audio.wav` normalisé |
+  | `make storyboard-check ID=V07` | contrôle du storyboard : champs, scènes contiguës de 0 à la fin du dernier mot, débuts de scène et temps forts sur un début de mot (± 30 ms), textes des scènes = texte du script (NFC), idées-clés |
+  | `make story-props ID=V07` | props du film sans rendu ; `FROM=… TO=…` pour un extrait ; `ALLOW_PARTIAL=1` admet une mise en scène incomplète |
+  | `make story-stills ID=V07 FRAMES="0 120"` | images fixes PNG (numéros d'image de la vidéo rendue) → `build/V07/story/stills/` |
+  | `make story ID=V07` | film entier (avec et sans sous-titres) puis `make qa` |
+  | `make story ID=V01 FROM=25.612 TO=41.309` | extrait → `output/extraits/WTH-V01_extrait_S11-S14.mp4` (pas de QA) |
+  | `make review-sheets ID=V07` | sorties de revue (`REVIEW="--nocap --sheets"` pour choisir) |
+  | `make story-check` | parité Python / TypeScript (`tests.story_parity`) + `tsc --noEmit` |
+  | `make films` | `make story` pour chaque vidéo de `IDS` qui a une mise en scène ; `make all` passe aussi par Story pour elles |
+  | `make clean-tmp` | dossiers temporaires de Remotion (si aucun rendu ne tourne) et images de revue (garde les planches) |
+
+- **Film entier** : refusé si une scène du storyboard n'a aucun temps fort mis en scène, si un temps fort n'a pas
+  d'événement ou si le début n'est pas mis en scène (`--allow-partial` / `ALLOW_PARTIAL=1` pour un rendu de travail).
+  Sorties : `build/Vxx/story/props_film.json`, `props_film_nocap.json`, `muet_film*.mp4`,
+  `film_sans_sous_titres.mp4`, et **`output/WTH-Vxx.mp4`** (le nom que lisent `qa`, `upload` et `planning`). Un
+  `output/WTH-Vxx.mp4` d'un autre rendu (classique, motion) est d'abord rangé dans `build/Vxx/archive/`. Le mixage
+  écrit les balises `wth_mode=story`, `wth_props`, `wth_storyboard`, `wth_spec` (SHA-1 ; pour un paquet, de ses
+  fichiers mis bout à bout) et la fiche `build/Vxx/story_render.json` (chemins et empreintes des props, du storyboard,
+  de la mise en scène, des deux MP4, nombre d'images). `make video` et `make motion` n'écrasent jamais un film Story,
+  sauf `FORCE=1`.
+- **Sous-titres** : découpés sur tout le texte puis coupés à la fenêtre : un extrait montre les groupes du film (un
+  groupe entamé avant la fenêtre n'en garde que les mots de la fenêtre). Inter Bold 64 px, mot prononcé en cyan
+  profond, mots d'alerte en rouge.
+- **Un seul rendu Remotion à la fois** (machine à 4 cœurs) : rendus et images fixes prennent le verrou
+  `build/.render.lock` (attendu s'il est pris) et travaillent dans leur propre dossier temporaire, supprimé à la fin
+  (bundles `remotion-webpack-bundle-*`, profils Chrome).
+- **Revue** (`python3 -m pipeline.story_review Vxx [--nocap|--src <mp4>] [--sheets] [--beats] [--phone] [--holds]`,
+  tout par défaut) → `build/Vxx/review/<film|Sa-Sb>[_nocap]/` : planches à 6 i/s en JPEG mi-résolution, 12 images par
+  planche avec image, temps et scène ; une bande par temps fort (f−3 à f+12) ; taille téléphone (réencodage à 2 Mb/s
+  puis 360 px de large, planches et vidéo) ; rapport des tenues (`holds.json`). Les relecteurs utilisent ces sorties
+  au lieu d'extraire des images pleine résolution ; `--clean` (ou `make clean-tmp`) ne garde que planches et rapports.
+- **QA en mode story** (`make qa`, mode lu dans la balise `wth_mode=story` avant le commentaire « Made with
+  Remotion ») : contrôles communs (durée, format H.264 BT.709 plage tv, synchro, mots coupés, accents et orthographe
+  des textes affichés par les entités, loudness, true peak) avec les props de `story_render.json` (largeur mesurée en
+  Inter Bold 64 px, ≤ 760 px), plus « Rendu Story à jour » (empreintes du rendu = props, storyboard et mise en scène
+  actuels, même nombre d'images que les props, version sans sous-titres du même rendu) et, sur les images décodées :
+  surbrillance qui change à l'image exacte de chaque mot (cyan et rouge), zones réservées vides sur la version sans
+  sous-titres (160 px du haut, 380 px du bas, x > 940), aucune image figée plus de 3,5 s hors carte de fin, version
+  sans sous-titres identique au-dessus de y = 1270 (PSNR ≥ 40 dB, même nombre d'images), bande d'action jamais vide.
+- **Skills** (`.claude/skills/` à la racine du dépôt) : `wth-video` (une vidéo ou la série de bout en bout : voix par
+  le connecteur ElevenLabs, storyboard, mise en scène, revues, QA, livraison), `wth-storyboard` (méthode A : le
+  storyboard et son test sans son), `wth-story-build` (méthodes B et C : mise en scène, rendu, revues, contrôle sans
+  son, QA). `/wth-video V07` lance tout ; l'état de chaque vidéo est dans `scripts/production_status.json`.
+
 ## Contrôle qualité (`output/qa_report.md`)
 
 Durée 45–60 s ; synchro sous-titres < 150 ms (alignement, arrondi à l'image et décalage de la piste audio
@@ -117,5 +184,6 @@ Le mode est lu dans le MP4 lui-même (balise `wth_mode`, commentaire « Made wit
 motion.json, empreintes du rendu = `motion.json` et plan actuels, BT.709 plage tv, orthographe des étiquettes) et sur
 les images décodées du MP4 : scène jamais vide pendant les passages et les cartes de chapitre (≥ 3 % de pixels
 allumés dans la bande visuelle), pas de creux de luminance aux passages, rangée d'étapes qui ne traverse jamais le
-héros entrant, mot rouge du karaoké qui change exactement à l'image du début de chaque mot. Un montage classique est
-contrôlé avec `subs.ass` (forcer avec `python3 -m pipeline.qa Vxx --mode classic|motion`).
+héros entrant, mot rouge du karaoké qui change exactement à l'image du début de chaque mot. Un film Story (balise
+`wth_mode=story`) est contrôlé en mode story (section précédente). Un montage classique est contrôlé avec
+`subs.ass` (forcer avec `python3 -m pipeline.qa Vxx --mode story|motion|classic`).

@@ -184,19 +184,25 @@ def prescale(src, dst, box, factor=4):
 
 # ---------- montage ----------
 
-def guard_motion_output(video_id):
-    """Refuse d'écraser un rendu motion design (Remotion) par le montage classique, sauf FORCE=1.
+def guard_motion_output(video_id, by="classic"):
+    """Refuse d'écraser un rendu Remotion de output/WTH-Vxx.mp4, sauf FORCE=1 (WTH_FORCE=1).
 
-    output/WTH-Vxx.mp4 est le même fichier pour les deux rendus ; le rendu motion porte le commentaire
-    « Made with Remotion ». Sans ce garde-fou, `make video` / `make all` remplaçait le prototype motion
-    par le style classique rejeté, et `make upload` l'aurait publié.
+    output/WTH-Vxx.mp4 est le même fichier pour tous les rendus. Le film Story (balise wth_mode=story, méthode
+    validée) n'est écrasé ni par le montage classique ni par `make motion` (by="motion") ; le rendu motion design
+    (wth_mode=motion ou commentaire « Made with Remotion ») ne l'est pas par le montage classique. Sans ce garde-fou,
+    `make video` / `make all` remplaçait le rendu retenu par un style rejeté, et `make upload` l'aurait publié.
     """
     mp4 = OUTPUT / f"WTH-{video_id}.mp4"
     if not mp4.exists() or os.environ.get("WTH_FORCE") == "1":
         return
     tags = {k.lower(): v for k, v in (ffprobe(mp4).get("format", {}).get("tags", {}) or {}).items()}
     comment = tags.get("comment", "") or tags.get("wth_mode", "")
-    if "Made with Remotion" in comment or tags.get("wth_mode") == "motion":
+    if tags.get("wth_mode") == "story":
+        raise SystemExit(f"{mp4} est le film Story (méthode validée, wth_mode=story) : le rendu "
+                         f"{'motion' if by == 'motion' else 'classique'} ne l'écrase pas. Utilise « make story "
+                         f"ID={video_id} », ou force avec « make {'motion' if by == 'motion' else 'video'} "
+                         f"ID={video_id} FORCE=1 ».")
+    if by == "classic" and ("Made with Remotion" in comment or tags.get("wth_mode") == "motion"):
         raise SystemExit(f"{mp4} est le rendu motion design ({comment}) : le montage classique ne l'écrase pas. "
                          f"Utilise « make motion ID={video_id} », ou force avec « make video ID={video_id} FORCE=1 ».")
 

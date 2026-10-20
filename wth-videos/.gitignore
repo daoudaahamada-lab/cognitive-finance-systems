@@ -12,3 +12,5 @@ output/voices/*.mp3
 assets/illustrations/*.png
 # Rendu motion : illustrations préparées et fond générés par pipeline/motion.py (build/Vxx/ est déjà ignoré).
 motion/public/generated/
+# Vidéo de référence d'un tiers et ses images : seules nos mesures (dans les skills) sont versionnées.
+data/reference/

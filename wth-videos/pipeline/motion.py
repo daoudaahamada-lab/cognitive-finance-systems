@@ -919,6 +919,8 @@ def motion(video_id, props_only=False):
     props_path, props = build_props(video_id, cfg)
     if props_only:
         return props_path
+    from .render import guard_motion_output
+    guard_motion_output(video_id, by="motion")   # jamais par-dessus le film Story, sauf FORCE=1
     out_dir = build_dir(video_id)
     silent = out_dir / "motion_silent.mp4"
     remotion_render(video_id, props_path, silent, props["meta"].get("keyframes", ()))

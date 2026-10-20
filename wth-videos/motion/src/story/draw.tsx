@@ -5,6 +5,7 @@
 // changing STYLE recolours entities, background and captions alike. DEFAULT_PALETTE only serves the studio preview.
 import React, {createContext, useContext} from 'react';
 import {FONT_FAMILY} from '../fonts';
+import GEOM from './geometry.json';
 import {mixHex, type Mat} from './timeline';
 import type {StoryStyle} from './types';
 
@@ -85,10 +86,12 @@ type TxtProps = {
   children: React.ReactNode;
   opacity?: number;
   spacing?: number;
+  /** Chiffres à chasse fixe (compteur : la largeur ne tremble pas pendant l'interpolation). */
+  tabular?: boolean;
 };
 
 /** Text vertically centred on y (cap height of Inter = 0.727 em). */
-export const Txt: React.FC<TxtProps> = ({x, y, size, weight = 600, color, anchor = 'start', children, opacity, spacing}) => {
+export const Txt: React.FC<TxtProps> = ({x, y, size, weight = 600, color, anchor = 'start', children, opacity, spacing, tabular}) => {
   const C = usePalette();
   return (
     <text
@@ -104,6 +107,7 @@ export const Txt: React.FC<TxtProps> = ({x, y, size, weight = 600, color, anchor
         whiteSpace: 'pre',
         fontKerning: 'normal',
         letterSpacing: spacing ? `${spacing}px` : undefined,
+        fontVariantNumeric: tabular ? 'tabular-nums' : undefined,
       }}
     >
       {children}
@@ -136,7 +140,13 @@ export const roundRectLength = (w: number, h: number, r: number): number => {
   return 2 * (w - 2 * rr) + 2 * (h - 2 * rr) + 2 * Math.PI * rr;
 };
 
-export type IconName = 'euro' | 'bars' | 'mail' | 'shield' | 'cal' | 'building' | 'check' | 'person' | 'none';
+export type IconName = 'euro' | 'bars' | 'mail' | 'shield' | 'cal' | 'building' | 'check' | 'person' | 'rewind' | 'clock' |
+  'house' | 'bank' | 'coin' | 'percent' | 'lock' | 'cart' | 'moon' | 'pause' | 'warning' | 'phone' | 'plus' | 'minus' |
+  'arrow' | 'none';
+
+/** Pictogrammes disponibles (catalogue du kit, planches de contrôle). */
+export const ICON_NAMES: IconName[] = ['euro', 'bars', 'mail', 'shield', 'cal', 'building', 'check', 'person', 'rewind',
+  'clock', 'house', 'bank', 'coin', 'percent', 'lock', 'cart', 'moon', 'pause', 'warning', 'phone', 'plus', 'minus', 'arrow'];
 
 /** Pictogram in a box of side s centred on the origin, stroked/filled with `color`. */
 export const Icon: React.FC<{name: IconName | string; s: number; color?: string; sw?: number; fill?: string}> = ({name, s, color, sw, fill}) => {
@@ -205,26 +215,132 @@ export const Icon: React.FC<{name: IconName | string; s: number; color?: string;
           <circle cx={0} cy={-5.6} r={5} fill={fill ?? C.paper} stroke={col} strokeWidth={w / k} />
         </g>
       );
+    // ----- pictogrammes du kit (même boîte 24 x 24, traits arrondis) -----
+    case 'rewind':
+      // « ◀◀ » : retour en arrière
+      return (
+        <g transform={`scale(${k})`} fill={col} stroke={col} strokeWidth={w / k} strokeLinejoin="round">
+          <path d="M-0.5 -7 L-9 0 L-0.5 7 Z" />
+          <path d="M8.5 -7 L0 0 L8.5 7 Z" />
+        </g>
+      );
+    case 'clock':
+      return (
+        <g transform={`scale(${k})`}>
+          <circle cx={0} cy={0} r={10} {...common} />
+          <path d="M0 -6 V0 L4.2 2.6" {...common} />
+        </g>
+      );
+    case 'house':
+      return (
+        <g transform={`scale(${k})`}>
+          <path d="M-10.5 -0.5 L0 -9.5 L10.5 -0.5" {...common} />
+          <path d="M-7.5 -2.8 V9.5 H7.5 V-2.8" {...common} />
+          <path d="M-2.6 9.5 V3.6 H2.6 V9.5" {...common} />
+        </g>
+      );
+    case 'bank':
+      // temple au trait (le « building » plein reste le sceau du cabinet)
+      return (
+        <g transform={`scale(${k})`}>
+          <path d="M-10.5 -4.2 L0 -10 L10.5 -4.2 Z" {...common} />
+          <path d="M-6.8 -1 V6 M-2.3 -1 V6 M2.3 -1 V6 M6.8 -1 V6 M-10.5 9.4 H10.5" {...common} />
+        </g>
+      );
+    case 'coin':
+      return (
+        <g transform={`scale(${k})`}>
+          <circle cx={0} cy={0} r={10} {...common} />
+          <g transform="translate(0.6 0) scale(0.56)">
+            <path d="M6.4 -5.8 A7.6 7.6 0 1 0 6.4 5.8" {...common} strokeWidth={w / k / 0.7} />
+            <path d="M-8.6 -1.9 H2.2 M-8.6 2.1 H1.4" {...common} strokeWidth={w / k / 0.7} />
+          </g>
+        </g>
+      );
+    case 'percent':
+      return (
+        <g transform={`scale(${k})`}>
+          <path d="M7.5 -8.5 L-7.5 8.5" {...common} />
+          <circle cx={-5.4} cy={-5.6} r={2.9} {...common} />
+          <circle cx={5.4} cy={5.6} r={2.9} {...common} />
+        </g>
+      );
+    case 'lock':
+      return (
+        <g transform={`scale(${k})`}>
+          <path d="M-5.2 -1.5 V-5 A5.2 5.2 0 0 1 5.2 -5 V-1.5" {...common} />
+          <rect x={-8.5} y={-1.5} width={17} height={12} rx={2.5} {...common} />
+          <circle cx={0} cy={4.4} r={1.7} fill={col} />
+        </g>
+      );
+    case 'cart':
+      return (
+        <g transform={`scale(${k})`}>
+          <path d="M-11 -8.5 H-7.4 L-4.4 4.6 H7.2 L9.8 -4.4 H-6.2" {...common} />
+          <circle cx={-2.8} cy={8.8} r={1.9} fill={col} />
+          <circle cx={5.8} cy={8.8} r={1.9} fill={col} />
+        </g>
+      );
+    case 'moon':
+      return (
+        <g transform={`scale(${k})`}>
+          <path d="M3.6 -9.6 A9.8 9.8 0 1 0 9.8 3.2 A7.6 7.6 0 0 1 3.6 -9.6 Z" {...common} />
+        </g>
+      );
+    case 'pause':
+      return (
+        <g transform={`scale(${k})`} fill={col}>
+          <rect x={-7.5} y={-9} width={5.4} height={18} rx={1.6} />
+          <rect x={2.1} y={-9} width={5.4} height={18} rx={1.6} />
+        </g>
+      );
+    case 'warning':
+      return (
+        <g transform={`scale(${k})`}>
+          <path d="M0 -10 L10.6 8.6 H-10.6 Z" {...common} />
+          <path d="M0 -3.4 V2.2" {...common} />
+          <circle cx={0} cy={5.4} r={1.5} fill={col} />
+        </g>
+      );
+    case 'phone':
+      return (
+        <g transform={`scale(${k})`}>
+          <rect x={-6.5} y={-10.5} width={13} height={21} rx={2.6} {...common} />
+          <path d="M-2.2 -7.4 H2.2" {...common} />
+          <circle cx={0} cy={7} r={1.3} fill={col} />
+        </g>
+      );
+    case 'plus':
+      return <path d={`M${-8 * k} 0 H${8 * k} M0 ${-8 * k} V${8 * k}`} {...common} strokeWidth={w} />;
+    case 'minus':
+      return <path d={`M${-8 * k} 0 H${8 * k}`} {...common} strokeWidth={w} />;
+    case 'arrow':
+      return (
+        <g transform={`scale(${k})`}>
+          <path d="M-9 0 H8.5 M2.5 -6 L8.5 0 L2.5 6" {...common} />
+        </g>
+      );
     default:
       return null;
   }
 };
 
-/** The figurine of the cast (client / advisor): round head + rounded trapezoid bust, base at y = 95. */
-export const BUST = 'M-27 -26 H27 Q39 -26 41 -14 L57 80 Q59 95 45 95 H-45 Q-59 95 -57 80 L-41 -14 Q-39 -26 -27 -26 Z';
-export const FIGURE_H = 191; // head top (-96) to base (95)
+/** The figurine of the cast (client / advisor): round head + rounded trapezoid bust, base at y = 95 (geometry.json). */
+export const BUST = GEOM.FIGURE.bust;
+export const FIGURE_H = GEOM.FIGURE.h; // head top (-96) to base (95)
+export const HEAD = GEOM.FIGURE.head;
 
 /**
  * Mini copy of the client figurine (paper inside, ink outline), `h` px tall, centred on the origin. Used inside the
  * advisor's bubble and on the « ? » sticker: the question is for THIS person (not a generic « profile » icon).
  */
-export const ClientGlyph: React.FC<{h: number; sw: number; fill?: string}> = ({h, sw, fill}) => {
+export const ClientGlyph: React.FC<{h: number; sw: number; fill?: string; stroke?: string}> = ({h, sw, fill, stroke}) => {
   const C = usePalette();
   const k = h / FIGURE_H;
   return (
     <g transform={`scale(${k}) translate(0 0.5)`}>
-      <path d={BUST} fill={fill ?? C.paper} stroke={C.ink} strokeWidth={sw / k} strokeLinejoin="round" />
-      <circle cx={0} cy={-64} r={32} fill={fill ?? C.paper} stroke={C.ink} strokeWidth={sw / k} />
+      <path d={BUST} fill={fill ?? C.paper} stroke={stroke ?? C.ink} strokeWidth={sw / k} strokeLinejoin="round" />
+      <circle cx={0} cy={HEAD.cy} r={HEAD.r} fill={fill ?? C.paper} stroke={stroke ?? C.ink} strokeWidth={sw / k} />
     </g>
   );
 };
@@ -251,7 +367,7 @@ export const sheenPoints = (s: number, W: number, H: number, dx: number, dy: num
  * Information bullet: cyan disc + ink outline + document pictogram. `none` = the AI's empty bullet: a white
  * disc with a dashed outline; `alarm` turns that outline red. It never fills: emptiness is the message.
  */
-export const Bullet: React.FC<{icon: string; r?: number; alarm?: number}> = ({icon, r = 22, alarm = 0}) => {
+export const Bullet: React.FC<{icon: string; r?: number; alarm?: number}> = ({icon, r = GEOM.BULLET.r, alarm = 0}) => {
   const C = usePalette();
   if (icon === 'none') {
     const a = Math.max(0, Math.min(1, alarm));

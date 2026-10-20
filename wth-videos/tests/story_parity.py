@@ -1,6 +1,9 @@
 """Parité Python / TypeScript de la composition Story : pipeline/story.py recopie motion/src/story/timeline.ts
 (assouplissements, LEAD, matrices, cubiques des fils) pour calculer les positions monde avec les nombres mêmes du
 rendu. Ce test évalue quelques pistes, matrices et points de fil des deux côtés et compare (écart <= 1e-6).
+Il vérifie aussi motion/src/story/geometry.json, la géométrie partagée (figurine, stylo, tampon, étiquette...) : le
+fichier se charge, porte les clés attendues, est importé par draw.tsx / entities.tsx et, si pipeline/story.py expose
+GEOM, c'est bien ce fichier.
 
     python3 -m tests.story_parity
 
@@ -12,10 +15,22 @@ import sys
 import tempfile
 from pathlib import Path
 
+import pipeline.story as story
 from pipeline.story import (cubic_at, eval_track, local_matrix, mat_apply, mat_mul, point_at_length, wire_cubic)
 
 ROOT = Path(__file__).resolve().parent.parent
 MOTION = ROOT / "motion"
+GEOMETRY = MOTION / "src" / "story" / "geometry.json"
+GEOM_KEYS = {
+    "FIGURE": ("h", "top", "base", "pivot", "bust", "head", "sw", "shoulder", "hand", "arm"),
+    "PEN": ("len", "r", "tip"),
+    "STAMP_HANDLE": ("neck", "neckW", "knobW", "knobH"),
+    "TAG": ("r", "fold", "discR", "iconX", "textX", "shadow"),
+    "DOC_DISC": ("r", "inset"),
+    "BULLET": ("r",),
+    "TICK": ("size", "pts", "aiBox"),
+    "MARKER": ("r", "activeR", "labelDy", "labelSize"),
+}
 
 TRACKS = [
     [{"f": 0, "v": 0}, {"f": 10, "v": 1, "d": 9, "e": "out"}, {"f": 14, "v": 0.4, "d": 6, "e": "inOut"}],
@@ -55,7 +70,31 @@ def flat(x):
     return [float(x)]
 
 
+def check_geometry():
+    """geometry.json : chargement, clés, cohérence de la figurine, import côté TSX et côté Python (GEOM)."""
+    try:
+        geom = json.loads(GEOMETRY.read_text())
+    except (OSError, ValueError) as e:
+        raise SystemExit(f"ÉCHEC : {GEOMETRY.relative_to(ROOT)} illisible ({e})")
+    missing = [f"{k}.{f}" for k, fields in GEOM_KEYS.items() for f in fields if f not in geom.get(k, {})]
+    if missing:
+        raise SystemExit(f"ÉCHEC : geometry.json, clés manquantes : {', '.join(missing)}")
+    fig = geom["FIGURE"]
+    if fig["base"] - fig["top"] != fig["h"] or fig["pivot"] != [0, fig["base"]]:
+        raise SystemExit("ÉCHEC : geometry.json, FIGURE incohérente (h = base - top, pivot = [0, base])")
+    if not {"upper", "fore", "sw"} <= set(fig["arm"]) or len(geom["TICK"]["pts"]) != 3:
+        raise SystemExit("ÉCHEC : geometry.json, FIGURE.arm (upper, fore, sw) ou TICK.pts (3 points) incomplets")
+    for tsx in ("draw.tsx", "entities.tsx"):
+        if "from './geometry.json'" not in (GEOMETRY.parent / tsx).read_text():
+            raise SystemExit(f"ÉCHEC : {tsx} n'importe pas geometry.json")
+    py = getattr(story, "GEOM", None)
+    if py is not None and py != geom:
+        raise SystemExit("ÉCHEC : pipeline.story.GEOM diffère de motion/src/story/geometry.json")
+    print(f"geometry {len(geom) - ('_doc' in geom):4d} blocs, OK" + ("" if py is not None else " (pipeline.story.GEOM absent)"))
+
+
 def main():
+    check_geometry()
     spec = {"tracks": TRACKS, "frames": FRAMES, "mats": MATS, "points": POINTS, "wires": WIRES, "fracs": FRACS}
     esbuild = MOTION / "node_modules" / ".bin" / "esbuild"
     if not esbuild.exists():

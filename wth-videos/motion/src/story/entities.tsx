@@ -4,7 +4,9 @@
 // Colours come from props.style through usePalette() (draw.tsx).
 import React from 'react';
 import {Img, staticFile} from 'remotion';
-import {BUST, Bullet, ClientGlyph, foldedRect, Hard, Icon, roundRect, roundRectLength, sheenPoints, Txt, usePalette, worldShadow, type Palette} from './draw';
+import {BUST, Bullet, ClientGlyph, foldedRect, Hard, HEAD, Icon, roundRect, roundRectLength, sheenPoints, Txt, usePalette, worldShadow, type Palette} from './draw';
+import {KIT} from './entities_kit';
+import GEOM from './geometry.json';
 import {apply, drawDash, mixHex, type Resolved, type SceneFrame, wirePath} from './timeline';
 import type {Anchor, Vec2} from './types';
 
@@ -69,7 +71,7 @@ const Pill: React.FC<EntityProps> = ({r, scene}) => {
 
 // ---------- figure: advisor (full ink) / client (paper) ----------
 /** Lean pivot of the figure (its base), shared with the arm anchor (limb). */
-export const FIGURE_PIVOT: Vec2 = [0, 95];
+export const FIGURE_PIVOT = GEOM.FIGURE.pivot as Vec2;
 const Figure: React.FC<EntityProps> = ({r}) => {
   const C = usePalette();
   const ink = (r.e.p as {variant?: string}).variant === 'ink';
@@ -80,8 +82,8 @@ const Figure: React.FC<EntityProps> = ({r}) => {
         off={6}
         render={(sh) => (
           <>
-            <path d={BUST} fill={sh || ink ? C.ink : C.paper} stroke={C.ink} strokeWidth={5} strokeLinejoin="round" />
-            <circle cx={0} cy={-64} r={32} fill={sh || ink ? C.ink : C.paper} stroke={C.ink} strokeWidth={5} />
+            <path d={BUST} fill={sh || ink ? C.ink : C.paper} stroke={C.ink} strokeWidth={GEOM.FIGURE.sw} strokeLinejoin="round" />
+            <circle cx={0} cy={HEAD.cy} r={HEAD.r} fill={sh || ink ? C.ink : C.paper} stroke={C.ink} strokeWidth={GEOM.FIGURE.sw} />
           </>
         )}
       />
@@ -239,7 +241,7 @@ const Card: React.FC<{c: CardSpec; C: Palette}> = ({c, C}) => {
 
 /** Source tag of a line (document pictogram + date, folded corner) and its date-chip state (calendar + date). */
 type TagGeom = {w: number; h: number; date: string; size: number};
-const TAG = {r: 12, fold: 10, discR: 15, iconX: 24, textX: 46, shadow: 3};
+const TAG = GEOM.TAG;
 const tagSpec = (g: TagGeom, C: Palette, icon: string, tagged: boolean, lit: number, iconScale = 1): CardSpec => {
   const x0 = -g.w / 2;
   return {
@@ -261,7 +263,7 @@ const tagSpec = (g: TagGeom, C: Palette, icon: string, tagged: boolean, lit: num
 // date chip, a `label` entity, sits there until « date. » peels it off along the wire) and the pictogram disc on the
 // right. Track `tag` (S13): the card shrinks INTO its disc, which lands on the tag's calendar and becomes its pictogram.
 type DocP = {title: string; icon: string; date: string; cw: number; ch: number; titleSize: number; tag: TagGeom};
-export const DOC_DISC = {r: 20, inset: 32};
+export const DOC_DISC = GEOM.DOC_DISC;
 const Doc: React.FC<EntityProps> = ({r}) => {
   const C = usePalette();
   const p = r.e.p as DocP;
@@ -480,17 +482,57 @@ const Line: React.FC<EntityProps> = ({r, scene}) => {
 // ---------- tick: AI tick (grey, ink ~50 %) / advisor tick (deep cyan), single stroke, drawn on ----------
 // `size` (px, default 31): width of the tick; the stroke width stays `sw` px whatever the size. `dots` (optional):
 // dotted stroke. Knock-off (S14) = the entity's own pos / rot / opacity tracks.
-const TICK_PTS: Vec2[] = [[-15, 1], [-5, 11], [16, -12]];
-const Tick: React.FC<EntityProps> = ({r}) => {
-  const p = r.e.p as {color: string; sw: number; dots?: number; size?: number};
-  const d = r.get('draw', 1);
-  if (d <= 0) return null;
-  const k = (p.size ?? 31) / 31;
+// Variante `variant: 'ai'` : coche fine en pointillés dans un carré tireté (côté GEOM.TICK.aiBox x size) ; l'IA et le
+// conseiller se distinguent par la forme, pas seulement par la couleur. `draw` trace le carré puis la coche.
+const TICK_PTS = GEOM.TICK.pts as Vec2[];
+const tickPath = (size: number) => {
+  const k = size / GEOM.TICK.size;
   const pts = TICK_PTS.map(([x, y]) => [x * k, y * k] as Vec2);
   const len = Math.hypot(pts[1][0] - pts[0][0], pts[1][1] - pts[0][1]) + Math.hypot(pts[2][0] - pts[1][0], pts[2][1] - pts[1][1]);
+  return {len, d: `M${pts[0].join(',')} L${pts[1].join(',')} L${pts[2].join(',')}`};
+};
+type TickP = {color: string; sw: number; dots?: number; size?: number; variant?: 'ai'; boxSw?: number; thin?: number};
+const Tick: React.FC<EntityProps> = ({r}) => {
+  const p = r.e.p as TickP;
+  const d = r.get('draw', 1);
+  if (d <= 0) return null;
+  if (p.variant === 'ai') return <AiTick p={p} d={d} />;
+  const {len, d: path} = tickPath(p.size ?? GEOM.TICK.size);
   const dash = p.dots ? drawDash(len, d, [0.01, p.dots]) : drawDash(len, d);
-  const path = `M${pts[0].join(',')} L${pts[1].join(',')} L${pts[2].join(',')}`;
   return <path d={path} fill="none" stroke={p.color} strokeWidth={p.sw} strokeLinecap="round" strokeLinejoin="round" strokeDasharray={dash} />;
+};
+const AiTick: React.FC<{p: TickP; d: number}> = ({p, d}) => {
+  const size = p.size ?? GEOM.TICK.size;
+  const B = GEOM.TICK.aiBox * size;
+  const rr = B * 0.14;
+  const box = clamp01(d / 0.5);
+  const tk = clamp01((d - 0.45) / 0.55);
+  // coche intérieure à 78 %, en points ronds posés un à un (les 3 sommets compris : la forme reste lisible) ;
+  // thin = diamètre des points (défaut 0,7 x sw), dots = pas visé entre deux points (défaut 1,5 x thin)
+  const thin = p.thin ?? Math.max(4, p.sw * 0.7);
+  const k = (size * 0.78) / GEOM.TICK.size;
+  const pts = TICK_PTS.map(([x, y]) => [x * k + 0.5, y * k + 0.5] as Vec2);
+  const dots: {x: number; y: number; at: number}[] = [];
+  let acc = 0;
+  for (let i = 1; i < pts.length; i++) {
+    const L = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
+    const n = Math.max(1, Math.round(L / (p.dots ?? thin * 1.5)));
+    for (let j = i === 1 ? 0 : 1; j <= n; j++) {
+      const t = j / n;
+      dots.push({x: lerp(pts[i - 1][0], pts[i][0], t), y: lerp(pts[i - 1][1], pts[i][1], t), at: acc + L * t});
+    }
+    acc += L;
+  }
+  const boxLen = roundRectLength(B, B, rr);
+  const boxSw = p.boxSw ?? Math.max(2.5, p.sw * 0.4);
+  return (
+    <>
+      {box > 0 ? (
+        <path d={roundRect(-B / 2, -B / 2, B, B, rr)} fill="none" stroke={p.color} strokeWidth={boxSw} strokeLinecap="round" strokeDasharray={drawDash(boxLen, box, [B * 0.16, B * 0.11])} />
+      ) : null}
+      {tk > 0 ? dots.filter((q) => q.at <= tk * acc + 1e-6).map((q, i) => <circle key={i} cx={q.x} cy={q.y} r={thin / 2} fill={p.color} />) : null}
+    </>
+  );
 };
 
 // ---------- label: date chip (calendar + date) -> source tag (document pictogram + date, folded corner) ----------
@@ -624,16 +666,17 @@ const Bubble: React.FC<EntityProps> = ({r}) => {
 // ---------- pen: the advisor's tool. Origin = his grip (where the arm holds it), tip at (len, 0) ----------
 const Pen: React.FC<EntityProps> = ({r}) => {
   const C = usePalette();
-  const L = (r.e.p as {len?: number}).len ?? 120;
-  const body = `M0,-11 H${L - 26} V11 H0 A11,11 0 0 1 0,-11 Z`;
+  const L = (r.e.p as {len?: number}).len ?? GEOM.PEN.len;
+  const {r: pr, tip} = GEOM.PEN;
+  const body = `M0,${-pr} H${L - tip} V${pr} H0 A${pr},${pr} 0 0 1 0,${-pr} Z`;
   return (
     <Hard
       off={worldShadow(r.world, 4)}
       render={(sh) => (
         <>
           <path d={body} fill={C.ink} stroke={C.ink} strokeWidth={3} />
-          <path d={`M${L - 27},-10 L${L - 1},0 L${L - 27},10 Z`} fill={sh ? C.ink : C.cyan} stroke={C.ink} strokeWidth={3} strokeLinejoin="round" />
-          {sh ? null : <rect x={L - 38} y={-11} width={8} height={22} fill={C.cyan} />}
+          <path d={`M${L - tip - 1},${-(pr - 1)} L${L - 1},0 L${L - tip - 1},${pr - 1} Z`} fill={sh ? C.ink : C.cyan} stroke={C.ink} strokeWidth={3} strokeLinejoin="round" />
+          {sh ? null : <rect x={L - tip - 12} y={-pr} width={8} height={2 * pr} fill={C.cyan} />}
         </>
       )}
     />
@@ -656,7 +699,7 @@ const Limb: React.FC<EntityProps> = ({r, scene}) => {
   const lean = p.pivotTrack ? fig.get(p.pivotTrack, 0) : 0;
   const A = apply(fig.world, lean ? rotateAbout(p.a.at, lean, p.pivot ?? [0, 0]) : p.a.at);
   const B = scene.anchor(p.b);
-  const sw = p.sw ?? 13;
+  const sw = p.sw ?? GEOM.FIGURE.arm.sw;
   // bend (0..1) + elbow (world point): the arm goes shoulder -> elbow -> grip, to reach round what it must not cover.
   const bend = clamp01(r.get('bend', 0));
   const el = r.get<number[]>('elbow', [0, 0]);
@@ -672,7 +715,7 @@ const Limb: React.FC<EntityProps> = ({r, scene}) => {
 
 // ---------- stamp: « VALIDÉ », ink on paper (no fill: the page shows through) ----------
 /** Track `handle` (0..1): the ink handle on top, held by the advisor's arm during the slam. Grip at STAMP_GRIP. */
-export const STAMP_HANDLE = {neck: 14, knobW: 56, knobH: 20};
+export const STAMP_HANDLE = GEOM.STAMP_HANDLE;
 const Stamp: React.FC<EntityProps> = ({r}) => {
   const C = usePalette();
   const p = r.e.p as {text: string; w: number; h: number; size?: number};
@@ -687,7 +730,7 @@ const Stamp: React.FC<EntityProps> = ({r}) => {
             off={worldShadow(r.world, 5)}
             render={(sh) => (
               <>
-                <rect x={-11} y={ny - H.neck} width={22} height={H.neck} fill={C.ink} />
+                <rect x={-H.neckW / 2} y={ny - H.neck} width={H.neckW} height={H.neck} fill={C.ink} />
                 <rect x={-H.knobW / 2} y={ny - H.neck - H.knobH} width={H.knobW} height={H.knobH} rx={H.knobH / 2} fill={C.ink} />
               </>
             )}
@@ -706,7 +749,7 @@ const Stamp: React.FC<EntityProps> = ({r}) => {
 // ---------- bullet: a loose information pastille (ex. the AI's empty one), same drawing as a row's bullet ----------
 const LooseBullet: React.FC<EntityProps> = ({r}) => {
   const p = r.e.p as {icon: string; r?: number};
-  return <Bullet icon={p.icon} r={p.r ?? 22} alarm={clamp01(r.get('alarm', 0))} />;
+  return <Bullet icon={p.icon} r={p.r ?? GEOM.BULLET.r} alarm={clamp01(r.get('alarm', 0))} />;
 };
 
 // ---------- burst: short rays flashing out of a point (the AI's glass brain « produces » something) ----------
@@ -732,9 +775,13 @@ const Burst: React.FC<EntityProps> = ({r}) => {
 };
 
 // ---------- marker: numbered steps 1-2-3, the active disc slides ----------
+// `labels` (optionnel) : légende sous chaque disque (ex. Limiter / Exiger / Relire), encre pour l'étape active, gris
+// (ai_tick) pour les autres, en fondu selon la piste `active` ; `labelDy` / `labelSize` : GEOM.MARKER par défaut.
+type MarkerP = {xs: number[]; y: number; labels?: string[]; labelDy?: number; labelSize?: number};
 const Marker: React.FC<EntityProps> = ({r}) => {
   const C = usePalette();
-  const p = r.e.p as {xs: number[]; y: number};
+  const p = r.e.p as MarkerP;
+  const M = GEOM.MARKER;
   const a = Math.max(0, Math.min(p.xs.length - 1, r.get('active', 0)));
   const i0 = Math.min(p.xs.length - 2, Math.floor(a));
   const cx = p.xs[i0] + (p.xs[i0 + 1] - p.xs[i0]) * (a - i0);
@@ -742,15 +789,22 @@ const Marker: React.FC<EntityProps> = ({r}) => {
   return (
     <>
       <line x1={p.xs[0]} x2={p.xs[p.xs.length - 1]} y1={p.y} y2={p.y} stroke={C.ink} strokeWidth={4} />
+      {p.labels
+        ? p.labels.map((t, i) => (
+            <Txt key={`l${i}`} x={p.xs[i]} y={p.y + (p.labelDy ?? M.labelDy)} size={p.labelSize ?? M.labelSize} weight={700} color={mixHex(C.aiTick, C.ink, clamp01(1 - Math.abs(a - i)))} anchor="middle">
+              {t}
+            </Txt>
+          ))
+        : null}
       {p.xs.map((x, i) => (
         <g key={x}>
-          <circle cx={x} cy={p.y} r={20} fill={C.paper} stroke={C.ink} strokeWidth={4} />
+          <circle cx={x} cy={p.y} r={M.r} fill={C.paper} stroke={C.ink} strokeWidth={4} />
           <Txt x={x} y={p.y} size={22} weight={800} anchor="middle">
             {String(i + 1)}
           </Txt>
         </g>
       ))}
-      <Hard off={6} render={(sh) => <circle cx={cx} cy={p.y} r={32} fill={sh ? C.ink : C.cyan} stroke={C.ink} strokeWidth={4} />} />
+      <Hard off={6} render={(sh) => <circle cx={cx} cy={p.y} r={M.activeR} fill={sh ? C.ink : C.cyan} stroke={C.ink} strokeWidth={4} />} />
       <Txt x={cx} y={p.y} size={34} weight={800} anchor="middle">
         {String(digit)}
       </Txt>
@@ -779,6 +833,8 @@ export const COMPONENTS: Record<string, React.FC<EntityProps>> = {
   marker: Marker,
   bullet: LooseBullet,
   burst: Burst,
+  // kit générique (entities_kit.tsx) : shape, text, icon, sector, gauge, counter, curve, seesaw, cursor, endcard, crowd
+  ...KIT,
 };
 
 /** Types drawn as HTML (not inside the entity's SVG). */
