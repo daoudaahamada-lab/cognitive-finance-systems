@@ -19,6 +19,20 @@ def build(S):
     kit.pop("loupe", f)
 ```
 
+## Sommaire
+
+1. Conventions : images, valeurs de retour, repères, valeurs initiales
+2. Durées de la référence et constantes du kit
+3. Temps : `at`, `hold`, `pin`
+4. Macros de mouvement : `pop`, `vanish`, `morph`, `move`, `draw`, `fade`, `pulse`, `shake`, `drop`, `type`, `stagger`
+5. Déclarations : une fonction par entité du kit (`shape`, `text`, `icon`, `gauge`, `counter`, `tick`…)
+6. Éléments de la série : `steps_marker`, `step`, `outro`
+7. Figurine articulée : `Figure` (principe, `place_for`, méthodes, `stamp`)
+8. Fiche : `Sheet`
+9. Fonctions utilitaires (module)
+10. Démonstration et rendu
+11. Pièges
+
 ## 1. Conventions
 
 - **Images.** Les images sont celles du film : image n = n / 30 s. `kit.at` donne l'image du début du mot.
@@ -95,10 +109,22 @@ Impose l'état `states = {id: {piste: valeur}}` à l'image f, par une clé insta
   « (saut) » est émis : le saut se verrait. Pour une chaîne, il faut l'égalité stricte.
 - **Piste absente.** Une piste qui n'existe pas encore (hors pos, scale, rot, opacity) reçoit la valeur comme valeur
   initiale.
+- **Image de l'épingle.** Épingle à l'image qui PRÉCÈDE le premier événement de la partie (f0 − 1, f0 étant le
+  début de sa première scène). Une clé posée sur f part de la valeur de f − 1 : un mouvement qui commence sur f0
+  ignorerait une épingle posée sur f0 même.
+- **Figurines.** N'épingle jamais une figurine, son bras ou son stylo : le bras se décrocherait. Place-la par
+  `walk` / `enter`.
+- **Partie isolée.** Avec `WTH_PARTS=pN` (une partie construite seule), les « (saut) » sont normaux : la partie
+  précédente n'a pas tourné. Seuls comptent ceux du film entier.
+- **Figurine en partie isolée.** Une figurine déclarée `show=False` et entrée dans une partie précédente reste
+  invisible : son allonge vaut 0 et le rig s'arrête. Garde-fou en tête de partie, sans effet dans le film entier :
+  `if S.val("toi", "scale", f0 - 1) == 0: toi.enter(f0 - 10, at=[x, y])`.
 
 ```python
+sc = next(s for s in S.sb["scenes"] if s["id"] == "S05")
+f0 = round(sc["t_start"] * S.fps)
+kit.pin(f0 - 1, {"fiche": {"pos": [540, 760], "scale": 1}, "marqueur": {"active": 0}})
 f = kit.at("S05", "Première")
-kit.pin(f, {"fiche": {"pos": [540, 760], "scale": 1}, "marqueur": {"active": 0}})
 ```
 
 ## 4. Macros de mouvement
@@ -441,8 +467,10 @@ Contenu, mot par mot :
 
 ## 11. Pièges
 
-- **Bras qui se détache.** Seules les méthodes de `Figure` bougent la figurine, son bras et son stylo. Un `kit.move` ou
-  un `S.key` sur la figurine décroche le bras.
+- **Bras qui se détache.** Seules les méthodes de `Figure` bougent la figurine, son bras et son stylo. Un `kit.move`, un
+  `kit.pin` ou un `S.key` sur la figurine décroche le bras.
+- **Épingle ignorée.** `kit.pin(f, …)` suivi d'un mouvement qui commence sur la même image f : le mouvement part de la
+  valeur de f − 1 et l'épingle ne sert à rien. Épingle à f − 1 (voir § 3).
 - **`morph` et figurine.** Ne pas passer une figurine dans les `outs` d'un `morph` : appeler `fig.exit(f)` sur la même
   image.
 - **Pas automatique saccadé.** Un pas automatique pendant un geste court (tap : 5 images d'approche) est saccadé, et
