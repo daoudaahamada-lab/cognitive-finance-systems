@@ -8,12 +8,18 @@ build/Vxx/audio.wav (refait par render.normalize_audio s'il manque). Sorties : m
 (illustrations prêtes pour Remotion, fond), build/Vxx/motion.json (props), build/Vxx/motion_silent.mp4, output/WTH-Vxx.mp4.
 """
 import argparse
+import contextlib
+import fcntl
 import hashlib
 import json
 import math
 import os
 import re
+import shutil
+import signal
 import subprocess
+import tempfile
+import threading
 import time
 import unicodedata
 from pathlib import Path
@@ -21,7 +27,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image, ImageFilter, ImageFont
 
-from .common import ASSETS, OUTPUT, ROOT, build_dir, ffprobe, load_config, read_json, run, script, write_json
+from .common import ASSETS, BUILD, OUTPUT, ROOT, build_dir, ffprobe, load_config, read_json, run, script, write_json
 from .subs import WEAK
 
 MOTION = ROOT / "motion"
@@ -820,6 +826,103 @@ def remotion_env(**extra):
     return dict(os.environ, REMOTION_BROWSER_EXECUTABLE=browser_executable(), **extra)
 
 
+# ---------- un seul rendu Remotion à la fois ----------
+
+RENDER_LOCK = BUILD / ".render.lock"  # rendus et images fixes, Story et motion (machine à 4 cœurs)
+_LOCK_FDS = []   # descripteur du verrou tenu par ce processus (transmis aux rendus lancés par run_locked)
+
+
+@contextlib.contextmanager
+def render_lock(what):
+    """Un seul rendu Remotion à la fois : verrou exclusif build/.render.lock (fcntl.flock), attendu s'il est pris.
+    Le rendu reçoit son propre dossier temporaire (TMPDIR) : les dossiers de bundle remotion-webpack-bundle-*, profils
+    Chrome et images de travail qu'il crée sont supprimés à la fin, sans toucher à ceux d'un autre processus. Les
+    commandes lancées par run_locked gardent le verrou tant qu'elles tournent (même si ce processus meurt)."""
+    RENDER_LOCK.parent.mkdir(parents=True, exist_ok=True)
+    with open(RENDER_LOCK, "a+") as fh:
+        try:
+            fcntl.flock(fh, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            fh.seek(0)
+            print(f"  {what} : en attente de {RENDER_LOCK} (tenu par {fh.read().strip() or '?'})", flush=True)
+            fcntl.flock(fh, fcntl.LOCK_EX)
+        fh.seek(0)
+        fh.truncate()
+        fh.write(f"pid {os.getpid()} : {what}\n")
+        fh.flush()
+        tmp = Path(tempfile.mkdtemp(prefix="wth-render-"))
+        _LOCK_FDS.append(fh.fileno())
+        try:
+            yield {"TMPDIR": str(tmp)}
+        finally:
+            _LOCK_FDS.pop()
+            shutil.rmtree(tmp, ignore_errors=True)
+
+
+def _group_alive(pgid):
+    """Un processus du groupe tourne encore. Les zombis ne comptent pas (un orphelin mort attend d'être recueilli par
+    le processus 1, qui ne le fait pas toujours vite dans un conteneur)."""
+    if not Path("/proc/self/stat").exists():
+        try:
+            os.killpg(pgid, 0)
+            return True
+        except ProcessLookupError:
+            return False
+    for stat in Path("/proc").glob("[0-9]*/stat"):
+        try:
+            state, _, pgrp = stat.read_text().rsplit(")", 1)[1].split()[:3]
+        except (OSError, IndexError, ValueError):
+            continue
+        if int(pgrp) == pgid and state != "Z":
+            return True
+    return False
+
+
+def _stop_group(proc, grace=10.0):
+    """Arrête tout le groupe d'un rendu (npx, sh, node, Chrome) : SIGTERM, puis SIGKILL après `grace` s."""
+    try:
+        os.killpg(proc.pid, signal.SIGTERM)
+    except ProcessLookupError:
+        return
+    end = time.time() + grace
+    while time.time() < end:
+        proc.poll()
+        if not _group_alive(proc.pid):
+            proc.wait()
+            return
+        time.sleep(0.2)
+    with contextlib.suppress(ProcessLookupError):
+        os.killpg(proc.pid, signal.SIGKILL)
+    proc.wait()
+
+
+def run_locked(cmd, what, cwd=MOTION, env=None):
+    """`cmd` sous le verrou de rendu (render_lock), avec son dossier temporaire (TMPDIR ajouté à `env`) ->
+    CompletedProcess (sorties capturées). Le descripteur du verrou est transmis à la commande (pass_fds) : npx -> sh ->
+    node le gardent ouvert, le verrou dure autant que le rendu, même si ce processus Python est tué (SIGKILL : le
+    rendu orphelin finit, le verrou reste pris jusque-là). La commande a sa propre session : sur Ctrl-C ou SIGTERM,
+    tout son groupe est arrêté avant que le verrou ne soit rendu."""
+    with render_lock(what) as tmp_env:
+        proc = subprocess.Popen(cmd, cwd=cwd, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                                env={**(env if env is not None else os.environ), **tmp_env},
+                                pass_fds=tuple(_LOCK_FDS[-1:]), start_new_session=True)
+        old = None
+        if threading.current_thread() is threading.main_thread():
+            # SIGTERM (fin de délai d'un outil, kill) -> exception : le groupe est arrêté, TMPDIR supprimé.
+            def on_term(signum, frame):
+                raise SystemExit(128 + signum)
+            old = signal.signal(signal.SIGTERM, on_term)
+        try:
+            out, err = proc.communicate()
+        except BaseException:
+            _stop_group(proc)
+            raise
+        finally:
+            if old is not None:
+                signal.signal(signal.SIGTERM, old)
+    return subprocess.CompletedProcess(cmd, proc.returncode, out, err)
+
+
 def remotion_render(video_id, props_path, silent, keyframes=()):
     if not (MOTION / "node_modules").is_dir():
         raise SystemExit("motion/node_modules absent : lance « npm ci » dans motion/ (registre npm).")
@@ -829,7 +932,7 @@ def remotion_render(video_id, props_path, silent, keyframes=()):
     # Images clés forcées (motion/remotion.config.ts) : temps légèrement avant l'image visée.
     env = remotion_env(WTH_KEYFRAMES=",".join(f"{max(0.0, f / fps - 0.001):.4f}" for f in keyframes))
     t0 = time.time()
-    proc = subprocess.run(cmd, cwd=MOTION, text=True, capture_output=True, env=env)
+    proc = run_locked(cmd, f"rendu motion {video_id}", env=env)
     if proc.returncode != 0:
         print(proc.stdout[-4000:], proc.stderr[-4000:])
         raise SystemExit(f"Rendu Remotion en échec ({proc.returncode})")
@@ -931,8 +1034,8 @@ def stills(video_id, frames):
     """Images fixes PNG d'images choisies, sans rendu complet -> build/Vxx/review/stills/ (motion/scripts/stills.mjs)."""
     props_path, _ = build_props(video_id)
     out = build_dir(video_id) / "review" / "stills"
-    proc = subprocess.run(["node", "scripts/stills.mjs", str(props_path), str(out), *map(str, frames)], cwd=MOTION,
-                          text=True, capture_output=True, env=remotion_env())
+    proc = run_locked(["node", "scripts/stills.mjs", str(props_path), str(out), *map(str, frames)],
+                      f"images fixes motion {video_id}", env=remotion_env())
     if proc.returncode != 0:
         print(proc.stdout[-3000:], proc.stderr[-3000:])
         raise SystemExit("Images fixes en échec")

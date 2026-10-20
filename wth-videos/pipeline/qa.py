@@ -189,20 +189,27 @@ def motion_captions(out_dir, path=None):
     return props, active, groups, [t for t in texts if t]
 
 
-STORY_TEXT_KEYS = ("text", "key", "value", "title", "date", "sealText", "labels")
+STORY_TEXT_KEYS = ("text", "key", "value", "title", "date", "sealText", "labels", "prefix", "suffix")
 
 
 def entity_texts(props):
-    """Textes affichés par les entités Story (paramètres p : étiquettes, rangées, documents, tampon, légendes)."""
+    """Textes affichés par les entités Story : paramètres p (étiquettes, rangées, documents, tampon, légendes,
+    préfixe et suffixe d'un compteur) et valeurs texte des pistes du même nom (bascule de texte : piste `text` d'une
+    pastille ou du type text du kit)."""
     out = []
+
+    def add(v):
+        if isinstance(v, str):
+            out.append(v)
+        elif isinstance(v, list):
+            out.extend(t for t in v if isinstance(t, str))
+
     for e in props.get("entities", []):
         for k in STORY_TEXT_KEYS:
-            v = e.get("p", {}).get(k)
-            if isinstance(v, str):
-                out.append(v)
-            elif isinstance(v, list):
-                out += [t for t in v if isinstance(t, str)]
-    return [t for t in out if t.strip()]
+            add(e.get("p", {}).get(k))
+            for key in e.get("t", {}).get(k, []):
+                add(key.get("v"))
+    return list(dict.fromkeys(t for t in out if t.strip()))
 
 
 def story_inputs(out_dir):
@@ -262,10 +269,44 @@ def story_render_check(video_id, mp4, probe, rec, props):
                  f"props {now['props'][:10]}, storyboard {now['storyboard'][:10]}, mise en scène {(now['spec'] or '?')[:10]}")
 
 
-def caption_gaps(props):
-    """Images sans sous-titre (il doit toujours y en avoir un, d'un groupe au suivant), en images du film."""
+def story_staging_check(probe, props):
+    """« Mise en scène complète » : le film Story livré couvre tout le storyboard. Refusé si le MP4 porte la balise
+    wth_partial (rendu de travail --allow-partial) ou si ses props signalent une mise en scène incomplète : film
+    partiel, scènes sans aucun temps fort, temps forts du storyboard sans événement, début non mis en scène."""
+    meta = props.get("meta", {})
+    staged = set(meta.get("staged_scenes", []))
+    unstaged = meta.get("unstaged_scenes")
+    if unstaged is None:   # props d'avant la balise : scènes du storyboard sans temps fort posé
+        try:
+            sb = read_json(ROOT / meta["storyboard"])
+            unstaged = [s["id"] for s in sb["scenes"] if s["id"] not in staged]
+        except (KeyError, OSError, ValueError):
+            unstaged = ["storyboard illisible"]
+    missing = meta.get("storyboard_beats_missing", [])
+    before = meta.get("unstaged_before_frame")
+    partial = mp4_tags(probe).get("wth_partial") == "1" or bool(meta.get("partial"))
+    window = meta.get("window_frames", [None, None])
+    full = props.get("frameOffset", 0) == 0 and window[0] == 0
+    problems = [x for x in (
+        "rendu de travail (--allow-partial)" if partial else "",
+        "extrait, pas le film entier" if not full else "",
+        f"scènes non mises en scène : {', '.join(unstaged)}" if unstaged else "",
+        f"temps forts sans événement : {', '.join(missing[:6])}{' …' if len(missing) > 6 else ''}" if missing else "",
+        f"rien n'est mis en scène avant l'image {before}" if before is not None else "") if x]
+    return check("Mise en scène complète", not problems, "; ".join(problems) or
+                 f"{len(staged)} scènes mises en scène, tous les temps forts posés",
+                 "chaque scène du storyboard mise en scène, chaque temps fort avec son événement, pas de rendu partiel",
+                 f"mise en scène {meta.get('spec', '?')}, storyboard {meta.get('storyboard', '?')}")
+
+
+def caption_gaps(props, from_first_word=False):
+    """Images sans sous-titre (il doit toujours y en avoir un, d'un groupe au suivant), en images du film.
+    `from_first_word` (film Story) : compté à partir du premier mot, un groupe ne s'affichant jamais avant son premier
+    mot (pipeline.story.caption_track) ; le rendu motion, lui, montre son premier groupe dès l'image 0."""
     off = props.get("frameOffset", 0)
     cursor, gaps = off, []
+    if from_first_word and props["captions"]:
+        cursor = max(off, min(g["from"] for g in props["captions"]))
     for g in props["captions"]:
         if g["from"] > cursor:
             gaps.append((cursor, g["from"]))
@@ -612,8 +653,9 @@ def qa_video(video_id, mode="auto"):
 
     # Durée et format
     duration = float(probe["format"]["duration"])
-    results.append(check("Durée", q["min_duration"] <= duration <= q["max_duration"], f"{duration:.2f} s",
-                         f"{q['min_duration']:.0f} à {q['max_duration']:.0f} s"))
+    max_duration = (q.get("max_duration_by_video") or {}).get(video_id, q["max_duration"])
+    results.append(check("Durée", q["min_duration"] <= duration <= max_duration, f"{duration:.2f} s",
+                         f"{q['min_duration']:.0f} à {max_duration:.0f} s"))
     vs = next(st for st in probe["streams"] if st["codec_type"] == "video")
     aus = next((st for st in probe["streams"] if st["codec_type"] == "audio"), {})
     fmt = f"{vs['codec_name']} {vs['width']}x{vs['height']} {vs['avg_frame_rate']} {vs['pix_fmt']} + {aus.get('codec_name')}"
@@ -631,6 +673,7 @@ def qa_video(video_id, mode="auto"):
                          (", BT.709 plage tv" if remotion else ""), "; ".join(fmt_problems)))
     if mode == "story":
         results.append(story_render_check(video_id, mp4, probe, rec, props))
+        results.append(story_staging_check(probe, props))
     if mode == "motion":
         # Le MP4 contrôlé doit être celui que décrivent motion.json et le plan : mêmes empreintes (balises wth_* du
         # MP4, ou fiche de rendu), même nombre d'images. Les dates de fichiers ne comptent pas (une image fixe ou
@@ -688,8 +731,9 @@ def qa_video(video_id, mode="auto"):
         problems.append(f"{len(shown)} mots surlignés pour {len(tokens)} mots dans le texte")
     if widest > max_width:
         problems.append(f"groupe trop large : {widest:.0f} px")
-    if remotion and caption_gaps(props):
-        problems.append(f"images sans sous-titre : {caption_gaps(props)[:3]}")
+    gaps = caption_gaps(props, from_first_word=mode == "story") if remotion else []
+    if gaps:
+        problems.append(f"images sans sous-titre : {gaps[:3]}")
     if wdata.get("unmatched_chars", 0):
         problems.append(f"{wdata['unmatched_chars']} caractère(s) du texte absents de l'alignement ElevenLabs")
     if words[-1]["end"] > ref_dur - 0.02:

@@ -7,12 +7,17 @@
     python3 -m pipeline.story V01 --full                                    le film entier (0 -> fin de audio.wav)
     python3 -m pipeline.story V01 --full --props --allow-partial            props du film, mise en scène incomplète admise
     python3 -m pipeline.story V01 --check                                   contrôle du storyboard (sans rendu)
+    python3 -m pipeline.story V01 --staging                                 film entier rendable ? (code 0 / 1)
+    python3 -m pipeline.story V01 --full --qa                               film entier puis contrôle qualité
     python3 -m pipeline.story V01 --audio                                   seulement build/V01/audio.wav (voix normalisée)
 
 Film entier : toutes les scènes du storyboard doivent être mises en scène (sinon arrêt, sauf --allow-partial) ; sorties
 build/Vxx/story/props_film.json, props_film_nocap.json, muet_film*.mp4, film_sans_sous_titres.mp4 et output/WTH-Vxx.mp4
 (un output/WTH-Vxx.mp4 d'un autre rendu est d'abord rangé dans build/Vxx/archive/), fiche build/Vxx/story_render.json
-(empreintes props, storyboard, mise en scène, MP4) pour la QA. Un seul rendu Remotion à la fois : verrou build/.render.lock.
+(empreintes props, storyboard, mise en scène, MP4) pour la QA. Film incomplet (--allow-partial, rendu de travail) :
+tout reste dans build/Vxx/story/ (props_film_partiel*.json, film_partiel.mp4, film_partiel_sans_sous_titres.mp4,
+balise wth_partial=1) ; output/WTH-Vxx.mp4 et story_render.json ne changent pas. Un seul rendu Remotion à la fois :
+verrou build/.render.lock (motion.run_locked).
 
 Numéros d'image : image de l'extrait # = round(t × 30) − meta.window_frames[0] (la fenêtre s'ouvre juste avant
 l'attaque audible du premier mot, pas forcément à round(from × 30)) ; le tableau des temps forts est imprimé dans les
@@ -33,35 +38,35 @@ long d'un fil) avec les nombres mêmes du rendu.
 import argparse
 import bisect
 import contextlib
-import fcntl
 import hashlib
 import importlib.util
+import io
 import json
 import math
-import os
 import re
 import shutil
 import subprocess
 import sys
-import tempfile
 import time
 import unicodedata
 import wave
 from pathlib import Path
+from types import SimpleNamespace
 
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
-from .common import BUILD, OUTPUT, ROOT, build_dir, ffprobe, load_config, read_json, run, script, write_json
-from .motion import (CAROUSEL_ASSET, GENERATED, ILLUSTRATIONS, MOTION, CaptionMeasure, _norm, caption_groups,
-                     clean_word, ensure_audio, remotion_env, sha1_file)
+from .common import OUTPUT, ROOT, build_dir, ffprobe, load_config, read_json, run, script, write_json
+from .motion import (CAROUSEL_ASSET, GENERATED, ILLUSTRATIONS, MOTION, RENDER_LOCK, CaptionMeasure, _norm,
+                     caption_groups, clean_word, ensure_audio, remotion_env, render_lock, run_locked, sha1_file)
 
 STORYBOARDS = ROOT / "scripts" / "storyboards"
 SPECS = ROOT / "scripts" / "story"
 FONTS = MOTION / "public" / "fonts"
 PNG_VERSION = 1  # à incrémenter si la recette des PNG (alpha strict) change
 STORY_SIDECAR = "story_render.json"   # fiche du dernier rendu du film entier (QA : empreintes, chemins)
-RENDER_LOCK = BUILD / ".render.lock"  # un seul rendu Remotion à la fois (rendus et images fixes)
+# Un seul rendu Remotion à la fois (rendus et images fixes) : motion.run_locked ; render_lock et RENDER_LOCK sont
+# réexportés ici (story.render_lock : scripts/story/_demo_kit.py).
 
 # Géométrie partagée avec le rendu (figurine, stylo, tampon, étiquettes...) : motion/src/story/geometry.json, lue
 # aussi par entities.tsx et draw.tsx. Vide tant que le fichier n'existe pas.
@@ -745,40 +750,51 @@ def outputs(video_id, label, full):
     }
 
 
-def build_props(video_id, t_from, t_to, captions=True, allow_partial=False):
-    """Props de la fenêtre [t_from, t_to] (film entier si elle couvre tout audio.wav). Film entier : arrêt si une
-    scène du storyboard n'a aucun temps fort mis en scène, si un temps fort n'a pas d'événement ou si le début n'est
-    pas mis en scène, sauf `allow_partial` (rendu de travail : simples avertissements)."""
-    cfg = load_config()
+def partial_outputs(video_id):
+    """Fichiers d'un film entier INCOMPLET (--allow-partial, rendu de travail) : tous dans build/Vxx/story/
+    (film_partiel.mp4, film_partiel_sans_sous_titres.mp4), jamais output/WTH-Vxx.mp4 ni la fiche story_render.json :
+    le film livré et sa QA restent ceux d'un film complet."""
+    d = build_dir(video_id) / "story"
+    tag = "film_partiel"
+    return {
+        "props": {True: d / f"props_{tag}.json", False: d / f"props_{tag}_nocap.json"},
+        "silent": {True: d / f"muet_{tag}.mp4", False: d / f"muet_{tag}_nocap.mp4"},
+        "mp4": {True: d / f"{tag}.mp4", False: d / f"{tag}_sans_sous_titres.mp4"},
+        "wav": d / "voix_film.wav",
+    }
+
+
+def compose(video_id, t_from, t_to, cfg=None):
+    """Mise en scène construite sur la fenêtre [t_from, t_to] (t_to None : jusqu'à la fin de audio.wav) -> entrées,
+    fenêtre [f0, f1) en images du film, film entier ou non, module et chemin de la mise en scène, Story construite."""
+    cfg = cfg or load_config()
     fps = cfg["video"]["fps"]
-    out_dir = build_dir(video_id) / "story"
-    out_dir.mkdir(parents=True, exist_ok=True)
     words, storyboard, audio = load_inputs(video_id, cfg)
+    if t_to is None:
+        t_to = audio_duration(audio)
     f0, f1, on0, on1 = excerpt_window(audio, t_from, t_to, fps)
     full = f0 == 0 and f1 >= last_frame(audio, fps)
-    mod, spec_path = load_spec(video_id)
+    mod, spec = load_spec(video_id)
     snap = None
     if getattr(mod, "ACOUSTIC_SNAP", None):
         env, hop, _ = _envelope(audio)
         snap = {**mod.ACOUSTIC_SNAP, "attack": lambda t: attack_time(env, hop, t, mod.ACOUSTIC_SNAP["window"])}
     story = Story(video_id, words, storyboard, fps, cfg["video"]["width"], cfg["video"]["height"], snap=snap)
     mod.build(story)
-    snapped_frames = {b["i"]: b["frame"] for b in story.beats if "attack_t" in b}
-    caps = caption_track(words, fps, f0, f1, getattr(mod, "CAPTION_GROUPS", None), snapped=snapped_frames,
-                         alert_words=getattr(mod, "ALERT_WORDS", None))
-    label = scene_range(storyboard, t_from, t_to)
-    lead_in = lead_in_scenes(storyboard, t_from, t_to)
-    onsets = {round(w["start"] * fps) for w in words}
-    off = sorted({b["frame"] for b in story.beats if b["frame"] not in onsets and "attack_t" not in b})
-    snapped = [f"{b['scene']} « {b['word']} » {b['word_frame']} -> {b['frame']}" for b in story.beats if "attack_t" in b]
-    covered = {(b["scene"], _norm(b["word"])) for b in story.beats}
+    return SimpleNamespace(cfg=cfg, fps=fps, words=words, storyboard=storyboard, audio=audio, t_from=t_from,
+                           t_to=t_to, f0=f0, f1=f1, on0=on0, on1=on1, full=full, mod=mod, spec=spec, story=story)
+
+
+def staging(storyboard, beats, f0, f1, fps, full):
+    """Couverture du storyboard par la mise en scène sur [f0, f1) : temps forts sans événement (missing), scènes mises
+    en scène (staged), début non mis en scène (first_staged, unstaged_before) ; film entier : scènes sans aucun temps
+    fort (unstaged) et problèmes qui le refusent (problems, vide si la mise en scène est complète)."""
+    covered = {(b["scene"], _norm(b["word"])) for b in beats}
     missing = [f"{s['id']} « {b['mot']} »" for s in storyboard["scenes"] for b in s["beats"]
                if f0 <= round(b["t"] * fps) < f1 and (s["id"], _norm(b["mot"])) not in covered]
     # Une mise en scène partielle (ex. V01 : S11-S14, état de fin de S10 reconstitué à l'image 0) ne couvre pas le
     # film entier : avant sa première scène, l'image reste figée sur l'état reconstitué.
-    # Images où commence au moins une clé (± 1 image : un événement peut être amorcé juste avant son mot).
-    starts = {round(k["f"]) + d for e in story.ents.values() for tr in e["t"].values() for k in tr[1:] for d in (-1, 0, 1)}
-    staged = sorted({b["scene"] for b in story.beats})
+    staged = sorted({b["scene"] for b in beats})
     first_staged = min((round(s["t_start"] * fps) for s in storyboard["scenes"] if s["id"] in staged), default=f0)
     unstaged_before = f0 < first_staged - fps // 2     # tolérance : la pré-attaque acoustique d'un extrait
     # Film entier : chaque scène du storyboard doit être mise en scène (au moins un temps fort posé).
@@ -789,9 +805,56 @@ def build_props(video_id, t_from, t_to, captions=True, allow_partial=False):
         f"temps forts du storyboard sans événement : {', '.join(partly)}" if partly else "",
         f"rien n'est mis en scène avant l'image {first_staged} ({first_staged / fps:.2f} s) : l'image y resterait figée"
         if unstaged_before else "") if p] if full else []
+    return {"missing": missing, "staged": staged, "first_staged": first_staged, "unstaged_before": unstaged_before,
+            "unstaged": unstaged, "problems": problems}
+
+
+def check_staging(video_id):
+    """Le film entier peut-il être rendu (`make story`) ? Sans props ni rendu -> (prêt, message). Pas prêt : voix,
+    storyboard ou mise en scène absents, mise en scène en erreur (paquet en cours d'écriture) ou incomplète (scènes
+    ou temps forts sans événement, début non mis en scène)."""
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):   # avertissements du kit : voir make story-props
+            c = compose(video_id, 0.0, None)
+    except SystemExit as e:
+        return False, f"pas prêt : {e}"
+    except Exception as e:  # noqa: BLE001 — mise en scène en cours d'écriture (import, construction)
+        return False, f"mise en scène en erreur : {type(e).__name__}: {e}"
+    problems = staging(c.storyboard, c.story.beats, c.f0, c.f1, c.fps, c.full)["problems"]
+    if problems:
+        return False, f"mise en scène incomplète ({rel(c.spec)}) : " + " ; ".join(problems)
+    return True, (f"mise en scène complète ({rel(c.spec)} : {len(c.storyboard['scenes'])} scènes, "
+                  f"{len(c.story.beats)} temps forts)")
+
+
+def build_props(video_id, t_from, t_to, captions=True, allow_partial=False):
+    """Props de la fenêtre [t_from, t_to] (film entier si elle couvre tout audio.wav). Film entier : arrêt si une
+    scène du storyboard n'a aucun temps fort mis en scène, si un temps fort n'a pas d'événement ou si le début n'est
+    pas mis en scène, sauf `allow_partial` (rendu de travail : simples avertissements, props et rendus
+    « film_partiel » dans build/Vxx/story/, meta.partial = true)."""
+    cfg = load_config()
+    out_dir = build_dir(video_id) / "story"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    c = compose(video_id, t_from, t_to, cfg)
+    fps, words, storyboard, story, mod, spec_path = c.fps, c.words, c.storyboard, c.story, c.mod, c.spec
+    f0, f1, on0, on1, full = c.f0, c.f1, c.on0, c.on1, c.full
+    snapped_frames = {b["i"]: b["frame"] for b in story.beats if "attack_t" in b}
+    caps = caption_track(words, fps, f0, f1, getattr(mod, "CAPTION_GROUPS", None), snapped=snapped_frames,
+                         alert_words=getattr(mod, "ALERT_WORDS", None))
+    label = scene_range(storyboard, t_from, t_to)
+    lead_in = lead_in_scenes(storyboard, t_from, t_to)
+    onsets = {round(w["start"] * fps) for w in words}
+    off = sorted({b["frame"] for b in story.beats if b["frame"] not in onsets and "attack_t" not in b})
+    snapped = [f"{b['scene']} « {b['word']} » {b['word_frame']} -> {b['frame']}" for b in story.beats if "attack_t" in b]
+    cov = staging(storyboard, story.beats, f0, f1, fps, full)
+    missing, staged, unstaged, problems = cov["missing"], cov["staged"], cov["unstaged"], cov["problems"]
+    first_staged, unstaged_before = cov["first_staged"], cov["unstaged_before"]
+    # Images où commence au moins une clé (± 1 image : un événement peut être amorcé juste avant son mot).
+    starts = {round(k["f"]) + d for e in story.ents.values() for tr in e["t"].values() for k in tr[1:] for d in (-1, 0, 1)}
     if problems and not allow_partial:
         raise SystemExit(f"{video_id} : film entier refusé, mise en scène incomplète ({spec_path.relative_to(ROOT)}) :\n  "
                          + "\n  ".join(problems) + "\n(--allow-partial / ALLOW_PARTIAL=1 pour un rendu de travail)")
+    partial = bool(problems)
     props = {
         "id": f"{video_id}_{label}",
         "fps": fps, "width": story.width, "height": story.height,
@@ -816,7 +879,10 @@ def build_props(video_id, t_from, t_to, captions=True, allow_partial=False):
                                              if f0 <= b["frame"] < f1 and b["frame"] in starts}),
                  "unstaged_before_frame": first_staged if unstaged_before else None},
     }
-    path = outputs(video_id, label, full)["props"][captions]
+    if full:
+        # État de la mise en scène du film entier (QA « Mise en scène complète », balise wth_partial du MP4).
+        props["meta"].update(partial=partial, unstaged_scenes=unstaged, staging_problems=problems)
+    path = (partial_outputs(video_id) if partial else outputs(video_id, label, full))["props"][captions]
     text = json.dumps(props, ensure_ascii=False, indent=1) + "\n"
     if not path.exists() or path.read_text(encoding="utf-8") != text:
         path.write_text(text, encoding="utf-8")
@@ -841,37 +907,15 @@ def build_props(video_id, t_from, t_to, captions=True, allow_partial=False):
         print(f"  attention : la mise en scène ({spec_path.name}) ne couvre que {staged[0]}-{staged[-1]} ; "
               f"de l'image {f0} à {first_staged} ({f0 / fps:.2f}-{first_staged / fps:.2f} s) l'image reste figée sur "
               f"l'état initial reconstitué")
-    if unstaged:
-        print(f"  attention : film INCOMPLET (--allow-partial), scènes non mises en scène : {', '.join(unstaged)}")
+    if partial:
+        print(f"  attention : film INCOMPLET (--allow-partial) : {' ; '.join(problems)} ; rendu de travail dans "
+              f"{rel(path.parent)}/film_partiel*.mp4 (output/WTH-{video_id}.mp4 inchangé)")
     return path, props
 
 
-@contextlib.contextmanager
-def render_lock(what):
-    """Un seul rendu Remotion à la fois (machine à 4 cœurs) : verrou exclusif build/.render.lock (fcntl.flock),
-    attendu s'il est pris, rendu à la sortie (même si le processus meurt). Le rendu reçoit son propre dossier
-    temporaire (TMPDIR) : les dossiers de bundle remotion-webpack-bundle-*, profils Chrome et images de travail qu'il
-    crée sont supprimés à la fin, sans toucher à ceux d'un autre processus."""
-    RENDER_LOCK.parent.mkdir(parents=True, exist_ok=True)
-    with open(RENDER_LOCK, "a+") as fh:
-        try:
-            fcntl.flock(fh, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        except BlockingIOError:
-            fh.seek(0)
-            print(f"  {what} : en attente de {RENDER_LOCK} (tenu par {fh.read().strip() or '?'})", flush=True)
-            fcntl.flock(fh, fcntl.LOCK_EX)
-        fh.seek(0)
-        fh.truncate()
-        fh.write(f"pid {os.getpid()} : {what}\n")
-        fh.flush()
-        tmp = Path(tempfile.mkdtemp(prefix="wth-render-"))
-        try:
-            yield {"TMPDIR": str(tmp)}
-        finally:
-            shutil.rmtree(tmp, ignore_errors=True)
-
-
 def remotion_render(props_path, silent):
+    """Rendu Remotion de la composition Story sous le verrou build/.render.lock (motion.run_locked : un seul rendu à
+    la fois, tenu par le rendu lui-même, dossier temporaire propre au rendu)."""
     if not (MOTION / "node_modules").is_dir():
         raise SystemExit("motion/node_modules absent : lance « npm ci » dans motion/.")
     cmd = ["npx", "remotion", "render", "Story", str(silent), f"--props={props_path}", "--muted", "--log=error"]
@@ -880,10 +924,9 @@ def remotion_render(props_path, silent):
     # Images clés forcées sur les temps forts (motion/remotion.config.ts lit WTH_KEYFRAMES, en secondes de la
     # vidéo rendue, juste avant l'image visée) : jamais de rafraîchissement GOP dans une tenue.
     kf = props.get("meta", {}).get("keyframes", [off])
-    with render_lock(f"rendu {Path(silent).name}") as tmp_env:
-        env = remotion_env(WTH_KEYFRAMES=",".join(f"{max(0.0, (f - off) / fps - 0.001):.4f}" for f in kf), **tmp_env)
-        t0 = time.time()
-        proc = subprocess.run(cmd, cwd=MOTION, text=True, capture_output=True, env=env)
+    env = remotion_env(WTH_KEYFRAMES=",".join(f"{max(0.0, (f - off) / fps - 0.001):.4f}" for f in kf))
+    t0 = time.time()
+    proc = run_locked(cmd, f"rendu {Path(silent).name}", env=env)
     if proc.returncode != 0:
         print(proc.stdout[-4000:], proc.stderr[-4000:])
         raise SystemExit(f"Rendu Remotion en échec ({proc.returncode})")
@@ -949,9 +992,8 @@ def contact_sheets(mp4, out_dir, f0, fps, step=5, cols=10, thumb_w=180):
 def stills(video_id, t_from, t_to, frames, captions=True, allow_partial=False):
     props_path, _ = build_props(video_id, t_from, t_to, captions, allow_partial)
     out = build_dir(video_id) / "story" / "stills"
-    with render_lock(f"images fixes {video_id}") as tmp_env:
-        proc = subprocess.run(["node", "scripts/story_stills.mjs", str(props_path), str(out), *map(str, frames)],
-                              cwd=MOTION, text=True, capture_output=True, env=remotion_env(**tmp_env))
+    proc = run_locked(["node", "scripts/story_stills.mjs", str(props_path), str(out), *map(str, frames)],
+                      f"images fixes {video_id}", env=remotion_env())
     if proc.returncode != 0:
         print(proc.stdout[-3000:], proc.stderr[-3000:])
         raise SystemExit("Images fixes en échec")
@@ -1003,7 +1045,8 @@ def excerpt(video_id, t_from, t_to, captions=True, sheets=True, allow_partial=Fa
     """Rendu d'une fenêtre : version sans sous-titres (build/Vxx/story/) et, sauf --no-captions, version avec
     sous-titres (extrait : output/extraits/ ; film entier : output/WTH-Vxx.mp4), toutes deux avec la voix coupée image
     par image. Les MP4 portent les balises wth_* (mode, empreintes props / storyboard / mise en scène) ; le film entier
-    écrit aussi la fiche build/Vxx/story_render.json."""
+    écrit aussi la fiche build/Vxx/story_render.json. Film entier incomplet (allow_partial) : rendu de travail
+    build/Vxx/story/film_partiel*.mp4 (balise wth_partial=1), sans toucher au film livré ni à sa fiche."""
     cfg = load_config()
     fps = cfg["video"]["fps"]
     _, storyboard, audio = load_inputs(video_id, cfg)
@@ -1012,29 +1055,39 @@ def excerpt(video_id, t_from, t_to, captions=True, sheets=True, allow_partial=Fa
     results, done = {}, {}
     variants = [False] + ([True] if captions else [])
     wav = full = paths = None
+    partial = False
     for cap in variants:
         props_path, props = build_props(video_id, t_from, t_to, captions=cap, allow_partial=allow_partial)
         f0, f1 = props["meta"]["window_frames"]
         if paths is None:
             full = f0 == 0 and f1 >= last_frame(audio, fps)
-            paths = outputs(video_id, label, full)
+            partial = bool(props["meta"].get("partial"))
+            paths = partial_outputs(video_id) if partial else outputs(video_id, label, full)
             wav = paths["wav"]
             cut_audio(audio, f0, f1, fps, wav)
         silent, mp4 = paths["silent"][cap], paths["mp4"][cap]
         remotion_render(props_path, silent)
-        if full and cap:
+        if full and cap and not partial:
             archive_previous(video_id, mp4)
-        mux(silent, wav, mp4, (f1 - f0) / fps, cfg,
-            {"wth_mode": "story", "wth_scenes": label, "wth_window": f"{f0}-{f1}", "wth_captions": int(cap),
-             "wth_props": sha1_file(props_path), "wth_storyboard": sha1_file(STORYBOARDS / f"{video_id}.json"),
-             "wth_spec": spec_sha1(spec)})
+        tags = {"wth_mode": "story", "wth_scenes": label, "wth_window": f"{f0}-{f1}", "wth_captions": int(cap),
+                "wth_props": sha1_file(props_path), "wth_storyboard": sha1_file(STORYBOARDS / f"{video_id}.json"),
+                "wth_spec": spec_sha1(spec)}
+        if partial:
+            tags["wth_partial"] = 1
+        mux(silent, wav, mp4, (f1 - f0) / fps, cfg, tags)
         results[cap] = mp4
         done[cap] = (props_path, mp4)
-    if full:
+    if full and not partial:
         print(f"  fiche de rendu -> {write_record(video_id, f0, f1, spec, done)}")
+    elif partial:
+        print(f"  film INCOMPLET (rendu de travail) -> {', '.join(rel(m) for m in results.values())} ; "
+              f"output/WTH-{video_id}.mp4 et build/{video_id}/{STORY_SIDECAR} inchangés")
     if sheets and full:
         from .story_review import review       # planches JPEG demi-résolution (build/Vxx/review/)
-        review(video_id, ["sheets"], src="cap" if captions else "nocap")
+        if partial:
+            review(video_id, ["sheets"], src=str(results[captions]), props=str(paths["props"][captions]))
+        else:
+            review(video_id, ["sheets"], src="cap" if captions else "nocap")
     elif sheets:
         contact_sheets(results[captions], build_dir(video_id) / "story", f0, fps)
     return results
@@ -1057,7 +1110,7 @@ def _flat_text(s):
 
 def check_storyboard(video_id, words=None, storyboard=None):
     """Contrôle d'un storyboard avant la mise en scène -> (erreurs, avertissements) :
-    champs obligatoires ; scènes contiguës de 0 à la fin du dernier mot ; début de chaque scène sur le début d'un mot
+    champs obligatoires, au moins un temps fort par scène ; scènes contiguës de 0 à la fin du dernier mot ; début de chaque scène sur le début d'un mot
     (± 30 ms) ; chaque temps fort (mot, t) résolu dans words.json et dans sa scène ; textes des scènes mis bout à bout
     = texte du script (NFC, espaces normalisées) ; idées-clés (« idees_cles », 6 à 10 {id, idee, scenes})."""
     sb_path = STORYBOARDS / f"{video_id}.json"
@@ -1082,6 +1135,9 @@ def check_storyboard(video_id, words=None, storyboard=None):
         miss = [k for k in SCENE_FIELDS if k not in s]
         if miss:
             errors.append(f"{sid} : champs absents : {', '.join(miss)}")
+        if "beats" in s and not s["beats"]:
+            errors.append(f"{sid} : aucun temps fort (il en faut au moins un par scène : le film entier n'est rendu "
+                          f"que si chaque scène a un temps fort mis en scène)")
         for j, b in enumerate(s.get("beats", [])):
             bm = [k for k in BEAT_FIELDS if k not in b]
             if bm:
@@ -1164,8 +1220,8 @@ def print_check(video_id):
         for e in errors:
             print(f"  ✘ {e}")
         return False
-    print(f"{video_id} : storyboard OK ({n} scènes : champs, scènes contiguës, débuts de mot, temps forts, texte, "
-          f"idées-clés)")
+    print(f"{video_id} : storyboard OK ({n} scènes : champs, scènes contiguës, débuts de mot, temps forts (un au moins "
+          f"par scène), texte, idées-clés)")
     return True
 
 
@@ -1182,10 +1238,18 @@ def main():
     p.add_argument("--allow-partial", action="store_true",
                    help="film entier : scènes non mises en scène admises (avertissements ; rendu de travail)")
     p.add_argument("--check", action="store_true", help="contrôle du storyboard seulement (code 1 si refusé)")
+    p.add_argument("--staging", action="store_true",
+                   help="film entier rendable ? mise en scène complète (code 0) ou non (code 1), sans props ni rendu")
+    p.add_argument("--qa", action="store_true",
+                   help="après le rendu d'un film entier complet (output/WTH-Vxx.mp4) : contrôle qualité (pipeline.qa)")
     p.add_argument("--audio", action="store_true", help="seulement build/Vxx/audio.wav (motion.ensure_audio)")
     a = p.parse_args()
     if a.check:
         raise SystemExit(0 if print_check(a.id) else 1)
+    if a.staging:
+        ready, msg = check_staging(a.id)
+        print(f"{a.id} : {msg}")
+        raise SystemExit(0 if ready else 1)
     if a.audio:
         print(f"{a.id} : {rel(ensure_audio(a.id, load_config()))}")
         return
@@ -1198,8 +1262,15 @@ def main():
     elif a.props:
         build_props(a.id, a.t_from, a.t_to, captions=not a.no_captions, allow_partial=a.allow_partial)
     else:
-        excerpt(a.id, a.t_from, a.t_to, captions=not a.no_captions, sheets=not a.no_sheets,
-                allow_partial=a.allow_partial)
+        results = excerpt(a.id, a.t_from, a.t_to, captions=not a.no_captions, sheets=not a.no_sheets,
+                          allow_partial=a.allow_partial)
+        if a.qa:
+            # La QA contrôle output/WTH-Vxx.mp4 : seulement s'il vient d'être rendu (film entier complet).
+            if results.get(True) == OUTPUT / f"WTH-{a.id}.mp4":
+                from .qa import qa_video
+                raise SystemExit(0 if qa_video(a.id)["ok"] else 1)
+            print(f"{a.id} : pas de contrôle qualité (extrait, film incomplet ou --no-captions : output/WTH-{a.id}.mp4 "
+                  f"n'a pas été rendu)")
 
 
 if __name__ == "__main__":

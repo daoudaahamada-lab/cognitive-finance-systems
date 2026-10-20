@@ -4,13 +4,14 @@ pleine résolution : JPEG mi-résolution seulement -> build/Vxx/review/<film|Sa-
     python3 -m pipeline.story_review V01                       tout (planches, temps forts, téléphone, tenues) du film
     python3 -m pipeline.story_review V01 --nocap --sheets      planches de la version sans sous-titres
     python3 -m pipeline.story_review V01 --src output/extraits/WTH-V01_extrait_S11-S14.mp4 --beats
-    python3 -m pipeline.story_review V01 --clean               supprime bandes et images téléphone (garde planches et tenues)
+    python3 -m pipeline.story_review V01 --clean               supprime bandes, images téléphone et images extraites de V01
+                                                               (garde planches et tenues)
 
 --sheets  planches : 6 i/s, images mi-résolution (540 x 960), 12 par planche (6 par rangée = 1 s), avec image et temps
           du film et scène du storyboard -> sheets/sheet_NN.jpg
 --beats   une bande par temps fort (props meta.beats) : images f-3 à f+12, quart de résolution -> beats/
---phone   taille téléphone : réencodage à 2 Mb/s (compression des plateformes), puis images de 360 px de large à 2 i/s
-          -> phone/phone_NN.jpg et phone/<nom>_360.mp4 (à regarder avec le son)
+--phone   taille téléphone : réencodage à 2 Mb/s (compression des plateformes, fichier de travail dans phone/, supprimé
+          ensuite), puis images de 360 px de large à 2 i/s -> phone/phone_NN.jpg et phone/<nom>_360.mp4 (avec le son)
 --holds   tenues : pixels qui bougent d'une image à la suivante (mi-résolution, hors ligne de sous-titres), tenues
           de 0,5 s ou plus, signalées au-delà de 3,5 s (règle de la QA) -> holds.json
 
@@ -224,7 +225,8 @@ def phone(mp4, props, out, step=PHONE_STEP, per=SHEET_PER):
     d = out / "phone"
     _clear(d, "*.jpg")
     tw, th = PHONE_W, round(PHONE_W * props["height"] / props["width"])
-    with tempfile.TemporaryDirectory(prefix="wth-phone-") as tmp:
+    # Fichier de travail à côté des planches (et non dans /tmp) : make clean-tmp ne le supprime pas en cours de route.
+    with tempfile.TemporaryDirectory(prefix="_2mbps-", dir=d) as tmp:
         crushed = Path(tmp) / "2mbps.mp4"
         run(["ffmpeg", "-hide_banner", "-y", "-i", str(mp4), "-c:v", "libx264", "-preset", "veryfast",
              "-b:v", PHONE_RATE, "-maxrate", PHONE_RATE, "-bufsize", "4M", "-c:a", "copy", str(crushed)])
@@ -261,11 +263,13 @@ def review(video_id, kinds=KINDS, src="cap", props=None):
 
 
 def clean(video_id):
-    """Supprime les images de travail de revue (bandes de temps forts, téléphone, images extraites), garde les
-    planches (sheets/) et les rapports de tenues."""
+    """Supprime les images de travail de revue de CETTE vidéo (bandes de temps forts, téléphone, images extraites,
+    images pleine résolution des planches d'extrait build/Vxx/story/frames), garde les planches (sheets/) et les
+    rapports de tenues. À lancer quand la vidéo est terminée (make clean-tmp ID=Vxx)."""
     root = build_dir(video_id) / "review"
     gone = 0
-    for d in list(root.glob("*/beats")) + list(root.glob("*/phone")) + [root / "frames", root / "stills"]:
+    dirs = list(root.glob("*/beats")) + list(root.glob("*/phone")) + [root / "frames", root / "stills"]
+    for d in dirs + [build_dir(video_id) / "story" / "frames"]:
         if d.is_dir():
             gone += sum(f.stat().st_size for f in d.rglob("*") if f.is_file())
             shutil.rmtree(d)

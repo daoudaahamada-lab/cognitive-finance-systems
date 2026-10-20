@@ -4,7 +4,7 @@
 //
 // Couleurs : un nom de la palette (ink, cyan, deep, light, paper, grey, slot, rule, red, aiTick / ai_tick, none) ou un
 // hex « #RRGGBB ». Une piste de couleur ne s'interpole qu'entre deux hex (sinon elle bascule sur la 1re image).
-// Paramètres et pistes de chaque type : build/kit_demo/ENTITIES.md (référence du skill wth-story-build).
+// Paramètres et pistes de chaque type : .claude/skills/wth-story-build/references/entities.md (racine du dépôt).
 import React from 'react';
 import {ClientGlyph, Hard, Icon, roundRect, roundRectLength, Txt, usePalette, worldShadow, type Palette} from './draw';
 import type {EntityProps} from './entities';

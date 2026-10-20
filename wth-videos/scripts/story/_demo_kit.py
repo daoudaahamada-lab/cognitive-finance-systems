@@ -80,7 +80,6 @@ def build(S):
 
 def _main():
     import argparse
-    import shutil
 
     from pipeline import story
     from pipeline.common import ROOT, load_config
@@ -120,7 +119,7 @@ def _main():
         story.mux(paths["silent"][cap], paths["wav"], paths["mp4"][cap], (f1 - f0) / fps, cfg,
                   {"wth_mode": "demo", "wth_window": f"{f0}-{f1}"})
         paths["silent"][cap].unlink(missing_ok=True)
-        shutil.rmtree(out / "frames", ignore_errors=True)
+        paths["wav"].unlink(missing_ok=True)
 
 
 if __name__ == "__main__":

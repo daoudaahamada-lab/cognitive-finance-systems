@@ -3,13 +3,15 @@
 rendu. Ce test évalue quelques pistes, matrices et points de fil des deux côtés et compare (écart <= 1e-6).
 Il vérifie aussi motion/src/story/geometry.json, la géométrie partagée (figurine, stylo, tampon, étiquette...) : le
 fichier se charge, porte les clés attendues, est importé par draw.tsx / entities.tsx et, si pipeline/story.py expose
-GEOM, c'est bien ce fichier.
+GEOM, c'est bien ce fichier. Enfin, les copies Python du kit (pipeline/story_kit.py format_fr et crowd_points) donnent
+les mêmes textes et positions que entities_kit.tsx (formatFr, crowdPoints), demis et foule vide compris.
 
     python3 -m tests.story_parity
 
 timeline.ts est transpilé par l'esbuild de motion/node_modules (aucune dépendance de plus), puis exécuté par node.
 """
 import json
+import re
 import subprocess
 import sys
 import tempfile
@@ -17,6 +19,7 @@ from pathlib import Path
 
 import pipeline.story as story
 from pipeline.story import (cubic_at, eval_track, local_matrix, mat_apply, mat_mul, point_at_length, wire_cubic)
+from pipeline.story_kit import crowd_points, format_fr
 
 ROOT = Path(__file__).resolve().parent.parent
 MOTION = ROOT / "motion"
@@ -64,6 +67,48 @@ console.log(JSON.stringify(out));
 """
 
 
+# Copies Python du kit : nombres (demis, négatifs, milliers, signe) et foules (anneau, arc, rang, points donnés, vide).
+NUMBERS = [(2.5, 0, False), (0.125, 2, False), (-2.5, 0, False), (3.45, 1, False), (12500.5, 0, False),
+           (1234567.891, 2, False), (-40, 0, False), (0.004, 2, True), (7.5, 0, True), (-0.4, 0, False), (99.95, 1, False)]
+CROWDS = [{"n": 6}, {"n": 5, "r": 90, "span": 180, "a0": -180}, {"n": 4, "layout": "row", "gap": 40}, {"pts": []},
+          {"pts": [[1, 2], [3, -4]], "n": 6}, {"n": 1, "span": 120}]
+KIT_TS = MOTION / "src" / "story" / "entities_kit.tsx"
+KIT_NODE = r"""
+import {formatFr, crowdPoints} from './kit.mjs';
+const spec = JSON.parse(process.argv[2]);
+console.log(JSON.stringify({numbers: spec.numbers.map(([v, d, s]) => formatFr(v, d, s)),
+                            crowds: spec.crowds.map((p) => crowdPoints(p))}));
+"""
+
+
+def ts_function(src, name):
+    """Source d'une fonction exportée `export const name = ... };` de entities_kit.tsx (sans ses imports React)."""
+    m = re.search(rf"^export const {name} = .*?^}};$", src, re.S | re.M)
+    if not m:
+        raise SystemExit(f"ÉCHEC : {name} introuvable dans {KIT_TS.relative_to(ROOT)}")
+    return m.group(0)
+
+
+def check_kit_helpers(esbuild, tmp):
+    """format_fr / crowd_points (Python) = formatFr / crowdPoints (entities_kit.tsx, transpilés et exécutés)."""
+    src = KIT_TS.read_text(encoding="utf-8")
+    (tmp / "kit.ts").write_text("\n\n".join(ts_function(src, n) for n in ("formatFr", "crowdPoints")) + "\n")
+    subprocess.run([str(esbuild), str(tmp / "kit.ts"), "--format=esm", "--log-level=error",
+                    f"--outfile={tmp / 'kit.mjs'}"], check=True)
+    (tmp / "kit_run.mjs").write_text(KIT_NODE)
+    ts = json.loads(subprocess.run(["node", str(tmp / "kit_run.mjs"), json.dumps({"numbers": NUMBERS, "crowds": CROWDS})],
+                                   check=True, text=True, capture_output=True).stdout)
+    bad = [f"format_fr{args} = {format_fr(*args)!r}, formatFr = {t!r}"
+           for args, t in zip(NUMBERS, ts["numbers"]) if format_fr(*args) != t]
+    for p, t in zip(CROWDS, ts["crowds"]):
+        py = crowd_points(p)
+        if len(py) != len(t) or any(abs(a - b) > 1e-9 for q, r in zip(py, t) for a, b in zip(q, r)):
+            bad.append(f"crowd_points({p}) : {len(py)} points, crowdPoints : {len(t)}")
+    if bad:
+        raise SystemExit("ÉCHEC : story_kit diverge de entities_kit.tsx :\n  " + "\n  ".join(bad))
+    print(f"kit     {len(NUMBERS) + len(CROWDS):4d} cas (format_fr, crowd_points), identiques")
+
+
 def flat(x):
     if isinstance(x, (list, tuple)):
         return [v for y in x for v in flat(y)]
@@ -106,6 +151,7 @@ def main():
         (tmp / "run.mjs").write_text(NODE)
         ts = json.loads(subprocess.run(["node", str(tmp / "run.mjs"), json.dumps(spec)], check=True, text=True,
                                        capture_output=True).stdout)
+        check_kit_helpers(esbuild, tmp)
     py = {"tracks": [[eval_track(tr, n, 0) for n in FRAMES] for tr in TRACKS], "mats": [], "wires": []}
     m = [1, 0, 0, 1, 0, 0]
     for pos, rot, sx, sy in MATS:

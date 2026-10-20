@@ -6,21 +6,28 @@ Aucun rendu Remotion : seulement la construction des props, le contrôle du stor
 vont dans un dossier temporaire (WTH_BUILD, WTH_OUTPUT), où sont copiés build/V01/words.json, tts.json et audio.wav.
 - une fenêtre de V01 sans les découpes de sous-titres imposées (CAPTION_GROUPS) se construit, avec les groupes du film ;
 - le film entier sur la mise en scène partielle de V01 s'arrête en nommant les scènes non mises en scène
-  (--allow-partial : props_film.json) ;
+  (--allow-partial : props_film_partiel*.json, meta.partial) ; --staging le dit sans rien écrire ; un film partiel
+  ne va jamais dans output/ et la QA « Mise en scène complète » le refuse ;
+- QA story : pas de trou de sous-titres avant le premier mot (silence d'attaque), textes des pistes contrôlés ;
+- verrou de rendu tenu par le rendu lui-même (processus Python tué : le verrou reste pris jusqu'à la fin du rendu ;
+  SIGTERM : tout le groupe du rendu est arrêté, dossier temporaire supprimé) ;
 - --check sur V01.json : aucune erreur, sauf « idees_cles » tant que le storyboard v3 ne l'a pas ;
 - mise en scène en paquet (scripts/story/Vxx/__init__.py + parties), règle des illustrations de carrousel, garde-fou
   qui protège un film Story contre le montage classique et `make motion` ;
 - bras à cinématique inverse (pipeline/story_kit.py, s'il existe) : longueurs d'os constantes sur un trajet, et
   image par image sur la figurine articulée (entrée, marche, tapotement, relecture, trait, tampon, sortie) ;
-- macros du kit : pop, move et morph posent les clés documentées (build/kit_demo/KIT.md).
+- macros du kit : pop, move et morph posent les clés documentées (.claude/skills/wth-story-build/references/kit.md).
 """
 import contextlib
+import fcntl
 import io
 import os
 import shutil
+import signal
 import subprocess
 import sys
 import tempfile
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -29,7 +36,7 @@ TMP = Path(tempfile.mkdtemp(prefix="wth-story-smoke-"))
 os.environ["WTH_BUILD"] = str(TMP / "build")
 os.environ["WTH_OUTPUT"] = str(TMP / "output")
 
-from pipeline import qa, render, story  # noqa: E402
+from pipeline import motion, qa, render, story  # noqa: E402
 from pipeline.common import read_json  # noqa: E402
 
 VID = "V01"
@@ -131,11 +138,155 @@ def full_film_refused():
     assert listed == unstaged, f"scènes listées {listed}, attendu {unstaged}"
     assert not (TMP / "build" / VID / "story" / "props_film.json").exists(), "props écrites malgré le refus"
     path, props = story.build_props(VID, 0.0, dur, captions=False, allow_partial=True)
-    assert path.name == "props_film_nocap.json" and props["frameOffset"] == 0
+    assert path.name == "props_film_partiel_nocap.json" and props["frameOffset"] == 0, path.name
+    assert props["meta"]["partial"] is True and props["meta"]["unstaged_scenes"] == unstaged, props["meta"].get("partial")
     words = read_json(TMP / "build" / VID / "words.json")["words"]
     assert sum(len(g["words"]) for g in props["captions"]) == len(words), "film : tous les mots sous-titrés"
-    assert not qa.caption_gaps(props), f"images sans sous-titre : {qa.caption_gaps(props)[:3]}"
+    assert not qa.caption_gaps(props, from_first_word=True), f"images sans sous-titre : {qa.caption_gaps(props)[:3]}"
     return f"refusé ({', '.join(unstaged)}) ; --allow-partial -> {path.name}"
+
+
+@case("film partiel : jamais dans output/, refusé par la QA")
+def partial_film():
+    out = story.partial_outputs(VID)
+    build = (TMP / "build").resolve()
+    for kind in ("props", "silent", "mp4"):
+        for cap in (True, False):
+            assert out[kind][cap].resolve().is_relative_to(build), f"{kind} {cap} : {out[kind][cap]} hors de build/"
+    assert out["mp4"][True].name == "film_partiel.mp4"
+    dur = story.audio_duration(TMP / "build" / VID / "audio.wav")
+    _, props = story.build_props(VID, 0.0, dur, captions=True, allow_partial=True)
+    probe = {"format": {"tags": {"wth_mode": "story", "wth_partial": "1"}}}
+    r = qa.story_staging_check(probe, props)
+    assert not r["ok"] and "scènes non mises en scène" in r["value"], r
+    done = {**props, "meta": {**props["meta"], "partial": False, "unstaged_scenes": [], "storyboard_beats_missing": [],
+                              "unstaged_before_frame": None}}
+    assert not qa.story_staging_check({"format": {"tags": {"wth_partial": "1"}}}, done)["ok"], "balise wth_partial ignorée"
+    assert qa.story_staging_check({"format": {"tags": {}}}, done)["ok"], "film complet refusé"
+    return f"rendus partiels dans build/{VID}/story/ ; QA : {r['value'][:70]}…"
+
+
+@case("film partiel : chaîne complète (rendu simulé)")
+def partial_chain():
+    out_mp4 = TMP / "output" / f"WTH-{VID}.mp4"
+    fake_mp4(out_mp4, {"wth_mode": "motion"})                 # film livré (motion) : ne doit pas bouger
+    before = qa.sha1_file(out_mp4)
+    real = story.remotion_render
+
+    def fake_render(props_path, silent):                     # vidéo muette du bon nombre d'images, sans Remotion
+        n = read_json(props_path)["durationInFrames"]
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "lavfi", "-i", "color=c=0xF6F0E4:s=108x192:r=30",
+                        "-frames:v", str(n), "-pix_fmt", "yuv420p", str(silent)], check=True)
+    story.remotion_render = fake_render
+    try:
+        dur = story.audio_duration(TMP / "build" / VID / "audio.wav")
+        res = story.excerpt(VID, 0.0, dur, captions=True, sheets=True, allow_partial=True)
+    finally:
+        story.remotion_render = real
+    film = TMP / "build" / VID / "story" / "film_partiel.mp4"
+    assert res[True] == film and res[False].name == "film_partiel_sans_sous_titres.mp4", res
+    assert out_mp4.exists() and qa.sha1_file(out_mp4) == before, "film livré déplacé ou modifié"
+    assert not (TMP / "build" / VID / "archive").exists(), "film livré archivé par un rendu partiel"
+    assert not (TMP / "build" / VID / story.STORY_SIDECAR).exists(), "story_render.json écrit par un rendu partiel"
+    tags = qa.mp4_tags(qa.ffprobe(film))
+    assert tags.get("wth_partial") == "1" and tags.get("wth_mode") == "story", tags
+    sheets = list((TMP / "build" / VID / "review" / "film_partiel" / "sheets").glob("*.jpg"))
+    assert sheets, "pas de planches de revue du film partiel"
+    return f"{film.name} (wth_partial=1), output/ inchangé, pas de fiche, {len(sheets)} planches"
+
+
+@case("--staging : mise en scène pas prête, sans rien écrire")
+def staging_check():
+    before = sorted(p.name for p in (TMP / "build" / VID).rglob("*") if p.is_file())
+    ready, msg = story.check_staging(VID)
+    assert not ready and "scènes sans aucun temps fort" in msg, msg
+    after = sorted(p.name for p in (TMP / "build" / VID).rglob("*") if p.is_file())
+    assert after == before, f"fichiers écrits : {sorted(set(after) - set(before))}"
+    specs = TMP / "specs_wip"
+    (specs / "V01").mkdir(parents=True)        # paquet en cours d'écriture : une partie manque encore
+    (specs / "V01" / "__init__.py").write_text("from . import p9\n\n\ndef build(story):\n    p9.part(story)\n")
+    old = story.SPECS
+    story.SPECS = specs
+    try:
+        ready, msg2 = story.check_staging(VID)
+    finally:
+        story.SPECS = old
+    assert not ready and "en erreur" in msg2, msg2
+    return f"{msg[:60]}… ; paquet incomplet : {msg2[:50]}…"
+
+
+@case("QA story : sous-titres et textes des pistes")
+def qa_story_texts():
+    words = [{"w": "Bonjour", "start": 0.08, "end": 0.4}, {"w": "à", "start": 0.45, "end": 0.5},
+             {"w": "toi", "start": 0.55, "end": 0.9}]
+    caps = story.caption_track(words, 30, 0, 40)
+    props = {"frameOffset": 0, "durationInFrames": 40, "captions": caps}
+    assert caps[0]["from"] == 2 and qa.caption_gaps(props) == [(0, 2)]
+    assert qa.caption_gaps(props, from_first_word=True) == [], qa.caption_gaps(props, from_first_word=True)
+    ents = {"entities": [
+        {"id": "verdict", "type": "text", "p": {"text": "Brouillon"},
+         "t": {"text": [{"f": 0, "v": "Brouillon"}, {"f": 30, "v": "Validé"}]}},
+        {"id": "pill", "type": "pill", "p": {"text": "Avant"}, "t": {"text": [{"f": 0, "v": "Avant"}, {"f": 9, "v": "Après"}]}},
+        {"id": "c", "type": "counter", "p": {"prefix": "env. ", "suffix": " €"}, "t": {"value": [{"f": 0, "v": 0}]}}]}
+    texts = qa.entity_texts(ents)
+    want = {"Brouillon", "Validé", "Avant", "Après", "env. ", " €"}
+    assert want <= set(texts), f"textes manquants : {want - set(texts)}"
+    return "aucun trou avant le premier mot (images 0-1) ; pistes text et préfixe / suffixe contrôlés"
+
+
+def _lock_busy(path):
+    with open(path, "a+") as fh:
+        try:
+            fcntl.flock(fh, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            return True
+        fcntl.flock(fh, fcntl.LOCK_UN)
+        return False
+
+
+def _locked_child(cmd, tmpdir):
+    """Processus Python qui lance `cmd` par motion.run_locked (verrou de TMP/build), et attend que le verrou soit pris."""
+    code = f"from pipeline import motion; motion.run_locked({cmd!r}, 'test du verrou', cwd='.')"
+    env = dict(os.environ, TMPDIR=str(tmpdir))
+    proc = subprocess.Popen([sys.executable, "-c", code], cwd=ROOT, env=env)
+    for _ in range(100):
+        if _lock_busy(motion.RENDER_LOCK):
+            return proc
+        time.sleep(0.05)
+    proc.kill()
+    raise AssertionError("le verrou n'a jamais été pris")
+
+
+@case("verrou de rendu tenu par le rendu")
+def lock_held_by_render():
+    assert motion.RENDER_LOCK.resolve().is_relative_to(TMP), motion.RENDER_LOCK   # jamais le vrai verrou
+    tmpdir = TMP / "tmp_lock"
+    tmpdir.mkdir()
+    # 1. Python tué (SIGKILL) : le rendu orphelin garde le verrou jusqu'à sa fin.
+    proc = _locked_child(["sh", "-c", "sleep 2.37"], tmpdir)
+    proc.kill()
+    proc.wait()
+    time.sleep(0.3)
+    assert _lock_busy(motion.RENDER_LOCK), "verrou rendu alors que le rendu orphelin tourne encore"
+    t0 = time.time()
+    while _lock_busy(motion.RENDER_LOCK) and time.time() - t0 < 10:
+        time.sleep(0.1)
+    assert not _lock_busy(motion.RENDER_LOCK), "verrou jamais rendu après la fin du rendu"
+    for d in tmpdir.iterdir():          # TMPDIR du rendu tué : laissé (make clean-tmp le supprime sous le verrou)
+        shutil.rmtree(d)
+    # 2. SIGTERM : tout le groupe du rendu est arrêté, le verrou rendu, le dossier temporaire supprimé.
+    proc = _locked_child(["sh", "-c", "sleep 30.37"], tmpdir)
+    t0 = time.time()
+    proc.send_signal(signal.SIGTERM)
+    proc.wait(timeout=15)
+    stopped = time.time() - t0
+    alive = subprocess.run(["pgrep", "-f", "^sleep 30.37"], capture_output=True, text=True).stdout.split()
+    for pid in alive:
+        os.kill(int(pid), signal.SIGKILL)
+    assert not alive, "rendu encore en vie après SIGTERM"
+    assert not _lock_busy(motion.RENDER_LOCK), "verrou encore pris après SIGTERM"
+    assert not list(tmpdir.iterdir()), f"dossier temporaire laissé : {list(tmpdir.iterdir())}"
+    return f"tenu après SIGKILL du parent, rendu à la fin du rendu ; SIGTERM : groupe arrêté en {stopped:.1f} s"
 
 
 @case("--check sur le storyboard")
@@ -155,8 +306,10 @@ def check_storyboard_errors():
     sb["scenes"][3]["t_start"] += 0.2                 # début hors mot et trou entre deux scènes
     sb["scenes"][5]["beats"][0]["t"] += 0.5           # temps fort introuvable
     sb["scenes"][7]["texte"] += " de trop"            # texte différent du script
+    sb["scenes"][-1]["beats"] = []                    # scène sans temps fort : le film entier serait irréalisable
     errors, _ = story.check_storyboard(VID, words, sb)
-    want = [sb["scenes"][3]["id"] + " commence", "mot introuvable", "texte du script"]
+    want = [sb["scenes"][3]["id"] + " commence", "mot introuvable", "texte du script",
+            sb["scenes"][-1]["id"] + " : aucun temps fort"]
     missing = [w for w in want if not any(w in e for e in errors)]
     assert not missing, f"erreurs non détectées : {missing}"
     return f"{len(errors)} erreurs détectées"

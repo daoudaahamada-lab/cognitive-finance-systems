@@ -11,7 +11,8 @@ fixe), fiche, repère d'étapes, carte de fin, et une fonction de déclaration p
 
 Tout passe par l'API Story (key, keys, path, fly, val, to_world) : le rendu ne change pas. Images = images du FILM ;
 chaque macro renvoie l'image qui suit son mouvement (f + d), sauf mention contraire. Référence complète (signatures,
-comportement, exemples) : build/kit_demo/KIT.md ; démonstration : scripts/story/_demo_kit.py.
+comportement, exemples) : .claude/skills/wth-story-build/references/kit.md (à la racine du dépôt) ; entités :
+references/entities.md ; démonstration : scripts/story/_demo_kit.py.
 """
 import math
 
@@ -83,8 +84,9 @@ def solve_ik(shoulder, target, l1, l2, bend=1):
 
 
 def crowd_points(p):
-    """Positions des figurines d'une foule (copie de entities_kit.tsx crowdPoints)."""
-    if p.get("pts"):
+    """Positions des figurines d'une foule (copie de entities_kit.tsx crowdPoints : `pts: []` donne une foule vide,
+    comme en TypeScript où un tableau vide est vrai)."""
+    if p.get("pts") is not None:
         return [list(q) for q in p["pts"]]
     n = p.get("n", 6)
     if p.get("layout") == "row":
@@ -95,9 +97,16 @@ def crowd_points(p):
     return [[r * math.cos(math.radians(a0 + step * i)), r * math.sin(math.radians(a0 + step * i))] for i in range(n)]
 
 
+def js_round(x):
+    """Math.round de JavaScript : entier le plus proche, les demis vers +∞ (round de Python arrondit au pair)."""
+    r = math.floor(x)
+    return r + 1 if x - r >= 0.5 else r
+
+
 def format_fr(v, decimals=0, sign=False):
-    """Nombre en typographie française (copie de entities_kit.tsx formatFr) : 12 500, 3,5, −40."""
-    x = round(abs(v) * 10 ** decimals) / 10 ** decimals
+    """Nombre en typographie française (copie de entities_kit.tsx formatFr) : 12 500, 3,5, −40 ; les demis sont
+    arrondis comme Math.round (2,5 -> 3 ; 0,125 à 2 décimales -> 0,13)."""
+    x = js_round(abs(v) * 10 ** decimals) / 10 ** decimals
     ent, _, dec = f"{x:.{decimals}f}".partition(".")
     grouped = f"{int(ent):,}".replace(",", "\u202f")
     s = "" if x == 0 else "\u2212" if v < 0 else "+" if sign else ""

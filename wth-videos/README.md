@@ -124,24 +124,31 @@ Remotion `Story`, `motion/src/story/`) dont les pistes sont posées image par im
   `along_wire`, `beat`, `word`, `word_after`, `png`…) et, au besoin, `CAPTION_GROUPS`, `ALERT_WORDS`, `ACOUSTIC_SNAP`.
   La géométrie partagée avec le rendu (figurine, stylo, tampon…) est dans `motion/src/story/geometry.json`
   (`pipeline.story.GEOM`). Illustrations : celles du carrousel de la vidéo (`WTH-<source>-xx`) et les génériques.
+  Kit de mise en scène (`pipeline/story_kit.py`, entités `motion/src/story/entities_kit.tsx`) : références
+  versionnées `.claude/skills/wth-story-build/references/kit.md` et `entities.md` (racine du dépôt).
 - **Commandes** :
 
   | Commande | Effet |
   |---|---|
   | `make voice ID=V07` | `tts` (voix en cache, aucun appel) + `words` + `audio.wav` normalisé |
-  | `make storyboard-check ID=V07` | contrôle du storyboard : champs, scènes contiguës de 0 à la fin du dernier mot, débuts de scène et temps forts sur un début de mot (± 30 ms), textes des scènes = texte du script (NFC), idées-clés |
+  | `make storyboard-check ID=V07` | contrôle du storyboard : champs, au moins un temps fort par scène, scènes contiguës de 0 à la fin du dernier mot, débuts de scène et temps forts sur un début de mot (± 30 ms), textes des scènes = texte du script (NFC), idées-clés |
   | `make story-props ID=V07` | props du film sans rendu ; `FROM=… TO=…` pour un extrait ; `ALLOW_PARTIAL=1` admet une mise en scène incomplète |
+  | `make story-staging ID=V07` | le film entier est-il rendable ? (mise en scène complète : code 0 ; sinon 1 et la raison ; sans props ni rendu) |
   | `make story-stills ID=V07 FRAMES="0 120"` | images fixes PNG (numéros d'image de la vidéo rendue) → `build/V07/story/stills/` |
-  | `make story ID=V07` | film entier (avec et sans sous-titres) puis `make qa` |
+  | `make story ID=V07` | film entier (avec et sans sous-titres) puis QA |
+  | `make story ID=V07 ALLOW_PARTIAL=1` | film incomplet, rendu de travail → `build/V07/story/film_partiel.mp4` (+ `_sans_sous_titres`), sans QA |
   | `make story ID=V01 FROM=25.612 TO=41.309` | extrait → `output/extraits/WTH-V01_extrait_S11-S14.mp4` (pas de QA) |
-  | `make review-sheets ID=V07` | sorties de revue (`REVIEW="--nocap --sheets"` pour choisir) |
-  | `make story-check` | parité Python / TypeScript (`tests.story_parity`) + `tsc --noEmit` |
-  | `make films` | `make story` pour chaque vidéo de `IDS` qui a une mise en scène ; `make all` passe aussi par Story pour elles |
-  | `make clean-tmp` | dossiers temporaires de Remotion (si aucun rendu ne tourne) et images de revue (garde les planches) |
+  | `make review-sheets ID=V07` | sorties de revue (`REVIEW="--nocap --sheets"` pour choisir ; film incomplet : `REVIEW="--src build/V07/story/film_partiel.mp4"`) |
+  | `make story-check` | parité Python / TypeScript (`tests.story_parity` : pistes, matrices, fils, `geometry.json`, `format_fr` / `crowd_points` du kit) + `tsc --noEmit` |
+  | `make films` | `make story` pour chaque vidéo de `IDS` dont la mise en scène est complète (`--staging`) ; les autres (incomplètes, paquet en cours d'écriture) sont sautées avec la raison |
+  | `make clean-tmp [ID=V07]` | dossiers temporaires de Remotion, supprimés en tenant le verrou de rendu ; avec `ID` : images de travail de revue de cette vidéo (garde les planches) |
 
 - **Film entier** : refusé si une scène du storyboard n'a aucun temps fort mis en scène, si un temps fort n'a pas
-  d'événement ou si le début n'est pas mis en scène (`--allow-partial` / `ALLOW_PARTIAL=1` pour un rendu de travail).
-  Sorties : `build/Vxx/story/props_film.json`, `props_film_nocap.json`, `muet_film*.mp4`,
+  d'événement ou si le début n'est pas mis en scène. `make all` ne passe par Story que pour une mise en scène complète
+  (sinon rendu motion ou montage classique, comme avant). `--allow-partial` / `ALLOW_PARTIAL=1` : rendu de travail
+  qui reste dans `build/Vxx/story/` (`props_film_partiel*.json`, `film_partiel.mp4`, `film_partiel_sans_sous_titres.mp4`,
+  balise `wth_partial=1`, `meta.partial`) : ni `output/WTH-Vxx.mp4`, ni `story_render.json`, ni la QA ne changent.
+  Sorties d'un film complet : `build/Vxx/story/props_film.json`, `props_film_nocap.json`, `muet_film*.mp4`,
   `film_sans_sous_titres.mp4`, et **`output/WTH-Vxx.mp4`** (le nom que lisent `qa`, `upload` et `planning`). Un
   `output/WTH-Vxx.mp4` d'un autre rendu (classique, motion) est d'abord rangé dans `build/Vxx/archive/`. Le mixage
   écrit les balises `wth_mode=story`, `wth_props`, `wth_storyboard`, `wth_spec` (SHA-1 ; pour un paquet, de ses
@@ -151,19 +158,25 @@ Remotion `Story`, `motion/src/story/`) dont les pistes sont posées image par im
 - **Sous-titres** : découpés sur tout le texte puis coupés à la fenêtre : un extrait montre les groupes du film (un
   groupe entamé avant la fenêtre n'en garde que les mots de la fenêtre). Inter Bold 64 px, mot prononcé en cyan
   profond, mots d'alerte en rouge.
-- **Un seul rendu Remotion à la fois** (machine à 4 cœurs) : rendus et images fixes prennent le verrou
-  `build/.render.lock` (attendu s'il est pris) et travaillent dans leur propre dossier temporaire, supprimé à la fin
-  (bundles `remotion-webpack-bundle-*`, profils Chrome).
+- **Un seul rendu Remotion à la fois** (machine à 4 cœurs) : rendus et images fixes, Story et motion
+  (`motion.run_locked`), prennent le verrou `build/.render.lock` (attendu s'il est pris) et travaillent dans leur
+  propre dossier temporaire, supprimé à la fin (bundles `remotion-webpack-bundle-*`, profils Chrome). Le verrou est
+  transmis au rendu : si le processus Python est tué, il reste pris jusqu'à la fin du rendu orphelin ; sur Ctrl-C ou
+  SIGTERM, tout le groupe du rendu (npx, node, Chrome) est arrêté avant de le rendre.
 - **Revue** (`python3 -m pipeline.story_review Vxx [--nocap|--src <mp4>] [--sheets] [--beats] [--phone] [--holds]`,
   tout par défaut) → `build/Vxx/review/<film|Sa-Sb>[_nocap]/` : planches à 6 i/s en JPEG mi-résolution, 12 images par
   planche avec image, temps et scène ; une bande par temps fort (f−3 à f+12) ; taille téléphone (réencodage à 2 Mb/s
   puis 360 px de large, planches et vidéo) ; rapport des tenues (`holds.json`). Les relecteurs utilisent ces sorties
-  au lieu d'extraire des images pleine résolution ; `--clean` (ou `make clean-tmp`) ne garde que planches et rapports.
+  au lieu d'extraire des images pleine résolution ; `--clean` (ou `make clean-tmp ID=Vxx`, vidéo terminée) ne garde que
+  planches et rapports de cette vidéo.
 - **QA en mode story** (`make qa`, mode lu dans la balise `wth_mode=story` avant le commentaire « Made with
   Remotion ») : contrôles communs (durée, format H.264 BT.709 plage tv, synchro, mots coupés, accents et orthographe
   des textes affichés par les entités, loudness, true peak) avec les props de `story_render.json` (largeur mesurée en
-  Inter Bold 64 px, ≤ 760 px), plus « Rendu Story à jour » (empreintes du rendu = props, storyboard et mise en scène
-  actuels, même nombre d'images que les props, version sans sous-titres du même rendu) et, sur les images décodées :
+  Inter Bold 64 px, ≤ 760 px ; sous-titres continus à partir du premier mot ; textes des paramètres et des pistes
+  `text` des entités, préfixe et suffixe des compteurs), plus « Rendu Story à jour » (empreintes du rendu = props,
+  storyboard et mise en scène actuels, même nombre d'images que les props, version sans sous-titres du même rendu),
+  « Mise en scène complète » (ni balise `wth_partial`, ni scène, temps fort ou début non mis en scène) et, sur les
+  images décodées :
   surbrillance qui change à l'image exacte de chaque mot (cyan et rouge), zones réservées vides sur la version sans
   sous-titres (160 px du haut, 380 px du bas, x > 940), aucune image figée plus de 3,5 s hors carte de fin, version
   sans sous-titres identique au-dessus de y = 1270 (PSNR ≥ 40 dB, même nombre d'images), bande d'action jamais vide.

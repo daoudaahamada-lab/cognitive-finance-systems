@@ -65,6 +65,8 @@ loudness:
 qa:
   min_duration: 45.0
   max_duration: 60.0
+  # Durées maximales validées vidéo par vidéo (V03 : aucune prise sous 60 s, 60,6 s accepté le 20/10).
+  max_duration_by_video: {V03: 62.0}
   max_sync_ms: 150
   max_true_peak: -1.0
   loudness_tolerance: 1.0
