@@ -1,0 +1,583 @@
+{
+  "version": "v2 · révisé après le test sans son",
+  "angle": "Version révisée après le test sans son. On garde l’ossature qui a passé le test : un seul dossier suivi de la chemise au rendez-vous, la ligne fausse qui casse, les fils vers les documents, la relecture et le tampon du conseiller, Avant / Après. On retravaille chaque passage où le spectateur muet lisait faux, flou ou manquait le changement, avec un verbe visuel plus net, un avant/après plus marqué et moins d’éléments. Quatre contresens corrigés : la pile qui éclate (S03) devient un rembobinage « ◀◀ » ; le globe (S08) devient une deuxième tête IA, ouverte à une foule ; la bulle « ? » (S13) part du conseiller et non du client ; les faisceaux de l’IA sur la fiche déjà validée (S15) disparaissent au profit d’une planche à bascule. Flous levés : barre de temps qui fond au lieu de se remplir, marqueur numéroté 1-2-3, cadre qui enferme l’IA avec le dossier puis devient une fenêtre de logiciel scellée par le cabinet, ligne inventée placée en dernier et portée par une puce vide, coche de l’IA qui reste sur la ligne cassée, secteur de 10 minutes synchronisé avec le stylo, brouillon non relu arrêté par le conseiller, réponse du client qui remplit la ligne vide. Le coffre, le câble, le globe et la barre encre sortent de la distribution.\nRéponse aux 7 points :\n1) Fil conducteur : un seul dossier, « Client · 9 h », de la chemise qui s’ouvre (S01) à la fiche VALIDÉE posée sur la table et complétée par la réponse du client (S19). Sa pastille cyan est toujours posée sur ce qui contient le dossier : chemise, pile, cadre, fenêtre de l’outil, fiche, puis bouton.\n2) Chaque scène part du résultat de la précédente, déclenche son action sur un mot et finit sur un résultat visible. L’exemple demandé est joué de S05 à S10 : les documents sont enfermés avec l’IA dans un outil validé, une information sort de chacun, elles se rangent sur une page.\n3) « Fluide… et fausse » (S11) : la fiche s’écrit d’un trait et l’IA coche tout ; la seule ligne dont la puce est vide, née dans la tête de l’IA en S10, vire au rouge et casse sous la coche de l’IA, qui ne bouge pas. « Chaque ligne renvoie à un document » (S12) : un fil plein part de chaque ligne jusqu’à son document et la date glisse le long du fil ; la ligne inventée n’a qu’une case vide.\n4) L’IA est un objet de verre qui agit en pointillés ; le conseiller est une figurine pleine encre, seul porteur de « Toi », du stylo, du tampon et du curseur. C’est lui qui trace la limite, pose la commande, exige les sources, fait naître la question, relit, raye, tamponne et arrête le brouillon non relu. La planche de S15-S16 montre le partage sans exclure l’IA : elle apporte les informations, il porte le poids.\n5) Les mêmes éléments se transforment : document → source datée → étiquette-source ; information → pastille → puce → ligne ; ligne sans source → « ? » → bulle du conseiller → autocollant → réponse du client qui remplit la puce ; barre de temps → marqueur 1-2-3 → planche → chemin ; cercles numérotés → jetons ; cadre → fenêtre de l’outil → badge ; page vide de la commande → fiche → carte de fin ; pastille → bouton « S’abonner ».\n6) Quatre PNG servent de lieux et d’objets : l’horloge (vignette, puis contrôle des 10 minutes), la tête IA (la nôtre et, en second exemplaire, l’IA grand public), la bulle (la question du conseiller), les fauteuils (le rendez-vous). Aucun n’est zoomé pour raconter : chacun reçoit ou émet des éléments dessinés en code. Le coffre et le globe sont retirés : au test muet, ils faisaient lire « archivage » et « internet ». Tout processus (lire, buter, extraire, écrire, casser, relier, barrer, tamponner, peser) est animé en code.\n7) Fond ivoire quadrillé, encre, un seul accent cyan, Inter, 1 à 4 éléments actifs par temps fort. Le rouge est réservé à la ligne inventée et au brouillon non relu.",
+  "thread": "On suit un seul dossier, celui du client de 9 h, repéré par une pastille cyan « Client · 9 h » qui ne le quitte jamais. Ses quatre documents sont dispersés, mêlés aux papiers d’un autre client, et le temps du conseiller fond dedans ; il trace alors un cadre autour de ces seuls documents, l’IA y est enfermée avec eux, et le cadre devient un logiciel scellé par le cabinet, dont le mur retient le mail qu’on voulait glisser vers une IA grand public. Dans cet outil, le conseiller pose une page vide : l’IA y range une information tirée de chaque document, puis une cinquième sortie de sa propre tête, et quand elle écrit la fiche d’un trait, c’est cette ligne-là qui casse. Le conseiller relie chaque ligne à son document et à sa date, fait de la ligne sans source une question pour le client, relit, raye, tamponne VALIDÉ, et porte seul le poids du conseil, de l’adéquation et de la responsabilité. La fiche relue arrive au rendez-vous pendant que le brouillon non relu se brise sur lui ; le client répond à la question, et la pastille du dossier devient le bouton d’abonnement.",
+  "cast": [
+    {
+      "id": "pastille",
+      "name_fr": "Pastille « Client · 9 h » (le fil conducteur)",
+      "look": "Pilule cyan vif #19B3C7 de 230×56 px, contour encre 4 px, ombre dure encre +6/+6 px, texte encre Inter Bold 28 px « Client · 9 h » (contraste 7,1:1). Équivalent du cercle-protagoniste de la référence. Règle : elle est toujours posée sur ce qui contient le dossier.",
+      "source": "code",
+      "evolution": "S01 : onglet de la chemise fermée ; quand la chemise s’ouvre, elle reste seule sous l’horloge. S02 : se clipse sur la pile rangée par l’IA. S03-S04 : reste au milieu des documents dispersés. S05 : coiffe le groupe des 4 documents. S06 : se clipse sur le haut du cadre comme un onglet. S07-S10 : devient le titre de la fenêtre de l’outil. S11 : vole jusqu’à l’en-tête de la fiche, qu’elle ne quitte plus (S11-S17). S18 : bien en vue (×1,3) sur la pile « Avant ». S19 : sur l’en-tête de la fiche « Après ». S20 : son texte devient « S’abonner » avant qu’elle ne bouge ; elle descend au bas de la carte de fin et double de taille : c’est le bouton."
+    },
+    {
+      "id": "horloge",
+      "name_fr": "L’horloge de 9 h",
+      "look": "WTH-003-01.png (horloge de verre à 9:00, palets chromés), alpha strict et ombre douce ; 480 px de large en S01, badge de 170 px en S02-S04, 300 px en S17. Surcouche code calée sur le cadran (centre au point (0,575 ; 0,375) de la boîte de contenu, rayons 0,20 × L et 0,245 × H) : un secteur cyan profond semi-opaque de :50 à :00 (S17).",
+      "source": "WTH-003-01.png + code",
+      "evolution": "S01 : héros de la vignette, au centre. S02 : se range en badge en haut à droite. S03-S04 : borne « 9 h » au bout droit de la barre de temps, contre le dernier bout de cyan. S05 : se replie dans le marqueur 1-2-3. S17 : réapparaît au-dessus du conseiller, au milieu du chemin ; le secteur de 10 minutes s’y remplit au rythme exact du stylo qui relit."
+    },
+    {
+      "id": "client",
+      "name_fr": "Le client",
+      "look": "Figurine plate géométrique sans visage ni bras : tête ronde 64 px et buste en trapèze arrondi 120 px, intérieur blanc #FFFDF8, contour encre 5 px, ombre dure. Jamais remplie, jamais étiquetée : le contraire visuel du conseiller (plein encre).",
+      "source": "code",
+      "evolution": "S01 : présent dès l’image 0, à droite de l’horloge. S02 : se réduit en point. S04 : réapparaît juste sous le dernier bout de temps cyan, à côté de l’horloge. S13 : apparaît face au conseiller, sous la bulle « ? ». S17 : petit, assis dans le fauteuil droit au bout du chemin. S18 : assis dans le fauteuil droit. S19 : reçoit l’autocollant « ? » et renvoie une pastille-réponse qui remplit la puce vide de la ligne 5."
+    },
+    {
+      "id": "conseiller",
+      "name_fr": "Le conseiller (toi)",
+      "look": "Même figurine que le client, mais pleine encre #1E1416 avec ombre dure. Ses outils (stylo, coche, tampon, curseur) partent toujours de lui. Pilule « Toi » (fond encre, texte ivoire) seulement en S02 et S16, jamais ailleurs, jamais sur l’IA. Coin de repos : en bas à droite (x≈870, y≈1090). Il n’est à l’écran que lorsqu’il agit.",
+      "source": "code",
+      "evolution": "S02 : apparaît à droite, reçoit « Toi » et valide d’une coche. S04 : saute de document en document pendant que son temps fond ; recule sur la carte d’un autre client. S05 : fait le tour des documents ; le cadre se trace derrière lui. S08 : sa main à l’écran est le curseur. S10 : pose dans l’outil une page vide à 5 onglets, sa commande. S12 : trace au stylo les 5 cases-sources. S13 : touche du stylo la valeur sans source et en fait naître le « ? » ; la bulle monte au-dessus de lui, face au client. S14 : relit, coche, barre, tamponne. S15-S16 : debout sur le bout droit de la planche, la fiche dans les bras ; reçoit « Toi » et les 3 jetons ; son côté descend. S17 : point de contrôle au milieu du chemin, stylo levé ; relit la fiche, arrête le brouillon. S18 : arrive les bras chargés. S19 : la fiche validée est sur la table ; la question part vers le client."
+    },
+    {
+      "id": "ia",
+      "name_fr": "L’IA",
+      "look": "AI.png (tête de céramique au cerveau de cubes de verre), toujours de profil tournée vers la droite, 160 à 240 px, jamais plus grande que le conseiller ni seule au centre en héros. Pilule « IA » (fond blanc, contour encre, texte encre) sous la tête à chaque entrée. Toutes ses actions sont des faisceaux cyan en POINTILLÉS (code) : lecture, extraction, écriture. Règle visuelle : le verre = les objets et la machine, l’aplat encre = les personnes.",
+      "source": "AI.png + code",
+      "evolution": "S02 : range les documents en pile. S03 : sort par la gauche avant le rembobinage. S05 : apparaît à l’intérieur du cadre tracé par le conseiller, dans le coin laissé libre ; son faisceau éclaire les 4 documents. S06 : un de ses rayons bute sur le bord du cadre et recule. S07-S10 : enfermée avec le dossier dans la fenêtre de l’outil. S10 : tire une pastille de chaque document, puis fait naître de sa propre tête une 5e pastille, vide. S11 : reste dehors quand la fenêtre se réduit ; écrit la fiche d’un trait et coche chaque ligne en gris, y compris celle qui casse. S12 : sort par la gauche. S15 : revient sur le bout gauche de la planche et y pose les 4 pastilles d’information qu’elle a préparées. S16 : son côté remonte, plus léger. S17 : se réduit en point."
+    },
+    {
+      "id": "ia_publique",
+      "name_fr": "L’IA grand public",
+      "look": "Second exemplaire de AI.png (180 px), même tête et même orientation, mais hors de toute fenêtre : ni sceau, ni cadenas, ni pilule cyan. Autour d’elle, une foule de 6 petites figurines grises (cercles de 18 px, encre à 35 %) reliées à sa tête par des traits gris fins : le grand public. Pilule grise « IA grand public » (fond #DDD5C6, texte encre Inter SemiBold 26 px).",
+      "source": "AI.png + code",
+      "evolution": "S08 : apparaît à droite, hors de la fenêtre, avec sa foule ; le curseur traîne le mail vers elle, le mur de la fenêtre l’arrête ; elle passe à 50 %. S09 : se réduit en point avec sa foule quand le cadenas se ferme."
+    },
+    {
+      "id": "documents",
+      "name_fr": "Les 4 documents du dossier",
+      "look": "Cartes blanches #FFFDF8 de 150×190 px (version compacte 150×80 px en S12), coin plié, contour encre 4 px, ombre dure +6/+6, pictogramme cyan et titre Inter SemiBold 26 px : « Avis d’impôt » (€), « Relevé PEA » (barres), « Mail client » (enveloppe), « Assurance-vie » (bouclier). Deux traits gris et une date en bas : 2025, 03/2026, 02/2026, 12/2025.",
+      "source": "code",
+      "evolution": "S01 : glissent hors de la chemise vers 4 places bien séparées (4 sources). S02 : rangés en pile par l’IA. S03 : rembobinés vers leurs places de S01. S04 : visités un à un ; chacun reçoit un bloc de temps grisé. S05 : regroupés, puis enfermés dans le cadre avec l’IA. S06 : lus (leurs traits passent au cyan), puis empilés. S07-S10 : dans la fenêtre de l’outil. S08 : « Mail client » est traîné par le curseur, bute sur le mur et retombe sur la pile. S10 : de chacun sort une pastille d’information. S11 : rentrent avec la fenêtre dans le badge. S12 : ressortent dans les cases 1 à 4 ; leur date, avec un calendrier, glisse le long du fil jusqu’à la ligne. S13 : glissent le long de leur fil et deviennent des étiquettes-sources. S18 : pile en vrac dans les bras du conseiller. S19 : fusionnent dans la fiche validée."
+    },
+    {
+      "id": "cartes_grises",
+      "name_fr": "Cartes d’un autre client",
+      "look": "Deux cartes gris chaud #DDD5C6 de 150×190 px, contour encre à 40 %, sans pictogramme cyan, chacune coiffée d’une pilule grise « Client · 14 h » : même forme que la pastille du dossier, mais grise. On comprend sans lire que ce sont les papiers d’un autre client.",
+      "source": "code",
+      "evolution": "S03 : glissent depuis les bords et se mêlent aux documents. S04 : fausse piste : le conseiller y atterrit et recule. S05 : repoussées au bord droit, hors du cadre. S06 : le rayon de l’IA bute sur le cadre avant de les atteindre ; elles ne bougent pas. S07 : sortent de l’image par la droite quand le cadre devient l’outil. S18 : reviennent dans la pile « Avant ». S19 : s’évanouissent au lieu d’entrer dans la fiche."
+    },
+    {
+      "id": "temps_etapes",
+      "name_fr": "Barre de temps → marqueur 1-2-3 → jetons",
+      "look": "Barre de temps : 600×40 px à y≈300 (x 180 → 780), contour encre 4 px, pleine de cyan vif au départ (le temps disponible avant 9 h), horloge-badge au bout droit. Elle fond par la gauche : à chaque saut du conseiller, un bloc de 22 % se détache, passe au gris hachuré (encre 25 %) et tombe sur le document fouillé ; ce qui est parti ne laisse qu’un contour vide. Traînée pointillée encre derrière le conseiller. Marqueur : 3 cercles numérotés 1, 2, 3 posés sur un trait encre de 200 px à y≈300 ; inactifs 40 px, contour encre, chiffre encre 22 px ; actif 64 px plein cyan vif, ombre dure, chiffre encre Inter ExtraBold 34 px (le « Numéro N » de la référence, chiffré pour être lu sans convention). Jetons : pilules 240×56 px fond cyan clair #D3F0F6, contour encre, ombre dure, icône cyan profond et texte encre Inter SemiBold 28 px « Conseil » (bulle), « Adéquation » (cible), « Responsabilité » (signature).",
+      "source": "code",
+      "evolution": "S03 : la barre pleine se tend depuis l’horloge. S04 : fond bloc par bloc, les blocs gris tombent sur les papiers ; il reste un bout cyan de 12 % contre l’horloge, où le client apparaît. S05 : le contour vide, le bout cyan et l’horloge se contractent en marqueur ; le bout cyan devient le cercle « 1 ». S10 : « 2 ». S14 : « 3 ». S15 : le trait du marqueur descend et devient la planche ; les 3 cercles glissent au milieu de la planche. S16 : ils roulent un à un vers le conseiller et s’étirent en jetons. S17 : les jetons se réduisent en points."
+    },
+    {
+      "id": "planche",
+      "name_fr": "Planche à bascule → chemin",
+      "look": "Trait encre de 16 px d’épaisseur et 760 px de long, ombre dure, posé sur un petit triangle encre de 60 px (le pivot) ; il naît du trait du marqueur. En S17, sans pivot, il s’étire en chemin horizontal (x 120 → 920, y 980).",
+      "source": "code",
+      "evolution": "S15 : descend du haut de l’écran (y 300 → 1010) et s’allonge en planche, l’IA au bout gauche, le conseiller au bout droit, à plat. S16 : penche vers le conseiller à chaque poids reçu (3°, puis 6°, 9° et 12°). S17 : se remet à plat, perd son pivot et s’étire en chemin vers les fauteuils. S18 : s’efface."
+    },
+    {
+      "id": "outil",
+      "name_fr": "Cadre → fenêtre de l’outil validé",
+      "look": "Cadre : rectangle arrondi en tirets cyan profond #0A7487, trait 6 px, coins 24 px (x 120 → 760, y 420 → 1120). Fenêtre : le même rectangle en trait plein, avec une barre de titre de 56 px (fond cyan clair, contour encre, trois points encre à gauche, la pastille comme titre) : le signe universel d’un logiciel. Sceau : disque cyan vif de 64 px cerné d’encre, pictogramme encre d’un bâtiment à colonnes (le cabinet), puis coche ; il s’ouvre en pilule « ✓ Cabinet ». Briques : deux briques encre de 240×80 px, texte ivoire Inter SemiBold 28 px « RGPD » et « Politique interne », encastrées à cheval sur le mur droit. Cadenas : corps encre, anse cyan profond, sur la barre de titre. Badge : la fenêtre réduite à 130 px (barre de titre, sceau, cadenas).",
+      "source": "code (remplace le coffre WTH-003-03)",
+      "evolution": "S05 : se trace derrière le conseiller autour des 4 documents, avec un coin libre en bas à gauche où l’IA apparaît. S06 : arrête net le rayon de l’IA qui vise une carte grise ; reçoit la pastille comme onglet. S07 : passe en trait plein, reçoit sa barre de titre (c’est un logiciel) et le sceau du cabinet ; les cartes grises restent dehors. S08 : se range à gauche ; son mur droit arrête le mail traîné vers l’IA grand public. S09 : le mur reçoit les briques « RGPD » et « Politique interne » ; le cadenas se ferme. S10 : les briques rentrent dans le mur ; la fenêtre s’élargit et reçoit la page vide du conseiller. S11 : se réduit en badge en haut à gauche, avec la pile. S12 : rend les 4 documents. S14 : sort."
+    },
+    {
+      "id": "fiche",
+      "name_fr": "La fiche d’une page (le brief)",
+      "look": "Page blanche #FFFDF8 de 300×400 px (la commande vide) puis 520×640 px, contour encre 4 px, ombre dure +8/+8 ; 5 rangées avec un onglet cyan vif à gauche (dessin repris de WTH-003-04, redessiné en code pour porter puces, texte, fils, ratures et tampon). En-tête « Brief » + pastille. Jamais affichée sous l’échelle 0,85 tant que son texte doit être lu.",
+      "source": "code (d’après WTH-003-04.png)",
+      "evolution": "S10 : le conseiller la pose vide dans l’outil, 5 onglets sans rien : c’est sa commande ; elle reçoit 5 pastilles. S11 : l’IA l’écrit d’un trait et la coche en gris ; la ligne sans document casse. S12-S13 : chaque ligne se relie à sa source ; un « ? » naît de la ligne sans source. S14 : relue, corrigée, tamponnée VALIDÉ. S15-S16 : dans les bras du conseiller, sur son côté de la planche. S17 : passe le contrôle des 10 minutes et rejoint la table. S18 : absente (Avant). S19 : renaît de la pile et se pose sur la table ; sa dernière puce est remplie par la réponse du client. S20 : devient la carte de fin."
+    },
+    {
+      "id": "lignes",
+      "name_fr": "Pastilles d’information → lignes 1 à 4",
+      "look": "Pastilles de 44 px cyan vif à contour encre, avec le pictogramme de leur document (€, barres, enveloppe, bouclier). Sur la fiche, chaque pastille devient la puce d’une ligne de texte encre Inter SemiBold 32 px : L1 « Revenus 2024 : 82 k€ », L2 « PEA : 46 k€ », L3 « Retraite : à 62 ans », L4 « Assurance-vie : 120 k€ ».",
+      "source": "code",
+      "evolution": "S10 : sortent chacune de son document et se posent sur les onglets 1 à 4. S11 : deviennent du texte écrit d’un trait, cochées en gris par l’IA. S12 : reliées chacune à son document et datées. S13 : reçoivent leur étiquette-source. S14 : cochées en cyan par le conseiller. S15 : leurs 4 pastilles réapparaissent devant l’IA, sur son bout de planche : c’est ce qu’elle a préparé."
+    },
+    {
+      "id": "ligne_inventee",
+      "name_fr": "La ligne fluide et fausse « Horizon : 5 ans » (L5)",
+      "look": "Puce vide : disque blanc de 44 px à contour cyan en pointillés (le trait de l’IA), sans pictogramme. Texte comme les autres lignes. Alerte : texte rouge #C8102E, fissure en zigzag, moitié droite affaissée de 14 px et pivotée de 5° ; la coche grise de l’IA reste à côté, intacte. Après correction : « 5 ans » barré à l’encre, autocollant « ? » à sa place, ligne à l’encre : « Horizon : ? ».",
+      "source": "code",
+      "evolution": "S10 : sa pastille naît dans la tête de l’IA, seule et en dernier, et se pose sur l’onglet 5. S11 : écrite aussi proprement que les autres ; sur « fausse », sa puce vide clignote, elle vire au rouge et casse là où rien ne la porte, sous la coche grise de l’IA. S12 : sa case reste vide. S13 : son fil retombe ; le stylo du conseiller en fait sortir un « ? ». S14 : le conseiller barre « 5 ans », la fissure se referme, l’autocollant « ? » prend la place de la valeur. S17 : sa version non relue, dans le brouillon de l’IA, se brise contre le stylo du conseiller. S19 : la réponse du client remplit sa puce vide."
+    },
+    {
+      "id": "sources",
+      "name_fr": "Cases-sources, fils, dates et étiquettes-sources",
+      "look": "Cases : rectangles de 150×80 px en tirets cyan profond 4 px. Fils : courbes pleines cyan profond 5 px, bouts ronds, point plein à chaque extrémité. Puces-dates : petite pilule blanche à contour encre, pictogramme calendrier cyan profond + date Inter SemiBold 26 px. Étiquettes-sources : pilules blanches 110×40 px au bout de chaque ligne, contour encre 3 px, pictogramme du document + date. Règle : pointillés = l’IA, trait plein = une preuve.",
+      "source": "code",
+      "evolution": "S12 : le stylo du conseiller trace 5 cases ; 4 documents s’y logent ; un fil plein par ligne sourcée ; la date, avec son calendrier, glisse le long du fil jusqu’à la ligne. S13 : les documents remontent leur fil et deviennent les étiquettes-sources ; le fil de L5 retombe dans la case vide ; les cases s’effacent. S14 : chaque étiquette s’allume au passage du stylo."
+    },
+    {
+      "id": "question",
+      "name_fr": "La question pour le client",
+      "look": "Glyphe « ? » Inter ExtraBold 110 px encre. La bulle WTH-003-06.png (260 px, alpha strict) l’accueille dans son creux gauche, à côté de la loupe (repère (0,22 ; 0,42) de la boîte de contenu) ; sa queue, en bas à gauche, désigne le conseiller : c’est lui qui parle. Ensuite : autocollant rond cyan vif « ? » de 56 px, contour encre. Réponse du client : pastille cyan vif de 44 px, contour encre, pictogramme encre d’une silhouette.",
+      "source": "code + WTH-003-06.png",
+      "evolution": "S13 : sort de la valeur « 5 ans » sous le stylo du conseiller et monte au-dessus de sa tête ; la bulle grandit autour, queue vers lui, face au client. S14 : la bulle se réduit en autocollant qui attend au bout de L5, puis prend la place de la valeur barrée. S19 : l’autocollant monte vers le client, qui renvoie une pastille-réponse dans la puce vide de L5."
+    },
+    {
+      "id": "outils",
+      "name_fr": "Stylo, coche et tampon du conseiller",
+      "look": "Stylo : capsule encre de 120 px à plume cyan vif. Coche : trait cyan profond de 8 px. Tampon « VALIDÉ » : rectangle à contour cyan profond 6 px, texte cyan profond Inter ExtraBold 40 px, incliné à −8°. Ils partent toujours de la figurine du conseiller ; l’IA n’en tient jamais.",
+      "source": "code",
+      "evolution": "S02 : coche sur la pile. S12 : le stylo trace les cases-sources. S13 : le stylo touche la valeur sans source. S14 : le stylo descend les lignes, coche, barre « 5 ans », puis le tampon VALIDÉ s’abat ; il reste sur la fiche jusqu’en S20. S17 : le stylo relit la fiche pendant que le secteur de 10 minutes se remplit, puis reste levé et arrête le brouillon."
+    },
+    {
+      "id": "brouillon",
+      "name_fr": "Le brouillon non relu de l’IA",
+      "look": "Copie de la fiche telle que l’IA l’avait rendue en S11 : contour en pointillés cyan (le trait de l’IA), coches grises, ligne « Horizon : 5 ans » rouge et fissurée ; ni tampon, ni pastille, ni étiquettes-sources. Échelle 0,3.",
+      "source": "code",
+      "evolution": "S17 seulement : sur « erreur », fonce sur le chemin sans s’arrêter ; sur « devant », heurte le stylo levé du conseiller et se brise ; sa ligne rouge tombe sous le chemin. Il n’atteint jamais le client."
+    },
+    {
+      "id": "curseur",
+      "name_fr": "Le curseur (la main du conseiller à l’écran)",
+      "look": "Flèche de pointeur plate encre #1E1416, 64 px, contour ivoire 3 px, ombre dure +4/+4. Même couleur que le conseiller : c’est son geste.",
+      "source": "code",
+      "evolution": "S08 : entre par le bas à droite, attrape le « Mail client » sur la pile et le traîne vers l’IA grand public ; le mail bute sur le mur, le curseur le lâche et sort. S20 : revient cliquer sur le bouton « S’abonner »."
+    },
+    {
+      "id": "fauteuils",
+      "name_fr": "Le rendez-vous",
+      "look": "WTH-003-08.png (deux fauteuils blancs et une table de verre), alpha strict, ombre douce plus marquée (encre 22 %) pour détacher le blanc de l’ivoire ; 260 px en S17, 800 px en S18-S19. Les figurines sont dessinées devant l’assise.",
+      "source": "WTH-003-08.png",
+      "evolution": "S17 : petits, au bout du chemin, le client assis à droite ; la fiche relue se pose sur la table. S18-S19 : au centre, même décor pour « Avant » et « Après ». S20 : se réduisent en points."
+    },
+    {
+      "id": "etiquettes",
+      "name_fr": "Étiquettes de rôle et de moment",
+      "look": "Pilules Inter SemiBold 30 px : « IA » (fond blanc, contour encre), « Toi » (fond encre, texte ivoire), « IA grand public » (fond gris #DDD5C6), « Avant » (contour encre) qui se remplit de cyan vif pour devenir « Après ». Pilule de rembobinage : fond encre, glyphe « ◀◀ » ivoire de 40 px.",
+      "source": "code",
+      "evolution": "« IA » sous la tête à chaque entrée (S02, S05, S15). « Toi » sous le conseiller en S02 et S16 seulement. « IA grand public » en S08-S09. « ◀◀ » en S03, pendant le rembobinage. « Avant » (S18) devient « Après » (S19)."
+    },
+    {
+      "id": "carte_fin",
+      "name_fr": "Carte de fin",
+      "look": "Carte blanche arrondie 620×560 px née de la fiche, contour encre 4 px, ombre dure ; « WealthTech Horizon » en encre Inter Bold 44 px ; bouton = la pastille agrandie ×2 (cyan vif, texte encre « S’abonner ») ; le curseur de S08.",
+      "source": "code",
+      "evolution": "S20 : la fiche monte et s’élargit en carte ; la pastille, déjà renommée « S’abonner », devient le bouton ; le curseur clique."
+    }
+  ],
+  "style": "FOND\n- Ivoire #F6F0E4 et quadrillage fixe de 36 px (traits de 2 px #ECE4D4, ancré en haut à gauche), comme la référence. Pas de grain, de vignette, de dégradé, de caméra ni de zoom global.\n\nCOULEURS (contrastes mesurés sur ivoire)\n- Encre #1E1416 (noir bordeaux, 15,9:1) : contours de 4 à 5 px, textes, conseiller, curseur, planche, briques, ombres dures.\n- Un seul accent, le cyan :\n  - cyan vif #19B3C7 pour les aplats (pastille, cercle actif, pastilles d’information, sceau, autocollant, réponse du client, bouton), toujours cerné d’encre ; texte encre dessus (7,1:1) ;\n  - cyan profond #0A7487 pour les traits fins (cadre, fenêtre, fils, cases, coches, tampon, secteur de 10 minutes) et le mot prononcé des sous-titres (4,8:1) ;\n  - cyan clair #D3F0F6 pour les fonds de pilules, la barre de titre et les jetons.\n- Blanc papier #FFFDF8 pour les documents, la fiche, le client et la carte de fin.\n- Gris : #DDD5C6 pour les cartes de l’autre client, leur pilule « Client · 14 h » et la pilule « IA grand public » ; encre à 25-45 % pour les blocs de temps perdus, les coches de l’IA, la foule du grand public et ce qui s’éteint.\n- Rouge #C8102E (5,2:1), seule couleur d’alerte : la ligne L5 de « fausse » à « corrige » (S11-S14), la ligne rouge du brouillon non relu (S17), et les mots « fausse » et « erreur » dans les sous-titres. Jamais sur le mur, les briques, le cadenas ou l’IA grand public.\n\nDEUX FAMILLES DE FORMES\n- Les personnes et les processus sont plats, dessinés en code : aplats, contour encre de 4 à 5 px, coins de 14 px, ombre dure encre +6/+6 px sans flou, aucun dégradé ni lueur.\n- Les objets et la machine sont en verre : 4 fichiers PNG (horloge WTH-003-01, tête AI.png, utilisée deux fois en S08-S09, bulle WTH-003-06, fauteuils WTH-003-08), alpha strict sans le halo cuit pour fond noir, ombre de contact douce (flou 24 px, décalage vertical 16 px, encre 16 %, 22 % pour les fauteuils). Ils sont déplacés, mis à l’échelle ou masqués, jamais déformés ni zoomés pour raconter. Un seul PNG entre ou sort à la fois.\n- Grammaire de lien : faisceau en pointillés = action de l’IA ; trait plein = preuve (fil vers un document) ou geste du conseiller. Les outils (stylo, tampon, curseur) partent toujours du conseiller ; l’IA n’en tient jamais.\n\nTYPOGRAPHIE (Inter)\n- Sous-titres karaoké : Bold 64 px, une ligne de 2 à 3 mots, ligne de base à y 1350, encre, mot prononcé en cyan profond #0A7487 (en rouge pour « fausse » et « erreur »), coupe sèche entre les groupes.\n- Textes sur les objets : SemiBold 26 à 32 px, jamais moins de 26 px à l’écran quand ils doivent être lus ; tampon, chiffres du marqueur et « ? » en ExtraBold.\n\nMISE EN PAGE\n- Action entre y 250 et 1180 et entre x 40 et 940 ; rien dans les 160 px du haut ni dans la colonne droite des icônes. Composition centrée autour de y≈760.\n- Places fixes qui rendent les rôles lisibles sans texte : l’IA à gauche, le conseiller à droite (repos en bas à droite), le marqueur 1-2-3 en haut (y≈300).\n- 1 à 4 éléments actifs par temps fort ; ce qui n’agit pas sort de scène.\n\nMOUVEMENT (mesures de la référence)\n- Chaque événement démarre à l’image round(t × 30) de son mot ; tout est immobile entre deux événements (ni flottement, ni respiration).\n- Apparition : échelle 0 → 1 en 300 ms, ease-out cubique, sans rebond. Changement d’échelle : 330 ms ease-out.\n- Déplacement : 550 ms ease-in-out. Chute : 370 ms ease-out sans rebond. Inclinaison : 450 ms ease-out. Étirement : 200 ms. Traits et fils dessinés : 250 à 450 ms. Fondu de texte : 200 ms.\n- Passage d’une scène à l’autre : morph de 350 ms, l’élément sortant rétrécit vers son centre pendant que l’entrant grandit, dans les mêmes images ; ce qui porte le sens se déplace au lieu de disparaître ; l’écran n’est jamais vide.\n- Dérives linéaires narratives seulement : la course du conseiller (S04), le tracé du cadre (S05), le mail traîné par le curseur (S08), le stylo qui relit (S14), le stylo et le secteur de 10 minutes, synchronisés (S17).",
+  "scenes": [
+    {
+      "id": "S01",
+      "t_start": 0,
+      "t_end": 1.173,
+      "texte": "Client à 9 heures ?",
+      "elements": "horloge, client, pastille (onglet de la chemise), documents",
+      "etat_initial": "Image 0, qui sert de vignette, déjà complète : fond ivoire quadrillé ; l’horloge de verre réglée sur 9:00 au centre (x 540, y 600, 480 px) ; à sa droite, le client, figurine blanche (x 870, y 790) ; devant le pied de l’horloge, une chemise blanche fermée dont l’onglet est la pastille « Client · 9 h » (x 540, y 1000).",
+      "action": "Sur « 9 », l’onglet « Client · 9 h » pulse une fois : il désigne ce client et cette heure. Sur « heures », la chemise s’ouvre : ses 4 documents glissent dehors, chacun vers un coin différent, et s’y posent à plat, à peine inclinés, bien séparés. Le corps de la chemise s’efface ; l’onglet reste.",
+      "resultat": "Le client de 9 h et son dossier en 4 documents distincts, posés à 4 endroits : l’information est dispersée.",
+      "transition": "Les documents et la pastille restent en place. Sur « L’IA », l’horloge se range en badge en haut à droite et le client se réduit en point.",
+      "beats": [
+        {"t": 0, "mot": "Client", "evenement": "Image tenue : horloge, client et chemise sont déjà en place (aucune apparition, pour que la vignette se lise dès l’image 0)."},
+        {"t": 0.522, "mot": "9", "evenement": "L’onglet « Client · 9 h » pulse une fois (1 → 1,12 → 1 en 300 ms)."},
+        {"t": 0.72, "mot": "heures ?", "evenement": "La chemise s’ouvre : les 4 documents glissent vers 4 places séparées, « Avis d’impôt » en haut à gauche (200, 450), « Relevé PEA » à droite (860, 560), « Mail client » en bas à gauche (220, 1030), « Assurance-vie » en bas à droite (820, 1060) (450 ms ease-out, décalés de 3 images, inclinaisons −8°, +6°, −5°, +7°). Le corps de la chemise rétrécit vers son centre ; l’onglet reste seul."}
+      ],
+      "lecture_sans_son": "Un client attend à 9 h ; son dossier est réparti en 4 documents posés à 4 endroits."
+    },
+    {
+      "id": "S02",
+      "t_start": 1.173,
+      "t_end": 3.274,
+      "texte": "L’IA prépare, tu décides.",
+      "elements": "ia (+ pilule « IA »), documents, pastille, conseiller (+ pilule « Toi »), outils (coche), horloge (badge)",
+      "etat_initial": "Horloge au centre, client à droite, 4 documents aux 4 coins, pastille seule sous l’horloge.",
+      "action": "L’horloge se range en badge et le client sort. La tête IA entre par la gauche ; son faisceau cyan en pointillés attire les documents un par un : ils se redressent et s’empilent au centre, et la pastille se clipse sur la pile. Le conseiller, figurine pleine encre, apparaît à droite avec l’étiquette « Toi » et frappe une coche cyan sur la pile.",
+      "resultat": "La promesse, posée en deux rôles : l’objet de verre « IA » range, la personne « Toi » valide.",
+      "transition": "Sur « Le », la coche et les deux étiquettes s’effacent et l’IA sort par la gauche ; au mot suivant, un signe « ◀◀ » rembobine la scène.",
+      "beats": [
+        {"t": 1.173, "mot": "L’IA", "evenement": "L’horloge rétrécit en badge (x 860, y 300, 170 px) ; le client se réduit en point. La tête IA glisse depuis la gauche (x 220, y 760, 240 px ; 550 ms ease-in-out), pilule « IA » dessous."},
+        {"t": 1.683, "mot": "prépare,", "evenement": "Faisceau cyan pointillé de l’IA : les 4 documents viennent l’un après l’autre (décalés de 4 images) se redresser et s’empiler au centre (x 540, y 780 ; morph 350 ms). La pastille se clipse sur le haut de la pile."},
+        {"t": 2.252, "mot": "tu", "evenement": "Le conseiller apparaît à droite (x 860, y 860 ; pop 300 ms), pilule « Toi » dessous."},
+        {"t": 2.438, "mot": "décides.", "evenement": "Il avance de 30 px vers la pile ; une coche cyan profond est frappée dessus (pop 300 ms) et tenue 0,8 s."}
+      ],
+      "lecture_sans_son": "La machine range les papiers, la personne les valide : c’est le principe annoncé."
+    },
+    {
+      "id": "S03",
+      "t_start": 3.274,
+      "t_end": 5.248,
+      "texte": "Le vrai problème avant un rendez-vous :",
+      "elements": "documents, cartes_grises, pastille, conseiller, horloge (badge), temps_etapes (barre), etiquettes (« ◀◀ »)",
+      "etat_initial": "Pile cochée au centre avec la pastille, IA à gauche, conseiller « Toi » à droite, badge horloge en haut à droite.",
+      "action": "L’IA sort et la coche s’efface avant que rien ne bouge. Un signe « ◀◀ » apparaît en haut : la scène se rembobine, les documents refont leur trajet à reculons jusqu’à leurs 4 places de départ. Deux cartes grises coiffées d’une pilule grise « Client · 14 h » glissent depuis les bords et se mêlent aux documents. Une barre de temps pleine de cyan se tend depuis l’horloge.",
+      "resultat": "Retour à la situation de départ, sans méthode : des papiers dispersés, mêlés à ceux d’un autre client, et une réserve de temps pleine jusqu’à 9 h.",
+      "transition": "Rien ne sort ; le conseiller, resté à droite, démarre sa course sur « temps ».",
+      "beats": [
+        {"t": 3.274, "mot": "Le", "evenement": "La coche se réduit en point, les pilules « IA » et « Toi » s’effacent (200 ms) ; l’IA rétrécit et sort par la gauche (300 ms). La pile ne bouge pas encore."},
+        {"t": 3.657, "mot": "problème", "evenement": "Pilule « ◀◀ » en haut au centre (x 540, y 280 ; pop 200 ms). Les 4 documents refont leur trajet de S02 à l’envers, vite (350 ms, 3 traits de vitesse encre derrière chacun), et retrouvent leurs places de S01. La pilule « ◀◀ » disparaît à 4,05 s. La pastille reste au centre."},
+        {"t": 4.098, "mot": "avant", "evenement": "Les 2 cartes grises « Client · 14 h » entrent par les bords gauche et droit (550 ms) et se posent entre les documents (x 380, y 720 et x 680, y 1000)."},
+        {"t": 4.481, "mot": "rendez-vous :", "evenement": "Une barre pleine de cyan vif se tend du badge horloge vers la gauche jusqu’à x 180 (y 300 ; étirement 300 ms)."}
+      ],
+      "lecture_sans_son": "On revient en arrière, au vrai départ : des papiers éparpillés, ceux d’un autre client mêlés, et du temps jusqu’à 9 h."
+    },
+    {
+      "id": "S04",
+      "t_start": 5.248,
+      "t_end": 8.313,
+      "texte": "ton temps part dans la recherche, pas dans le conseil.",
+      "elements": "conseiller, documents, cartes_grises, pastille, temps_etapes (barre, blocs, traînée), horloge (badge), client",
+      "etat_initial": "6 cartes dispersées, conseiller à droite, barre pleine de cyan sous le badge horloge.",
+      "action": "Le conseiller saute de carte en carte, un saut par mot, en laissant une traînée pointillée. À chaque saut, un bloc se détache du bout gauche de la barre, devient gris et tombe sur la carte qu’il fouille : son temps part dans les papiers. Le dernier saut tombe sur une carte « Client · 14 h » : il recule, mauvais dossier. Il ne reste qu’un petit bout cyan contre l’horloge, et le client apparaît juste dessous.",
+      "resultat": "Le temps a fondu dans les papiers ; pour le client, il ne reste qu’une miette de cyan.",
+      "transition": "Sur « Première », le contour vide, le bout cyan et l’horloge se contractent en trois cercles numérotés.",
+      "beats": [
+        {"t": 5.48, "mot": "temps", "evenement": "1er saut du conseiller vers « Avis d’impôt » (220 ms), traînée pointillée encre. Le 1er bloc (22 %) se détache du bout gauche de la barre, passe au gris hachuré et tombe sur la carte (370 ms, sans rebond) ; à sa place, un contour vide."},
+        {"t": 5.7, "mot": "part", "evenement": "2e saut, vers « Relevé PEA » ; le 2e bloc gris tombe sur elle."},
+        {"t": 5.886, "mot": "dans", "evenement": "3e saut, vers « Mail client » ; 3e bloc."},
+        {"t": 6.142, "mot": "recherche,", "evenement": "4e saut, sur une carte « Client · 14 h » ; 4e bloc. Il recule aussitôt de 40 px (200 ms) : mauvais dossier. La barre n’a plus que 12 % de cyan, à droite, contre l’horloge."},
+        {"t": 6.931, "mot": "pas", "evenement": "Le conseiller s’arrête net ; le bout cyan restant pulse une fois (1 → 1,15 → 1, 300 ms)."},
+        {"t": 7.372, "mot": "conseil.", "evenement": "Le client apparaît juste sous le bout cyan (x 720, y 450 ; pop 300 ms)."}
+      ],
+      "lecture_sans_son": "Le conseiller court après ses papiers et son temps y fond ; il n’en reste presque plus pour le client."
+    },
+    {
+      "id": "S05",
+      "t_start": 8.313,
+      "t_end": 11.447,
+      "texte": "Première étape : tu limites ce que l’IA peut lire.",
+      "elements": "temps_etapes (marqueur 1-2-3), documents, cartes_grises, pastille, conseiller, outil (cadre), ia (+ pilule « IA »)",
+      "etat_initial": "6 cartes dispersées couvertes de blocs gris, barre presque vide, client sous le bout cyan, conseiller arrêté près d’une carte grise.",
+      "action": "La barre devient un marqueur à trois cercles numérotés, le « 1 » allumé ; le client sort et les blocs gris s’effacent. Les 4 documents du client se regroupent en haut au centre, la pastille dessus ; les cartes « Client · 14 h » sont poussées au bord droit. Le conseiller fait le tour d’une zone qui englobe les 4 documents et un coin vide en bas à gauche : un cadre cyan en tirets se trace derrière lui. La tête IA apparaît dans ce coin, à l’intérieur du cadre ; son faisceau s’ouvre sur les 4 documents et s’arrête net sur le trait.",
+      "resultat": "Une zone tracée par l’humain, où l’IA est enfermée avec les seuls documents du client ; les cartes de l’autre client restent dehors.",
+      "transition": "Le faisceau reste posé sur les documents ; la lecture commence sur « lit ».",
+      "beats": [
+        {"t": 8.313, "mot": "Première", "evenement": "Morph 350 ms : le contour vide, le bout cyan et l’horloge se contractent en 3 cercles numérotés sur un trait (y 300) ; le bout cyan devient le cercle « 1 », agrandi. Le client se réduit en point ; les blocs gris s’effacent. Les 4 documents se regroupent en 2×2 en haut au centre (x 440, y 640), la pastille dessus ; les 2 cartes grises glissent au bord droit (x 860 ; y 560 et 820)."},
+        {"t": 9.369, "mot": "tu", "evenement": "Le conseiller glisse au coin haut gauche de la future zone (x 120, y 420 ; 300 ms)."},
+        {"t": 9.543, "mot": "limites", "evenement": "Il en fait le tour à vitesse constante (0,62 s) : le cadre en tirets cyan profond (x 120 → 760, y 420 → 1120) se trace derrière lui et se ferme à 10,16 s ; il reste dehors, en bas à droite (x 870, y 1090)."},
+        {"t": 10.194, "mot": "l’IA", "evenement": "La tête IA apparaît dans le coin libre, à l’intérieur du cadre (x 270, y 1000, 200 px ; pop 300 ms), pilule « IA » dessous."},
+        {"t": 10.762, "mot": "lire.", "evenement": "Son faisceau cyan pointillé s’ouvre en cône sur les 4 documents ; le cône est coupé net par le trait du cadre."}
+      ],
+      "lecture_sans_son": "La personne trace une limite : la machine est enfermée avec les seuls documents de ce client."
+    },
+    {
+      "id": "S06",
+      "t_start": 11.447,
+      "t_end": 13.653,
+      "texte": "Elle lit uniquement le dossier client,",
+      "elements": "ia, outil (cadre), documents, cartes_grises, pastille, temps_etapes (marqueur)",
+      "etat_initial": "Cadre en tirets autour des 4 documents et de l’IA ; cartes grises au bord droit, dehors ; conseiller dehors en bas à droite.",
+      "action": "Une barre de lecture passe sur chaque document. Puis le rayon de l’IA pivote vers une carte « Client · 14 h » : il bute sur le bord du cadre, qui encaisse le choc, et recule. Les cartes grises ne bougent pas. Les 4 documents s’empilent et la pastille se clipse sur le cadre comme un onglet.",
+      "resultat": "Un seul dossier, au nom du client de 9 h, lu par l’IA ; ce qui est hors du cadre lui reste inaccessible, intact.",
+      "transition": "Sur « dans », le cadre passe en trait plein et devient une fenêtre de logiciel.",
+      "beats": [
+        {"t": 11.691, "mot": "lit", "evenement": "Barre de lecture sur chaque document : leurs traits gris passent au cyan l’un après l’autre (décalage de 3 images)."},
+        {"t": 11.981, "mot": "uniquement", "evenement": "Le rayon pivote vers la carte grise du bas (x 860, y 820) et bute sur le bord droit du cadre (x 760) : arrêt sec, 3 petits traits d’impact encre, le bord se creuse de 6 px puis se remet (200 ms) ; le rayon recule (300 ms). Les cartes grises ne bougent pas."},
+        {"t": 12.632, "mot": "dossier", "evenement": "Les 4 documents glissent en une pile décalée (x 440, y 640 ; morph 350 ms)."},
+        {"t": 12.91, "mot": "client,", "evenement": "La pastille se clipse sur le bord haut du cadre, au-dessus de la pile (pop 300 ms) : c’est le dossier « Client · 9 h »."}
+      ],
+      "lecture_sans_son": "La machine lit les documents dans le cadre ; quand elle vise les papiers de l’autre client, le cadre l’arrête."
+    },
+    {
+      "id": "S07",
+      "t_start": 13.653,
+      "t_end": 16.208,
+      "texte": "dans un outil validé par ton cabinet.",
+      "elements": "outil (cadre → fenêtre, sceau), documents (pile), pastille, ia, cartes_grises, temps_etapes (marqueur)",
+      "etat_initial": "Cadre en tirets avec la pastille en onglet ; dedans, la pile et l’IA ; dehors, les cartes grises et le conseiller.",
+      "action": "Le cadre se referme en trait plein et les cartes grises sortent de l’image par la droite. Une barre de titre à trois points descend sur son bord haut : le cadre devient la fenêtre d’un logiciel, avec la pastille pour titre, la pile et l’IA dedans. Un sceau cyan à pictogramme de bâtiment tombe sur la barre de titre, se coche, puis s’ouvre en « ✓ Cabinet ».",
+      "resultat": "L’IA et le dossier sont dans un même logiciel, scellé par le cabinet ; rien d’autre n’y est entré.",
+      "transition": "Sur « Aucune », la fenêtre se range à gauche pour libérer la droite.",
+      "beats": [
+        {"t": 13.653, "mot": "dans", "evenement": "Les tirets du cadre se rejoignent en trait plein (250 ms). Les 2 cartes grises glissent hors de l’image par la droite (550 ms). Le conseiller se réduit en point."},
+        {"t": 14.071, "mot": "outil", "evenement": "Une barre de titre (56 px, fond cyan clair, trois points encre à gauche) descend sur le bord haut du cadre (300 ms) ; la pastille s’y centre comme titre."},
+        {"t": 14.338, "mot": "validé", "evenement": "Un sceau rond cyan vif à pictogramme encre de bâtiment à colonnes tombe sur le bout droit de la barre de titre (370 ms, sans rebond)."},
+        {"t": 15.035, "mot": "par", "evenement": "Une coche cyan profond se trace sur le sceau (250 ms)."},
+        {"t": 15.43, "mot": "cabinet.", "evenement": "Le sceau s’ouvre en pilule « ✓ Cabinet », bâtiment compris (200 ms)."}
+      ],
+      "lecture_sans_son": "L’IA et le dossier sont enfermés dans un logiciel tamponné par le cabinet."
+    },
+    {
+      "id": "S08",
+      "t_start": 16.208,
+      "t_end": 20.318,
+      "texte": "Aucune donnée client dans une IA grand public non encadrée.",
+      "elements": "outil (fenêtre), documents (« Mail client »), pastille, ia, curseur, ia_publique, temps_etapes (marqueur)",
+      "etat_initial": "Fenêtre scellée au centre-gauche, avec la pile et l’IA dedans.",
+      "action": "La fenêtre se range à gauche. Un curseur attrape le « Mail client » sur la pile. À droite, hors de la fenêtre, apparaît une deuxième tête IA, sans sceau, entourée d’une foule de petites figurines grises : l’IA grand public. Le curseur traîne le mail vers elle ; le mail heurte le mur droit de la fenêtre et s’arrête net ; le curseur le lâche et le mail retombe sur la pile.",
+      "resultat": "La donnée du client reste dans l’outil ; l’IA ouverte au grand public n’a rien reçu.",
+      "transition": "Le mur droit garde la marque du choc ; il reçoit ses briques sur « RGPD ».",
+      "beats": [
+        {"t": 16.208, "mot": "Aucune", "evenement": "La fenêtre et son contenu se rangent à gauche (x 80 → 600, échelle 0,81 ; 550 ms)."},
+        {"t": 16.916, "mot": "client", "evenement": "Le curseur entre par le bas à droite et attrape le « Mail client » sur la pile : la carte se soulève (×1,05, ombre +4 px ; 200 ms)."},
+        {"t": 17.891, "mot": "IA", "evenement": "L’IA grand public grandit à droite, hors de la fenêtre (AI.png, x 820, y 600, 180 px ; 330 ms) ; 6 figurines grises se posent autour d’elle, reliées à sa tête par des traits gris ; pilule grise « IA grand public » dessous (y 760)."},
+        {"t": 18.356, "mot": "grand", "evenement": "Le curseur traîne le mail vers elle à vitesse constante (≈ 400 px/s, calée pour toucher le mur à 19,122 s)."},
+        {"t": 19.122, "mot": "non", "evenement": "Le mail heurte le mur droit de la fenêtre (x 600) : arrêt sec, 3 traits d’impact encre ; le curseur tremble 2 images et le lâche."},
+        {"t": 19.342, "mot": "encadrée.", "evenement": "Le mail retombe en arc sur la pile (450 ms) ; le curseur sort par le bas à droite ; l’IA grand public et sa foule passent à 50 %."}
+      ],
+      "lecture_sans_son": "On essaie de glisser un document du client vers une autre IA, ouverte à tout le monde ; le mur de l’outil le retient."
+    },
+    {
+      "id": "S09",
+      "t_start": 20.318,
+      "t_end": 23.522,
+      "texte": "Le RGPD et ta politique interne s’appliquent.",
+      "elements": "outil (mur, briques, cadenas), ia, ia_publique, pastille, temps_etapes (marqueur)",
+      "etat_initial": "Fenêtre à gauche, mail revenu sur la pile, IA grand public pâle à droite.",
+      "action": "À l’endroit du choc, une brique encre « RGPD » tombe et s’encastre dans le mur droit ; une brique « Politique interne » tombe et se pose dessus, ferme, sans bouger. Un cadenas tombe sur la barre de titre et se ferme ; l’IA grand public et sa foule se réduisent en point.",
+      "resultat": "Le mur de l’outil porte le nom des règles, et l’outil est verrouillé.",
+      "transition": "Sur « Ensuite », les briques rentrent dans le mur, la fenêtre s’élargit et le marqueur passe au « 2 ».",
+      "beats": [
+        {"t": 20.561, "mot": "RGPD", "evenement": "Une brique encre (240×80 px) tombe du haut et s’encastre à cheval sur le mur droit, au point du choc (370 ms, sans rebond) ; « RGPD » s’inscrit en ivoire (fondu 200 ms)."},
+        {"t": 21.792, "mot": "politique", "evenement": "Une 2e brique tombe et se pose sur la première (370 ms, sans rebond) ; « Politique interne » s’inscrit. Aucune oscillation : le mur est plein."},
+        {"t": 22.651, "mot": "s’appliquent.", "evenement": "Un cadenas tombe sur la barre de titre (370 ms) et son anse se ferme (150 ms). L’IA grand public et sa foule se réduisent en point et disparaissent."}
+      ],
+      "lecture_sans_son": "Le mur, ce sont les règles ; l’outil est fermé à clé."
+    },
+    {
+      "id": "S10",
+      "t_start": 23.522,
+      "t_end": 26.378,
+      "texte": "Ensuite, demande un brief structuré d’une page.",
+      "elements": "temps_etapes (marqueur), outil (fenêtre), documents (pile), ia, conseiller, fiche (page vide), lignes (pastilles), ligne_inventee (pastille vide), pastille",
+      "etat_initial": "Fenêtre verrouillée et scellée à gauche, briques dans le mur, pile et IA dedans ; marqueur sur « 1 ».",
+      "action": "Le marqueur passe au « 2 » ; les briques rentrent dans le mur et la fenêtre s’élargit. Le conseiller apparaît dehors, en bas à droite, et pose dans la fenêtre une page vide à 5 onglets : sa commande. Le faisceau de l’IA passe sur la pile : de chaque document sort une pastille à son pictogramme, qui vole se poser sur les onglets 1 à 4. Puis, seule et en dernier, une 5e pastille, vide, sans pictogramme, sort de la tête de l’IA et tombe sur l’onglet 5.",
+      "resultat": "Une page structurée en 5 lignes, encore sans texte : 4 puces viennent des documents, la 5e vient de la tête de l’IA.",
+      "transition": "Sur « Mais », la fenêtre se réduit en badge et la page vient au centre en grandissant.",
+      "beats": [
+        {"t": 23.522, "mot": "Ensuite,", "evenement": "Le disque actif du marqueur glisse du « 1 » au « 2 » (550 ms). Les briques rentrent dans le mur (morph 350 ms) ; la fenêtre s’élargit (x 80 → 900, y 420 → 1060), la pile en haut à gauche (x 260, y 600), l’IA en bas à gauche (x 240, y 940, 200 px)."},
+        {"t": 24.126, "mot": "demande", "evenement": "Le conseiller apparaît dehors en bas à droite (x 880, y 1110 ; pop 300 ms) ; une page blanche vide à 5 onglets (300×400 px) part de lui et se pose en arc dans la moitié droite de la fenêtre (x 640, y 740 ; 500 ms)."},
+        {"t": 24.613, "mot": "brief", "evenement": "Le faisceau pointillé de l’IA passe sur la pile : de chaque document sort une pastille à son pictogramme (€, barres, enveloppe, bouclier), qui vole en arc vers la page (décalées de 4 images)."},
+        {"t": 24.904, "mot": "structuré", "evenement": "Les 4 pastilles se calent sur les onglets 1 à 4 (morph 350 ms)."},
+        {"t": 25.612, "mot": "page.", "evenement": "Une 5e pastille, vide (blanche, contour cyan en pointillés, sans pictogramme), sort du cerveau de verre de l’IA (pop 250 ms) et tombe sur l’onglet 5 (450 ms). Puis tout s’immobilise jusqu’à 26,38 s."}
+      ],
+      "lecture_sans_son": "Le conseiller pose une page vide ; l’IA y range une info de chaque document, puis en ajoute une qui sort de sa propre tête."
+    },
+    {
+      "id": "S11",
+      "t_start": 26.378,
+      "t_end": 30.512,
+      "texte": "Mais une IA peut produire une réponse fluide… et fausse.",
+      "elements": "fiche, lignes, ligne_inventee, ia, outil (badge), pastille, temps_etapes (marqueur)",
+      "etat_initial": "Page à 5 puces (4 à pictogramme, 1 vide en bas) dans la moitié droite de la fenêtre ; pile et IA dedans ; conseiller dehors en bas à droite ; marqueur sur « 2 ».",
+      "action": "La fenêtre se réduit en badge avec la pile ; l’IA reste en bas à gauche, le conseiller sort ; la page vient au centre en grandissant et la pastille se pose sur son en-tête. Un faisceau d’écriture relie l’IA à la page : les 5 lignes s’écrivent d’un trait et l’IA coche chacune en gris ; un reflet balaie la page. Silence. Puis la puce vide de la 5e ligne clignote : rien ne la porte. La ligne vire au rouge, se fissure et sa moitié droite s’affaisse, sous la coche grise de l’IA qui, elle, ne bouge pas.",
+      "resultat": "Une fiche impeccable en apparence, dont la seule ligne sans document est rouge et cassée, toujours cochée par l’IA.",
+      "transition": "Sur « Exige », l’IA sort par la gauche et les coches grises s’effacent ; la ligne cassée reste rouge.",
+      "beats": [
+        {"t": 26.378, "mot": "Mais", "evenement": "Morph 350 ms : la fenêtre se réduit en badge en haut à gauche (x 170, y 330, 130 px : barre de titre, sceau, cadenas), la pile dedans ; l’IA reste en bas à gauche (x 170, y 1030, 200 px) ; le conseiller se réduit en point ; la page passe au centre (x 540, y 720) et grandit à 520×640. La pastille vole du titre de la fenêtre à l’en-tête de la page (550 ms)."},
+        {"t": 27.04, "mot": "IA", "evenement": "Un faisceau d’écriture cyan pointillé relie l’IA à la page."},
+        {"t": 27.841, "mot": "produire", "evenement": "Les 5 lignes s’écrivent en continu de L1 à L5 (3 caractères par image, fin vers 28,8 s) ; chaque ligne terminée reçoit une petite coche grise de l’IA."},
+        {"t": 28.875, "mot": "fluide…", "evenement": "Un reflet blanc traverse la page en diagonale (400 ms), puis immobilité totale."},
+        {"t": 29.722, "mot": "et", "evenement": "Tenue : rien ne bouge."},
+        {"t": 29.896, "mot": "fausse.", "evenement": "La puce vide de L5 clignote deux fois (200 ms) ; « Horizon : 5 ans » passe au rouge (100 ms) ; une fissure en zigzag la coupe et sa moitié droite tombe de 14 px en pivotant de 5° (300 ms ease-out). La coche grise de l’IA reste en place, intacte."}
+      ],
+      "lecture_sans_son": "La machine écrit une fiche qui a l’air parfaite ; la seule ligne qui ne vient d’aucun document casse, et la machine la coche quand même."
+    },
+    {
+      "id": "S12",
+      "t_start": 30.512,
+      "t_end": 34.296,
+      "texte": "Exige que chaque ligne renvoie à un document et à une date.",
+      "elements": "conseiller, outils (stylo), fiche, lignes, ligne_inventee, sources (cases, fils, dates), documents, outil (badge), pastille",
+      "etat_initial": "Page au centre, 5 lignes cochées en gris, L5 rouge et fissurée ; IA en bas à gauche ; badge de l’outil en haut à gauche.",
+      "action": "L’IA sort par la gauche et ses coches grises s’effacent ; la page glisse à gauche. Le conseiller entre en bas à droite et, au stylo, dessine 5 cases vides en face des 5 lignes. Les 4 documents ressortent du badge et se logent dans les cases 1 à 4 ; la case 5 reste vide. Un fil plein se tend de la ligne 1 à l’avis d’impôt, puis des lignes 2, 3 et 4 à leur document. Enfin, la date de chaque document, avec un petit calendrier, glisse le long du fil jusqu’au bout de sa ligne.",
+      "resultat": "4 lignes reliées chacune à un document et datées ; la ligne 5 n’a ni fil, ni document, ni date : sa case est vide.",
+      "transition": "Sur « Une », les documents remontent leurs fils et deviennent des étiquettes au bout des lignes.",
+      "beats": [
+        {"t": 30.512, "mot": "Exige", "evenement": "L’IA glisse hors de l’image par la gauche (550 ms) ; les coches grises s’effacent (200 ms) ; la page glisse à gauche (x 360, échelle 0,9 ; 550 ms). Le conseiller apparaît en bas à droite (x 870, y 1070) et son stylo trace 5 cases en tirets en colonne (x 790), une en face de chaque ligne (100 ms chacune)."},
+        {"t": 31.115, "mot": "chaque", "evenement": "Les 4 documents sortent du badge et glissent dans les cases 1 à 4 en version compacte (450 ms, décalés de 3 images). La case 5 reste vide."},
+        {"t": 31.719, "mot": "renvoie", "evenement": "Un fil cyan plein se tend du bout de L1 jusqu’à « Avis d’impôt » (tracé 300 ms)."},
+        {"t": 32.555, "mot": "document", "evenement": "Les fils L2 → « Relevé PEA », L3 → « Mail client » et L4 → « Assurance-vie » se tendent (300 ms, décalés de 3 images)."},
+        {"t": 33.553, "mot": "date.", "evenement": "De chaque document part une puce-date (calendrier + « 2025 », « 03/2026 », « 02/2026 », « 12/2025 ») qui glisse le long du fil et se clipse au bout de sa ligne (400 ms)."}
+      ],
+      "lecture_sans_son": "Le conseiller exige une preuve : chaque ligne s’attache par un fil à son document et reçoit sa date ; la dernière n’a rien."
+    },
+    {
+      "id": "S13",
+      "t_start": 34.296,
+      "t_end": 37.919,
+      "texte": "Une info sans source, c’est une question à poser au client.",
+      "elements": "fiche, lignes, ligne_inventee, sources, documents, conseiller, outils (stylo), question (« ? », bulle WTH-003-06), client, pastille",
+      "etat_initial": "Page à gauche, 4 fils tendus vers 4 documents datés, case 5 vide en face de L5 rouge ; conseiller en bas à droite.",
+      "action": "Les documents remontent leurs fils et deviennent de petites étiquettes-sources au bout des lignes ; la colonne se vide, sauf la case 5. L5 lance un fil vers sa case : vide, le fil retombe. Le conseiller s’approche et touche du stylo la valeur « 5 ans » : un grand « ? » en sort, monte au-dessus de sa tête, et une bulle de verre grandit autour, la queue tournée vers lui. Le client apparaît en face de lui.",
+      "resultat": "Les lignes prouvées portent leur source ; l’info sans source est devenue une question que le conseiller va poser au client.",
+      "transition": "Sur « Dernière », la bulle se réduit en autocollant « ? » qui attend au bout de L5 ; le client sort.",
+      "beats": [
+        {"t": 34.296, "mot": "Une", "evenement": "Les 4 documents glissent le long de leurs fils et rétrécissent en étiquettes-sources (pictogramme + date) accrochées au bout de leur ligne ; les fils se rétractent ; les cases 1 à 4 s’effacent (350 ms). La case 5 reste, vide."},
+        {"t": 34.772, "mot": "sans", "evenement": "Les lignes 1 à 4 passent à 40 %. L5 lance un fil pointillé encre vers la case 5 (250 ms) : la case est vide, le fil se détend et retombe en courbe molle (300 ms), puis s’efface avec la case."},
+        {"t": 35.759, "mot": "c’est", "evenement": "Retour à 100 %. Le conseiller s’avance (x 660, y 1090 ; 400 ms) et pointe son stylo sur « 5 ans »."},
+        {"t": 36.166, "mot": "question", "evenement": "Sous la pointe du stylo, un grand « ? » encre (110 px) sort de « 5 ans », qui reste rouge et fissuré (pop 300 ms)."},
+        {"t": 36.665, "mot": "poser", "evenement": "Le « ? » monte en arc au-dessus du conseiller (550 ms) ; la bulle WTH-003-06 grandit autour de lui (x 800, y 870, 260 px), le « ? » dans son creux à côté de la loupe, la queue en bas à gauche pointée vers la tête du conseiller."},
+        {"t": 37.036, "mot": "client.", "evenement": "Le client apparaît face au conseiller, à droite (x 890, y 1090 ; pop 300 ms), et s’incline de 5° vers lui."}
+      ],
+      "lecture_sans_son": "Ce qui n’a pas de preuve devient une question : le conseiller la posera au client."
+    },
+    {
+      "id": "S14",
+      "t_start": 37.919,
+      "t_end": 41.309,
+      "texte": "Dernière étape : relis, corrige, décide.",
+      "elements": "temps_etapes (marqueur), fiche, lignes, ligne_inventee, question (autocollant), conseiller, outils (stylo, coche, tampon), sources (étiquettes), pastille",
+      "etat_initial": "Page à gauche avec ses étiquettes-sources, L5 rouge et fissurée ; conseiller et client sous la bulle « ? » ; badge de l’outil en haut à gauche.",
+      "action": "Le marqueur passe au « 3 » ; la bulle se réduit en autocollant « ? » qui attend au bout de L5 ; le client et le badge sortent. La page se recentre, le conseiller se place à sa droite, stylo en main. Le stylo descend les lignes et coche en cyan chaque ligne prouvée ; il s’arrête sur L5, barre « 5 ans », la fissure se referme et l’autocollant « ? » prend la place de la valeur. Puis le conseiller abat le tampon VALIDÉ.",
+      "resultat": "La fiche est relue, corrigée et validée par le conseiller : 4 lignes prouvées, 1 question à poser, le tampon.",
+      "transition": "Sur « L’IA », le trait du marqueur descend et devient une planche ; l’IA entre à gauche.",
+      "beats": [
+        {"t": 37.919, "mot": "Dernière", "evenement": "Le disque actif glisse du « 2 » au « 3 ». La bulle rétrécit en autocollant « ? » cyan vif posé au bout de L5 (330 ms) ; le client et le badge de l’outil se réduisent en points."},
+        {"t": 38.337, "mot": "étape :", "evenement": "La page se recentre (x 470, échelle 0,92, toutes les lignes à 100 %) ; le conseiller entre par la droite (x 850, y 900, ×1,2 ; 550 ms), stylo en main."},
+        {"t": 39.045, "mot": "relis,", "evenement": "La pointe du stylo descend la page à vitesse constante (600 ms) ; une coche cyan profond s’allume sur L1, L2, L3 puis L4, et chaque étiquette-source s’allume à son passage ; le stylo s’arrête sur L5."},
+        {"t": 39.672, "mot": "corrige,", "evenement": "Le stylo barre « 5 ans » d’un trait encre (200 ms) ; la fissure se referme, L5 repasse à l’encre ; l’autocollant « ? » glisse à la place de la valeur : « Horizon : ? » (300 ms)."},
+        {"t": 40.415, "mot": "décide.", "evenement": "Le tampon « VALIDÉ » s’abat sur le bas de la page (1,4 → 1 en 200 ms ease-out, −8°, secousse de 2 images)."}
+      ],
+      "lecture_sans_son": "La personne vérifie chaque ligne, raye la valeur inventée, met la question à sa place et tamponne VALIDÉ."
+    },
+    {
+      "id": "S15",
+      "t_start": 41.309,
+      "t_end": 42.865,
+      "texte": "L’IA prépare.",
+      "elements": "temps_etapes (trait du marqueur, cercles), planche, ia (+ pilule « IA »), lignes (4 pastilles), fiche, conseiller",
+      "etat_initial": "Fiche VALIDÉE au centre-gauche, conseiller à sa droite stylo en main, marqueur sur « 3 » en haut.",
+      "action": "Le trait du marqueur descend et s’allonge en une planche posée sur un pivot, les 3 cercles au milieu. Le conseiller se place sur le bout droit, la fiche validée dans les bras. La tête IA entre sur le bout gauche et pose devant elle, une à une, les 4 pastilles d’information qu’elle a tirées des documents. La planche reste à plat.",
+      "resultat": "Deux côtés : à gauche, l’IA et ce qu’elle a préparé ; à droite, le conseiller et la fiche qu’il a validée. Rien ne va de l’IA vers la fiche.",
+      "transition": "Sur « Toi », la pilule « Toi » apparaît sous le conseiller.",
+      "beats": [
+        {"t": 41.309, "mot": "L’IA", "evenement": "Le trait du marqueur descend (y 300 → 1010 ; chute 370 ms) et s’allonge en planche de 760 px sur un pivot triangulaire (x 540) ; les 3 cercles descendent avec lui au milieu de la planche. La fiche (échelle 0,5) passe dans les bras du conseiller, qui se place sur le bout droit (x 840, y 900). La tête IA glisse depuis la gauche sur le bout gauche (x 240, y 900, 200 px ; 550 ms), pilule « IA » dessous."},
+        {"t": 41.971, "mot": "prépare.", "evenement": "4 pastilles à pictogramme (€, barres, enveloppe, bouclier) sortent de l’IA et se posent l’une après l’autre devant elle sur la planche (pop 300 ms, décalées de 3 images). La planche ne bouge pas : c’est léger."}
+      ],
+      "lecture_sans_son": "D’un côté la machine et les infos qu’elle a rassemblées, de l’autre la personne et sa fiche validée."
+    },
+    {
+      "id": "S16",
+      "t_start": 42.865,
+      "t_end": 47.415,
+      "texte": "Toi, tu gardes le conseil, l’adéquation et la responsabilité.",
+      "elements": "planche, ia, lignes (pastilles de l’IA), conseiller (+ pilule « Toi »), fiche, temps_etapes (cercles → jetons)",
+      "etat_initial": "Planche à plat : IA et ses 4 pastilles à gauche, conseiller et fiche validée à droite, les 3 cercles numérotés au milieu.",
+      "action": "La pilule « Toi » apparaît sous le conseiller, qui serre la fiche contre lui ; son côté s’abaisse un peu. Les 3 cercles roulent un à un vers lui et s’étirent en jetons « Conseil », « Adéquation », « Responsabilité », empilés devant lui. À chaque jeton, la planche penche davantage de son côté ; l’IA monte, avec ses seules pastilles.",
+      "resultat": "Le poids du conseil, de l’adéquation et de la responsabilité est entièrement du côté du conseiller ; l’IA reste là, plus légère.",
+      "transition": "Sur « Dix », la planche se remet à plat et s’étire en chemin ; l’IA, ses pastilles, les jetons et « Toi » se réduisent en points.",
+      "beats": [
+        {"t": 42.865, "mot": "Toi,", "evenement": "La pilule « Toi » apparaît sous le conseiller (pop 300 ms)."},
+        {"t": 43.538, "mot": "gardes", "evenement": "Il ramène la fiche contre lui (40 px, 300 ms) ; la planche penche de 3° de son côté (450 ms)."},
+        {"t": 43.909, "mot": "conseil,", "evenement": "Le cercle « 1 » roule jusqu’à lui (370 ms) et s’étire en jeton « Conseil » (icône bulle) posé sur la planche devant lui (x 680 ; étirement 200 ms) ; la planche penche à 6°."},
+        {"t": 44.583, "mot": "l’adéquation", "evenement": "Le cercle « 2 » roule et devient « Adéquation » (icône cible), empilé sur le premier ; 9°."},
+        {"t": 45.778, "mot": "responsabilité.", "evenement": "Le cercle « 3 » roule et devient « Responsabilité » (icône signature), en haut de la pile ; 12°. L’IA, en haut de la pente, reste nette."}
+      ],
+      "lecture_sans_son": "Le poids des décisions repose sur la personne ; la machine, de l’autre côté, n’apporte que des infos."
+    },
+    {
+      "id": "S17",
+      "t_start": 47.415,
+      "t_end": 51.038,
+      "texte": "Dix minutes de relecture valent mieux qu’une erreur devant le client.",
+      "elements": "planche (chemin), fiche, conseiller, outils (stylo), horloge (+ secteur de 10 minutes), fauteuils, client, brouillon, ligne_inventee",
+      "etat_initial": "Planche penchée : IA et pastilles en haut à gauche, conseiller, fiche et 3 jetons en bas à droite.",
+      "action": "La planche se remet à plat et devient un chemin vers les fauteuils du rendez-vous, où le client est assis. Le conseiller se poste au milieu du chemin, sous l’horloge du début. La fiche avance jusqu’à lui et s’arrête : son stylo la relit pendant qu’un secteur de 10 minutes se remplit sur le cadran, au même rythme ; puis elle repart jusqu’à la table. Alors le brouillon de l’IA, en pointillés, avec sa ligne rouge, fonce sur le chemin sans s’arrêter : il heurte le stylo levé du conseiller et se brise. Une coche apparaît au-dessus de la table.",
+      "resultat": "La fiche relue arrive au client ; le brouillon non relu se brise sur le conseiller avant de l’atteindre.",
+      "transition": "Sur « Avant », le chemin, l’horloge et le conseiller s’effacent ; les fauteuils glissent au centre et grandissent.",
+      "beats": [
+        {"t": 47.415, "mot": "Dix", "evenement": "Morph 350 ms : la planche se remet à plat, perd son pivot et s’étire en chemin (y 980, x 120 → 920) ; l’IA, ses pastilles, les jetons et « Toi » se réduisent en points. Le conseiller glisse au milieu du chemin (x 520, y 890). La fiche (échelle 0,3) se pose au départ (x 170, y 910). Les fauteuils apparaissent au bout (x 800, y 890, 260 px ; pop 200 ms), le client assis à droite."},
+        {"t": 47.624, "mot": "minutes", "evenement": "L’horloge grandit au-dessus du conseiller (x 520, y 600, 300 px ; 330 ms). La fiche glisse jusqu’à lui et s’arrête (400 ms)."},
+        {"t": 48.054, "mot": "relecture", "evenement": "Le stylo du conseiller descend la fiche (600 ms) pendant qu’un secteur cyan se remplit sur le cadran de :50 à :00, exactement au même rythme ; à la fin, une coche cyan sur la fiche."},
+        {"t": 48.704, "mot": "valent", "evenement": "La fiche repart et glisse jusqu’à la table, entre les fauteuils (550 ms) ; le conseiller garde son stylo levé."},
+        {"t": 49.377, "mot": "erreur", "evenement": "Le brouillon de l’IA (pointillés cyan, coches grises, ligne rouge fissurée, échelle 0,3) apparaît au départ du chemin et fonce vers la droite (300 ms)."},
+        {"t": 49.703, "mot": "devant", "evenement": "Il heurte le stylo levé du conseiller : il se brise en 6 éclats qui s’effacent, sa ligne rouge tombe sous le chemin (300 ms)."},
+        {"t": 50.062, "mot": "client.", "evenement": "Une coche cyan apparaît au-dessus de la table (pop 300 ms)."}
+      ],
+      "lecture_sans_son": "Dix minutes de relecture laissent passer la bonne fiche ; le brouillon non relu est arrêté par le conseiller avant d’arriver au client."
+    },
+    {
+      "id": "S18",
+      "t_start": 51.038,
+      "t_end": 53.127,
+      "texte": "Avant, tu arrives en ayant cherché.",
+      "elements": "fauteuils, client, conseiller, documents + cartes_grises (pile en vrac), pastille, etiquettes (« Avant »)",
+      "etat_initial": "Chemin, horloge et conseiller au milieu, fiche sur la table des petits fauteuils, coche au-dessus.",
+      "action": "Le chemin, l’horloge, le conseiller et la fiche s’effacent ; les fauteuils glissent au centre et grandissent, le client est assis à droite, l’étiquette « Avant » apparaît. Le conseiller entre par la gauche, les bras chargés d’une pile de papiers de travers, la pastille « Client · 9 h » bien en vue dessus. Un document glisse de la pile et tombe au sol.",
+      "resultat": "Avant : il arrive au rendez-vous débordé, avec les mêmes papiers qu’au début, qui lui échappent.",
+      "transition": "Sur « Après », l’étiquette bascule en cyan et la pile se rassemble.",
+      "beats": [
+        {"t": 51.038, "mot": "Avant,", "evenement": "Le chemin, l’horloge, le conseiller, la coche et la fiche se réduisent en points. Les fauteuils glissent au centre et grandissent (x 540, y 860, 800 px ; 550 ms) ; le client se pose dans le fauteuil droit ; la pilule « Avant » (contour encre) apparaît en haut (y 420)."},
+        {"t": 51.734, "mot": "arrives", "evenement": "Le conseiller entre par la gauche jusqu’au fauteuil gauche (550 ms), portant une pile inclinée de 6 cartes (4 documents, 2 cartes « Client · 14 h »), la pastille dessus agrandie ×1,3."},
+        {"t": 52.431, "mot": "cherché.", "evenement": "Un document glisse de la pile et tombe au sol en tournant (370 ms, arrêt à y 1100)."}
+      ],
+      "lecture_sans_son": "Avant : il arrive au rendez-vous débordé par les mêmes papiers qu’au début."
+    },
+    {
+      "id": "S19",
+      "t_start": 53.127,
+      "t_end": 55.275,
+      "texte": "Après, tu arrives en ayant compris.",
+      "elements": "fauteuils, client, conseiller, documents → fiche, cartes_grises, pastille, question (autocollant, réponse), ligne_inventee, etiquettes (« Après »)",
+      "etat_initial": "Conseiller chargé de papiers face au client, un document par terre.",
+      "action": "L’étiquette devient « Après » en cyan. Les cartes grises s’évanouissent ; les 4 documents, dont celui tombé, convergent et fusionnent en une seule fiche VALIDÉE, qui se pose sur la table de verre. L’autocollant « ? » monte de la fiche vers le client ; le client renvoie une pastille cyan qui vient remplir la puce vide de la ligne 5. Les deux figurines se penchent l’une vers l’autre.",
+      "resultat": "Même table, même client : une seule fiche validée, dont la dernière ligne est complétée par la réponse du client.",
+      "transition": "Sur « Abonne-toi », tout se réduit en points sauf la fiche, qui monte au centre.",
+      "beats": [
+        {"t": 53.127, "mot": "Après,", "evenement": "La pilule se remplit de cyan vif et devient « Après » (300 ms). Les 2 cartes grises rétrécissent en points ; les 4 documents convergent et fusionnent en fiche VALIDÉE (morph 350 ms, décalés de 1 à 3 images), qui se pose sur la table de verre (descente 300 ms), pastille sur l’en-tête, tampon, autocollant « ? » sur L5."},
+        {"t": 53.731, "mot": "arrives", "evenement": "L’autocollant « ? » quitte la fiche et monte en arc vers le client (400 ms)."},
+        {"t": 54.428, "mot": "compris.", "evenement": "Le client renvoie une pastille cyan à silhouette, qui tombe dans la puce vide de L5 et la remplit (400 ms) ; les deux figurines s’inclinent de 5° l’une vers l’autre."}
+      ],
+      "lecture_sans_son": "Après : une seule fiche vérifiée sur la table ; la question est posée et la réponse du client complète la fiche."
+    },
+    {
+      "id": "S20",
+      "t_start": 55.275,
+      "t_end": 57.7,
+      "texte": "Abonne-toi pour comprendre ton argent.",
+      "elements": "fiche → carte_fin, pastille → bouton, curseur",
+      "etat_initial": "Fiche VALIDÉE sur la table, entre le conseiller et le client.",
+      "action": "Les fauteuils et les figurines se réduisent en points. Le texte de la pastille devient « S’abonner » ; la fiche monte au centre et s’élargit en carte de fin « WealthTech Horizon » ; la pastille descend au bas de la carte et double de taille : c’est le bouton. Le curseur de S08 revient et clique.",
+      "resultat": "La pastille qui a suivi le dossier pendant tout le film est devenue le bouton d’abonnement.",
+      "transition": "Image finale tenue jusqu’à 57,7 s.",
+      "beats": [
+        {"t": 55.275, "mot": "Abonne-toi", "evenement": "Le texte de la pastille passe de « Client · 9 h » à « S’abonner » (fondu 200 ms) avant tout mouvement. Les fauteuils et les figurines rétrécissent en points (300 ms). La fiche monte au centre et s’élargit en carte blanche de 620×560 px (morph 330 ms) ; ses lignes et le tampon s’effacent, « WealthTech Horizon » apparaît en encre (fondu 200 ms). La pastille descend au bas de la carte et grandit ×2."},
+        {"t": 56.274, "mot": "comprendre", "evenement": "Le curseur entre par le bas à droite et glisse jusqu’au bouton (200 ms)."},
+        {"t": 57.017, "mot": "argent.", "evenement": "Clic : le bouton s’enfonce dans son ombre pendant 3 images et une coche y apparaît ; image tenue."}
+      ],
+      "lecture_sans_son": "Un bouton S’abonner, signé WealthTech Horizon."
+    }
+  ],
+  "excerpt": {
+    "t_start": 26.378,
+    "t_end": 41.309,
+    "why": "De « Mais » (26,378 s, début de phrase) jusqu’au début de « L’IA prépare. » (41,309 s), soit 14,93 s, scènes S11 à S14, sans coupure. Un seul objet, la fiche du client de 9 h, change sous les yeux : l’IA l’écrit d’un trait et coche tout (fluide), puis la seule ligne à puce vide, celle qui ne vient d’aucun document, vire au rouge et casse sous la coche de l’IA (fausse) ; le conseiller trace des cases, les documents reviennent, de vrais fils relient chaque ligne à son document et la date glisse jusqu’à la ligne ; la case de la ligne fausse reste vide, son fil retombe, le stylo du conseiller en fait sortir un « ? » qui monte dans sa bulle, face au client ; enfin il relit, coche, barre « 5 ans », met la question à sa place et tamponne VALIDÉ. L’extrait montre ensemble les points 3, 4 et 5 et la décision humaine, avec le seul rouge du film. Sous-titres masqués, chaque changement se voit : la puce vide, le rouge, la fissure sous la coche de l’IA, les fils, la case vide, le « ? » qui sort du stylo, la rature, le tampon. Il démarre sur un état simple à reconstituer à l’image 0 (fin de S10 : fenêtre verrouillée et scellée « ✓ Cabinet » avec la pile et l’IA, page à 5 puces dont la dernière vide, conseiller dehors en bas à droite, marqueur sur « 2 ») et se termine sur un résultat net (tampon tenu 0,9 s après « décide. »). Variante si l’on veut d’abord montrer l’exemple du point 2 : 11,447 → 26,378 s (S06 à S10, 14,93 s), du rayon qui bute sur le cadre jusqu’à la 5e pastille qui sort de la tête de l’IA."
+  },
+  "risks": [
+    "Deux têtes IA à l’écran en S08-S09 : la différence (dedans / dehors, sceau / foule grise, pilule « IA » / « IA grand public ») doit se lire au premier coup d’œil. Repli : IA grand public à 70 % d’opacité, ou GLOBE.png glissé sous sa tête comme socle.",
+    "Planche à bascule (S15-S16) : dans la référence, la bascule signifie « injuste » ; ici elle doit se lire « le poids est de son côté ». À valider au prochain test muet. Repli : planche à plat, les jetons s’empilent seulement du côté du conseiller et l’IA garde ses pastilles de l’autre côté.",
+    "Curseur de S08 : il doit se lire comme le geste du conseiller (même encre) et non comme une action de l’IA ou un tiers. Repli : la figurine du conseiller attrape elle-même le mail, depuis l’extérieur de la fenêtre.",
+    "Brouillon non relu de S17 : il pourrait encore faire croire qu’une erreur subsiste. Garde-fous : pointillés de l’IA, ni tampon ni pastille, brisé avant le client sur le stylo levé. Repli : supprimer le brouillon et garder seulement la relecture synchronisée avec le secteur et la coche au-dessus de la table.",
+    "Cadre de S05 : il doit laisser un coin libre à l’IA (x 120 → 760, y 420 → 1120) sans entrer dans la colonne droite, avec les cartes grises dehors à x 860. À valider en maquette.",
+    "Mise en page serrée de S08-S09 : fenêtre réduite (x 80 → 600), briques à cheval sur le mur (x 480 → 720), IA grand public et sa foule (x 720 → 920). Vérifier qu’aucun élément n’entre dans les 140 px de droite ; repli : foule réduite à 4 figurines.",
+    "Densité de S12-S13 (page, 5 cases, 4 documents, 4 fils, dates) : tester à taille téléphone. Documents compacts (150×80), 120 px au moins entre la page et la colonne, apparitions décalées ; les étiquettes-sources se forment dès le premier temps fort de S13, avant le « ? », pour ne jamais faire deux mouvements à la fois. Bulle de 260 px et étiquettes de 110 px pour qu’elles ne se touchent pas.",
+    "Lisibilité de la fiche : texte de 32 px, jamais affiché sous l’échelle 0,85 tant qu’il doit être lu (S11-S14) ; lignes courtes (22 caractères au plus). Le sens doit aussi passer sans lecture : puce vide, rouge, fissure, fil, case vide, « ? », rature, tampon.",
+    "Calages des surcouches sur les PNG, à mesurer sur les boîtes de contenu : le secteur de 10 minutes sur l’ellipse du cadran de WTH-003-01 ; le « ? » dans le creux de WTH-003-06 sans toucher la loupe, et la queue de la bulle (en bas à gauche) pointée vers la tête du conseiller ; les figurines devant l’assise de WTH-003-08 (repli : debout à côté des fauteuils si elles semblent flotter).",
+    "PNG rendus pour fond noir : couper le halo par un alpha strict et vérifier les franges sombres et les reflets sarcelle sur ivoire (horloge, IA en deux exemplaires, bulle). Les fauteuils blancs ont besoin d’une ombre plus marquée (22 %).",
+    "Discipline du rouge : uniquement L5 de 29,896 à 39,672 s, la ligne rouge du brouillon (49,377-50,0 s) et les mots « fausse » et « erreur » des sous-titres. Le mur, les briques, le cadenas et l’IA grand public restent encre ou gris.",
+    "Fenêtres serrées : S04 (un saut et une chute de bloc toutes les 0,2 à 0,26 s : les chutes se chevauchent, c’est voulu), S08 (choc calé à 19,122 s), S11 (écriture à 3 caractères par image), S13 (6 temps forts en 3,6 s), S17 (fauteuils en 200 ms puis horloge 0,21 s plus tard, pour garder un seul PNG en mouvement à la fois).",
+    "Avant / Après (S18-S19) : la fiche disparaît sur « Avant » ; la pilule « Avant » et la pastille agrandie sur la pile disent que c’est une comparaison avec le début et non un retour en arrière.",
+    "Les débuts de mots de words.json (ElevenLabs) sont à vérifier une fois contre audio.wav avant le calage à l’image (la référence mesure +10 ms entre mot et image).",
+    "Extrait autonome (26,378 → 41,309 s) : reconstituer à sa première image l’état de fin de S10 (fenêtre large verrouillée et scellée avec la pile et l’IA, page à 5 puces dont la dernière vide, conseiller dehors en bas à droite, marqueur sur « 2 »), sans animation d’entrée."
+  ],
+  "test_sans_son": {
+    "message_reconstruit": "Un conseiller a rendez-vous à 9 h avec un client dont les informations sont dispersées dans plusieurs documents, mêlés à ceux d’autres clients ; les chercher à la main lui prend presque tout son temps de préparation. La vidéo propose une méthode en trois étapes. D’abord, le conseiller choisit lui-même les seuls documents de ce client et les confie à une IA autorisée par le cabinet, sans jamais les envoyer vers un service extérieur, à cause du RGPD et de la politique interne. Ensuite, il demande à l’IA une fiche de synthèse : elle paraît impeccable, mais une de ses lignes peut être fausse (je n’aurais sans doute pas compris, sans le son, que cette ligne a été inventée par l’IA). Enfin, il relie chaque ligne à son document source, transforme ce qui n’a pas de source en question pour le client, puis corrige et valide lui-même la fiche, car le conseil et la responsabilité restent les siens. Il arrive ainsi au rendez-vous avec une seule fiche fiable au lieu d’une pile de papiers, peut-être après une dizaine de minutes de relecture, mais je ne suis pas sûr de ce que mesure le secteur coloré de l’horloge.",
+    "bilan": "Le fil général passe sans le son : dossier dispersé, temps perdu, méthode en trois étapes, fiche reliée à ses sources, relecture humaine, Avant / Après. Le test relève quatre contresens : S03 (« l’IA a échoué »), S08 (« ne pas envoyer d’e-mail au client »), S13 (« le client a une question »), S15 (« l’IA modifie la fiche après validation »). Il relève aussi des flous : S04 (barre qui se remplit = progrès), S05-S07 (étapes, lumière découpée, coffre + câble), S10-S11 (origine de la ligne fausse, découverte de l’erreur), S16 (IA exclue), S17 (secteur de l’horloge, « ! » qui revient), S19 (coche du client). Les scènes déjà claires (S12, S14, S18, S20) ne reçoivent que des retouches.",
+    "changements": [
+      {"id": "S01", "lecture": "Un éclair de papiers qui volent (panique) ; trop d’événements en 1,2 s ; l’onglet resté seul passe inaperçu.", "changement": "Vignette complète dès l’image 0 (le client ne surgit plus, plus d’anneau sur le cadran) ; un seul geste : la chemise s’ouvre et les 4 documents glissent calmement vers 4 places bien séparées, 4 sources et non une explosion."},
+      {"id": "S02", "lecture": "Juste (l’IA range, l’humain valide), mais lu comme une solution déjà livrée.", "changement": "Les documents s’empilent un par un sous le faisceau, la coche est tenue 0,8 s ; c’est S03 qui dit « promesse » par le rembobinage."},
+      {"id": "S03", "lecture": "Contresens : « l’IA a échoué, la validation n’a pas tenu » ; les cartes « Autre client » sont du bruit.", "changement": "L’IA et la coche sortent d’abord, puis signe « ◀◀ » et vrai rembobinage : les documents refont leur trajet à l’envers. Les cartes grises portent une pilule grise « Client · 14 h », jumelle de la pastille du dossier."},
+      {"id": "S04", "lecture": "Une barre qui se remplit se lit comme un progrès ; le saut sur le mauvais dossier passe trop vite.", "changement": "La barre part pleine de cyan et fond ; chaque bloc de temps perdu tombe en gris sur le papier fouillé ; le saut sur la carte « Client · 14 h » finit par un recul."},
+      {"id": "S05", "lecture": "Trois cercles = étapes par convention seulement ; la lumière découpée par le cadre est trop subtile.", "changement": "Cercles numérotés 1-2-3. Le cadre enferme les 4 documents ET l’IA, qui apparaît à l’intérieur ; son cône est coupé net par le trait."},
+      {"id": "S06", "lecture": "Contresens possible : « l’IA a supprimé les autres dossiers » ; le choc du rayon sur le cadre est trop bref.", "changement": "Le choc dure 0,5 s (traits d’impact, bord qui se creuse, rayon qui recule) ; les cartes grises ne disparaissent plus, elles restent dehors, intactes."},
+      {"id": "S07", "lecture": "Coffre + IA à côté = archivage ; le câble fait penser à une recharge ; le sceau n’est qu’une coche de plus.", "changement": "Plus de coffre ni de câble : le cadre devient une fenêtre de logiciel (barre de titre à trois points) qui contient le dossier ET l’IA ; le sceau porte un pictogramme de bâtiment avant de s’ouvrir en « ✓ Cabinet »."},
+      {"id": "S08", "lecture": "Contresens : le globe = internet ou messagerie, « ne pas envoyer d’e-mail au client » ; on ne sait pas qui fait sortir le mail.", "changement": "L’IA grand public est une deuxième tête IA, dehors, sans sceau, entourée d’une foule grise ; un curseur encre (le geste du conseiller) traîne le mail vers elle ; c’est le mur de la fenêtre qui l’arrête."},
+      {"id": "S09", "lecture": "Le texte des briques porte tout ; les briques qui s’écartent font un mur fragile ; scène presque statique.", "changement": "Les briques tombent et s’encastrent dans le mur à l’endroit du choc, sans oscillation ; puis le cadenas ferme l’outil et l’IA grand public disparaît."},
+      {"id": "S10", "lecture": "On ne voit pas que la 5e pastille sort de la tête de l’IA, et elle finit en 4e position ; la carte de commande passe pour un document de plus.", "changement": "La commande est une page vide à 5 onglets posée par le conseiller. L’info inventée devient la 5e et dernière ligne : née seule, après une pause, de la tête de l’IA, avec une puce vide sans pictogramme."},
+      {"id": "S11", "lecture": "On voit qu’une ligne est fausse, pas pourquoi ; contresens possible : « l’IA signale elle-même ses erreurs ».", "changement": "La puce vide clignote (rien ne porte la ligne), la ligne casse là où rien ne la soutient, et la coche grise de l’IA reste en place : l’IA, elle, ne voit rien."},
+      {"id": "S12", "lecture": "Claire ; l’IA qui rentre dans le badge semble enfermée ou punie ; les dates passent pour une décoration.", "changement": "L’IA sort simplement par la gauche ; chaque date arrive avec un pictogramme de calendrier."},
+      {"id": "S13", "lecture": "Contresens : une bulle « ? » près du client = « le client a une question » ; la transformation paraît automatique ; deux mouvements se disputent l’attention.", "changement": "C’est le stylo du conseiller qui fait sortir le « ? » ; la bulle monte au-dessus de lui, queue tournée vers lui, face au client. Les étiquettes-sources se forment avant, au premier temps fort."},
+      {"id": "S14", "lecture": "Très lisible ; seul risque : « à demander » illisible sur téléphone.", "changement": "Plus de texte à écrire : « 5 ans » est barré et l’autocollant « ? » prend sa place (« Horizon : ? »)."},
+      {"id": "S15", "lecture": "Contresens : l’IA qui projette des rayons sur la fiche déjà validée semble la modifier après coup.", "changement": "Plus aucun faisceau vers la fiche. Une planche à bascule : l’IA pose ses 4 pastilles d’information sur son bout, le conseiller tient la fiche validée sur l’autre."},
+      {"id": "S16", "lecture": "La barre qui avait servi de mur RGPD fait lire « l’IA est exclue » ; le passage cercles → jetons ne se suit pas.", "changement": "Plus de barre. Les 3 cercles numérotés roulent jusqu’au conseiller, deviennent les jetons et font pencher la planche de son côté : le poids est le sien, l’IA reste là, plus légère."},
+      {"id": "S17", "lecture": "Que mesure le secteur coloré ? Le « ! » rouge fait croire qu’un problème subsiste ; on ne sait pas qui arrête l’erreur.", "changement": "Le secteur se remplit au rythme exact du stylo qui relit. L’erreur n’est plus un « ! » abstrait mais le brouillon non relu de l’IA (pointillés, ligne rouge), qui se brise sur le stylo levé du conseiller."},
+      {"id": "S18", "lecture": "Claire.", "changement": "Pastille agrandie sur la pile, pour reconnaître le dossier du début."},
+      {"id": "S19", "lecture": "La coche du client peut passer pour une approbation ou une signature.", "changement": "Le client répond à la question par une pastille qui remplit la puce vide de la ligne 5 : la question posée comble le trou."},
+      {"id": "S20", "lecture": "Claire ; un « Client · 9 h » qui devient bouton peut évoquer « prendre rendez-vous ».", "changement": "La pastille devient « S’abonner » avant de bouger ; le bouton est cliqué par le curseur de S08."}
+    ],
+    "lecture_visee": "Après révision, sous-titres masqués : un client à 9 h, un dossier en 4 documents ; on rembobine la promesse « l’IA range, l’humain valide » pour voir le vrai départ, où le temps du conseiller fond dans les papiers. Étape 1 : il enferme l’IA avec les seuls documents de ce client dans un logiciel scellé par le cabinet ; un document qu’on traîne vers une IA ouverte au public bute sur le mur des règles. Étape 2 : il pose une page vide, l’IA la remplit avec une info par document et une info sortie de sa tête ; la fiche a l’air parfaite, mais cette ligne-là casse et l’IA la coche quand même. Il relie chaque ligne à son document et à sa date, fait de la ligne sans preuve une question pour le client. Étape 3 : il relit, raye, tamponne ; le poids du conseil et de la responsabilité est de son côté. Ses 10 minutes de relecture laissent passer la bonne fiche et arrêtent le brouillon fautif ; au rendez-vous, une seule fiche, et le client répond à la question."
+  }
+}
