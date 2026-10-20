@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-20T19:49:02+00:00",
+  "updated_at": "2026-10-20T19:51:39+00:00",
   "checkpoints": {
     "v01_full_approved": {
       "state": "pending",
@@ -308,19 +308,26 @@
           "state": "pending"
         },
         "spec": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-20T19:51:39+00:00"
         },
         "render": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-20T19:51:39+00:00"
         },
         "review": {
-          "state": "pending"
+          "state": "fixed",
+          "updated_at": "2026-10-20T19:51:39+00:00"
         },
         "mute_verify": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-20T19:51:39+00:00",
+          "got": "8/9",
+          "critere": "oui"
         },
         "qa": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-20T19:51:39+00:00"
         },
         "delivered": {
           "state": "pending"
