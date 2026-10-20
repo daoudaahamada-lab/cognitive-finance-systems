@@ -53,6 +53,11 @@ principale et percevoir ce qui change ». Ses 7 règles, à relire avant toute d
    découvert au rendu coûte une heure ; ici, une seconde. Détails : `references/environment.md`.
 4. **Regarde les points de validation** (section du même nom). S'il en manque un, dis-le à l'utilisateur et avance
    sur ce qui n'en dépend pas.
+   - Demande explicite d'une vidéo V02 à V15 (« /wth-video V06 ») alors que `status.py next` affiche « ⏸ attend la
+     validation de V01 » : rappelle le point de validation et propose de finir V01 d'abord (`status.py next V01`).
+     En attendant sa réponse, fais seulement ce qui n'en dépend pas (`make voice`, `preflight.py`). Lance le
+     storyboard ou le film de V06 seulement s'il confirme, et note-le :
+     `status.py checkpoint v01_full_approved pending --note "V06 lancée avant V01 à la demande de l'utilisateur (<date>)"`.
 
 ## Les étapes
 
@@ -74,7 +79,8 @@ premier, une fois pour toutes. Elle coûte des crédits ElevenLabs : environ 3 5
 - fais confirmer le solde par l'utilisateur avant chaque lot ;
 - une seule génération à la fois ;
 - jamais de nouvel appel pour « réessayer » ;
-- garde une prise de 59,4 s au plus (ou la durée approuvée pour la vidéo, V03 : 62 s) ;
+- garde une prise de 59,4 s au plus, ou de la durée de QA approuvée pour la vidéo moins 0,6 s (V03 : QA à 62 s,
+  soit une prise ≤ 61,4 s) ;
 - si aucune prise ne tient, demande à l'utilisateur plutôt que de régénérer.
 
 Toute la recette, pas à pas : `references/voice-elevenlabs-mcp.md`.
@@ -107,21 +113,23 @@ Compte 4 h 30 à 7 h. Lance-le depuis la session principale : il appelle lui-mê
 workflow lancé par un autre ne pourrait pas faire. Lis d'abord `.claude/skills/wth-story-build/SKILL.md`, et
 `.claude/skills/wth-story-build/references/troubleshooting.md` à la première erreur.
 
-Reporte le résultat dans le suivi. Son objet `status` a les clés du suivi :
+Reporte le résultat dans le suivi : son objet `status` se reporte tel quel. Il ne contient que les étapes que le
+workflow a réellement faites (avec `from: "verify"` : `qa` et `mute_verify`), et soit `open_issues` (remplace la
+liste), soit `open_issues_add` (l'allonge : une vérification seule ne fait pas oublier les problèmes de la revue) :
 ```bash
 python3 .claude/skills/wth-video/scripts/status.py merge V07 - <<'EOF'
 {"spec": "done", "render": "done", "review": "fixed", "mute_verify": {"state": "done", "got": "8/9", "critere": "oui"},
  "qa": "done", "open_issues": []}
 EOF
 ```
-`ok: false` : voir « Quand ça casse ». Pour une retouche (une scène, un temps fort, un défaut de QA), travaille à la
-main avec le skill `wth-story-build`, sans relancer tout le workflow.
+`ok: false` : voir « Quand ça casse ». Pour une retouche (une scène, un temps fort, un défaut de QA), suis la liste
+« Retouche d'une scène » du skill `wth-story-build`, sans relancer tout le workflow.
 
 ### Après le film : commit et ménage
 
 1. Commite les sources (« Politique de commit ») et pousse.
 2. `make clean-tmp ID=V07` (garde les planches de revue), puis
-   `rm -f build/V07/story/stills/*.png build/V07/story/muet_*.mp4`. Le disque doit rester au-dessus de 4 Go.
+   `rm -rf build/V07/story/stills && rm -f build/V07/story/muet_*.mp4`. Le disque doit rester au-dessus de 4 Go.
 3. Dis à l'utilisateur, en français :
    - le chemin du film et de sa version sans sous-titres ;
    - le résultat de la QA ;
@@ -226,7 +234,7 @@ La machine a 4 processeurs et un disque limité : chaque règle évite une panne
 
 | Problème | Que faire |
 |---|---|
-| Aucune prise de voix sous la limite | Ne régénère pas. Demande à l'utilisateur : accélérer (≤ ×1,04), accepter une durée plus longue pour cette vidéo, ou raccourcir le script. `voice blocked`. |
+| Aucune prise de voix sous la limite | Ne régénère pas. `voice blocked`, puis demande à l'utilisateur : accélérer (≤ ×1,04, `tempo_take.py`), accepter une durée plus longue pour cette vidéo (`config.yaml`), ou raccourcir le script. Commandes : `references/voice-elevenlabs-mcp.md`, étape 4. |
 | Erreur de quota ElevenLabs | Arrête le lot de voix ; `voice blocked` ; demande à l'utilisateur. |
 | Transcription Scribe en désaccord (> 3 mots, nombre mal lu) | Transcris la prise suivante (`pick_take.py` donne l'ordre). |
 | Agent `null` ou workflow interrompu | Relance avec `resumeFromRunId` : les agents finis ne sont pas refaits. |
@@ -238,7 +246,7 @@ La machine a 4 processeurs et un disque limité : chaque règle évite une panne
 | QA en échec | Corrige la cause, relance `make qa`. Ne desserre jamais un seuil : une durée plus longue demande l'accord de l'utilisateur. |
 | Disque sous 4 Go | `preflight.py` lance `make clean-tmp` ; puis ménage des vidéos finies (`references/environment.md`). |
 | `batch.wf.js` s'arrête en « checkpoint » | V01 n'est pas validée : envoie-la, attends l'accord. |
-| Session perdue | `status.py show` et `status.py next` : le suivi et les fichiers commités suffisent pour reprendre. |
+| Session perdue | `status.py show` et `status.py next` : le suivi et les fichiers commités suffisent pour reprendre. `next` signale une voix déjà en cache que le suivi n'a pas enregistrée : ne la régénère pas. |
 
 ## Points de validation avec l'utilisateur
 
@@ -266,6 +274,7 @@ Ce sont les seuls moments où tu attends sa réponse. Note chacun dans le suivi 
 | `scripts/preflight.py` | au démarrage et avant chaque étape lourde |
 | `scripts/status.py` | à chaque étape franchie (`set`, `merge`, `checkpoint`), et pour `show` / `next` |
 | `scripts/pick_take.py` | après le téléchargement des prises, puis après la transcription |
+| `scripts/tempo_take.py` | aucune prise sous la limite, et l'utilisateur choisit d'accélérer (option (a)) |
 | `scripts/drive_decode.py` | après chaque `download_file_content` d'une illustration |
 | `workflows/batch.wf.js` | lot sans surveillance de plusieurs vidéos dont la voix est prête |
 | `.claude/skills/wth-storyboard/SKILL.md` | avant l'étape 2 |

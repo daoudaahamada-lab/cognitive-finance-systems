@@ -134,7 +134,7 @@ Remotion `Story`, `motion/src/story/`) dont les pistes sont posées image par im
   | `make storyboard-check ID=V07` | contrôle du storyboard : champs, au moins un temps fort par scène, scènes contiguës de 0 à la fin du dernier mot, débuts de scène et temps forts sur un début de mot (± 30 ms), textes des scènes = texte du script (NFC), idées-clés |
   | `make story-props ID=V07` | props du film sans rendu ; `FROM=… TO=…` pour un extrait ; `ALLOW_PARTIAL=1` admet une mise en scène incomplète |
   | `make story-staging ID=V07` | le film entier est-il rendable ? (mise en scène complète : code 0 ; sinon 1 et la raison ; sans props ni rendu) |
-  | `make story-stills ID=V07 FRAMES="0 120"` | images fixes PNG (numéros d'image de la vidéo rendue) → `build/V07/story/stills/` |
+  | `make story-stills ID=V07 FRAMES="0 120"` | images fixes PNG (numéros d'image de la vidéo rendue) → `build/V07/story/stills/` (`WTH_PARTS=p2` : une partie seule, props `props_film_partiel_p2*.json` et images dans `stills/p2/`) |
   | `make story ID=V07` | film entier (avec et sans sous-titres) puis QA |
   | `make story ID=V07 ALLOW_PARTIAL=1` | film incomplet, rendu de travail → `build/V07/story/film_partiel.mp4` (+ `_sans_sous_titres`), sans QA |
   | `make story ID=V01 FROM=25.612 TO=41.309` | extrait → `output/extraits/WTH-V01_extrait_S11-S14.mp4` (pas de QA) |

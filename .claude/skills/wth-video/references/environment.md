@@ -78,8 +78,11 @@ que celles-là.
 | WTH-004 (01-09) | V08 |
 | 20 génériques (AI, BELL, BOOK, BUOY, CRADLE, CRYSTAL, FINGERPRINT, GEAR, GLOBE, HEART, PRINTER, RINGS, SHOES, SUITCASE, TAG, TARGET, TOKEN, TREE, TRUCK, WAVE) | toutes |
 
-Les autres vidéos n'ont pas de jeu dédié : génériques et code seulement, et c'est la norme de la référence. Des jeux
-WTH-005 et WTH-007 existent aussi, mais aucune des 15 vidéos n'a ces carrousels pour source.
+Les autres vidéos n'ont pas de jeu dédié : génériques et code seulement, et c'est la norme de la référence. Des
+carrousels WTH-005 et WTH-007 existent sur le Drive, mais **ils ne sont pas au manifeste** : leurs identifiants Drive
+sont inconnus, et la procédure ci-dessous ne peut pas les télécharger. Aucune des 15 vidéos ne les a pour source. Une
+nouvelle vidéo qui en aurait besoin : cherche les fichiers avec `search_files` du connecteur Drive, ajoute leurs
+lignes (`fichier`, `drive_id`, `octets`) à `data/illustrations_manifest.tsv`, puis télécharge-les.
 
 Téléchargement d'un fichier :
 1. Appelle `download_file_content` du connecteur Google Drive avec `fileId` = `drive_id` du manifeste.
@@ -100,7 +103,7 @@ Téléchargement d'un fichier :
 |---|---|---|
 | après chaque rendu | `make clean-tmp` | dossiers temporaires de Remotion (bundles, profils Chrome), supprimés en tenant le verrou de rendu |
 | vidéo terminée | `make clean-tmp ID=Vxx` | images de travail de revue de Vxx (bandes, images téléphone, images extraites) ; les planches restent |
-| vidéo terminée | `rm -f build/Vxx/story/stills/*.png build/Vxx/story/muet_*.mp4` | images fixes et vidéos muettes intermédiaires |
+| vidéo terminée | `rm -rf build/Vxx/story/stills && rm -f build/Vxx/story/muet_*.mp4` | images fixes (y compris celles des parties, `stills/p1/`…) et vidéos muettes intermédiaires |
 | voix validée et verrouillée | `rm -f build/Vxx/voice/take-*.mp3` | prises non retenues (la voix retenue est dans `cache/tts`) |
 
 Ne supprime pas `output/WTH-Vxx.mp4`, `build/Vxx/story/film_sans_sous_titres.mp4`, `build/Vxx/story_render.json`

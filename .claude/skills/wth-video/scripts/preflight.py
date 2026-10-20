@@ -129,7 +129,7 @@ def check_env(root, a):
         r.add(OK, "disque", f"{gb:.1f} Go libres (seuil {MIN_FREE_GB:g} Go)")
     else:
         r.add(FAIL, "disque", f"{gb:.1f} Go libres < {MIN_FREE_GB:g} Go",
-              "make clean-tmp ID=<vidéo terminée> ; supprime build/Vxx/review/*/frames, build/Vxx/story/stills/*.png "
+              "make clean-tmp ID=<vidéo terminée> ; supprime build/Vxx/review/*/frames, build/Vxx/story/stills/ "
               "et muet_*.mp4 des vidéos finies (references/environment.md)")
     holder = lock_holder(root / "build" / ".render.lock")
     if holder:

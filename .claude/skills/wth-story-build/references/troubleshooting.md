@@ -118,7 +118,7 @@ Chaque contrôle et son remède : `qa-checklist.md`. Les échecs les plus fréqu
 - **Disque.** `df -h .` doit montrer au moins 4 Go libres. Sinon, dans cet ordre :
   1. `make clean-tmp` : dossiers temporaires de Remotion, sous le verrou ;
   2. `make clean-tmp ID=<vidéo terminée>` : bandes, images téléphone, images extraites ;
-  3. `rm -f build/Vxx/story/stills/*.png build/Vxx/story/muet_*.mp4` : images fixes, rendus muets intermédiaires ;
+  3. `rm -rf build/Vxx/story/stills && rm -f build/Vxx/story/muet_*.mp4` : images fixes (parties comprises), rendus muets intermédiaires ;
   4. anciennes archives `build/Vxx/archive/` d'une vidéo livrée.
 
   Ne supprime jamais `output/*.mp4`, `cache/` ni `assets/`.
@@ -145,4 +145,4 @@ Chaque contrôle et son remède : `qa-checklist.md`. Les échecs les plus fréqu
 | Le fil part d'un espace vide | ancre du fil hors du texte | Ancre-le sur la valeur (`a: {id: rangée, at: point de la valeur}`). |
 | Texte illisible sur téléphone | corps < 32 px à l'échelle 1, ou fiche trop réduite | Agrandis ; enlève des éléments plutôt que de réduire. |
 | Bas de l'image vide | composition trop haute | Descends l'action jusqu'à y ≈ 1250 (ligne de sol vers 1230). |
-| Extrait validé de V01 modifié après une retouche du code partagé | défaut d'un type existant changé | Rends le nouveau comportement optionnel ; rends l'extrait (`make story ID=V01 FROM=25.612 TO=41.309`) et compare-le à `build/V01/baseline/` (PSNR ≥ 45 dB par image). |
+| Extrait validé de V01 modifié après une retouche du code partagé | défaut d'un type existant changé | Rends le nouveau comportement optionnel ; compare avant / après (démo du kit et extrait V01, PSNR ≥ 45 dB par image) : commandes dans SKILL.md, « Ajouter une entité », point 7. |

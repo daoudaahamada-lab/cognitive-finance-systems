@@ -632,4 +632,5 @@ Pour changer une valeur, la modifier dans geometry.json, puis lancer `python3 -m
 `GEOM` identique côté Python) et `npx tsc --noEmit -p .` dans motion/.
 
 **Attention :** une valeur de FIGURE, PEN, STAMP_HANDLE, TAG, DOC_DISC, TICK ou MARKER change le rendu de l'extrait V01
-approuvé. Toute modification doit repasser la régression PSNR ≥ 45 dB.
+approuvé. Toute modification doit repasser la régression avant / après (PSNR ≥ 45 dB par image ; commandes : SKILL.md,
+« Ajouter une entité », point 7).

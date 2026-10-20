@@ -16,8 +16,10 @@ build/Vxx/story/props_film.json, props_film_nocap.json, muet_film*.mp4, film_san
 (un output/WTH-Vxx.mp4 d'un autre rendu est d'abord rangé dans build/Vxx/archive/), fiche build/Vxx/story_render.json
 (empreintes props, storyboard, mise en scène, MP4) pour la QA. Film incomplet (--allow-partial, rendu de travail) :
 tout reste dans build/Vxx/story/ (props_film_partiel*.json, film_partiel.mp4, film_partiel_sans_sous_titres.mp4,
-balise wth_partial=1) ; output/WTH-Vxx.mp4 et story_render.json ne changent pas. Un seul rendu Remotion à la fois :
-verrou build/.render.lock (motion.run_locked).
+balise wth_partial=1) ; output/WTH-Vxx.mp4 et story_render.json ne changent pas. Avec WTH_PARTS=p2 (une partie
+construite seule), sorties partielles suffixées (props_film_partiel_p2*.json) et images fixes dans stills/p2/ : deux
+auteurs en parallèle ne se marchent pas dessus. Un seul rendu Remotion à la fois : verrou build/.render.lock
+(motion.run_locked).
 
 Numéros d'image : image de l'extrait # = round(t × 30) − meta.window_frames[0] (la fenêtre s'ouvre juste avant
 l'attaque audible du premier mot, pas forcément à round(from × 30)) ; le tableau des temps forts est imprimé dans les
@@ -43,6 +45,7 @@ import importlib.util
 import io
 import json
 import math
+import os
 import re
 import shutil
 import subprocess
@@ -750,12 +753,20 @@ def outputs(video_id, label, full):
     }
 
 
+def parts_tag():
+    """WTH_PARTS=p2 (une partie de la mise en scène construite seule) -> « p2 » ; « » sans WTH_PARTS. Suffixe des
+    sorties partielles et sous-dossier des images fixes : deux auteurs qui écrivent chacun leur partie en même temps
+    ne partagent ni leurs props ni leurs images."""
+    parts = [re.sub(r"[^A-Za-z0-9_-]", "", x) for x in os.environ.get("WTH_PARTS", "").split(",")]
+    return "-".join(x for x in parts if x)
+
+
 def partial_outputs(video_id):
     """Fichiers d'un film entier INCOMPLET (--allow-partial, rendu de travail) : tous dans build/Vxx/story/
     (film_partiel.mp4, film_partiel_sans_sous_titres.mp4), jamais output/WTH-Vxx.mp4 ni la fiche story_render.json :
-    le film livré et sa QA restent ceux d'un film complet."""
+    le film livré et sa QA restent ceux d'un film complet. Avec WTH_PARTS=p2 : film_partiel_p2*, props_film_partiel_p2*."""
     d = build_dir(video_id) / "story"
-    tag = "film_partiel"
+    tag = "film_partiel" + (f"_{parts_tag()}" if parts_tag() else "")
     return {
         "props": {True: d / f"props_{tag}.json", False: d / f"props_{tag}_nocap.json"},
         "silent": {True: d / f"muet_{tag}.mp4", False: d / f"muet_{tag}_nocap.mp4"},
@@ -992,6 +1003,8 @@ def contact_sheets(mp4, out_dir, f0, fps, step=5, cols=10, thumb_w=180):
 def stills(video_id, t_from, t_to, frames, captions=True, allow_partial=False):
     props_path, _ = build_props(video_id, t_from, t_to, captions, allow_partial)
     out = build_dir(video_id) / "story" / "stills"
+    if parts_tag():                                  # WTH_PARTS=p2 -> build/Vxx/story/stills/p2/
+        out = out / parts_tag()
     proc = run_locked(["node", "scripts/story_stills.mjs", str(props_path), str(out), *map(str, frames)],
                       f"images fixes {video_id}", env=remotion_env())
     if proc.returncode != 0:

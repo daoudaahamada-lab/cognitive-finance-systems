@@ -73,7 +73,8 @@ Workflow({scriptPath: "<dépôt>/.claude/skills/wth-storyboard/workflows/storybo
           args: {id: "V05", root: "<dépôt>/wth-videos"}})
 ```
 
-`<dépôt>` = chemin absolu de la racine (ici `/home/user/cognitive-finance-systems`). Options de `args` :
+`<dépôt>` = chemin absolu de la racine (ici `/home/user/cognitive-finance-systems`). Sans l'outil Workflow : section
+« Sans l'outil Workflow » plus bas. Options de `args` :
 
 | Option | Défaut | Emploi |
 |---|---|---|
@@ -118,6 +119,24 @@ Pour un temps décalé, un mot mal recopié ou un détail d'aspect, un workflow 
 3. Monter la version (« v2 · retouche S07 ») et ajouter une entrée à `revisions`.
 4. Relancer les deux contrôles (section suivante).
 
+**Scène d'un film déjà rendu** (« refais S11 de V01 », « corrige S04 de V02 ») : suis la liste « Retouche d'une
+scène » du skill `wth-story-build`. Elle dit quand passer d'abord par ici (ce que la scène montre ou veut dire
+change) et quand seule la mise en scène change (temps, place, collision).
+
+## Sans l'outil Workflow (storyboard complet à la main)
+
+Si l'outil Workflow n'est pas disponible, ou si l'utilisateur n'en veut pas, fais la méthode A en réduit. Elle est
+moins sûre (un seul angle), donc le test muet compte d'autant plus :
+1. `prep.py Vxx`, puis lis `prep.json`, `words.tsv` et regarde `pngs.jpg`.
+2. Lis `references/brief-utilisateur.md`, `lessons-v01.md`, `visual-verbs.md`, `storyboard-schema.md` et
+   `exemple-V01.md`.
+3. Écris UN brouillon complet (`Vxx.json` et `.md`), règle par règle, en partant de l'objet du fil.
+4. Test muet : lance un sous-agent qui ne lit QUE les champs visibles de chaque scène (`etat_initial`, `action`,
+   `resultat`, `transition`, les `evenement`), sans `texte` ni `idees_cles` ni script. Il raconte ce qu'il comprend
+   et ce qui change. Note chaque idée-clé GOT / PARTIAL / MISSED d'après son récit.
+5. Révise les scènes mal lues et remplis `test_sans_son`.
+6. `make storyboard-check ID=Vxx` et `soft_check.py Vxx`, puis la relecture de la section « Contrôles ».
+
 ## Contrôles
 
 **Durs** — `make storyboard-check ID=Vxx` (= `python3 -m pipeline.story Vxx --check`, code 1 si refusé) : champs
@@ -149,10 +168,11 @@ idée-clé principale, plus de 3 entités nouvelles, dernière scène qui n'est 
    ```bash
    python3 .claude/skills/wth-video/scripts/status.py set Vxx storyboard done
    ```
-3. Commit et push des deux fichiers seulement, message « Vxx : storyboard vN (méthode Story) » avec les lignes
+3. Commit et push des deux fichiers et du suivi, message « Vxx : storyboard vN (méthode Story) » avec les lignes
    d'attribution de la session ; jamais `build/` ni de MP4 :
    ```bash
    git add wth-videos/scripts/storyboards/Vxx.json wth-videos/scripts/storyboards/Vxx.md
+   git add wth-videos/scripts/production_status.json        # si status.py a été lancé à l'étape 2
    ```
 4. Résumé à l'utilisateur, en français, en 3 lignes (le fil, l'idée visuelle de chaque point, ce que le test muet a
    changé) avec le chemin du `.md`. Il peut le lire avant la mise en scène : c'est le moment le moins cher pour changer

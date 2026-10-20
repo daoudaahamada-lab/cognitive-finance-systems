@@ -36,6 +36,8 @@ const NOCAP = `${ROOT}/build/${ID}/story/film_sans_sous_titres.mp4`
 const REV = `${ROOT}/build/${ID}/review/film`
 const REV_NOCAP = `${ROOT}/build/${ID}/review/film_nocap`
 const MUTE_VERIFY = `${SKILL}/workflows/mute-verify.wf.js`
+// The approved V01 sheet still shows six defects that the excerpt's mute check found and that became rules since.
+const SHEET_DEFECTS = `That sheet shows six defects that are rules now; do NOT copy them: (1) AI and human ticks of the same shape, differing only by colour (#125 grey, #438 cyan): the AI's tick takes variant "ai"; (2) line L5 breaks on « fausse » with no one's gesture (#146): the advisor's pen must cause it; (3) ambiguous dates « 09/2025 », « 03/2026 » (#258 on): write « sept. 2025 »; (4) lines greyed to about 50 % in S13 (#300, #362), which read as "rejected"; (5) VALIDÉ stamped while the « ? » is still open (#469): mark it « à poser au RDV »; (6) the bottom 40 % of the frame left empty: use it down to y≈1250.`
 
 const CTX = `
 CONTEXT
@@ -52,7 +54,7 @@ CONTEXT
   - reviewing: references/review-lenses.md;
   - QA: references/qa-checklist.md;
   - any error: references/troubleshooting.md.
-  The visual target is ${SKILL}/assets/v01_reference_sheet.jpg (the approved V01 excerpt).
+  The visual target is ${SKILL}/assets/v01_reference_sheet.jpg (the approved V01 excerpt): match its legibility, density and finish, NOT its details. ${SHEET_DEFECTS}
 - Hard rules:
   - Renders: only one Remotion render at a time on this 4-CPU machine. Render ONLY through make (story, story-stills, review-sheets) or "python3 -m pipeline.story", which wait on build/.render.lock. Never call npx remotion yourself and never delete the lock file.
   - Disk: never extract full-resolution frames of the film; use the outputs of make review-sheets. An extra frame, when a detail really needs it, goes to build/${ID}/review/frames/ as JPEG, at most 6 per agent. Run "make clean-tmp" after renders.
@@ -224,7 +226,7 @@ const CRITICS = [
 - the phone sheets ${REV}/phone/phone_*.jpg: re-encoded at 2 Mb/s and 360 px wide, this is what viewers see;
 - the half-resolution sheets ${REV}/sheets/*.jpg;
 - at most 6 full-resolution frames, extracted into build/${ID}/review/frames/visual-brand/ as JPEG, only where a detail must be checked.
-Compare with the approved level, ${SKILL}/assets/v01_reference_sheet.jpg. Check:
+Compare with the approved level, ${SKILL}/assets/v01_reference_sheet.jpg: match its legibility and density, NOT its six superseded defects (see CONTEXT); report any of them you find in this film as a finding. Check:
 - legibility at phone size (text at least 32 px at scale 1, short lines), typographic hierarchy, French spelling and typography;
 - colour discipline: ivory, ink, a single cyan accent, deep cyan for the human; red only for the alert element; no 50 % greyed lines that read as "rejected";
 - simplicity: 1-4 active elements and about 8 primitives at most at phone size; calm and premium, like the reference;
@@ -324,8 +326,7 @@ Check, in ${ROOT}:
    - none of your scenes listed under "temps forts du storyboard sans événement" or "scènes sans aucun temps fort";
    - no "attention (kit)" line from your part, except "(saut)" pin warnings, which are expected in an isolated run;
    - no frame under "temps forts hors début de mot".
-2. Run 'WTH_PARTS=${p.name} make story-stills ID=${ID} ALLOW_PARTIAL=1 FRAMES="..."' for your scene starts + 2, each beat's result (beat frame + 12) and your last frame, at most 16 frames per call. Read every PNG in build/${ID}/story/stills/. Fix overlaps, illegible text, elements outside the safe area, more than one main action at a time, and an empty bottom of the frame. Do at most 3 still passes.
-   Two authors share the props file. If a still clearly shows another part's frames, re-run it.
+2. Run 'WTH_PARTS=${p.name} make story-stills ID=${ID} ALLOW_PARTIAL=1 FRAMES="..."' for your scene starts + 2, each beat's result (beat frame + 12) and your last frame, at most 16 frames per call. With WTH_PARTS your props (build/${ID}/story/props_film_partiel_${p.name}*.json) and stills are your own: read only the PNGs of the frames you asked for, in build/${ID}/story/stills/${p.name}/ (sNNNN.png). Fix overlaps, illegible text, elements outside the safe area, more than one main action at a time, and an empty bottom of the frame. Do at most 3 still passes.
 3. If another part breaks a full build while you work, it is not yours: keep using WTH_PARTS.
 Report what you implemented, scene by scene.`
 }
@@ -481,7 +482,7 @@ if (FROM === 'start') {
   if (!cast || !cast.ok) {
     const problems = cast ? cast.problems : ['cast agent failed']
     log(`${ID}: not ready for staging: ${problems.join('; ').slice(0, 300)}`)
-    return { id: ID, ok: false, stage: 'prepare', problems, status: { spec: 'pending', render: 'pending', review: 'pending', mute_verify: 'pending', qa: 'pending' } }
+    return { id: ID, ok: false, stage: 'prepare', problems, status: {} }   // nothing written: the status stays as it was
   }
   log(`${ID}: ${cast.parts.length} parts, ${cast.cast_ids.length} cast entities, ${cast.new_entities.length} new entity types`)
   if (cast.new_entities.length) {
@@ -506,7 +507,7 @@ if (FROM === 'start') {
   phase('Integrate')
   build = await safe(agent(inspectPrompt(), { label: 'inspect', phase: 'Integrate', schema: BUILD_REPORT }))
   if (!build || !build.ok) {
-    return { id: ID, ok: false, stage: 'inspect', build, status: { spec: 'pending', render: 'pending', review: 'pending', mute_verify: 'pending', qa: 'pending' } }
+    return { id: ID, ok: false, stage: 'inspect', build, status: { render: 'pending' } }   // no rendered film to review
   }
 }
 
@@ -539,7 +540,10 @@ if (FROM !== 'verify') {
 phase('Verify')
 let qa = await safe(agent(qaPrompt(), { label: 'qa', phase: 'Verify', schema: QA_REPORT }))
 let mv = VERIFY ? await runMuteVerify() : null
-if (mv && !mv.pass) {
+// mute-verify returns {ran: false, problem} when it could not score (no sheets, no idees_cles, evaluator failed):
+// that is not a failed check, and a blind fix round would change the film for nothing.
+if (mv && !mv.ran) log(`${ID}: mute check did not run: ${mv.problem || 'unknown reason'}`)
+if (mv && mv.ran && !mv.pass) {
   phase('Fix')
   const fixed = await safe(agent(muteFixPrompt(mv), { label: 'fix-mute', phase: 'Fix', schema: BUILD_REPORT }))
   if (fixed) build = fixed
@@ -554,18 +558,32 @@ const openIssues = [
   ...unfixed,
   ...((last && last.serious.length && !(build && build.fixes)) ? last.serious.map((f) => `${f.lens}: ${f.problem}`) : []),
   ...(qa && !qa.ok ? qa.failed.map((c) => `QA: ${c}`) : []),
-  ...(mv && !mv.pass ? (mv.points_faibles || []).map((p) => `sans son : ${p}`) : []),
+  ...(mv && mv.ran && !mv.pass ? (mv.points_faibles || []).map((p) => `sans son : ${p}`) : []),
+  ...(mv && !mv.ran ? [`sans son : contrôle non fait (${mv.problem || 'raison inconnue'}) ; relancer mute-verify.wf.js`] : []),
   ...((build && build.known_issues) || []),
 ]
 const qaState = qa ? (qa.ok ? 'done' : 'fail') : 'pending'
-const mvState = mv ? (mv.pass ? 'done' : 'fail') : 'pending'
-const reviewState = !last ? (FROM === 'verify' ? 'done' : 'pending') : last.serious.length === 0 ? 'done' : unfixed.length ? 'open' : 'fixed'
+const mvState = mv && mv.ran ? (mv.pass ? 'done' : 'fail') : 'pending'
+const reviewState = !last ? 'pending' : last.serious.length === 0 ? 'done' : unfixed.length ? 'open' : 'fixed'
 // from "verify": the film was rendered earlier; QA ("Rendu Story à jour") checks that it matches the current sources.
 const rendered = FROM === 'verify' || !!(build && build.ok)
+// Status to merge as is (status.py merge): only the stages this run actually did. A run from "verify" leaves spec,
+// render and review as they were and APPENDS its issues (open_issues_add), so the review's open issues survive.
+const status = {}
+if (FROM === 'start') status.spec = 'done'
+if (FROM !== 'verify') {
+  status.render = rendered ? 'done' : 'fail'
+  status.review = reviewState
+}
+status.qa = qaState
+if (mv && mv.ran) status.mute_verify = { state: mvState, got: `${mv.got}/${mv.total}`, critere: mv.critere_oui ? 'oui' : 'non' }
+else if (FROM !== 'verify') status.mute_verify = 'pending'   // a new render voids an earlier mute check
+if (FROM === 'verify') status.open_issues_add = openIssues
+else status.open_issues = openIssues
 return {
   id: ID,
   ok: rendered && qaState === 'done' && (mvState === 'done' || (!VERIFY && mvState === 'pending')),
-  status: { spec: 'done', render: rendered ? 'done' : 'fail', review: reviewState, mute_verify: mvState, qa: qaState },
+  status,
   outputs: { mp4: OUT, nocap: NOCAP, review: REV, review_nocap: REV_NOCAP },
   parts: partReports.map((r) => ({ part: r.part, ok: r.ok, issues: r.known_issues })),
   rounds: rounds.map((r) => ({ round: r.round, idees_got: r.idees_got, verdicts: r.verdicts, serious: r.serious.length, minors: r.minors.length, mute_message: r.mute_message })),

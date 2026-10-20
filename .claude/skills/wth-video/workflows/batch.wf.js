@@ -163,7 +163,7 @@ ${STATUS} merge ${id} - <<'EOF'
 ${JSON.stringify(update)}
 EOF
    Then run "${STATUS} show ${id}" and check the result.
-2. ${opts.clean ? `Clean up in ${ROOT}: "make clean-tmp ID=${id}" (keeps the review sheets)${opts.finished ? `, then "rm -f build/${id}/story/stills/*.png build/${id}/story/muet_*.mp4"` : ''}; report "df -h ." free space.` : 'No clean-up in this step.'}
+2. ${opts.clean ? `Clean up in ${ROOT}: "make clean-tmp ID=${id}" (keeps the review sheets)${opts.finished ? `, then "rm -rf build/${id}/story/stills && rm -f build/${id}/story/muet_*.mp4"` : ''}; report "df -h ." free space.` : 'No clean-up in this step.'}
 ${commit}
 Report what you did.`
 }
@@ -360,16 +360,20 @@ for (let i = 0; i < queue.length; i++) {
       critere: mv.critere_oui ? 'oui' : 'non',
       note: mv.pass ? (firstMv ? 'réussi après un tour de correction ciblé' : '') : `sous le seuil après ${firstMv ? 'un tour de correction' : 'le premier contrôle'} : à remonter à l’utilisateur`,
     }
-  } else if (!build.skipped && build.status) {
-    update.mute_verify = 'pending'
+  } else if (!build.skipped && build.status && build.status.mute_verify) {
+    update.mute_verify = build.status.mute_verify   // 'pending' after a new render; absent after a QA-only run
   }
   const openIssues = [
+    ...(build.error ? [`build-review en échec : ${build.error}`] : []),
     ...((build.problems || []).map(String)),
     ...((build.open_issues || []).map(String)),
     ...((qa2 && qa2.open_issues) || []).map(String),
     ...(mv && mv.ran && !mv.pass ? (mv.points_faibles || []).map((x) => `sans son : ${x}`) : []),
   ].slice(0, 30)
-  if (!build.skipped || (mv && mv.ran)) update.open_issues = openIssues
+  // A film built or reviewed again replaces the open issues; a QA-only run ('verify') or a mute check alone adds to
+  // them, so the issues the review left open are not lost (status.py merge: open_issues vs open_issues_add).
+  if (!build.skipped && p.build !== 'verify') update.open_issues = openIssues
+  else if ((!build.skipped || (mv && mv.ran)) && openIssues.length) update.open_issues_add = openIssues
   const qaState = update.qa || (v.stages || {}).qa
   const muteState = update.mute_verify ? (typeof update.mute_verify === 'string' ? update.mute_verify : update.mute_verify.state) : (v.stages || {}).mute_verify
   const finished = rendered && qaState === 'done' && (muteState === 'done' || !STAGES.includes('verify'))

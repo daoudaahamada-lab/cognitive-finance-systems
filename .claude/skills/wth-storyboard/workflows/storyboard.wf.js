@@ -86,6 +86,7 @@ const prep = await agent(`You prepare the storyboard of video ${ID} of the Frenc
 4. Decide who "Toi" is: the advisor (CGP) if the script talks to a wealth adviser about "ton client", "ton dossier", "ton cabinet"; otherwise the viewer.
 5. List every number, amount, percentage, date, acronym and regulatory term of the script, with how it must be written on screen (French typography: « 4 600 € », « 3,5 % », « sept. 2025 »).
 6. If the script has numbered steps, traps or errors, propose the legend words of the 1-2-3 marker (one word of 10 letters max per step).
+7. Existing storyboard: prep.json has "storyboard_existant", null when there is none, else its version (prep.py prints « storyboard existant : non » or the version). Set storyboard_existant = true exactly when that value is not null, and copy the version into storyboard_version ("" when there is none).
 Copy sentences and segments exactly from prep.json (seconds, 3 decimals). Report every problem from prep.json.`, { label: `prep:${ID}`, phase: 'Prep', schema: {
   type: 'object', properties: {
     ok: { type: 'boolean' }, problemes: { type: 'array', items: { type: 'string' } },
@@ -97,16 +98,19 @@ Copy sentences and segments exactly from prep.json (seconds, 3 decimals). Report
     chiffres: { type: 'array', items: { type: 'string' } },
     marqueur: { type: 'string', description: 'proposed 1-2-3 marker legend, or "aucun"' },
     cadence: { type: 'string' },
-    storyboard_existant: { type: 'string', description: 'version of the existing storyboard, or "non"' },
+    storyboard_existant: { type: 'boolean', description: 'true when prep.json storyboard_existant is not null' },
+    storyboard_version: { type: 'string', description: 'version of the existing storyboard, verbatim from prep.json, or ""' },
   }, required: ['ok', 'problemes', 'titre', 'duree', 'audience', 'phrases', 'segments', 'pngs', 'storyboard_existant'] } })
 
 if (!prep || !prep.ok) {
   log(`${ID} : préparation impossible : ${prep ? prep.problemes.join(' ; ') : 'agent sans réponse'}`)
   return { ok: false, id: ID, stage: 'prep', prep }
 }
-if (prep.storyboard_existant && prep.storyboard_existant !== 'non' && !A.overwrite) {
-  log(`${ID} : un storyboard existe déjà (${prep.storyboard_existant}). Révision ciblée : revise.wf.js ; réécriture complète : overwrite: true`)
-  return { ok: false, id: ID, stage: 'prep', reason: 'storyboard existant', version: prep.storyboard_existant }
+// Boolean, not free text: a wording such as « aucun » or « absent » must not read as an existing storyboard.
+if (prep.storyboard_existant === true && !A.overwrite) {
+  const version = prep.storyboard_version || 'sans version'
+  log(`${ID} : un storyboard existe déjà (${version}). Révision ciblée : revise.wf.js ; réécriture complète : overwrite: true`)
+  return { ok: false, id: ID, stage: 'prep', reason: 'storyboard existant', version }
 }
 for (const p of prep.problemes || []) log(`${ID} : attention : ${p}`)
 

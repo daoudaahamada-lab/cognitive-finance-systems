@@ -81,9 +81,21 @@ Champs libres d'une étape :
 - `pending` : ce qui **reste à faire**, même sur une étape `done`. Exemple : V01, storyboard v2 fait, v3 à faire.
   `status.py next` s'arrête sur une étape qui a un `pending`. `set … done` sans `--pending` l'efface.
 
-Une vidéo porte aussi `open_issues` (problèmes encore ouverts, remplacés à chaque `merge` qui en donne), `notes`
-(historique libre) et `max_duration_s` (durée maximale approuvée par l'utilisateur, en miroir de `config.yaml`
-`qa.max_duration_by_video`).
+Une vidéo porte aussi `open_issues` (problèmes encore ouverts), `notes` (historique libre) et `max_duration_s`
+(durée maximale approuvée par l'utilisateur, en miroir de `config.yaml` `qa.max_duration_by_video`).
+
+Dans un `merge`, `open_issues` **remplace** la liste : c'est ce que donne un film refait ou revu en entier.
+`open_issues_add` l'**allonge** sans doublon : c'est ce que donne une vérification seule (`build-review.wf.js` avec
+`from: "verify"`), qui ne doit pas effacer les problèmes laissés ouverts par la revue. `status.py issues Vxx --clear`
+vide la liste quand ils sont réglés.
+
+`blocked` contre `in_progress` : une étape qui attend une réponse de l'utilisateur (crédits, choix de durée) est
+`blocked`, avec la question dans `pending`. Une session neuve sait alors qu'il n'y a rien à lancer avant sa réponse.
+Dès qu'il a répondu, repasse-la à `in_progress` (`--pending ""` efface la question).
+
+Le suivi peut prendre du retard sur les fichiers (une voix commitée sans `status.py set`). `status.py next` et
+`preflight.py` le signalent pour la voix (« voix DÉJÀ en cache », « ! suivi de la voix ») : enregistre-la, ne la
+régénère pas.
 
 ## Les points de validation
 
@@ -106,6 +118,9 @@ python3 $ST set V07 voice blocked --note "aucune prise ≤ 59,4 s" --pending "ch
 python3 $ST merge V07 - <<'EOF'
 {"spec": "done", "render": "done", "review": "fixed", "qa": "done",
  "mute_verify": {"state": "done", "got": "8/9", "critere": "oui"}, "open_issues": []}
+EOF
+python3 $ST merge V07 - <<'EOF'
+{"qa": "done", "open_issues_add": ["QA : …"]}
 EOF
 python3 $ST checkpoint v01_full_approved done --note "accord de l'utilisateur le 22/10"
 python3 $ST issues V07 --clear

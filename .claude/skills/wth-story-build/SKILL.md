@@ -27,9 +27,16 @@ Ses 7 règles, en bref (texte exact : `.claude/skills/wth-storyboard/references/
 7. simplicité de la référence : ivoire, cyan, typo lisible, peu d'accents.
 
 Regarde `assets/v01_reference_sheet.jpg` avant d'écrire une première scène : 8 images de l'extrait V01 (S11-S14)
-que l'utilisateur a validé (« C'est absolument parfait »). C'est le niveau de lisibilité, de densité et de finition
-attendu. Deux défauts y restent visibles, corrigés depuis : le tampon VALIDÉ posé alors qu'une question reste ouverte,
-et le bas de l'image vide.
+que l'utilisateur a validé (« C'est absolument parfait »). Prends-y le niveau de lisibilité, de densité et de finition
+attendu, **pas ses détails** : le contrôle sans son de cet extrait y a relevé six défauts, devenus des règles depuis
+(« Grammaire de mise en scène »). Ne les recopie pas :
+1. coches de l'IA et de l'humain de même forme, distinctes seulement par la couleur (#125 gris, #438 cyan) : la
+   coche de l'IA prend `variant="ai"` ;
+2. la ligne L5 casse sur « fausse » sans geste de personne (#146) : c'est le stylo du conseiller qui la fait casser ;
+3. dates ambiguës « 09/2025 », « 03/2026 » (#258 et suivantes) : écris « sept. 2025 » ;
+4. lignes grisées à 50 % environ en S13 (#300, #362) : elles se lisent « rejetées » ;
+5. tampon VALIDÉ posé alors que le « ? » reste ouvert (#469) : marque-le « à poser au RDV » ;
+6. bas de l'image vide sur 40 % : descends jusqu'à y ≈ 1250.
 
 ## Prérequis
 
@@ -80,9 +87,27 @@ Workflow({scriptPath: "<dépôt>/.claude/skills/wth-story-build/workflows/build-
 Lance-le depuis la session principale, pas dans un sous-agent, pour qu'il puisse appeler `mute-verify.wf.js`. Pour
 reprendre après une interruption : `Workflow({scriptPath: …, args: …, resumeFromRunId: "<runId>"})`.
 
-**Une retouche (une scène, un temps fort, un défaut de QA) : travaille à la main** avec la procédure ci-dessous, en
-ne refaisant que les étapes 3 à 10 nécessaires. Une retouche visible exige quand même un nouveau rendu, la QA et, si
-le sens d'une scène change, `mute-verify.wf.js`.
+**Une retouche (une scène, un temps fort, un défaut de QA) : travaille à la main**, avec la liste qui suit.
+
+### Retouche d'une scène (« corrige S04 de V02 », « la ligne casse trop tôt dans V01 S11 »)
+
+1. **Trie la demande.** Elle change ce que la scène montre ou veut dire (un autre objet, une autre action, une idée
+   en plus) : commence par le storyboard, skill `wth-storyboard` (`revise.wf.js` avec `scenes: ["S04"]`, ou retouche
+   à la main puis `make storyboard-check ID=V02`), puis remets la scène en scène. Elle porte sur l'exécution (temps,
+   place, collision, taille, couleur) : la mise en scène seule change.
+2. **Trouve la partie.** `grep -l S04 scripts/story/V02/*.py` : la docstring de chaque partie liste ses scènes
+   (`scripts/story/V02.py` si la mise en scène tient en un seul fichier).
+3. **Corrige**, puis `make story-props ID=V02` doit rester propre (étape 3 ci-dessous).
+4. **Images fixes** autour du changement : `make story-stills ID=V02 FRAMES="…"` (début de scène + 2, temps fort + 12,
+   dernière image). Regarde-les.
+5. **Rends** : `make story ID=V02` (film, version sans sous-titres, QA).
+6. **Revue légère** : `references/review-lenses.md` §10 (planches de la scène et de ses voisines).
+7. **Contrôle sans son** (`mute-verify.wf.js`) seulement si le sens de la scène a changé ; sinon la QA suffit.
+8. **Suivi et commit** : `status.py merge V02` avec les étapes refaites (`render`, `qa`, et `mute_verify` s'il a
+   tourné), puis commit et push des sources (étape 10).
+9. **Suites.** Vidéo déjà livrée : renvoie-la à l'utilisateur et dis ce qui a changé. Déjà sur Cloudinary ou
+   programmée : demande son accord avant d'écraser `WTH-V02` ou de modifier la publication (skill `wth-video`,
+   `references/publishing.md`).
 
 ## Procédure
 
@@ -179,6 +204,9 @@ Le film est prêt quand la sortie ne montre :
 ```bash
 make story-stills ID=V07 FRAMES="0 182 395 612" [ALLOW_PARTIAL=1]   # -> build/V07/story/stills/sNNNN.png
 ```
+
+Avec `WTH_PARTS=p2`, les props et les images d'une partie seule vont à part (`props_film_partiel_p2*.json`,
+`stills/p2/`) : deux auteurs en parallèle ne lisent jamais les images de l'autre.
 
 Prends le début de chaque scène + 2, le résultat de chaque temps fort important (+ 12) et la dernière image. Lis-les :
 chevauchements, texte illisible, éléments hors zones sûres, plus d'une action principale. Un appel coûte environ 30 s de
@@ -351,8 +379,27 @@ l'affaire : chaque type de plus est du code à maintenir dans deux langages. Au 
    clés.
 6. Documente-la dans `references/entities.md`.
 7. Rends un nouveau comportement d'un type EXISTANT optionnel (nouveau paramètre ou `variant`) : le défaut doit
-   rester identique au pixel près, sinon l'extrait V01 validé change. Vérifie-le par un nouveau rendu de l'extrait
-   (`make story ID=V01 FROM=25.612 TO=41.309`), comparé à `build/V01/baseline/` (PSNR ≥ 45 dB par image).
+   rester identique au pixel près, sinon les films déjà validés changent. Vérifie-le **avant / après** sur le même
+   commit : la référence est le rendu du code d'avant ta modification, pas un fichier figé.
+   ```bash
+   git stash push -- motion/src/story pipeline                 # remet le code partagé d'avant ta modification
+   rm -rf build/kit_demo/avant build/kit_demo/stills_demo
+   python3 scripts/story/_demo_kit.py --stills 0 30 60 90 120 150 180 && mv build/kit_demo/stills_demo build/kit_demo/avant
+   make story ID=V01 FROM=25.612 TO=41.309 && cp output/extraits/WTH-V01_extrait_S11-S14.mp4 build/V01/avant.mp4
+   git stash pop                                               # rend ta modification
+   python3 scripts/story/_demo_kit.py --stills 0 30 60 90 120 150 180
+   for f in build/kit_demo/avant/*.png; do echo -n "$(basename $f) "; ffmpeg -v info -i $f \
+     -i build/kit_demo/stills_demo/$(basename $f) -lavfi psnr -f null - 2>&1 | grep -o 'average:[0-9.inf]*'; done
+   make story ID=V01 FROM=25.612 TO=41.309
+   ffmpeg -v error -i output/extraits/WTH-V01_extrait_S11-S14.mp4 -i build/V01/avant.mp4 \
+     -lavfi psnr=stats_file=build/V01/psnr.log -f null -
+   awk '{for(i=1;i<=NF;i++) if($i~/^psnr_avg:/){v=substr($i,10); if(v=="inf")v=99; if(m==""||v+0<m){m=v+0;n=$1}}}
+        END{print "PSNR minimal", m, "dB à", n}' build/V01/psnr.log          # attendu ≥ 45 dB
+   ```
+   La démo du kit (`_demo_kit.py`, S18-S20 de V01) ne change pas avec la série : c'est le banc d'essai stable.
+   L'extrait V01 compte tant que `scripts/story/V01.py` contient l'extrait validé ; une fois V01 refaite sur le
+   storyboard v3, compare le film V01 entier de la même façon (`make story ID=V01`, `output/WTH-V01.mp4`).
+   `build/V01/baseline/` (rendu de l'extrait validé, absent d'un clone neuf) sert à `tests/story_smoke.py`.
 
 ## Ressources et disque
 
@@ -361,7 +408,7 @@ l'affaire : chaque type de plus est du code à maintenir dans deux langages. Au 
 - **Après chaque rendu.** `make clean-tmp` supprime les dossiers temporaires de Remotion, sous le verrou.
 - **Vidéo terminée.**
   - `make clean-tmp ID=Vxx` garde les planches et supprime bandes, images téléphone et images extraites.
-  - `rm -f build/Vxx/story/stills/*.png build/Vxx/story/muet_*.mp4`
+  - `rm -rf build/Vxx/story/stills && rm -f build/Vxx/story/muet_*.mp4`
 - **Seuil.** Garde 4 Go libres (`df -h .`). En dessous, nettoie avant de rendre : un rendu interrompu par un disque
   plein laisse des fichiers partiels.
 
