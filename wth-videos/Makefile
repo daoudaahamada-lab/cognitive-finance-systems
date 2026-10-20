@@ -3,6 +3,7 @@
 #   make upload ID=V07       upload Cloudinary (refusé si le contrôle qualité échoue)
 #   make lock ID=V07         verrouille la voix validée (plus jamais régénérée)
 #   make motion ID=V01       rendu motion design (Remotion, plan scripts/shotlists/V01.json) -> contrôle qualité
+#   make story ID=V01 FROM=25.612 TO=41.309   extrait « Story » (graphe de scène, scripts/story/V01.py) ; sans FROM ni TO : film entier
 
 PY ?= python3
 ID ?=
@@ -11,7 +12,7 @@ IDS ?= V01 V02 V03 V04 V05 V06 V07 V08 V09 V10 V11 V12 V13 V14 V15
 
 .NOTPARALLEL:
 
-.PHONY: help setup extract lint revue assets voices import video tts words subs render qa upload lock planning all publish check-id motion motion-setup motion-props motion-review
+.PHONY: help setup extract lint revue assets voices import video tts words subs render qa upload lock planning all publish check-id motion motion-setup motion-props motion-review story
 
 help:
 	@sed -n '1,6p' Makefile
@@ -69,6 +70,13 @@ motion-props: check-id
 
 motion-review: check-id
 	$(PY) -m pipeline.motion $(ID) --review
+
+# Extrait « Story » : mise en scène scripts/story/Vxx.py, fenêtre FROM-TO (s) -> output/extraits/ + version sans sous-titres.
+# Sans FROM ni TO : le film entier (0 -> fin de build/Vxx/audio.wav) -> output/WTH-Vxx_story.mp4. FROM sans TO : refusé.
+STORY_WINDOW_ERR = make story : FROM et TO vont ensemble (ex. FROM=25.612 TO=41.309), ou aucun des deux pour le film entier.
+story: check-id
+	@$(if $(and $(strip $(FROM)),$(strip $(TO))),true,$(if $(strip $(FROM)$(TO)),echo "$(STORY_WINDOW_ERR)" && exit 2,true))
+	$(PY) -m pipeline.story $(ID) $(if $(strip $(FROM)$(TO)),--from $(FROM) --to $(TO),--full)
 
 upload: check-id
 	$(PY) -m pipeline.upload $(ID)

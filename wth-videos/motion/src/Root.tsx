@@ -3,6 +3,8 @@ import {Composition} from 'remotion';
 import {Explainer} from './explainer/Explainer';
 import {defaultExplainerProps} from './explainer/defaults';
 import type {ExplainerProps} from './explainer/types';
+import {defaultStoryProps, Story} from './story/Story';
+import type {StoryProps} from './story/types';
 import {Test, type TestProps} from './Test';
 
 const FPS = 30;
@@ -28,6 +30,23 @@ export const RemotionRoot: React.FC = () => {
         durationInFrames={60}
         defaultProps={defaultExplainerProps}
         calculateMetadata={({props}: {props: ExplainerProps}) => ({
+          durationInFrames: props.durationInFrames,
+          fps: props.fps,
+          width: props.width,
+          height: props.height,
+        })}
+      />
+      {/* Scene-graph composition (persistent entities + keyframed tracks), one props file per film or excerpt
+          (pipeline/story.py). */}
+      <Composition
+        id="Story"
+        component={Story}
+        width={1080}
+        height={1920}
+        fps={FPS}
+        durationInFrames={60}
+        defaultProps={defaultStoryProps}
+        calculateMetadata={({props}: {props: StoryProps}) => ({
           durationInFrames: props.durationInFrames,
           fps: props.fps,
           width: props.width,
