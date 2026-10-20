@@ -1,5 +1,6 @@
 node_modules/
 out/
 .cache/
-# symlink/copies of the gitignored PNG illustrations (source of truth: ../assets/illustrations)
+# Never link or copy ../assets/illustrations into public/ (Remotion copies public/ into every bundle):
+# the Explainer uses public/generated/Vxx (pipeline/motion.py), the Test smoke test public/fixtures/.
 public/illustrations

@@ -1,5 +1,6 @@
 """Montage : fond (slides du carrousel ou fond crème titré), sous-titres incrustés, audio normalisé -> MP4."""
 import argparse
+import os
 import json
 import re
 from pathlib import Path
@@ -183,7 +184,25 @@ def prescale(src, dst, box, factor=4):
 
 # ---------- montage ----------
 
+def guard_motion_output(video_id):
+    """Refuse d'écraser un rendu motion design (Remotion) par le montage classique, sauf FORCE=1.
+
+    output/WTH-Vxx.mp4 est le même fichier pour les deux rendus ; le rendu motion porte le commentaire
+    « Made with Remotion ». Sans ce garde-fou, `make video` / `make all` remplaçait le prototype motion
+    par le style classique rejeté, et `make upload` l'aurait publié.
+    """
+    mp4 = OUTPUT / f"WTH-{video_id}.mp4"
+    if not mp4.exists() or os.environ.get("WTH_FORCE") == "1":
+        return
+    tags = {k.lower(): v for k, v in (ffprobe(mp4).get("format", {}).get("tags", {}) or {}).items()}
+    comment = tags.get("comment", "") or tags.get("wth_mode", "")
+    if "Made with Remotion" in comment or tags.get("wth_mode") == "motion":
+        raise SystemExit(f"{mp4} est le rendu motion design ({comment}) : le montage classique ne l'écrase pas. "
+                         f"Utilise « make motion ID={video_id} », ou force avec « make video ID={video_id} FORCE=1 ».")
+
+
 def render(video_id):
+    guard_motion_output(video_id)
     cfg = load_config()
     v = cfg["video"]
     s = script(video_id)

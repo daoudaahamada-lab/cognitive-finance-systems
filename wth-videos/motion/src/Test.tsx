@@ -11,7 +11,7 @@ import {
 import {FONT_FAMILY} from './fonts';
 
 export type TestProps = {
-  /** Path relative to motion/public, e.g. "illustrations/WTH-003-04.png" */
+  /** Path relative to motion/public, e.g. "fixtures/test-illustration.png" (small fixture: the full illustrations folder is no longer linked into public/, which Remotion copies into every bundle) */
   illustration: string;
   /** Caption words (2 to 4) */
   words: string[];

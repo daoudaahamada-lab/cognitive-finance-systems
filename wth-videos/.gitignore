@@ -9,3 +9,5 @@ output/voices/*.mp3
 # Illustrations en verre d'origine (~2 Mo chacune) : elles restent sur Google Drive, dossier
 # « Illustrations » ; data/illustrations_manifest.tsv donne l'id Drive et la taille de chacune.
 assets/illustrations/*.png
+# Rendu motion : illustrations préparées et fond générés par pipeline/motion.py (build/Vxx/ est déjà ignoré).
+motion/public/generated/

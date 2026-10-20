@@ -9,6 +9,7 @@
     "render:test": "remotion render Test ../build/motion_test/test.mp4 --props=props/test.json --codec=h264 --pixel-format=yuv420p --muted --concurrency=4"
   },
   "dependencies": {
+    "@remotion/bundler": "4.0.535",
     "@remotion/cli": "4.0.535",
     "@remotion/renderer": "4.0.535",
     "react": "19.2.9",
