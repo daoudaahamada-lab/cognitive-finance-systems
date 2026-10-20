@@ -36,9 +36,11 @@ def public_id(carousel, num):
     return f"WTH-V2-Pro-{carousel.split('-')[1]}-{num}"
 
 
-def media_url(carousel, num):
-    # URL sans version : sert toujours la version courante de l'asset.
-    return f"https://res.cloudinary.com/{CLOUD}/image/upload/{public_id(carousel, num)}.png"
+def media_url(carousel, num, fmt="png"):
+    # URL sans version : sert toujours la version courante de l'asset. TikTok refuse le PNG
+    # (« image/png is not allowed ») : Cloudinary le convertit en JPEG à la volée.
+    quality = "q_92/" if fmt == "jpg" else ""
+    return f"https://res.cloudinary.com/{CLOUD}/image/upload/{quality}{public_id(carousel, num)}.{fmt}"
 
 
 def network_data(network, plan):
@@ -93,7 +95,7 @@ def build_job(carousel, plan, actions, drive):
     posts = []
     for net in NETWORKS:
         (act,) = [a for a in actions if a["network"] == net]
-        info = post_info(net, plan, media)
+        info = post_info(net, plan, [media_url(carousel, n, "jpg") for n in nums] if net == "tiktok" else media)
         if act["op"] == "update":
             posts.append({"network": net, "tool": "updateScheduledPost", "remplace": act["remplace"],
                           "args": {"blogId": BLOG_ID, "id": act["id"], "uuid": act["uuid"], "info": info}})
@@ -143,8 +145,9 @@ def record(carousel, kind, *values):
         state["cloudinary"].append({"public_id": pid, "secure_url": url, "existing": existing == "true"})
         state["cloudinary"].sort(key=lambda u: u["public_id"])
     elif kind == "post":
-        network, op, post_id, uuid = values
+        network, op, post_id, uuid, *flags = values
         state["posts"][network] = {
+            **({"jpg": True} if "jpg" in flags or network == "tiktok" and op == "jpgfix" else {}),
             "op": op, "id": post_id, "uuid": uuid, "draft": False, "autoPublish": True, "media": 9,
             "plannerUrl": f"https://app.metricool.com/planner/calendar?blogId={BLOG_ID}&openWithPostUuid={uuid}"}
     elif kind == "error":
@@ -153,6 +156,24 @@ def record(carousel, kind, *values):
         raise SystemExit(f"type inconnu : {kind}")
     STATE.mkdir(exist_ok=True)
     write_json(path, state)
+
+
+def tiktok_jpg():
+    """Corrige les posts TikTok déjà programmés avec des PNG : mêmes posts, slides en JPEG."""
+    plan = read_json(DATA / "publication_plan.json")
+    now = datetime.now(ZoneInfo(TZ)).strftime("%Y-%m-%dT%H:%M")
+    todo = []
+    for entry in plan:
+        if f"{entry['date']}T{entry['heure']}" <= now:
+            continue
+        post = read_json(STATE / f"{entry['id']}.json")["posts"]["tiktok"]
+        if post.get("jpg"):
+            continue
+        job = read_json(JOBS / f"{entry['id']}.json")
+        (tik,) = [p for p in job["posts"] if p["network"] == "tiktok"]
+        todo.append({"carrousel": entry["id"], "id": post["id"], "uuid": post["uuid"], "info": tik["args"]["info"]})
+    write_json(DATA / "tiktok_jpg_todo.json", todo)
+    print(f"{len(todo)} posts TikTok à corriger -> data/tiktok_jpg_todo.json")
 
 
 def status():
@@ -207,4 +228,4 @@ def verify(listing="data/metricool_verification.jsonl"):
 
 if __name__ == "__main__":
     command, *args = sys.argv[1:] or ["status"]
-    {"jobs": jobs, "show": show, "record": record, "status": status, "verify": verify}[command](*args)
+    {"jobs": jobs, "show": show, "record": record, "status": status, "verify": verify, "tiktok-jpg": tiktok_jpg}[command](*args)
