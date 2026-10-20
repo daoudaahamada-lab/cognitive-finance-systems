@@ -1,0 +1,5 @@
+node_modules/
+out/
+.cache/
+# symlink/copies of the gitignored PNG illustrations (source of truth: ../assets/illustrations)
+public/illustrations
