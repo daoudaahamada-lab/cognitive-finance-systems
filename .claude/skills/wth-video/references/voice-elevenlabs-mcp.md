@@ -49,8 +49,15 @@ verrouillées (`locks/` absent pour V01 à V06) seraient alors introuvables, et 
 
 Commandes `make` et `python3 -m pipeline…` : depuis `wth-videos/`. Scripts du skill : depuis la racine du dépôt.
 
-0. **Préparer.** `python3 .claude/skills/wth-video/scripts/preflight.py Vxx --no-voice` (le script existe, il est
-   dans `config/videos.csv`) ; `status.py set Vxx voice in_progress`.
+0. **Préparer, et vérifier qu'il y a bien quelque chose à générer.**
+   `python3 .claude/skills/wth-video/scripts/preflight.py Vxx --no-voice` (le script existe, il est dans
+   `config/videos.csv`).
+   - **La ligne voix dit « ✔ voix : prise …, … s, … mots alignés » : la voix est DÉJÀ en cache. Ne génère rien.** Le
+     suivi a seulement pris du retard (voix commitée, `status.py set` oublié : c'est arrivé sur V12 à V15). Lance
+     `make voice ID=Vxx`, commite le cache s'il est signalé « pas encore commité », puis enregistre-la avec la
+     commande complète que donne `status.py next Vxx` (`set Vxx voice done take=… duration_s=… cache_key=…
+     aligned=…`). Régénérer coûterait environ 4 000 crédits pour une voix déjà payée, et changerait tous les temps.
+   - La voix est absente (« ! voix : absente du cache ») : `status.py set Vxx voice in_progress`, puis l'étape 1.
 1. **Générer : un seul appel.** `creative_generate_speech` avec `flow_id`, `model_id`, `voice_id`, `prompt`,
    `context`. Note `flow_id`, `node_id` et les `session_ids` renvoyés. Si l'appel renvoie une erreur, ne le relance
    pas : lis-la (quota → section précédente).
@@ -67,11 +74,36 @@ Commandes `make` et `python3 -m pipeline…` : depuis `wth-videos/`. Scripts du 
    écarte celles qui dépassent la limite (QA 60 s − 0,6 s de fin = **59,4 s**, ou la durée approuvée pour cette
    vidéo dans `config.yaml` `qa.max_duration_by_video`, ex. V03 : 62 s → 61,4 s), puis recommande la prise dont le
    débit est le plus proche de 2,6 mots/s (celui de V01 et V02, validées), avec un ordre de repli.
-   **Code 2 = aucune prise ne tient** : ne régénère pas. Le script calcule l'accélération nécessaire ; demande à
-   l'utilisateur de choisir entre (a) accélérer la prise la plus courte (ffmpeg `atempo` ≤ 1,04, temps Scribe
-   multipliés d'autant), (b) accepter une durée plus longue pour cette vidéo (`qa.max_duration_by_video`, comme
-   V03), (c) raccourcir le script (nouvelle génération, donc des crédits). Consigne l'attente avec
-   `status.py set Vxx voice blocked --note "…" --pending "choix de l'utilisateur"`.
+   **Code 2 = aucune prise ne tient** : ne régénère pas. Le script calcule l'accélération nécessaire. Consigne
+   l'attente, puis demande à l'utilisateur de choisir entre les options (a), (b) et (c) ci-dessous :
+   `status.py set Vxx voice blocked --note "4 prises de … à … s, aucune sous … s" --pending "choix de l'utilisateur : (a) ×F, (b) durée, (c) script"`.
+   `blocked` (et non `in_progress`) dit à une session neuve qu'il n'y a rien à faire avant sa réponse.
+   - **(a) Accélérer la prise la plus courte**, si ×F ≤ 1,04 (au-delà, ça s'entend). Transcris d'abord cette prise
+     (étape 5 : la transcription porte sur la prise d'origine, la seule qui soit sur le flow), puis :
+     ```bash
+     python3 .claude/skills/wth-video/scripts/tempo_take.py Vxx <generation_id> 1.027
+     ```
+     Il écrit `take-<id>-x1.027.mp3` (`ffmpeg -filter:a atempo=1.027 -c:a libmp3lame`, au débit d'origine) et
+     `words-<id>-x1.027.json`, où chaque `start` et `end` est **divisé** par F (la prise dure F fois moins
+     longtemps). Puis `pick_take.py Vxx` (la prise accélérée apparaît comme `<id>-x1.027` et doit tenir), et
+     l'étape 7 avec ces deux fichiers et le `--generation-id` d'origine. Au suivi, ajoute `tempo=1.027` et une note
+     « prise accélérée ×1,027, accord de l'utilisateur le <date> ».
+   - **(b) Accepter une durée plus longue pour cette vidéo** (V03, V07, V08, V10 et V11 l'ont été). Ajoute la
+     vidéo sous `qa.max_duration_by_video` dans `config.yaml`, et rien d'autre (jamais la section `tts:`) :
+     ```yaml
+     max_duration_by_video: {V03: 62.0, V08: 62.5}    # durée de QA = prise + 0,6 s de fin, arrondie au-dessus
+     ```
+     Puis reporte-la au suivi et note l'accord :
+     ```bash
+     python3 .claude/skills/wth-video/scripts/status.py merge Vxx - <<'EOF'
+     {"max_duration_s": 62.5, "notes": ["durée maximale 62,5 s approuvée par l'utilisateur le <date>"]}
+     EOF
+     python3 .claude/skills/wth-video/scripts/status.py set Vxx voice in_progress --pending ""
+     ```
+     Relance `pick_take.py Vxx` (la limite devient 62,5 − 0,6 = 61,9 s) et continue à l'étape 5. Commite
+     `config.yaml` avec la voix (« QA : durée approuvée pour Vxx »).
+   - **(c) Raccourcir le script** : l'utilisateur valide le nouveau texte dans `scripts/scripts.json`, puis
+     nouvelle génération (étape 1) : de nouveaux crédits, donc la vérification du solde d'abord.
 5. **Transcrire la prise choisie** (Scribe, 0 crédit) :
    - `creative_add_flow_asset_node` : `flow_id`, `modality: "audio"`, `generation_id`, `label: "Vxx prise <id>"`
      → `node_id` ;
@@ -128,6 +160,7 @@ Commandes `make` et `python3 -m pipeline…` : depuis `wth-videos/`. Scripts du 
 
 | Symptôme | Cause probable | Que faire |
 |---|---|---|
+| `preflight.py` : « ✔ voix » mais le suivi dit `pending` (« ! suivi de la voix ») | voix commitée, suivi oublié | ne rien générer : étape 0 (`make voice`, puis la commande de `status.py next Vxx`) |
 | « This request exceeds your quota of 40000 » | crédits épuisés | arrêter le lot ; `voice blocked` ; demander à l'utilisateur |
 | `pick_take.py` sort en code 2 | script long ou débit lent | ne pas régénérer ; options (a), (b), (c) ci-dessus |
 | `content_url` refusée (403) | URL signée expirée (≈ 2 h) | relire le run avec `creative_get_flow_run_status` (gratuit) pour obtenir de nouvelles URL ; à l'avenir, télécharger dès la fin du run |

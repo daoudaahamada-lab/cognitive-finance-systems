@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-20T19:33:57+00:00",
+  "updated_at": "2026-10-20T19:49:02+00:00",
   "checkpoints": {
     "v01_full_approved": {
       "state": "pending",
@@ -330,7 +330,8 @@
         }
       },
       "open_issues": [],
-      "notes": []
+      "notes": [],
+      "max_duration_s": 64.0
     },
     "V08": {
       "title": "Ton vrai reste à vivre en 3 étapes",
@@ -369,7 +370,8 @@
         }
       },
       "open_issues": [],
-      "notes": []
+      "notes": [],
+      "max_duration_s": 62.5
     },
     "V09": {
       "title": "« Capital garanti, 5 %, disponible » ?",
@@ -449,7 +451,8 @@
         }
       },
       "open_issues": [],
-      "notes": []
+      "notes": [],
+      "max_duration_s": 62.5
     },
     "V11": {
       "title": "La meilleure info n’est pas dans le dossier",
@@ -487,7 +490,8 @@
         }
       },
       "open_issues": [],
-      "notes": []
+      "notes": [],
+      "max_duration_s": 62.5
     },
     "V12": {
       "title": "L’inflation : la perte que tu ne vois pas",
@@ -495,9 +499,13 @@
       "date_initiale": "2026-11-11",
       "stages": {
         "voice": {
-          "state": "pending",
-          "updated_at": "2026-10-20T19:24:48+00:00",
-          "note": "en attente de crédits ElevenLabs (une vidéo à la fois, coût estimé avant chaque lot)"
+          "state": "done",
+          "updated_at": "2026-10-20T19:48:57+00:00",
+          "note": "voix commitée (843d6cc) ; suivi rattrapé ; make voice fait",
+          "take": "YaW9G8EqVgKi4AcDgL2J",
+          "duration_s": 58.41,
+          "cache_key": "9e0367bddf2ecc2acadc1f9b",
+          "aligned": "145/145"
         },
         "storyboard": {
           "state": "pending"
@@ -533,9 +541,13 @@
       "date_initiale": "2026-11-13",
       "stages": {
         "voice": {
-          "state": "pending",
-          "updated_at": "2026-10-20T19:24:48+00:00",
-          "note": "en attente de crédits ElevenLabs (une vidéo à la fois, coût estimé avant chaque lot)"
+          "state": "done",
+          "updated_at": "2026-10-20T19:48:57+00:00",
+          "note": "voix commitée (86d87cd) ; suivi rattrapé ; make voice fait",
+          "take": "5vfJXPC5NoE3Elwmgm6U",
+          "duration_s": 56.24,
+          "cache_key": "917e242b2d268783aad4f921",
+          "aligned": "141/141"
         },
         "storyboard": {
           "state": "pending"
@@ -571,9 +583,13 @@
       "date_initiale": "2026-11-15",
       "stages": {
         "voice": {
-          "state": "pending",
-          "updated_at": "2026-10-20T19:24:48+00:00",
-          "note": "en attente de crédits ElevenLabs (une vidéo à la fois, coût estimé avant chaque lot)"
+          "state": "done",
+          "updated_at": "2026-10-20T19:48:57+00:00",
+          "note": "voix commitée (913f524) ; suivi rattrapé ; make voice fait",
+          "take": "HbGX231uynTGGvLE0EjT",
+          "duration_s": 57.68,
+          "cache_key": "72ba37844cee5a39ed9ba4c0",
+          "aligned": "147/147"
         },
         "storyboard": {
           "state": "pending"
@@ -609,9 +625,13 @@
       "date_initiale": "2026-11-17",
       "stages": {
         "voice": {
-          "state": "pending",
-          "updated_at": "2026-10-20T19:24:48+00:00",
-          "note": "en attente de crédits ElevenLabs (une vidéo à la fois, coût estimé avant chaque lot)"
+          "state": "done",
+          "updated_at": "2026-10-20T19:48:57+00:00",
+          "note": "voix commitée (c2c766f) ; suivi rattrapé ; make voice fait",
+          "take": "q1k9ImAHzSFA9cMmj71V",
+          "duration_s": 53.92,
+          "cache_key": "46f59ea18ac4c6c34dcda986",
+          "aligned": "139/139"
         },
         "storyboard": {
           "state": "pending"

@@ -12,10 +12,12 @@ la précédente s'est arrêtée. Schéma : .claude/skills/wth-video/references/s
     python3 .claude/skills/wth-video/scripts/status.py merge V07 - <<'EOF'      résultat d'un workflow (JSON)
     {"spec": "done", "render": "done", "review": "fixed", "qa": "done", "open_issues": []}
     EOF
+    (open_issues remplace la liste des problèmes ouverts ; open_issues_add les ajoute sans doublon)
     python3 .claude/skills/wth-video/scripts/status.py checkpoint v01_full_approved done [--note "…"]
     python3 .claude/skills/wth-video/scripts/status.py issues V07 --clear
 
 Les écritures prennent le verrou wth-videos/build/.status.lock (deux workflows peuvent écrire en même temps).
+« next » signale une voix déjà en cache dont l'étape voix n'est pas terminée : rien à générer, seulement à enregistrer.
 Code 1 sur une erreur d'usage (étape, état ou vidéo inconnus).
 """
 import argparse
@@ -23,6 +25,7 @@ import fcntl
 import json
 import os
 import re
+import subprocess
 import sys
 import tempfile
 from contextlib import contextmanager
@@ -159,6 +162,47 @@ def video(data, vid, create=False, root=None):
     for s in STAGES:
         v.setdefault("stages", {}).setdefault(s, {"state": "pending"})
     return v
+
+
+def cached_voice(root, vid):
+    """Voix déjà dans le cache pour le texte actuel du script (ou verrouillée par make lock) : clé, prise, durée,
+    alignement. None si elle est absente ou si le calcul échoue (simple information : rien n'est écrit)."""
+    try:
+        sys.path.insert(0, str(Path(root).resolve()))
+        from pipeline import common
+        from pipeline.tts import cache_key, cache_paths, lock_path, request_spec
+        lock = lock_path(vid)
+        if lock.exists():
+            key = json.loads(lock.read_text(encoding="utf-8"))["cache_key"]
+        else:
+            s = scripts_index(root).get(vid)
+            if not s:
+                return None
+            cfg = common.load_config()
+            key = cache_key(request_spec(s["texte"], cfg["tts"]["voice_id"], cfg))
+        mp3, meta = cache_paths(key)
+        if not (mp3.exists() and meta.exists()):
+            return None
+        m = json.loads(meta.read_text(encoding="utf-8"))
+        out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(mp3)],
+                             capture_output=True, text=True)
+        try:
+            dur = round(float(out.stdout.strip()), 2)
+        except ValueError:
+            dur = None
+        return {"cache_key": key, "generation_id": m.get("generation_id"), "duration_s": dur,
+                "aligned": m.get("alignment_matched_words")}
+    except Exception:  # noqa: BLE001 - information facultative
+        return None
+
+
+def voice_done_command(vid, cv):
+    """Commande qui enregistre une voix déjà en cache dans le suivi."""
+    bits = [f"take={cv['generation_id']}" if cv.get("generation_id") else "",
+            f"duration_s={cv['duration_s']}" if cv.get("duration_s") else "",
+            f"cache_key={cv['cache_key']}",
+            f"aligned='\"{cv['aligned']}\"'" if cv.get("aligned") else ""]
+    return f"status.py set {vid} voice done " + " ".join(b for b in bits if b)
 
 
 def parse_value(raw):
@@ -310,8 +354,16 @@ def cmd_next(store, args):
         action = ACTION[s].format(id=vid) if s else "rien : vidéo publiée"
         if s == "storyboard" and st["state"] in PASSED:
             action = "skill wth-storyboard : revise.wf.js (le storyboard existe ; notes = ce qui reste à faire)"
+        cv = cached_voice(store.root, vid) if s == "voice" else None
+        if cv:
+            # Voix payée déjà importée (souvent : commit fait, suivi oublié). La régénérer coûterait ~4 000 crédits.
+            action = (f"voix DÉJÀ en cache (prise {cv['generation_id'] or '?'}, {cv['duration_s'] or '?'} s, "
+                      f"clé {cv['cache_key']}) : NE GÉNÈRE RIEN. make voice ID={vid} ; commit du cache s'il n'est pas "
+                      f"versionné (preflight.py {vid}) ; puis {voice_done_command(vid, cv)}")
         item = {"id": vid, "stage": s, "state": st["state"] if st else None,
                 "pending": st.get("pending") if st else None, "action": action}
+        if cv:
+            item["voice_cached"] = cv
         if s and vid != "V01" and not v01_ok and STAGES.index(s) >= STAGES.index("storyboard"):
             item["waiting"] = "attend la validation de V01 complète par l'utilisateur (point de validation v01_full_approved)"
         out.append(item)
@@ -354,9 +406,10 @@ def cmd_merge(store, args):
         die("attendu un objet JSON")
     stages = dict(update.get("stages") or {})
     stages.update({k: val for k, val in update.items() if k in STAGES})
-    unknown = [k for k in update if k not in STAGES and k not in ("stages", "open_issues", "notes", "max_duration_s")]
+    extra_keys = ("stages", "open_issues", "open_issues_add", "notes", "max_duration_s")
+    unknown = [k for k in update if k not in STAGES and k not in extra_keys]
     if unknown:
-        die(f"clés inconnues : {', '.join(unknown)} (étapes : {', '.join(STAGES)} ; open_issues, notes, max_duration_s)")
+        die(f"clés inconnues : {', '.join(unknown)} (étapes : {', '.join(STAGES)} ; {', '.join(extra_keys[1:])})")
     with store.locked():
         data = store.load()
         v = video(data, args.id, create=True, root=store.root)
@@ -370,9 +423,13 @@ def cmd_merge(store, args):
             else:
                 die(f"{stage} : attendu un état (\"done\") ou un objet {{\"state\": …}}")
             changed.append(f"{stage}={v['stages'][stage]['state']}")
-        if "open_issues" in update:
+        if "open_issues" in update:          # remplace : liste complète d'un film refait ou revu
             v["open_issues"] = [str(x) for x in (update["open_issues"] or [])]
             changed.append(f"open_issues={len(v['open_issues'])}")
+        if update.get("open_issues_add"):    # ajoute : une vérification seule ne fait pas oublier la revue
+            cur = v.setdefault("open_issues", [])
+            cur += [str(x) for x in update["open_issues_add"] if str(x) not in cur]
+            changed.append(f"open_issues={len(cur)}")
         for n in update.get("notes") or []:
             v.setdefault("notes", []).append(str(n))
         if "max_duration_s" in update:

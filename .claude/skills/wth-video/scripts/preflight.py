@@ -229,6 +229,16 @@ def check_video(root, vid, scripts, videos_csv, rows, cfg, a, common):
                   "qa.max_duration_by_video, ou script plus court)")
         else:
             r.add(OK, "voix", f"{detail} (limite {limit:.1f} s)")
+        # Suivi en retard sur le cache (voix commitée, étape voix oubliée) : une session neuve la régénérerait.
+        try:
+            st = json.loads((root / "scripts" / "production_status.json").read_text(encoding="utf-8"))
+            vstate = st["videos"][vid]["stages"]["voice"]["state"]
+        except (OSError, KeyError, json.JSONDecodeError):
+            vstate = None
+        if vstate and vstate not in ("done", "fixed", "open", "skipped"):
+            r.add(WARN, "suivi de la voix", f"voix en cache mais étape voix « {vstate} » dans production_status.json",
+                  f"NE GÉNÈRE RIEN : make voice ID={vid}, puis status.py set {vid} voice done take=… duration_s=… "
+                  f"cache_key={key} aligned=… (status.py next {vid} donne la commande complète)")
         repo = root.parent
         if not (git_tracked(repo, mp3) and git_tracked(repo, meta)):
             r.add(WARN, "voix versionnée", f"cache/tts/{key}.* pas encore commité",
