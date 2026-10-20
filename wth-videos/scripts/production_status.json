@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-20T19:59:23+00:00",
+  "updated_at": "2026-10-20T21:01:25+00:00",
   "checkpoints": {
     "v01_full_approved": {
       "state": "pending",
@@ -48,10 +48,9 @@
         },
         "storyboard": {
           "state": "done",
-          "updated_at": "2026-10-20T19:24:36+00:00",
-          "note": "scripts/storyboards/V01.json + .md (v2)",
-          "pending": "v3 : revise.wf.js avec les points faibles du contrôle sans son de l'extrait (lessons-v01.md) ; v2 n'a ni idees_cles ni objet_fil, --check la refuse",
-          "version": "v2 · révisé après le test sans son"
+          "updated_at": "2026-10-20T21:01:25+00:00",
+          "note": "10/10 idées-clés GOT au test sans son (2 lecteurs)",
+          "version": "v3.2 · révision ciblée + 2e test sans son"
         },
         "spec": {
           "state": "partial",
