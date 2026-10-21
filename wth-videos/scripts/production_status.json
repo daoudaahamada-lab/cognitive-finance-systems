@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T13:05:21+00:00",
+  "updated_at": "2026-10-21T14:33:36+00:00",
   "checkpoints": {
     "v01_full_approved": {
       "state": "done",
@@ -47,8 +47,8 @@
           "aligned": "239/239"
         },
         "storyboard": {
-          "state": "pending",
-          "updated_at": "2026-10-21T11:43:39+00:00",
+          "state": "done",
+          "updated_at": "2026-10-21T14:33:36+00:00",
           "note": "à refaire : script réécrit le 21/10 (nouvelle voix)",
           "version": "v3.2 · révision ciblée + 2e test sans son"
         },
