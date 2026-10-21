@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T11:43:39+00:00",
+  "updated_at": "2026-10-21T13:05:21+00:00",
   "checkpoints": {
     "v01_full_approved": {
       "state": "done",
@@ -104,7 +104,10 @@
           "note": "voix du script réécrit (21/10), choisie parmi 2 prises"
         },
         "storyboard": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-21T13:05:21+00:00",
+          "note": "7/9 GOT au test sans son",
+          "version": "v1 · révisé après le test sans son"
         },
         "spec": {
           "state": "pending"
