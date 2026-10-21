@@ -89,6 +89,19 @@ l'extrait, tours 1 et 2), contrôle sans son final de l'extrait (deux spectateur
 27. **Ce qu'on ne comprend que par un mot écrit est fragile.** Le test muet signale tout ce qui n'est compris que grâce
     à une étiquette : l'action doit porter le sens, l'étiquette ne fait que confirmer.
 
+28. **Toute la hauteur utile (V02).** Une action tassée dans le tiers haut, avec un bas vide, devient illisible à
+    360 px : composer de y≈180 à y≈1240 et donner aux libellés clés au moins 34 px.
+29. **Un objet se reconnaît sans son étiquette (V02).** Une société = un immeuble (pas un portrait, lu « pièce
+    d'identité ») ; une appli = la même carte-appli que celle du héros ; une clé = une vraie silhouette de clé (pas une
+    capsule) ; un registre = une liste d'inscrits sous un sceau.
+30. **Un geste en deux temps doit se lire comme les deux moitiés d'un même acte (V02).** Couper « dans l'appli puis à
+    la banque » se lisait comme deux options : montrer les deux fiches du câble qui tombent l'une après l'autre, et la
+    coche seulement quand les deux sont tombées.
+31. **Récapitulatif lent (V02).** Environ 2 s par correction, alertes numérotées grandes et posées à côté de leur
+    objet ; l'état final se tient au moins 1,5 s avant la carte de fin.
+32. **Pas de curseur de souris (V02).** Le film est vu sur téléphone : toucher au doigt (anneau d'impact) ou stylet de
+    « Toi ».
+
 ## 8. Ce qui a marché (à garder)
 
 - Un objet unique qui change sous les yeux (la fiche) et une pastille-protagoniste qui ne le quitte pas.
