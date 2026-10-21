@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T11:20:46+00:00",
+  "updated_at": "2026-10-21T11:22:25+00:00",
   "checkpoints": {
     "v01_full_approved": {
       "state": "done",
@@ -135,12 +135,12 @@
       "stages": {
         "voice": {
           "state": "done",
-          "updated_at": "2026-10-20T19:24:37+00:00",
+          "updated_at": "2026-10-21T11:22:25+00:00",
           "note": "aucune prise sous 59,4 s : 60,6 s acceptée, durée maximale 62 s approuvée par l'utilisateur le 20/10 (config.yaml qa.max_duration_by_video)",
-          "take": "4GUyNlztRyg1DFD6Zq97",
-          "duration_s": 60.6,
-          "cache_key": "e43c18019584620a96b6a204",
-          "aligned": "139/139"
+          "take": "NKRRsAKyCsQmtYIWMtuN",
+          "duration_s": 96.97,
+          "cache_key": "c6deb91da07511dccf5f5419",
+          "aligned": "235/235"
         },
         "storyboard": {
           "state": "pending"
