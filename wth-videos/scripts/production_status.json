@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-20T21:01:25+00:00",
+  "updated_at": "2026-10-21T10:04:07+00:00",
   "checkpoints": {
     "v01_full_approved": {
       "state": "pending",
@@ -53,26 +53,29 @@
           "version": "v3.2 · révision ciblée + 2e test sans son"
         },
         "spec": {
-          "state": "partial",
-          "updated_at": "2026-10-20T19:24:36+00:00",
-          "note": "scripts/story/V01.py : S10-S14 (extrait validé) ; écrit avant le kit",
-          "pending": "S01-S09 et S15-S20 à mettre en scène, S11-S14 à ajuster au storyboard v3 (paquet scripts/story/V01/ conseillé)"
+          "state": "done",
+          "updated_at": "2026-10-21T10:04:07+00:00",
+          "note": "scripts/story/V01.py : S10-S14 (extrait validé) ; écrit avant le kit"
         },
         "render": {
-          "state": "pending",
-          "updated_at": "2026-10-20T19:24:36+00:00",
+          "state": "done",
+          "updated_at": "2026-10-21T10:04:07+00:00",
           "note": "extrait S11-S14 rendu et validé (« C'est absolument parfait », 20/10) : output/extraits/WTH-V01_extrait_S11-S14.mp4 ; film entier jamais rendu (output/WTH-V01.mp4 = ancien rendu motion)"
         },
         "review": {
-          "state": "pending"
+          "state": "fixed",
+          "updated_at": "2026-10-21T10:04:07+00:00"
         },
         "mute_verify": {
-          "state": "pending",
-          "updated_at": "2026-10-20T19:24:37+00:00",
-          "note": "extrait : 2 spectateurs muets, 12 points faibles devenus règles (wth-storyboard/references/lessons-v01.md)"
+          "state": "partial",
+          "updated_at": "2026-10-21T10:04:07+00:00",
+          "note": "aucune idée principale manquée ; g et h partielles",
+          "got": "6/10",
+          "critere": "oui"
         },
         "qa": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-21T10:04:07+00:00"
         },
         "delivered": {
           "state": "pending"

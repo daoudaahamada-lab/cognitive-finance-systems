@@ -177,6 +177,8 @@ const Window: React.FC<EntityProps> = ({r}) => {
   const sealDy = r.get('sealDy', 0);
   const lockOn = clamp01(r.get('lockOn', 1));
   const lockDy = r.get('lockDy', 0);
+  const lockK = r.get('lockK', 1); // opt-in: padlock scaled about its own centre (default 1: unchanged)
+  const lockDx = r.get('lockDx', 0); // opt-in: padlock shifted right by lockDx px (default 0: unchanged)
   const tb = p.titleH ?? 56;
   const rr = p.r ?? 24;
   const x0 = -w / 2;
@@ -203,20 +205,23 @@ const Window: React.FC<EntityProps> = ({r}) => {
         </>,
       )}
       {/* padlock: ink body, deep-cyan shackle (closed when lock = 1) */}
-      {winLayer(
+      {((node: React.ReactNode) => (lockDx !== 0 && node ? <g transform={`translate(${lockDx} 0)`}>{node}</g> : node))(winLayer(
         lockOn,
         lockDy,
-        <>
-          <path
-            d={`M${px - 8},${cy - 3} V${cy - 10 - 4 * (1 - lock)} A8,8 0 0 1 ${px + 8},${cy - 10 - 4 * (1 - lock)} V${cy - 3 - 6 * (1 - lock)}`}
-            fill="none"
-            stroke={C.deep}
-            strokeWidth={4}
-            strokeLinecap="round"
-          />
-          <rect x={px - 13} y={cy - 4} width={26} height={20} rx={4} fill={C.ink} />
-        </>,
-      )}
+        ((node: React.ReactNode) =>
+          lockK !== 1 ? <g transform={`translate(${px} ${cy}) scale(${lockK}) translate(${-px} ${-cy})`}>{node}</g> : node)(
+          <>
+            <path
+              d={`M${px - 8},${cy - 3} V${cy - 10 - 4 * (1 - lock)} A8,8 0 0 1 ${px + 8},${cy - 10 - 4 * (1 - lock)} V${cy - 3 - 6 * (1 - lock)}`}
+              fill="none"
+              stroke={C.deep}
+              strokeWidth={4}
+              strokeLinecap="round"
+            />
+            <rect x={px - 13} y={cy - 4} width={26} height={20} rx={4} fill={C.ink} />
+          </>,
+        ),
+      ))}
       {/* seal: cyan disc with the firm's building, opens into the pill « ✓ Cabinet » */}
       {winLayer(
         sealOn,
@@ -332,7 +337,7 @@ const tagSpec = (g: TagGeom, C: Palette, icon: string, tagged: boolean, lit: num
 // in place of the second grey rule); track `read` (0 -> 1: the grey rules turn deep cyan, left to right, one after
 // the other: the AI reads the document).
 type DocP = {title: string; icon: string; date: string; cw: number; ch: number; titleSize: number; tag: TagGeom;
-  fw?: number; fh?: number; fts?: number; fdate?: boolean};
+  fw?: number; fh?: number; fts?: number; fdate?: boolean; fdateSize?: number};
 export const DOC_DISC = GEOM.DOC_DISC;
 const Doc: React.FC<EntityProps> = ({r}) => {
   const C = usePalette();
@@ -342,6 +347,7 @@ const Doc: React.FC<EntityProps> = ({r}) => {
   const txt = clamp01(r.get('txt', 1));
   const sh = r.get('sh', 5);
   const read = clamp01(r.get('read', 0));
+  const lit = clamp01(r.get('lit', 0)); // opt-in: card fill paper -> light cyan (the source « lights up »)
   const d = 2 * TAG.discR;
   const cw = lerp(p.cw, d, t);
   const chh = lerp(p.ch, d, t);
@@ -355,7 +361,7 @@ const Doc: React.FC<EntityProps> = ({r}) => {
     r: lerp(10, lerp(12, TAG.discR, t), c),
     fold: lerp(20, lerp(16, 0, t), c),
     shadow: lerp(sh, 0, t),
-    fill: C.paper,
+    fill: lit > 0 ? mixHex(C.paper, C.light, lit) : C.paper,
     stroke: C.ink,
     sw: lerp(4, 3, t),
     disc: c > 0 ? {x: lerp(p.cw / 2 - DOC_DISC.inset, 0, t) * c, r: lerp(DOC_DISC.r, TAG.discR, t), icon: p.icon} : undefined,
@@ -384,7 +390,7 @@ const Doc: React.FC<EntityProps> = ({r}) => {
               })
             : null}
           {p.fdate ? (
-            <Txt x={x0 + 16} y={y0 + h - 34} size={24} weight={600} color={C.deep}>
+            <Txt x={x0 + 16} y={y0 + h - 34} size={p.fdateSize ?? 24} weight={600} color={C.deep}>
               {p.date}
             </Txt>
           ) : null}
@@ -404,9 +410,15 @@ const Fiche: React.FC<EntityProps> = ({r, scene}) => {
     <>
       <Hard off={8} render={(sh) => <rect x={-w / 2} y={-h / 2} width={w} height={h} rx={16} fill={sh ? C.ink : C.paper} stroke={C.ink} strokeWidth={4} />} />
       <SheenUnder sheen={p.sheen} scene={scene} clipD={roundRect(-w / 2 + 2, -h / 2 + 2, w - 4, h - 4, 14)} uid={r.e.id} />
-      <Txt x={w / 2 - 26} y={-h / 2 + p.headerH / 2 + 2} size={36} weight={800} anchor="end">
-        {p.title}
-      </Txt>
+      {r.get('lite', 0) < 0.999 ? (
+        <Txt x={w / 2 - 26} y={-h / 2 + p.headerH / 2 + 2} size={36} weight={800} anchor="end" opacity={r.get('lite', 0) > 0.001 ? 1 - clamp01(r.get('lite', 0)) : undefined}>
+          {p.title}
+        </Txt>
+      ) : null}
+      {r.get('lite', 0) > 0.001 ? (
+        // opt-in `lite` (absent / 0 = today's page): the title becomes a plain ink bar
+        <rect x={w / 2 - 26 - 96} y={-h / 2 + p.headerH / 2 - 11} width={96} height={22} rx={11} fill={C.ink} opacity={r.get('lite', 0) < 0.999 ? clamp01(r.get('lite', 0)) : undefined} />
+      ) : null}
       <line x1={-w / 2 + 20} x2={w / 2 - 20} y1={-h / 2 + p.headerH} y2={-h / 2 + p.headerH} stroke={C.rule} strokeWidth={3} />
       {/* empty tabs of the order (S10): each disappears when its bullet lands (track tab<i>) */}
       {p.tabs.map((y, i) => {
@@ -455,7 +467,7 @@ const Sheen: React.FC<EntityProps> = ({r}) => {
 // ---------- line: one row of the brief (bullet, key, value; typewriter, red, crack, strike, fall) ----------
 type LineP = {key: string; value: string; icon: string; x0: number; x1: number; h: number; hStrip: number; ty: number;
   bulletX: number; textX: number; valueX: number; valueW: number; crackX: number; tilt: number; drop: number;
-  gap?: number; fallPx?: number; strikeW?: number; sheen?: SheenRef};
+  gap?: number; fallPx?: number; strikeW?: number; sheen?: SheenRef; keyW?: number};
 /**
  * Tracks: chars (typewriter), grow (row height: text strip -> full row when its source arrives), slotFill (opacity
  * of the beige capsule: rows lighten once written), flash (bullet pulse when the AI beam reaches it), pulse (bullet
@@ -490,10 +502,22 @@ const Line: React.FC<EntityProps> = ({r, scene}) => {
   const slot = (
     <path d={slotD} fill={C.slot} fillOpacity={fill < 0.999 ? fill : undefined} stroke={C.red} strokeWidth={red > 0 ? 4 : 0} strokeOpacity={red} />
   );
+  // Opt-in `lite` (absent / 0 = today's row): key and value cross-fade into plain bars (ink, deep cyan), for a
+  // reduced page (V01 S15-S17) ; bullet, capsule and ticks stay. keyW = measured key width (else 17 px a character).
+  const lite = clamp01(r.get('lite', 0));
+  const keyBar =
+    lite > 0.001 && key.length > 0 ? (
+      <rect x={p.textX} y={p.ty - 10} width={(p.keyW ?? 17 * p.key.length) * (key.length / Math.max(1, p.key.length))} height={20} rx={10} fill={col} opacity={lite < 0.999 ? lite : undefined} />
+    ) : null;
   const keyT = (
-    <Txt x={p.textX} y={p.ty} size={32} color={col}>
-      {key}
-    </Txt>
+    <>
+      {lite < 0.999 ? (
+        <Txt x={p.textX} y={p.ty} size={32} color={col} opacity={lite > 0.001 ? 1 - lite : undefined}>
+          {key}
+        </Txt>
+      ) : null}
+      {keyBar}
+    </>
   );
   const sx0 = p.valueX + 8;
   const sx1 = p.valueX - p.valueW - 8;
@@ -503,9 +527,14 @@ const Line: React.FC<EntityProps> = ({r, scene}) => {
   const valT =
     valOp > 0.001 ? (
       <g transform={fall > 0 ? `translate(0 ${fall * fallPx}) rotate(${16 * fall} ${vcx} ${p.ty})` : undefined} opacity={valOp < 0.999 ? valOp : undefined}>
-        <Txt x={p.valueX} y={p.ty} size={32} color={valCol} anchor="end">
-          {value}
-        </Txt>
+        {lite < 0.999 ? (
+          <Txt x={p.valueX} y={p.ty} size={32} color={valCol} anchor="end" opacity={lite > 0.001 ? 1 - lite : undefined}>
+            {value}
+          </Txt>
+        ) : null}
+        {lite > 0.001 && value.length > 0 ? (
+          <rect x={p.valueX - p.valueW * (value.length / Math.max(1, p.value.length))} y={p.ty - 10} width={p.valueW * (value.length / Math.max(1, p.value.length))} height={20} rx={10} fill={mixHex(C.deep, C.red, red)} opacity={lite < 0.999 ? lite : undefined} />
+        ) : null}
         {strike > 0 ? (
           <path d={`M${sx0},${p.ty} H${sx1}`} stroke={C.ink} strokeWidth={p.strikeW ?? 7} strokeLinecap="round" strokeDasharray={drawDash(sx0 - sx1, strike)} />
         ) : null}
@@ -576,7 +605,7 @@ const tickPath = (size: number) => {
   const len = Math.hypot(pts[1][0] - pts[0][0], pts[1][1] - pts[0][1]) + Math.hypot(pts[2][0] - pts[1][0], pts[2][1] - pts[1][1]);
   return {len, d: `M${pts[0].join(',')} L${pts[1].join(',')} L${pts[2].join(',')}`};
 };
-type TickP = {color: string; sw: number; dots?: number; size?: number; variant?: 'ai'; boxSw?: number; thin?: number};
+type TickP = {color: string; sw: number; dots?: number; size?: number; variant?: 'ai'; boxSw?: number; thin?: number; boxFill?: string};
 const Tick: React.FC<EntityProps> = ({r}) => {
   const p = r.e.p as TickP;
   const d = r.get('draw', 1);
@@ -613,7 +642,7 @@ const AiTick: React.FC<{p: TickP; d: number}> = ({p, d}) => {
   return (
     <>
       {box > 0 ? (
-        <path d={roundRect(-B / 2, -B / 2, B, B, rr)} fill="none" stroke={p.color} strokeWidth={boxSw} strokeLinecap="round" strokeDasharray={drawDash(boxLen, box, [B * 0.16, B * 0.11])} />
+        <path d={roundRect(-B / 2, -B / 2, B, B, rr)} fill={p.boxFill ?? 'none'} stroke={p.color} strokeWidth={boxSw} strokeLinecap="round" strokeDasharray={drawDash(boxLen, box, [B * 0.16, B * 0.11])} />
       ) : null}
       {tk > 0 ? dots.filter((q) => q.at <= tk * acc + 1e-6).map((q, i) => <circle key={i} cx={q.x} cy={q.y} r={thin / 2} fill={p.color} />) : null}
     </>
@@ -629,7 +658,19 @@ const Label: React.FC<EntityProps> = ({r}) => {
   const lit = clamp01(r.get('lit', 0));
   const flash = r.get('flash', 0);
   const s = tagged ? 1 + 0.35 * flash : 0.4 + 0.6 * pop;
-  return <Card c={tagSpec(p.tag, C, p.icon, tagged, lit, s)} C={C} />;
+  // Opt-in `lite` (absent / 0 = today's tag): the written date cross-fades into a plain deep-cyan bar.
+  const lite = clamp01(r.get('lite', 0));
+  const spec = tagSpec(p.tag, C, p.icon, tagged, lit, s);
+  if (lite <= 0.001) return <Card c={spec} C={C} />;
+  const t0 = spec.texts[0];
+  const bx = t0.x;
+  const bw = Math.max(10, p.tag.w / 2 - 12 - bx);
+  return (
+    <>
+      <Card c={{...spec, texts: spec.texts.map((t) => ({...t, opacity: t.opacity * (1 - lite)}))}} C={C} />
+      <rect x={bx} y={-8} width={bw} height={16} rx={8} fill={C.deep} opacity={lite < 0.999 ? lite : undefined} />
+    </>
+  );
 };
 
 // ---------- case: dashed source box traced by the advisor's pen ----------
@@ -795,7 +836,20 @@ const Limb: React.FC<EntityProps> = ({r, scene}) => {
     ) : (
       <line x1={A[0]} y1={A[1]} x2={B[0]} y2={B[1]} stroke={C.ink} strokeWidth={sw} strokeLinecap="round" />
     );
-  return <Hard off={5} render={line} />;
+  // Opt-in track `rim` (absent / 0 = today's arm): a paper outline of 3 px round the arm, so that an arm crossing the
+  // ink bust stays readable (drawn over the plain arm at opacity rim).
+  const rim = clamp01(r.get('rim', 0));
+  if (rim <= 0.001) return <Hard off={5} render={line} />;
+  const pts = bend > 0.001 ? `${A[0]},${A[1]} ${E[0]},${E[1]} ${B[0]},${B[1]}` : `${A[0]},${A[1]} ${B[0]},${B[1]}`;
+  return (
+    <>
+      <Hard off={5} render={line} />
+      <g opacity={rim < 0.999 ? rim : undefined}>
+        <polyline points={pts} fill="none" stroke={C.paper} strokeWidth={sw + 6} strokeLinecap="round" strokeLinejoin="round" />
+        <polyline points={pts} fill="none" stroke={C.ink} strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round" />
+      </g>
+    </>
+  );
 };
 
 // ---------- stamp: « VALIDÉ », ink on paper (no fill: the page shows through) ----------
@@ -824,9 +878,15 @@ const Stamp: React.FC<EntityProps> = ({r}) => {
       ) : null}
       <rect x={-p.w / 2} y={-p.h / 2} width={p.w} height={p.h} rx={12} fill="none" stroke={C.deep} strokeWidth={6} />
       <rect x={-p.w / 2 + 9} y={-p.h / 2 + 9} width={p.w - 18} height={p.h - 18} rx={7} fill="none" stroke={C.deep} strokeWidth={2.5} />
-      <Txt x={0} y={1} size={p.size ?? 40} weight={800} color={C.deep} anchor="middle" spacing={3}>
-        {p.text}
-      </Txt>
+      {r.get('lite', 0) < 0.999 ? (
+        <Txt x={0} y={1} size={p.size ?? 40} weight={800} color={C.deep} anchor="middle" spacing={3} opacity={r.get('lite', 0) > 0.001 ? 1 - clamp01(r.get('lite', 0)) : undefined}>
+          {p.text}
+        </Txt>
+      ) : null}
+      {r.get('lite', 0) > 0.001 ? (
+        // opt-in `lite` (absent / 0 = today's stamp): the text becomes a plain deep-cyan bar
+        <rect x={-p.w / 2 + 30} y={-11} width={p.w - 60} height={22} rx={11} fill={C.deep} opacity={r.get('lite', 0) < 0.999 ? clamp01(r.get('lite', 0)) : undefined} />
+      ) : null}
     </>
   );
 };
@@ -862,7 +922,7 @@ const Burst: React.FC<EntityProps> = ({r}) => {
 // ---------- marker: numbered steps 1-2-3, the active disc slides ----------
 // `labels` (optionnel) : légende sous chaque disque (ex. Limiter / Exiger / Relire), encre pour l'étape active, gris
 // (ai_tick) pour les autres, en fondu selon la piste `active` ; `labelDy` / `labelSize` : GEOM.MARKER par défaut.
-type MarkerP = {xs: number[]; y: number; labels?: string[]; labelDy?: number; labelSize?: number};
+type MarkerP = {xs: number[]; y: number; labels?: string[]; labelDy?: number; labelSize?: number; moveBlank?: boolean};
 const Marker: React.FC<EntityProps> = ({r}) => {
   const C = usePalette();
   const p = r.e.p as MarkerP;
@@ -890,9 +950,12 @@ const Marker: React.FC<EntityProps> = ({r}) => {
         </g>
       ))}
       <Hard off={6} render={(sh) => <circle cx={cx} cy={p.y} r={M.activeR} fill={sh ? C.ink : C.cyan} stroke={C.ink} strokeWidth={4} />} />
-      <Txt x={cx} y={p.y} size={34} weight={800} anchor="middle">
-        {String(digit)}
-      </Txt>
+      {/* opt-in moveBlank (absent = today's marker): the sliding disc carries no digit until it lands */}
+      {!p.moveBlank || Math.abs(a - Math.round(a)) < 0.02 ? (
+        <Txt x={cx} y={p.y} size={34} weight={800} anchor="middle">
+          {String(digit)}
+        </Txt>
+      ) : null}
     </>
   );
 };

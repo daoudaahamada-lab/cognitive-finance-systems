@@ -538,8 +538,8 @@ Elle peut se réduire en badge (pistes `w`, `h`, puis `scale`).
 - `w` (820), `h` (640) ;
 - `seal` (0 → 1 : le disque cyan au pictogramme du cabinet s'ouvre en pilule) ;
 - `lock` (1 fermé, 0 ouvert) ;
-- `bar`, `sealOn`, `sealDy`, `lockOn`, `lockDy` : barre, sceau et cadenas qui apparaissent ou tombent (« Ajouts aux
-  types existants »). Absentes, la fenêtre les dessine toujours.
+- `bar`, `sealOn`, `sealDy`, `lockOn`, `lockDy`, `lockK` : barre, sceau et cadenas qui apparaissent, tombent ou
+  grossissent (« Ajouts aux types existants »). Absentes, la fenêtre les dessine toujours.
 
 Places dans la barre de titre (repère local, `pw` = largeur du sceau : 46 fermé, `sealW` ouvert) : sceau de
 x = w/2 − 12 − pw à w/2 − 12, cadenas centré en x = w/2 − 12 − pw − 30 (26 × 20 px), tous deux à y = −h/2 + titleH/2.
@@ -650,7 +650,7 @@ Lisibles jusqu'à la pastille de 15 px d'un `label` ; `sign` est le plus chargé
 une pilule avec son mot. Usages dans V01 : L3, `puce3` (hourglass) ; `source5` « à poser au RDV » (clock9) ;
 `jeton1-3` « Conseil », « Adéquation », « Responsabilité » (chat, target, sign).
 
-### window, pistes `bar`, `sealOn`, `sealDy`, `lockOn`, `lockDy`
+### window, pistes `bar`, `sealOn`, `sealDy`, `lockOn`, `lockDy`, `lockK`
 
 La barre de titre, le sceau et le cadenas peuvent apparaître un à un, et le sceau et le cadenas tomber à leur place.
 Sans ces pistes, la fenêtre est dessinée comme avant, au pixel près (vérifié sur le balisage SVG).
@@ -662,6 +662,7 @@ Sans ces pistes, la fenêtre est dessinée comme avant, au pixel près (vérifi�
 | `sealDy` | 0 | décalage vertical du sceau en px ; −240 → 0 en 11 images `out` = il tombe, sans rebond |
 | `lockOn` | 1 | opacité du cadenas (corps encre, anse cyan profond selon `lock`) |
 | `lockDy` | 0 | décalage vertical du cadenas en px (même chute) |
+| `lockK` | 1 | échelle du cadenas autour de son centre (x du cadenas, milieu de la barre) : un grand cadenas (×2,6) tombe au-dessus de la barre, se ferme, puis rentre à ×1 dans sa place (V01 S09) ; à 1, aucun groupe ajouté |
 
 - `bar = sealOn = lockOn = 0` : il ne reste que le cadre plein cyan profond de 6 px aux coins de `r` (24) px. Posé
   exactement sur un `case` en tirets de même taille, il le relaie (« les tirets deviennent un trait plein »).
@@ -719,6 +720,30 @@ kit comparée avant / après : PSNR infini).
 | png | `flip: true` | image retournée gauche-droite (ni l'ombre de contact ni les enfants ne le sont) |
 | window | `sealK` | sceau (disque, bâtiment, coche, texte) dessiné `sealK` fois plus grand ; donner `sealW` = 68k + text_width(sealText, 26k, 700) + 16k et une `titleH` assez haute (V01 : 1,25 et 64) |
 | label | `tag.icon2` | second pictogramme sur disque juste après le premier (état étiquette), la date décalée d'un disque ; élargir `tag.w` de 2 discR + 4 (V01 : « à poser au RDV » = mini-horloge + pictogramme du client) |
+
+### Tour de revue 3 de V01 : `lite`, `lockDx`, `fdateSize`, `lit`, `boxFill`, `moveBlank`, `rim`
+
+Options facultatives ajoutées pour V01 (tour de revue 3). Absentes, le dessin est identique au pixel près (démo du kit
+comparée avant / après : PSNR infini sur les 7 images).
+
+| Type | Option | Défaut | Rôle |
+|---|---|---|---|
+| line | piste `lite` (0 → 1), paramètre `keyW` | 0 ; 17 px par caractère | fiche réduite (sous l'échelle 0,6) : la clé et la valeur passent en fondu à des barres pleines (encre ; cyan profond, rouge si `red`) de 20 px ; puce, capsule et coches restent. `keyW` = largeur mesurée de la clé (`text_width(clé, 32, 600)`) |
+| label | piste `lite` | 0 | la date (ou le texte) de l'étiquette passe en fondu à une barre cyan profond de 16 px |
+| fiche | piste `lite` | 0 | le titre « Brief » devient une barre encre |
+| stamp | piste `lite` | 0 | le texte du tampon devient une barre cyan profond |
+| window | piste `lockDx` | 0 | décale le cadenas de `lockDx` px vers la droite. Sur le mur droit : `lockDx = 42 + pw` (pw = largeur du sceau : `sealW` ouvert, 46·sealK fermé) ; à poser avec la même clé que `seal` quand le sceau se referme |
+| doc | paramètre `fdateSize` | 24 | corps de la date écrite en clair (`fdate`) |
+| doc | piste `lit` (0 → 1) | 0 | le fond de la carte passe du papier au cyan pâle : la source « s'allume » (V01 S11, dans le badge) |
+| tick (`variant: 'ai'`) | paramètre `boxFill` | aucun | fond du carré tireté (V01 : papier, coche en z 11,5 au-dessus des fils de preuve, qui passent dessous) |
+| marker | paramètre `moveBlank` | false | le disque actif ne porte aucun chiffre pendant qu'il glisse ; le chiffre paraît à l'arrivée (plus de « ②② » en fondu) |
+| limb | piste `rim` (0 → 1) | 0 | liseré papier de 3 px autour du bras, pour un bras qui croise le buste encre (V01 S05, S08, S10) |
+
+```python
+S.set("L1", lite=0)                                   # puis S.key("L1", "lite", f, 1, 6, "inOut")
+S.key("outil", "lockDx", f - 1, 42 + SEAL_W)          # cadenas accroché au mur droit
+S.set(toi.arm, rim=0)                                 # puis S.key(toi.arm, "rim", f, 1, 3, "out")
+```
 
 ## geometry.json (GEOM)
 

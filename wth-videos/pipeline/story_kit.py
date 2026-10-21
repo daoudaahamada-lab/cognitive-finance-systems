@@ -609,9 +609,10 @@ class Figure:
             self._pose(n, lerp([A[0] + rel0[0], A[1] + rel0[1]], R, p), ang_lerp(r0, self._rest_rot(n), p))
 
     # --- actions ---
-    def enter(self, f, at=None, frm=None, d=None):
+    def enter(self, f, at=None, frm=None, d=None, arm_from=2):
         """Entrée : pop sur place (`at`, ou sa position) en 300 ms, bras et stylo avec elle ; frm=x : arrive en
-        marchant depuis x (même y ; attention à la zone x > 940 réservée). Renvoie f + d."""
+        marchant depuis x (même y ; attention à la zone x > 940 réservée). arm_from (facultatif) : image, après f, où
+        le bras paraît (2 par défaut, en 3 images ; 0 : entier dès f, avec le corps). Renvoie f + d."""
         S = self.S
         at = list(at) if at is not None else S.val(self.id, "pos", f - 1)
         if S.val(self.id, "opacity", f - 1) < 1:                 # après une sortie (exit)
@@ -631,7 +632,7 @@ class Figure:
             if self.pen:
                 self._pose(n, self._rest_grip(n), self._rest_rot(n), pen_scale=p * self.size)
         if self.pen:
-            S.key(self.arm, "opacity", f + 2, 1, 3, "out")
+            S.key(self.arm, "opacity", f + arm_from, 1, 3 if arm_from else 0, "out")
         return f + d
 
     def exit(self, f, d=POP):
@@ -817,6 +818,15 @@ class Figure:
             self.S.key(self.id, "pos", n, r3(lerp(pts[i - 1], pts[i], t)), 1, "linear")
             if self.pen:
                 self._pose(n, self._rest_grip(n), self._rest_rot(n))
+        return f + d
+
+    def rim(self, f, on, d=3):
+        """Liseré papier du bras (piste `rim` du limb, facultative) : on=True le montre en d images (bras tendu qui
+        croise le buste encre), on=False l'efface en d images, AVANT que le bras ne se replie contre le buste.
+        Renvoie f + d."""
+        self._need_tool("rim")
+        self.kit.ensure(self.arm, "rim", 0)
+        self.S.key(self.arm, "rim", f, 1 if on else 0, d, "out" if on else "linear")
         return f + d
 
     def lean_to(self, f, deg, d=POP, e="out"):

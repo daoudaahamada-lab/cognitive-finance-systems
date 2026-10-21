@@ -361,7 +361,7 @@ toi.walk(f, toi.place_for(ticks, f - 1))
 
 | Méthode | Retour | Comportement |
 |---|---|---|
-| `enter(f, at=None, frm=None, d=None)` | f + d | Pop sur place (`at`, ou sa position) en 300 ms, bras et stylo avec elle ; le bras apparaît à f + 2. `frm=x` : arrive en marchant depuis x (même y), en évitant x > 940, zone réservée. Après une sortie (`exit`), l'opacité revient à 1. |
+| `enter(f, at=None, frm=None, d=None, arm_from=2)` | f + d | Pop sur place (`at`, ou sa position) en 300 ms, bras et stylo avec elle ; le bras apparaît à f + `arm_from` (2 par défaut ; 0 : entier dès f, avec le corps). `frm=x` : arrive en marchant depuis x (même y), en évitant x > 940, zone réservée. Après une sortie (`exit`), l'opacité revient à 1. |
 | `exit(f, d=POP)` | f + d | Se réduit vers son centre ; la main rejoint le repos, le bras s'efface en 2 images ; opacité 0 à la fin. |
 | `walk(f, to, d=None, e="inOut")` | f + d | Glisse vers `to` (x, ou [x, y]) à petits sauts (5 px toutes les 8 images, posée à l'arrivée), penchée de 4° vers l'avant. La main revient au repos en 6 images puis suit le corps. Durée par défaut : distance / 7, au moins 8 images. Ne fait rien si `to` est la position actuelle. |
 | `reach(f, target, d=MOVE, e="inOut", step=True)` | f + d | La pointe du stylo va sur `target`. La pose part de la pose précédente (relative à l'épaule) et la rejoint en fondu, sans saut. Hors d'atteinte : un pas pendant le geste ; avec `step=False`, un avertissement et la pointe s'arrête avant. |
@@ -372,6 +372,7 @@ toi.walk(f, toi.place_for(ticks, f - 1))
 | `rest(f, d=8, e="inOut")` | f + d | La main revient au repos. |
 | `hop(f, to, d, h=0, lean=WALK_LEAN)` | f + d | Un seul bond vers `to` ([x, y]) ; `lean` < 0 : penchée en arrière (recul). Remplace les appels privés `_move_body` / `_hand_rest`. |
 | `run(f, pts, d)` | f + d | Course à vitesse constante le long d'une polyligne, main au repos. |
+| `rim(f, on, d=3)` | f + d | Liseré papier du bras (piste `rim` du limb) : `on=True` le montre (bras tendu qui croise le buste encre), `on=False` l'efface ; à éteindre AVANT que le bras ne se replie contre le buste (sinon une boucle blanche y reste). |
 | `lean_to(f, deg, d=POP, e="out")` | f + d | Incline la figurine (piste `lean`) en re-posant le bras image par image. |
 | `scale_to(f, s, d=10, e="inOut")` | f + d | Change d'échelle ; bras et stylo suivent ; la taille d'entrée devient `s`. |
 | `stow(f, d=4)` / `unstow(f, d=6)` | f + d | Range le stylo (il se réduit dans la main) / le fait revenir (pop). |
