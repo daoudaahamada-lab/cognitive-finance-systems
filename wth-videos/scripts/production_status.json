@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T11:26:24+00:00",
+  "updated_at": "2026-10-21T11:27:59+00:00",
   "checkpoints": {
     "v01_full_approved": {
       "state": "done",
@@ -263,12 +263,12 @@
       "stages": {
         "voice": {
           "state": "done",
-          "updated_at": "2026-10-20T19:33:57+00:00",
-          "note": "générée le 20/10 après la recharge des crédits (commit 74aeb7e)",
-          "take": "0WdAGwDgr43atUwUrPI3",
-          "duration_s": 56.92,
-          "aligned": "146/146",
-          "cache_key": "eeea80de0c5a44f4347363bb"
+          "updated_at": "2026-10-21T11:27:59+00:00",
+          "note": "voix du script réécrit (21/10), choisie parmi 2 prises",
+          "take": "ZGQer05VAZFES3w94cGY",
+          "duration_s": 88.74,
+          "aligned": "234/234",
+          "cache_key": "a2827042f4129fc14363d619"
         },
         "storyboard": {
           "state": "pending"
