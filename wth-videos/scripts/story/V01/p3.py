@@ -210,7 +210,9 @@ def part(S, kit, c):
     S.set("empreinte", pos=list(STAMP_AT), rot=STAMP_ROT)
     S.set("tampon", pos=list(STAMP_AT), rot=STAMP_ROT)
     S.set("coche_relue", pos=[sheet.w / 2 - 6, -sheet.h / 2 - 6])  # S19 : à cheval sur le coin, hors du titre
-    lite_ids = ["fiche", "tampon"] + [f"L{i + 1}" for i in range(5)] + [f"source{i + 1}" for i in range(5)]
+    # la fiche elle-même n'est pas allégée : son titre vide deviendrait une barre encre (« Brief · ▬ », revue 1) ;
+    # l'en-tête garde « Brief · 1 page » et la pastille
+    lite_ids = ["tampon"] + [f"L{i + 1}" for i in range(5)] + [f"source{i + 1}" for i in range(5)]
     for id in lite_ids:
         kit.ensure(id, "lite", 0)
 
