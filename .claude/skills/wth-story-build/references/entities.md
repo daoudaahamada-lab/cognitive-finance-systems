@@ -17,7 +17,8 @@ combinaison qui fait l'affaire : un type de plus est du code à maintenir en Pyt
   - **Fiche.** fiche, line, tick, label, doc, case, sheen ;
   - **Liens et signes.** wire, qmark, bubble, bullet, burst, pill, window, marker, stamp ;
   - **Personnages et objets.** figure, limb, pen, png.
-- Ajouts aux types existants : tick `variant: 'ai'`, marker `labels`
+- Ajouts aux types existants : tick `variant: 'ai'`, marker `labels`, pictogrammes hourglass / clock9 / chat / target /
+  sign, window `bar` / `sealOn` / `sealDy` / `lockOn` / `lockDy`, doc `fw` / `fh` / `fts` / `fdate` / `read`
 - geometry.json (GEOM)
 
 ## Conventions communes
@@ -117,6 +118,9 @@ Pictogramme seul, ou posé sur un disque.
 - Avant le kit : euro, bars, mail, shield, cal, building (le sceau plein du cabinet), check, person.
 - Ajoutés par le kit : rewind (◀◀), clock, house, bank (temple au trait), coin, percent, lock, cart, moon, pause,
   warning, phone, plus, minus, arrow (→ ; pour une autre direction, utiliser `rot`).
+- Ajoutés pour V01 v3 : hourglass (sablier : la retraite), clock9 (horloge sur 9 h), chat (bulle de dialogue),
+  target (cible), sign (signature au stylo). Dessins : « Ajouts aux types existants ».
+- Un nom inconnu ne dessine rien (pas d'erreur) : vérifie l'orthographe sur une image fixe.
 
 ### sector
 
@@ -411,13 +415,19 @@ Un document du client. Il passe de la carte complète (160 × 200 : pastille, ti
 compacte (`cw` × `ch` : bande de date à gauche, pastille à droite), puis se réduit en sa pastille qui se pose sur
 l'étiquette.
 
-**Paramètres :** `title`, `icon`, `date`, `cw`, `ch`, `titleSize`, `tag` (`{w, h, date, size}`, comme label).
+**Paramètres :** `title`, `icon`, `date`, `cw`, `ch`, `titleSize`, `tag` (`{w, h, date, size}`, comme label) ;
+variante `fw`, `fh`, `fts`, `fdate` (carte complète plus grande, date en clair : « Ajouts aux types existants »).
 
 **Pistes :**
 - `compact` (0 → 1) ;
 - `tag` (0 → 1 : la carte se réduit en sa pastille) ;
 - `txt` (opacité du contenu de la carte complète) ;
-- `sh` (ombre en px).
+- `sh` (ombre en px) ;
+- `read` (0 → 1 : les traits gris virent au cyan profond, l'IA lit ; voir « Ajouts aux types existants »).
+
+Le titre part à 16 px du bord gauche : à 160 px de large et 26 px, au-delà de 144 px il déborde de la carte
+(« Avis d’impôt » 155 px, « Assurance-vie » 184 px ; mesure : `text_width(titre, 26, 600)`). Prends alors la variante
+`fw` / `fts`.
 
 ### case
 
@@ -527,7 +537,13 @@ Elle peut se réduire en badge (pistes `w`, `h`, puis `scale`).
 **Pistes :**
 - `w` (820), `h` (640) ;
 - `seal` (0 → 1 : le disque cyan au pictogramme du cabinet s'ouvre en pilule) ;
-- `lock` (1 fermé, 0 ouvert).
+- `lock` (1 fermé, 0 ouvert) ;
+- `bar`, `sealOn`, `sealDy`, `lockOn`, `lockDy` : barre, sceau et cadenas qui apparaissent ou tombent (« Ajouts aux
+  types existants »). Absentes, la fenêtre les dessine toujours.
+
+Places dans la barre de titre (repère local, `pw` = largeur du sceau : 46 fermé, `sealW` ouvert) : sceau de
+x = w/2 − 12 − pw à w/2 − 12, cadenas centré en x = w/2 − 12 − pw − 30 (26 × 20 px), tous deux à y = −h/2 + titleH/2.
+Un titre posé sur la barre (une pastille) doit s'arrêter avant le cadenas, sinon il le couvre.
 
 ### marker
 
@@ -614,6 +630,95 @@ Une légende sous chaque disque, par exemple `labels=["Limiter", "Exiger", "Reli
 - L'étape active est en encre, les autres en gris (`ai_tick`). La couleur suit la piste `active` en fondu.
 - `labelDy` (62) et `labelSize` (26) sont pris dans `GEOM.MARKER` par défaut.
 - Avec 100 px entre les disques, des mots de plus de 7 lettres à 26 px se touchent : écarter les `xs` (≥ 150 px).
+
+### Pictogrammes hourglass, clock9, chat, target, sign
+
+Cinq noms de plus dans le `switch` de `Icon` (`draw.tsx`, `IconName`, `ICON_NAMES`) ; ce n'est pas un type. Même
+boîte 24 × 24, traits arrondis, `color` et `sw` comme les autres. Ils servent partout où un pictogramme se nomme :
+`icon` (`name`), `pill` (`icon`), `bullet` et la puce d'une `line` (`icon`), le disque d'un `label` et d'un `doc`
+(`icon`).
+
+| Nom | Dessin | Pour dire |
+|---|---|---|
+| `hourglass` | deux triangles pointe contre pointe entre deux barres, un tas de sable plein en bas | la retraite, une échéance lointaine (l'enveloppe `mail` se lit « courrier ») |
+| `clock9` | cadran rond, petite aiguille vers la gauche (9 h), grande vers le haut | le rendez-vous de 9 h (`clock` montre une autre heure) |
+| `chat` | bulle de dialogue arrondie, petite queue en bas à gauche | le conseil, l'échange |
+| `target` | deux cercles concentriques et un point plein | l'adéquation, l'objectif |
+| `sign` | trait de signature ondulé, souligné, sous une pointe de stylo | la responsabilité, l'engagement |
+
+Lisibles jusqu'à la pastille de 15 px d'un `label` ; `sign` est le plus chargé : à moins de 20 px, préfère-le sur
+une pilule avec son mot. Usages dans V01 : L3, `puce3` (hourglass) ; `source5` « à poser au RDV » (clock9) ;
+`jeton1-3` « Conseil », « Adéquation », « Responsabilité » (chat, target, sign).
+
+### window, pistes `bar`, `sealOn`, `sealDy`, `lockOn`, `lockDy`
+
+La barre de titre, le sceau et le cadenas peuvent apparaître un à un, et le sceau et le cadenas tomber à leur place.
+Sans ces pistes, la fenêtre est dessinée comme avant, au pixel près (vérifié sur le balisage SVG).
+
+| Piste | Défaut | Rôle |
+|---|---|---|
+| `bar` | 1 | barre de titre et ses 3 points, dessinés 40 × (1 − bar) px plus haut, à l'opacité bar : à 0, invisibles ; 0 → 1 en 300 ms, la barre descend en apparaissant |
+| `sealOn` | 1 | opacité du sceau (disque au bâtiment, ou pilule « ✓ Cabinet » selon `seal`) |
+| `sealDy` | 0 | décalage vertical du sceau en px ; −240 → 0 en 11 images `out` = il tombe, sans rebond |
+| `lockOn` | 1 | opacité du cadenas (corps encre, anse cyan profond selon `lock`) |
+| `lockDy` | 0 | décalage vertical du cadenas en px (même chute) |
+
+- `bar = sealOn = lockOn = 0` : il ne reste que le cadre plein cyan profond de 6 px aux coins de `r` (24) px. Posé
+  exactement sur un `case` en tirets de même taille, il le relaie (« les tirets deviennent un trait plein »).
+- Pour une chute, pose `sealDy` à −240 une image avant, puis la clé vers 0 ; `sealOn` passe à 1 sur l'image de départ.
+- `seal` et `lock` gardent leur rôle (ouverture du sceau, anse fermée) ; les badges (`w`, `h`, `scale`) suivent.
+
+```python
+S.add("outil", "window", z=1, titleH=56, r=24, sealW=seal_w, sealText="Cabinet")
+S.set("outil", w=640, h=700, seal=0, lock=0, bar=0, sealOn=0, sealDy=0, lockOn=0, lockDy=0)
+S.key("outil", "bar", f_outil, 1, 9, "out")                    # la barre descend
+S.key("outil", "sealDy", f_valide - 1, -240)
+S.keys("outil", f_valide, sealOn=1)
+S.key("outil", "sealDy", f_valide, 0, 11, "out")               # le sceau tombe
+```
+
+### doc, paramètres `fw`, `fh`, `fts`, `fdate`, piste `read`
+
+Une carte complète plus grande, dont le titre tient et dont la date se lit en clair ; l'IA peut la « lire ». Sans ces
+paramètres, la carte reste celle de 160 × 200 au pixel près.
+
+| Paramètre | Défaut | Rôle |
+|---|---|---|
+| `fw`, `fh` | 160, 200 | taille de la carte complète ; `compact` part de `fw × fh` vers `cw × ch` |
+| `fts` | 26 | corps du titre de la carte complète (SemiBold) |
+| `fdate` | false | la date `date` s'écrit en clair (Inter SemiBold 24 px, cyan profond) sur la bande du bas, à la place du second trait gris (x = −fw/2 + 16, y = fh/2 − 34) |
+
+**Piste `read` (0 → 1, défaut 0) :** les traits gris passent au cyan profond de gauche à droite, l'un après l'autre
+(avec `fdate`, il n'en reste qu'un).
+
+Dessin de la carte complète : papier au coin plié, contour encre 4 px, ombre dure (`sh`) ; pastille du pictogramme
+en haut à gauche (r 22, à (−fw/2 + 36, −fh/2 + 40)) ; titre à −fh/2 + 96 ; trait gris à fh/2 − 56 ; date en clair
+en bas. Les versions compacte (`cw × ch`) et étiquette (`tag`) ne changent pas. Pendant la contraction, le contenu
+de la carte complète (titre et date compris) s'efface en fondu enchaîné.
+
+V01 : `fw=200, fh=250, fts=24, fdate=True` (« Assurance-vie » à 24 px : 170 px, sur 184 disponibles ; dates à
+24 px : 117 à 125 px).
+À l'échelle 0,8 (S05-S07), titre et date font environ 19 px à l'écran : c'est le plus petit qui reste lisible.
+
+```python
+S.add("doc1", "doc", z=12, title="Avis d’impôt", icon="euro", date="sept. 2025", cw=150, ch=80, titleSize=26,
+      tag=tag_geom("sept. 2025"), fw=200, fh=250, fts=24, fdate=True)
+S.set("doc1", compact=0, tag=0, txt=1, read=0, sh=6)
+S.key("doc1", "read", f_lit, 1, 12, "out")                     # « lit » : le trait vire au cyan
+```
+
+### png `tint`, `outline`, `flip` ; window `sealK` ; label `tag.icon2`
+
+Paramètres facultatifs ajoutés pour V01 (tour de revue 1). Absents, le dessin est identique au pixel près (démo du
+kit comparée avant / après : PSNR infini).
+
+| Type | Paramètre | Rôle |
+|---|---|---|
+| png | `tint: 'mono'` | verre gris (niveaux de gris, un peu éclairci) : l'IA grand public, qui ne doit pas ressembler à la nôtre |
+| png | `outline` (px) | contour encre dur autour de la silhouette (4 ombres portées sans flou) |
+| png | `flip: true` | image retournée gauche-droite (ni l'ombre de contact ni les enfants ne le sont) |
+| window | `sealK` | sceau (disque, bâtiment, coche, texte) dessiné `sealK` fois plus grand ; donner `sealW` = 68k + text_width(sealText, 26k, 700) + 16k et une `titleH` assez haute (V01 : 1,25 et 64) |
+| label | `tag.icon2` | second pictogramme sur disque juste après le premier (état étiquette), la date décalée d'un disque ; élargir `tag.w` de 2 discR + 4 (V01 : « à poser au RDV » = mini-horloge + pictogramme du client) |
 
 ## geometry.json (GEOM)
 

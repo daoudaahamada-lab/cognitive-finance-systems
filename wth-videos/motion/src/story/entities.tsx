@@ -97,11 +97,24 @@ const Figure: React.FC<EntityProps> = ({r}) => {
  * the PNG's bottom edge), instead of a drop-shadow halo around the whole silhouette. `saturate` < 1 calms a PNG whose
  * colours would compete with the cyan accent.
  */
+// Opt-in (absent = today's drawing, pixel for pixel): tint 'mono' (grey glass: grayscale, slightly lighter), outline
+// (px: hard ink contour drawn around the silhouette by 4 zero-blur drop-shadows), flip (mirrored left-right; the
+// contact shadow and the children are not mirrored).
 type PngP = {src: string; w: number; h: number; shadow?: number; blur?: number; dy?: number; saturate?: number;
-  contact?: {w: number; h: number; dy: number; blur: number; alpha: number}};
+  contact?: {w: number; h: number; dy: number; blur: number; alpha: number}; tint?: 'mono'; outline?: number;
+  flip?: boolean};
+const pngExtra = (p: PngP, ink: string): string => {
+  const parts: string[] = [];
+  if (p.tint === 'mono') parts.push('grayscale(1) brightness(1.06) contrast(1.04)');
+  const o = p.outline ?? 0;
+  if (o > 0) parts.push(`drop-shadow(${o}px 0 0 ${ink}) drop-shadow(-${o}px 0 0 ${ink}) drop-shadow(0 ${o}px 0 ${ink}) drop-shadow(0 -${o}px 0 ${ink})`);
+  return parts.join(' ');
+};
 const Png: React.FC<EntityProps> = ({r}) => {
   const p = r.e.p as PngP;
-  const sat = p.saturate != null && p.saturate !== 1 ? `saturate(${p.saturate})` : '';
+  const C = usePalette();
+  const extra = pngExtra(p, C.ink);
+  const sat = (p.saturate != null && p.saturate !== 1 ? `saturate(${p.saturate})` : '') + (extra ? ` ${extra}` : '');
   const c = p.contact;
   return (
     <>
@@ -127,7 +140,8 @@ const Png: React.FC<EntityProps> = ({r}) => {
           top: -p.h / 2,
           width: p.w,
           height: p.h,
-          filter: c ? sat || undefined : `drop-shadow(0px ${p.dy ?? 16}px ${p.blur ?? 24}px rgba(30, 20, 22, ${p.shadow ?? 0.16})) ${sat}`.trim(),
+          filter: c ? sat.trim() || undefined : `drop-shadow(0px ${p.dy ?? 16}px ${p.blur ?? 24}px rgba(30, 20, 22, ${p.shadow ?? 0.16})) ${sat}`.trim(),
+          transform: p.flip ? 'scaleX(-1)' : undefined,
         }}
       />
     </>
@@ -135,7 +149,22 @@ const Png: React.FC<EntityProps> = ({r}) => {
 };
 
 // ---------- window: validated tool (title bar, seal « ✓ Cabinet », padlock); shrinks into a badge ----------
-type WindowP = {titleH?: number; r?: number; sealW: number; sealText: string};
+// Opt-in tracks (absent = today's drawing, pixel for pixel): bar (title bar + its 3 dots, drawn -40·(1 - bar) px
+// higher at opacity bar), sealOn / sealDy (opacity and vertical offset of the seal: it can fall into place),
+// lockOn / lockDy (same for the padlock). bar = sealOn = lockOn = 0 leaves the bare deep-cyan 6 px frame.
+// Opt-in sealK (absent = 1, today's drawing): the seal (disc, building, check, « Cabinet ») drawn k times larger;
+// give sealW for the open pill at that scale (68k + text_width(sealText, 26k, 700) + 16k).
+type WindowP = {titleH?: number; r?: number; sealW: number; sealText: string; sealK?: number};
+/** A part of the window shown at opacity `on`, shifted down by `dy` px; untouched (no wrapper) at its defaults. */
+const winLayer = (on: number, dy: number, node: React.ReactNode): React.ReactNode => {
+  if (on <= 0.001) return null;
+  if (on >= 0.999 && dy === 0) return node;
+  return (
+    <g transform={dy !== 0 ? `translate(0 ${dy})` : undefined} opacity={on < 0.999 ? on : undefined}>
+      {node}
+    </g>
+  );
+};
 const Window: React.FC<EntityProps> = ({r}) => {
   const C = usePalette();
   const p = r.e.p as WindowP;
@@ -143,13 +172,19 @@ const Window: React.FC<EntityProps> = ({r}) => {
   const h = r.get('h', 640);
   const seal = r.get('seal', 1);
   const lock = r.get('lock', 1);
+  const barOn = clamp01(r.get('bar', 1));
+  const sealOn = clamp01(r.get('sealOn', 1));
+  const sealDy = r.get('sealDy', 0);
+  const lockOn = clamp01(r.get('lockOn', 1));
+  const lockDy = r.get('lockDy', 0);
   const tb = p.titleH ?? 56;
   const rr = p.r ?? 24;
   const x0 = -w / 2;
   const y0 = -h / 2;
   const cy = y0 + tb / 2;
   const bar = `M${x0},${y0 + tb} V${y0 + rr} A${rr},${rr} 0 0 1 ${x0 + rr},${y0} H${x0 + w - rr} A${rr},${rr} 0 0 1 ${x0 + w},${y0 + rr} V${y0 + tb} Z`;
-  const pw = 46 + (p.sealW - 46) * seal;
+  const k = p.sealK ?? 1;
+  const pw = 46 * k + (p.sealW - 46 * k) * seal;
   const sx1 = x0 + w - 12;
   const sx0 = sx1 - pw;
   const px = sx0 - 30;
@@ -157,34 +192,52 @@ const Window: React.FC<EntityProps> = ({r}) => {
   return (
     <>
       <path d={roundRect(x0, y0, w, h, rr)} fill="none" stroke={C.deep} strokeWidth={6} />
-      <Hard off={6} render={(sh) => <path d={bar} fill={sh ? C.ink : C.light} stroke={C.ink} strokeWidth={4} strokeLinejoin="round" />} />
-      {[24, 46, 68].map((dx) => (
-        <circle key={dx} cx={x0 + dx} cy={cy} r={6} fill={C.ink} />
-      ))}
+      {winLayer(
+        barOn,
+        -40 * (1 - barOn),
+        <>
+          <Hard off={6} render={(sh) => <path d={bar} fill={sh ? C.ink : C.light} stroke={C.ink} strokeWidth={4} strokeLinejoin="round" />} />
+          {[24, 46, 68].map((dx) => (
+            <circle key={dx} cx={x0 + dx} cy={cy} r={6} fill={C.ink} />
+          ))}
+        </>,
+      )}
       {/* padlock: ink body, deep-cyan shackle (closed when lock = 1) */}
-      <path
-        d={`M${px - 8},${cy - 3} V${cy - 10 - 4 * (1 - lock)} A8,8 0 0 1 ${px + 8},${cy - 10 - 4 * (1 - lock)} V${cy - 3 - 6 * (1 - lock)}`}
-        fill="none"
-        stroke={C.deep}
-        strokeWidth={4}
-        strokeLinecap="round"
-      />
-      <rect x={px - 13} y={cy - 4} width={26} height={20} rx={4} fill={C.ink} />
+      {winLayer(
+        lockOn,
+        lockDy,
+        <>
+          <path
+            d={`M${px - 8},${cy - 3} V${cy - 10 - 4 * (1 - lock)} A8,8 0 0 1 ${px + 8},${cy - 10 - 4 * (1 - lock)} V${cy - 3 - 6 * (1 - lock)}`}
+            fill="none"
+            stroke={C.deep}
+            strokeWidth={4}
+            strokeLinecap="round"
+          />
+          <rect x={px - 13} y={cy - 4} width={26} height={20} rx={4} fill={C.ink} />
+        </>,
+      )}
       {/* seal: cyan disc with the firm's building, opens into the pill « ✓ Cabinet » */}
-      <Hard off={4} render={(sh) => <rect x={sx0} y={cy - 22} width={pw} height={44} rx={22} fill={sh ? C.ink : C.cyan} stroke={C.ink} strokeWidth={3} />} />
-      <g transform={`translate(${sx0 + 23} ${cy})`}>
-        <Icon name="building" s={24} color={C.ink} />
-      </g>
-      {textOp > 0 ? (
-        <g opacity={textOp}>
-          <g transform={`translate(${sx0 + 54} ${cy})`}>
-            <Icon name="check" s={18} color={C.ink} sw={3.4} />
+      {winLayer(
+        sealOn,
+        sealDy,
+        <>
+          <Hard off={4} render={(sh) => <rect x={sx0} y={cy - 22 * k} width={pw} height={44 * k} rx={22 * k} fill={sh ? C.ink : C.cyan} stroke={C.ink} strokeWidth={3} />} />
+          <g transform={`translate(${sx0 + 23 * k} ${cy})`}>
+            <Icon name="building" s={24 * k} color={C.ink} />
           </g>
-          <Txt x={sx0 + 68} y={cy} size={26} weight={700}>
-            {p.sealText}
-          </Txt>
-        </g>
-      ) : null}
+          {textOp > 0 ? (
+            <g opacity={textOp}>
+              <g transform={`translate(${sx0 + 54 * k} ${cy})`}>
+                <Icon name="check" s={18 * k} color={C.ink} sw={3.4} />
+              </g>
+              <Txt x={sx0 + 68 * k} y={cy} size={26 * k} weight={700}>
+                {p.sealText}
+              </Txt>
+            </g>
+          ) : null}
+        </>,
+      )}
     </>
   );
 };
@@ -203,6 +256,8 @@ type CardSpec = {
   sw?: number;
   /** cyan disc with the ink pictogram (document identity) */
   disc?: {x: number; r: number; icon: string; scale?: number};
+  /** optional second disc right after the first (tag icon2) */
+  disc2?: {x: number; r: number; icon: string; scale?: number};
   /** bare pictogram (calendar of the date chip) */
   glyph?: {x: number; icon: string; s: number; color: string; scale?: number};
   texts: {text: string; x: number; size: number; opacity: number; weight?: number}[];
@@ -223,6 +278,11 @@ const Card: React.FC<{c: CardSpec; C: Palette}> = ({c, C}) => {
           <Bullet icon={c.disc.icon} r={c.disc.r} />
         </g>
       ) : null}
+      {c.disc2 ? (
+        <g transform={`translate(${c.disc2.x} 0) scale(${c.disc2.scale ?? 1})`}>
+          <Bullet icon={c.disc2.icon} r={c.disc2.r} />
+        </g>
+      ) : null}
       {c.glyph ? (
         <g transform={`translate(${c.glyph.x} 0) scale(${c.glyph.scale ?? 1})`}>
           <Icon name={c.glyph.icon} s={c.glyph.s} color={c.glyph.color} sw={2.8} />
@@ -240,10 +300,14 @@ const Card: React.FC<{c: CardSpec; C: Palette}> = ({c, C}) => {
 };
 
 /** Source tag of a line (document pictogram + date, folded corner) and its date-chip state (calendar + date). */
-type TagGeom = {w: number; h: number; date: string; size: number};
+// Opt-in icon2 (absent = today's tag): a second pictogram disc right after the first (tagged state only), the date
+// shifted right by one disc (2 discR + 4 px) : give w accordingly.
+type TagGeom = {w: number; h: number; date: string; size: number; icon2?: string};
 const TAG = GEOM.TAG;
 const tagSpec = (g: TagGeom, C: Palette, icon: string, tagged: boolean, lit: number, iconScale = 1): CardSpec => {
   const x0 = -g.w / 2;
+  const two = tagged && !!g.icon2;
+  const shift = two ? 2 * TAG.discR + 4 : 0;
   return {
     w: g.w,
     h: g.h,
@@ -253,8 +317,9 @@ const tagSpec = (g: TagGeom, C: Palette, icon: string, tagged: boolean, lit: num
     fill: mixHex(C.paper, C.light, lit),
     stroke: mixHex(C.ink, C.deep, lit),
     disc: tagged ? {x: x0 + TAG.iconX, r: TAG.discR, icon, scale: iconScale} : undefined,
+    disc2: two ? {x: x0 + TAG.iconX + shift, r: TAG.discR, icon: g.icon2 as string, scale: iconScale} : undefined,
     glyph: tagged ? undefined : {x: x0 + TAG.iconX, icon: 'cal', s: 24, color: C.deep, scale: iconScale},
-    texts: [{text: g.date, x: x0 + TAG.textX, size: g.size, opacity: 1}],
+    texts: [{text: g.date, x: x0 + TAG.textX + shift, size: g.size, opacity: 1}],
   };
 };
 
@@ -262,7 +327,12 @@ const tagSpec = (g: TagGeom, C: Palette, icon: string, tagged: boolean, lit: num
 // Compact card (S11-S12): no title (the row label and the tag already say it), a blank date strip on the left (the
 // date chip, a `label` entity, sits there until « date. » peels it off along the wire) and the pictogram disc on the
 // right. Track `tag` (S13): the card shrinks INTO its disc, which lands on the tag's calendar and becomes its pictogram.
-type DocP = {title: string; icon: string; date: string; cw: number; ch: number; titleSize: number; tag: TagGeom};
+// Opt-in variant (absent = today's 160 x 200 card, pixel for pixel): fw x fh (full card size, the `compact` track
+// contracts from it), fts (title size of the full card), fdate (the date written out in deep cyan on the bottom strip,
+// in place of the second grey rule); track `read` (0 -> 1: the grey rules turn deep cyan, left to right, one after
+// the other: the AI reads the document).
+type DocP = {title: string; icon: string; date: string; cw: number; ch: number; titleSize: number; tag: TagGeom;
+  fw?: number; fh?: number; fts?: number; fdate?: boolean};
 export const DOC_DISC = GEOM.DOC_DISC;
 const Doc: React.FC<EntityProps> = ({r}) => {
   const C = usePalette();
@@ -271,11 +341,12 @@ const Doc: React.FC<EntityProps> = ({r}) => {
   const t = clamp01(r.get('tag', 0));
   const txt = clamp01(r.get('txt', 1));
   const sh = r.get('sh', 5);
+  const read = clamp01(r.get('read', 0));
   const d = 2 * TAG.discR;
   const cw = lerp(p.cw, d, t);
   const chh = lerp(p.ch, d, t);
-  const w = lerp(160, cw, c);
-  const h = lerp(200, chh, c);
+  const w = lerp(p.fw ?? 160, cw, c);
+  const h = lerp(p.fh ?? 200, chh, c);
   const x0 = -w / 2;
   const y0 = -h / 2;
   const spec: CardSpec = {
@@ -290,6 +361,9 @@ const Doc: React.FC<EntityProps> = ({r}) => {
     disc: c > 0 ? {x: lerp(p.cw / 2 - DOC_DISC.inset, 0, t) * c, r: lerp(DOC_DISC.r, TAG.discR, t), icon: p.icon} : undefined,
     texts: [],
   };
+  // grey rules of the full card [x from, x to, y]; with fdate, the date replaces the second one
+  const rules: [number, number, number][] = [[x0 + 16, x0 + w - 30, y0 + h - 56]];
+  if (!p.fdate) rules.push([x0 + 16, x0 + w - 60, y0 + h - 34]);
   return (
     <>
       <Card c={spec} C={C} />
@@ -299,10 +373,21 @@ const Doc: React.FC<EntityProps> = ({r}) => {
           <g transform={`translate(${x0 + 36} ${y0 + 40})`}>
             <Bullet icon={p.icon} r={22} />
           </g>
-          <Txt x={x0 + 16} y={y0 + 96} size={26}>
+          <Txt x={x0 + 16} y={y0 + 96} size={p.fts ?? 26}>
             {p.title}
           </Txt>
-          <path d={`M${x0 + 16},${y0 + h - 56} H${x0 + w - 30} M${x0 + 16},${y0 + h - 34} H${x0 + w - 60}`} stroke={C.grey} strokeWidth={6} strokeLinecap="round" />
+          <path d={rules.map(([a, b, y]) => `M${a},${y} H${b}`).join(' ')} stroke={C.grey} strokeWidth={6} strokeLinecap="round" />
+          {read > 0.001
+            ? rules.map(([a, b, y], i) => {
+                const k = clamp01(read * rules.length - i);
+                return k > 0.001 ? <path key={i} d={`M${a},${y} H${a + (b - a) * k}`} stroke={C.deep} strokeWidth={6} strokeLinecap="round" /> : null;
+              })
+            : null}
+          {p.fdate ? (
+            <Txt x={x0 + 16} y={y0 + h - 34} size={24} weight={600} color={C.deep}>
+              {p.date}
+            </Txt>
+          ) : null}
         </g>
       ) : null}
     </>

@@ -786,6 +786,86 @@ class Figure:
         self._hand_rest(f, d, e)
         return f + d
 
+    # --- gestes facultatifs (ajoutés pour V01 ; aucune méthode existante ne change) ---
+    def _follow_rest(self, fa, fb):
+        """Images [fa, fb) : la main reste au repos et suit le corps (bras re-posé image par image)."""
+        if self.pen:
+            for n in range(fa, fb):
+                self._pose(n, self._rest_grip(n), self._rest_rot(n))
+
+    def hop(self, f, to, d, h=0, lean=WALK_LEAN):
+        """Un seul bond vers `to` ([x, y]) en d images, de `h` px de haut ; lean < 0 : penchée en arrière (recul).
+        La main revient au repos puis suit le corps. Renvoie f + d."""
+        self._move_body(f, d, list(to), "inOut", hop=h, lean=lean)
+        if self.pen:
+            k0 = min(6, d)
+            self._hand_rest(f, k0, "out")
+            self._follow_rest(f + k0, f + d)
+        return f + d
+
+    def run(self, f, pts, d):
+        """Course à vitesse constante le long de la polyligne `pts` (points monde) en d images, main au repos.
+        Renvoie f + d."""
+        acc = [0.0]
+        for a, b in zip(pts, pts[1:]):
+            acc.append(acc[-1] + math.dist(a, b))
+        L = acc[-1]
+        for n, p in frames(f, d, "linear"):
+            s = p * L
+            i = next((j for j in range(1, len(acc)) if acc[j] >= s - 1e-9), len(acc) - 1)
+            t = (s - acc[i - 1]) / max(1e-9, acc[i] - acc[i - 1])
+            self.S.key(self.id, "pos", n, r3(lerp(pts[i - 1], pts[i], t)), 1, "linear")
+            if self.pen:
+                self._pose(n, self._rest_grip(n), self._rest_rot(n))
+        return f + d
+
+    def lean_to(self, f, deg, d=POP, e="out"):
+        """Incline la figurine de `deg`° autour du pied en d images (signe : celui de la piste lean) ; la main au repos
+        suit. Renvoie f + d."""
+        self.kit.ensure(self.id, "lean", 0)
+        self.S.key(self.id, "lean", f, deg, d, e)
+        self._follow_rest(f, f + d)
+        return f + d
+
+    def scale_to(self, f, s, d=10, e="inOut"):
+        """Change d'échelle (s) en d images, autour de son centre ; le bras et le stylo suivent, main au repos. La
+        taille d'entrée (`enter`) devient s. Renvoie f + d."""
+        S = self.S
+        s0 = S.val(self.id, "scale", f - 1)
+        pen_on = self.pen and S.val(self.pen, "opacity", f - 1) > 0.5 and S.val(self.pen, "scale", f - 1) > 1e-6
+        for n, p in frames(f, d, e):
+            S.key(self.id, "scale", n, round(lerp(s0, s, p), 5), 1, "linear")
+            if self.pen:
+                self._pose(n, self._rest_grip(n), self._rest_rot(n),
+                           pen_scale=lerp(s0, s, p) if pen_on else None)
+        self.size = s
+        return f + d
+
+    def stow(self, f, d=4):
+        """Range le stylo : il se réduit dans la main en d images, puis disparaît. Renvoie f + d."""
+        self._need_tool("stow")
+        self.S.key(self.pen, "scale", f, 0, d, "in")
+        self.S.key(self.pen, "opacity", f + d, 0)
+        return f + d
+
+    def unstow(self, f, d=6):
+        """Le stylo revient dans la main (pop, à l'échelle de la figurine). Renvoie f + d."""
+        self._need_tool("unstow")
+        self.S.key(self.pen, "scale", f - 1, 0)
+        self.S.key(self.pen, "opacity", f, 1)
+        self.S.key(self.pen, "scale", f, round(self._scale(f + d), 5), d, "out")
+        return f + d
+
+    def set_z(self, f, z, tool_z=None):
+        """Change de calque à l'image f : la figurine passe en z ; avec `tool_z`, le bras passe en tool_z et le stylo
+        en tool_z + 0,5 (sinon ils gardent le leur). Renvoie f."""
+        S = self.S
+        for id, v in ((self.id, z),) + (((self.arm, tool_z), (self.pen, tool_z + 0.5)) if tool_z is not None and
+                                         self.pen else ()):
+            self.kit.ensure(id, "z", S.ents[id]["z"])
+            S.key(id, "z", f, v)
+        return f
+
 
 # ---------- fiche ----------
 

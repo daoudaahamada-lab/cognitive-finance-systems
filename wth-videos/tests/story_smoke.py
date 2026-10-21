@@ -41,7 +41,7 @@ from pipeline.common import read_json  # noqa: E402
 
 VID = "V01"
 EXCERPT = (25.612, 41.309)   # extrait validé (S11-S14)
-NO_OVERRIDE = (41.309, 50.0)  # S15-S17 : aucune des découpes imposées de V01.py n'y tombe
+NO_OVERRIDE = (41.309, 47.3)  # S15-S16 : aucune des découpes imposées de V01 n'y tombe
 RESULTS = []
 CASES = []
 

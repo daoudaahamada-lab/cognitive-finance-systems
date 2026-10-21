@@ -370,6 +370,12 @@ toi.walk(f, toi.place_for(ticks, f - 1))
 | `strike(f, a, b, d=6, lead=3, line=None, track="strike", step=True)` | image qui suit le trait | Approche de a (`lead` images, 8 si un pas est nécessaire), puis la pointe file de a à b en d images (ease-in-out). La piste `track` de `line` va de 0 à 1 dans les mêmes images. Points : `sheet.value_span(i)`. |
 | `stamp(f, stamp_id, d=6, shake=None, step=True)` | **image du contact** f + d − 1 | Coup de tampon (V01 « décide »), détaillé après le tableau. |
 | `rest(f, d=8, e="inOut")` | f + d | La main revient au repos. |
+| `hop(f, to, d, h=0, lean=WALK_LEAN)` | f + d | Un seul bond vers `to` ([x, y]) ; `lean` < 0 : penchée en arrière (recul). Remplace les appels privés `_move_body` / `_hand_rest`. |
+| `run(f, pts, d)` | f + d | Course à vitesse constante le long d'une polyligne, main au repos. |
+| `lean_to(f, deg, d=POP, e="out")` | f + d | Incline la figurine (piste `lean`) en re-posant le bras image par image. |
+| `scale_to(f, s, d=10, e="inOut")` | f + d | Change d'échelle ; bras et stylo suivent ; la taille d'entrée devient `s`. |
+| `stow(f, d=4)` / `unstow(f, d=6)` | f + d | Range le stylo (il se réduit dans la main) / le fait revenir (pop). |
+| `set_z(f, z, tool_z=None)` | f | Change de calque ; avec `tool_z`, le bras passe en `tool_z` et le stylo en `tool_z` + 0,5. |
 | `tip(n)` | [x, y] | Pointe du stylo à l'image n. |
 | `reach_max(n, pen=True)` | px | Allonge maximale à l'échelle de l'image n. |
 

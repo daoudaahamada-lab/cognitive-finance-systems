@@ -142,11 +142,12 @@ export const roundRectLength = (w: number, h: number, r: number): number => {
 
 export type IconName = 'euro' | 'bars' | 'mail' | 'shield' | 'cal' | 'building' | 'check' | 'person' | 'rewind' | 'clock' |
   'house' | 'bank' | 'coin' | 'percent' | 'lock' | 'cart' | 'moon' | 'pause' | 'warning' | 'phone' | 'plus' | 'minus' |
-  'arrow' | 'none';
+  'arrow' | 'hourglass' | 'clock9' | 'chat' | 'target' | 'sign' | 'none';
 
 /** Pictogrammes disponibles (catalogue du kit, planches de contrôle). */
 export const ICON_NAMES: IconName[] = ['euro', 'bars', 'mail', 'shield', 'cal', 'building', 'check', 'person', 'rewind',
-  'clock', 'house', 'bank', 'coin', 'percent', 'lock', 'cart', 'moon', 'pause', 'warning', 'phone', 'plus', 'minus', 'arrow'];
+  'clock', 'house', 'bank', 'coin', 'percent', 'lock', 'cart', 'moon', 'pause', 'warning', 'phone', 'plus', 'minus', 'arrow',
+  'hourglass', 'clock9', 'chat', 'target', 'sign'];
 
 /** Pictogram in a box of side s centred on the origin, stroked/filled with `color`. */
 export const Icon: React.FC<{name: IconName | string; s: number; color?: string; sw?: number; fill?: string}> = ({name, s, color, sw, fill}) => {
@@ -318,6 +319,50 @@ export const Icon: React.FC<{name: IconName | string; s: number; color?: string;
       return (
         <g transform={`scale(${k})`}>
           <path d="M-9 0 H8.5 M2.5 -6 L8.5 0 L2.5 6" {...common} />
+        </g>
+      );
+    // ----- ajoutés pour V01 v3 (même boîte 24 x 24, traits arrondis) -----
+    case 'hourglass':
+      // sablier (« retraite ») : deux triangles pointe contre pointe entre deux barres, un tas de sable en bas
+      return (
+        <g transform={`scale(${k})`}>
+          <path d="M-6.2 -8.6 H6.2 L0.9 -0.4 Q0 0.6 -0.9 -0.4 Z M-6.2 8.6 H6.2 L0.9 0.4 Q0 -0.6 -0.9 0.4 Z" {...common} />
+          <path d="M-4.4 8.6 Q0 3.4 4.4 8.6 Z" fill={col} stroke={col} strokeWidth={w / k / 2} strokeLinejoin="round" />
+          <path d="M-9 -10.2 H9 M-9 10.2 H9" {...common} />
+        </g>
+      );
+    case 'clock9':
+      // horloge sur 9 h : petite aiguille vers la gauche, grande aiguille vers le haut
+      return (
+        <g transform={`scale(${k})`}>
+          <circle cx={0} cy={0} r={10} {...common} />
+          <path d="M0 -6.6 V0 H-4.8" {...common} />
+        </g>
+      );
+    case 'chat':
+      // bulle de dialogue arrondie, petite queue en bas à gauche
+      return (
+        <g transform={`scale(${k})`}>
+          <path d="M-5.8 -8.6 H5.8 A4.4 4.4 0 0 1 10.2 -4.2 V1.4 A4.4 4.4 0 0 1 5.8 5.8 H-1.4 L-6.6 10 V5.8 A4.4 4.4 0 0 1 -10.2 1.4 V-4.2 A4.4 4.4 0 0 1 -5.8 -8.6 Z" {...common} />
+        </g>
+      );
+    case 'target':
+      // cible : deux cercles concentriques et un point plein
+      return (
+        <g transform={`scale(${k})`}>
+          <circle cx={0} cy={0} r={10} {...common} />
+          <circle cx={0} cy={0} r={5.4} {...common} />
+          <circle cx={0} cy={0} r={2} fill={col} />
+        </g>
+      );
+    case 'sign':
+      // signature : trait ondulé, souligné, qui finit sous une pointe de stylo
+      return (
+        <g transform={`scale(${k})`}>
+          <path d="M-10.6 3.2 C-9.8 -4.6 -6.4 -5.2 -6.2 -0.4 C-6 3.6 -3.4 3.8 -2.6 0.4 C-2 -2 -0.4 -1.6 0.6 2.4" {...common} />
+          <path d="M-10.6 8.6 H9.8" {...common} />
+          <path d="M4.4 -2.4 L9.6 -9.4" {...common} strokeWidth={(w / k) * 1.9} />
+          <path d="M0.8 2.6 L2.1 -3.2 L6 -0.4 Z" fill={col} stroke={col} strokeWidth={w / k / 2} strokeLinejoin="round" />
         </g>
       );
     default:
