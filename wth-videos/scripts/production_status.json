@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T11:43:02+00:00",
+  "updated_at": "2026-10-21T11:43:39+00:00",
   "checkpoints": {
     "v01_full_approved": {
       "state": "done",
@@ -47,35 +47,37 @@
           "aligned": "239/239"
         },
         "storyboard": {
-          "state": "done",
-          "updated_at": "2026-10-20T21:01:25+00:00",
-          "note": "10/10 idées-clés GOT au test sans son (2 lecteurs)",
+          "state": "pending",
+          "updated_at": "2026-10-21T11:43:39+00:00",
+          "note": "à refaire : script réécrit le 21/10 (nouvelle voix)",
           "version": "v3.2 · révision ciblée + 2e test sans son"
         },
         "spec": {
-          "state": "done",
-          "updated_at": "2026-10-21T10:04:07+00:00",
-          "note": "scripts/story/V01.py : S10-S14 (extrait validé) ; écrit avant le kit"
+          "state": "pending",
+          "updated_at": "2026-10-21T11:43:39+00:00",
+          "note": "à refaire : script réécrit le 21/10 (nouvelle voix)"
         },
         "render": {
-          "state": "done",
-          "updated_at": "2026-10-21T10:04:07+00:00",
-          "note": "extrait S11-S14 rendu et validé (« C'est absolument parfait », 20/10) : output/extraits/WTH-V01_extrait_S11-S14.mp4 ; film entier jamais rendu (output/WTH-V01.mp4 = ancien rendu motion)"
+          "state": "pending",
+          "updated_at": "2026-10-21T11:43:39+00:00",
+          "note": "à refaire : script réécrit le 21/10 (nouvelle voix)"
         },
         "review": {
-          "state": "fixed",
-          "updated_at": "2026-10-21T10:04:07+00:00"
+          "state": "pending",
+          "updated_at": "2026-10-21T11:43:39+00:00",
+          "note": "à refaire : script réécrit le 21/10 (nouvelle voix)"
         },
         "mute_verify": {
-          "state": "partial",
-          "updated_at": "2026-10-21T10:04:07+00:00",
-          "note": "aucune idée principale manquée ; g et h partielles",
+          "state": "pending",
+          "updated_at": "2026-10-21T11:43:39+00:00",
+          "note": "à refaire : script réécrit le 21/10 (nouvelle voix)",
           "got": "6/10",
           "critere": "oui"
         },
         "qa": {
-          "state": "done",
-          "updated_at": "2026-10-21T10:04:07+00:00"
+          "state": "pending",
+          "updated_at": "2026-10-21T11:43:39+00:00",
+          "note": "à refaire : script réécrit le 21/10 (nouvelle voix)"
         },
         "delivered": {
           "state": "pending"
