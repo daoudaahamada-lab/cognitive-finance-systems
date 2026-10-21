@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T11:19:07+00:00",
+  "updated_at": "2026-10-21T11:20:46+00:00",
   "checkpoints": {
     "v01_full_approved": {
       "state": "done",
@@ -94,11 +94,11 @@
       "stages": {
         "voice": {
           "state": "done",
-          "updated_at": "2026-10-20T19:24:37+00:00",
-          "take": "1O1ikf3i8CYM3vzqtp84",
-          "duration_s": 55.41,
-          "cache_key": "6b2a8141e637284825cf3fb3",
-          "aligned": "149/149"
+          "updated_at": "2026-10-21T11:20:46+00:00",
+          "take": "NUuQqgbfOjnsHJm67djn",
+          "duration_s": 88.69,
+          "cache_key": "e92d8defa0d6c2f43f76c809",
+          "aligned": "250/250"
         },
         "storyboard": {
           "state": "pending"
