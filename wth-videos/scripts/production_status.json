@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T11:22:25+00:00",
+  "updated_at": "2026-10-21T11:24:42+00:00",
   "checkpoints": {
     "v01_full_approved": {
       "state": "done",
@@ -94,11 +94,12 @@
       "stages": {
         "voice": {
           "state": "done",
-          "updated_at": "2026-10-21T11:20:46+00:00",
+          "updated_at": "2026-10-21T11:22:52+00:00",
           "take": "NUuQqgbfOjnsHJm67djn",
           "duration_s": 88.69,
           "cache_key": "e92d8defa0d6c2f43f76c809",
-          "aligned": "250/250"
+          "aligned": "250/250",
+          "note": "voix du script réécrit (21/10), choisie parmi 2 prises"
         },
         "storyboard": {
           "state": "pending"
@@ -135,8 +136,8 @@
       "stages": {
         "voice": {
           "state": "done",
-          "updated_at": "2026-10-21T11:22:25+00:00",
-          "note": "aucune prise sous 59,4 s : 60,6 s acceptée, durée maximale 62 s approuvée par l'utilisateur le 20/10 (config.yaml qa.max_duration_by_video)",
+          "updated_at": "2026-10-21T11:22:52+00:00",
+          "note": "voix du script réécrit (21/10), choisie parmi 2 prises",
           "take": "NKRRsAKyCsQmtYIWMtuN",
           "duration_s": 96.97,
           "cache_key": "c6deb91da07511dccf5f5419",
@@ -178,11 +179,12 @@
       "stages": {
         "voice": {
           "state": "done",
-          "updated_at": "2026-10-20T19:24:37+00:00",
-          "take": "QggUPPRCk4Ex3CjjGdrC",
-          "duration_s": 54.15,
-          "cache_key": "87613f4399ba8ad213cba19a",
-          "aligned": "147/147"
+          "updated_at": "2026-10-21T11:24:42+00:00",
+          "take": "HG3poFzLM3M71wUWHMgI",
+          "duration_s": 88.42,
+          "cache_key": "670269a269e1aded76c02c88",
+          "aligned": "244/244",
+          "note": "voix du script réécrit (21/10), choisie parmi 2 prises"
         },
         "storyboard": {
           "state": "pending"
