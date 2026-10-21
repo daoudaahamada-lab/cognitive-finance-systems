@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T11:38:06+00:00",
+  "updated_at": "2026-10-21T11:39:46+00:00",
   "checkpoints": {
     "v01_full_approved": {
       "state": "done",
@@ -563,12 +563,12 @@
       "stages": {
         "voice": {
           "state": "done",
-          "updated_at": "2026-10-20T19:48:57+00:00",
-          "note": "voix commitée (86d87cd) ; suivi rattrapé ; make voice fait",
-          "take": "5vfJXPC5NoE3Elwmgm6U",
-          "duration_s": 56.24,
-          "cache_key": "917e242b2d268783aad4f921",
-          "aligned": "141/141"
+          "updated_at": "2026-10-21T11:39:46+00:00",
+          "note": "voix du script réécrit (21/10), choisie parmi 2 prises",
+          "take": "WsWi1g5ioD64XhHvIknh",
+          "duration_s": 91.72,
+          "cache_key": "36485d8d7e4a8f132dfb90a5",
+          "aligned": "245/245"
         },
         "storyboard": {
           "state": "pending"
