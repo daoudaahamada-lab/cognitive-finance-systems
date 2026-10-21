@@ -3,14 +3,14 @@ from datetime import date
 
 from .common import ROOT, load_scripts
 
-LABELS = {"accroche": "Accroche", "contexte": "Contexte", "point1": "Point 1", "point2": "Point 2",
+LABELS = {"accroche": "Accroche", "annonce": "Annonce", "contexte": "Contexte", "point1": "Point 1", "point2": "Point 2",
           "point3": "Point 3", "chute": "Chute", "cta": "CTA"}
-WORDS_PER_SECOND = 2.7  # débit moyen observé pour eleven_multilingual_v2 en français, à confirmer sur V01-V02
+WORDS_PER_SECOND = 2.6  # débit mesuré sur les voix V01-V15 (Abdelatif, eleven_multilingual_v2)
 
 
 def review():
     lines = ["# Scripts vidéo WealthTech Horizon — revue", "",
-             "Durée estimée à 2,7 mots/s ; la durée réelle est mesurée par le contrôle qualité après génération.", ""]
+             "Durée estimée à 2,6 mots/s ; la durée réelle est mesurée par le contrôle qualité après génération.", ""]
     for vid, s in sorted(load_scripts().items()):
         d = date.fromisoformat(s["date"]).strftime("%d/%m/%Y")
         lines += [f"## {vid} — {s['titre']}", "",
