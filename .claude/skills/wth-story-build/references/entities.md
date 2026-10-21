@@ -18,7 +18,8 @@ combinaison qui fait l'affaire : un type de plus est du code à maintenir en Pyt
   - **Liens et signes.** wire, qmark, bubble, bullet, burst, pill, window, marker, stamp ;
   - **Personnages et objets.** figure, limb, pen, png.
 - Ajouts aux types existants : tick `variant: 'ai'`, marker `labels`, pictogrammes hourglass / clock9 / chat / target /
-  sign, window `bar` / `sealOn` / `sealDy` / `lockOn` / `lockDy`, doc `fw` / `fh` / `fts` / `fdate` / `read`
+  sign, window `bar` / `sealOn` / `sealDy` / `lockOn` / `lockDy`, doc `fw` / `fh` / `fts` / `fdate` / `read`,
+  stamp `sub` / `subOn`
 - geometry.json (GEOM)
 
 ## Conventions communes
@@ -330,7 +331,7 @@ paramètres : passe par elle plutôt que de les déclarer à la main.
 | `pill` | à la main | pilule de texte (« Client · 9 h », « IA ») |
 | `window` | à la main | outil validé par le cabinet (fenêtre scellée) |
 | `marker` | `kit.steps_marker` | repère d'étapes 1-2-3 |
-| `stamp` | à la main + `Figure.stamp` | tampon (« PRÊT POUR LE RDV ») |
+| `stamp` | `kit.stamp` ou à la main + `Figure.stamp` | tampon (« PRÊT POUR LE RDV », seconde ligne `sub` facultative) |
 | `figure`, `limb`, `pen` | `Figure` | personnage, son bras, son stylo |
 | `png` | `S.png` + à la main | illustration en verre, alpha strict |
 
@@ -565,12 +566,14 @@ marker aux `xs` absolus (V01) se réduirait vers le coin haut gauche de l'écran
 
 Le tampon : texte deep espacé dans un double cadre arrondi, sans fond (la page se voit à travers).
 
-**Paramètres :** `text`, `w`, `h`, `size` (40).
+**Paramètres :** `text`, `w`, `h`, `size` (40) ; facultatifs `sub` et `subW` (seconde ligne, voir « Ajouts aux types
+existants », stamp `sub`).
 
-**Piste :** `handle` (0 → 1 : poignée encre au-dessus, tenue par la main pendant le coup).
+**Pistes :** `handle` (0 → 1 : poignée encre au-dessus, tenue par la main pendant le coup) ; `lite` (le texte devient
+une barre) ; `subOn` (seconde ligne, seulement avec `sub`).
 
 Le coup se joue par `Figure.stamp(f, id, shake=…)`. Ne tamponne pas VALIDÉ si une question reste ouverte : préfère
-« PRÊT POUR LE RDV ».
+« PRÊT POUR LE RDV » avec `sub="+ 1 question"`.
 
 ### figure, limb, pen
 
@@ -726,6 +729,36 @@ kit comparée avant / après : PSNR infini).
 | window | `sealK` | sceau (disque, bâtiment, coche, texte) dessiné `sealK` fois plus grand ; donner `sealW` = 68k + text_width(sealText, 26k, 700) + 16k et une `titleH` assez haute (V01 : 1,25 et 64) |
 | label | `tag.icon2` | second pictogramme sur disque juste après le premier (état étiquette), la date décalée d'un disque ; élargir `tag.w` de 2 discR + 4 (V01 : « à poser au RDV » = mini-horloge + pictogramme du client) |
 
+### stamp, `sub` et piste `subOn`
+
+Un tampon sur deux lignes : il se lit « prêt, avec une question ouverte » (jamais VALIDÉ tant qu'un « ? » reste
+ouvert). Sans `sub`, le dessin est identique au pixel près (tampon sans `sub` comparé avant / après, poignée, `lite`
+0,5 et 1 : PSNR infini).
+
+Même double cadre arrondi deep, sans fond (la page se voit à travers), sur un cadre d'au moins 84 px de haut. La
+ligne 1 (`text`, ExtraBold espacé) remonte de `GEOM.STAMP_SUB.lift` (13 px) ; la ligne 2, centrée à `dy` (14,5 px),
+est un petit « ? » ExtraBold 19 px dans un cercle deep (rayon 12,5, trait 2,5 : ≈ 28 px), puis `sub` en SemiBold 26 px
+deep, 8 px plus loin. Incliné par la piste `rot` comme le tampon simple.
+
+**Paramètres :**
+- `sub` : texte de la seconde ligne (V01 : « + 1 question »), relu par la QA (`STORY_TEXT_KEYS`).
+- `subW` : largeur mesurée de `sub` (`text_width(sub, 26, 600)`), posée par `kit.stamp` ; absente, 0,5 em par
+  caractère (« + 1 question » : 156 px au lieu de 151, la ligne se décale de 2,5 px).
+
+**Piste `subOn` (0 → 1, défaut 1) :** opacité de la seconde ligne. La déclarer à 0 et la passer à 1 au contact du
+coup de tampon : la question paraît sous le coup (V01 S17 « décides »). `handle` et `lite` ne changent pas ; avec
+`lite` > 0, la seconde ligne devient aussi une barre deep de 18 px (fiche réduite).
+
+`kit.stamp` vérifie que `text` (ExtraBold espacé) et la seconde ligne tiennent dans `w − 36` et que `h ≥ 84` ; sinon
+il s'arrête avec la taille à donner.
+
+```python
+kit.stamp("tampon", [0, 314], "PRÊT POUR LE RDV", 380, 84, size=30, sub="+ 1 question", sub_on=0, rot=-6,
+          parent="fiche", scale=0, opacity=0, handle=1)          # ou S.add("tampon", "stamp", …, sub="+ 1 question")
+hit = toi.stamp(f, "tampon", shake="fiche")                     # « décides »
+S.key("tampon", "subOn", hit, 1, 3, "out")                      # la question paraît au contact
+```
+
 ### Tour de revue 3 de V01 : `lite`, `lockDx`, `fdateSize`, `lit`, `boxFill`, `moveBlank`, `rim`
 
 Options facultatives ajoutées pour V01 (tour de revue 3). Absentes, le dessin est identique au pixel près (démo du kit
@@ -744,6 +777,16 @@ comparée avant / après : PSNR infini sur les 7 images).
 | marker | paramètre `moveBlank` | false | le disque actif ne porte aucun chiffre pendant qu'il glisse ; le chiffre paraît à l'arrivée (plus de « ②② » en fondu) |
 | limb | piste `rim` (0 → 1) | 0 | liseré papier de 3 px autour du bras, pour un bras qui croise le buste encre (V01 S05, S08, S10) |
 
+### Tour de revue 2 de V02 : figure `societe` et `look`, marker `done0…`
+
+Options facultatives ajoutées pour V02 (tour de revue 2). Absentes, le dessin est identique au pixel près.
+
+| Type | Option | Défaut | Rôle |
+|---|---|---|---|
+| figure | `variant: 'societe'` | — | figurine papier sous un portique d'immeuble (pignon, entablement et deux colonnes encre sur les épaules, `GEOM.FIGURE.societe`, jusqu'à y −146) : une entreprise, pas un double de « toi » |
+| figure | piste `look` (−1 … 1) | 0 | petit nez sur le côté de la tête : la figurine de profil regarde à gauche (< 0) ou à droite (> 0), par exemple pour tourner le dos à un objet (V02 S16 « oublier ») ; `kit.ensure(id, "look", 0)` puis `S.key(id, "look", f, 1, 4, "out")` |
+| marker | pistes `done0`, `done1`, … (0 → 1) | 0 | l'étape i est FAITE : sa légende reste à l'encre et une coche cyan profond se trace dans son disque à la place du chiffre. Le gris ne reste qu'aux étapes pas encore atteintes. `S.set("marqueur", done0=0, …)` à la déclaration |
+
 ```python
 S.set("L1", lite=0)                                   # puis S.key("L1", "lite", f, 1, 6, "inOut")
 S.key("outil", "lockDx", f - 1, 42 + SEAL_W)          # cadenas accroché au mur droit
@@ -757,6 +800,7 @@ S.set(toi.arm, rim=0)                                 # puis S.key(toi.arm, "rim
 | `FIGURE` | `h` 191, `top` −96, `base` 95, `pivot` [0, 95], `bust` (chemin SVG), `head` {cy −64, r 32}, `sw` 5, `shoulder` [−30, −16], `hand` [−58, −6], `arm` {upper 84, fore 80, sw 13} (IK à 2 os du kit) |
 | `PEN` | `len` 120, `r` 11 (demi-épaisseur), `tip` 26 |
 | `STAMP_HANDLE` | `neck` 14, `neckW` 22, `knobW` 56, `knobH` 20 ; prise = [0, −(h/2 + neck + knobH/2)] |
+| `STAMP_SUB` | `lift` 13, `dy` 14,5, `size` 26, `qR` 12,5, `qSw` 2,5, `qSize` 19, `gap` 8, `bar` 18 (tampon à deux lignes, `sub`) |
 | `TAG` | `r` 12, `fold` 10, `discR` 15, `iconX` 24, `textX` 46, `shadow` 3 |
 | `DOC_DISC` | `r` 20, `inset` 32 |
 | `BULLET` | `r` 22 |

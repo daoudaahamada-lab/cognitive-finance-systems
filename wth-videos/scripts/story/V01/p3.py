@@ -1,558 +1,802 @@
-"""V01, partie 3 : S15-S20, images 1239-1746 (24 temps forts, 16,9 s dont la tenue finale). L'IA passe le brief relu ;
-le poids du conseil, de l'adéquation et de la responsabilité penche du côté du conseiller, l'IA reste en retrait à côté
-de la balance ; dix minutes de relecture laissent passer la fiche et arrêtent le brouillon ; Avant / Après ; la
-pastille devient le bouton.
+"""V01, partie 3 : S15-S22, images 1936-2796 (64,539 -> 93,201 s, fin du film). 32 temps forts.
 
-État d'entrée, épinglé à l'image 1238 : kit.pin(1238, ENTRY_P3) (etat_initial de S15), plus `horloge` (échelle 0) et
-`pastille` (opacité 0). Figurines (jamais épinglées) : `toi` entre la fiche et le client (ADV_END, x 1, fin de p2),
-`client` debout en CLIENT_S13. Partie construite seule (WTH_PARTS=p3) : gardes d'entrée, sans effet dans le film.
+Entrée (épinglée à l'image 1935 : kit.pin(1935, ENTRY_P3), etat_initial de S15) : page à gauche (300, 780) x 0,95,
+« Brief · 1 page », pastille sur l'en-tête (pastille_fiche) ; L1-L5 en rangées cochées par l'IA, puce de L5 cerclée de
+rouge ; 4 fils vers les 4 sources compactes dans case1-4, dates (source1-4, tagged 0) sous les valeurs ; case5 vide
+en face de L5 ; conseiller (870, 800) ; IA rangée (60, 1200) x 0,42 ; repère sur 2 ; horloge-badge (830, 300).
+Garde-fou figurine : `if S.val("toi", "scale", 1935) == 0: c.toi.enter(1926, at=list(ADV_S13))`.
 
-Temps forts (image du film, calés par kit.at ; « mot n » = début du mot quand l'attaque audible le devance) :
-S15  L’IA=1239  prépare.=1259
-S16  Toi,=1287 (mot 1286)  tu=1300  gardes=1306  conseil,=1317  l’adéquation=1337  responsabilité.=1373
-S17  Dix=1422  minutes=1429  relecture=1442  valent=1461  erreur=1481  devant=1491  client.=1502
-S18  Avant,=1532 (mot 1531)  arrives=1552  cherché.=1573
-S19  Après,=1594  arrives=1612  compris.=1633
-S20  Abonne-toi=1659 (mot 1658)  comprendre=1688  argent.=1711 ; dernière image du film : 1746 (1747 images)
+Sortie : fin du film (image 2796) ; la carte de fin `fin` et son pointeur sont déclarés par kit.outro.
 
-Scène par scène (tour de revue 4) :
-- S15 « L’IA » : l'IA d'abord : elle quitte son coin et regrandit sur le bout gauche de la future planche ; le fil du
-  « ? » rentre ; le client revole dans le pictogramme de la pastille de l'en-tête. +3 : le trait du repère tombe en
-  planche (pivot compris) et ses 3 disques descendent avec elle, à droite du pivot ; la fiche se réduit (allégée)
-  devant l'IA. +6 : le conseiller monte sur le bout droit. Tout est posé à 1254. « prépare. » : passation isolée : la
-  fiche monte au bout du faisceau de l'IA, y tient 6 images, puis glisse 550 ms vers le conseiller, qui se penche vers
-  elle et la ramène contre lui ; rien d'autre ne bouge.
-- S16 « Toi, » : pilule « Toi ». « tu » : l'IA descend au sol, À CÔTÉ de la balance (x 15-155, hors de la planche),
-  x 0,7 ; son faisceau reste sur la fiche. « gardes » : il serre la fiche ; la planche penche à 5°. « conseil, »,
-  « l’adéquation », « responsabilité. » : le cercle prend son pictogramme (56 px), roule dans la pile devant lui et y
-  reste comme pictogramme de son jeton, dont le libellé (30 px) s'étire à droite ; jetons pile l'un sur l'autre ; à
-  chaque jeton, la planche plonge de +2° puis se pose (10°, 15°, 20°) et le conseiller fléchit (x 0,97) : il porte le
-  poids. Sur « responsabilité. », le faisceau de l'IA s'éteint.
-- S17 « Dix » : la planche devient le chemin ; jetons, cercles et « Toi » s'effacent ; l'IA, petite, au départ du
-  chemin ; le conseiller (x 1) descend sur le chemin et pose la fiche (allégée) devant lui. Rien d'autre : ni
-  fauteuils ni client. « minutes » : l'horloge au-dessus de lui (aiguille sur :50) ; la fiche vient à lui.
-  « relecture » : le stylo descend la colonne des coches pendant que le secteur se remplit de :50 à :00 au même pas ;
-  coche sur le coin de la fiche, le secteur et la coche battent ensemble. « valent » : les fauteuils et le client
-  surgissent (200 ms) au bout du chemin ; la fiche relue y vole. « erreur » : il tend son stylo en travers du chemin ;
-  le brouillon de l'IA (x 0,4) naît devant sa tête et fonce à vitesse constante. « devant » : il bute, reste collé 4
-  images contre le stylo, puis se brise : 6 éclats dérivent 0,6 s et s'effacent, sa bande rouge tombe sous le chemin
-  et y reste jusqu'à « client. ».
-- S18 « Avant, » : composition du rendez-vous ; « Avant » en haut. « arrives » : il entre avec une grosse pile en
-  éventail (6 cartes x 0,8, ±12°, « Mail client » dessus), la pastille x 1,3 dessus, penché en arrière sous la
-  charge. « cherché. » : le « Mail client » glisse du haut et tombe en arc au sol devant la table ; la pile vacille.
-- S19 « Après, » : « Après » cyan, juste au-dessus de la fiche ; les documents (celui tombé compris) fusionnent en la
-  fiche (x 0,8), debout sur la table ; il se tient devant la table, à 30 px du client. « arrives » : l'autocollant
-  « ? » quitte la ligne 5 et s'arrête devant la tête du client. « compris. » : la bulle du client s'ouvre sur sa
-  réponse (pastille à silhouette), qui descend dans la puce vide de L5 ; le stylo trace la 5e coche dans le carré
-  tireté resté vide ; « 9 h » devient « Client · 9 h » ; ils s'inclinent l'un vers l'autre ; tout est immobile de 1652
-  à 1658 (fiche complète tenue).
-- S20 : fin standard ; la pastille devient le bouton « S’abonner ».
+Brief, scène par scène :
+- S15 « Une » : morph : chaque source compacte remonte son fil jusqu'à sa date (S.along_wire) et s'y fond (doc tag
+  0 -> 1, puis la date devient étiquette : source tagged 0 -> 1) ; les fils se rétractent ; case1-4 s'effacent ; case5
+  reste. Le conseiller redescend au pied de la page (ADV_S15, x 1,1 : toi.scale_to + walk). « sans » : [surligneur]
+  passe sous L5 ; [fil5] se trace vers case5 : il touche un contour vide, se casse en tirets (dashed) et retombe (sag) ;
+  case5 tremble (shake x) et reste vide. Tenue ≈ 1,6 s. « C’est » : toi.tap sur « 5 ans » (contact calé sur le mot :
+  tap(f - TAP + 1, …)) ; sous la pointe, L5 vire au rouge (red) et casse (crack 0 -> 1, 300 ms) : c'est le STYLO qui la
+  fait casser (règle 2 de la planche de référence). [coche_ia5] reste ; l'IA ne bouge pas. « question » : [question]
+  sort de la valeur fendue (kit.pop(from_pt=valeur)), monte en arc au-dessus du conseiller ; [bulle] grandit autour
+  (BUBBLE_AT), queue vers sa tête ; fil5 et case5 s'effacent. « client » : [client] naît du pictogramme de
+  pastille_fiche (pop sur place puis hop) et descend se poser face au conseiller (CLIENT_S15) ; il s'incline de 4°
+  vers lui (lean_to) et reste immobile.
+- S16 « Reste » : [bulle] se replie en autocollant (s 0 -> 1) et vole attendre en STICKER_S16, hors de la page, sans
+  couvrir la valeur fendue (relais par [autocollant] enfant de la fiche quand il s'y pose en S17). « décision » :
+  [tampon_ferme] sort de la poitrine dans sa main (toi.stow du stylo, pop du tampon, tenu en STAMP_HOLD : S.path qui
+  suit la main) ; 8 images plus tard, [empreinte] (contour en tirets 380 x 84, -6°) se trace sur la bande libre du bas
+  de la page. « délègue » : [faisceau_tampon] part de l'IA, passe sous la page (via ≈ (380, 1200)) et touche le socle
+  du tampon : le tampon ne bouge pas ; le faisceau se rétracte ; l'empreinte reste vide ; aucun rouge.
+- S17 « Troisième » : kit.step(f, 2) ; [chapitre] (« 3 ») grandit et revient ; le client rentre dans le pictogramme
+  de pastille_fiche (vanish into) ; le conseiller range le tampon (tampon_ferme vanish into toi, toi.unstow) et monte à
+  droite de la page (ADV_S17, x 1,1, toi.place_for sur la colonne des coches). « relis » : toi.trace descend la
+  colonne des coches ; sur L1-L4 : [surligneur] le temps du passage, [cocheN] (pleine, 64 px) se trace sur
+  [coche_iaN], qui s'efface sous elle (opacity -> 0) ; [sourceN] s'allume (lit 0 -> 1). La pointe s'arrête sur L5
+  sans cocher. « corriges » : d'un même trait, la pointe chasse [coche_ia5] (kit.drop out, h 52, 35°) et barre
+  « 5 ans » (toi.strike(…, line="L5")) ; la valeur tombe (fall 0 -> 1) ; la fente se referme (crack 1 -> 0), la ligne
+  repasse à l'encre (red 0) ; [autocollant] glisse à la place de la valeur : « Horizon : ? » ; [source5] « à poser au
+  RDV » surgit dessous. « décides » : toi.stamp(f, "tampon", shake="fiche") s'abat dans [empreinte] (qui disparaît
+  sous l'empreinte) : « PRÊT POUR LE RDV » et « + 1 question » (subOn 0 -> 1 au contact) ; l'autocollant bat au
+  contact. Jamais « VALIDÉ ».
+- S18 « L’IA » : morph : [marqueur] et les légendes se réduisent ; [planche] (seesaw) naît à leur place et descend
+  (PLANK_AT) ; la fiche se réduit (PAGE_S18, x 0,45, lite 0 -> 1 sous 0,5) et se pose sur le bout gauche ; [ia]
+  regrandit en IA_S18 (x 1,0). « prépare » : le conseiller marche sur le bout droit (ADV_S18, x 1,1) ;
+  [faisceau_passe] pousse la fiche le long de la planche jusqu'à lui (≈ (790, 800)). « Toi » : [toi_pill] surgit au-
+  dessus de sa tête ; l'IA descend calmement au sol (IA_FLOOR, x 0,7, arc 30), toujours visible. « conseil » :
+  [conseil] ressort de sa poitrine (pop depuis le buste) et devient [jeton1] posé sur son bout de planche (relais) ;
+  la planche penche de 4° (S.key rot, TILT). « l’adéquation » : [jeton2] naît de la pointe du stylo, empilé ; 8°.
+  « responsabilité » : [jeton3] ; 12°, arrêt net ; le conseiller reste droit, pointe posée sur ses jetons.
+- S19 « Dix » : morph : la planche revient à plat, se réduit et [chemin] naît à sa place (PATH_C) ; jetons rentrés
+  dans la poitrine ; toi_pill s'efface ; le conseiller se pose sur le chemin (ADV_S19), la fiche devant lui
+  (PAGE_S19, x 0,45) ; l'IA au départ du chemin (IA_S19, x 0,45) ; [horloge] quitte le badge et descend grandir au-
+  dessus de lui (CLOCK_S19, x 0,66). « relecture » : [secteur] value 0 -> 10 (linéaire, 600 ms) pendant que toi.trace
+  descend la fiche ; [dix_min] compte 0 -> 10 ; à la fin [coche_relue] se trace. « valent » : [fauteuils] surgissent
+  seuls (CHAIRS_S19) ; puis la fiche glisse jusqu'à leur table (TABLE_S19). « erreur » : [brouillon] (x 0,4) sort de la
+  tête de l'IA et file sur le chemin vers la droite (linéaire) ; le conseiller abaisse son stylo en travers du chemin
+  (pointe ≈ (520, 1150)). « devant » : le brouillon bute sur la pointe ([impact_brouillon]), s'écrase (sx 0,86),
+  colle 6 images, puis relais par [moitie1-2] qui tombent sous le chemin (kit.drop out) ; [bande_rouge] reste sous le
+  chemin. « client » : [client] renaît de pastille_fiche et s'assoit dans le fauteuil droit (CLIENT_S19).
+- S20 « Avant » : [separateur] se trace (draw) ; [avant] surgit ; fauteuils, client et fiche glissent dans la moitié
+  droite (CHAIRS_S20 x 0,75) ; chemin, éclats, bande rouge et IA se réduisent en points (un seul PNG sort à la fois :
+  l'IA) ; le conseiller marche dans la moitié gauche (ADV_S20, x 0,9 : scale_to + walk). « tu » : [toi_pill] surgit ;
+  l'horloge glisse et se réduit au-dessus de lui (CLOCK_S20, x 0,4). « arrives » : la vieille pile (doc1-4 rendus
+  visibles : tag 0, compact 0, x 0,5, ±12°, bandeaux visibles) tombe de travers dans ses bras (drop, décalés de
+  2 images) ; à droite, la fiche se replie dans sa pastille (relais pastille_fiche -> [pastille], fiche scale 0), qui
+  saute par-dessus le séparateur jusqu'à PASTILLE_S20 (arc 80). « cherché » : doc3 (Mail) glisse et tombe (drop out,
+  h 80, 25°) ; le conseiller se penche en arrière de 4°.
+- S21 « Après » : [apres] surgit ; la pastille saute par-dessus le séparateur jusqu'à la table (700, 800, arc 120) ;
+  la fiche se redéplie sous elle (FICHE_S21, x 0,35, tamponnée ; relais pastille -> pastille_fiche). « arrives » :
+  [toi2] entre depuis x 520 jusqu'à ADV_S21 (enter frm) ; [toi_pill] -> relais [toi_pill_vol] qui saute le séparateur
+  (arc 100) -> [toi2_pill] au-dessus de toi2. « compris » : l'autocollant quitte L5 et vole au client dans [bulle]
+  partie de toi2 ; le client renvoie [reponse] (pastille cyan) qui remplit la puce vide de L5 ; les deux figurines
+  s'inclinent de 4° l'une vers l'autre. À gauche, rien ne bouge.
+- S22 « Abonne-toi » : out = kit.outro("S22", outs=[séparateur, pilules, horloge, pile, fauteuils, fiche…],
+  press="argent.") ; la pastille passe à « S’abonner » (piste text) et rejoint le bouton (ou s'efface sous lui) ;
+  toi.exit / toi2.exit / client.exit(out["card"]) ; un PNG à la fois (fauteuils puis horloge). Puis immobile.
+
+Recyclage : git show 6962c86:wth-videos/scripts/story/V01/p2.py (S13-S14 : rature, tampon) et p3.py (S15-S20 :
+planche, jetons, chemin, brouillon, Avant / Après, fin).
+
+Mise en scène réalisée (écarts au brief ; places propres à p3 en tête de module) :
+- Raccord : kit.pin(1935, ENTRY_P3) plus l'ancre aAt des fils 1-4 (bout de la valeur, posée par p2) ; fil5 part aussi
+  du bout de la valeur (S.set). Empreinte et tampon en [0, 300] à -4° (STAMP_LOCAL [0, 314] à -6° dépassait le bas de
+  la page) ; coche_relue à cheval sur le coin haut droit de la fiche (sur le titre, elle le masquait).
+- S16 « décision » : il fait un pas à droite (680) et tient le tampon en (560, 1075), devant lui, entre l'empreinte et
+  sa tête, sous l'autocollant (STAMP_HOLD (720, 1040) est derrière lui : son bras est du côté gauche). La main est
+  posée par toi.reach sur une pointe virtuelle (stylo rangé) ; le tampon suit la main image par image.
+- S17 : il relit depuis (632, 812) (d'ici la pointe atteint L1 et la rature) ; sur « décides » il descend au pied de
+  la page (458, 1125) en 12 images, tamponne, puis s'écarte en (720, 1125), à droite du futur pivot.
+- S18 : l'IA debout SUR le bout gauche (y 795 : IA_S18 la plantait dans la planche) ; jetons à largeur mesurée
+  (200 / 262 / 311), alignés à droite et décalés vers le pivot : à 12° la pile est d'aplomb, à côté de lui. La fiche
+  reçue est tenue levée à sa gauche, puis rangée contre lui (vanish into toi) 10 images après « Toi » : les poids ont
+  la place ; elle ressort de lui sur « Dix », posée devant (PAGE_S19). Il suit son bout de planche image par image
+  (hop + reach à chaque image), la pointe posée au bout de la pile.
+- S19 : brouillon x 0,3 (au lieu de 0,4 : il a la place de filer avant le stylo), bande rouge x 0,75 en proportion ;
+  pointe du stylo en travers du chemin en (380, 1150), à SA gauche, côté IA ((520, 1150) est derrière lui). Client
+  assis x 0,75.
+- S20 : il range le stylo sur « arrives » (bras pleins) ; pile en (140, 1125), sous sa pilule.
+- S21 : fiche x 0,26 en (703, 961), debout sur la table (x 0,35 recouvrait la tête du client) ; toi2 en (575, 1144).
+- S22 : press = l'image du mot « argent. » (kit.outro n'accepte en mot que les temps forts de la scène) ; la fiche
+  monte au centre et s'efface dans la carte ; la pastille devient « S’abonner », glisse sur le bouton et s'y fond ;
+  horloge sortie après les fauteuils (un PNG à la fois).
 """
 import math
 
-from pipeline.story import DROP, FADE, MORPH, MOVE, POP, TILT, _ease, text_width
-from pipeline.story_kit import frames, lerp
+# Tour de revue 1 (corrections) :
+# - S15 : [bande5] et [nuage5] (posés par p2 sur « fausse ») s'effacent au coup de stylo ; S17 « corriges » : [anneau5]
+#   s'efface, la puce revient à sa taille.
+# - S16 : le conseiller se tient à x 700 (l'autocollant « ? » en (585, 940) n'est plus sa pensée) ; « délègue » : le
+#   faisceau casse net sur le tampon tenu (éclats, traits d'impact), puis recule visiblement.
+# - S17 : chaque coche pointillée de l'IA rentre dans l'IA quand la coche pleine se trace ; celle de L5 est chassée
+#   loin hors de la page ; la marche vers la page passe à droite de l'autocollant.
+# - S18 : la fiche ne disparaît plus : portée par le faisceau jusqu'à lui, tenue contre sa poitrine (z relevés entre
+#   le corps et le bras), elle suit ses pas et repart sur « Dix » vers PAGE_S19 (même entité) ; l'IA descend, devant la
+#   planche, sur une petite marche à côté du pivot, tournée vers lui, et ils se saluent d'un signe de tête ; chaque
+#   poids est cherché devant sa poitrine au bout du stylo, porté et posé, la planche penche à la pose ; les pilules
+#   restent horizontales.
+# - S19 : « Dix » décalé (fiche + 2, horloge + 4, IA + 6) ; fiche vers la table en arc bas (60) ; brouillon x 0,4 à
+#   contour pointillé épais et ombre, tenue de 8 images sur la pointe (éclats), moitiés et bande rouge qui tombent de
+#   32 px et s'effacent ensemble (rien de rouge ne reste) ; client né à x 0,25.
+# - S20 : l'horloge (x 0,55) part sur « Avant », le séparateur se trace 9 images plus tard ; pile en éventail (± 18°) ;
+#   « cherché » : Mail puis PDF tombent lentement au sol et y restent (traits de vitesse), il se penche de 8°.
+# - S21 : fiche x 0,46 au-dessus de la table ; « ? » de 56 px en arc jusqu'au client ; le client répond par une bulle de
+#   parole avec une pastille cyan pleine de 56 px ([reponse], disque, plus le pictogramme de personne qui se lisait
+#   « cadenas »), qui passe sous les rangées 1-4 et remplit la puce de L5 ([reponse5]) ; coche pleine [coche5],
+#   surlignage cyan pâle.
+# - S22 : la fiche devient la carte (S.fly + sx / sy jusqu'au cadre de la carte, kit.outro card_at) et la pastille
+#   devient le bouton (relais sans pictogramme [pastille_btn] en vol, kit.outro btn_at) ; carte centrée en y 800,
+#   sous-titre 34 px ; les sortants s'effacent (clear="fade").
 
-from . import (ADV_PLANK_SCALE, ADV_PLANK_X, ADV_S17, ADV_S17_SCALE, ADV_S19, APRES_AT, AVANT_AT, BROUILLON_SCALE, BUBBLE19,
-               CHAIRS_S17, CHAIRS_S17_SCALE, CHAIRS_S18, CIRCLE_D, CIRCLE_X, CLIENT_S13, CLOCK_S17, CLOCK_S17_SCALE,
-               CX, CYAN, ENTRY_P3, FICHE19, FICHE19_SCALE, FIG_BASE, GROUND, IA_CORNER_SCALE, IA_FLOOR, IA_FLOOR_SCALE,
-               IA_PILL_CORNER, IA_PLANK_SCALE, IA_PLANK_X, IA_S17, IA_S17_SCALE, LIGHT, MARKER_GAP, MARKER_Y,
-               MINI_PILL, PAGE_PLANK_SCALE, PAGE_PLANK_X, PAGE_S14_SCALE, PAGE_S17, PAGE_S17_SCALE, PAPER, PATH_C, PIVOT_H,
-               PATH_TOP, PATH_W, PILL_ICON, PILL_SIZE, PILL_TEXT, PILL_W, PLANK_AT, PLANK_H, PLANK_W, Q19, TOKEN_H,
-               TOKEN_WS, TOKEN_X0, TOKENS, fig_pos, morph_out, scene_f0, vanish)
+from pipeline.story import DRAW, DROP, FADE, MORPH, MOVE, POP, SCALE, line_crack_point, text_width
+from pipeline.story_kit import TAP, frames, lerp
 
-# ---------- places propres à p3 ----------
-PAGE_W, PAGE_H = 500, 720                       # fiche de V01
-PLANK_TOP = PLANK_AT[1] - PLANK_H               # 918 : dessus de la planche à plat
-ARMS_SCALE = 0.2                                # la fiche dans ses bras : 100 x 144, à son côté, au-dessus des jetons
-ARMS_OFF = (-22, -12)                            # centre de la fiche / centre de la figurine (x échelle)
-ARMS_FROM = (-32, -24)                          # « prépare. » : elle arrive 40 px plus loin ; « gardes » la ramène
-TOI_PILL_Y, TOI_PILL_SCALE = FIG_BASE + 52, 0.8   # « Toi » sous la planche (repère de la figurine)
-LV = [-PLANK_H - TOKEN_H / 2 - (TOKEN_H + 4) * k for k in range(3)]   # niveaux de la pile (repère de la planche)
-CIRCLE_Y = -PLANK_H - CIRCLE_D / 2              # cercles posés sur la planche
-TILT_K = [5, 10, 15, 20]                         # « gardes », puis chaque jeton (tour 4 : bascule nette)
-TABLE = (-5, 8)                                 # dessus de la table de verre (repère des fauteuils à x 1)
-CLIENT_SEAT = (200, -62)                        # assis dans le fauteuil droit (repère des fauteuils à x 1)
-PAGE_DIX = (PAGE_S17[0] - 28, PAGE_S17[1])      # S17 « Dix » : la fiche posée, 28 px avant sa place de relecture
-FICHE_TABLE_SCALE = 0.2                         # S17 : la fiche relue posée sur la petite table
-BARRIER = (-60, 46)                             # S17 « erreur » : pointe du stylo / épaule, en travers du chemin
-BAND_FLOOR_Y = 1250                             # S17 « devant » : la bande rouge tombée sous le chemin
-TOI18 = fig_pos(390, GROUND)                    # S18 : il arrive au fauteuil gauche, la pile dans les bras
-CARD_SCALE = 0.8                                # tour 4 : cartes de la pile (184 x 200), pile en éventail ≈ 310 x 340
-PILE_C = (-150, -30)                            # centre de la pile / centre de la figurine : à sa gauche (côté du bras),
-#                                                 à hauteur de poitrine, sa tête reste visible
-# (dx, dy, rot, z) : éventail de ±12°, pas de 22 px ; le « Mail client » (doc3) dessus, d'où il glissera (S18)
-PILE_REL = {"carte_grise2": (-80, 16, -12, 11.0), "doc4": (-58, 10, -7, 11.1), "carte_grise1": (-36, 4, -2, 11.2),
-            "doc2": (-14, -2, 3, 11.3), "doc1": (8, -8, 8, 11.4), "doc3": (30, -14, 12, 11.5)}
-PILL_REL, PILL18_SCALE = (-150, -160), 1.3      # pastille sur la pile, x 1,3
-LEAN_LOAD = 8                                   # S18 : penché en arrière sous la charge
-FLOOR_CARD = (575, 1140)                        # « cherché. » : le « Mail client » au sol devant la table (bas ≈ 1250)
-ANSWER_PX = 96                                  # S19 : la réponse du client, 96 px (puce de 44 px x 2,18)
-CARD_POS, CARD_H = (540, 860), 560              # carte de fin, x 230-850, y 580-1140
-BTN = (CARD_POS[0], CARD_POS[1] + CARD_H / 2 - 56 - 56)   # centre du bouton de la carte
-BTN_SCALE = 1.6
-BTN_W = round(text_width("S’abonner", PILL_SIZE, 700) + 92)
-# contrôle sans son (S16) : l'IA descend au sol JUSTE À CÔTÉ du pivot, sous le bras gauche de la planche (x 273-417,
-# tête à y 947 sous la planche à plat à 930), au même sol que la balance (base du pivot, y 1130)
-PIVOT_BASE_Y = PLANK_AT[1] + PIVOT_H
-IA_STANDBY, IA_STANDBY_SCALE = (345, PIVOT_BASE_Y), 0.72
+from . import (ADV_S13, ADV_S15, ADV_S15_S, ADV_S18, ADV_S18_S, ADV_S19, ADV_S20, ADV_S20_S, ADV_S21, BUBBLE_AT,
+               CHAIRS_S19, CHAIRS_S20, CHAIRS_S20_S, CLIENT_S15, CLIENT_S19, CLOCK_S19, CLOCK_S19_S, CLOCK_S20,
+               CLOCK_S20_S, ENTRY_P3, FIG_BASE, IA_FLOOR, IA_FLOOR_S, IA_S18, IA_S18_S, IA_S19, IA_S19_S,
+               MARKER_XS, PAGE_S18, PAGE_S18_S, PAGE_S19, PAGE_S19_S, PASTILLE_S20, PATH_TOP, PILL_TEXT, PILL_W,
+               PLANK_AT, PLANK_H, STICKER_S16, TABLE_S19, TOI_PILL_DY, TOKEN_H, TOKEN_SIZE, TOKENS, morph_out,
+               STEP_C, STEP_H, IA_W, seam, scene_f0, vanish)
+
+# ---------- places propres à p3 (repère monde sauf mention) ----------
+ICON_LOCAL = [-PILL_W / 2 + 30, 0]            # pictogramme de personne de la pastille (repère de la pilule)
+HANG_DY = 78                                  # S15 « sans » : le fil 5 retombe de 78 px sous la case vide
+TAMPON_HOLD = (560, 1075)                     # S16 : tampon fermé tenu devant lui, entre l'empreinte et sa tête
+#                                               (STAMP_HOLD (720, 1040) est derrière lui : son bras est à gauche)
+TAMPON_GRIP = [0, -54]                        # poignée du tampon fermé (repère du tampon)
+BEAM_VIA = (380, 1200)                        # S16 : le faisceau de l'IA passe sous la page
+ADV_S17_P3 = (632, 812)                       # S17 : à droite de la page ; d'ici la pointe atteint L1 et la rature
+STAMP_SPOT = (458, 1125.5)                    # S17 « décides » : au pied de la page, la main sur la poignée
+ADV_S16 = (700, 1125.5)                       # S16 : à droite, à 40 px au moins de l'autocollant (585, 940)
+ADV_S17_END = (720, 1125.5)                   # S17 : il s'écarte du tampon, à droite du futur pivot (x 470-590)
+STAMP_AT, STAMP_ROT = [0, 300], -4            # empreinte et tampon dans la bande libre du bas de la page, sans
+#                                               dépasser son bord (STAMP_LOCAL [0, 314] à -6° débordait de 15 px)
+PLANK_LX = ADV_S18[0] - PLANK_AT[0]           # 340 : ses pieds sur la planche (repère de la planche)
+IA_S18_P3 = (IA_S18[0], round(PLANK_AT[1] - PLANK_H - 127, 1))   # l'IA debout SUR le bout gauche (pieds y 922)
+CHEST_OFF = (-4, 18)                          # S18 : la fiche tenue contre sa poitrine (décalage du corps), x 0,2
+HOLD_S = 0.2
+CH_OFF = (-98, 2)                             # S18 : la pointe va chercher chaque poids devant sa poitrine
+IA_STEP = (STEP_C[0], round(STEP_C[1] - STEP_H / 2 - 254 * 0.55 / 2, 1))   # l'IA debout sur sa marche, x 0,55
+IA_STEP_S = 0.55
+CARRY = 8                                     # S18 : images du transport d'un poids, de la poitrine à la pile
+TOKEN_RIGHT = 245                             # bord droit du jeton du bas (repère de la planche) : avant son buste
+TOKEN_LEAN = 12.8                             # chaque jeton décalé vers le pivot : à 12° la pile est d'aplomb, sans
+#                                               toucher le conseiller
+TOKEN_WS = [round(text_width(t, TOKEN_SIZE, 600) + 84) for t, _ in TOKENS]   # 200 / 262 / 311
+TILTS = [4, 8, 12]
+BROUILLON_P3 = 0.4                            # brouillon x 0,4 (200 x 288), plus lent, contour pointillé lisible
+PEN_BAR = (380, 1150)                         # S19 « erreur » : pointe du stylo en travers du chemin, à SA gauche
+#                                               (côté IA ; (520, 1150) est à sa droite, derrière lui)
+CLIENT_S19_S = 0.75                           # assis : la tête au dossier du fauteuil
+PILE_AT = (140, 1125)                         # S20 : centre de la pile dans ses bras, sous sa pilule « Toi »
+PILE_REL = [(-10, 10, -18), (8, -6, 14), (-4, -16, -8), (12, 6, 18)]   # (dx, dy, rot) de doc1-4 : pile en éventail
+FALLEN = {"doc3": ((105, 1180), -80), "doc1": ((392, 1182), 84)}       # S20 « cherché » : cartes tombées au sol
+TABLE_S20_TOP = 1092                          # S20-S21 : dessus de la table (fauteuils x 0,75)
+FICHE_S21_P3_S = 0.46                         # S21 : x 0,46, levée au-dessus de la table, entre les deux têtes
+ADV_S21_P3 = (575, ADV_S21[1])                # S21 : devant le fauteuil gauche, sa pilule hors de la fiche
+FICHE_S21_P3 = (705, 815)                     # bas de la fiche y 981 : au-dessus des têtes (client 1011, lui 1058)
+CARD_C, CARD_W, CARD_H = (540, 800), 640, 560   # carte de fin (kit.outro) : centrée plus bas, bouton y 968
+BTN_S22 = (CARD_C[0], CARD_C[1] + CARD_H / 2 - 112 / 2 - 56)
+BTN_K = 1.75                                  # la pastille (60 px) devient le bouton (112 px de haut à peu près)
+BTN_SIZE = 56                                 # libellé du bouton : 32 x 1,75
 
 
-def r2(pt):
-    return [round(pt[0], 2), round(pt[1], 2)]
+def _r(p):
+    return [round(p[0], 2), round(p[1], 2)]
+
+
+def _descends(S, i, root):
+    """L'entité i descend-elle de root (parent, grand-parent…) ?"""
+    p = S.ents[i].get("parent")
+    while p:
+        if p == root:
+            return True
+        p = S.ents[p].get("parent")
+    return False
 
 
 def part(S, kit, c):
-    toi, client, sheet = c.toi, c.client, c.sheet
+    toi, toi2, client, sheet = c.toi, c.toi2, c.client, c.sheet
     rows, X, ty, ly = sheet.rows, sheet.x, sheet.ty, sheet.ly
     ai_h = c.ai_h
-    f0 = scene_f0(S, "S15")                                   # 1239
+    p5 = sheet.lines[4][1]
+    f0 = seam(S, "S15") + 1                                       # 1936 (« Une » calé à 1937 : début de scène)
 
-    kit.pin(f0 - 1, {**ENTRY_P3, "horloge": {"scale": 0}, "pastille": {"opacity": 0}})   # etat_initial de S15
-    if S.val("toi", "scale", f0 - 1) == 0:                   # partie construite seule : figurines absentes
-        toi.size = 1.0
-        toi.enter(f0 - 10, at=[716, 1075])
-    if S.val("client", "scale", f0 - 1) == 0:
-        client.size = 1.0
-        client.enter(f0 - 10, at=list(CLIENT_S13))
-    if S.val("L1", "chars", f0 - 1) == 0:                    # partie seule : ce que p2 a écrit et posé sur la fiche
-        kit.pin(f0 - 1, {**{lid: {"chars": len(p["key"]) + len(p["value"])} for lid, p in sheet.lines},
-                         "L5": {"slotFill": 0}, "autocollant": {"pos": [X["value"] - 46, rows[4] + ty - 10],
-                                                                "scale": round(96 / 72 / PAGE_S14_SCALE, 4)},
-                         "tampon": {"pos": [0, 300], "rot": -4}, "carre5": {"opacity": 1},
-                         "pastille_mini": {"pos": [-189.0, rows[4] + ly + 6]},
-                         "ia_pill": {"pos": list(IA_PILL_CORNER), "scale": round(1 / IA_CORNER_SCALE, 4)}})
+    # ---------- raccord : etat_initial de S15 (ENTRY_P3), plus l'ancre des fils posée par p2 ----------
+    S.set("fil5", aAt=[X["value"] + 6, rows[4] + ty])           # fil5 part, lui aussi, du bout de la valeur
+    kit.pin(f0 - 1, {**ENTRY_P3, **{f"fil{i + 1}": {"draw": 1, "aAt": [X["value"] + 6, rows[i] + ty]}
+                                    for i in range(4)}})
+    if S.val("toi", "scale", f0 - 1) == 0:                        # partie construite seule : figurine absente
+        toi.enter(f0 - 10, at=list(ADV_S13))
 
-    # ---------- utilitaires ----------
-    def plank_feet(n):
-        """Pieds du conseiller sur la planche (point monde du dessus, x local ADV_PLANK_X, 3 px d'ivoire entre ses
-        pieds et la planche) à l'image n."""
-        return S.to_world("planche", [ADV_PLANK_X, -PLANK_H - 3], n)
-
-    def body_at(feet, s):
-        return r2([feet[0], feet[1] - FIG_BASE * s])
-
-    def arms_at(n, off):
-        """Centre de la fiche tenue à son côté (off : décalage dans le repère de la figurine) à l'image n."""
-        p, s = S.val("toi", "pos", n), S.val("toi", "scale", n)
-        return r2([p[0] + off[0] * s, p[1] + off[1] * s])
-
-    def chairs_pt(pos, s, local):
-        return r2([pos[0] + local[0] * s, pos[1] + local[1] * s])
-
-    def beam_on_fiche(fa, fb):
-        """Le faisceau de l'IA suit le bord gauche de la fiche, image par image, sur [fa, fb)."""
-        for n in range(fa, fb):
-            S.key("faisceau_passe", "pb", n, r2(S.to_world("fiche", [-PAGE_W / 2, 0], n)), 1, "linear")
-
-    # =================== S15 « L’IA prépare. » ===================
-    f = kit.at("S15", "L’IA", "l'IA d'abord : elle quitte son coin et regrandit sur le bout gauche de la future "
-               "planche ; le fil du « ? » rentre ; le client revole dans le pictogramme de la pastille. +3 : le trait "
-               "du repère tombe en planche, ses 3 disques descendent avec elle à droite du pivot ; la fiche se réduit "
-               "devant l'IA. +6 : le conseiller monte sur le bout droit ; tout est posé à +15")
-    S.key("fil_q", "from", f, 1, 4, "in")
-    S.key("fil_q", "draw", f + 4, 0)
-    # C : l'IA (le sujet du mot) bouge la première
-    ia_on = [PLANK_AT[0] + IA_PLANK_X, PLANK_TOP - IA_PLANK_SCALE * ai_h / 2]
-    pill_low = [0, round((PLANK_AT[1] + 12 + 25 - ia_on[1]) / IA_PLANK_SCALE, 1)]
-    S.key("ia", "z", f, 8.6)                                 # devant la fiche encore grande : on la voit monter
-    S.key("ia_pill", "z", f, 8.7)
-    S.keys("ia", f, 9, "inOut", pos=r2(ia_on), scale=IA_PLANK_SCALE)
-    S.keys("ia_pill", f, 9, "inOut", pos=pill_low, scale=1)
-    # la fiche se réduit (allégée) à sa place devant l'IA, sur la future planche
-    page_on = [PLANK_AT[0] + PAGE_PLANK_X, PLANK_TOP - 2 - PAGE_PLANK_SCALE * PAGE_H / 2]
-    S.keys("fiche", f + 3, MORPH, "inOut", pos=r2(page_on), scale=PAGE_PLANK_SCALE)
-    lite_ids = ["fiche", "tampon", "source5"] + [lid for lid, _ in sheet.lines] + [f"source{i + 1}" for i in range(4)]
+    S.set("empreinte", pos=list(STAMP_AT), rot=STAMP_ROT)
+    S.set("tampon", pos=list(STAMP_AT), rot=STAMP_ROT)
+    S.set("coche_relue", pos=[sheet.w / 2 - 6, -sheet.h / 2 - 6])  # S19 : à cheval sur le coin, hors du titre
+    lite_ids = ["fiche", "tampon"] + [f"L{i + 1}" for i in range(5)] + [f"source{i + 1}" for i in range(5)]
     for id in lite_ids:
-        S.key(id, "lite", f + 5, 1, 6, "inOut")
-    # A : le client revole jusqu'au pictogramme de la pastille de l'en-tête et y rentre (taille 1 jusqu'au bout)
-    dc = 9
+        kit.ensure(id, "lite", 0)
+
+    def fw(pt, n):
+        """Point local de la fiche -> monde à l'image n."""
+        return _r(S.to_world("fiche", pt, n))
+
+    def icon_w(n):
+        return _r(S.to_world("pastille_fiche", ICON_LOCAL, n))
+
+    # =================== S15 « Une info sans source n’est pas une certitude. C’est une question à poser au client. »
+    f = kit.at("S15", "Une", "chaque source compacte remonte son fil jusqu'à sa date et s'y fond : la date devient une "
+               "étiquette-source (pictogramme du document + date) ; les fils et les cases 1 à 4 s'effacent, la case 5 "
+               "reste vide ; le conseiller redescend au pied de la page (x 1,1)")
+    for i in range(4):
+        d_id, src, fil = f"doc{i + 1}", f"source{i + 1}", f"fil{i + 1}"
+        dst = S.to_world(src, [0, 0], f - 1)
+        S.key(d_id, "z", f, 12.5 + 0.01 * i)                       # sous l'étiquette qu'il rejoint
+        S.fly(d_id, f, MORPH, "inOut", to=_r(dst), scale=round(S.world_scale(src, f - 1), 4))
+        S.key(d_id, "tag", f, 1, MORPH, "inOut")                   # la carte compacte se réduit en étiquette
+        arr = f + MORPH
+        S.key(fil, "opacity", arr - 3, 0, 3, "linear")             # le fil rentre avec elle (ancre b = la source)
+        S.key(fil, "draw", arr, 0)
+        S.key(d_id, "opacity", arr, 0)
+        S.key(src, "tagged", arr - 1, 1)                           # la date devient l'étiquette-source
+        S.key(src, "flash", arr, 1, 2, "out")
+        S.key(src, "flash", arr + 2, 0, 3, "inOut")
+        vanish(kit, f"case{i + 1}", f + 2, d=MORPH)
+    toi.scale_to(f, ADV_S15_S, d=14)
+    toi.walk(f, list(ADV_S15), d=14)
+
+    f = kit.at("S15", "sans", "test de la ligne 5 : un surligneur cyan pâle passe sous « Horizon 5 ans » ; elle lance "
+               "le même fil vers la case 5 : il touche un contour vide, se casse en tirets et retombe ; la case tremble "
+               "et reste vide ; puis tenue de 1,6 s, rien ne bouge")
+    sl_w = X["slot1"] - X["slot0"]
+    sl_y = rows[4] + ty
+    S.set("surligneur", w=sl_w)
+    S.keys("surligneur", f - 1, w=0, pos=[X["slot0"], sl_y], scale=1)
+    S.keys("surligneur", f, FADE, "out", w=sl_w, pos=[round((X["slot0"] + X["slot1"]) / 2, 1), sl_y])
+    S.key("L5", "slotFill", f, 0, FADE, "out")
+    kit.draw("fil5", f + 3, 7)
+    touch = f + 10
+    kit.shake("case5", touch, amp=6)
+    S.key("fil5", "dashed", touch, 1)
+    pb0 = S.val("fil5", "pb", touch - 1)
+    S.key("fil5", "pb", touch + 1, [pb0[0] - 30, pb0[1] + HANG_DY], 9, "inOutSine")
+    S.key("fil5", "sag", touch + 1, 34, 9, "inOutSine")
+
+    f = kit.at("S15", "C’est", "le stylo du conseiller tape « 5 ans » : sous la pointe, la ligne 5 vire au rouge et se "
+               "fend, sa moitié droite s'affaisse ; la coche pointillée de l'IA reste ; l'IA ne bouge pas")
+    val_c = [X["value"] - p5["valueW"] / 2, ty]
+    hit = toi.tap(f - TAP + 1, S.to_world("L5", val_c, f - 1))
+    S.key("L5", "red", hit, 1, 3, "out")
+    S.key("L5", "crack", hit, 1, POP, "out")
+    S.key("L5", "slotFill", hit, 1, 3, "out")                     # le surligneur s'éteint sous la capsule rouge
+    S.key("surligneur", "scale", hit + 3, 0)
+    S.key("bande5", "opacity", hit, 0, 4, "linear")              # la capsule rouge de la ligne prend le relais
+    vanish(kit, "nuage5", hit, d=4)
+
+    f = kit.at("S15", "question", "un grand « ? » sort de la valeur fendue, puis monte en arc au-dessus du conseiller ; "
+               "une bulle grandit autour, queue vers sa tête ; le fil retombé et la case 5 s'effacent")
+    q_from = S.to_world("L5", line_crack_point(p5, val_c, 1.0), f - 1)
+    S.key("question", "pos", f - 1, _r(q_from))
+    kit.pop("question", f, scale=0.7)
+    S.key("question", "pos", f + POP, list(BUBBLE_AT), MOVE, "inOut", arc=60)
+    S.key("question", "scale", f + POP, 1, MOVE, "inOut")
+    kit.pop("bulle", f + POP + 4, d=POP)
+    arr = f + POP + MOVE
+    S.key("bulle", "q", arr, 1)
+    S.key("question", "scale", arr, 0)
+    S.key("question", "opacity", arr, 0)
+    vanish(kit, "case5", f, d=POP)
+    S.key("fil5", "opacity", f, 0, POP, "linear")
+    S.key("fil5", "draw", f + POP, 0)
+    toi.rest(f + 2, 8)
+
+    f = kit.at("S15", "client", "le client (figurine papier) naît du pictogramme de la pastille sur l'en-tête, fait le tour "
+               "par la droite de la bulle et se pose face au conseiller ; il s'incline de 4° vers lui, immobile")
+    kit.pulse("pastille_fiche", f, step=3)
+    born = icon_w(f - 1)
+    client.size = 0.3
+    client.enter(f, at=born, d=5)
+    route = [born, [born[0] + 130, born[1] - 40], [620, 470], [850, 640], [850, 900], list(CLIENT_S15)]   # x ≤ 850 (QA x > 940)
+    client.scale_to(f + 3, 1.0, d=17, e="inOut")
+    client.run(f + 3, route, 17)
+    client.lean_to(f + 20, -4, d=5)
+
+    # =================== S16 « Reste le plus important : la décision finale ne se délègue pas. » ===================
+    f = kit.at("S16", "Reste", "la bulle se replie en autocollant « ? » (disque cyan 72 px) qui vole attendre à droite de "
+               "la ligne 5, hors de la page ; le client reste immobile")
+    S.key("bulle", "s", f, 1, 6, "out")
+    S.key("bulle", "pos", f + 2, list(STICKER_S16), MOVE, "inOut", arc=30)
+    toi.walk(f + 4, list(ADV_S16), d=10)                          # un pas à droite : l'autocollant n'est pas sa pensée
+
+    f = kit.at("S16", "décision", "le conseiller range son stylo et sort de sa poitrine le tampon fermé (socle cyan "
+               "profond, poignée encre, aucun texte), qu'il tient levé devant lui ; 8 images plus tard, le contour vide "
+               "de l'empreinte se trace en tirets sur la bande libre du bas de la page")
+    toi.walk(f, list(ADV_S16), d=8)
+    toi.stow(f, d=4)
+    f = f + 6
+    sh = toi._shoulder(f - 1)
+    rr = math.radians(-6)
+    grip = [TAMPON_HOLD[0] - TAMPON_GRIP[1] * math.sin(rr), TAMPON_HOLD[1] + TAMPON_GRIP[1] * math.cos(rr)]
+    dv = [grip[0] - sh[0], grip[1] - sh[1]]
+    dl = math.hypot(*dv)
+    pen_l = toi.pen_len * S.world_scale("toi", f - 1)
+    virt_tip = [sh[0] + dv[0] / dl * (dl + pen_l), sh[1] + dv[1] / dl * (dl + pen_l)]   # stylo rangé : la main en grip
+    toi.reach(f, virt_tip, d=8, step=False)
+    off = [TAMPON_HOLD[0] - grip[0], TAMPON_HOLD[1] - grip[1]]
+    for n, p in frames(f, 8, "out"):
+        g = S.val(toi.pen, "pos", n)
+        S.key("tampon_ferme", "pos", n, _r([g[0] + off[0], g[1] + off[1]]), 1, "linear")
+        S.key("tampon_ferme", "scale", n, round(p, 4), 1, "linear")
+    kit.draw("empreinte", f + 8, DRAW)
+
+    f = kit.at("S16", "délègue", "un court faisceau pointillé de l'IA passe sous la page et touche le socle du tampon : "
+               "le tampon ne bouge pas, tenu par sa main ; le faisceau se rétracte ; l'empreinte reste vide ; aucun rouge")
+    socle = [TAMPON_HOLD[0] - 40, TAMPON_HOLD[1] + 22]           # coin gauche du socle, côté IA
+    S.keys("faisceau_tampon", f - 1, pb=_r(socle), via=list(BEAM_VIA), draw=0, opacity=1)
+    kit.draw("faisceau_tampon", f, 8, e="in")
+    hit = f + 8                                                   # il casse net sur le tampon tenu
+    S.key("impact_cadre", "pos", hit - 1, _r([socle[0] - 4, socle[1]]))
+    kit.pop("impact_cadre", hit, d=3)
+    S.key("eclat", "pos", hit - 1, _r(socle))
+    S.key("eclat", "scale", hit - 1, 1.1)
+    S.key("eclat", "p", hit - 1, 0)
+    S.key("eclat", "p", hit, 1, 9, "out")
+    S.key("eclat", "p", hit + 9, 0)
+    vanish(kit, "impact_cadre", hit + 10, d=6)
+    S.key("faisceau_tampon", "draw", hit + 8, 0, 10, "inOut")      # il recule, visiblement ; le tampon n'a pas bougé
+    S.key("faisceau_tampon", "opacity", hit + 18, 0)
+
+    # =================== S17 « Troisième étape : tu relis, tu corriges, tu décides. » ===================
+    f = kit.at("S17", "Troisième", "le repère passe à « 3 · Relire » (le disque grandit puis revient) ; le client rentre "
+               "dans le pictogramme de la pastille ; le conseiller range le tampon dans sa poitrine et monte à droite "
+               "de la page, stylo vers la colonne des coches")
+    arr = kit.step(f, 2)
+    S.key("legende2", "under", f, 0, FADE, "inOut")
+    kit.draw("legende3", f + 4, DRAW, track="under")
+    S.key("chapitre", "pos", f - 1, [MARKER_XS[2], S.val("chapitre", "pos", f - 1)[1]])
+    S.key("chapitre_txt", "text", f - 1, "3")
+    S.key("chapitre", "scale", arr, 1)
+    S.key("chapitre", "scale", arr + 1, 1.6, SCALE, "out")
+    S.key("chapitre", "scale", arr + 11, 1, SCALE, "inOut")
+    S.key("chapitre", "scale", arr + 21, 0)
+    home = icon_w(f + 13)
     c0 = S.val("client", "pos", f - 1)
-    tgt = S.to_world("pastille_fiche", PILL_ICON, f + dc - 1)
-    mid = [(c0[0] + tgt[0]) / 2 + 40, min(c0[1], tgt[1]) - 200]
-    arc = [r2([(1 - q) ** 2 * c0[0] + 2 * (1 - q) * q * mid[0] + q * q * tgt[0],
-               (1 - q) ** 2 * c0[1] + 2 * (1 - q) * q * mid[1] + q * q * tgt[1]]) for q in [k / 9 for k in range(10)]]
-    client.run(f, arc, dc)
-    client.scale_to(f + dc - 3, 0.05, d=3, e="in")
-    client.exit(f + dc, d=1)
-    kit.pulse("pastille_fiche", f + dc, peak=1.12, step=3)
-    # B (+3) : le trait du repère (360 px) devient la planche (même échelle partout : ses enfants ne se déforment pas),
-    # qui tombe en grandissant ; ses 3 disques deviennent les 3 cercles, qui descendent avec elle à droite du pivot
-    fb = f + 3
-    kit.fade("marqueur", fb, to=0, d=4)
-    S.key("marqueur", "scale", fb + 4, 0)
-    s0 = round(2 * MARKER_GAP / PLANK_W, 4)
-    S.key("planche", "pos", fb - 1, [CX, MARKER_Y + 2])
-    S.key("planche", "scale", fb, s0)
-    S.key("planche", "scale", fb + 1, 1, DROP - 1, "out")
-    for n, p in frames(fb, DROP, "in"):
-        S.key("planche", "pos", n, r2([lerp(CX, PLANK_AT[0], p), lerp(MARKER_Y + 2, PLANK_AT[1], p)]), 1, "linear")
-    xs = S.ents["marqueur"]["p"]["xs"]
+    client.lean_to(f, 0, d=3)
+    client.scale_to(f, 0.25, d=14, e="inOut")
+    client.run(f, [c0, [850, 900], [850, 640], [620, 470], home], 14)   # x ≤ 850 : rien sous la colonne x > 940
+    client.exit(f + 14, d=3)
+    kit.pulse("pastille_fiche", f + 15, step=3)
+    chest = [S.val("toi", "pos", f - 1)[0], S.val("toi", "pos", f - 1)[1] - 10]
+    vanish(kit, "tampon_ferme", f, into=chest, d=6)
+    toi.walk(f + 2, [710, ADV_S17_P3[1]], d=10)                   # il monte à droite de l'autocollant « ? »,
+    toi.walk(f + 12, list(ADV_S17_P3), d=5)                       # puis se place contre la page
+    toi.unstow(f + 10)
+    ticks = [sheet.world(S, i, "tick", n=f + 16) for i in range(5)]
+    toi.reach(f + 17, [ticks[0][0] + 12, ticks[0][1] + 4], d=8, step=False)   # pointe en attente sur L1
+
+    f = kit.at("S17", "relis", "la pointe descend la colonne des coches ; sur chaque ligne 1 à 4 la rangée se surligne le "
+               "temps du passage, la coche pleine du conseiller (plus grande) se trace sur la coche pointillée de l'IA, "
+               "qui s'efface sous elle, et l'étiquette-source s'allume ; la pointe s'arrête sur L5 sans cocher")
+    hits = toi.trace(f, ticks, step=False)
+    S.key("surligneur", "scale", hits[0] - 2, 1)
+    for i in range(4):
+        h = max(hits[i], f)
+        S.key("surligneur", "pos", h - 1, [round((X["slot0"] + X["slot1"]) / 2, 1), rows[i] + ty])
+        S.key(f"L{i + 1}", "slotFill", h - 1, 0, 2, "out")
+        S.key(f"L{i + 1}", "slotFill", h + 4, 1, 3, "inOut")
+        kit.draw(f"coche{i + 1}", h, 5)
+        vanish(kit, f"coche_ia{i + 1}", h, into=_r(S.to_world("ia", c.brain_front, h + POP)), d=POP)
+        S.key(f"source{i + 1}", "lit", h, 1, 4, "out")
+    S.key("surligneur", "scale", max(hits[3], f) + 8, 0)
+
+    f = kit.at("S17", "corriges", "d'un même trait, la pointe chasse la coche pointillée de l'IA de la ligne 5 et barre "
+               "« 5 ans », qui tombe hors de la page ; la fente se referme, la ligne repasse à l'encre ; l'autocollant "
+               "« ? » prend la place de la valeur, et « à poser au RDV » surgit dessous")
+    kit.drop("coche_ia5", f + 1, out=True, h=130, dx=46, rot=55)   # chassée d'un coup de stylo, hors de la page
+    a = S.to_world("L5", line_crack_point(p5, [X["value"] + 8, ty], 1.0), f - 1)
+    b = S.to_world("L5", line_crack_point(p5, [X["value"] - p5["valueW"] - 8, ty], 1.0), f - 1)
+    g = toi.strike(f, a, b, d=6, lead=3, line="L5")
+    S.key("L5", "fall", g, 1, 7, "in")
+    S.key("L5", "crack", g, 0, 8, "inOut")
+    S.key("L5", "red", g, 0, 4, "out")
+    S.key("L5", "alarm", g, 0, 4, "out")
+    S.key("L5", "pulse", g, 0, 4, "out")
+    vanish(kit, "anneau5", g, d=6)
+    spot = S.to_world("autocollant", [0, 0], g + 1)
+    S.fly("bulle", g + 1, 7, "inOut", to=_r(spot), scale=round(S.world_scale("autocollant", g + 1), 4), arc=24)
+    S.key("bulle", "scale", g + 8, 0)
+    S.key("bulle", "opacity", g + 8, 0)
+    S.key("autocollant", "opacity", g + 8, 1)
+    kit.pop("source5", g + 3, d=POP)
+
+    f_dec = kit.at("S17", "décides", "le conseiller descend au pied de la page et abat le tampon dans le contour marqué : "
+                   "« PRÊT POUR LE RDV » et « + 1 question » ; la page tremble, l'autocollant « ? » bat au contact ; "
+                   "jamais « VALIDÉ »")
+    w0 = g + 1
+    toi.walk(w0, list(STAMP_SPOT), d=max(8, f_dec - w0))
+    hit = toi.stamp(f_dec, "tampon", shake="fiche", step=False)
+    S.key("tampon", "subOn", hit, 1, 3, "out")
+    S.key("empreinte", "opacity", hit, 0)
+    kit.pulse("autocollant", hit, peak=1.15, step=3)
+    toi.walk(hit + 8, list(ADV_S17_END), d=12)                       # il s'écarte : le tampon se lit en entier
+
+    # =================== S18 « L’IA prépare. Toi, tu gardes le conseil, l’adéquation et la responsabilité. » ======
+    f = kit.at("S18", "L’IA", "le fil du repère descend et devient une planche sur un pivot ; disques et légendes "
+               "s'effacent ; la fiche se réduit (allégée) sur le bout gauche ; l'IA regrandit à côté d'elle, debout "
+               "sur la planche")
+    kit.morph(["marqueur"], ["planche"], f)
     for k in range(3):
-        cid = f"cercle{k + 1}"
-        S.keys(cid, fb - 1, pos=[round(xs[k] / s0, 1), CIRCLE_Y], text=str(k + 1), fill=PAPER)
-        S.key(cid, "scale", fb, 1)
-        S.key(cid, "pos", fb, [CIRCLE_X[k], CIRCLE_Y], DROP, "out")
-    landed = fb + DROP
-    # C' (+6) : le conseiller monte sur le bout droit (x 1,1)
-    fc = f + 6
-    adv_on = body_at(S.to_world("planche", [ADV_PLANK_X, -PLANK_H - 3], landed), ADV_PLANK_SCALE)
-    toi.scale_to(fc, ADV_PLANK_SCALE, d=9)
-    toi.walk(fc, adv_on, d=9)
+        S.key(f"legende{k + 1}", "opacity", f, 0, FADE, "out")
+        S.key(f"legende{k + 1}", "scale", f + FADE, 0)
+    S.keys("fiche", f, MORPH, "inOut", pos=list(PAGE_S18), scale=PAGE_S18_S)
+    for id in lite_ids:
+        S.key(id, "lite", f + 3, 1, 6, "inOut")
+    S.keys("ia", f, MORPH, "inOut", pos=list(IA_S18_P3), scale=IA_S18_S)
+    S.keys("ia_pill", f, MORPH, "inOut", pos=[0, -round(ai_h / 2 + 34, 1)], scale=1)
+    for k in range(3):                                            # jetons calibrés : bord droit aligné, avant lui
+        S.set(f"jeton{k + 1}", w=TOKEN_WS[k],
+              pos=[round(TOKEN_RIGHT - TOKEN_LEAN * k - TOKEN_WS[k] / 2, 1),
+                   round(-PLANK_H - TOKEN_H / 2 - (TOKEN_H + 4) * k, 1)])
 
-    f = kit.at("S15", "prépare.", "passation, seule : le faisceau pointillé de l'IA part de sa tête, la fiche monte à son "
-               "bout et y tient 6 images, puis glisse 550 ms en arc vers le conseiller, qui se penche vers elle et la "
-               "ramène contre lui ; rien d'autre ne bouge ; la planche reste à plat")
-    toi.stow(f - 2)
-    toi.set_z(f, 7.9, tool_z=7.95)
-    lift = [page_on[0], page_on[1] - 60]
-    S.key("fiche", "pos", f, r2(lift), 5, "out")              # elle monte au bout du faisceau
-    held = f + 11                                             # tenue de 6 images (f + 5 .. f + 10)
-    arrive = [adv_on[0] + (ARMS_OFF[0] + ARMS_FROM[0]) * ADV_PLANK_SCALE,
-              adv_on[1] + (ARMS_OFF[1] + ARMS_FROM[1]) * ADV_PLANK_SCALE]
-    S.fly("fiche", held, MOVE, "inOut", to=r2(arrive), scale=ARMS_SCALE, arc=120)
-    land = held + MOVE
-    toi.lean_to(held + 6, -7, d=6)                           # il se penche vers elle
-    toi.lean_to(land - 4, 0, d=6, e="inOut")                 # et la ramène contre lui
-    beam_on_fiche(f - 1, land)
-    kit.draw("faisceau_passe", f, 3)
+    f = kit.at("S18", "prépare", "le conseiller monte sur le bout droit ; le faisceau pointillé de l'IA pousse la fiche "
+               "le long de la planche et la porte jusqu'à lui, sans jamais la lâcher ; il la prend contre sa poitrine ; "
+               "la planche reste à plat")
+    toi.walk(f, list(ADV_S18), d=MOVE)
+    slide = [660, PAGE_S18[1]]
+    S.key("fiche", "pos", f, slide, 12, "inOut")
+    chest = [ADV_S18[0] + CHEST_OFF[0], ADV_S18[1] + CHEST_OFF[1]]
+    S.keys("fiche", f + 12, 8, "inOut", pos=list(chest), scale=HOLD_S)
+    taken = f + 20                                                # la fiche est dans ses mains
+    # la fiche passe DEVANT lui (contre sa poitrine) mais sous son bras : toute la fiche entre en z 15,05-15,35
+    fiche_ids = [i for i, e in S.ents.items() if i == "fiche" or _descends(S, i, "fiche")]
+    for i in fiche_ids:
+        z0 = S.ents[i]["z"]
+        kit.ensure(i, "z", z0)
+        S.key(i, "z", f + 12, round(15.05 + (z0 - 8) * 0.05, 3))
+    S.keys("faisceau_passe", f - 1, draw=0, opacity=1, **{"from": 0})
+    kit.draw("faisceau_passe", f, 4)
+    for n in range(f - 1, taken + 1):                             # le faisceau la tient jusqu'à ses mains
+        S.key("faisceau_passe", "pb", n, fw([-250, 60], n), 1, "linear")
+    S.key("faisceau_passe", "draw", taken + 1, 0, 6, "out")
+    S.key("faisceau_passe", "opacity", taken + 7, 0)
 
-    # =================== S16 « Toi, tu gardes le conseil, l’adéquation et la responsabilité. » ===================
-    f = kit.at("S16", "Toi,", "la pilule « Toi » surgit sous le conseiller")
-    beam_on_fiche(land, f)
-    S.key("toi_pill", "pos", f - 1, [0, TOI_PILL_Y])
-    kit.pop("toi_pill", f, scale=TOI_PILL_SCALE)
+    f = kit.at("S18", "Toi", "la pilule « Toi » surgit au-dessus de sa tête ; une petite marche surgit à côté du pivot ; "
+               "l'IA en descend lentement et s'y pose, à hauteur, tournée vers lui ; ils échangent un petit signe de tête")
+    kit.pop("toi_pill", f)
+    kit.pop("marche", f, d=POP)
+    kit.ensure("ia", "z", S.ents["ia"]["z"])
+    S.key("ia", "z", f + 2, 6.6)                                  # elle descend DEVANT la planche, pas au travers
+    kit.ensure("ia_pill", "z", S.ents["ia_pill"]["z"])
+    S.key("ia_pill", "z", f + 2, 6.7)
+    S.keys("ia", f + 2, 20, "inOut", arc=24, pos=list(IA_STEP), scale=IA_STEP_S)
+    pill_x = -(IA_W / 2 * IA_STEP_S + 12 + 46) / IA_STEP_S         # pilule « IA » à sa gauche, hors de la marche
+    S.keys("ia_pill", f + 2, 20, "inOut", pos=[round(pill_x, 1), 0], scale=round(1 / IA_STEP_S, 4))
+    kit.ensure("ia", "rot", 0)
+    nod = f + 18
+    S.key("ia", "rot", nod, 7, 4, "out")                          # l'IA salue…
+    S.key("ia", "rot", nod + 4, 0, 4, "inOut")
+    toi.lean_to(nod + 3, -5, d=4)                                 # … il répond
+    toi.lean_to(nod + 7, 0, d=4)
 
-    f_tu = kit.at("S16", "tu", "l'IA, son travail passé, descend d'elle-même de la planche par un petit saut et se pose "
-                  "au sol JUSTE À CÔTÉ du pivot, sous le bras gauche (x 0,72, tournée vers lui, au même sol que la "
-                  "balance) ; elle rentre son faisceau : elle reste là, près de lui, en retrait")
-    beam_on_fiche(f, f_tu)
-    # contrôle sans son (« l'IA semble éjectée ») : plus de glissade rapetissante vers le coin de l'écran. Elle descend
-    # en douceur (16 images, petit saut) et se tient debout sur le sol du pivot, à 70 px de lui, à hauteur lisible ;
-    # le bras gauche de la planche remonte au-dessus d'elle quand le poids passe du côté du conseiller
-    d_ia = 16
-    stand = [IA_STANDBY[0], PIVOT_BASE_Y - IA_STANDBY_SCALE * ai_h / 2]
-    S.keys("ia", f_tu, d_ia, "inOut", arc=50, pos=r2(stand), scale=IA_STANDBY_SCALE)
-    S.keys("ia_pill", f_tu, d_ia, "inOut", pos=[0, round(ai_h / 2 + 30, 1)], scale=round(1 / IA_STANDBY_SCALE, 4))
-    S.key("faisceau_passe", "from", f_tu + 2, 1, 8, "in")   # elle rentre son faisceau (la passation est faite)
-    S.key("faisceau_passe", "draw", f_tu + 10, 0)
-    S.key("faisceau_passe", "from", f_tu + 10, 0)
+    # « conseil », « l’adéquation », « responsabilité » : la pointe va chercher chaque poids devant sa poitrine, le
+    # porte, le pose sur la pile ; la planche penche à chaque pose ; les pilules restent horizontales
+    f_c = kit.at("S18", "conseil", "sa pointe va chercher devant sa poitrine la pilule « Conseil » (cochée en S05), la "
+                 "porte et la pose sur son bout de planche, où elle devient le premier poids ; la planche penche de 4°")
+    f_a = kit.at("S18", "l’adéquation", "même geste : le poids « Adéquation » sort devant sa poitrine au bout du stylo, "
+                 "est porté et posé sur le premier ; la planche penche à 8°")
+    f_r = kit.at("S18", "responsabilité", "même geste : « Responsabilité » posé en haut de la pile ; la planche penche "
+                 "à 12° et s'arrête net ; il reste droit, la fiche contre lui, la pointe sur ses poids ; l'IA, sur sa "
+                 "marche, reste visible")
+    f_dix = scene_f0(S, "S19")
+    beats = [f_c, f_a, f_r]
+    lands = [b + 8 + CARRY for b in beats]
+    seats = [S.val(f"jeton{k + 1}", "pos", f_c) for k in range(3)]   # places sur la planche (repère de la planche)
+    grips = [[seats[k][0] + TOKEN_WS[k] / 2 - 20, seats[k][1]] for k in range(3)]   # la pointe tient le bout droit
+    s18 = ADV_S18_S
+    kit.ensure("conseil", "z", S.ents["conseil"]["z"])
+    S.keys("conseil", f_c + 5, pos=[0, 0], z=15.8, opacity=1, scale=0)
+    for k in range(3):
+        kit.ensure(f"jeton{k + 1}", "rot", 0)
 
-    fg = kit.at("S16", "gardes", "il serre la fiche contre lui ; la planche penche à 5° de son côté")
-    S.key("planche", "rot", fg, TILT_K[0], TILT, "out")
+    def body_at(n):
+        if n < lands[0]:
+            return list(ADV_S18)
+        feet = S.to_world("planche", [PLANK_LX, -PLANK_H], n)
+        return _r([feet[0], feet[1] - FIG_BASE * s18])
 
-    def to_token(k, fk):
-        """Sur son mot, le cercle k prend son pictogramme, roule dans la pile devant lui (colonne TOKEN_X0, niveau k) et
-        y reste comme pictogramme de son jeton, dont la capsule et le libellé s'étirent à droite ; posé, la planche
-        plonge de +2° puis se pose à 5 x (k + 2)° et le conseiller fléchit (x 0,97). Renvoie l'image d'arrivée."""
-        cid, jid = f"cercle{k + 1}", f"jeton{k + 1}"
-        kit.fade(f"{cid}_ico", fk, 1, d=3)                   # le chiffre s'efface sous le pictogramme du geste
-        roll = 7
-        S.key(cid, "pos", fk, [TOKEN_X0, LV[k]], roll, "out", arc=(LV[0] - LV[k]) + 24)
-        S.key(cid, "rot", fk, -360, roll, "out")              # il roule vers la gauche, dans la pile
-        S.key(cid, "fill", fk, LIGHT, roll, "out")
-        r = fk + roll
-        S.key(jid, "scale", r - 1, 1)
-        S.keys(jid, r, 5, "out", w=TOKEN_WS[k], pos=[round(TOKEN_X0 - 36 + TOKEN_WS[k] / 2, 1), LV[k]])
-        kit.fade(f"{jid}_txt", r + 3, 1, d=4)
-        tgt = TILT_K[k + 1]
-        S.key("planche", "rot", r, tgt + 2, 6, "out")         # le poids : la planche plonge…
-        S.key("planche", "rot", r + 6, tgt, 8, "inOut")       # … puis se pose
-        toi.scale_to(r, round(ADV_PLANK_SCALE * 0.97, 4), d=3, e="out")   # il fléchit : il porte le poids
-        toi.scale_to(r + 3, ADV_PLANK_SCALE, d=4, e="inOut")
-        return r
+    def ease(t):
+        t = min(1.0, max(0.0, t))
+        return t * t * (3 - 2 * t)
 
-    f = kit.at("S16", "conseil,", "le cercle 1 prend la bulle de dialogue, roule dans la pile devant lui et devient le "
-               "jeton « Conseil » ; la planche plonge puis se pose à 10° ; il fléchit")
-    to_token(0, f)
-    f = kit.at("S16", "l’adéquation", "le cercle 2 prend la cible, roule sur le premier jeton (même colonne) et devient "
-               "« Adéquation » ; 15°")
-    to_token(1, f)
-    f = kit.at("S16", "responsabilité.", "le cercle 3 prend la signature et devient « Responsabilité », en haut de la "
-               "pile ; 20° ; au sol juste à côté du pivot, l'IA reste visible, immobile, en retrait")
-    f_end = to_token(2, f) + 14
+    rest_tip = toi.tip(f_c - 1)
+    for n in range(f_c, f_dix):
+        for k, L in enumerate(lands):                             # la planche penche à la pose
+            if n == L:
+                S.key("planche", "rot", L, TILTS[k], 12 if k == 0 else 14, "out")
+        prot = S.val("planche", "rot", n)
+        body = body_at(n)
+        ch = [body[0] + CH_OFF[0] * s18, body[1] + CH_OFF[1] * s18]
+        k = max(i for i, b in enumerate(beats) if b <= n)
+        b, L = beats[k], lands[k]
+        prev = rest_tip if k == 0 else S.to_world("planche", grips[k - 1], n)
+        seat_tip = S.to_world("planche", grips[k], n)
+        if n < b + 6:
+            tip = lerp(prev, ch, ease((n - b + 1) / 6))
+        elif n < b + 8:
+            tip = ch
+        elif n < L:
+            tip = lerp(ch, seat_tip, ease((n - b - 7) / CARRY))
+        else:
+            tip = seat_tip
+        tip = _r(tip)
+        toi.hop(n, body, 1, h=0, lean=0)
+        toi.reach(n, tip, d=1, step=False)
+        S.key("fiche", "pos", n, _r([body[0] + CHEST_OFF[0], body[1] + CHEST_OFF[1]]), 1, "linear")
+        tok = "conseil" if k == 0 else f"jeton{k + 1}"
+        if b + 6 <= n < L:                                       # le poids, au bout du stylo
+            center = [tip[0] - (TOKEN_WS[k] / 2 - 20), tip[1]]
+            if n == b + 6:
+                S.key(tok, "scale", n, 1, 4, "out")
+            if k == 0:
+                S.key(tok, "pos", n, _r(center), 1, "linear")
+            else:
+                S.key(tok, "pos", n, _r(S.to_local("planche", center, n)), 1, "linear")
+                S.key(tok, "rot", n, round(-prot, 2), 1, "linear")
+        if n == L:                                                # posé : relais (Conseil -> jeton1), à sa place
+            if k == 0:
+                S.key("conseil", "scale", n, 0)
+                S.key("conseil", "opacity", n, 0)
+                S.key("jeton1", "scale", n, 1)
+            S.key(f"jeton{k + 1}", "pos", n, [round(v, 1) for v in seats[k]])
+        for j in range(3):                                        # les poids posés restent horizontaux
+            if n >= lands[j]:
+                S.key(f"jeton{j + 1}", "rot", n, round(-prot, 2), 1, "linear")
 
-    # le conseiller suit le bout de la planche image par image (à son échelle de l'image : il fléchit) ; la fiche suit
-    # son côté ; le faisceau suit la fiche
-    for n in range(fg, f_end):
-        toi.walk(n, body_at(plank_feet(n), S.val("toi", "scale", n)), d=1)
-        toi.rest(n, 1)                                       # bras re-posé à chaque image (main au repos)
-    for n in range(fg, f_end):
-        p = _ease("out", min(1.0, (n - fg + 1) / POP))
-        off = lerp([ARMS_OFF[0] + ARMS_FROM[0], ARMS_OFF[1] + ARMS_FROM[1]], list(ARMS_OFF), p)
-        S.key("fiche", "pos", n, arms_at(n, off), 1, "linear")
-    beam_on_fiche(f_tu, f_tu + 10)                            # le faisceau suit la fiche pendant qu'il rentre
+    # =================== S19 « Dix minutes de relecture valent mieux qu’une erreur devant le client. » ===========
+    f = kit.at("S19", "Dix", "la planche revient à plat et devient le chemin ; les jetons rentrent dans sa poitrine, la "
+               "pilule « Toi » s'efface ; il se pose sur le chemin, la fiche devant lui ; l'IA au départ du chemin ; "
+               "l'horloge quitte le badge et grandit au-dessus de lui")
+    toi.scale_to(f, 1.0, d=MOVE)
+    toi.walk(f, list(ADV_S19), d=MOVE)
+    for k in range(3):                                            # les jetons rentrent dans sa poitrine…
+        vanish(kit, f"jeton{k + 1}", f + k, into="toi", d=6)
+    vanish(kit, "toi_pill", f, d=POP)
+    S.key("planche", "rot", f, 0, 8, "out")                       # … pendant que la planche revient à plat,
+    kit.morph(["planche"], ["chemin"], f + 6)                     # puis s'étire en chemin
+    S.keys("fiche", f + 2, MOVE - 2, "inOut", pos=list(PAGE_S19), scale=PAGE_S19_S)   # la même fiche, posée devant
+    morph_out(kit, ["marche"], f + 6)
+    S.keys("ia", f + 6, MOVE, "inOut", pos=list(IA_S19), scale=IA_S19_S)          # décalés : l'IA à + 6,
+    S.key("ia", "z", f + 6 + MOVE, S.ents["ia"]["z"])
+    S.key("ia_pill", "z", f + 6 + MOVE, S.ents["ia_pill"]["z"])
+    S.keys("ia_pill", f + 6, MOVE, "inOut", pos=[0, -round((ai_h * IA_S19_S / 2 + 30) / IA_S19_S, 1)],
+           scale=round(1 / IA_S19_S, 4))
+    S.keys("horloge", f + 4, MOVE, "inOut", pos=list(CLOCK_S19), scale=CLOCK_S19_S)   # l'horloge à + 4
 
-    # =================== S17 « Dix minutes de relecture valent mieux qu’une erreur devant le client. » =============
-    f = kit.at("S17", "Dix", "la planche se remet à plat et devient le chemin ; jetons, cercles et « Toi » s'effacent ; "
-               "l'IA, petite, va au départ du chemin ; le conseiller (x 1) descend sur le chemin et pose la fiche "
-               "(allégée) devant lui ; rien d'autre à l'écran")
-    mid = S.to_world("planche", [0, -PLANK_H / 2], f - 1)
-    S.set("chemin", w=PATH_W)
-    S.keys("chemin", f - 1, pos=r2(mid), rot=S.val("planche", "rot", f - 1), w=PLANK_W)
-    S.key("chemin", "scale", f, 1)
-    S.keys("chemin", f, MORPH, "out", pos=list(PATH_C), rot=0, w=PATH_W)
-    S.keys("planche", f, MORPH, "out", pos=[PATH_C[0], PATH_C[1] + PLANK_H / 2], rot=0)
-    S.key("planche", "opacity", f, 0, 4, "linear")
-    S.key("planche", "scale", f + MORPH, 0)
-    morph_out(kit, ["jeton1", "jeton2", "jeton3", "cercle1", "cercle2", "cercle3", "toi_pill"], f)
-    ia17 = [IA_S17, PATH_TOP - IA_S17_SCALE * ai_h / 2]
-    S.key("ia", "z", f, 14.6)                               # le brouillon (S17) sortira devant sa tête
-    S.key("ia_pill", "z", f, 14.7)
-    S.keys("ia", f, MORPH, "inOut", pos=r2(ia17), scale=IA_S17_SCALE)
-    S.keys("ia_pill", f, MORPH, "inOut", pos=[0, -round(ai_h / 2 + 52, 1)], scale=round(1 / IA_S17_SCALE, 4))
-    # le conseiller descend sur le chemin (même assouplissement « out » que la planche)
-    a = S.val("toi", "pos", f - 1)
-    a_s = S.val("toi", "scale", f - 1)
-    a_feet = [a[0], a[1] + FIG_BASE * a_s]
-    b_feet = [ADV_S17[0], ADV_S17[1] + FIG_BASE * ADV_S17_SCALE]
-    toi.scale_to(f, ADV_S17_SCALE, d=MORPH, e="out")
-    for n in range(f, f + MORPH):
-        p = _ease("out", (n - f + 1) / MORPH)
-        toi.walk(n, body_at(lerp(a_feet, b_feet, p), S.val("toi", "scale", n)), d=1)
-        toi.rest(n, 1)
-    toi.set_z(f, 15, tool_z=15.5)
-    S.fly("fiche", f, MORPH, "inOut", to=r2(PAGE_DIX), scale=PAGE_S17_SCALE)
-
-    f = kit.at("S17", "minutes", "l'horloge de 9 h grandit au-dessus de lui, aiguille des minutes sur :50 ; la fiche, "
-               "posée sur le chemin, vient jusqu'à lui ; il reprend son stylo")
-    S.key("horloge", "pos", f - 1, list(CLOCK_S17))
-    S.key("secteur", "value", f - 1, 0)
-    S.key("aiguille", "rot", f - 1, -60)
-    S.key("aiguille", "scale", f - 1, 1)
-    kit.pop("horloge", f, scale=CLOCK_S17_SCALE, d=10)
-    S.key("dix_min", "scale", f + 6, 1)                      # contrôle sans son : « 0 min » à droite du cadran
-    kit.fade("dix_min", f + 6, 1, d=FADE, frm=0)
-    S.key("fiche", "pos", f + 4, r2(PAGE_S17), POP, "out")
-    toi.unstow(f + 2)
-
-    f = kit.at("S17", "relecture", "le stylo descend la colonne des coches de la fiche pendant que le secteur se remplit "
-               "sur le cadran de :50 à :00, au même pas ; une coche pleine sur son coin ; le secteur et la coche battent "
-               "ensemble : ces dix minutes produisent la coche")
-    pts = [S.to_world("fiche", sheet.pt(i, "tick"), f) for i in range(5)]
-    hits = toi.trace(f - 4, pts, d=14, lead=4)
-    t0, dur = hits[0] + 1, hits[-1] - hits[0]
-    S.key("secteur", "value", t0, 10, dur, "linear")
-    S.key("aiguille", "rot", t0, 0, dur, "linear")
-    S.key("dix_min", "value", t0, 10, dur, "linear")          # 0 -> 10 min, au pas du stylo et du secteur
-    corner_l = [PAGE_W / 2 - 10, -PAGE_H / 2 + 6]            # coin haut droit, hors du texte
-    S.key("coche_relue", "pos", f - 1, r2(S.to_world("fiche", corner_l, f)))
-    done = hits[-1] + 1
-    kit.draw("coche_relue", done, 4)
-    kit.pulse("secteur", done, peak=1.15, step=2)            # même image : le temps passé produit la coche
-    kit.pulse("dix_min", done, peak=1.15, step=2)
-    kit.pulse("coche_relue", done + 2, peak=round(S.val("coche_relue", "scale", done) * 1.25, 4), step=2)
+    f = kit.at("S19", "relecture", "sa pointe descend la fiche pendant qu'un secteur de dix minutes se remplit sur le "
+               "cadran, au même rythme ; « 10 min » compte de 0 à 10 ; à la fin, une coche pleine se trace sur le coin "
+               "de la fiche")
+    pts = [sheet.world(S, i, "tick", n=f) for i in range(5)]
+    toi.trace(f - 4, pts, d=18, lead=4, step=False)
+    S.key("secteur", "value", f, 10, 18, "linear")
+    kit.pop("dix_min", f, d=6)
+    S.key("dix_min", "value", f, 10, 18, "linear")
+    done = f + 18
+    kit.draw("coche_relue", done, 6)
+    kit.pulse("secteur", done, peak=1.12, step=2)
     toi.rest(done, 8)
 
-    f = kit.at("S17", "valent", "les fauteuils et le client surgissent au bout du chemin (200 ms) ; la fiche relue, avec "
-               "sa coche, passe au-dessus de lui jusqu'à la table ; il garde son stylo levé")
-    S.key("fauteuils", "pos", f - 1, list(CHAIRS_S17))
-    kit.pop("fauteuils", f, scale=CHAIRS_S17_SCALE, d=6)
-    client.size = CHAIRS_S17_SCALE
-    client.enter(f, at=chairs_pt(CHAIRS_S17, CHAIRS_S17_SCALE, CLIENT_SEAT), d=6)
-    tbl = chairs_pt(CHAIRS_S17, CHAIRS_S17_SCALE, TABLE)
-    on_table = [tbl[0], tbl[1] - 2 - FICHE_TABLE_SCALE * PAGE_H / 2]
-    S.key("fiche", "pos", f, r2(on_table), MOVE, "inOut", arc=220)
-    S.key("fiche", "scale", f, FICHE_TABLE_SCALE, MOVE, "inOut")
-    k0 = S.val("coche_relue", "scale", f - 1)
-    for n in range(f, f + MOVE):
-        S.key("coche_relue", "pos", n, r2(S.to_world("fiche", corner_l, n)), 1, "linear")
-        S.key("coche_relue", "scale", n, round(k0 * max(0.6, S.val("fiche", "scale", n) / PAGE_S17_SCALE), 4), 1,
-              "linear")
+    f = kit.at("S19", "valent", "les fauteuils du rendez-vous surgissent seuls au bout du chemin ; puis la fiche relue file "
+               "au-dessus de lui jusqu'à leur table")
+    kit.pop("fauteuils", f)
+    S.key("fiche", "pos", f + 6, list(TABLE_S19), MOVE, "inOut", arc=60)        # arc bas, le long du chemin
+    S.key("fiche", "scale", f + 6, 0.2, MOVE, "inOut")
 
-    f = kit.at("S17", "erreur", "il tend son stylo en travers du chemin ; le brouillon de l'IA (tirets cyan, coches "
-               "pointillées, une bande rouge) naît devant sa tête et fonce à vitesse constante sur le chemin")
-    f_dev = S.word_after("devant", f)                        # il heurte le stylo sur « devant »
-    sh = toi._shoulder(f - 1)
-    barrier = [sh[0] + BARRIER[0], sh[1] + BARRIER[1]]
-    toi.reach(f, barrier, d=6, step=False)
+    f = kit.at("S19", "erreur", "de la tête de l'IA sort son brouillon non relu (contour et coches pointillés, ligne 5 "
+               "en rouge) qui file sur le chemin vers la droite ; le conseiller abaisse son stylo en travers du chemin")
+    f_dev = S.word_after("devant", f)
+    toi.reach(f, list(PEN_BAR), d=6, step=False)
+    bh = 720 * BROUILLON_P3
+    bump = [PEN_BAR[0] - 250 * BROUILLON_P3 - 2, PATH_TOP - bh / 2]
     head = S.to_world("ia", c.brain_front, f - 1)
-    b_h = BROUILLON_SCALE * PAGE_H
-    b_w = BROUILLON_SCALE * PAGE_W
-    born = [head[0] + 70, PATH_TOP - b_h / 2]                # devant son visage, pas dessus
-    bump = [barrier[0] - b_w / 2 - 2, PATH_TOP - b_h / 2]
-    S.keys("brouillon", f - 1, pos=r2(born), scale=0, opacity=1)
-    S.key("brouillon", "scale", f, 0.1)
-    S.key("brouillon", "scale", f + 1, BROUILLON_SCALE, 3, "out")
-    S.key("brouillon", "pos", f, r2(bump), f_dev - f, "linear")   # vitesse constante, sans s'arrêter
-    for n in range(f - 1, f + 4):
-        S.key("faisceau_passe", "pb", n, r2(S.to_world("brouillon", [-PAGE_W / 2, 0], n)), 1, "linear")
-    S.key("faisceau_passe", "opacity", f - 1, 1)
-    kit.draw("faisceau_passe", f, 2)
-    S.key("faisceau_passe", "from", f + 3, 1, 4, "in")      # le faisceau rentre : le brouillon file seul
-    S.key("faisceau_passe", "draw", f + 7, 0)
-    S.key("faisceau_passe", "from", f + 7, 0)
+    S.keys("brouillon", f - 1, pos=_r(head), scale=0, opacity=1)
+    S.key("brouillon", "scale", f, BROUILLON_P3, 5, "out")
+    S.key("brouillon", "pos", f, _r(bump), f_dev - f, "linear")
 
-    f = kit.at("S17", "devant", "il bute sur le stylo levé : 3 traits d'impact, il s'écrase un peu contre la pointe et "
-               "y reste collé 6 images ; puis il bascule en arrière et tombe du chemin, sa ligne rouge avec lui, et "
-               "s'efface : arrêté avant le client ; rien ne repart vers l'IA")
-    # contrôle sans son : plus d'éclats (ils se lisaient comme des confettis) ; le brouillon est ARRÊTÉ net par le
-    # stylo, puis rejeté hors du chemin, du côté de l'IA, loin du client
+    f = kit.at("S19", "devant", "le brouillon bute sur la pointe du stylo (traits d'impact), s'écrase un peu, y reste "
+               "collé, puis se fend en deux moitiés qui tombent sous le chemin ; sa bande rouge reste sous le chemin")
     tip = toi.tip(f)
-    S.key("impact3", "pos", f - 1, r2([tip[0] - 4, tip[1]]))
-    kit.pop("impact3", f, d=2)
-    vanish(kit, "impact3", f + 12, d=5)
+    S.key("impact_brouillon", "pos", f - 1, _r([tip[0] - 4, tip[1]]))
+    kit.pop("impact_brouillon", f, d=2)
+    S.key("eclat", "pos", f - 1, _r(tip))
+    S.key("eclat", "scale", f - 1, 1.2)
+    S.key("eclat", "p", f - 1, 0)
+    S.key("eclat", "p", f, 1, 9, "out")
+    S.key("eclat", "p", f + 9, 0)
+    vanish(kit, "impact_brouillon", f + 10, d=5)
     kit.ensure("brouillon", "sx", 1)
-    S.key("brouillon", "sx", f, 0.86, 2, "out")              # il s'écrase contre la pointe…
-    S.key("brouillon", "sx", f + 2, 1, 4, "inOut")
-    brk = f + 6                                              # … collé contre le stylo de f à f + 5
-    kit.drop("brouillon", brk, out=True, h=70, dx=-60, rot=-24)
-    S.key("brouillon", "scale", brk + 12, 0)
+    S.key("brouillon", "sx", f, 0.84, 2, "out")
+    S.key("brouillon", "pos", f, _r([bump[0] + 250 * BROUILLON_P3 * 0.16, bump[1]]), 2, "out")   # bord droit collé
+    brk = f + 9                                                   # tenue de 8 images contre la pointe
+    bp = S.val("brouillon", "pos", brk - 1)
+    S.key("brouillon", "scale", brk, 0)
+    S.key("brouillon", "opacity", brk, 0)
+    for k, (dx, rot) in enumerate(((-30, -16), (26, 14))):        # les moitiés tombent peu, et s'effacent (y < 1250)
+        m = f"moitie{k + 1}"
+        S.keys(m, brk - 1, pos=_r(bp), scale=round(BROUILLON_P3 * 0.84, 4), opacity=1)
+        kit.drop(m, brk, out=True, h=32, dx=dx, rot=rot)
+        vanish(kit, m, brk + DROP - 4, d=6)
+    band = [bp[0] + (X["slot0"] + X["slot1"]) / 2 * BROUILLON_P3 * 0.84, bp[1] + rows[4] * BROUILLON_P3]
+    S.keys("bande_rouge", brk - 1, pos=_r(band), scale=round(BROUILLON_P3 * 0.84 / 0.4, 4), opacity=1)
+    S.key("bande_rouge", "pos", brk, [round(band[0], 1), round(band[1] + 32, 1)], DROP, "in")
+    vanish(kit, "bande_rouge", brk + DROP - 4, d=6)               # la bande rouge s'efface avec le papier
 
-    f = kit.at("S17", "client.", "la coche pleine de la fiche relue, posée sur la table, bat ; le client aussi")
-    kit.pulse("coche_relue", f, peak=round(S.val("coche_relue", "scale", f - 1) * 1.15, 4), step=3)
-    cs = S.val("client", "scale", f - 1)
-    client.scale_to(f, round(cs * 1.12, 4), d=3, e="out")
-    client.scale_to(f + 3, cs, d=4, e="inOut")
+    f = kit.at("S19", "client", "le client naît du pictogramme de la pastille, sur la fiche posée sur la table, et "
+               "s'assoit dans le fauteuil droit, tourné vers la gauche")
+    born = icon_w(f - 1)
+    client.size = 0.25
+    client.enter(f, at=born, d=4)
+    client.scale_to(f + 2, CLIENT_S19_S, d=16, e="inOut")
+    client.run(f + 2, [born, [born[0] + 70, born[1] - 70], list(CLIENT_S19)], 16)
     toi.rest(f, 8)
 
-    # =================== S18 « Avant, tu arrives en ayant cherché. » ===================
-    f = kit.at("S18", "Avant,", "chemin, horloge, fiche, coche et IA se réduisent, le conseiller sort ; les fauteuils "
-               "glissent au centre et grandissent, le client y reste assis ; l'étiquette « Avant » surgit")
-    morph_out(kit, ["chemin", "horloge", "dix_min", "fiche", "coche_relue", "ia"], f)
-    toi.exit(f)
-    S.keys("fauteuils", f, MOVE, "inOut", pos=list(CHAIRS_S18), scale=1)
-    client.hop(f, chairs_pt(CHAIRS_S18, 1, CLIENT_SEAT), MOVE, h=0, lean=0)
-    client.scale_to(f, 1.0, d=MOVE, e="inOut")
-    S.key("avant", "pos", f - 1, list(AVANT_AT))
+    # =================== S20 « Avant, tu arrives en ayant cherché. » ===================
+    f = kit.at("S20", "Avant", "un trait vertical partage l'écran ; « Avant » surgit à gauche ; le rendez-vous (fauteuils, "
+               "client, fiche) se range dans la moitié droite ; chemin, bande rouge, compteur et IA se réduisent en "
+               "points ; le conseiller marche dans la moitié gauche (x 0,9)")
+    kit.draw("separateur", f + 9, DRAW)                           # l'horloge part d'abord : le trait ne la coupe pas
     kit.pop("avant", f)
+    S.keys("horloge", f, MOVE, "inOut", pos=list(CLOCK_S20), scale=CLOCK_S20_S)   # l'horloge de 9 h, au-dessus de lui
 
-    f = kit.at("S18", "arrives", "le conseiller entre par la gauche jusqu'au fauteuil gauche, les bras chargés d'une "
-               "grosse pile en éventail (6 cartes de travers : 4 documents, 2 papiers gris, le « Mail client » dessus), "
-               "la pastille « Client · 9 h » x 1,3 dessus ; il se penche en arrière sous la charge")
-    toi.set_z(f - 1, 10.9, tool_z=12.9)
-    toi.stow(f - 2, d=1)
-    toi.size = 1.0
-    toi.enter(f, at=list(TOI18), frm=-60, d=MOVE)
-    toi.lean_to(f + MOVE, LEAN_LOAD, d=6)                    # débordé : penché en arrière
-    kit.ensure("pastille", "z", 13.5)
-    S.key("pastille_fiche", "opacity", f - 1, 0)
-    S.keys("pastille", f - 1, scale=PILL18_SCALE, opacity=1, text=PILL_TEXT, w=PILL_W, z=13.5)
-    for cid, (_, _, rot, z) in PILE_REL.items():
-        if cid.startswith("doc"):
-            S.keys(cid, f - 1, compact=0, tag=0, txt=1, read=0, sh=6, opacity=1, lit=0)
-        else:
-            S.keys(cid, f - 1, opacity=1)
-        S.keys(cid, f - 1, scale=CARD_SCALE, rot=rot, z=z)
-        if cid.startswith("carte"):                          # leurs lignes grises suivent leur calque (z global)
-            for j in range(3):
-                S.key(f"{cid}_l{j + 1}", "z", f - 1, round(z + 0.005, 3))
-    S.key("carte_grise1_pill", "opacity", f - 1, 0)
-    S.key("carte_grise2_pill", "opacity", f - 1, 0)
-    for n in range(f - 1, f + MOVE):
-        tp = S.val("toi", "pos", n)
-        for cid, (dx, dy, _, _) in PILE_REL.items():
-            S.key(cid, "pos", n, r2([tp[0] + PILE_C[0] + dx, tp[1] + PILE_C[1] + dy]), 1, "linear")
-        S.key("pastille", "pos", n, r2([tp[0] + PILL_REL[0], tp[1] + PILL_REL[1]]), 1, "linear")
+    def chairs_map(pt):
+        return _r([CHAIRS_S20[0] + (pt[0] - CHAIRS_S19[0]) * CHAIRS_S20_S,
+                   CHAIRS_S20[1] + (pt[1] - CHAIRS_S19[1]) * CHAIRS_S20_S])
+    S.keys("fauteuils", f, MOVE, "inOut", pos=list(CHAIRS_S20), scale=CHAIRS_S20_S)
+    S.keys("fiche", f, MOVE, "inOut", pos=chairs_map(TABLE_S19), scale=round(0.2 * CHAIRS_S20_S, 4))
+    client.scale_to(f, round(CLIENT_S19_S * CHAIRS_S20_S, 4), d=MOVE)
+    client.hop(f, chairs_map(CLIENT_S19), MOVE, h=0, lean=0)
+    morph_out(kit, ["chemin", "bande_rouge", "ia", "dix_min"], f)
+    S.key("secteur", "value", f, 0, 6, "out")
+    toi.scale_to(f, ADV_S20_S, d=MOVE)
+    toi.walk(f, list(ADV_S20), d=MOVE)
 
-    f = kit.at("S18", "cherché.", "le « Mail client » glisse du haut de la pile et tombe en arc au sol, devant la table, "
-               "en tournant ; la pile vacille")
-    S.fly("doc3", f, DROP, "in", to=list(FLOOR_CARD), arc=60)
-    S.key("doc3", "rot", f, 110, DROP, "out")
-    for cid, (_, _, rot, _) in PILE_REL.items():             # la pile vacille (±4°)
-        if cid != "doc3":
-            S.key(cid, "rot", f + 1, rot + 4, 3, "out")
-            S.key(cid, "rot", f + 4, rot - 3, 3, "inOut")
-            S.key(cid, "rot", f + 7, rot, 4, "inOut")
+    f = kit.at("S20", "tu", "sa pilule « Toi » surgit au-dessus de sa tête ; l'horloge glisse dans la moitié gauche et se "
+               "réduit au-dessus de lui : l'image du début")
+    kit.pop("toi_pill", f)
 
-    # =================== S19 « Après, tu arrives en ayant compris. » ===================
-    f = kit.at("S19", "Après,", "l'étiquette se remplit de cyan, devient « Après » et se pose juste au-dessus de la "
-               "fiche ; les papiers gris se réduisent ; les 4 documents (celui tombé compris) convergent et fusionnent "
-               "en la fiche relue, debout sur la table ; la pastille vole à son en-tête ; le conseiller se redresse et se "
-               "tient devant la table, à 30 px du client")
-    S.key("avant", "text", f, "Après")
-    S.key("avant", "fill", f, CYAN, POP, "out")
-    S.key("avant", "pos", f, list(APRES_AT), MOVE, "inOut")
-    vanish(kit, "carte_grise1", f)
-    vanish(kit, "carte_grise2", f)
-    for i in range(4):
-        d_id = f"doc{i + 1}"
-        S.fly(d_id, f + i, MORPH - 2, "in", to=r2(FICHE19), scale=0.3)
-        S.key(d_id, "opacity", f + i + MORPH - 2, 0)
-    S.keys("fiche", f + 5, pos=r2(FICHE19), rot=0, opacity=1)
-    for id in lite_ids:                                      # en grand : la fiche complète, textes lisibles
-        S.key(id, "lite", f + 5, 0)
-    kit.pop("fiche", f + 6, scale=FICHE19_SCALE, d=MORPH)
-    arr = f + 6 + MORPH
-    toi.set_z(f, 15, tool_z=15.5)
-    toi.lean_to(f, 0, d=6)
-    toi.walk(f, list(ADV_S19), d=MOVE)
-    header = S.to_world("pastille_fiche", [0, 0], arr)
-    S.fly("pastille", f, arr - f, "inOut", to=r2(header), scale=FICHE19_SCALE, arc=80)
+    f = kit.at("S20", "arrives", "la vieille pile des 4 sources tombe de travers dans ses bras ; à droite, la fiche se "
+               "replie dans sa pastille, qui saute par-dessus le séparateur et attend au-dessus de lui : la table du "
+               "rendez-vous est vide")
+    toi.stow(f, d=4)                                              # les bras pleins : plus de stylo
+    for i, (dx, dy, rot) in enumerate(PILE_REL):
+        d_id, fi = f"doc{i + 1}", f + 2 * i
+        z = round(15.2 + 0.03 * i, 2)
+        S.keys(d_id, fi - 1, compact=0, tag=0, txt=1, sh=6, lit=0, scale=0.5, rot=rot, z=z, opacity=0)
+        for ch, dz in ((f"{d_id}_bandeau", 0.01), (f"{d_id}_bandeau_txt", 0.015)):
+            kit.ensure(ch, "z", S.ents[ch]["z"])
+            S.key(ch, "z", fi - 1, round(z + dz, 3))
+        S.key(f"{d_id}_bandeau", "opacity", fi - 1, 1)
+        kit.drop(d_id, fi, h=220, to=[PILE_AT[0] + dx, PILE_AT[1] + dy])
+    pf = S.to_world("pastille_fiche", [0, 0], f - 1)
+    S.keys("pastille", f - 1, pos=_r(pf), scale=round(S.world_scale("pastille_fiche", f - 1), 4), opacity=1,
+           text=PILL_TEXT)
+    S.key("pastille_fiche", "opacity", f, 0)
+    vanish(kit, "fiche", f, into=_r(pf), d=MORPH)
+    S.key("pastille", "pos", f + 2, list(PASTILLE_S20), MOVE, "inOut", arc=80)
+    S.key("pastille", "scale", f + 2, 1, MOVE, "inOut")
+
+    f = kit.at("S20", "cherché", "deux cartes (« Mail », puis « PDF ») glissent de la pile et tombent lentement au sol, "
+               "où elles restent ; traits de vitesse ; le conseiller, débordé, se penche en arrière")
+    for k, d_id in enumerate(("doc3", "doc1")):
+        g = f + 3 * k
+        to, rot = FALLEN[d_id]
+        x0, y0 = S.val(d_id, "pos", g - 1)
+        S.key(d_id, "pos", g, list(to), DROP + 5, "in", arc=40)
+        S.key(d_id, "rot", g, rot, DROP + 5, "inOut")
+        v = f"{d_id}_vitesse"                                     # traits de vitesse, au-dessus de la carte qui tombe
+        trail = math.degrees(math.atan2(y0 - to[1], x0 - to[0]))
+        S.key(v, "rot", g + 1, round(trail - S.val(d_id, "rot", g + 3), 2))
+        for j in range(3):
+            S.key(f"{v}{j + 1}", "z", g + 1, 15.1)
+        kit.pop(v, g + 3, d=3)
+        vanish(kit, v, g + 10, d=5)
+    toi.lean_to(f, 8, d=9)
+
+    # =================== S21 « Après, tu arrives en ayant compris. » ===================
+    f = kit.at("S21", "Après", "« Après » surgit en cyan à droite ; la pastille saute par-dessus le séparateur jusqu'à la "
+               "table et la fiche relue se redéplie sous elle, debout sur la table, tamponnée")
+    kit.pop("apres", f)
+    S.keys("fiche", f + 3, pos=list(FICHE_S21_P3), scale=0, opacity=1)
+    kit.pop("fiche", f + 6, scale=FICHE_S21_P3_S, d=MORPH)
+    arr = f + MOVE
+    head_pt = S.to_world("pastille_fiche", [0, 0], arr)
+    S.key("pastille", "pos", f, _r(head_pt), MOVE, "inOut", arc=120)
+    S.key("pastille", "scale", f, round(S.world_scale("pastille_fiche", arr), 4), MOVE, "inOut")
+    S.key("pastille", "scale", arr, 0)
     S.key("pastille", "opacity", arr, 0)
     S.key("pastille_fiche", "opacity", arr, 1)
 
-    f = kit.at("S19", "arrives", "l'autocollant « ? » (96 px) quitte la ligne 5 de la fiche et monte en arc jusque "
-               "devant la tête du client, où il s'arrête")
+    f = kit.at("S21", "arrives", "le conseiller entre à droite et se place devant le fauteuil gauche, face au client ; la "
+               "pilule « Toi » quitte celui de gauche, saute le séparateur et se pose sur lui : c'est le même, après")
+    start = [545, ADV_S21[1]]                                      # juste à droite du séparateur
+    toi2.enter(f, at=start, d=6)
+    toi2.walk(f + 6, list(ADV_S21_P3), d=10)
+    pv = S.to_world("toi_pill", [0, 0], f - 1)
+    S.keys("toi_pill_vol", f - 1, pos=_r(pv), scale=round(S.world_scale("toi_pill", f - 1), 4), opacity=1)
+    S.key("toi_pill", "scale", f, 0)
+    S.key("toi_pill", "opacity", f, 0)
+    dest = [ADV_S21_P3[0], ADV_S21_P3[1] + TOI_PILL_DY * ADV_S20_S]
+    S.key("toi_pill_vol", "pos", f, _r(dest), MOVE, "inOut", arc=100)
+    S.key("toi_pill_vol", "scale", f, ADV_S20_S, MOVE, "inOut")
+    arr = f + MOVE
+    S.key("toi_pill_vol", "scale", arr, 0)
+    S.key("toi_pill_vol", "opacity", arr, 0)
+    S.key("toi2_pill", "scale", arr, 1)
+
+    f = kit.at("S21", "compris", "l'autocollant « ? » quitte la ligne 5, grossit et vole en arc jusqu'à la tête du "
+               "client ; le client répond par une bulle de parole d'où part une pastille cyan pleine, qui vole remplir la "
+               "puce vide de la ligne 5 ; la ligne bat, se surligne, et reçoit la coche pleine ; à gauche, rien ne bouge")
     st = S.to_world("autocollant", [0, 0], f - 1)
-    S.keys("bulle", f - 1, pos=r2(st), scale=round(S.world_scale("autocollant", f - 1), 4), s=1, q=1, glyph=0,
+    S.keys("bulle", f - 1, pos=_r(st), scale=round(S.world_scale("autocollant", f - 1), 4), s=1, q=1, glyph=0,
            opacity=1, rot=0)
     S.key("autocollant", "opacity", f, 0)
-    fly = 10
-    S.fly("bulle", f, fly, "inOut", to=list(Q19), scale=1.3, arc=90)
-    toi.unstow(f + 4)
+    chead = S.to_world("client", [0, -96], f - 1)
+    S.key("bulle", "pos", f, _r([chead[0] - 6, chead[1] - 40]), 6, "inOut", arc=70)
+    S.key("bulle", "scale", f, 0.8, 6, "inOut")                   # « ? » de 56 px environ
+    vanish(kit, "bulle", f + 6, into=_r(chead), d=4)
+    mouth = S.to_world("client", [-22, -60], f + 6)
+    bub = _r([mouth[0] - 46, mouth[1] - 44])
+    S.key("reponse_bulle", "pos", f + 5, bub)
+    kit.pop("reponse_bulle", f + 6, d=4)                          # il répond : une bulle de parole…
+    S.key("reponse", "pos", f + 6, bub)
+    kit.pop("reponse", f + 7, d=4)                                # … qui contient une pastille cyan pleine (56 px)
+    land = f + 19
+    bullet = S.to_world("fiche", [X["bullet"], rows[4] + ty], land)
+    S.key("reponse", "pos", f + 11, _r(bullet), 8, "inOut", arc=-40)   # sous les rangées 1-4, jamais à travers
+    S.key("reponse", "scale", f + 15, round(44 / 56 * S.world_scale("fiche", land), 4), 4, "in")
+    vanish(kit, "reponse_bulle", f + 13, d=5)
+    S.key("reponse", "scale", land, 0)
+    S.key("reponse", "opacity", land, 0)
+    S.key("reponse5", "scale", land, 1)                           # la puce de L5 est remplie (relais, sur la fiche)
+    kit.pulse("reponse5", land + 1, peak=1.35, step=2)
+    kit.draw("coche5", land, 4)                                   # le « ? » de la ligne devient une coche pleine
+    sl_c = [round((X["slot0"] + X["slot1"]) / 2, 1), rows[4] + ty]
+    S.keys("surligneur", land - 1, pos=sl_c, w=X["slot1"] - X["slot0"], scale=1, opacity=1)
+    S.key("surligneur", "opacity", land + 6, 0, 3, "linear")
+    toi2.lean_to(f + 12, 4, d=6)
+    client.lean_to(f + 12, -4, d=6)
 
-    f = kit.at("S19", "compris.", "la bulle du client s'ouvre au-dessus de lui sur sa réponse, une pastille cyan à "
-               "silhouette ; le « ? » rentre dans sa tête ; la réponse descend dans la puce vide de la ligne 5 ; au "
-               "même instant le stylo du conseiller trace la 5e coche pleine dans le carré tireté resté vide ; la "
-               "réplique « 9 h » devient « Client · 9 h », la source de la ligne ; ils s'inclinent l'un vers l'autre ; "
-               "puis tout tient")
-    k_ans = ANSWER_PX / 44
-    kit.pop("bulle_client", f, d=4)
-    vanish(kit, "bulle", f, into="client", d=4)
-    S.key("reponse", "pos", f - 1, list(BUBBLE19))
-    kit.pop("reponse", f, scale=round(k_ans * 1.5, 3), d=3)
-    bullet = S.to_world("fiche", [X["bullet"], rows[4] + ty], f + 3)
-    S.fly("reponse", f + 3, 6, "inOut", to=r2(bullet), scale=round(FICHE19_SCALE, 3), arc=70)
-    vanish(kit, "bulle_client", f + 4, d=4)
-    landed = f + 9
-    tick5 = S.to_world("fiche", sheet.pt(4, "tick"), landed)
-    hit = toi.tap(landed - 4, tick5, d=5)                    # contact sur l'arrivée de la réponse
-    kit.draw("coche5", hit, 5)                               # dans le carré tireté, qui reste visible
-    vanish(kit, "source5", hit, d=4)                         # la question a sa réponse ; sa source : ce client, 9 h
-    S.keys("pastille_mini", hit + 1, 4, "inOut", text="Client · 9 h",
-           w=round(text_width("Client · 9 h", MINI_PILL["size"], 700) + 84),
-           pos=[round(-PAGE_W / 2 + 6 + (text_width("Client · 9 h", MINI_PILL["size"], 700) + 84) / 2, 1),
-                rows[4] + ly + 6])
-    lean_end = toi.lean_to(hit + 5, 5, d=5)
-    client.lean_to(hit + 5, -5, d=5)
-
-    # =================== S20 « Abonne-toi pour comprendre ton argent. » ===================
-    out = kit.outro("S20", outs=["fauteuils", "avant", "reponse"], press="argent.", h=CARD_H, pos=CARD_POS)
-    S.ents["fin"]["p"].update(titleSize=56, labelSize=36)
-    card = out["card"]                                       # image du temps fort calé (1659)
-    if lean_end > card - 6:
-        kit.warn(f"p3 S19 : la fiche complète ne tient que {card - lean_end} images avant la fin ({lean_end} -> {card})")
-    S.key("pastille_fiche", "text", card, "S’abonner")      # sur le mot, avant que la pastille ne bouge
+    # =================== S22 « Abonne-toi pour comprendre ton argent. » ===================
+    # la fiche relue devient la carte de fin ; la pastille du fil devient le bouton « S’abonner » (relais exacts :
+    # kit.outro card_at / btn_at, aucune carte ni bouton générique ne surgit)
+    f_end = S.word_after("argent", scene_f0(S, "S22"))
+    card = scene_f0(S, "S22")
+    outs = ["separateur", "avant", "apres", "doc1", "doc2", "doc3", "doc4", "fauteuils"]
+    out = kit.outro("S22", outs=outs, press=f_end - card, pos=CARD_C, w=CARD_W, h=CARD_H, clear="fade",
+                    card_at=MORPH, btn_at=MOVE + 1, labelSize=34, bsize=BTN_SIZE)
+    card = out["card"]
     toi.exit(card)
+    toi2.exit(card)
     client.exit(card)
-    for o in ("fauteuils", "avant", "reponse"):             # aucun point résiduel à la fin du morph
-        S.key(o, "opacity", card + MORPH - 3, 0, 3, "linear")
-    # la fiche s'efface sur une carte blanche de même taille, puis la carte monte au centre et s'élargit
-    fw = S.world_scale("fiche", card - 1)
-    S.set("fin", w=round(PAGE_W * fw, 1), h=round(PAGE_H * fw, 1), z=7.9)
-    S.keys("fin", card - 1, pos=r2(S.val("fiche", "pos", card - 1)), scale=1)
-    S.key("fiche", "opacity", card, 0, FADE, "linear")
-    S.key("fiche", "scale", card + FADE, 0)
-    grow = card + FADE - 2
-    S.keys("fin", grow, MORPH, "inOut", pos=list(CARD_POS), w=620, h=CARD_H)
-    S.key("fin", "z", grow, 40)
-    S.key("fin", "title", card + 4, 0)
-    S.key("fin", "title", grow + MORPH - 2, 1, FADE, "out")
-    # la pastille quitte l'en-tête (relais) et descend au bas de la carte en grandissant : elle EST le bouton (une
-    # seule pilule, un seul libellé, son pictogramme gardé) ; le bouton dessiné par la carte reste caché
+    vanish(kit, "horloge", card + MORPH, d=POP)                  # un PNG à la fois : fauteuils, puis horloge
+    # la fiche monte au centre et s'élargit exactement en carte ; son contenu s'efface en fin de trajet
+    S.fly("fiche", card, MORPH, "inOut", to=list(CARD_C), scale=1)
+    kit.ensure("fiche", "sx", 1)
+    kit.ensure("fiche", "sy", 1)
+    S.key("fiche", "sx", card, round(CARD_W / 500, 4), MORPH, "inOut")
+    S.key("fiche", "sy", card, round(CARD_H / 720, 4), MORPH, "inOut")
+    content = [i for i in S.ents if _descends(S, i, "fiche") and i != "pastille_fiche"]
+    for i in content:
+        S.key(i, "opacity", card + 6, 0, 5, "linear")
+    S.key("fiche", "opacity", card + MORPH, 0)                    # relais : la carte de fin, à la même place
+    S.key("fiche", "scale", card + MORPH + 1, 0)
     hp = S.to_world("pastille_fiche", [0, 0], card - 1)
-    S.keys("pastille", card, pos=r2(hp), scale=round(S.world_scale("pastille_fiche", card - 1), 4), opacity=1,
-           z=40.5, text="S’abonner", w=PILL_W)
+    kit.ensure("pastille", "z", S.ents["pastille"]["z"])
+    S.keys("pastille", card - 1, pos=_r(hp), scale=round(S.world_scale("pastille_fiche", card - 1), 4), opacity=1,
+           z=41, w=PILL_W)
     S.key("pastille_fiche", "opacity", card, 0)
-    S.keys("pastille", card + 2, MOVE, "inOut", pos=list(BTN), scale=BTN_SCALE, w=BTN_W)
-    S.key("fin", "btn", card + 6, 0)
-
-    f = kit.at("S20", "comprendre", "le pointeur surgit en bas à droite et glisse jusqu'au bas du bouton S’abonner")
-    cur = out["cursor"]
-    aim = S.val(cur, "pos", out["press"])
-    kit.pop(cur, f, d=4)
-    S.key(cur, "pos", f + 2, r2(aim), 10, "inOut")
-    press = out["press"]                                     # clic : le bouton (la pastille) s'enfonce puis remonte
-    S.key("pastille", "pos", press, [BTN[0], BTN[1] + 7], 2, "out")
-    S.key("pastille", "pos", press + 5, list(BTN), 4, "out")
+    S.keys("pastille_btn", card - 1, pos=_r(hp), scale=round(S.world_scale("pastille_fiche", card - 1), 4), w=PILL_W)
+    for pid in ("pastille", "pastille_btn"):                      # même trajet : la pastille devient le bouton
+        S.keys(pid, card + 1, MOVE, "inOut", pos=list(BTN_S22), scale=BTN_K, w=round(380 / BTN_K, 1))
+    sw = card + 8                                                 # en vol, son texte devient « S’abonner » et son
+    S.key("pastille", "opacity", sw, 0)                           # pictogramme s'efface (relais à la même place)
+    S.key("pastille_btn", "opacity", sw, 1)
+    btn = card + MOVE + 1                                         # relais : le bouton de la carte, à la même place
+    S.key("pastille_btn", "scale", btn, 0)
+    S.key("pastille_btn", "opacity", btn, 0)

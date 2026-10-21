@@ -274,7 +274,7 @@ kit.steps_marker(["Limiter", "Exiger", "Relire"])
 kit.step(kit.at("S12", "Exige"), 1)
 ```
 
-### `kit.outro(scene, mot=None, outs=(), press=16, title="WealthTech Horizon", labels=("Comprendre ton argent",), text="S’abonner", icon=None, pos=(540, 760), w=620, h=520, id="fin", z=40)` → dict
+### `kit.outro(scene, mot=None, outs=(), press=16, title="WealthTech Horizon", labels=("Comprendre ton argent",), text="S’abonner", icon=None, pos=(540, 760), w=620, h=520, id="fin", z=40, clear=None, card_at=None, btn_at=None, **card)` → dict
 Fin standard des 15 films (d'après la fin de la référence).
 
 Déroulé, à partir de f = le temps fort (`scene`, `mot` ; par défaut le premier temps fort de la scène) :
@@ -294,6 +294,14 @@ Paramètres :
 Retour : `{"card": f, "press": image du clic, "id": id, "cursor": id du pointeur}`.
 
 Autres points :
+- `clear="fade"` (facultatif, ajouté pour V02 ; défaut inchangé) : les `outs` s'effacent en opacité sur `FADE`
+  images au lieu de se réduire (pas d'éclats ni de points résiduels autour de la carte), et la carte surgit (`pop`).
+- `card_at`, `btn_at` (facultatifs, ajoutés pour V01 tour 1 ; défaut inchangé) : relais exacts depuis la composition.
+  Avec `card_at=n`, la carte ne grandit pas : elle paraît d'un coup à pleine taille à f + n, sous une entité que la
+  mise en scène a amenée exactement à sa place (V01 : la fiche, `S.fly` + pistes `sx` / `sy` jusqu'au cadre de la
+  carte, contenu effacé, puis opacité 0 à f + n) ; titre et lignes à f + n + 4. Avec `btn_at=m`, le bouton paraît
+  d'un coup (btn 1) à f + m, relais d'une pilule amenée à sa place (V01 : la pastille du fil, x 1,75, piste `w`).
+- `**card` (facultatif) : paramètres de plus de la carte, passés à `endcard` (`labelSize`, `bsize`…).
 - La QA dispense la dernière scène du contrôle d'image figée : la carte peut rester immobile jusqu'à la fin.
 - Fonction de module équivalente : `outro(S, scene, **kw)`.
 

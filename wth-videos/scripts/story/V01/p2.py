@@ -1,728 +1,690 @@
-"""V01, partie 2 : S09-S14, images 610-1238 (34 temps forts, 21,0 s). Le mur des règles, « 2 · Exiger » (la page
-commandée, la fiche écrite par l'IA, la ligne inventée qui devient suspecte, les preuves), puis « 3 · Relire »
-(relecture, rature, question gardée « à poser au RDV », tampon PRÊT POUR LE RDV).
+"""V01, partie 2 : S08-S14, images 890-1935 (29,651 -> 64,539 s). 32 temps forts.
 
-État d'entrée, épinglé à l'image 609 : kit.pin(609, ENTRY_P2) (etat_initial de S09 : fenêtre scellée à gauche,
-mail revenu devant l'éventail, marque du choc sur la face extérieure du mur, IA grand public entière à droite, repère
-sur « 1 · Limiter »). Figurines : `toi` dehors en bas à droite (p1) ; `client` à l'échelle 0 ; jamais épinglés.
+Entrée (épinglée à l'image 889 : kit.pin(889, ENTRY_P2), etat_initial de S08) : 4 sources à leurs places DOC_S07
+(170, 610), (810, 600), (330, 1080), (750, 1080), bandeau et date visibles, info sur leur coin ; pastille (540, 865)
+et rond vide dessous (540, 935) ; conseiller au sol (540, 1135) ; IA rangée (60, 1200) x 0,42 ; repère en haut
+(disque 1 actif) ; barre2 vide (contour) sous le repère ; horloge-badge (830, 300).
+Garde-fou figurine (partie isolée) : `if S.val("toi", "scale", 889) == 0: c.toi.enter(880, at=ADV_S07)`.
+NB : le storyboard écrit la pastille en (540, 820) dans l'etat_initial de S08 ; c'est (540, 865) en S06-S07, gardé ici.
 
-Temps forts (image du film, calés par kit.at ; « mot n » = début du mot quand l'attaque audible le devance) :
-S09  RGPD=617  politique=654  s’appliquent.=680
-S10  Ensuite,=707 (mot 706)  demande=724  brief=738  structuré=747  d’une=763  page.=768 (tenue)
-S11  Mais=790 (mot 791)  IA=811  produire=835  réponse=853  fluide…=866  et=893 (tenue)  fausse.=897
-S12  Exige=917 (mot 915)  chaque=933  ligne=943  renvoie=952  document=977  date.=1007
-S13  Une=1030 (mot 1029)  sans=1043  source,=1049 (tenue)  c’est=1074 (mot 1073)  question=1085  poser=1100
-     client.=1111
-S14  Dernière=1137 (mot 1138)  étape :=1150  relis,=1170 (mot 1171)  corrige,=1191 (mot 1190)  décide.=1211 (mot 1212)
+Sortie (image 1935) = ENTRY_P3 (etat_initial de S15) : page à gauche (PAGE_S13, x 0,95), titre « Brief · 1 page »
+(fiche_titre2), pastille posée sur l'en-tête (relais pastille -> pastille_fiche, la pastille monde à 0) ; L1-L5
+écrites et en rangées (grow 1), cochées par l'IA (coche_ia1-5 draw 1), puce de L5 cerclée de rouge (alarm 1) ;
+case1-5 tracées en colonne x 730 ; doc1-4 en version compacte dans case1-4 ; fil1-4 tracés ; dates source1-4 (tagged
+0) sous les valeurs ; case5 vide, fil5 non tracé ; badge (outil) replié à 0, cadre à 0 ; nuage, rond, info1-4 à 0
+(relayés par les puces de la page) ; IA rangée (60, 1200) x 0,42 ; repère sur 2 ; conseiller en (870, 800)
+(non épinglé).
 
-Scène par scène (tour de revue 3) :
-- S09 « RGPD » : la brique encre (bouclier-cadenas + « RGPD », 32 px) tombe et s'encastre à cheval sur le mur, sur la
-  marque du choc ; au contact, l'IA grand public recule (elle rapetisse et s'écarte : le mur l'écarte).
-  « politique » : la 2e brique. « s’appliquent. » : un grand cadenas (piste window lockK) tombe sur le mur droit,
-  au-dessus des briques (pistes lockDx / lockDy), son anse se ferme ; PUIS l'IA grand public, sa foule et sa pilule se
-  réduisent en point ; le cadenas reste accroché au mur (x 2,4) jusqu'au badge.
-- S10 « Ensuite, » : chaque brique s'écrase DANS le mur en 6 images (corps et texte s'effacent ensemble : jamais de
-  pavé noir sans texte) ; la fenêtre s'élargit (le cadenas suit le mur) ; l'éventail en haut à gauche, l'IA en bas à
-  gauche ; le conseiller regagne son coin. « demande » : il tend le bras vers la fenêtre, la page naît dans sa main, ses
-  5 onglets paraissent un à un, puis elle vole dans la fenêtre ; « 2 · Exiger ». « brief », « structuré » : les 4
-  pastilles, chacune sortie de son document. « d’une » : éclat, bulles de pensée, puce vide x 1,6 : tout fini en 5
-  images. « page. » : tenue immobile 0,4 s, puis la puce tombe sur l'onglet 5.
-- S11 « Mais » : badge (cadenas sur son bord droit), page au centre agrandie (x 1,18, y 400-1250), IA en bas à gauche
-  (x 0,8), pilule au-dessus de la tête. « IA » : faisceau tête -> badge. « produire » : pour L1-L4, la carte source
-  s'allume dans le badge (cyan pâle) et son pictogramme glisse le long du faisceau jusqu'à la puce ; la ligne s'écrit ;
-  puis un court faisceau pointillé part de la TÊTE de l'IA jusqu'au carré de la ligne et y trace sa coche pointillée
-  (56 px). « réponse » : rien du badge ; grand éclat (12 rayons) ; le faisceau part de la tête vers la puce de L5, qui
-  reste VIDE pendant que la ligne s'écrit ; coche de la tête. « fluide… » : reflet. « fausse. » : la puce vide de L5
-  bat deux fois (x 1,3), deux ondes rouges, anneau rouge ; pas de contour autour de la ligne.
-- S12-S13 : comme au tour 2 ; les fils passent sous les carrés des coches (fond papier) ; les documents qui rentrent
-  dans leurs étiquettes passent sous elles.
-- S13 « client. » : le client naît du pictogramme de la pastille (rig : enter, run, scale_to) et vient sous la bulle.
-- S14 « Dernière » : « 3 · Relire » (un seul disque qui glisse) ; la fiche grandit pour la relecture (x 1,1, x 120-670,
-  y 409-1201) ; le conseiller (x 1,1) monte à droite ; la bulle se replie en autocollant « ? » (96 px). « étape : » /
-  « relis, » : à chaque contact, la coche pointillée de l'IA bat (x 1,3), puis le stylo trace dessus la coche pleine
-  cyan profond (trait de 10, 8 images). « corrige, » : la coche de l'IA de L5 s'envole en tournant (12 images) et finit
-  contre l'IA ; son carré reste vide ; le stylo barre « 5 ans », qui tombe ; l'autocollant « ? » prend la place de la
-  valeur (« Horizon : ? ») ; un fil pointillé cyan va du « ? » à la tête du client, qui hoche la tête deux fois ; une
-  réplique de la pastille (« 9 h ») naît de l'en-tête et glisse devant « à poser au RDV ». « décide. » : tampon ; il
-  s'écarte : la ligne sans coche reste à côté du tampon.
-Tour de revue 4 : briques tombées DANS leurs contours tiretés (posés en S08 « non »), pictogrammes de 72-76 px ;
-« IA grand public » s'efface sans rétrécir ; S10 : grand éclat, puce vide de 115 px à droite de la tête, traînée tête
--> onglet 5 ; S11 : page x 1,12, cascade L1-L4 finie avant « réponse », chaque coche pointillée au bout d'un faisceau
-de la tête, qui bat ; les 5 coches battent sur « fluide… » ; L5 tenue rouge x 1,3 jusqu'à « Exige » ; S12 : fils de
-120 px, documents et puces qui battent ; S13 : conseiller x 1,1 à droite du bord de la page ; S14 : la coche pleine
-repasse et absorbe la pointillée, celle de L5 part en grand arc, « corrige » fini avant « décide », fil plein de la
-question au-dessus du conseiller, tampon à horloge 9 h, il s'écarte aussitôt du tampon.
-Raccord : à l'image 1238 l'état est ENTRY_P3.
+Brief, scène par scène :
+- S08 « Pourquoi » : le disque 1 bat deux fois ([chapitre] posé sur le disque actif, ou pulse) ; legende1 se souligne.
+  « Parce » : [ia] regrandit en IA_S08 (x 0,75), pilule dessous. « gagner » : [faisceau1-4] partent ensemble vers les
+  4 sources ; de doc2 (CRM) glissent [carte_grise1-2] (pilules « 14 h », « 16 h ») jusqu'à GREY_S08, à la hauteur de
+  la pastille ; à leur arrivée, la pastille puis les deux pilules grises battent l'une après l'autre (décalées de
+  4 images) ; +12 images : [faisceau5-6] filent vers elles. « protéger » : le conseiller bondit (place_for) stylo levé
+  en travers des faisceau5-6 (pointe ≈ (700, 850)) : ils cassent net sur la pointe ([impact_stylo]), puis tous les
+  faisceaux se rétractent (from 0 -> 1). Pas de rouge, pas de traits de vitesse : l'IA n'est pas une voleuse.
+  « client » : doc1-4 glissent en 2 x 2 (DOC_GRID_S08, x 0,85), la pastille en PASTILLE_S08, le rond en ROND_S08 ;
+  les cartes grises vont au bord droit (GREY_EDGE, x 0,55) ; le conseiller recule en ADV_S08.
+- S09 « Première » : [chapitre] grandit x 1,6 sur le disque 1 et revient ; [barre2] (contour vide) se rétracte vers la
+  droite dans le pied de l'horloge (piste w -> 0, ou vanish into horloge) ; le conseiller va au coin bas droit du
+  cadre (820, 1135). « limites » : toi.trace le long du rectangle FRAME (bas vers la gauche, gauche, haut, droite)
+  pendant que [cadre] (case, rot 180) se trace sous la pointe (draw linéaire, même durée) ; il finit dehors
+  (840, 1135). Le groupe et le coin bas gauche sont dedans ; les cartes grises dehors. « l’IA » : [ia] glisse dans le
+  coin libre IA_S09 (x 0,8), pilule à droite. « lire » : [cone] (sommets à poser : apex = tête de l'IA, coupé net par
+  le haut et le bord droit du cadre) s'ouvre ; les traits gris des sources passent au deep (doc read 0 -> 1).
+- S10 « Uniquement » : [rayon] pivote vers la carte grise du haut et bute sur le bord droit du cadre (≈ (780, 660)) :
+  [cadre_flash] flashe (opacity 1 -> 0, 100 ms), [impact_cadre], le rayon recule et s'éteint ; le cône s'éteint ; les
+  cartes grises ne bougent pas. « outil » : relais [cadre] -> [outil] (window : bar 0 -> 1, la barre de titre
+  descend) ; doc1-4 s'empilent en éventail en FAN_S10 ; la pastille vole sur la barre de titre (TITLE_S10, x 0,85),
+  le rond dessous (RONDE_S10). « validé » : [sceau] tombe en SEAL_DROP et se coche ([coche_sceau]). « cabinet » : le
+  sceau vole au bout de la barre et s'ouvre en « ✓ Cabinet » (relais par outil sealOn / seal 0 -> 1) ; les cartes
+  grises glissent vers le bord droit en se réduisant (x 920, scale 0 : rien sous la colonne x > 940).
+- S11 « Jamais » : la fenêtre et tout son contenu (docs, pastille, rond, IA) glissent à gauche et se réduisent (centre
+  WIN_S11, x 0,88 : mur droit x 555) ; le conseiller reste au repos, stylo baissé. « IA » : [ia_pub] surgit en IA_PUB
+  avec [ia_pub_pill] ; [foule] show 0 -> 6, link 0 -> 1. « non » : [trait_pub] se tire de sa tête jusqu'à la face
+  extérieure du mur ; la carte Mail (doc3) se soulève de l'éventail et glisse vers lui à vitesse constante, heurte le
+  mur de l'intérieur, s'arrête net ([impact_mur], kit.shake x), retombe sur l'éventail (300 ms plus tard) ; le trait
+  se rétracte. « RGPD » : [brique1] tombe et s'encastre à cheval sur le mur (CHOC). « politique » : [brique2] se pose
+  dessus. « s’appliquent » : le cadenas de [outil] tombe sur la barre de titre et se ferme (lockOn, lockDy, lock) ;
+  ia_pub, sa pilule et sa foule se réduisent en point. Jamais de rouge ici ; le conseiller n'envoie rien.
+- S12 « Ça » : morph : les briques s'enfoncent dans le mur (scale 0) ; [outil] se réduit en badge (BADGE_C, x 0,3)
+  avec son contenu (éventail, pastille en titre, rond) ; [ia] en sort et se pose en IA_S12 (x 0,8). « documents » :
+  [faisceau_lit] relie la tête de l'IA au badge ; info1-4 quittent le coin de leur source (kit.move world=True) et se
+  rangent en colonne sur la colonne des puces de la page, où elles relaient la puce de L1-L4 (bulletOn 0 -> 1) ;
+  derrière elles, au bout du faisceau, [fiche] naît en PAGE_S12 (pop), titre [fiche_titre1] « Réponse » ; le rond
+  quitte le badge et devient la puce de L5. « IA » : [faisceau_page] balaie la page ; L1-L4 s'écrivent (kit.type,
+  4 caractères / image, décalés de 2 images, finies avant « peut ») ; chaque rangée finie reçoit [coche_iaN]. « peut » :
+  le faisceau vers le badge est éteint ; [pensee1-3] montent de la tête de l'IA et [nuage] surgit en CLOUD_C avec
+  [nuage_val] « 5 ans » ; tenue ≈ 1,4 s, rien d'autre ne bouge. « fluide » : « 5 ans » vole en arc (80) jusqu'à L5,
+  qui s'écrit « Horizon … 5 ans » et reçoit [coche_ia5] ; le nuage rentre dans la tête ; [reflet] balaie la page
+  (p 0 -> 1, 400 ms). Puis immobilité (tenue sur « et »). « fausse » : la puce vide de L5 bat deux fois
+  (kit.pulse(..., track="pulse")) et son contour passe au rouge (alarm 0 -> 1) ; rien d'autre ne bouge.
+- S13 « Deuxième » : kit.step(f, 1) ; [chapitre] (texte « 2 ») grandit x 1,6 et revient ; l'IA se range en
+  IA_CORNER x 0,42 (pilule à droite) ; ses coches restent. « étape » : la page glisse en PAGE_S13 (x 0,95) ; le
+  conseiller monte à droite de la page (ADV_S13, walk), stylo vers elle. « exiges » : toi.trace descend la colonne
+  x 730 ; sous la pointe, [case1-5] se tracent (draw), avec leurs tirets de bandeau et de date ([caseN_l1-2]).
+- S14 « structuré » : [fiche_titre1] -> [fiche_titre2] « Brief · 1 page » (fondu enchaîné) ; la pastille vole du
+  badge à l'en-tête (arc 60) puis relais par [pastille_fiche] ; les rangées se déploient (grow 0 -> 1, décalées de
+  2 images). « page » : le badge rend ses 4 sources en version compacte (doc compact 0 -> 1) qui tombent chacune dans
+  sa case (doc1 en face de Bilan, doc2 Contrat, doc3 Décision, doc4 Promis) ; leurs bandeaux et dates s'effacent ; le
+  badge vidé se replie (outil scale 0) ; case5 reste vide. « renvoie » : [fil1-4] se tracent de la valeur de chaque
+  ligne vers sa source (décalés de 3 images) ; L5 n'en a pas. « date » : [source1-4] (puce-date, tagged 0) se
+  détachent de leur source et glissent le long de leur fil jusque sous la valeur (S.along_wire, 550 ms).
+
+Mise en scène réalisée (écarts au brief, places propres à p2 en tête de module) :
+- S08 : dossiers gris en (750, 850) et (875, 850) x 0,9 (pilules sans chevauchement, sous x 940) ; bond du conseiller
+  en (800, 1010), pointe en (700, ≈ 840) sur les faisceaux 5-6 (bras sans croiser le buste) ; groupe 2 x 2 en y 575 /
+  885 et pastille / rond en y 730 (allée de 98 px : ni la pastille ni le rond ne touchent les cartes).
+- S09 : le tour du cadre est une course (corps posé image par image par toi.hop, pointe par toi.trace sur le contour
+  exact de la case) ; il finit en (850, 1135). Le cône est un polygone posé à la tête de l'IA (pts relatifs).
+- S10 : éventail en cascade (FAN) : chaque bandeau de source dépasse de la carte de devant.
+- S11 : pas de bombement du mur (la fenêtre n'a pas de piste pour cela) : la carte bute, tremble, traits d'impact.
+- S13 « étape » : le badge (et ses sources, sa pastille) se range en (880, 480) x 0,18 : la page en PAGE_S13 le
+  couvrait en (150, 470). S14 : les sources en tombent dans leurs cases, la pastille en part vers l'en-tête.
+- S14 « renvoie » : les fils partent du bout de la valeur (piste aAt) et non de son milieu, qui la barrait.
+- Les temps forts calés sur l'attaque audible tombent une ou deux images avant le mot (S08 « Pourquoi » en 888,
+  S11 « Jamais » en 1269, S13 « Deuxième » en 1709).
+
+Tour de revue 1 (corrections) :
+- Raccord : épingle à seam(S, "S08") = 887 (« Pourquoi » calé sur l'attaque, 888), plus 889.
+- S08 : le contour vide de la barre rentre dans l'horloge dès « Pourquoi » ; faisceaux vers le bout gauche des
+  bandeaux (pas sur les dates), repliés en tronçons de 40 px quand naissent les dossiers gris ; dossiers gris coiffés
+  d'une pilule de même facture que la pastille (60 px, Bold 32, pictogramme de personne) ; « protéger » : bond à côté
+  de la pastille (640, 1000), corps, bras et stylo DERRIÈRE la pastille (set_z), la pointe la dépasse et casse les
+  faisceaux 5-6 (éclats [eclat] + traits d'impact), tenue 10 images.
+- S09 : plus de tour en courant (il passait sur le repère et débordait sur « l’IA ») : bond à droite du coin bas droit,
+  pointe sur le coin ; sur « limites », le contour part de la pointe, fait le tour et revient à elle en 17 images
+  (fini en 1096, avant « l’IA » en 1100). Il redescend au sol après « lire ».
+- S10 : choc du rayon plus grand (éclats x 1,3, tenue 10 images, recul visible) ; « cabinet » : le sceau se lève vers
+  nous (x 1,5) et s'abat sur le bout de la barre (choc, éclats) où il s'ouvre en « ✓ Cabinet » ; dossiers gris
+  glissés à x 882 puis effacés en opacité (jamais réduits).
+- S11 : [mur] (bord droit encré, 14 px, enfant de la fenêtre) dès « Jamais » ; 4 petites cartes versées par la foule
+  dans l'IA grand public ; la carte Mail s'écrase contre le mur (sx 0,85) sans le franchir, y reste et recule d'un
+  cran à chaque brique ; grand cadenas (lockK 2) qui bat ; l'IA grand public se réduit 4 images plus tard.
+- S12 : briques enfoncées dans le mur (sx -> 0) ; fenêtre en deux temps : x 0,65 au centre gauche (lisible) sur
+  « Ça », badge sur « documents » quand le faisceau l'atteint ; nuage et « 5 ans » sans retard sur « peut » ; reflet
+  fini en 1680 ; « 5 ans » garde le contour pointillé du nuage ([nuage5]) ; « fausse » : puce x 1,6 -> 1,15 deux fois
+  puis tenue x 1,15, onde rouge, anneau rouge en tirets ([anneau5]), ligne surlignée de rouge clair à contour rouge en
+  tirets ([bande5]).
+- S14 : chaque source bat quand son fil l'atteint.
+
+Raccord vers p3 : tout finit avant l'image 1936 ; état final = ENTRY_P3 exactement.
+Recyclage : git show 6962c86:wth-videos/scripts/story/V01/p1.py (S05-S08 : cadre, sceau, mur) et p2.py (S09-S13 :
+briques, page écrite, nuage, cases, fils, dates).
 """
 import math
 
-from pipeline.story import DRAW, DROP, FADE, MORPH, MOVE, POP, line_crack_point
-from pipeline.story_kit import REACH, REACH_STAMP, TAP, frames, lerp
+from pipeline.story import DRAW, DROP, FADE, MORPH, MOVE, POP, SCALE, STRETCH, point_at_length
 
-from . import (ADV_REST, ADV_S12, ADV_S13, ADV_S13_SCALE, ADV_S14_SCALE, BADGE, BRICK_H, BRICKS, BUBBLE_AT, BUBBLE_BIG,
-               CASE_W, CASE_X, CLIENT_S13, CLOUD_H, CLOUD_W, ENTRY_P2, FRAME_H, IA_CORNER, IA_CORNER_SCALE, IA_PILL_CORNER, IA_PILL_RIGHT,
-               IA_S10, IA_S11, IA_S11_SCALE, PAGE_S10, PAGE_S10_SCALE, PAGE_S11, PAGE_S11_SCALE, PAGE_S12,
-               PAGE_S12_SCALE, PAGE_S14, PAGE_S14_SCALE, PILE_S10, PILE_S10_SCALE, PILE_SLOT, PILL_ICON, SEAL_K,
-               SEAL_W, TITLE_H, WIN_S08_POS, WIN_S08_SCALE, WIN_S10, fan_pt, scene_f0, seal_mini_at, vanish)
+from . import (ADV_S07, ADV_S08, ADV_S13, BADGE_C, BADGE_S, BAR_W, BAR_X0, BAR_Y, CASE_X, CHOC, DOC_GRID_S, DOC_W,
+               ENTRY_P2, ENTRY_P3, FICHE_LINES, FRAME_C, FRAME_H, FRAME_W, FRAME_X1,
+               FRAME_TOP, GREY_EDGE, GREY_EDGE_S, IA_CORNER, IA_CORNER_S, IA_S08, IA_S08_S, IA_S09,
+               IA_S09_S, IA_S12, IA_S12_S, MARKER_XS, PAGE_S12, PAGE_S12_S, PAGE_S13, PAGE_S13_S,
+               PASTILLE_HEAD_S, PASTILLE_S08, ROND_S08, RONDE_S10, SEAL_DROP, SEAL_K, TITLE_H, TITLE_S10,
+               TITLE_S10_S, WIN_S11, WIN_S11_S, FOULE, IA_PUB, GREY_W, GREY_H, GREY_PILL_W, GREY_PILL_K, PILL_H,
+               WALL_X, seam, scene_f0, vanish)
 
 # ---------- places propres à p2 ----------
-# S09 : le cadenas tombe sur le mur droit, au-dessus des briques ; il y reste accroché (x 2,4) jusqu'au badge (S11)
-LOCK_FALL_K, LOCK_K = 3.0, 2.4
-LOCK_DX_OPEN = 42 + SEAL_W                 # lockDx : du cadenas de la barre au mur droit (sceau ouvert)
-LOCK_DX_SHUT = 42 + 46 * SEAL_K            # ... sceau refermé (badge, S11)
-LOCK_DY = 128.5                            # sous la barre : y ≈ 660 en S09 (au-dessus de « Politique interne »)
-LOCK_DY_BADGE = 58                         # S11 : au milieu du bord droit du badge
-# S10 : fenêtre élargie x 80-770, y 405-1165 ; la page, née dans la main du conseiller, se pose en x 585
-WIN10 = dict(pos=tuple(WIN_S10["pos"]), w=WIN_S10["w"], h=WIN_S10["h"])
-PAGE10 = (585, PAGE_S10[1])
-TITLE_S10 = (WIN10["pos"][0] - 60, WIN10["pos"][1] - WIN10["h"] / 2 + TITLE_H / 2)   # titre, à gauche du sceau
-PAGE_HAND_SCALE = 0.25                     # S10 « demande » : la page dans sa main
-PILE_AIM = [-235, -45]                     # S10 : bout du faisceau de lecture, bas de l'éventail (repère de la fenêtre)
-BADGE_AIM = [-80, 85]                      # S11 : le même faisceau sur le bas du badge (ancre déclarée)
-HOVER_X = 400                              # S10 : colonne des puces sorties de l'éventail, entre lui et la page
-PUCE5_AT, PUCE5_SCALE = (560, 1050), 2.6   # S10 : la puce vide (115 px), à droite de la tête de l'IA, sous la page,
-#                                            à 200 px de la pile (tour 4 : lisible au téléphone)
-BADGE_DOC_SCALE = 0.45                     # documents compacts rangés dans le badge (S11-S12)
-IA_PILL_ABOVE = [0, -150]                  # S11 : pilule « IA » au-dessus de la tête (repère de l'IA)
-PAGE12_EXIGE = (480, PAGE_S12[1])          # S12 « Exige » : premier glissement, sans couvrir l'IA
-VIA_DX = 48                                # S11 : le faisceau descend la marge gauche, 48 px à gauche des puces
-WRITE11 = 7.0                              # S11 : caractères par image (L1-L4 et leurs coches finies avant « réponse »)
-PUB_PILL_W = (790, 980)                    # S09 : « IA grand public » sous la tête, à 48 px sous les briques (monde)
-ADV_S12_Y = 780                            # S12 : épaule à mi-hauteur de la colonne des cases
-ADV_S14_Y = (668, 1000)                    # S14 : relecture de L1-L3 (haut), puis L3-L5 et la rature (bas), x 1,1
-ADV_S14_X = 740                            # S14 : à droite de la fiche agrandie, entre elle et le client
-ADV_END = [716, 1075]                      # fin de S14 (x 1) : entre la fiche (ombre à 646) et le client (815)
-CORRIDOR_Y = 385                           # S12 : couloir des documents entre la légende du repère et le haut de la page
-DOC_ANCHOR = [-71, -22]                    # bout du fil sur le document
-STICKER_PX = 96                            # autocollant « ? » de 96 px à l'écran (revue 3)
-STAMP_AT, STAMP_ROT = [0, 300], -4         # tampon : en bas de la page, sous « à poser au RDV » (440 px)
-HANG = (730, 1070)                         # S13 : le fil de L5 retombe dans le vide, sous la case 5
-
-
-def _catmull(pts, n=24):
-    """Points denses d'une courbe de Catmull-Rom passant par `pts` (trajet lisse du client)."""
-    P = [pts[0]] + [list(p) for p in pts] + [pts[-1]]
-    out = []
-    for i in range(1, len(P) - 2):
-        p0, p1, p2, p3 = P[i - 1], P[i], P[i + 1], P[i + 2]
-        for k in range(n):
-            t = k / n
-            out.append([0.5 * (2 * p1[j] + (-p0[j] + p2[j]) * t + (2 * p0[j] - 5 * p1[j] + 4 * p2[j] - p3[j]) * t * t
-                               + (-p0[j] + 3 * p1[j] - 3 * p2[j] + p3[j]) * t ** 3) for j in (0, 1)])
-    out.append(list(pts[-1]))
-    return out
-
-
-def _cubic(p0, p1, p2, p3, t):
-    u = 1 - t
-    return [u ** 3 * p0[k] + 3 * u * u * t * p1[k] + 3 * u * t * t * p2[k] + t ** 3 * p3[k] for k in (0, 1)]
-
-
-def _poly(pts, frac):
-    """Point à la fraction `frac` de la longueur d'une polyligne."""
-    acc = [0.0]
-    for a, b in zip(pts, pts[1:]):
-        acc.append(acc[-1] + math.dist(a, b))
-    s = max(0.0, min(1.0, frac)) * acc[-1]
-    for i in range(1, len(acc)):
-        if acc[i] >= s - 1e-9:
-            t = (s - acc[i - 1]) / max(1e-9, acc[i] - acc[i - 1])
-            return lerp(pts[i - 1], pts[i], t)
-    return list(pts[-1])
+# S08 : les dossiers gris à droite de la pastille, à sa hauteur ; x 0,9 et 125 px d'écart : leurs pilules (126 px) ne
+# se chevauchent pas et la seconde reste sous x 940 (GREY_S08 de __init__ : pilules de 140 px qui se recouvraient)
+GREY_P2, GREY_P2_S = [(757, 838), (868, 900)], 0.75   # cartes x 0,75, pilules x 0,85 de même facture que la
+#                                                       pastille ; en escalier, à droite de la pastille, sous x 940
+ADV_HOP_S08 = [640, 1000]               # S08 « protéger » : le bond, à côté de la pastille (pointe à sa gauche)
+PEN_X_S08 = 590                         # pointe du stylo levée sur les faisceaux 5-6, au-dessus de la pastille
+ADV_S09 = [870, 1010]                   # S09 : bond à droite du coin bas droit de la zone, pointe sur le coin
+ADV_S09_END = [850, 1135]               # S09 : il redescend au sol, en bas à droite, hors du cadre
+LASSO = 17                              # S09 « limites » : le contour part de la pointe et en fait le tour (570 ms)
+BANNER_DY = -93                         # centre du bandeau de source (repère du document, bandeau de 64 px)
+MID_C, MID_S = (380, 760), 0.65         # S12 « Ça » : la fenêtre réduite, encore lisible, au centre gauche
+# S08 « client » : groupe 2 x 2 un peu plus ouvert que DOC_GRID_S08 (allée de 98 px) : la pastille et le rond n'y
+# touchent ni les cartes ni leurs pastilles d'information
+GRID_P2 = [(330, 575), (570, 575), (330, 885), (570, 885)]
+PASTILLE_P2, ROND_P2 = (PASTILLE_S08[0], 730), (ROND_S08[0], 730)
+ADV_S12 = [880, 1135]                   # S12 : au repos, le stylo hors de la page (bord droit x 810)
+BADGE_S13, BADGE_S13_S = (880, 480), 0.18   # S13 « étape » : le badge se range en haut à droite, au-dessus du
+#                                            conseiller (la page en PAGE_S13 le couvrait en (150, 470))
+FRAME_R = 14                            # rayon des coins de l'entité case (cadre)
+# S10 : éventail des 4 sources dans la fenêtre (repère monde, fenêtre à l'échelle 1) : en cascade, doc4 au fond en
+# haut, doc1 devant en bas ; chaque bandeau de source dépasse de la carte de devant (x, y, rot)
+FAN = [(460, 795, -4), (480, 745, -1.5), (500, 695, 1.5), (520, 645, 4)]
+SEAL_CLOSED = (FRAME_X1 - 12 - 46 * SEAL_K / 2, FRAME_TOP + TITLE_H / 2)   # sceau fermé au bout de la barre
+SEAL_DISC = 96                                                              # disque du sceau qui tombe (icon disc 48)
+IA_PILL_RIGHT = [122, 60]               # pilule « IA » à droite de la tête (repère de l'IA)
+IA_PILL_CORNER = [212, 30]              # S13 : rangée petite, pilule à 32 px (x 1 / 0,42) à sa droite
+LOCK_FALL = -160                        # S11 : le cadenas tombe de 160 px (repère de la fenêtre)
+PENSEE_AT = [(150, 978), (160, 932), (170, 880)]   # S12 : bulles de pensée, de la tête de l'IA au nuage
 
 
 def _r(p):
     return [round(p[0], 2), round(p[1], 2)]
 
 
+def _map(p, c0, c1, k):
+    """Point p d'une composition centrée en c0 transporté dans la même composition centrée en c1, à l'échelle k."""
+    return _r([c1[0] + (p[0] - c0[0]) * k, c1[1] + (p[1] - c0[1]) * k])
+
+
+def _frame_path(step=2.0):
+    """Polyligne monde dense du contour du cadre (case w=FRAME_W, h=FRAME_H, coins de FRAME_R, centre FRAME_C,
+    tourné de 180°), dans le sens de son tracé (roundRect de draw.tsx tourné) : coin bas droit -> bas vers la gauche
+    -> côté gauche -> haut -> côté droit. Renvoie (points, longueurs cumulées, longueurs des 4 coins)."""
+    w, h, r = FRAME_W, FRAME_H, FRAME_R
+    x, y = -w / 2, -h / 2
+    loc, marks = [], []
+
+    def line(a, b):
+        n = max(1, math.ceil(math.dist(a, b) / step))
+        loc.extend([a[0] + (b[0] - a[0]) * k / n, a[1] + (b[1] - a[1]) * k / n] for k in range(n))
+
+    def arc(c, a0, a1):
+        marks.append(len(loc))
+        n = max(2, math.ceil(abs(a1 - a0) * r / step))
+        loc.extend([c[0] + r * math.cos(a0 + (a1 - a0) * k / n), c[1] + r * math.sin(a0 + (a1 - a0) * k / n)]
+                   for k in range(n))
+
+    line([x + r, y], [x + w - r, y])
+    arc([x + w - r, y + r], -math.pi / 2, 0)
+    line([x + w, y + r], [x + w, y + h - r])
+    arc([x + w - r, y + h - r], 0, math.pi / 2)
+    line([x + w - r, y + h], [x + r, y + h])
+    arc([x + r, y + h - r], math.pi / 2, math.pi)
+    line([x, y + h - r], [x, y + r])
+    arc([x + r, y + r], math.pi, 1.5 * math.pi)
+    loc.append([x + r, y])
+    pts = [[FRAME_C[0] - p[0], FRAME_C[1] - p[1]] for p in loc]          # rotation de 180°
+    acc = [0.0]
+    for a, b in zip(pts, pts[1:]):
+        acc.append(acc[-1] + math.dist(a, b))
+    return pts, acc, [acc[m] for m in marks]
+
+
+def _frac_at_x(S, wire, n, x):
+    """Fraction de longueur du fil `wire` (image n) où il passe à l'abscisse x (le fil va de gauche à droite)."""
+    cub = S.wire_cubic(wire, n)
+    lo, hi = 0.0, 1.0
+    for _ in range(30):
+        mid = (lo + hi) / 2
+        if point_at_length(cub, mid)[0] < x:
+            lo = mid
+        else:
+            hi = mid
+    return round((lo + hi) / 2, 4), point_at_length(cub, (lo + hi) / 2)
+
+
 def part(S, kit, c):
-    toi, client, sheet = c.toi, c.client, c.sheet
+    toi, sheet = c.toi, c.sheet
     rows, X, ty, ly = sheet.rows, sheet.x, sheet.ty, sheet.ly
-    p5 = sheet.lines[4][1]                                  # paramètres de L5 (fente, valeur mesurée)
-    f0 = scene_f0(S, "S09")                                 # 610
+    docs = [f"doc{i + 1}" for i in range(4)]
+    entry = seam(S, "S08")                                        # 887 : « Pourquoi » calé sur l'attaque (888)
 
-    kit.pin(f0 - 1, ENTRY_P2)                               # etat_initial de S09
-    if S.val("toi", "scale", f0 - 1) == 0:                  # partie construite seule : la figurine n'est pas entrée
-        toi.enter(f0 - 10, at=list(ADV_REST))
+    kit.pin(entry, ENTRY_P2)                                      # etat_initial de S08
+    if S.val("toi", "scale", entry) == 0:                         # partie construite seule : la figurine n'est pas entrée
+        toi.enter(entry - 10, at=list(ADV_S07))
 
-    def spot_for(targets, y, x_hi, n, margin=0.985):
-        """Place du conseiller (centre) à la hauteur y, la plus à droite (<= x_hi) d'où tous les `targets` (points
-        monde) sont à portée confortable du stylo de 90 px (REACH x allonge, moins 1,5 %)."""
-        R = margin * REACH * toi.reach_max(n)
-        sc = S.world_scale("toi", n)
-        for x in range(round(x_hi), round(x_hi) - 300, -1):
-            A = [x + toi.shoulder[0] * sc, y + toi.shoulder[1] * sc]
-            if all(math.dist(A, t) <= R for t in targets):
-                return [x, y]
-        raise SystemExit(f"p2 : aucune place à y {y} pour {len(targets)} cibles")
+    def head(n):
+        """Avant de la tête de verre de l'IA (monde), départ de ses faisceaux."""
+        return S.to_world("ia", c.brain_front, n)
 
-    # Mise en place de S12-S14, entités encore invisibles (clés directes : rien ne saute à l'écran).
-    def row_c(i):                                            # centre monde de la rangée i, page en PAGE_S12
-        return round(PAGE_S12[1] + rows[i] * PAGE_S12_SCALE, 2)
+    def beam_off(ids, f, d=8):
+        """Les faisceaux rentrent dans la tête (from 0 -> 1), puis sont remis à zéro. Renvoie l'image de fin."""
+        for w in ids:
+            S.key(w, "from", f, 1, d, "in")
+            S.key(w, "draw", f + d, 0)
+            S.key(w, "from", f + d, 0)
+        return f + d
 
-    def text_y(i):                                           # ligne de texte monde de la rangée i (PAGE_S12)
-        return round(PAGE_S12[1] + (rows[i] + ty) * PAGE_S12_SCALE, 2)
+    # =================== S08 « Pourquoi commencer par limiter ? … protéger ton client. » ===================
+    f = kit.at("S08", "Pourquoi", "le disque 1 « Limiter » du repère bat deux fois (x 1,3) ; sa légende se souligne")
+    S.key("chapitre", "pos", f - 1, [MARKER_XS[0], S.val("chapitre", "pos", f - 1)[1]])
+    S.key("chapitre", "scale", f, 1)                              # posé exactement sur le disque actif
+    end = kit.pulse("chapitre", f, times=2, peak=1.3, step=3)
+    S.key("chapitre", "scale", end, 0)
+    kit.draw("legende1", f, DRAW, track="under")
+    kit.pulse("legende1", f, peak=1.12, step=3)
+    g = f + 6                                 # le contour vide de la barre rentre dans le pied de l'horloge
+    S.keys("barre2", g, STRETCH + 2, "in", w=0, pos=[BAR_X0 + BAR_W, BAR_Y])
+    S.key("barre2", "scale", g + STRETCH + 2, 0)
 
-    for i in range(5):
-        S.key(f"case{i + 1}", "pos", f0 - 1, [CASE_X, row_c(i)])
-    for i in range(4):
-        kit.ensure(f"fil{i + 1}", "bAt", list(DOC_ANCHOR))
-        S.key(f"fil{i + 1}", "aAt", f0 - 1, [X["value"] + 10, rows[i] + ty])   # au bout de la valeur
-    kit.ensure("fil5", "aAt", [X["value"] + 10, rows[4] + ty])
-    S.key("fil5", "pb", f0 - 1, [CASE_X - CASE_W / 2 + 2, text_y(4)])
-    S.key("tampon", "pos", f0 - 1, list(STAMP_AT))
-    S.key("tampon", "rot", f0 - 1, STAMP_ROT)
-    S.key("autocollant", "scale", f0 - 1, round(STICKER_PX / 72 / PAGE_S14_SCALE, 4))
-    kit.ensure("faisceau_lit", "bAt", list(BADGE_AIM))
-    for i in range(4):                                       # tour 4 : fils de preuve de 6 px
-        S.ents[f"fil{i + 1}"]["p"]["sw"] = 6
+    f = kit.at("S08", "Parce", "l'IA regrandit depuis son coin jusqu'à gauche (x 0,75), sa pilule « IA » dessous")
+    kit.move("ia", f, IA_S08, scale=IA_S08_S)
+    S.keys("ia_pill", f, MOVE, "inOut", pos=[0, round(c.ai_h / 2 + 30, 1)], scale=1)
 
-    # =================== S09 « Le RGPD et ta politique interne s’appliquent. » ===================
-    win_top = WIN_S08_POS[1] - FRAME_H / 2 * WIN_S08_SCALE
-    bar_bottom = win_top + TITLE_H * WIN_S08_SCALE + 3      # les briques partent sous la barre de titre
-    brick_kids = [("brique1_txt", "brique1_ico", "brique1_cad"), ("brique2_txt", "brique2_ico", "brique2_toi")]
-
-    def brick_drop(k, f):
-        """La brique k tombe de sous la barre de titre DANS son contour tireté (posé en S08 « non »), qui s'efface
-        sous elle ; son pictogramme et son texte sont écrits dès qu'elle paraît. Renvoie l'image d'arrivée."""
-        b = f"brique{k + 1}"
-        x, y = BRICKS[k][1]
-        h = round(y - BRICK_H / 2 - bar_bottom)
-        S.key(b, "pos", f - 1, [x, y - h])
-        S.key(b, "scale", f, 1)                              # visible SUR le mot, pas une image avant
-        S.key(b, "pos", f, [x, y], DROP, "out")
-        for ch in brick_kids[k]:
-            S.key(ch, "opacity", f, 1)
-        S.key(f"{b}_vide", "opacity", f + DROP - 3, 0, 4, "linear")   # le contour s'efface sous la brique
-        S.key(f"{b}_vide", "scale", f + DROP + 2, 0)
-        return f + DROP
-
-    f = kit.at("S09", "RGPD", "une brique encre (bouclier-cadenas de 76 px, « RGPD ») tombe DANS le contour tireté du "
-               "mur, sur la marque du choc ; le contour s'efface sous elle ; au contact, l'IA grand public recule")
-    land = brick_drop(0, f)
-    S.key("impact2", "scale", land - 2, 0)                   # la marque du choc est sous la brique
-    p_pub = S.val("ia_pub", "pos", land - 1)
-    k_pub = 0.85
-    pub2 = _r([p_pub[0] + 18, p_pub[1] - 10])
-    S.key("ia_pub", "pos", land, pub2, 6, "out")             # recul : elle s'écarte et rapetisse (x <= 940)
-    S.key("ia_pub", "scale", land, k_pub, 6, "out")
-    # sa pilule reste à sa place et à 32 px (contre-clés) : sous la tête, à 48 px sous les briques
-    S.key("ia_pub_pill", "pos", land, _r([(PUB_PILL_W[0] - pub2[0]) / k_pub, (PUB_PILL_W[1] - pub2[1]) / k_pub]), 6,
-          "out")
-    S.key("ia_pub_pill", "scale", land, round(1 / k_pub, 4), 6, "out")
-
-    f = kit.at("S09", "politique", "une 2e brique (le bâtiment du sceau « ✓ Cabinet » avec sa mini-figurine, « Politique "
-               "interne ») tombe dans le 2e contour et se pose sur la première, ferme, sans rebond")
-    brick_drop(1, f)
-
-    f = kit.at("S09", "s’appliquent.", "un grand cadenas tombe sur le mur droit, au-dessus des briques, et son anse se "
-               "ferme ; alors seulement, l'IA grand public et sa foule se réduisent en point, sa pilule s'efface ; le "
-               "cadenas reste accroché au mur")
-    S.key("outil", "lockDx", f - 1, LOCK_DX_OPEN)
-    S.key("outil", "lockK", f - 1, LOCK_FALL_K)
-    S.key("outil", "lockDy", f - 1, LOCK_DY - 200)
-    S.key("outil", "lockOn", f, 1)
-    S.key("outil", "lockDy", f, LOCK_DY, 6, "out")           # posé sur le mur, sans rebond
-    S.key("outil", "lock", f + 6, 1, 4, "out")                # l'anse se ferme (150 ms)
-    shut = f + 10
-    kit.fade("ia_pub_pill", shut, 0, d=4)                    # la pilule s'efface (elle ne rétrécit pas)
-    vanish(kit, "ia_pub", shut)                              # le cadenas fermé la fait disparaître
-    S.key("outil", "lockK", shut + 2, LOCK_K, 8, "inOut")     # il reste accroché au mur, x 2,4
-
-    # =================== S10 « Ensuite, demande un brief structuré d’une page. » ===================
-    f = kit.at("S10", "Ensuite,", "chaque brique s'écrase dans le mur en 6 images, son texte et son corps s'effaçant "
-               "ensemble ; la fenêtre verrouillée s'élargit, le cadenas suit le mur ; l'éventail en haut à gauche, l'IA "
-               "en bas à gauche ; le conseiller regagne son coin")
-    d = 12
-    S.keys("outil", f, d, "inOut", pos=list(WIN10["pos"]), w=WIN10["w"], h=WIN10["h"], scale=1)
-    S.key("sceau_mini", "pos", f, seal_mini_at(WIN10["w"], WIN10["h"], 1), d, "inOut")   # suit le sceau ouvert
-    for k, b in enumerate(("brique1", "brique2")):
-        for ch in brick_kids[k]:
-            S.key(ch, "opacity", f, 0, 3, "linear")
-        x_b, y_b = S.val(b, "pos", f - 1)
-        kit.ensure(b, "sx", 1)
-        S.key(b, "sx", f, 0.06, 6, "out")                    # écrasée vite (sx < 0,3 dès f + 2)
-        S.key(b, "opacity", f, 0, 6, "in")                   # le corps s'efface avec son texte
-        S.key(b, "pos", f, [round(x_b + 8, 2), y_b], 6, "out")
-        S.key(b, "scale", f + 6, 0)
-    for i in range(4):
-        S.keys(f"doc{i + 1}", f, d, "inOut", pos=fan_pt(PILE_S10, PILE_SLOT[i], PILE_S10_SCALE), scale=PILE_S10_SCALE)
-    S.keys("ia", f, d, "inOut", pos=list(IA_S10), scale=1)
-    S.keys("ia_pill", f, d, "inOut", pos=list(IA_PILL_RIGHT), scale=1)
-    S.keys("pastille", f, d, "inOut", pos=list(TITLE_S10), scale=1)
-    toi.walk(f, list(ADV_REST), d=d)
-
-    f = kit.at("S10", "demande", "le conseiller tend le bras vers la fenêtre : une page vide naît dans sa main, ses 5 "
-               "onglets paraissent un à un, puis elle vole se poser dans la fenêtre ; le repère passe au « 2 · Exiger »")
-    if S.val("toi", "scale", f - 1) == 0:                   # partie seule
-        toi.enter(f, at=list(ADV_REST))
-    kit.step(f, 1)
-    toi.rim(f, True)
-    hand = [ADV_REST[0] - 95, ADV_REST[1] - 120]             # bras tendu vers la fenêtre
-    toi.reach(f, hand, d=4, step=False)
-    born = f + 2
-    tip = toi.tip(born + 1)
-    page_hand = [round(tip[0] - 40, 2), round(tip[1] - 70, 2)]
-    S.key("fiche", "pos", born - 1, page_hand)
-    S.key("fiche", "lite", born - 1, 1)                      # tour 4 : petite, son titre est une barre (pas 18 px)
-    for i in range(5):
-        S.key("fiche", f"tab{i}", born - 1, 0)
-        S.key("fiche", f"tab{i}", born + 1 + i, 1)           # les 5 onglets vides, un par image
-    kit.pop("fiche", born, scale=PAGE_HAND_SCALE, d=3)
-    g = born + 6
-    S.fly("fiche", g, 7, "inOut", to=list(PAGE10), scale=PAGE_S10_SCALE, arc=60)
-    toi.rim(g - 2, False, d=2)                               # avant que le bras ne se replie (pas de boucle)
-    toi.rest(g, 8)
-
-    def tab_w(i, n):                                         # onglet (= puce) de la rangée i, en monde
-        return S.to_world("fiche", [X["bullet"], rows[i] + ty], n)
-
-    f = kit.at("S10", "brief", "le faisceau pointillé de l'IA passe sur l'éventail ; de chaque document sort une pastille "
-               "pleine (€, barres, sablier, bouclier) qui se range en face de son onglet")
-    S.key("faisceau_lit", "bAt", f - 1, list(PILE_AIM))
-    kit.draw("faisceau_lit", f, 6)
-    for i in range(4):
-        hover = [HOVER_X, round(tab_w(i, f)[1], 2)]
-        kit.pop(f"puce{i + 1}", f + 2 * i, from_pt=fan_pt(PILE_S10, PILE_SLOT[i], PILE_S10_SCALE), to=hover)
-
-    f = kit.at("S10", "structuré", "les 4 pastilles glissent sur les onglets 1 à 4 et deviennent les puces des lignes ; "
-               "le faisceau rentre")
-    S.key("faisceau_lit", "draw", f, 0, 5, "in")
-    for i in range(4):
-        g = f + 2 * i
-        S.fly(f"puce{i + 1}", g, MORPH, "inOut", to=tab_w(i, g), scale=PAGE_S10_SCALE, arc=20)
-        arr = g + MORPH
-        S.key(f"puce{i + 1}", "opacity", arr, 0)
-        S.key("fiche", f"tab{i}", arr, 0)
-        S.key(f"L{i + 1}", "bulletOn", arr, 1)
-
-    f = kit.at("S10", "d’une", "seule, la tête de l'IA lance un grand éclat (12 rayons) ; 3 bulles de pensée pointillées "
-               "partent de sa tête ; une 5e puce, vide et pointillée, grande (115 px), en sort et se pose à sa droite, "
-               "loin de la pile : tout est en place en 5 images")
-    S.key("ia_eclat2", "p", f - 1, 0)
-    S.key("ia_eclat2", "p", f, 1, 6, "linear")
-    head = S.to_world("ia", c.brain_front, f - 1)
-    # contrôle sans son : la puce vide naît dans un NUAGE DE PENSÉE (signe universel de « ça sort de sa tête »), au
-    # bout des 3 bulles qui montent de son front ; le nuage (230 x 166) tient sous la page, dans la fenêtre
-    cloud_k = 0.92
-    S.key("nuage", "pos", f - 1, _r(PUCE5_AT))
-    S.key("nuage", "rot", f - 1, 0)
-    edge = [PUCE5_AT[0] - 0.42 * CLOUD_W * cloud_k, PUCE5_AT[1] - 0.3 * CLOUD_H * cloud_k]   # haut gauche du nuage
-    brow = [IA_S10[0] + 112, IA_S10[1] - 75]                 # juste devant le front de verre (pas sur le visage)
-    for k in range(3):                                       # les bulles passent au-dessus de la pilule « IA »
-        t = 0.15 + 0.35 * k
-        at = [lerp(brow[0], edge[0], t), lerp(brow[1], edge[1], t) - 30 * math.sin(math.pi * t)]
-        S.key(f"pensee{k + 1}", "pos", f - 1, _r(at))
-        kit.pop(f"pensee{k + 1}", f + k, scale=1.7, d=3)
-    kit.pop("nuage", f + 1, scale=cloud_k, d=4)
-    kit.pop("puce5", f + 1, scale=PUCE5_SCALE, from_pt=head, to=list(PUCE5_AT), d=4)   # immobile dès 768 (« page. »)
-
-    beat = kit.hold("S10", "page.", "tenue : la grande puce vide reste seule, immobile, dans le nuage de pensée de l'IA "
-                    "(0,4 s), puis tombe sur l'onglet 5 en laissant un fil pointillé gris tête -> onglet 5 ; le nuage "
-                    "et ses bulles se dégonflent")
-    g = beat + 12                                            # immobile de 768 à 779
-    tab5 = tab_w(4, g + 7)
-    S.fly("puce5", g, 7, "inOut", to=tab_w(4, g), scale=PAGE_S10_SCALE, arc=40)
-    S.key("faisceau_tete", "pb", g - 1, _r(tab5))          # sa traînée : la ligne 5 vient de la tête de l'IA
-    S.key("faisceau_tete", "via", g - 1, [])
-    kit.draw("faisceau_tete", g, 7, e="inOut")
-    vanish(kit, "nuage", g + 1, d=6)
-    for k in range(3):
-        vanish(kit, f"pensee{k + 1}", g + k, d=5)
-    arr = g + 7
-    S.key("puce5", "opacity", arr, 0)
-    S.key("fiche", "tab4", arr, 0)
-    S.key("L5", "bulletOn", arr, 1)
-
-    # =================== S11 « Mais une IA peut produire une réponse fluide… et fausse. » ===================
-    f = kit.at("S11", "Mais", "la fenêtre se réduit en badge en haut à gauche avec ses documents, le cadenas sur son bord "
-               "droit ; la page vient au centre en grandissant (x 1,12), son titre « Brief » paraît ; la pastille se "
-               "pose sur son en-tête ; l'IA reste en bas à gauche, pilule au-dessus de la tête ; la traînée rentre")
-    S.key("faisceau_tete", "from", f, 1, 4, "in")
-    S.key("faisceau_tete", "draw", f + 4, 0)
-    S.key("faisceau_tete", "from", f + 4, 0)
-    S.keys("outil", f, MORPH, "out", pos=list(BADGE["pos"]), w=BADGE["w"], h=BADGE["h"], scale=BADGE["scale"], seal=0,
-           lockDx=round(LOCK_DX_SHUT, 2), lockDy=LOCK_DY_BADGE)
-    S.key("sceau_mini", "pos", f, seal_mini_at(BADGE["w"], BADGE["h"], 0), MORPH, "out")
-    for i in range(4):
-        sl = PILE_SLOT[i]
-        bp = [BADGE["pos"][0] - 6 + 4 * sl, BADGE["pos"][1] + 10 + 4 * sl]
-        S.keys(f"doc{i + 1}", f, MORPH, "out", pos=bp, scale=BADGE_DOC_SCALE, compact=1, txt=0)
-    S.keys("ia", f, MORPH, "out", pos=list(IA_S11), scale=IA_S11_SCALE)
-    S.keys("ia_pill", f, MORPH, "out", pos=list(IA_PILL_ABOVE), scale=round(1 / IA_S11_SCALE, 4))
-    S.keys("fiche", f, MORPH, "out", pos=list(PAGE_S11), scale=PAGE_S11_SCALE)
-    S.key("fiche", "lite", f + 4, 0, 6, "inOut")
-    head_w = S.to_world("fiche", c.header_pill, f + MORPH)
-    S.fly("pastille", f, MOVE, "inOut", to=_r(head_w), scale=PAGE_S11_SCALE, arc=40)
-    S.key("pastille", "opacity", f + MOVE, 0)
-    S.key("pastille_fiche", "opacity", f + MOVE, 1)
-
-    f = kit.at("S11", "IA", "un faisceau pointillé relie la tête de l'IA au badge des documents")
-    S.key("faisceau_lit", "bAt", f - 1, list(BADGE_AIM))
-    kit.draw("faisceau_lit", f, 8)
-
-    sc11 = PAGE_S11_SCALE
-    via_x = PAGE_S11[0] + X["bullet"] * sc11 - VIA_DX
-    ia_peak = round(IA_S11_SCALE * 1.05, 4)
-
-    def row_y11(i):
-        return PAGE_S11[1] + (rows[i] + ty) * sc11
-
-    def plug(i):
-        return [round(via_x + 24, 2), round(row_y11(i), 2)]
-
-    def tick11(i):
-        return S.to_world("fiche", sheet.pt(i, "tick"), f)
-
-    def tick_beam(i, g):
-        """Un court faisceau pointillé part de la TÊTE de l'IA (2 images) et, à son bout, la coche pointillée de la
-        ligne i se trace dans son carré (4 images) pendant que la tête bat une fois : c'est elle qui coche ; puis le
-        faisceau rentre. Renvoie l'image qui suit la coche."""
-        w = f"faisceau_coche{i + 1}"
-        S.key(w, "pb", g - 1, _r(tick11(i)))
-        kit.draw(w, g, 2)
-        kit.draw(f"coche_ia{i + 1}", g + 1, 4)               # au bout du faisceau
-        kit.pulse("ia", g + 1, peak=ia_peak, step=2)         # la tête bat d'un coup
-        S.key(w, "from", g + 4, 1, 3, "in")                  # il rentre dans la tête
-        S.key(w, "draw", g + 7, 0)
-        S.key(w, "from", g + 7, 0)
-        return g + 5
-
-    f = kit.at("S11", "produire", "pour L1 à L4, en cascade : la carte source s'allume dans le badge et son pictogramme "
-               "glisse le long du faisceau jusqu'à la puce ; la ligne s'écrit ; puis un court faisceau pointillé part de "
-               "la TÊTE de l'IA, sa coche pointillée se trace au bout et la tête bat : fini avant « réponse »")
-    for i in range(4):
-        lid, did, cid = f"L{i + 1}", f"doc{i + 1}", f"copie{i + 1}"
-        dep = f + 2 * i                                      # la copie part (la 1re sur le mot)
-        g = dep + 4                                          # elle arrive à la puce
-        src = S.to_world(did, [0, 0], dep - 1)
-        route = [src, [via_x, src[1] + 40], [via_x, row_y11(i)], plug(i)]
-        S.key(did, "lit", dep, 1, 2, "out")                  # la source s'allume dans le badge
-        kit.pulse(did, dep, peak=round(S.val(did, "scale", dep - 1) * 1.25, 4), step=2)
-        S.key(cid, "pos", dep - 1, _r(src))
-        S.key(cid, "scale", dep - 1, 0)
-        S.key(cid, "scale", dep, 1, 2, "out")
-        for m, q in frames(dep, 4, "inOut"):
-            S.key(cid, "pos", m, _r(_poly(route, q)), 1, "linear")
-        S.key(cid, "scale", g, 0)
-        S.key(cid, "opacity", g, 0)
-        S.key("faisceau", "pb", dep, plug(i))                # le faisceau du badge vise la puce de la ligne
-        S.key("faisceau", "via", dep, [round(via_x, 2), round(row_y11(i), 2)])
-        if i == 0:
-            kit.draw("faisceau", dep, 2)                     # sur le mot, pas avant
-        end = kit.type(lid, g, rate=WRITE11, flash=True)
-        tick_beam(i, end)
-
-    f = kit.at("S11", "réponse", "le badge reste éteint et son faisceau se retire : la tête de l'IA lance un grand éclat "
-               "(12 rayons) et un faisceau part de sa tête vers la puce de L5, qui reste VIDE pendant que « Horizon : 5 "
-               "ans » s'écrit ; puis la coche pointillée se trace au bout d'un faisceau de la tête, qui bat")
-    S.key("faisceau", "draw", f, 0, 3, "in")
-    S.key("faisceau_lit", "draw", f, 0, 3, "in")
-    S.key("ia_eclat2", "p", f - 1, 0)
-    S.key("ia_eclat2", "p", f, 1, POP, "linear")
-    S.key("faisceau_tete", "pb", f - 1, plug(4))
-    S.key("faisceau_tete", "via", f - 1, [round(via_x, 2), round(row_y11(4), 2)])
-    kit.draw("faisceau_tete", f + 1, 4)
-    # contrôle sans son : la valeur de L5 SORT DE SA TÊTE, visiblement. 3 bulles montent au-dessus de sa pilule vers
-    # un nuage de pensée (165 x 119, à gauche de la page, entre les puces de L3 et L4) qui porte « 5 ans » ; L5
-    # écrit d'abord sa clé seule, puis « 5 ans » sort du nuage et vole se poser au bout de la ligne (aucun document
-    # n'a bougé) ; ensuite seulement, la coche pointillée de l'IA
-    cloud11, ck11 = (118, 842), 0.62
-    S.key("nuage", "pos", f - 1, list(cloud11))
-    for k, pt in enumerate(((168, 974), (174, 944), (162, 912))):
-        S.key(f"pensee{k + 1}", "pos", f - 1, list(pt))
-        kit.pop(f"pensee{k + 1}", f + 1 + k, scale=1.4, d=3)
-    kit.pop("nuage", f + 2, scale=ck11, d=5)
-    S.key("nuage_val", "pos", f + 2, [cloud11[0], cloud11[1] + 2])
-    S.key("nuage_val", "scale", f + 3, 1.4)
-    kit.fade("nuage_val", f + 3, 1, d=4, frm=0)
-    kit.type("L5", f + 4, n=len(sheet.lines[4][1]["key"]), rate=5)    # « Horizon » seul ; la valeur vient du nuage
-    a5, b5 = sheet.value_span(4)
-    g = f + 14                                                # « 5 ans » tenu 10 images dans le nuage
-    val_w = S.to_world("fiche", [(a5[0] + b5[0]) / 2, a5[1]], g)
-    S.fly("nuage_val", g, 8, "inOut", to=_r(val_w), scale=PAGE_S11_SCALE, arc=50)
-    arr = g + 8
-    S.key("L5", "chars", arr, len(sheet.lines[4][1]["key"]) + len(sheet.lines[4][1]["value"]))
-    S.key("nuage_val", "opacity", arr, 0)                    # relais : la valeur de la ligne prend sa place
-    S.key("nuage_val", "scale", arr + 1, 0)
-    end = tick_beam(4, arr + 1)
-    vanish(kit, "nuage", arr + 8, d=6)                        # le nuage se dégonfle avant la tenue de « et »
-    for k in range(3):
-        vanish(kit, f"pensee{k + 1}", arr + 8 + k, d=5)
-
-    f = kit.at("S11", "fluide…", "les coches pointillées de L1-L4 battent l'une après l'autre (elle a tout coché "
-               "elle-même), puis celle de L5 dès qu'elle est tracée ; un reflet traverse la page complète sous les "
-               "textes ; le faisceau de la tête reste sur la puce vide de L5 ; puis immobilité")
-    kit.stagger([f"coche_ia{k + 1}" for k in range(4)], f, 2, lambda i, n: kit.pulse(i, n, peak=1.2, step=2))
-    kit.pulse("coche_ia5", end + 1, peak=1.2, step=2)
-    S.key("reflet", "p", end + 1, 1, 12, "linear")
-
-    kit.hold("S11", "et", "tenue : rien ne bouge, la fiche entièrement cochée par l'IA")
-
-    f = kit.at("S11", "fausse.", "la puce vide de L5, toujours reliée à la tête de l'IA, bat deux fois (x 1,3), deux "
-               "ondes rouges courtes en partent ; elle reste à x 1,3, cerclée d'un anneau rouge, jusqu'à « Exige » ; "
-               "le texte reste à l'encre")
-    S.key("L5", "bulletOn", f, 0)                            # relais : la même puce, enfant de la fiche, au-dessus
-    S.key("puce5_alerte", "opacity", f, 1)
-    S.key("puce5_alerte", "alarm", f, 1, 3, "out")
+    f = kit.at("S08", "gagner", "4 faisceaux pointillés partent ensemble de la tête de l'IA vers les bandeaux des 4 "
+               "sources ; de la carte CRM glissent deux dossiers gris, chacun coiffé d'une pilule grise de même forme que "
+               "« Client · 9 h » (« 14 h », « 16 h ») ; les 4 faisceaux se replient en courts tronçons ; la pastille puis "
+               "les deux pilules grises battent ; deux faisceaux filent vers les dossiers gris, au-dessus de la pastille")
+    a = head(f - 1)
+    for i, d in enumerate(docs):
+        p = S.val(d, "pos", f - 1)
+        end = _r([p[0] - (DOC_W / 2 - 18), p[1] + BANNER_DY])           # bout gauche du bandeau (pas sur la date)
+        S.key(f"faisceau{i + 1}", "pb", f - 1, end)
+        kit.draw(f"faisceau{i + 1}", f, 8)
+    doc2 = S.val("doc2", "pos", f - 1)
     for k in range(2):
-        g = f + 6 * k
-        S.key("puce5_alerte", "scale", g, 1.3, 3, "out")      # x 1,3 : l'alerte ne couvre pas « Horizon »
-        S.key("puce5_alerte", "scale", g + 3, 1.15, 3, "inOut")
-        o = f"onde{k + 1}"
-        S.key(o, "scale", g, 1)
-        S.key(o, "scale", g + 1, 1.5, 8, "out")             # tour 4 : 66 px au plus, à 9 px de « Horizon »
-        S.key(o, "opacity", g + 1, 0, 8, "in")
-        S.key(o, "scale", g + 9, 0)
-    S.key("puce5_alerte", "scale", f + 12, 1.3, 3, "out")    # tenue à x 1,3 (0,6 s de plus)
-    kit.pop("anneau5", f + 12, scale=1.3, d=3)               # la puce reste cerclée de rouge plein
+        g = f"carte_grise{k + 1}"
+        kit.pop(g, f, scale=GREY_P2_S, from_pt=doc2, to=GREY_P2[k], d=MOVE, e="inOut")
+    arr = f + MOVE
+    for i in range(4):                                            # tronçons de 40 px contre les bandeaux
+        w = f"faisceau{i + 1}"
+        cub = S.wire_cubic(w, arr)
+        L = sum(math.dist(point_at_length(cub, k / 20), point_at_length(cub, (k + 1) / 20)) for k in range(20))
+        S.key(w, "from", arr, round(max(0.0, 1 - 40 / L), 4), 6, "inOut")
+    kit.pulse("pastille", arr, peak=1.15, step=3)
+    kit.pulse("carte_grise1_pill", arr + 4, peak=round(GREY_PILL_K * 1.15, 4), step=3)
+    kit.pulse("carte_grise2_pill", arr + 8, peak=round(GREY_PILL_K * 1.15, 4), step=3)
+    g5 = arr + 4
+    pill_y = -GREY_H / 2 * GREY_P2_S
+    for k in range(2):
+        gx, gy = GREY_P2[k]
+        S.key(f"faisceau{k + 5}", "pb", g5 - 1, _r([gx - GREY_PILL_W * GREY_PILL_K * GREY_P2_S / 2 + 6, gy + pill_y]))
+        kit.draw(f"faisceau{k + 5}", g5, 8)
 
-    # =================== S12 « Exige que chaque ligne renvoie à un document et à une date. » ===================
-    f = kit.at("S12", "Exige", "le conseiller prend la main : il monte à droite de la page, stylo levé ; la page glisse "
-               "à gauche et se réduit pour lui faire place ; les 5 coches de l'IA restent ; la puce rouge de L5 "
-               "reprend sa taille")
-    S.key("faisceau_tete", "draw", f, 0, 4, "in")           # le faisceau de la tête rentre : l'humain prend la main
-    S.key("puce5_alerte", "scale", f, 1.15, 4, "inOut")
-    S.key("anneau5", "scale", f, 1.15, 4, "inOut")
-    cases = [[CASE_X, row_c(i)] for i in range(5)]
-    adv12 = spot_for(cases, ADV_S12_Y, ADV_S12[0], f - 1)
-    toi.walk(f, adv12, d=12)
-    S.keys("fiche", f, 10, "inOut", pos=list(PAGE12_EXIGE), scale=PAGE_S12_SCALE)   # 330 ms (tour 4)
+    f = kit.at("S08", "protéger", "le conseiller bondit à côté de la pastille et lève son stylo en travers des deux "
+               "faisceaux qui visent les dossiers gris : ils cassent net sur sa pointe (éclats et traits d'impact au "
+               "point de contact) et restent coupés ; puis tous les faisceaux rentrent dans la tête de l'IA ; pas de rouge")
+    toi.set_z(f, 13.3, tool_z=12.9)                               # bras et stylo derrière la pastille, la pointe la
+    toi.hop(f, ADV_HOP_S08, 6, h=0)                               # dépasse : on lit toujours « Client · 9 h »
+    fr5, hit5 = _frac_at_x(S, "faisceau5", f + 5, PEN_X_S08)
+    fr6, hit6 = _frac_at_x(S, "faisceau6", f + 5, PEN_X_S08)
+    tip = _r([PEN_X_S08, (hit5[1] + hit6[1]) / 2])
+    toi.reach(f + 2, tip, d=4, step=False)
+    hit = f + 5                                                   # la pointe est sur les faisceaux
+    S.key("faisceau5", "draw", hit, fr5)
+    S.key("faisceau6", "draw", hit, fr6)
+    S.key("impact_stylo", "pos", hit - 1, _r([tip[0] + 6, tip[1]]))
+    kit.pop("impact_stylo", hit, d=3)
+    S.key("eclat", "pos", hit - 1, tip)
+    S.key("eclat", "p", hit - 1, 0)
+    S.key("eclat", "p", hit, 1, 9, "out")
+    S.key("eclat", "p", hit + 9, 0)
+    vanish(kit, "impact_stylo", hit + 10, d=6)
+    beam_off([f"faisceau{k + 1}" for k in range(6)], hit + 10, d=8)
 
-    f = kit.at("S12", "chaque", "l'IA se range, plus petite, dans le coin en bas à gauche, à côté de la page, toujours "
-               "visible, sa pilule « IA » à droite de la tête ; la page finit de glisser à gauche")
-    S.keys("ia", f, 10, "out", pos=list(IA_CORNER), scale=IA_CORNER_SCALE)
-    S.keys("ia_pill", f, 10, "out", pos=list(IA_PILL_CORNER), scale=round(1 / IA_CORNER_SCALE, 4))
-    S.keys("fiche", f, 10, "inOut", pos=list(PAGE_S12))
+    f = kit.at("S08", "client", "les 4 sources se regroupent en 2 x 2 autour de la pastille (rond vide à sa droite) ; "
+               "les dossiers gris glissent au bord droit, intacts ; le conseiller recule")
+    for i, d in enumerate(docs):
+        S.keys(d, f, MOVE, "inOut", pos=list(GRID_P2[i]), scale=DOC_GRID_S, rot=0)
+    kit.move("pastille", f, PASTILLE_P2)
+    kit.move("rond", f, ROND_P2)
+    for k in range(2):
+        kit.move(f"carte_grise{k + 1}", f, GREY_EDGE[k], scale=GREY_EDGE_S)
+    toi.rest(f - 1, 6)
+    toi.walk(f + 4, ADV_S08, d=14)
+    toi.set_z(f + 6, 15, tool_z=15.5)
 
-    f = kit.at("S12", "ligne", "le stylo descend la colonne et trace, en face de chaque ligne, une case-source vide en "
-               "tirets")
-    hits = toi.trace(f, cases, d=6, lead=3)
-    for i, h in enumerate(hits):
-        kit.draw(f"case{i + 1}", h - 1, 2)
-    toi.walk(hits[-1] + 1, [min(adv12[0] + 24, 940 - 59 - 4), adv12[1]], d=8)   # recule d'un pas (x <= 877 : jamais
-    #                                                                             dans la colonne réservée x > 940)
+    # =================== S09 « Première étape : tu limites ce que l’IA peut lire. » ===================
+    pts, acc, corners = _frame_path()
+    f = kit.at("S09", "Première", "chapitre : le disque 1 grandit (x 1,6) puis revient ; le conseiller bondit à droite "
+               "du coin bas droit de la future zone, la pointe de son stylo posée sur ce coin")
+    S.key("chapitre", "scale", f, 1)
+    S.key("chapitre", "scale", f + 1, 1.6, SCALE, "out")
+    S.key("chapitre", "scale", f + 20, 1, SCALE, "inOut")
+    S.key("chapitre", "scale", f + 30, 0)
+    g = toi.hop(f, ADV_S09, 10, h=0)
+    toi.reach(g + 2, _r(pts[0]), d=8, step=False)                 # pointe sur le coin bas droit, bras tendu
 
-    f = kit.at("S12", "renvoie", "les 4 documents sortent du badge, passent au-dessus de la page et se logent dans les "
-               "cases 1 à 4 ; le badge vidé se replie ; la case 5 reste vide")
+    f = kit.at("S09", "limites", "de la pointe de son stylo, un contour en tirets part et fait le tour de la zone (bas, "
+               "gauche, haut, droite) jusqu'à revenir à la pointe : le groupe et un coin vide sont dedans, les dossiers "
+               "gris dehors ; il a fini avant que l'IA ne bouge")
+    S.key("cadre", "draw", f, 1, LASSO, "linear")
+    toi.rest(S.word_after("lire", f) - 12, 8)                     # (après le glissement de l'IA : un seul geste à la fois)
+
+    f = kit.at("S09", "l’IA", "l'IA glisse dans le coin libre du cadre, en bas à gauche (x 0,8), sa pilule à sa droite")
+    kit.move("ia", f, IA_S09, scale=IA_S09_S)
+    kit.move("ia_pill", f, IA_PILL_RIGHT)
+
+    f = kit.at("S09", "lire", "un cône de lecture pointillé s'ouvre de la tête de l'IA sur les 4 sources et s'arrête net "
+               "sur les bords haut et droit du cadre ; les traits gris des sources passent au cyan profond (lues)")
+    apex = _r(head(f - 1))
+    x0, x1, y0 = FRAME_C[0] - FRAME_W / 2 + 15, FRAME_X1 - 3, FRAME_TOP + 3
+    cone = [[0, 0], [x0 - apex[0], y0 - apex[1]], [x1 - apex[0], y0 - apex[1]], [x1 - apex[0], 1000 - apex[1]]]
+    S.ents["cone"]["p"]["pts"] = [_r(q) for q in cone]
+    S.key("cone", "pos", f - 1, apex)
+    kit.pop("cone", f, d=POP)
+    for i, d in enumerate(docs):
+        S.key(d, "read", f + 2 * i, 1, 12, "out")
+    toi.hop(f + 11, ADV_S09_END, 8, h=0)                          # il redescend au sol, hors du cadre
+
+    # =================== S10 « Uniquement le dossier client, dans un outil validé par ton cabinet. » ===================
+    f = kit.at("S10", "Uniquement", "un rayon de l'IA vise le dossier gris du haut et bute sur le bord droit du cadre : "
+               "le bord flashe, traits d'impact, le rayon recule et s'éteint ; les dossiers gris ne bougent pas ; le "
+               "cône s'éteint")
+    gy = GREY_EDGE[0][1] + 20
+    S.key("rayon", "pb", f - 1, [FRAME_X1 - 4, gy])
+    kit.draw("rayon", f, 5)
+    hit = f + 5
+    S.key("cadre_flash", "opacity", hit, 1)
+    S.key("cadre_flash", "opacity", hit + 1, 0, 3, "in")
+    S.key("impact_cadre", "pos", hit - 1, [FRAME_X1 - 4, gy])
+    kit.pop("impact_cadre", hit, d=3)
+    S.key("eclat", "pos", hit - 1, [FRAME_X1 - 4, gy])
+    S.key("eclat", "scale", hit - 1, 1.3)
+    S.key("eclat", "p", hit - 1, 0)
+    S.key("eclat", "p", hit, 1, 10, "out")
+    S.key("eclat", "p", hit + 10, 0)
+    vanish(kit, "impact_cadre", hit + 10, d=6)
+    S.key("rayon", "draw", hit + 9, 0, 10, "inOut")             # le rayon tient, cassé, puis recule visiblement
+    vanish(kit, "cone", hit + 4, d=MORPH)
+
+    f = kit.at("S10", "outil", "le cadre passe en trait plein et une barre de titre descend sur son bord haut : une "
+               "fenêtre de logiciel ; les 4 sources s'empilent en éventail ; la pastille vole sur la barre de titre (son "
+               "titre), le rond vide dessous")
+    S.key("outil", "scale", f, 1)                                 # relais exact du cadre (cadre plein deep, 6 px)
+    S.key("cadre", "scale", f, 0)
+    S.key("outil", "bar", f, 1, POP, "out")
+    for i, d in enumerate(docs):
+        x, y, rot = FAN[i]
+        S.keys(d, f, MOVE, "inOut", pos=[x, y], rot=rot)
+    kit.move("pastille", f, TITLE_S10, scale=TITLE_S10_S, arc=40)
+    kit.move("rond", f, RONDE_S10)
+
+    f = kit.at("S10", "validé", "le sceau du cabinet (disque cyan, bâtiment) tombe dans la fenêtre et se coche")
+    S.key("sceau", "pos", f - 1, [SEAL_DROP[0], SEAL_DROP[1] - 200])
+    S.key("sceau", "scale", f, 1)
+    S.key("sceau", "pos", f, list(SEAL_DROP), DROP, "out")
+    kit.draw("coche_sceau", f + DROP, 6)
+
+    f = kit.at("S10", "cabinet", "le sceau vole au bout de la barre de titre et s'ouvre en pilule « ✓ Cabinet » ; les "
+               "dossiers gris glissent vers le bord droit et s'y réduisent")
+    up = [SEAL_CLOSED[0], SEAL_CLOSED[1] + 40]
+    S.fly("sceau", f, 7, "out", to=_r(up), scale=1.5)             # il se lève vers nous, sous le bout de la barre…
+    S.fly("sceau", f + 7, 4, "in", to=list(SEAL_CLOSED), scale=round(44 * SEAL_K / SEAL_DISC, 4))   # … et s'y abat
+    arr = f + 11                                                  # le choc : le sceau s'imprime sur la barre
+    S.key("sceau", "scale", arr, 0)
+    S.key("sceau", "opacity", arr, 0)
+    S.key("outil", "sealOn", arr, 1)
+    S.key("outil", "seal", arr, 1, 8, "out")
+    S.key("eclat", "pos", arr - 1, list(SEAL_CLOSED))
+    S.key("eclat", "scale", arr - 1, 1.2)
+    S.key("eclat", "p", arr - 1, 0)
+    S.key("eclat", "p", arr, 1, 9, "out")
+    S.key("eclat", "p", arr + 9, 0)
+    for k in range(2):                                 # ils glissent vers le bord droit, intacts, et s'effacent
+        g = f"carte_grise{k + 1}"
+        S.key(g, "pos", f, [882, GREY_EDGE[k][1]], MOVE, "inOut")
+        S.key(g, "opacity", f + MOVE - 5, 0, 5, "linear")
+        S.key(g, "scale", f + MOVE, 0)
+
+    # =================== S11 « Jamais de données client dans une IA grand public… s’appliquent. » ===================
+    def win(p):
+        return _map(p, FRAME_C, WIN_S11, WIN_S11_S)
+
+    f = kit.at("S11", "Jamais", "la fenêtre et tout son contenu glissent à gauche et se réduisent ; le conseiller reste "
+               "au repos")
+    kit.move("outil", f, WIN_S11, scale=WIN_S11_S)
+    for i, d in enumerate(docs):
+        kit.move(d, f, win(FAN[i][:2]), scale=round(DOC_GRID_S * WIN_S11_S, 4))
+    kit.move("pastille", f, win(TITLE_S10), scale=round(TITLE_S10_S * WIN_S11_S, 4))
+    kit.move("rond", f, win(RONDE_S10), scale=WIN_S11_S)
+    kit.move("ia", f, win(IA_S09), scale=round(IA_S09_S * WIN_S11_S, 4))
+    kit.pop("mur", f + 4, d=10)                                   # le bord droit devient un mur épais, encré
+
+    f = kit.at("S11", "IA", "hors de la fenêtre, une IA grand public grise surgit à droite, avec sa pilule « IA grand "
+               "public » et une foule de petites figurines grises reliées à sa tête")
+    kit.pop("ia_pub", f)
+    S.key("foule", "show", f + 2, 6, 9, "linear")
+    S.key("foule", "link", f + 6, 1, 9, "out")
+    pub_top = _r([IA_PUB[0] + c.pub_head[0], IA_PUB[1] + c.pub_head[1]])
+    for k, j in enumerate((0, 1, 3, 5)):                          # chacun verse sa carte dans la même IA
+        src = _r([IA_PUB[0] + FOULE["pts"][j][0], IA_PUB[1] + FOULE["pts"][j][1] + 10])
+        cp, g = f"carte_pub{k + 1}", f + 14 + 4 * k
+        S.key(cp, "pos", g - 1, src)
+        kit.pop(cp, g, d=4)
+        S.key(cp, "pos", g + 4, pub_top, 10, "in")
+        S.key(cp, "scale", g + 4, 0.3, 10, "in")
+        S.key(cp, "scale", g + 14, 0)
+
+    f = kit.at("S11", "non", "un trait gris part de la tête de l'IA grand public jusqu'au mur ; la carte « Mail » se "
+               "soulève de l'éventail, glisse vers lui, heurte le mur de l'intérieur, s'arrête net et retombe ; le "
+               "conseiller ne fait rien")
+    kit.draw("trait_pub", f, 8)
+    lift = f + 8
+    home3 = win(FAN[2][:2])
+    half = DOC_W / 2 * DOC_GRID_S * WIN_S11_S
+    wall_in = WALL_X - 14 * WIN_S11_S / 2 - 1                     # face intérieure du mur
+    stop = _r([wall_in - half, CHOC[1]])
+    group3 = ["doc3", "doc3_bandeau", "doc3_bandeau_txt", "doc3_date", "doc3_date_txt"]
+    for id in group3:                                             # la carte et ses enfants passent devant l'éventail
+        kit.ensure(id, "z", S.ents[id]["z"])
+        S.key(id, "z", lift, round(S.ents[id]["z"] + 0.5, 2))
+    S.key("doc3", "rot", lift, 0, 4, "out")
+    S.key("doc3", "pos", lift, stop, 12, "linear")
+    hit = lift + 12
+    kit.ensure("doc3", "sx", 1)
+    S.key("doc3", "sx", hit, 0.85, 2, "out")                      # elle s'écrase contre le mur, sans le franchir
+    S.key("doc3", "pos", hit, _r([wall_in - half * 0.85, CHOC[1]]), 2, "out")
+    kit.pop("impact_mur", hit, d=3)
+    S.key("eclat", "pos", hit - 1, _r([wall_in, CHOC[1]]))
+    S.key("eclat", "scale", hit - 1, 1.2)
+    S.key("eclat", "p", hit - 1, 0)
+    S.key("eclat", "p", hit, 1, 9, "out")
+    S.key("eclat", "p", hit + 9, 0)
+    vanish(kit, "impact_mur", hit + 10, d=6)
+    pressed = _r([wall_in - half - 10, CHOC[1]])
+    S.key("doc3", "sx", hit + 8, 1, 5, "out")                     # elle reste plaquée près du mur
+    S.key("doc3", "pos", hit + 8, pressed, 5, "out")
+    beam_off(["trait_pub"], hit + 9, d=8)
+
+    f = kit.at("S11", "RGPD", "au point du choc, une brique encre « RGPD » tombe et s'encastre à cheval sur le mur")
+    S.key("brique1", "pos", f - 1, [CHOC[0], CHOC[1] - 200])
+    S.key("brique1", "scale", f, 1)
+    S.key("brique1", "pos", f, list(CHOC), DROP, "out")
+    x3 = S.val("doc3", "pos", f + DROP - 1)                       # la carte recule d'un cran : le mur s'épaissit
+    S.key("doc3", "pos", f + DROP, _r([x3[0] - 26, x3[1]]), 6, "out")
+
+    f = kit.at("S11", "politique", "une brique « Politique interne » tombe et se pose sur la première, ferme")
+    b2 = S.val("brique2", "pos", f - 1)
+    S.key("brique2", "pos", f - 1, [b2[0], b2[1] - 200])
+    S.key("brique2", "scale", f, 1)
+    S.key("brique2", "pos", f, b2, DROP, "out")
+    x3 = S.val("doc3", "pos", f + DROP - 1)
+    S.key("doc3", "pos", f + DROP, _r([x3[0] - 26, x3[1]]), 6, "out")
+
+    f = kit.at("S11", "s’appliquent", "un cadenas tombe sur la barre de titre et se ferme ; l'IA grand public, sa pilule "
+               "et sa foule se réduisent en point")
+    S.key("outil", "lockDy", f - 1, LOCK_FALL)
+    S.key("outil", "lockK", f - 1, 2)                             # grand cadenas (56 px) au centre de la barre
+    S.key("outil", "lockOn", f, 1)
+    S.key("outil", "lockDy", f, 0, 9, "out")
+    S.key("outil", "lock", f + 9, 1, 6, "out")
+    S.key("outil", "lockK", f + 15, 2.3, 3, "out")
+    S.key("outil", "lockK", f + 18, 2, 4, "inOut")
+    vanish(kit, "ia_pub", f + 13)
+    S.key("doc3", "pos", f + 2, home3, MOVE, "inOut")              # la carte retourne dans l'éventail
+    S.key("doc3", "rot", f + 2, FAN[2][2], MOVE, "inOut")
+    for id in group3:
+        S.key(id, "z", f + 2 + MOVE, S.ents[id]["z"])
+
+    # =================== S12 « Ça ne suffit pas : … une réponse fluide… et fausse. » ===================
+    def badge(p):
+        return _map(p, FRAME_C, BADGE_C, BADGE_S)
+
+    f = kit.at("S12", "Ça", "les briques s'enfoncent dans le mur ; la fenêtre se réduit en badge en haut à gauche avec "
+               "ses sources, sa pastille-titre et le rond vide ; l'IA en sort et se pose en bas à gauche")
+    def mid(p):
+        return _map(p, FRAME_C, MID_C, MID_S)
+
+    for b in ("brique1", "brique2"):                              # les briques s'enfoncent dans le mur
+        kit.ensure(b, "sx", 1)
+        S.key(b, "sx", f, 0, 6, "in")
+        S.key(b, "scale", f + 6, 0)
+    g = f + 5                                                     # 1er temps : la fenêtre, réduite de moitié, lisible
+    S.keys("outil", g, MORPH, "out", pos=list(MID_C), scale=MID_S)
+    for i, d in enumerate(docs):
+        S.keys(d, g, MORPH, "out", pos=mid(FAN[i][:2]), scale=round(DOC_GRID_S * MID_S, 4))
+    S.keys("pastille", g, MORPH, "out", pos=mid(TITLE_S10), scale=round(TITLE_S10_S * MID_S, 4))
+    S.keys("rond", g, MORPH, "out", pos=mid(RONDE_S10), scale=MID_S)
+    S.keys("ia", f, MOVE, "inOut", pos=list(IA_S12), scale=IA_S12_S)
+    toi.walk(f, ADV_S12, d=10)
+
+    f = kit.at("S12", "documents", "un faisceau pointillé relie la tête de l'IA au badge ; les 4 pastilles "
+               "d'information en sortent et se rangent en colonne ; derrière elles naît une page « Réponse » dont "
+               "elles deviennent les puces ; le rond vide se pose sur la 5e rangée")
+    S.keys("outil", f, MORPH, "out", pos=list(BADGE_C), scale=BADGE_S)   # 2e temps : le badge
+    for i, d in enumerate(docs):
+        S.keys(d, f, MORPH, "out", pos=badge(FAN[i][:2]), scale=round(DOC_GRID_S * BADGE_S, 4))
+    S.keys("pastille", f, MORPH, "out", pos=badge(TITLE_S10), scale=round(TITLE_S10_S * BADGE_S, 4))
+    S.keys("rond", f, MORPH, "out", pos=badge(RONDE_S10), scale=BADGE_S)
+    S.key("faisceau_lit", "pb", f + 5, _r([BADGE_C[0] + 10, BADGE_C[1] + FRAME_H / 2 * BADGE_S - 6]))
+    kit.draw("faisceau_lit", f + 6, 6)                            # le faisceau atteint le badge quand il s'y pose
+    f = f + 8
+    kit.pop("fiche", f + 2, scale=PAGE_S12_S)
+
+    def bullet_w(i):                                              # puce de la rangée i, page en PAGE_S12
+        return _r([PAGE_S12[0] + X["bullet"] * PAGE_S12_S, PAGE_S12[1] + (rows[i] + ty) * PAGE_S12_S])
+
+    k_b = 22 / 28 * PAGE_S12_S                                    # pastille de 56 px -> puce de 44 px
     for i in range(4):
-        d_id, g = f"doc{i + 1}", f + 3 * i
-        p0 = S.to_world(d_id, [0, 0], g - 1)
-        s0 = S.world_scale(d_id, g - 1)
-        p1, p2, p3 = [p0[0] + 220, CORRIDOR_Y], [CASE_X + 80, CORRIDOR_Y], cases[i]
-        S.key(d_id, "z", g, 12.5 + 0.1 * i)
-        S.path(d_id, g, 13, "inOut", lambda p, p0=p0, p1=p1, p2=p2, p3=p3: _cubic(p0, p1, p2, p3, p),
-               lambda p, s0=s0: s0 + (PAGE_S12_SCALE - s0) * p * p)
-    vanish(kit, "outil", f + 3 * 3 + 3)
+        g = f + 4 + 3 * i
+        S.fly(f"info{i + 1}", g, MOVE, "inOut", to=bullet_w(i), scale=k_b)
+        S.key(f"info{i + 1}", "scale", g + MOVE, 0)
+        S.key(f"info{i + 1}", "opacity", g + MOVE, 0)
+        S.key(f"L{i + 1}", "bulletOn", g + MOVE, 1)
+    g = f + 7
+    S.fly("rond", g, MOVE, "inOut", to=bullet_w(4), scale=k_b)
+    S.key("rond", "scale", g + MOVE, 0)
+    S.key("rond", "opacity", g + MOVE, 0)
+    S.key("L5", "bulletOn", g + MOVE, 1)
 
-    f = kit.at("S12", "document", "un fil cyan profond plein (6 px) part de chaque valeur L1-L4 et se tend, sur 120 px "
-               "hors de la page, jusqu'à son document, qui bat à l'arrivée du fil ; la puce de la ligne bat aussi")
+    f = kit.at("S12", "IA", "un faisceau pointillé de l'IA balaie la page : les lignes 1 à 4 s'écrivent (Bilan, "
+               "Contrat, Décision, Promis) et chacune reçoit la coche pointillée de l'IA")
+    pa = S.to_world("fiche", [X["text"] + 30, rows[0] + ty], f - 1)
+    pb = S.to_world("fiche", [X["text"] + 30, rows[3] + ty], f - 1)
+    S.key("faisceau_page", "pb", f - 1, _r(pa))
+    kit.draw("faisceau_page", f, 3)
+    S.key("faisceau_page", "pb", f + 3, _r(pb), 10, "linear")
+    beam_off(["faisceau_page"], f + 13, d=5)
+    beam_off(["faisceau_lit"], f + 8, d=6)                       # le faisceau vers les documents s'éteint
     for i in range(4):
-        g = kit.draw(f"fil{i + 1}", f + 3 * i, DRAW)
-        d_id = f"doc{i + 1}"
-        kit.pulse(d_id, g, peak=round(S.val(d_id, "scale", g - 1) * 1.12, 4), step=2)
-        S.key(f"L{i + 1}", "flash", g, 1, 2, "out")
-        S.key(f"L{i + 1}", "flash", g + 2, 0, 3, "inOut")
+        done = kit.type(f"L{i + 1}", f + 2 * i, rate=4)
+        kit.draw(f"coche_ia{i + 1}", done, 5)
 
-    f = kit.at("S12", "date.", "de chaque document sort sa date écrite en clair sur une petite page cornée ; elle "
-               "glisse le long du fil et se pose sous sa valeur")
+    f = kit.at("S12", "peut", "seul en mouvement : trois bulles pointillées montent de la tête de l'IA et un nuage de "
+               "pensée surgit à gauche de la page, avec « 5 ans » dedans ; il reste là")
+    for k, at in enumerate(PENSEE_AT):
+        S.key(f"pensee{k + 1}", "pos", f - 1, list(at))
+        kit.pop(f"pensee{k + 1}", f + k, d=6)
+    kit.pop("nuage", f, d=POP)
+    kit.pop("nuage_val", f + 3, d=6)
+
+    f = kit.at("S12", "fluide", "« 5 ans » quitte le nuage et vole sur la 5e rangée, qui s'écrit « Horizon 5 ans » aussi "
+               "proprement que les autres et reçoit la même coche pointillée ; le nuage rentre dans la tête ; un "
+               "reflet balaie la page ; puis plus rien ne bouge")
+    p5 = sheet.lines[4][1]
+    val5 = S.to_world("fiche", [X["value"] - p5["valueW"] / 2, rows[4] + ty], f - 1)
+    S.fly("nuage_val", f, MOVE, "inOut", to=_r(val5), scale=round(32 / 34, 4), arc=80)
+    kit.type("L5", f, n=len(FICHE_LINES[4][0]), rate=4)
+    arr = f + MOVE
+    S.key("nuage_val", "scale", arr, 0)
+    S.key("nuage_val", "opacity", arr, 0)
+    S.key("L5", "chars", arr, len(FICHE_LINES[4][0]) + len(FICHE_LINES[4][1]))
+    kit.draw("coche_ia5", arr, 5)
+    top = c.brain_top
+    vanish(kit, "nuage", f + 3, into=S.to_world("ia", top, f + 3), d=POP)
+    for k in range(3):
+        vanish(kit, f"pensee{3 - k}", f + 3 + k, into=S.to_world("ia", top, f + 3), d=6)
+    kit.pop("nuage5", arr, d=6)                                   # « 5 ans » garde le contour du nuage
+    S.key("reflet", "p", arr + 1, 1, 7, "linear")                  # fini à l'image 1680 : immobile sur « et »
+
+    f = kit.at("S12", "fausse", "la puce vide de la 5e ligne bat deux fois et son contour passe au rouge ; rien "
+               "d'autre ne bouge (ni l'IA, ni sa coche, ni le conseiller)")
+    S.key("L5", "alarm", f, 1, 3, "out")                          # la puce éclate : x 1,6 -> 1,15, deux fois,
+    S.key("L5", "pulse", f, 1, 4, "out")                          # contour rouge, et reste agrandie
+    S.key("L5", "pulse", f + 4, 0.25, 4, "inOut")
+    S.key("L5", "pulse", f + 8, 1, 4, "out")
+    S.key("L5", "pulse", f + 12, 0.25, 4, "inOut")
+    S.key("onde5", "scale", f, 1)                                 # une onde rouge part de la puce
+    S.key("onde5", "opacity", f, 0.6)
+    S.key("onde5", "scale", f + 1, 2.6, 12, "out")
+    S.key("onde5", "opacity", f + 1, 0, 12, "linear")
+    S.key("onde5", "scale", f + 13, 0)
+    kit.pop("anneau5", f + 8, d=6)                                # puis un anneau rouge en tirets l'entoure
+    kit.fade("bande5", f + 4, 1, d=6)                             # la ligne entière surlignée de rouge clair
+
+    # =================== S13 « Deuxième étape : tu exiges. » ===================
+    f = kit.at("S13", "Deuxième", "le repère passe à « 2 · Exiger » et le disque 2 grandit puis revient ; l'IA se range, "
+               "petite, dans le coin bas gauche ; ses coches restent sur la page")
+    arr = kit.step(f, 1)
+    S.key("legende1", "under", f, 0, FADE, "inOut")
+    kit.draw("legende2", f + 4, DRAW, track="under")
+    S.key("chapitre", "pos", f - 1, [MARKER_XS[1], S.val("chapitre", "pos", f - 1)[1]])
+    S.key("chapitre_txt", "text", f - 1, "2")
+    S.key("chapitre", "scale", arr, 1)
+    S.key("chapitre", "scale", arr + 1, 1.6, SCALE, "out")
+    S.key("chapitre", "scale", arr + 11, 1, SCALE, "inOut")
+    S.key("chapitre", "scale", arr + 21, 0)
+    kit.move("ia", f, IA_CORNER, scale=IA_CORNER_S)
+    S.keys("ia_pill", f, MOVE, "inOut", pos=list(IA_PILL_CORNER), scale=round(1 / IA_CORNER_S, 4))
+
+    f = kit.at("S13", "étape", "la page glisse à gauche ; le conseiller monte à sa droite, stylo pointé vers elle : il "
+               "prend la main")
+    kit.move("fiche", f, PAGE_S13, scale=PAGE_S13_S)
+    kit.move("outil", f, BADGE_S13, scale=BADGE_S13_S)            # le badge se range hors de la page, sources dedans
+    for i, d in enumerate(docs):
+        kit.move(d, f, _map(FAN[i][:2], FRAME_C, BADGE_S13, BADGE_S13_S), scale=round(DOC_GRID_S * BADGE_S13_S, 4))
+    kit.move("pastille", f, _map(TITLE_S10, FRAME_C, BADGE_S13, BADGE_S13_S),
+             scale=round(TITLE_S10_S * BADGE_S13_S, 4))
+    col = [[CASE_X, c.case_y(i)] for i in range(5)]
+    g = toi.walk(f, list(ADV_S13), d=14)
+    toi.reach(g + 1, col[0], d=8, step=False)
+
+    f = kit.at("S13", "exiges", "la pointe descend la colonne : en face de chaque ligne se trace une case-source vide "
+               "en tirets (bandeau et date vides), de la forme des sources")
+    hits = toi.trace(f, col, step=False)
+    for i in range(5):
+        h = max(hits[i], f)
+        kit.draw(f"case{i + 1}", h, 4)
+        kit.draw(f"case{i + 1}_l1", h + 1, 4)
+        kit.draw(f"case{i + 1}_l2", h + 2, 4)
+    toi.rest(hits[-1] + 1, 8)
+
+    # =================== S14 « Un brief structuré d’une page, … à un document et à une date. » ===================
+    f = kit.at("S14", "structuré", "l'en-tête « Réponse » devient « Brief · 1 page » ; la pastille vole du badge à "
+               "l'en-tête ; chaque ligne se déploie en rangée")
+    kit.fade("fiche_titre1", f, 0)
+    kit.fade("fiche_titre2", f + 2, 1)
+    S.fly("pastille", f, MOVE, "inOut", to=_r(S.to_world("fiche", c.head_pill, f - 1)),
+          scale=round(PASTILLE_HEAD_S * PAGE_S13_S, 4), arc=60)
+    arr = f + MOVE
+    S.key("pastille", "scale", arr, 0)
+    S.key("pastille", "opacity", arr, 0)
+    S.key("pastille_fiche", "opacity", arr, 1)
+    for i in range(5):
+        S.key(f"L{i + 1}", "grow", f + 2 * i, 1, POP, "out")
+
+    f = kit.at("S14", "page", "le badge rend ses 4 sources en version compacte, qui tombent chacune dans sa case ; le "
+               "badge vidé se replie ; la case 5 reste vide")
+    for i, d in enumerate(docs):
+        g = f + 2 * i
+        S.keys(d, g, MOVE, "inOut", pos=list(col[i]), scale=1, compact=1, rot=0)
+        S.key(f"{d}_bandeau", "opacity", g, 0, FADE, "out")
+        S.key(f"{d}_date", "opacity", g, 0, FADE, "out")
+    vanish(kit, "outil", f + 12, d=POP)
+
+    f = kit.at("S14", "renvoie", "un fil plein part de la valeur de chaque ligne 1 à 4 et rejoint sa source ; la ligne 5 "
+               "n'en a pas")
+    for i in range(4):                                            # le fil part du bout de la valeur (pas à travers)
+        kit.ensure(f"fil{i + 1}", "aAt", list(c.wire_a[i]))
+        S.key(f"fil{i + 1}", "aAt", f - 1, [X["value"] + 6, rows[i] + ty])
+        kit.draw(f"fil{i + 1}", f + 3 * i, DRAW)
+        kit.pulse(f"doc{i + 1}", f + 3 * i + DRAW, peak=1.08, step=3)   # la source bat quand le fil l'atteint
+
+    f = kit.at("S14", "date", "la date de chaque source se détache et glisse le long de son fil jusque sous la valeur de "
+               "sa ligne ; la case 5 reste vide")
     for i in range(4):
-        src, fil, g = f"source{i + 1}", f"fil{i + 1}", f + 2 * i
-        cub = S.wire_cubic(fil, g)
-        a_x, b_x = cub[0][0], cub[3][0]
-        a_y, b_y = cub[0][1], cub[3][1]
-        doc = S.to_world(f"doc{i + 1}", [0, 0], g)
-        tgt = S.to_world("fiche", [c.tag_cx, rows[i] + ly], g)
-        o0, o1 = [doc[0] - b_x, doc[1] - b_y], [tgt[0] - a_x, tgt[1] - a_y]
-        S.along_wire(src, fil, g, 12, "inOut", 1.0, 0.0, at_frame=g,
-                     offset=lambda p, o0=o0, o1=o1: (o0[0] + (o1[0] - o0[0]) * p, o0[1] + (o1[1] - o0[1]) * p))
-        kit.pop(src, g, d=6)
+        s = f"source{i + 1}"
+        dst = S.to_world("fiche", S.val(s, "pos", f - 1), f - 1)
+        a0 = point_at_length(S.wire_cubic(f"fil{i + 1}", f - 1), 0)
+        off = [dst[0] - a0[0], dst[1] - a0[1]]
+        kit.pop(s, f, d=6)
+        S.along_wire(s, f"fil{i + 1}", f, MOVE, "inOut", 1, 0, f - 1, offset=lambda p, o=off: [o[0] * p, o[1] * p])
 
-    # =================== S13 « Une info sans source, c’est une question à poser au client. » ===================
-    f = kit.at("S13", "Une", "chaque document remonte son fil et se réduit dans son étiquette-source, en passant sous elle ; "
-               "les fils rentrent ; les cases 1-4 s'effacent, la case 5 reste vide ; le conseiller redescend à droite de "
-               "la page (x 1,1), seul son bras pourra y entrer")
-    dur = MORPH
-    for i in range(4):
-        d_id, src, fil = f"doc{i + 1}", f"source{i + 1}", f"fil{i + 1}"
-        a = S.to_world(d_id, [0, 0], f - 1)
-        b = S.to_world(src, [-S.ents[src]["p"]["tag"]["w"] / 2 + 24, 0], f - 1)   # droit sur la pastille
-        S.key(d_id, "z", f, 12.5 + 0.01 * i)                # sous l'étiquette qu'il rejoint : la date reste lisible
-        S.path(d_id, f, dur, "inOut", lambda p, a=a, b=b: lerp(a, b, p))
-        S.key(d_id, "tag", f, 1, dur, "inOut")
-        S.key(fil, "from", f, 1, 5, "linear")
-        S.key(fil, "opacity", f + 5, 0)
-        arr = f + dur
-        S.key(d_id, "opacity", arr, 0)
-        S.key(src, "flash", arr, 1, 2, "out")
-        S.key(src, "flash", arr + 2, 0, 3, "inOut")
-        S.key(f"case{i + 1}", "draw", f, 0, dur, "in")
-    toi.scale_to(f, ADV_S13_SCALE, d=12)
-    # le long du bord droit, à droite de la case 5 ; x 1,1 : jamais au-delà de x 940 (zone réservée)
-    down = [min(S.val("toi", "pos", f - 1)[0], 940 - 59 * ADV_S13_SCALE - 4), ADV_S13[1] - 90]
-    g = toi.walk(f, down, d=6, e="inOutSine")
-    toi.walk(g, list(ADV_S13), d=6, e="inOutSine")           # fini avant « sans »
-
-    f = kit.at("S13", "sans", "un surligneur cyan pâle s'étire sous « Horizon : 5 ans » ; la ligne lance le même fil vers "
-               "la case 5 : il en touche le bord, n'y trouve rien (la case tremble) et retombe tout droit dans le vide")
-    sl_w = X["slot1"] - X["slot0"]
-    sl_y = rows[4] + ty
-    S.key("surligneur", "w", f - 1, 0)
-    S.key("surligneur", "pos", f - 1, [X["slot0"], sl_y])
-    S.key("surligneur", "scale", f - 1, 1)
-    S.key("surligneur", "w", f, sl_w, FADE, "out")
-    S.key("surligneur", "pos", f, [round((X["slot0"] + X["slot1"]) / 2, 1), sl_y], FADE, "out")
-    S.key("L5", "slotFill", f, 0, FADE, "out")
-    kit.draw("fil5", f, 3)
-    touch = f + 2
-    kit.shake("case5", touch + 1, amp=6)
-    S.key("fil5", "pb", touch + 2, list(HANG), 3, "inOutSine")   # retombé avant « source, »
-    S.key("fil5", "sag", touch + 2, 20, 3, "inOutSine")
-
-    kit.hold("S13", "source,", "tenue (0,8 s) : le fil pend dans le vide sous la case 5, la case reste un contour vide, la "
-             "ligne Horizon en lumière ; rien ne bouge")
-
-    f = kit.at("S13", "c’est", "le stylo du conseiller touche « 5 ans » : au contact, la ligne vire au rouge et se fend ; "
-               "la coche pointillée de l'IA reste, l'IA ne bouge pas")
-    hit = toi.tap(f - 4, S.to_world("L5", [X["value"] - 15, ty], f - 1), d=5)   # approche courte : la case tient
-    S.key("L5", "red", hit, 1, 3, "out")
-    S.key("L5", "crack", hit, 1, POP, "out")
-
-    f = kit.at("S13", "question", "un grand « ? » naît sur la valeur fendue, sous la pointe, puis glisse prendre la place "
-               "de la case 5, qui se replie avec le fil")
-    v_pt = S.to_world("L5", line_crack_point(p5, [X["value"] - p5["valueW"] / 2, ty], 1.0), f - 1)
-    S.key("question", "pos", f - 1, _r(v_pt))
-    S.key("question", "scale", f - 1, 0)
-    S.key("question", "scale", f, 1, 7, "out")
-    S.key("question", "pos", f + 4, list(cases[4]), 9, "inOut")
-    vanish(kit, "case5", f)
-    S.key("fil5", "draw", f, 0, 6, "in")
-    toi.rest(f + 3, 8)
-
-    f = kit.at("S13", "poser", "le « ? » monte dans une bulle qui grandit à droite du conseiller, queue sur sa tête, son "
-               "corps tourné vers la place du client")
-    kit.pop("bulle", f)
-    q_at = [BUBBLE_AT[0] + BUBBLE_BIG["qx"], BUBBLE_AT[1]]
-    S.fly("question", f, 10, "inOut", to=q_at, scale=BUBBLE_BIG["q"] / 110, arc=30)
-    arr = f + 10
-    S.key("question", "opacity", arr, 0)
-    S.key("question", "scale", arr, 0)
-    S.key("bulle", "q", arr, 1)
-
-    f = kit.at("S13", "client.", "la pastille de la fiche bat ; le client naît de son pictogramme, longe l'en-tête, "
-               "descend le bord droit et grandit sous le côté ouvert de la bulle, face au conseiller ; la bulle penche "
-               "vers lui")
-    kit.pulse("pastille_fiche", f, peak=1.15, step=3)
-    icon_w = S.to_world("pastille_fiche", PILL_ICON, f - 1)
-    head_y = icon_w[1]
-    route = _catmull([icon_w, [icon_w[0] + 160, head_y], [600, head_y], [872, 560], [884, 900], list(CLIENT_S13)])
-    client.size = 0.5
-    client.enter(f, at=_r(icon_w), d=2)                     # né du pictogramme, x 0,5 (rig de la figurine)
-    client.run(f + 2, [_r(p) for p in route[::3]] + [list(CLIENT_S13)], 16)
-    client.scale_to(f + 14, 1.0, d=4, e="out")              # il grandit en arrivant sous la bulle
-    arr = f + 18
-    kit.ensure("bulle", "rot", 0)
-    S.key("bulle", "rot", arr, 5, 3, "out")
-    S.key("bulle", "rot", arr + 4, 0, 4, "inOut")
-
-    # =================== S14 « Dernière étape : relis, corrige, décide. » ===================
-    f = kit.at("S14", "Dernière", "le repère passe au « 3 · Relire » (un seul disque glisse) ; la fiche grandit pour la "
-               "relecture ; le conseiller monte à droite de la page ; sa bulle se replie en autocollant « ? » de 96 px "
-               "qui va attendre sur la rangée L5, entre « Horizon » et la valeur fendue ; le client reste")
-    kit.step(f, 2)
-    S.keys("fiche", f, 10, "inOut", pos=list(PAGE_S14), scale=PAGE_S14_SCALE)
-    n_end = f + 10
-    ticks = [S.to_world("fiche", sheet.pt(i, "tick"), n_end) for i in range(5)]
-    crack_r = S.to_world("L5", line_crack_point(p5, [X["value"] + 8, ty], 1.0), n_end)
-    crack_l = S.to_world("L5", line_crack_point(p5, [X["value"] - p5["valueW"] - 8, ty], 1.0), n_end)
-    toi.scale_to(f, ADV_S14_SCALE, d=10)
-    spot_a = spot_for(ticks[:3], ADV_S14_Y[0], ADV_S14_X, f + 10)          # relit L1-L3 d'ici
-    spot_b = spot_for(ticks[2:] + [crack_r, crack_l], ADV_S14_Y[1], ADV_S14_X, f + 10)   # L3-L5 et la rature
-    toi.walk(f, spot_a, d=10, e="inOutSine")
-    park = S.to_world("fiche", S.val("autocollant", "pos", f), n_end)
-    S.fly("bulle", f, 10, "inOut", to=park, scale=STICKER_PX / 72, arc=30)
-    S.key("bulle", "s", f, 1, 6, "out")                     # se replie d'abord, puis glisse
-    arr = f + 10
-    S.key("bulle", "opacity", arr, 0)
-    S.key("bulle", "scale", arr, 0)
-    S.key("autocollant", "opacity", arr, 1)
-
-    f = kit.at("S14", "étape :", "le stylo touche la coche pointillée de L1 : elle se soulève et bat (x 1,25), puis la "
-               "coche pleine cyan profond se trace par-dessus et la pointillée disparaît DANS elle ; son étiquette-source "
-               "s'allume ; puis L2, au même pas de 0,35 s")
-    r_f = kit.at("S14", "relis,", "même geste sur L3 puis L4 : la coche pointillée bat, la coche pleine la repasse et "
-                 "l'absorbe ; la pointe s'arrête sur la coche de L5 sans la repasser")
-    c_f = kit.at("S14", "corrige,", "d'un geste, le stylo chasse la coche pointillée de L5 (elle part en grand arc hors du "
-                 "bord de la page en tournant ; son carré reste vide) puis barre « 5 ans », qui tombe ; l'autocollant « ? » "
-                 "glisse sur la valeur ; « à poser au RDV » paraît, la réplique « 9 h » de la pastille à sa gauche ; un "
-                 "fil plein cyan profond relie le « ? » au client, par-dessus la tête du conseiller ; tout est posé avant "
-                 "« décide. »")
-    toi.walk(f + 11, spot_b, d=26)
-    hits = toi.trace(f - 3, ticks, d=c_f - f - 1, lead=4, step=False)   # L1 sur « étape », L3 sur « relis », L5 à
-    #                                                                     « corrige » - 1 ; le corps descend (walk)
-    if hits[0] != f or hits[2] != r_f or hits[4] != c_f - 1:
-        kit.warn(f"p2 S14 : relecture décalée des mots ({hits} ; étape {f}, relis {r_f}, corrige {c_f})")
-    for i in range(4):
-        kit.pulse(f"coche_ia{i + 1}", hits[i], peak=1.25, step=2)        # au contact, la coche de l'IA bat
-        kit.draw(f"coche{i + 1}", hits[i] + 2, 6)                        # la coche pleine se trace par-dessus
-        vanish(kit, f"coche_ia{i + 1}", hits[i] + 4, into=f"coche{i + 1}", d=5)   # et l'absorbe
-        S.key(f"source{i + 1}", "lit", hits[i] + 2, 1, 4, "out")
-
-    f = c_f
-    # la coche de l'IA de L5, sans son carré, est chassée : grand arc hors du bord droit de la page, en tournant
-    S.key("carre5", "opacity", f, 1)                         # le carré tireté reste, vide
-    S.key("coche_ia5", "draw", f, 0)
-    S.key("coche_ia5_vol", "opacity", f, 1)
-    S.key("coche_ia5_vol", "z", f, 16)
-    kit.ensure("coche_ia5_vol", "rot", 0)
-    p_vol = S.val("coche_ia5_vol", "pos", f)
-    out_w = S.to_world("fiche", [p_vol[0], p_vol[1]], f)
-    # elle tombe en travers de la page (pointillés gris sur papier : lisible), sort par son bord bas et s'efface ;
-    # jamais devant le buste encre du conseiller, où elle disparaîtrait
-    out_to = S.to_local("fiche", [out_w[0] - 90, out_w[1] + 340], f)
-    S.key("coche_ia5_vol", "pos", f, _r(out_to), 14, "in", arc=40)   # 450 ms, chute de 340 px
-    S.key("coche_ia5_vol", "rot", f, 90, 14, "out")
-    S.key("coche_ia5_vol", "opacity", f + 10, 0, 4, "linear")
-    g = toi.strike(f, crack_r, crack_l, d=5, lead=2, line="L5")    # g ≈ 1198
-    hold = g + 1
-    S.key("L5", "fall", hold, 1, 7, "in")
-    S.key("L5", "crack", g, 0, 8, "inOut")
-    S.key("L5", "red", g, 0, 4, "out")
-    S.key("puce5_alerte", "alarm", g, 0, 4, "out")
-    S.key("puce5_alerte", "scale", g, 1, 4, "inOut")
-    S.key("puce5_alerte", "opacity", g + 4, 0)
-    vanish(kit, "anneau5", g, d=4)
-    S.key("L5", "bulletOn", g + 4, 1)
-    vanish(kit, "surligneur", g)
-    S.keys("autocollant", g + 1, 4, "inOut", pos=[X["value"] - 46, rows[4] + ty - 10])   # « Horizon : ? »
-    kit.pop("source5", g + 1, d=6)
-    # « ce client, à 9 h » : la réplique de la pastille paraît sur place, devant « à poser au RDV »
-    mini_at = [round(X["value"] - S.ents["source5"]["p"]["tag"]["w"] - 58, 1), rows[4] + ly + 6]
-    S.key("pastille_mini", "pos", g + 1, mini_at)
-    kit.pop("pastille_mini", g + 2, d=4)
-    # la question est adressée au client : fil plein cyan profond du « ? » à sa tête, au-dessus du conseiller ; le
-    # client reste immobile (sa réponse viendra au rendez-vous, S19)
-    kit.draw("fil_q", g + 3, 5)
-
-    # « décide. » : un pas vers le bas de la page, le coup de tampon, la page tremble ; il s'écarte aussitôt
-    hit_f = kit.at("S14", "décide.", "le conseiller fait un pas et abat le tampon PRÊT POUR LE RDV (horloge 9 h à gauche) "
-                   "en bas de la page, sous « à poser au RDV », sans couvrir le « ? » ni son fil ; la page tremble ; il "
-                   "s'écarte aussitôt : le tampon se lit en entier, la ligne 5 garde son carré vide") + 5
-    if g + 8 > hit_f - 5:
-        kit.warn(f"p2 S14 : les suites de « corrige » ({g + 8}) mordent sur « décide. » ({hit_f - 5})")
-    grip_l = [0, -(S.ents["tampon"]["p"]["h"] / 2 + 14 + 10)]
-    rr = math.radians(STAMP_ROT)
-    grip_f = [STAMP_AT[0] + grip_l[0] * math.cos(rr) - grip_l[1] * math.sin(rr),
-              STAMP_AT[1] + grip_l[0] * math.sin(rr) + grip_l[1] * math.cos(rr)]
-    grip_w = S.to_world("fiche", grip_f, hit_f - 6)
-    hand_r = 0.94 * REACH_STAMP * toi.reach_max(hit_f - 6, pen=False)
-    sc = S.world_scale("toi", hit_f - 6)
-    st_spot = [round(grip_w[0] + hand_r - toi.shoulder[0] * sc, 1), round(grip_w[1] - toi.shoulder[1] * sc, 1)]
-    w0 = max(g + 8, hit_f - 5 - 5)
-    toi.walk(w0, st_spot, d=hit_f - 5 - w0)
-    f = hit_f - 5
-    hit = toi.stamp(f, "tampon", shake="fiche", step=False)
-    S.key("tampon", "handle", hit + 1, 0, 2, "linear")      # la poignée part avec la main
-    toi.scale_to(hit + 1, 1.0, d=5)                          # il s'écarte (x 1) : le tampon se lit dès hit + 4
-    w1 = toi.walk(hit + 1, ADV_END, d=5, e="inOutSine")
-    toi.rest(w1, 4)
+    # raccord vers p3 : l'état de l'image 1935 doit être exactement ENTRY_P3
+    last = scene_f0(S, "S15") - 1
+    for id, tracks in ENTRY_P3.items():
+        for track, v in tracks.items():
+            cur = S.val(id, track, last, 0 if track not in ("pos",) else None)
+            diff = (max(abs(a - b) for a, b in zip(cur, v)) if isinstance(v, (list, tuple))
+                    else abs((cur or 0) - v))
+            if diff > 1e-3:
+                kit.warn(f"raccord p2 -> p3 : {id}.{track} vaut {cur} à l'image {last}, ENTRY_P3 attend {v}")

@@ -72,10 +72,21 @@ const Pill: React.FC<EntityProps> = ({r, scene}) => {
 // ---------- figure: advisor (full ink) / client (paper) ----------
 /** Lean pivot of the figure (its base), shared with the arm anchor (limb). */
 export const FIGURE_PIVOT = GEOM.FIGURE.pivot as Vec2;
+// Opt-in (absent = today's figure, pixel for pixel): variant 'societe' = paper figure standing under a building
+// portico (gable + entablature + two columns on its shoulders) so it reads as a company, not a person; track `look` (-1 .. 1, absent = 0): a small
+// nose on the side of the head, the figure seen in profile looking left (< 0) or right (> 0), e.g. turning its back.
+const SOC_ROOF = GEOM.FIGURE.societe as {gable: string; beam: number[]; cols: number[][]};
 const Figure: React.FC<EntityProps> = ({r}) => {
   const C = usePalette();
-  const ink = (r.e.p as {variant?: string}).variant === 'ink';
+  const variant = (r.e.p as {variant?: string}).variant;
+  const ink = variant === 'ink';
   const lean = r.get('lean', 0);
+  const look = r.get('look', 0);
+  const lk = Math.abs(look);
+  const sgn = look < 0 ? -1 : 1;
+  const nose = lk > 0.01
+    ? `M${sgn * (HEAD.r - 4)} ${HEAD.cy - 9} L${sgn * (HEAD.r + 11 * lk)} ${HEAD.cy + 2} L${sgn * (HEAD.r - 4)} ${HEAD.cy + 10} Z`
+    : null;
   return (
     <g transform={`rotate(${lean} ${FIGURE_PIVOT[0]} ${FIGURE_PIVOT[1]})`}>
       <Hard
@@ -83,7 +94,17 @@ const Figure: React.FC<EntityProps> = ({r}) => {
         render={(sh) => (
           <>
             <path d={BUST} fill={sh || ink ? C.ink : C.paper} stroke={C.ink} strokeWidth={GEOM.FIGURE.sw} strokeLinejoin="round" />
+            {nose ? <path d={nose} fill={sh || ink ? C.ink : C.paper} stroke={C.ink} strokeWidth={GEOM.FIGURE.sw} strokeLinejoin="round" /> : null}
             <circle cx={0} cy={HEAD.cy} r={HEAD.r} fill={sh || ink ? C.ink : C.paper} stroke={C.ink} strokeWidth={GEOM.FIGURE.sw} />
+            {variant === 'societe' ? (
+              <>
+                <path d={SOC_ROOF.gable} fill={sh ? C.ink : C.paper} stroke={C.ink} strokeWidth={GEOM.FIGURE.sw} strokeLinejoin="round" />
+                <rect x={SOC_ROOF.beam[0]} y={SOC_ROOF.beam[1]} width={SOC_ROOF.beam[2]} height={SOC_ROOF.beam[3]} rx={3} fill={C.ink} stroke={C.ink} strokeWidth={2} />
+                {SOC_ROOF.cols.map((c, i) => (
+                  <rect key={`col${i}`} x={c[0]} y={c[1]} width={c[2]} height={c[3]} rx={2} fill={C.ink} stroke={C.ink} strokeWidth={2} />
+                ))}
+              </>
+            ) : null}
           </>
         )}
       />
@@ -853,12 +874,24 @@ const Limb: React.FC<EntityProps> = ({r, scene}) => {
 };
 
 // ---------- stamp: « VALIDÉ », ink on paper (no fill: the page shows through) ----------
-/** Track `handle` (0..1): the ink handle on top, held by the advisor's arm during the slam. Grip at STAMP_GRIP. */
+/** Track `handle` (0..1): the ink handle on top, held by the advisor's arm during the slam. Grip at STAMP_GRIP.
+ *  Opt-in `sub` (absent = today's one-line stamp, same pixels): a second line under the text, a small « ? » in a
+ *  deep circle then `sub` (SemiBold, GEOM.STAMP_SUB), the first line lifted by `lift`; `subW` = measured width of
+ *  `sub` (Kit.stamp; else 0.5 em a character). Track `subOn` (0..1, default 1): opacity of the second line. */
 export const STAMP_HANDLE = GEOM.STAMP_HANDLE;
+const STAMP_SUB = GEOM.STAMP_SUB;
 const Stamp: React.FC<EntityProps> = ({r}) => {
   const C = usePalette();
-  const p = r.e.p as {text: string; w: number; h: number; size?: number};
+  const p = r.e.p as {text: string; w: number; h: number; size?: number; sub?: string; subW?: number};
   const handle = clamp01(r.get('handle', 0));
+  const Q = STAMP_SUB;
+  const sub = p.sub ? p.sub : null;
+  const ty = sub ? 1 - Q.lift : 1;
+  const lite = clamp01(r.get('lite', 0));
+  const subOn = sub ? clamp01(r.get('subOn', 1)) : 0;
+  const qD = 2 * Q.qR + Q.qSw;
+  const subW = sub ? p.subW ?? 0.5 * Q.size * sub.length : 0;
+  const gx = -(qD + Q.gap + subW) / 2;
   const ny = -p.h / 2;
   const H = STAMP_HANDLE;
   return (
@@ -879,13 +912,29 @@ const Stamp: React.FC<EntityProps> = ({r}) => {
       <rect x={-p.w / 2} y={-p.h / 2} width={p.w} height={p.h} rx={12} fill="none" stroke={C.deep} strokeWidth={6} />
       <rect x={-p.w / 2 + 9} y={-p.h / 2 + 9} width={p.w - 18} height={p.h - 18} rx={7} fill="none" stroke={C.deep} strokeWidth={2.5} />
       {r.get('lite', 0) < 0.999 ? (
-        <Txt x={0} y={1} size={p.size ?? 40} weight={800} color={C.deep} anchor="middle" spacing={3} opacity={r.get('lite', 0) > 0.001 ? 1 - clamp01(r.get('lite', 0)) : undefined}>
+        <Txt x={0} y={ty} size={p.size ?? 40} weight={800} color={C.deep} anchor="middle" spacing={3} opacity={r.get('lite', 0) > 0.001 ? 1 - clamp01(r.get('lite', 0)) : undefined}>
           {p.text}
         </Txt>
       ) : null}
       {r.get('lite', 0) > 0.001 ? (
         // opt-in `lite` (absent / 0 = today's stamp): the text becomes a plain deep-cyan bar
-        <rect x={-p.w / 2 + 30} y={-11} width={p.w - 60} height={22} rx={11} fill={C.deep} opacity={r.get('lite', 0) < 0.999 ? clamp01(r.get('lite', 0)) : undefined} />
+        <rect x={-p.w / 2 + 30} y={sub ? ty - 12 : -11} width={p.w - 60} height={22} rx={11} fill={C.deep} opacity={r.get('lite', 0) < 0.999 ? clamp01(r.get('lite', 0)) : undefined} />
+      ) : null}
+      {sub && subOn > 0.001 && lite < 0.999 ? (
+        // opt-in `sub`: second line « (?) + 1 question », faded in by `subOn` (the slam's contact)
+        <g opacity={subOn * (1 - lite) < 0.999 ? subOn * (1 - lite) : undefined}>
+          <circle cx={gx + qD / 2} cy={Q.dy} r={Q.qR} fill="none" stroke={C.deep} strokeWidth={Q.qSw} />
+          <Txt x={gx + qD / 2} y={Q.dy} size={Q.qSize} weight={800} color={C.deep} anchor="middle">
+            ?
+          </Txt>
+          <Txt x={gx + qD + Q.gap} y={Q.dy} size={Q.size} weight={600} color={C.deep}>
+            {sub}
+          </Txt>
+        </g>
+      ) : null}
+      {sub && subOn > 0.001 && lite > 0.001 ? (
+        // with `lite`, the second line becomes a bar too
+        <rect x={gx} y={Q.dy - Q.bar / 2} width={qD + Q.gap + subW} height={Q.bar} rx={Q.bar / 2} fill={C.deep} opacity={subOn * lite < 0.999 ? subOn * lite : undefined} />
       ) : null}
     </>
   );
@@ -940,19 +989,32 @@ const Marker: React.FC<EntityProps> = ({r}) => {
       <line x1={p.xs[0]} x2={p.xs[p.xs.length - 1]} y1={p.y} y2={p.y} stroke={C.ink} strokeWidth={4} />
       {p.labels
         ? p.labels.map((t, i) => (
-            <Txt key={`l${i}`} x={p.xs[i]} y={p.y + (p.labelDy ?? M.labelDy)} size={p.labelSize ?? M.labelSize} weight={700} color={mixHex(C.aiTick, C.ink, on === 1 ? clamp01(1 - Math.abs(a - i)) : clamp01(1 - Math.abs(a - i)) * lit)} anchor="middle">
+            <Txt key={`l${i}`} x={p.xs[i]} y={p.y + (p.labelDy ?? M.labelDy)} size={p.labelSize ?? M.labelSize} weight={700} color={mixHex(C.aiTick, C.ink, Math.max(clamp01(r.get(`done${i}`, 0)), on === 1 ? clamp01(1 - Math.abs(a - i)) : clamp01(1 - Math.abs(a - i)) * lit))} anchor="middle">
               {t}
             </Txt>
           ))
         : null}
-      {p.xs.map((x, i) => (
-        <g key={x}>
-          <circle cx={x} cy={p.y} r={M.r} fill={C.paper} stroke={C.ink} strokeWidth={4} />
-          <Txt x={x} y={p.y} size={22} weight={800} anchor="middle">
-            {String(i + 1)}
-          </Txt>
-        </g>
-      ))}
+      {p.xs.map((x, i) => {
+        // opt-in tracks done0..doneN (absent = 0 = today's disc): the step is DONE, its label stays ink and a deep
+        // tick replaces the digit in the disc (drawn 0 -> 1).
+        const dn = clamp01(r.get(`done${i}`, 0));
+        const tk = tickPath(26);
+        return (
+          <g key={x}>
+            <circle cx={x} cy={p.y} r={M.r} fill={C.paper} stroke={C.ink} strokeWidth={4} />
+            {dn < 1 ? (
+              <g opacity={1 - dn}>
+                <Txt x={x} y={p.y} size={22} weight={800} anchor="middle">
+                  {String(i + 1)}
+                </Txt>
+              </g>
+            ) : null}
+            {dn > 0 ? (
+              <path d={tk.d} transform={`translate(${x} ${p.y + 1})`} fill="none" stroke={C.deep} strokeWidth={6} strokeLinecap="round" strokeLinejoin="round" strokeDasharray={drawDash(tk.len, dn)} />
+            ) : null}
+          </g>
+        );
+      })}
       {on === 1 ? (
         <Hard off={6} render={(sh) => <circle cx={cx} cy={p.y} r={M.activeR} fill={sh ? C.ink : C.cyan} stroke={C.ink} strokeWidth={4} />} />
       ) : (

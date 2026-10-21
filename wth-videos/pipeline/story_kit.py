@@ -187,14 +187,48 @@ class Kit:
         S.key(id, "scale", f, s1, d, e)
         return f + d
 
-    def vanish(self, id, f, into=None, d=POP, e="out"):
+    def vanish(self, id, f, into=None, d=POP, e="out", style=None, n=7, spread=42, color="ink", sw=4):
         """Disparition : se réduit vers son centre (ou vers `into`, point monde ou id) puis opacité 0. Clés : scale
-        (-> 0 en d), pos (-> into), opacity (0 à f + d)."""
+        (-> 0 en d), pos (-> into), opacity (0 à f + d).
+
+        style="burst" (facultatif ; défaut inchangé) : l'élément ÉCLATE. Il se réduit en 3 images pendant que `n`
+        éclats en tirets (`color`, `sw`), posés sur son contour (ellipse w x h du paramètre de l'entité, à son échelle
+        monde), filent de `spread` px vers l'extérieur et s'effacent en `d` images (8 par défaut : 250 ms). Les éclats
+        sont déclarés ici (ids `<id>__eclat<f>_<k>`, calque de l'élément + 0,5). -> f + d."""
         S = self.S
+        if style == "burst":
+            return self._burst(id, f, 8 if d == POP else d, n, spread, color, sw)
         if into is not None:
             S.key(id, "pos", f, r3(S.parent_space(id, self._world_of(into, f + d), f + d)), d, e)
         S.key(id, "scale", f, 0, d, e)
         S.key(id, "opacity", f + d, 0)
+        return f + d
+
+    def _burst(self, id, f, d, n, spread, color, sw):
+        """vanish(style="burst") : éclats en tirets qui filent vers l'extérieur et s'effacent."""
+        S = self.S
+        c = S.to_world(id, [0, 0], f - 1)
+        s = S.world_scale(id, f - 1)
+        p = S.ents[id]["p"]
+        w = p.get("w", 2 * p.get("r", 50)) * s
+        h = p.get("h", w / max(s, 1e-6)) * s
+        rx, ry = max(w / 2, 12), max(h / 2, 12)
+        L = max(14.0, min(34.0, 0.22 * (rx + ry)))
+        z = S.ents[id].get("z", 0) + 0.5
+        for k in range(n):
+            a = 2 * math.pi * k / n + 0.35
+            pt = [c[0] + rx * math.cos(a), c[1] + ry * math.sin(a)]
+            out = [pt[0] + spread * math.cos(a), pt[1] + spread * math.sin(a)]
+            fid = f"{id}__eclat{f}_{k}"
+            S.add(fid, "shape", z=z, kind="poly", pts=[[-L / 2, 0], [L / 2, 0]], closed=False, fill="none",
+                  stroke=color, sw=sw, dash=[7, 5], shadow=0)
+            S.set(fid, pos=r3(pt), scale=0, opacity=1, rot=round(math.degrees(a) + 90, 2))
+            S.key(fid, "scale", f, 1)
+            S.key(fid, "pos", f, r3(out), d, "out")
+            S.key(fid, "scale", f + 1, 0.6, d - 1, "in")
+            S.key(fid, "opacity", f + 2, 0, d - 2, "linear")
+        S.key(id, "scale", f, 0, 3, "out")
+        S.key(id, "opacity", f + 3, 0)
         return f + d
 
     def morph(self, outs, ins, f, d=MORPH, pair=None, e="out"):
@@ -381,6 +415,29 @@ class Kit:
         return self._add(id, "tick", pos, z, parent, 1, 1, None, {"draw": draw}, color=color, sw=sw,
                          size=size if size is not None else GEOM["TICK"]["size"], variant=variant, **p)
 
+    def stamp(self, id, pos, text, w, h, size=40, sub=None, sub_on=None, rot=None, z=11.8, parent=None, scale=1,
+              opacity=1, handle=None, **p):
+        """Tampon (double cadre deep, sans fond) : `text` ExtraBold espacé ; facultatif `sub`, seconde ligne précédée
+        d'un « ? » cerclé (GEOM.STAMP_SUB ; largeur mesurée -> subW ; cadre h >= 84). Pistes handle (poignée,
+        Figure.stamp), lite, subOn (opacité de la seconde ligne, défaut 1 : sub_on=0 pour la faire paraître au
+        contact, S.key(id, "subOn", hit, 1, 3) avec hit = Figure.stamp(...)). Déclarer seulement : le coup se joue
+        par Figure.stamp."""
+        Q = GEOM["STAMP_SUB"]
+        inner = w - 2 * 18                      # double cadre : 9 px de marge + respiration
+        need = text_width(text, size, 800) + 3 * (len(text) - 1)
+        if need > inner:
+            raise SystemExit(f"{id} : « {text} » trop large pour le tampon ({need:.0f} px > {inner} px) : élargis w")
+        extra = {}
+        if sub is not None:
+            sub_w = round(text_width(sub, Q["size"], 600), 1)
+            line2 = 2 * Q["qR"] + Q["qSw"] + Q["gap"] + sub_w
+            if line2 > inner or h < 84:
+                raise SystemExit(f"{id} : seconde ligne « {sub} » : il faut w >= {line2 + 36:.0f} et h >= 84")
+            extra = {"sub": sub, "subW": sub_w}
+        tracks = {"handle": handle, "subOn": sub_on if sub is not None else None}
+        return self._add(id, "stamp", pos, z, parent, scale, opacity, rot, tracks, text=text, w=w, h=h, size=size,
+                         **extra, **p)
+
     # --- éléments de la série ---
     def steps_marker(self, labels=None, n=None, id="marqueur", y=300, cx=540, gap=None, active=0, z=20):
         """Repère d'étapes 1-2-3 (marker), avec sa légende `labels` sous les disques ; écart >= 150 px avec légende
@@ -401,11 +458,20 @@ class Kit:
         return f + d
 
     def outro(self, scene, mot=None, outs=(), press=16, title="WealthTech Horizon", labels=("Comprendre ton argent",),
-              text="S’abonner", icon=None, pos=(540, 760), w=620, h=520, id="fin", z=40):
+              text="S’abonner", icon=None, pos=(540, 760), w=620, h=520, id="fin", z=40, clear=None, card_at=None,
+              btn_at=None, **card):
         """Fin standard des 15 films, sur le temps fort (scène, mot ; défaut : le 1er de la scène) : les `outs` se
         réduisent pendant que la carte de fin grandit (morph 350 ms) ; titre et lignes en fondu, le bouton surgit ;
         le pointeur entre en bas à droite, glisse sur le bas du bouton (jamais sur le libellé) et l'enfonce `press`
         images après la carte (ou sur le mot `press` de la scène) ; puis tout reste immobile jusqu'à la fin.
+        clear="fade" (facultatif ; défaut inchangé) : les `outs` s'effacent en opacité sur FADE images, sans se
+        réduire en éclats ni en points, pendant que la carte grandit.
+        card_at (facultatif ; défaut inchangé) : la carte ne grandit pas depuis 0, elle paraît d'un coup à pleine
+        taille à l'image f + card_at : c'est le relais d'une entité de la composition que la mise en scène a amenée
+        exactement à sa place (la fiche du film) ; titre et lignes entrent à f + card_at + 4.
+        btn_at (facultatif) : le bouton paraît d'un coup (btn 1) à f + btn_at, relais d'une pilule amenée à sa place
+        (la pastille du fil), au lieu de surgir à f + 6.
+        **card (facultatif) : paramètres de plus de la carte (labelSize, bsize…), passés tels quels à endcard.
         -> {"card": image, "press": image du clic}."""
         S = self.S
         sc = next((s for s in S.sb["scenes"] if s["id"] == scene), None)
@@ -413,11 +479,27 @@ class Kit:
             raise SystemExit(f"outro : scène {scene} absente du storyboard")
         f = self.at(scene, mot or sc["beats"][0]["mot"], "fin : la carte de fin remplace la composition, bouton S’abonner")
         fp = self.at(scene, press, "fin : le pointeur enfonce le bouton") if isinstance(press, str) else f + press
-        self.endcard(id, pos, title=title, text=text, labels=labels, icon=icon, w=w, h=h, z=z, scale=0, btn=0)
+        self.endcard(id, pos, title=title, text=text, labels=labels, icon=icon, w=w, h=h, z=z, scale=0, btn=0, **card)
         S.set(id, title=0)
-        self.morph(list(outs), [id], f, pair=False)
-        S.key(id, "title", f + 4, 1, FADE, "out")
-        S.key(id, "btn", f + 6, 1, POP, "out")
+        t0 = f
+        if clear == "fade":
+            for o in outs:
+                S.key(o, "opacity", f, 0, FADE, "linear")
+                S.key(o, "scale", f + FADE, 0)
+            if card_at is None:
+                self.pop(id, f, d=MORPH)
+        elif card_at is None:
+            self.morph(list(outs), [id], f, pair=False)
+        elif outs:
+            self.morph(list(outs), [], f, pair=False)
+        if card_at is not None:                                  # relais : la carte paraît à pleine taille
+            t0 = f + card_at
+            S.key(id, "scale", t0, 1)
+        S.key(id, "title", t0 + 4, 1, FADE, "out")
+        if btn_at is not None:
+            S.key(id, "btn", f + btn_at, 1)
+        else:
+            S.key(id, "btn", f + 6, 1, POP, "out")
         bw, bh = 380, 112
         by = pos[1] + h / 2 - bh / 2 - 56
         aim = [pos[0] + bw / 2 - 46, by + bh / 2 - 20]          # bas droit du bouton, hors du libellé

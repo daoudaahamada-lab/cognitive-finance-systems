@@ -11,7 +11,8 @@
     "sw": 5,
     "shoulder": [-30, -16],
     "hand": [-58, -6],
-    "arm": {"upper": 84, "fore": 80, "sw": 13}
+    "arm": {"upper": 84, "fore": 80, "sw": 13},
+    "societe": {"_doc": "Variante 'societe' (facultative) : la figurine sous un portique d'immeuble (pignon gable, entablement beam = x, y, w, h, deux colonnes cols = [x, y, w, h] posées sur les épaules).", "gable": "M-60 -110 L0 -146 L60 -110 Z", "beam": [-64, -112, 128, 12], "cols": [[-56, -100, 10, 82], [46, -100, 10, 82]]}
   },
   "PEN": {
     "_doc": "Stylo : origine = prise, pointe en (len, 0) ; r = demi-épaisseur du corps, tip = longueur de la pointe.",
@@ -25,6 +26,17 @@
     "neckW": 22,
     "knobW": 56,
     "knobH": 20
+  },
+  "STAMP_SUB": {
+    "_doc": "Tampon à deux lignes (paramètre facultatif `sub`, cadre h ≈ 84) : ligne 1 remontée de lift, ligne 2 centrée en dy (petit « ? » ExtraBold qSize dans un cercle de rayon qR, trait qSw, puis le texte SemiBold size à gap px) ; barre de la ligne 2 (piste lite) haute de bar.",
+    "lift": 13,
+    "dy": 14.5,
+    "size": 26,
+    "qR": 12.5,
+    "qSw": 2.5,
+    "qSize": 19,
+    "gap": 8,
+    "bar": 18
   },
   "TAG": {
     "_doc": "Puce-date / étiquette-source : pictogramme à iconX du bord gauche, texte à textX, coin plié fold, pastille discR.",

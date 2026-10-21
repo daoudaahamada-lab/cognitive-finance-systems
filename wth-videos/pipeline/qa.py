@@ -189,7 +189,7 @@ def motion_captions(out_dir, path=None):
     return props, active, groups, [t for t in texts if t]
 
 
-STORY_TEXT_KEYS = ("text", "key", "value", "title", "date", "sealText", "labels", "prefix", "suffix")
+STORY_TEXT_KEYS = ("text", "key", "value", "title", "date", "sealText", "labels", "prefix", "suffix", "sub")
 
 
 def entity_texts(props):
