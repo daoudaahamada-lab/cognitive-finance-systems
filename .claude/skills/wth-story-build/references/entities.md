@@ -551,7 +551,12 @@ Repère d'étapes 1-2-3 : une ligne, des disques numérotés, et le disque actif
 
 **Paramètres :** `xs` (x des disques), `y`, `labels` (légende, voir « Ajouts »), `labelDy`, `labelSize`.
 
-**Piste :** `active` (0 = « 1 », valeurs décimales pendant le glissement).
+**Pistes :**
+- `active` (0 = « 1 », valeurs décimales pendant le glissement) ;
+- `on` (facultative, ajoutée pour V02 ; absente = 1, dessin inchangé) : à 0, aucune étape n'est encore active — le
+  disque actif est dessiné exactement comme un disque inactif (r 20, papier, sans ombre, chiffre 22 px) et toutes les
+  légendes restent grises ; 0 → 1 (`S.key("marqueur", "on", f, 1, POP, "out")`) le fait grandir en disque cyan sur
+  l'étape `active` (« Première » de V02). `S.set("marqueur", on=0)` à la déclaration.
 
 Déclare-le avec `kit.steps_marker` : il le pose en repère local centré, donc il peut se réduire vers son centre. Un
 marker aux `xs` absolus (V01) se réduirait vers le coin haut gauche de l'écran.

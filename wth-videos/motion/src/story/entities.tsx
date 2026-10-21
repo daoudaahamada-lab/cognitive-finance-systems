@@ -931,12 +931,16 @@ const Marker: React.FC<EntityProps> = ({r}) => {
   const i0 = Math.min(p.xs.length - 2, Math.floor(a));
   const cx = p.xs[i0] + (p.xs[i0 + 1] - p.xs[i0]) * (a - i0);
   const digit = Math.round(a) + 1;
+  // opt-in track `on` (absent = 1 = today's marker): 0 = no active step yet, the active disc is drawn exactly as an
+  // inactive one (r, paper, no shadow, small digit) and every label stays grey; 0 -> 1 grows it into the cyan disc.
+  const on = r.get('on', 1);
+  const lit = on === 1 ? 1 : clamp01(on);
   return (
     <>
       <line x1={p.xs[0]} x2={p.xs[p.xs.length - 1]} y1={p.y} y2={p.y} stroke={C.ink} strokeWidth={4} />
       {p.labels
         ? p.labels.map((t, i) => (
-            <Txt key={`l${i}`} x={p.xs[i]} y={p.y + (p.labelDy ?? M.labelDy)} size={p.labelSize ?? M.labelSize} weight={700} color={mixHex(C.aiTick, C.ink, clamp01(1 - Math.abs(a - i)))} anchor="middle">
+            <Txt key={`l${i}`} x={p.xs[i]} y={p.y + (p.labelDy ?? M.labelDy)} size={p.labelSize ?? M.labelSize} weight={700} color={mixHex(C.aiTick, C.ink, on === 1 ? clamp01(1 - Math.abs(a - i)) : clamp01(1 - Math.abs(a - i)) * lit)} anchor="middle">
               {t}
             </Txt>
           ))
@@ -949,10 +953,17 @@ const Marker: React.FC<EntityProps> = ({r}) => {
           </Txt>
         </g>
       ))}
-      <Hard off={6} render={(sh) => <circle cx={cx} cy={p.y} r={M.activeR} fill={sh ? C.ink : C.cyan} stroke={C.ink} strokeWidth={4} />} />
+      {on === 1 ? (
+        <Hard off={6} render={(sh) => <circle cx={cx} cy={p.y} r={M.activeR} fill={sh ? C.ink : C.cyan} stroke={C.ink} strokeWidth={4} />} />
+      ) : (
+        <Hard
+          off={6 * lit}
+          render={(sh) => <circle cx={cx} cy={p.y} r={M.r + (M.activeR - M.r) * Math.max(0, on)} fill={sh ? C.ink : mixHex(C.paper, C.cyan, lit)} stroke={C.ink} strokeWidth={4} />}
+        />
+      )}
       {/* opt-in moveBlank (absent = today's marker): the sliding disc carries no digit until it lands */}
       {!p.moveBlank || Math.abs(a - Math.round(a)) < 0.02 ? (
-        <Txt x={cx} y={p.y} size={34} weight={800} anchor="middle">
+        <Txt x={cx} y={p.y} size={on === 1 ? 34 : 22 + 12 * Math.max(0, on)} weight={800} anchor="middle">
           {String(digit)}
         </Txt>
       ) : null}
