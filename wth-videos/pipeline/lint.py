@@ -6,7 +6,11 @@ import sys
 from .common import CAROUSELS, load_scripts, read_json
 
 CTA = "Abonne-toi pour comprendre ton argent."
-PARTIES = ["accroche", "contexte", "point1", "point2", "point3", "chute", "cta"]
+# Structure validée le 21/10 : la problématique d'abord, puis l'annonce (« dans cette vidéo, on va voir comment… »),
+# le contexte, trois points qui s'ouvrent chacun sur une phrase de contexte (transition), la chute et l'appel.
+PARTIES = ["accroche", "annonce", "contexte", "point1", "point2", "point3", "chute", "cta"]
+MOTS_MIN, MOTS_MAX = 180, 280          # plus de limite à 60 s : on prend le temps d'expliquer
+PHRASE_MAX = 18
 FORBIDDEN = [
     (re.compile(r"\bRDV\b", re.I), "abréviation « RDV »"),
     (re.compile(r"\b\d+\s?h\d*\b", re.I), "heure abrégée"),
@@ -45,14 +49,14 @@ def lint(s):
     if seg.get("cta", {}).get("texte") != CTA:
         errors.append("CTA inexact")
     n = count_words(text)
-    if not 130 <= n <= 150:
-        errors.append(f"{n} mots (130 à 150)")
-    if count_words(seg["accroche"]["texte"]) > 8:
-        errors.append("accroche > 8 mots")
-    if len(sentences(seg["contexte"]["texte"])) != 1:
-        errors.append("contexte en plusieurs phrases")
+    if not MOTS_MIN <= n <= MOTS_MAX:
+        errors.append(f"{n} mots ({MOTS_MIN} à {MOTS_MAX})")
+    if count_words(seg["accroche"]["texte"]) > 20:
+        errors.append("accroche > 20 mots")
+    if "vidéo" not in seg.get("annonce", {}).get("texte", ""):
+        errors.append("annonce : doit dire ce que la vidéo va montrer (« dans cette vidéo… »)")
     for sent in sentences(text):
-        if count_words(sent) > 16:
+        if count_words(sent) > PHRASE_MAX:
             errors.append(f"phrase de {count_words(sent)} mots : {sent}")
     for rx, label in FORBIDDEN:
         if rx.search(text):

@@ -64,10 +64,8 @@ loudness:
 
 qa:
   min_duration: 45.0
-  max_duration: 60.0
-  # Durées maximales validées vidéo par vidéo (aucune prise sous 60 s ; voix acceptées le 20/10 :
-  # V03 60,6 s, V07 62,8 s, V08 61,0 s, V10 61,3 s, V11 61,2 s ; film = voix + ~0,6 s).
-  max_duration_by_video: {V03: 62.0, V07: 64.0, V08: 62.5, V10: 62.5, V11: 62.5}
+  max_duration: 180.0      # plus de limite à 60 s (21/10) ; 3 min = plafond des Reels Instagram
+  max_duration_by_video: {}
   max_sync_ms: 150
   max_true_peak: -1.0
   loudness_tolerance: 1.0

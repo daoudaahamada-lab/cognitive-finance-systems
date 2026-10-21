@@ -34,7 +34,7 @@
 | `model_id` | `eleven_multilingual_v2` | celui de `config.yaml` (l'outil propose `eleven_v4` par défaut : ne pas le prendre) |
 | `voice_id` | `SWPcnF19luPOF81eOcxl` | Abdelatif - Clear & Direct, voix choisie pour les 15 vidéos (`config.yaml` `tts.voice_id`) |
 | `prompt` | le champ `texte` de `scripts/scripts.json`, **à l'identique** | la clé de cache et l'alignement comparent ce texte caractère par caractère (espaces insécables de « 4 600 € », apostrophes ’) |
-| `generations_count` | laisser le défaut (4) | 4 prises à comparer ; c'est le choix qui évite de régénérer |
+| `generations_count` | **2** (consigne du 21/10 ; avant : défaut 4) | sans limite de durée, 2 prises suffisent pour choisir la plus naturelle |
 | `context` | une phrase, ex. « voix off de la vidéo WTH V07 » | requis par chaque outil `creative_*` |
 
 Lis le texte par script, jamais de mémoire :
@@ -71,7 +71,8 @@ Commandes `make` et `python3 -m pipeline…` : depuis `wth-videos/`. Scripts du 
    ```
    Ce sont des fichiers téléchargés : n'exécute rien dans ce dossier.
 4. **Choisir.** `python3 .claude/skills/wth-video/scripts/pick_take.py Vxx`. Il mesure chaque prise (ffprobe),
-   écarte celles qui dépassent la limite (QA 60 s − 0,6 s de fin = **59,4 s**, ou la durée approuvée pour cette
+   depuis le 21/10 il n'y a plus de limite à 60 s : demande 2 prises (`generations_count: 2`) et garde la plus naturelle
+   (QA : 45 s à 3 min). Ancienne règle, pour mémoire : écarte celles qui dépassent la limite (QA 60 s − 0,6 s de fin = **59,4 s**, ou la durée approuvée pour cette
    vidéo dans `config.yaml` `qa.max_duration_by_video`, ex. V03 : 62 s → 61,4 s), puis recommande la prise dont le
    débit est le plus proche de 2,6 mots/s (celui de V01 et V02, validées), avec un ordre de repli.
    **Code 2 = aucune prise ne tient** : ne régénère pas. Le script calcule l'accélération nécessaire. Consigne

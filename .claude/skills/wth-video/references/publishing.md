@@ -145,3 +145,9 @@ Vérifie ensuite avec `getScheduledPosts` sur la date : trois posts à 17:00, r�
 | `upload-asset` avec un chemin local (`file://…`) | le connecteur ne voit pas les fichiers de la machine |
 | `sign-upload` + POST depuis la machine | même blocage réseau vers l'API Cloudinary |
 | une URL GitHub (branche temporaire) | dépôt public : les vidéos seraient visibles avant leur date |
+
+## Livraison : consigne du 21/10
+
+L'utilisateur ne veut plus recevoir la version sans sous-titres : envoie **seulement** `output/WTH-Vxx.mp4`
+(`SendUserFile`), dès que la vidéo est prête, avec sa légende et ses hashtags dans le message. La version sans
+sous-titres reste produite et sert aux contrôles.

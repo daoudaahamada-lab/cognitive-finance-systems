@@ -79,7 +79,8 @@ premier, une fois pour toutes. Elle coûte des crédits ElevenLabs : environ 3 5
 - fais confirmer le solde par l'utilisateur avant chaque lot ;
 - une seule génération à la fois ;
 - jamais de nouvel appel pour « réessayer » ;
-- garde une prise de 59,4 s au plus, ou de la durée de QA approuvée pour la vidéo moins 0,6 s (V03 : QA à 62 s,
+- depuis le 21/10, plus de limite à 60 s (décision de l'utilisateur) : 2 prises par vidéo (`generations_count: 2`),
+  garde la plus naturelle ; la QA accepte 45 s à 3 min (plafond des Reels) ; ancienne règle, pour mémoire : une prise de 59,4 s au plus (V03 : QA à 62 s,
   soit une prise ≤ 61,4 s) ;
 - si aucune prise ne tient, demande à l'utilisateur plutôt que de régénérer.
 
@@ -255,7 +256,7 @@ Ce sont les seuls moments où tu attends sa réponse. Note chacun dans le suivi 
 
 1. **Crédits ElevenLabs** (`elevenlabs_credits`) : avant chaque lot de voix, avec le coût estimé.
 2. **Durée** : une voix sans prise sous la limite ; il choisit l'option.
-3. **V01 complète** (`v01_full_approved`) : envoie-la avec et sans sous-titres, et attends son accord explicite
+3. **V01 complète** (`v01_full_approved`, validée le 21/10) : envoie-la et attends son accord explicite
    avant toute vidéo V02 à V15. Après l'accord, enchaîne V02 à V15 sans t'arrêter.
 4. **Dates de publication** (`publication_dates_approved`) : propose le tableau (une vidéo tous les 2 jours à 17:00,
    décalé), et ne programme rien avant son accord.

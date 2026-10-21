@@ -22,7 +22,7 @@ make story ID=V07       # rend le film PUIS lance la même QA (code 1 si elle é
 
 | # | Contrôle | Réussi si | Causes d'échec et remèdes |
 |---|---|---|---|
-| 1 | Durée | 45 à 60 s (ou `qa.max_duration_by_video`) | La voix est trop longue : ce n'est pas un problème de mise en scène. Demande à l'utilisateur (accélérer de 4 % au plus, allonger la limite, raccourcir le texte). |
+| 1 | Durée | 45 s à 3 min (`qa.min_duration`, `qa.max_duration` ; plus de limite à 60 s depuis le 21/10) | La voix est trop longue : ce n'est pas un problème de mise en scène. Demande à l'utilisateur (accélérer de 4 % au plus, allonger la limite, raccourcir le texte). |
 | 2 | Format | h264 1080 × 1920, 30 i/s, yuv420p, AAC ; couleur BT.709, plage tv | Le MP4 n'a pas été rendu par `make story`. Ne réencode jamais à la main. |
 | 3 | Rendu Story à jour | empreintes des props, du storyboard et de la mise en scène (balises du MP4) = fichiers actuels ; nombre d'images = props ; version sans sous-titres présente et inchangée | Un fichier source a changé après le rendu (storyboard, une partie du paquet, props reconstruites). Relance `make story`. Ne modifie rien entre le rendu et la QA. |
 | 4 | Mise en scène complète | pas de balise `wth_partial`, film entier, aucune scène ni aucun temps fort sans événement, rien de non mis en scène au début | Rendu de travail (`ALLOW_PARTIAL=1`) ou mise en scène incomplète. Termine les scènes (`make story-props` doit passer sans `ALLOW_PARTIAL`). |

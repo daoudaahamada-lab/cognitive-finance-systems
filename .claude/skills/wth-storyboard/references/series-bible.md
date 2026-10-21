@@ -79,3 +79,11 @@ Emploi :
 - Dates en clair : « sept. 2025 », « mars 2026 ».
 - Exemples plausibles pour un CGP ou un particulier français ; vocabulaire réglementaire exact (RGPD, ACPR, REGAFI,
   DIC, adéquation) ; aucun conseil personnalisé implicite.
+
+## Structure des scripts (depuis le 21/10)
+
+Plus de limite à 60 s. Chaque script suit : **accroche** (la problématique) → **annonce** (« dans cette vidéo, on va
+voir comment… ») → **contexte** (pourquoi c'est un problème, le chiffre clé) → **point1-3**, chacun ouvert par une
+phrase de contexte qui fait la transition → **chute** → **cta**. Le storyboard doit montrer ces transitions : le fil
+conducteur porte le contexte d'une étape à l'autre (un élément de l'étape précédente motive visiblement la suivante).
+`pipeline/lint.py` vérifie la structure (180 à 280 mots, segment `annonce` qui mentionne la vidéo).

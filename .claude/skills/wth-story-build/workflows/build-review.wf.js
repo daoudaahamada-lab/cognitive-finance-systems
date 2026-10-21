@@ -41,7 +41,7 @@ const SHEET_DEFECTS = `That sheet shows six defects that are rules now; do NOT c
 
 const CTX = `
 CONTEXT
-- Brand: "WealthTech Horizon", a faceless French media explaining finance and wealth-tech on TikTok, Instagram and Facebook. Vertical 1080x1920 video at 30 fps, 45-60 s.
+- Brand: "WealthTech Horizon", a faceless French media explaining finance and wealth-tech on TikTok, Instagram and Facebook. Vertical 1080x1920 video at 30 fps, 45 s to 3 min (no 60 s limit since 21/10: the script opens on the problem, announces what the video shows, and puts context in the transitions).
 - Method "Story", validated by the user on V01 ("C'est absolument parfait"): an ivory scene graph of persistent entities; one narrative thread; every scene = initial state -> visible action -> result; events on word onsets; readable with the sound off.
   - The user's success criterion, verbatim: « en masquant les sous-titres, je dois pouvoir comprendre l’action principale et percevoir ce qui change ».
   - His 7 rules, verbatim: ${SB_SKILL}/references/brief-utilisateur.md.
