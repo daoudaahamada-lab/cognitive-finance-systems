@@ -4,8 +4,8 @@
     "source": "WTH-003",
     "date": "2026-10-20",
     "titre": "Préparer ton entretien client avec l’IA",
-    "texte": "Client à 9 heures ? L’IA prépare, tu décides. Le vrai problème avant un rendez-vous : ton temps part dans la recherche, pas dans le conseil. Première étape : tu limites ce que l’IA peut lire. Elle lit uniquement le dossier client, dans un outil validé par ton cabinet. Aucune donnée client dans une IA grand public non encadrée. Le RGPD et ta politique interne s’appliquent. Ensuite, demande un brief structuré d’une page. Mais une IA peut produire une réponse fluide… et fausse. Exige que chaque ligne renvoie à un document et à une date. Une info sans source, c’est une question à poser au client. Dernière étape : relis, corrige, décide. L’IA prépare. Toi, tu gardes le conseil, l’adéquation et la responsabilité. Dix minutes de relecture valent mieux qu’une erreur devant le client. Avant, tu arrives en ayant cherché. Après, tu arrives en ayant compris. Abonne-toi pour comprendre ton argent.",
-    "legende": "Entretien client à 9 heures : comment le préparer avec l’IA, sans perdre le contrôle ?\n\nLes étapes clés pour arriver en ayant compris, avec plus de temps pour écouter.\n\nTu prépares tes entretiens client comment aujourd’hui ? Dis-le en commentaire, et enregistre cette vidéo pour ton prochain client.\n\nAbonne-toi pour comprendre ton argent.",
+    "texte": "Client à 9 heures ? Et tu fouilles encore son dossier, au lieu de préparer ton conseil. Dans cette vidéo, on va voir comment l’IA prépare ce rendez-vous, sans que tu perdes le contrôle. Trois étapes : limiter, exiger, relire. Le vrai problème avant un rendez-vous, ce n’est pas le conseil. C’est la recherche. Dernier bilan, contrats, décisions prises, promesses faites, événements de vie. Tout est dispersé entre le CRM, les mails, les PDF et tes notes. Pourquoi commencer par limiter ? Parce qu’avant de gagner du temps, tu dois protéger ton client. Première étape : tu limites ce que l’IA peut lire. Uniquement le dossier client, dans un outil validé par ton cabinet. Jamais de données client dans une IA grand public non encadrée. Le RGPD et ta politique interne s’appliquent. Ça ne suffit pas : même avec les bons documents, une IA peut produire une réponse fluide… et fausse. Deuxième étape : tu exiges. Un brief structuré d’une page, où chaque ligne renvoie à un document et à une date. Une info sans source n’est pas une certitude. C’est une question à poser au client. Reste le plus important : la décision finale ne se délègue pas. Troisième étape : tu relis, tu corriges, tu décides. L’IA prépare. Toi, tu gardes le conseil, l’adéquation et la responsabilité. Dix minutes de relecture valent mieux qu’une erreur devant le client. Avant, tu arrives en ayant cherché. Après, tu arrives en ayant compris. Abonne-toi pour comprendre ton argent.",
+    "legende": "Entretien client à 9 heures : comment le préparer avec l’IA, sans perdre le contrôle ?\n\nDans cette vidéo : limiter ce que l’IA lit, exiger une source pour chaque ligne, relire avant de décider. Pour arriver en ayant compris, avec plus de temps pour écouter.\n\nTu prépares tes entretiens client comment aujourd’hui ? Dis-le en commentaire, et enregistre cette vidéo pour ton prochain client.\n\nAbonne-toi pour comprendre ton argent.",
     "hashtags": [
       "#WealthTechHorizon",
       "#IA",
@@ -19,21 +19,28 @@
         "slides": [
           1
         ],
-        "texte": "Client à 9 heures ? L’IA prépare, tu décides."
+        "texte": "Client à 9 heures ? Et tu fouilles encore son dossier, au lieu de préparer ton conseil."
+      },
+      {
+        "partie": "annonce",
+        "slides": [
+          1
+        ],
+        "texte": "Dans cette vidéo, on va voir comment l’IA prépare ce rendez-vous, sans que tu perdes le contrôle. Trois étapes : limiter, exiger, relire."
       },
       {
         "partie": "contexte",
         "slides": [
           2
         ],
-        "texte": "Le vrai problème avant un rendez-vous : ton temps part dans la recherche, pas dans le conseil."
+        "texte": "Le vrai problème avant un rendez-vous, ce n’est pas le conseil. C’est la recherche. Dernier bilan, contrats, décisions prises, promesses faites, événements de vie. Tout est dispersé entre le CRM, les mails, les PDF et tes notes."
       },
       {
         "partie": "point1",
         "slides": [
           3
         ],
-        "texte": "Première étape : tu limites ce que l’IA peut lire. Elle lit uniquement le dossier client, dans un outil validé par ton cabinet. Aucune donnée client dans une IA grand public non encadrée. Le RGPD et ta politique interne s’appliquent."
+        "texte": "Pourquoi commencer par limiter ? Parce qu’avant de gagner du temps, tu dois protéger ton client. Première étape : tu limites ce que l’IA peut lire. Uniquement le dossier client, dans un outil validé par ton cabinet. Jamais de données client dans une IA grand public non encadrée. Le RGPD et ta politique interne s’appliquent."
       },
       {
         "partie": "point2",
@@ -41,14 +48,14 @@
           4,
           5
         ],
-        "texte": "Ensuite, demande un brief structuré d’une page. Mais une IA peut produire une réponse fluide… et fausse. Exige que chaque ligne renvoie à un document et à une date. Une info sans source, c’est une question à poser au client."
+        "texte": "Ça ne suffit pas : même avec les bons documents, une IA peut produire une réponse fluide… et fausse. Deuxième étape : tu exiges. Un brief structuré d’une page, où chaque ligne renvoie à un document et à une date. Une info sans source n’est pas une certitude. C’est une question à poser au client."
       },
       {
         "partie": "point3",
         "slides": [
           7
         ],
-        "texte": "Dernière étape : relis, corrige, décide. L’IA prépare. Toi, tu gardes le conseil, l’adéquation et la responsabilité. Dix minutes de relecture valent mieux qu’une erreur devant le client."
+        "texte": "Reste le plus important : la décision finale ne se délègue pas. Troisième étape : tu relis, tu corriges, tu décides. L’IA prépare. Toi, tu gardes le conseil, l’adéquation et la responsabilité. Dix minutes de relecture valent mieux qu’une erreur devant le client."
       },
       {
         "partie": "chute",
@@ -65,16 +72,16 @@
         "texte": "Abonne-toi pour comprendre ton argent."
       }
     ],
-    "mots": 147,
-    "notes_prononciation": "- « IA » : i-a, lettre par lettre\n- « RGPD » : épelé à la française\n- « brief » : « brif »\n- Nombres lus correctement : 9"
+    "mots": 239,
+    "notes_prononciation": "- « IA » : i-a, lettre par lettre\n- « RGPD » : épelé à la française\n- « CRM » : épelé à la française\n- « PDF » : épelé à la française\n- « brief » : « brif »\n- Nombres lus correctement : 9"
   },
   {
     "id": "V02",
     "source": "WTH-002",
     "date": "2026-10-22",
     "titre": "Connecter ta banque : les erreurs à éviter",
-    "texte": "Appli connectée à ta banque ? Évite ces erreurs. Avec l’open banking, des services autorisés peuvent accéder à tes comptes, seulement avec ton accord. Voici trois des cinq erreurs. La première : croire que l’appli connaît ton mot de passe. En principe, tu t’identifies chez ta banque, pas dans l’appli. Une appli te demande directement tes codes bancaires ? Méfiance. Autre erreur : ne pas vérifier qui est derrière l’appli. En France, ce type de service doit être enregistré auprès de l’ACPR. Vérifie-le gratuitement sur le registre REGAFI, en tapant le nom de la société. Dernière erreur : oublier les accès que tu n’utilises plus. Une appli testée il y a 6 mois peut garder un accès actif. Coupe-le dans l’appli, et dans ton espace client si ta banque le propose. Tu t’identifies chez ta banque. Tu vérifies sur REGAFI. Et tous les 6 mois, tu fais le tri. Abonne-toi pour comprendre ton argent.",
-    "legende": "Tu as déjà cliqué sur « Connecter ma banque » dans une app de budget, un agrégateur ou une app d’investissement ?\n\nVoici trois des erreurs à éviter, avec le bon réflexe pour chacune.\n\nCombien d’apps lisent tes comptes en ce moment ? Réponds en commentaire, et enregistre cette vidéo pour faire le tri ce week-end.\n\nAbonne-toi pour comprendre ton argent.",
+    "texte": "Tu as cliqué sur « Connecter ma banque » dans une appli ? Mais tu sais ce que tu as autorisé ? Dans cette vidéo, on va voir trois erreurs fréquentes quand tu connectes ta banque. Et le bon réflexe pour chacune. Ce bouton, c’est l’open banking. Depuis la directive européenne DSP2, ta banque doit ouvrir l’accès à tes comptes à des services autorisés. Mais seulement avec ton accord. L’appli ne pirate rien : elle passe par une porte officielle. Pourquoi commencer par tes identifiants ? Parce que ce sont les clés de ton compte. Première erreur : croire que l’appli connaît ton mot de passe. En principe, tu t’identifies chez ta banque, pas dans l’appli. Une appli te demande directement tes codes bancaires ? Méfiance. Ça ne suffit pas : une connexion propre ne dit rien de la société en face. Deuxième erreur : ne pas vérifier qui est derrière l’appli. En France, ces services doivent être enregistrés auprès de l’ACPR. Tu peux le vérifier gratuitement sur le registre REGAFI, en tapant le nom de la société. Et le risque ne s’arrête pas le jour où tu te connectes. Troisième erreur : oublier les accès que tu n’utilises plus. Une appli testée il y a 6 mois peut encore avoir un accès actif. Coupe-le dans les réglages de l’appli. Et si ta banque le propose, dans ton espace client aussi. Avant, tu cliquais sans réfléchir. Maintenant, tu t’identifies chez ta banque et tu vérifies sur REGAFI. Et tous les 6 mois, tu fais le tri. Abonne-toi pour comprendre ton argent.",
+    "legende": "Tu as déjà cliqué sur « Connecter ma banque » dans une app de budget, un agrégateur ou une app d’investissement ?\n\nDans cette vidéo : ce qui se passe vraiment quand tu cliques, et trois erreurs à éviter, avec le bon réflexe pour chacune.\n\nCombien d’apps lisent tes comptes en ce moment ? Réponds en commentaire, et enregistre cette vidéo pour faire le tri ce week-end.\n\nAbonne-toi pour comprendre ton argent.",
     "hashtags": [
       "#WealthTechHorizon",
       "#WealthTech",
@@ -88,42 +95,49 @@
         "slides": [
           1
         ],
-        "texte": "Appli connectée à ta banque ? Évite ces erreurs."
+        "texte": "Tu as cliqué sur « Connecter ma banque » dans une appli ? Mais tu sais ce que tu as autorisé ?"
+      },
+      {
+        "partie": "annonce",
+        "slides": [
+          1
+        ],
+        "texte": "Dans cette vidéo, on va voir trois erreurs fréquentes quand tu connectes ta banque. Et le bon réflexe pour chacune."
       },
       {
         "partie": "contexte",
         "slides": [
           2
         ],
-        "texte": "Avec l’open banking, des services autorisés peuvent accéder à tes comptes, seulement avec ton accord."
+        "texte": "Ce bouton, c’est l’open banking. Depuis la directive européenne DSP2, ta banque doit ouvrir l’accès à tes comptes à des services autorisés. Mais seulement avec ton accord. L’appli ne pirate rien : elle passe par une porte officielle."
       },
       {
         "partie": "point1",
         "slides": [
           3
         ],
-        "texte": "Voici trois des cinq erreurs. La première : croire que l’appli connaît ton mot de passe. En principe, tu t’identifies chez ta banque, pas dans l’appli. Une appli te demande directement tes codes bancaires ? Méfiance."
+        "texte": "Pourquoi commencer par tes identifiants ? Parce que ce sont les clés de ton compte. Première erreur : croire que l’appli connaît ton mot de passe. En principe, tu t’identifies chez ta banque, pas dans l’appli. Une appli te demande directement tes codes bancaires ? Méfiance."
       },
       {
         "partie": "point2",
         "slides": [
           6
         ],
-        "texte": "Autre erreur : ne pas vérifier qui est derrière l’appli. En France, ce type de service doit être enregistré auprès de l’ACPR. Vérifie-le gratuitement sur le registre REGAFI, en tapant le nom de la société."
+        "texte": "Ça ne suffit pas : une connexion propre ne dit rien de la société en face. Deuxième erreur : ne pas vérifier qui est derrière l’appli. En France, ces services doivent être enregistrés auprès de l’ACPR. Tu peux le vérifier gratuitement sur le registre REGAFI, en tapant le nom de la société."
       },
       {
         "partie": "point3",
         "slides": [
           7
         ],
-        "texte": "Dernière erreur : oublier les accès que tu n’utilises plus. Une appli testée il y a 6 mois peut garder un accès actif. Coupe-le dans l’appli, et dans ton espace client si ta banque le propose."
+        "texte": "Et le risque ne s’arrête pas le jour où tu te connectes. Troisième erreur : oublier les accès que tu n’utilises plus. Une appli testée il y a 6 mois peut encore avoir un accès actif. Coupe-le dans les réglages de l’appli. Et si ta banque le propose, dans ton espace client aussi."
       },
       {
         "partie": "chute",
         "slides": [
           8
         ],
-        "texte": "Tu t’identifies chez ta banque. Tu vérifies sur REGAFI. Et tous les 6 mois, tu fais le tri."
+        "texte": "Avant, tu cliquais sans réfléchir. Maintenant, tu t’identifies chez ta banque et tu vérifies sur REGAFI. Et tous les 6 mois, tu fais le tri."
       },
       {
         "partie": "cta",
@@ -133,16 +147,16 @@
         "texte": "Abonne-toi pour comprendre ton argent."
       }
     ],
-    "mots": 149,
-    "notes_prononciation": "- « REGAFI » : « ré-ga-fi », pas épelé\n- « ACPR » : épelé\n- « open banking » : à l’anglaise\n- « appli »\n- « 6 mois » : « si mois »\n- Nombres lus correctement : 6"
+    "mots": 250,
+    "notes_prononciation": "- « REGAFI » : « ré-ga-fi », pas épelé\n- « ACPR » : épelé\n- « DSP2 » : « dé-èss-pé-deux »\n- « open banking » : à l’anglaise\n- « appli »\n- « 6 mois » : « si mois »\n- Nombres lus correctement : 6"
   },
   {
     "id": "V03",
     "source": "WTH-016",
     "date": "2026-10-24",
     "titre": "1 % de frais par an : ce que ça coûte",
-    "texte": "1 % de frais par an ? Ça paraît rien. Sur 10 000 € placés 20 ans, ça peut coûter plus de 4 600 €. Voici un exemple théorique, sans rendement garanti. À 5 % par an, ces 10 000 € deviendraient environ 26 500 €. Ajoute 1 % de frais : à 4 % net, c’est environ 21 900 €. Car l’argent prélevé chaque année ne travaille plus pour toi. Il y a plusieurs frais : d’abord ceux d’entrée, prélevés sur chaque versement. Avec 3 %, sur 1 000 € versés, seuls 970 € sont investis. Ensuite, les frais de gestion sont prélevés chaque année sur l’encours. Sur la durée, ils pèsent le plus. Selon le produit, d’autres frais peuvent s’ajouter. Comment les trouver ? Demande le document d’informations clés et le détail des frais. Ton intermédiaire doit te les communiquer, en euros et en pourcentage. Tu ne contrôles pas les marchés. Tu contrôles les frais. Abonne-toi pour comprendre ton argent.",
-    "legende": "1 % de frais par an ? Ça paraît rien.\n\nSur 10 000 € placés 20 ans à 5 % par an, 1 % de frais en plus peut coûter plus de 4 600 €. Exemple théorique, rendement non garanti. On t’explique pourquoi ça pèse autant et comment connaître tes frais.\n\nTu connais le total des frais de ton assurance-vie ou de ton PEA ? Oui, non, à peu près ? Réponds en commentaire.\n\nAbonne-toi pour comprendre ton argent.",
+    "texte": "1 % de frais par an ? Ça paraît rien. Pourtant, sur ton épargne, la facture peut devenir lourde. Dans cette vidéo, on va voir combien coûtent vraiment ces frais, d’où ils viennent, et comment les connaître. Les frais sont prélevés chaque année, que le marché monte ou baisse. Et l’argent prélevé ne travaille plus pour toi les années suivantes. Résultat : sur 10 000 € placés 20 ans, 1 % de frais peut coûter plus de 4 600 €. D’où vient un tel écart ? Regarde le calcul, sur un exemple théorique, sans rendement garanti. À 5 % par an, 10 000 € deviendraient environ 26 500 € en 20 ans. Avec 1 % de frais en plus, tu tombes à 4 % net. Et là, tu obtiens environ 21 900 €. Connaître un taux ne suffit pas : encore faut-il savoir quels frais tu paies. D’abord, les frais d’entrée, prélevés sur chaque versement. Avec 3 % de frais d’entrée, sur 1 000 € versés, seuls 970 € sont investis. Ensuite, les frais de gestion, prélevés chaque année sur l’encours. Ce sont eux qui pèsent le plus sur la durée. Et selon le produit, la liste peut s’allonger : arbitrage, sortie, transaction, change, droits de garde. Alors, comment tout retrouver ? Demande le document d’informations clés et le détail des frais. Ton intermédiaire doit te communiquer les coûts et frais, en euros et en pourcentage. Tu ne contrôles pas les marchés. Tu contrôles les frais. Et un rendement affiché sans les frais n’est pas ton rendement. Abonne-toi pour comprendre ton argent.",
+    "legende": "1 % de frais par an ? Ça paraît rien.\n\nSur 10 000 € placés 20 ans à 5 % par an, 1 % de frais en plus peut coûter plus de 4 600 €. Exemple théorique, rendement non garanti. Dans cette vidéo, on t’explique pourquoi ça pèse autant, quels frais tu paies et comment les connaître.\n\nTu connais le total des frais de ton assurance-vie ou de ton PEA ? Oui, non, à peu près ? Réponds en commentaire.\n\nAbonne-toi pour comprendre ton argent.",
     "hashtags": [
       "#WealthTechHorizon",
       "#WealthTech",
@@ -155,22 +169,28 @@
         "slides": [
           1
         ],
-        "texte": "1 % de frais par an ? Ça paraît rien."
+        "texte": "1 % de frais par an ? Ça paraît rien. Pourtant, sur ton épargne, la facture peut devenir lourde."
+      },
+      {
+        "partie": "annonce",
+        "slides": [
+          1
+        ],
+        "texte": "Dans cette vidéo, on va voir combien coûtent vraiment ces frais, d’où ils viennent, et comment les connaître."
       },
       {
         "partie": "contexte",
         "slides": [
-          1
+          2
         ],
-        "texte": "Sur 10 000 € placés 20 ans, ça peut coûter plus de 4 600 €."
+        "texte": "Les frais sont prélevés chaque année, que le marché monte ou baisse. Et l’argent prélevé ne travaille plus pour toi les années suivantes. Résultat : sur 10 000 € placés 20 ans, 1 % de frais peut coûter plus de 4 600 €."
       },
       {
         "partie": "point1",
         "slides": [
-          2,
           3
         ],
-        "texte": "Voici un exemple théorique, sans rendement garanti. À 5 % par an, ces 10 000 € deviendraient environ 26 500 €. Ajoute 1 % de frais : à 4 % net, c’est environ 21 900 €. Car l’argent prélevé chaque année ne travaille plus pour toi."
+        "texte": "D’où vient un tel écart ? Regarde le calcul, sur un exemple théorique, sans rendement garanti. À 5 % par an, 10 000 € deviendraient environ 26 500 € en 20 ans. Avec 1 % de frais en plus, tu tombes à 4 % net. Et là, tu obtiens environ 21 900 €."
       },
       {
         "partie": "point2",
@@ -178,7 +198,7 @@
           4,
           5
         ],
-        "texte": "Il y a plusieurs frais : d’abord ceux d’entrée, prélevés sur chaque versement. Avec 3 %, sur 1 000 € versés, seuls 970 € sont investis. Ensuite, les frais de gestion sont prélevés chaque année sur l’encours. Sur la durée, ils pèsent le plus."
+        "texte": "Connaître un taux ne suffit pas : encore faut-il savoir quels frais tu paies. D’abord, les frais d’entrée, prélevés sur chaque versement. Avec 3 % de frais d’entrée, sur 1 000 € versés, seuls 970 € sont investis. Ensuite, les frais de gestion, prélevés chaque année sur l’encours. Ce sont eux qui pèsent le plus sur la durée."
       },
       {
         "partie": "point3",
@@ -186,14 +206,14 @@
           6,
           7
         ],
-        "texte": "Selon le produit, d’autres frais peuvent s’ajouter. Comment les trouver ? Demande le document d’informations clés et le détail des frais. Ton intermédiaire doit te les communiquer, en euros et en pourcentage."
+        "texte": "Et selon le produit, la liste peut s’allonger : arbitrage, sortie, transaction, change, droits de garde. Alors, comment tout retrouver ? Demande le document d’informations clés et le détail des frais. Ton intermédiaire doit te communiquer les coûts et frais, en euros et en pourcentage."
       },
       {
         "partie": "chute",
         "slides": [
           8
         ],
-        "texte": "Tu ne contrôles pas les marchés. Tu contrôles les frais."
+        "texte": "Tu ne contrôles pas les marchés. Tu contrôles les frais. Et un rendement affiché sans les frais n’est pas ton rendement."
       },
       {
         "partie": "cta",
@@ -203,16 +223,16 @@
         "texte": "Abonne-toi pour comprendre ton argent."
       }
     ],
-    "mots": 146,
-    "notes_prononciation": "- Nombres lus correctement : 10 000 €, 26 500 €, 21 900 €, 4 600 €, 1 000 €, 970 €, 4 %, 3 %, 1 %, 5 %, 20"
+    "mots": 243,
+    "notes_prononciation": "- « encours » : « en-cour »\n- Nombres lus correctement : 10 000 €, 26 500 €, 21 900 €, 4 600 €, 1 000 €, 970 €, 4 %, 3 %, 1 %, 5 %, 20"
   },
   {
     "id": "V04",
     "source": "WTH-006",
     "date": "2026-10-26",
     "titre": "Ton solde n’est pas ton budget",
-    "texte": "Ton solde n’est pas ton budget. Ton appli affiche 800 €, mais ce chiffre ignore ce qui va sortir demain. Voici trois pièges. Premier piège : tu oublies les prélèvements à venir. Tu as 800 €, mais 600 € de prélèvements partent d’ici la fin du mois. Ce que tu peux vraiment dépenser : 200 €, pas 800 €. Deuxième piège : tu oublies les paiements différés. Avec une carte à débit différé ou un paiement en plusieurs fois, l’achat est fait. Mais l’argent n’est pas encore parti. Résultat : ton solde paraît plus haut qu’il ne l’est. Troisième piège : tu comptes sur un virement qui n’est pas encore arrivé. Un remboursement en cours ou un salaire attendu n’est pas encore à toi. Tant qu’il n’est pas crédité, ne le dépense pas. Ne décide jamais d’une dépense sur le chiffre affiché. Décide en fonction de ce qui restera après les échéances. Abonne-toi pour comprendre ton argent.",
-    "legende": "Ton solde n’est pas ton budget.\n\nPrélèvements à venir, paiements différés, virements pas encore arrivés : trois des pièges à connaître avant de dépenser.\n\nTu regardes ton solde combien de fois par jour ? Enregistre cette vidéo et fais le calcul ce soir : solde actuel, moins prélèvements à venir, moins paiements différés. Ce qui reste, c’est ce que tu peux vraiment utiliser.\n\nAbonne-toi pour comprendre ton argent.",
+    "texte": "Ton appli affiche 800 €. Tu te sens à l’aise… et pourtant, tu finis le mois à découvert ? Dans cette vidéo, on va voir pourquoi ton solde n’est pas ton budget. Et trois pièges à éviter avant de dépenser. Le problème, c’est que ce chiffre ne dit rien de ce qui va sortir demain. Un solde, c’est une photo. Un budget, c’est un film. Pourquoi commencer par les prélèvements ? Parce qu’ils partent tout seuls, sans que tu y penses. Premier piège : oublier les prélèvements à venir. Tu as 800 € sur le compte. Mais 600 € de prélèvements partent d’ici la fin du mois. Ce que tu peux vraiment dépenser : 200 €, pas 800 €. Ça ne suffit pas : certaines dépenses sont déjà faites, mais ne se voient pas encore. Deuxième piège : oublier les paiements différés. Carte à débit différé, paiement en plusieurs fois : l’achat est fait. Mais l’argent n’est pas encore parti. Résultat : ton solde paraît plus haut qu’il ne l’est. À l’inverse, il y a l’argent que tu crois déjà avoir. Troisième piège : compter sur un virement pas encore arrivé. Un remboursement en cours ou un salaire attendu n’est pas encore à toi. Tant qu’il n’est pas crédité, ne le dépense pas. La méthode est simple : solde actuel, moins prélèvements à venir, moins paiements différés. Ce qui reste, c’est ce que tu peux vraiment utiliser. Deux minutes, une fois par semaine. Et ne décide plus jamais d’une dépense sur le chiffre affiché. Abonne-toi pour comprendre ton argent.",
+    "legende": "Ton solde n’est pas ton budget.\n\nDans cette vidéo : prélèvements à venir, paiements différés, virements pas encore arrivés. Trois des pièges à connaître avant de dépenser.\n\nTu regardes ton solde combien de fois par jour ? Enregistre cette vidéo et fais le calcul ce soir : solde actuel, moins prélèvements à venir, moins paiements différés. Ce qui reste, c’est ce que tu peux vraiment utiliser.\n\nAbonne-toi pour comprendre ton argent.",
     "hashtags": [
       "#WealthTechHorizon",
       "#Argent",
@@ -225,42 +245,50 @@
         "slides": [
           1
         ],
-        "texte": "Ton solde n’est pas ton budget."
+        "texte": "Ton appli affiche 800 €. Tu te sens à l’aise… et pourtant, tu finis le mois à découvert ?"
+      },
+      {
+        "partie": "annonce",
+        "slides": [
+          1
+        ],
+        "texte": "Dans cette vidéo, on va voir pourquoi ton solde n’est pas ton budget. Et trois pièges à éviter avant de dépenser."
       },
       {
         "partie": "contexte",
         "slides": [
           2
         ],
-        "texte": "Ton appli affiche 800 €, mais ce chiffre ignore ce qui va sortir demain."
+        "texte": "Le problème, c’est que ce chiffre ne dit rien de ce qui va sortir demain. Un solde, c’est une photo. Un budget, c’est un film."
       },
       {
         "partie": "point1",
         "slides": [
           3
         ],
-        "texte": "Voici trois pièges. Premier piège : tu oublies les prélèvements à venir. Tu as 800 €, mais 600 € de prélèvements partent d’ici la fin du mois. Ce que tu peux vraiment dépenser : 200 €, pas 800 €."
+        "texte": "Pourquoi commencer par les prélèvements ? Parce qu’ils partent tout seuls, sans que tu y penses. Premier piège : oublier les prélèvements à venir. Tu as 800 € sur le compte. Mais 600 € de prélèvements partent d’ici la fin du mois. Ce que tu peux vraiment dépenser : 200 €, pas 800 €."
       },
       {
         "partie": "point2",
         "slides": [
           4
         ],
-        "texte": "Deuxième piège : tu oublies les paiements différés. Avec une carte à débit différé ou un paiement en plusieurs fois, l’achat est fait. Mais l’argent n’est pas encore parti. Résultat : ton solde paraît plus haut qu’il ne l’est."
+        "texte": "Ça ne suffit pas : certaines dépenses sont déjà faites, mais ne se voient pas encore. Deuxième piège : oublier les paiements différés. Carte à débit différé, paiement en plusieurs fois : l’achat est fait. Mais l’argent n’est pas encore parti. Résultat : ton solde paraît plus haut qu’il ne l’est."
       },
       {
         "partie": "point3",
         "slides": [
           5
         ],
-        "texte": "Troisième piège : tu comptes sur un virement qui n’est pas encore arrivé. Un remboursement en cours ou un salaire attendu n’est pas encore à toi. Tant qu’il n’est pas crédité, ne le dépense pas."
+        "texte": "À l’inverse, il y a l’argent que tu crois déjà avoir. Troisième piège : compter sur un virement pas encore arrivé. Un remboursement en cours ou un salaire attendu n’est pas encore à toi. Tant qu’il n’est pas crédité, ne le dépense pas."
       },
       {
         "partie": "chute",
         "slides": [
+          7,
           8
         ],
-        "texte": "Ne décide jamais d’une dépense sur le chiffre affiché. Décide en fonction de ce qui restera après les échéances."
+        "texte": "La méthode est simple : solde actuel, moins prélèvements à venir, moins paiements différés. Ce qui reste, c’est ce que tu peux vraiment utiliser. Deux minutes, une fois par semaine. Et ne décide plus jamais d’une dépense sur le chiffre affiché."
       },
       {
         "partie": "cta",
@@ -270,16 +298,16 @@
         "texte": "Abonne-toi pour comprendre ton argent."
       }
     ],
-    "mots": 147,
-    "notes_prononciation": "- « appli »\n- Nombres lus correctement : 800 €, 200 €, 600 €"
+    "mots": 244,
+    "notes_prononciation": "- « appli »\n- Nombres lus correctement : 800 €, 600 €, 200 €"
   },
   {
     "id": "V05",
     "source": "WTH-009",
     "date": "2026-10-28",
     "titre": "Ton agent IA a inventé une info",
-    "texte": "Ton agent IA vient d’inventer une info. Une IA générative peut compléter une donnée manquante avec aplomb : dans un dossier patrimonial, c’est risqué. Premier piège : laisser l’IA combler les vides. Une date de vente absente du dossier ne doit pas apparaître comme un fait. Deuxième piège : ne pas exiger de source. Chaque info doit renvoyer à un document. Troisième piège : mélanger faits et hypothèses. « Le client prévoit de vendre » et « il pourrait vendre », ce n’est pas pareil. Quatrième piège : relire en diagonale. Un texte bien écrit inspire confiance : ralentis sur les chiffres, les dates, les noms, les montants. Et la parade ? Ajoute au brief une rubrique fixe : « Informations non confirmées ». Dedans, tout ce qui manque devient une question à poser au client. Une case vide vaut mieux qu’un fait fabriqué. Le client te pardonnera une question, pas une erreur sur sa situation. Abonne-toi pour comprendre ton argent.",
-    "legende": "Ton agent IA a préparé le brief. Il est fluide, complet… et une info est inventée.\n\n4 erreurs à éviter avant ton rendez-vous client, et une parade simple.\n\nCGP : tu as déjà repéré une erreur dans un texte généré par IA ? Raconte en commentaire.\n\nAbonne-toi pour comprendre ton argent.",
+    "texte": "Ton agent IA a préparé le brief. Il est fluide, complet… et une info est inventée. Dans cette vidéo, on va voir quatre erreurs à éviter avant ton rendez-vous client. Et une parade simple. Pourquoi ça arrive ? Une IA générative est conçue pour produire une réponse plausible. Quand une donnée manque, elle peut la compléter avec aplomb. Dans un dossier patrimonial, c’est un vrai risque. Pourquoi commencer par les vides du dossier ? Parce que c’est là que l’IA invente. Première erreur : laisser l’IA combler ces vides. Une date de vente, le montant d’un contrat, une intention du client ? S’ils sont absents du dossier, ce ne sont pas des faits. Deuxième erreur : ne pas exiger de source. Relevé, contrat, compte rendu, mail : pas de source, pas de certitude. Ça ne suffit pas : même sourcé, un brief peut tromper par sa formulation. Troisième erreur : mélanger faits et hypothèses. « Le client prévoit de vendre » et « il pourrait vendre », ce n’est pas la même chose. Quatrième erreur : relire en diagonale. Un texte bien écrit inspire confiance. C’est justement là qu’il faut ralentir : chiffres, dates, noms, montants. Comment éviter tout ça sans y passer ta matinée ? Avec une parade simple. Ajoute au brief une rubrique fixe : « Informations non confirmées ». Tout ce qui manque y va, sous forme de question à poser au client. Une case vide vaut mieux qu’un fait fabriqué. Le client te pardonnera une question, pas une erreur sur sa situation. Abonne-toi pour comprendre ton argent.",
+    "legende": "Ton agent IA a préparé le brief. Il est fluide, complet… et une info est inventée.\n\nDans cette vidéo : pourquoi l’IA comble les vides, 4 erreurs à éviter avant ton rendez-vous client, et une parade simple.\n\nCGP : tu as déjà repéré une erreur dans un texte généré par IA ? Raconte en commentaire.\n\nAbonne-toi pour comprendre ton argent.",
     "hashtags": [
       "#WealthTechHorizon",
       "#IA",
@@ -292,14 +320,21 @@
         "slides": [
           1
         ],
-        "texte": "Ton agent IA vient d’inventer une info."
+        "texte": "Ton agent IA a préparé le brief. Il est fluide, complet… et une info est inventée."
+      },
+      {
+        "partie": "annonce",
+        "slides": [
+          1
+        ],
+        "texte": "Dans cette vidéo, on va voir quatre erreurs à éviter avant ton rendez-vous client. Et une parade simple."
       },
       {
         "partie": "contexte",
         "slides": [
           2
         ],
-        "texte": "Une IA générative peut compléter une donnée manquante avec aplomb : dans un dossier patrimonial, c’est risqué."
+        "texte": "Pourquoi ça arrive ? Une IA générative est conçue pour produire une réponse plausible. Quand une donnée manque, elle peut la compléter avec aplomb. Dans un dossier patrimonial, c’est un vrai risque."
       },
       {
         "partie": "point1",
@@ -307,7 +342,7 @@
           3,
           4
         ],
-        "texte": "Premier piège : laisser l’IA combler les vides. Une date de vente absente du dossier ne doit pas apparaître comme un fait. Deuxième piège : ne pas exiger de source. Chaque info doit renvoyer à un document."
+        "texte": "Pourquoi commencer par les vides du dossier ? Parce que c’est là que l’IA invente. Première erreur : laisser l’IA combler ces vides. Une date de vente, le montant d’un contrat, une intention du client ? S’ils sont absents du dossier, ce ne sont pas des faits. Deuxième erreur : ne pas exiger de source. Relevé, contrat, compte rendu, mail : pas de source, pas de certitude."
       },
       {
         "partie": "point2",
@@ -315,14 +350,14 @@
           5,
           6
         ],
-        "texte": "Troisième piège : mélanger faits et hypothèses. « Le client prévoit de vendre » et « il pourrait vendre », ce n’est pas pareil. Quatrième piège : relire en diagonale. Un texte bien écrit inspire confiance : ralentis sur les chiffres, les dates, les noms, les montants."
+        "texte": "Ça ne suffit pas : même sourcé, un brief peut tromper par sa formulation. Troisième erreur : mélanger faits et hypothèses. « Le client prévoit de vendre » et « il pourrait vendre », ce n’est pas la même chose. Quatrième erreur : relire en diagonale. Un texte bien écrit inspire confiance. C’est justement là qu’il faut ralentir : chiffres, dates, noms, montants."
       },
       {
         "partie": "point3",
         "slides": [
           7
         ],
-        "texte": "Et la parade ? Ajoute au brief une rubrique fixe : « Informations non confirmées ». Dedans, tout ce qui manque devient une question à poser au client."
+        "texte": "Comment éviter tout ça sans y passer ta matinée ? Avec une parade simple. Ajoute au brief une rubrique fixe : « Informations non confirmées ». Tout ce qui manque y va, sous forme de question à poser au client."
       },
       {
         "partie": "chute",
@@ -339,16 +374,16 @@
         "texte": "Abonne-toi pour comprendre ton argent."
       }
     ],
-    "mots": 147,
-    "notes_prononciation": "- « IA » : i-a, lettre par lettre\n- « brief » : « brif »"
+    "mots": 243,
+    "notes_prononciation": "- « IA » : i-a, lettre par lettre\n- « brief » : « brif »\n- « sourcé » : « sour-cé »"
   },
   {
     "id": "V06",
     "source": "WTH-025",
     "date": "2026-10-30",
     "titre": "Ton patrimoine est-il vraiment disponible ?",
-    "texte": "Riche sur le papier, coincé par une facture ? C’est une question de liquidité : transformer un actif en argent disponible, vite, sans perdre de valeur. D’abord, une valeur sur le papier n’est pas de l’argent disponible. Ton appartement est estimé 200 000 € ? Pour récupérer l’argent, il faut vendre : plusieurs mois, des frais, et un prix non garanti. Ensuite, chaque actif a son délai. Un livret, c’est en général sous quelques jours, sans perte. Pour une assurance-vie, l’assureur doit te verser les fonds en deux mois maximum. Et le plan d’épargne retraite reste bloqué jusqu’à la retraite, sauf déblocage anticipé. Enfin, pour chaque placement, note en combien de temps tu récupères l’argent. Puis les frais, et le risque que le prix varie. La vraie question, ce n’est pas combien tu possèdes. C’est : si demain tu as besoin de ton argent, comment tu le récupères ? Abonne-toi pour comprendre ton argent.",
-    "legende": "Tu peux avoir 200 000 € de patrimoine… et ne pas pouvoir payer une facture de 3 000 €.\n\nLa liquidité expliquée simplement : ce qui est disponible vite, ce qui l’est avec délai, et ce qui est bloqué ou lent.\n\nQuelle part de ton patrimoine est disponible en moins d’une semaine ? Réponds en commentaire, même approximativement.\n\nAbonne-toi pour comprendre ton argent.",
+    "texte": "Tu peux avoir 200 000 € de patrimoine… et ne pas pouvoir payer une facture de 3 000 €. Dans cette vidéo, on va voir pourquoi, et comment savoir en combien de temps tu récupères ton argent. Tout tient en un mot : la liquidité. C’est la facilité à transformer un actif en argent disponible, vite, et sans perdre de valeur. Un livret est très liquide. Un appartement, beaucoup moins. Pourquoi commencer par la valeur sur le papier ? Parce que c’est le chiffre qui rassure, à tort. Ton appartement est estimé 200 000 € ? Pour récupérer cet argent, il faut le vendre. Ça prend plusieurs mois, avec des frais, et un prix qui n’est pas garanti. Et l’immobilier n’est pas un cas isolé : chaque placement a son propre délai. Comptes courants et livrets : en général sous quelques jours, sans perte. Pour une assurance-vie, l’assureur doit te verser les fonds en deux mois maximum. Actions et fonds se vendent vite, mais leur prix varie. Le plan d’épargne retraite, lui, reste bloqué jusqu’à la retraite, sauf déblocage anticipé. Et l’épargne salariale est souvent bloquée 5 ans, sauf exceptions. Comment t’y retrouver ? En faisant ta propre liste. Pour chaque placement, note en combien de temps tu récupères l’argent. Puis avec quels frais. Et avec quel risque sur le prix. La vraie question, ce n’est pas combien tu possèdes. C’est comment tu récupères ton argent, si tu en as besoin demain. Abonne-toi pour comprendre ton argent.",
+    "legende": "Tu peux avoir 200 000 € de patrimoine… et ne pas pouvoir payer une facture de 3 000 €.\n\nDans cette vidéo, la liquidité expliquée simplement : ce qui est disponible vite, ce qui l’est avec délai, et ce qui est bloqué ou lent.\n\nQuelle part de ton patrimoine est disponible en moins d’une semaine ? Réponds en commentaire, même approximativement.\n\nAbonne-toi pour comprendre ton argent.",
     "hashtags": [
       "#WealthTechHorizon",
       "#WealthTech",
@@ -363,21 +398,28 @@
         "slides": [
           1
         ],
-        "texte": "Riche sur le papier, coincé par une facture ?"
+        "texte": "Tu peux avoir 200 000 € de patrimoine… et ne pas pouvoir payer une facture de 3 000 €."
+      },
+      {
+        "partie": "annonce",
+        "slides": [
+          1
+        ],
+        "texte": "Dans cette vidéo, on va voir pourquoi, et comment savoir en combien de temps tu récupères ton argent."
       },
       {
         "partie": "contexte",
         "slides": [
           2
         ],
-        "texte": "C’est une question de liquidité : transformer un actif en argent disponible, vite, sans perdre de valeur."
+        "texte": "Tout tient en un mot : la liquidité. C’est la facilité à transformer un actif en argent disponible, vite, et sans perdre de valeur. Un livret est très liquide. Un appartement, beaucoup moins."
       },
       {
         "partie": "point1",
         "slides": [
           3
         ],
-        "texte": "D’abord, une valeur sur le papier n’est pas de l’argent disponible. Ton appartement est estimé 200 000 € ? Pour récupérer l’argent, il faut vendre : plusieurs mois, des frais, et un prix non garanti."
+        "texte": "Pourquoi commencer par la valeur sur le papier ? Parce que c’est le chiffre qui rassure, à tort. Ton appartement est estimé 200 000 € ? Pour récupérer cet argent, il faut le vendre. Ça prend plusieurs mois, avec des frais, et un prix qui n’est pas garanti."
       },
       {
         "partie": "point2",
@@ -386,21 +428,21 @@
           5,
           6
         ],
-        "texte": "Ensuite, chaque actif a son délai. Un livret, c’est en général sous quelques jours, sans perte. Pour une assurance-vie, l’assureur doit te verser les fonds en deux mois maximum. Et le plan d’épargne retraite reste bloqué jusqu’à la retraite, sauf déblocage anticipé."
+        "texte": "Et l’immobilier n’est pas un cas isolé : chaque placement a son propre délai. Comptes courants et livrets : en général sous quelques jours, sans perte. Pour une assurance-vie, l’assureur doit te verser les fonds en deux mois maximum. Actions et fonds se vendent vite, mais leur prix varie. Le plan d’épargne retraite, lui, reste bloqué jusqu’à la retraite, sauf déblocage anticipé. Et l’épargne salariale est souvent bloquée 5 ans, sauf exceptions."
       },
       {
         "partie": "point3",
         "slides": [
           7
         ],
-        "texte": "Enfin, pour chaque placement, note en combien de temps tu récupères l’argent. Puis les frais, et le risque que le prix varie."
+        "texte": "Comment t’y retrouver ? En faisant ta propre liste. Pour chaque placement, note en combien de temps tu récupères l’argent. Puis avec quels frais. Et avec quel risque sur le prix."
       },
       {
         "partie": "chute",
         "slides": [
           8
         ],
-        "texte": "La vraie question, ce n’est pas combien tu possèdes. C’est : si demain tu as besoin de ton argent, comment tu le récupères ?"
+        "texte": "La vraie question, ce n’est pas combien tu possèdes. C’est comment tu récupères ton argent, si tu en as besoin demain."
       },
       {
         "partie": "cta",
@@ -410,16 +452,16 @@
         "texte": "Abonne-toi pour comprendre ton argent."
       }
     ],
-    "mots": 147,
-    "notes_prononciation": "- Nombres lus correctement : 200 000 €"
+    "mots": 238,
+    "notes_prononciation": "- Nombres lus correctement : 200 000 €, 3 000 €, 5 ans"
   },
   {
     "id": "V07",
     "source": "WTH-014",
     "date": "2026-11-01",
     "titre": "Ton ETF te rend vraiment diversifié ?",
-    "texte": "Ton ETF te rend diversifié ? Pas si vite. Un ETF cherche à reproduire un indice : tu achètes un panier de titres, mais lequel ? Première erreur : ne pas lire l’indice suivi. Ton ETF s’appelle « Monde », « États-Unis » ou « Tech » ? Derrière chaque nom, il y a un indice avec ses règles. L’indice MSCI World, par exemple, couvre les pays développés, pas les émergents. Deuxième erreur : croire qu’un ETF « Monde » est équilibré. Prends un indice mondial où chaque entreprise compte selon sa taille. Les États-Unis y pèsent aujourd’hui autour de 70 %. Ton ETF « Monde » est alors surtout américain. Troisième erreur : empiler des ETF qui se ressemblent. Un ETF Monde, un ETF S&P 500 et un ETF Nasdaq ? Tu achètes plusieurs fois les mêmes grandes entreprises. Plus d’ETF, mais pas plus de diversification. Ne regarde pas seulement le nom de ton ETF. Regarde ce qu’il y a dedans. Abonne-toi pour comprendre ton argent.",
-    "legende": "« J’ai acheté un ETF, donc je suis diversifié. » Pas si vite.\n\nTrois erreurs fréquentes avec les ETF, expliquées simplement.\n\nTu as un ETF en portefeuille ? Tu sais quel indice il suit ? Dis-le en commentaire.\n\nAbonne-toi pour comprendre ton argent.",
+    "texte": "« J’ai acheté un ETF, donc je suis diversifié. » Tu le penses aussi ? Pas si vite. Dans cette vidéo, on va voir trois erreurs fréquentes avec les ETF. Et comment savoir ce que tu achètes vraiment. D’abord, un ETF, c’est quoi ? Un fonds coté en Bourse qui cherche à reproduire un indice. Tu achètes en une fois tout un panier de titres. Et en général, avec des frais plus bas qu’un fonds géré activement. Mais ce panier dépend entièrement de l’indice. Pourquoi commencer par l’indice ? Parce que c’est lui qui décide de ce que tu possèdes. Première erreur : ne pas le lire. « Monde », « États-Unis », « Tech » : derrière chaque nom, il y a un indice avec ses règles. Le MSCI World, par exemple, couvre les pays développés, mais pas les pays émergents. Ça ne suffit pas : encore faut-il savoir combien pèse chaque pays. Deuxième erreur : croire que « Monde » veut dire équilibré. Dans les indices mondiaux pondérés par la taille des entreprises, les États-Unis pèsent aujourd’hui autour de 70 %. Ton « Monde » est donc surtout américain. Et c’est souvent en voulant corriger qu’on aggrave les choses. Troisième erreur : empiler des ETF qui se ressemblent. Un ETF Monde, un ETF S&P 500 et un ETF Nasdaq ? Tu achètes plusieurs fois les mêmes grandes entreprises. Plus de lignes, mais pas plus de diversification. Le bon réflexe tient en trois questions. Quel indice ? Quels pays et secteurs dedans ? Combien il te coûte par an ? Un nom ne suffit pas à savoir ce que tu achètes. La composition, si. Abonne-toi pour comprendre ton argent.",
+    "legende": "« J’ai acheté un ETF, donc je suis diversifié. » Pas si vite.\n\nDans cette vidéo : trois erreurs fréquentes avec les ETF, expliquées simplement, et les trois questions à te poser avant d’acheter.\n\nTu as un ETF en portefeuille ? Tu sais quel indice il suit ? Dis-le en commentaire.\n\nAbonne-toi pour comprendre ton argent.",
     "hashtags": [
       "#WealthTechHorizon",
       "#WealthTech",
@@ -433,42 +475,50 @@
         "slides": [
           1
         ],
-        "texte": "Ton ETF te rend diversifié ? Pas si vite."
+        "texte": "« J’ai acheté un ETF, donc je suis diversifié. » Tu le penses aussi ? Pas si vite."
+      },
+      {
+        "partie": "annonce",
+        "slides": [
+          1
+        ],
+        "texte": "Dans cette vidéo, on va voir trois erreurs fréquentes avec les ETF. Et comment savoir ce que tu achètes vraiment."
       },
       {
         "partie": "contexte",
         "slides": [
           2
         ],
-        "texte": "Un ETF cherche à reproduire un indice : tu achètes un panier de titres, mais lequel ?"
+        "texte": "D’abord, un ETF, c’est quoi ? Un fonds coté en Bourse qui cherche à reproduire un indice. Tu achètes en une fois tout un panier de titres. Et en général, avec des frais plus bas qu’un fonds géré activement. Mais ce panier dépend entièrement de l’indice."
       },
       {
         "partie": "point1",
         "slides": [
           3
         ],
-        "texte": "Première erreur : ne pas lire l’indice suivi. Ton ETF s’appelle « Monde », « États-Unis » ou « Tech » ? Derrière chaque nom, il y a un indice avec ses règles. L’indice MSCI World, par exemple, couvre les pays développés, pas les émergents."
+        "texte": "Pourquoi commencer par l’indice ? Parce que c’est lui qui décide de ce que tu possèdes. Première erreur : ne pas le lire. « Monde », « États-Unis », « Tech » : derrière chaque nom, il y a un indice avec ses règles. Le MSCI World, par exemple, couvre les pays développés, mais pas les pays émergents."
       },
       {
         "partie": "point2",
         "slides": [
           4
         ],
-        "texte": "Deuxième erreur : croire qu’un ETF « Monde » est équilibré. Prends un indice mondial où chaque entreprise compte selon sa taille. Les États-Unis y pèsent aujourd’hui autour de 70 %. Ton ETF « Monde » est alors surtout américain."
+        "texte": "Ça ne suffit pas : encore faut-il savoir combien pèse chaque pays. Deuxième erreur : croire que « Monde » veut dire équilibré. Dans les indices mondiaux pondérés par la taille des entreprises, les États-Unis pèsent aujourd’hui autour de 70 %. Ton « Monde » est donc surtout américain."
       },
       {
         "partie": "point3",
         "slides": [
           5
         ],
-        "texte": "Troisième erreur : empiler des ETF qui se ressemblent. Un ETF Monde, un ETF S&P 500 et un ETF Nasdaq ? Tu achètes plusieurs fois les mêmes grandes entreprises. Plus d’ETF, mais pas plus de diversification."
+        "texte": "Et c’est souvent en voulant corriger qu’on aggrave les choses. Troisième erreur : empiler des ETF qui se ressemblent. Un ETF Monde, un ETF S&P 500 et un ETF Nasdaq ? Tu achètes plusieurs fois les mêmes grandes entreprises. Plus de lignes, mais pas plus de diversification."
       },
       {
         "partie": "chute",
         "slides": [
+          7,
           8
         ],
-        "texte": "Ne regarde pas seulement le nom de ton ETF. Regarde ce qu’il y a dedans."
+        "texte": "Le bon réflexe tient en trois questions. Quel indice ? Quels pays et secteurs dedans ? Combien il te coûte par an ? Un nom ne suffit pas à savoir ce que tu achètes. La composition, si."
       },
       {
         "partie": "cta",
@@ -478,7 +528,7 @@
         "texte": "Abonne-toi pour comprendre ton argent."
       }
     ],
-    "mots": 148,
+    "mots": 255,
     "notes_prononciation": "- « ETF » : épelé à la française\n- « MSCI World » : M-S-C-I, puis « world » à l’anglaise\n- « S&P 500 » : « S and P cinq cents »\n- « Nasdaq »\n- Nombres lus correctement : 70 %, 500"
   },
   {
@@ -486,8 +536,8 @@
     "source": "WTH-004",
     "date": "2026-11-03",
     "titre": "Ton vrai reste à vivre en 3 étapes",
-    "texte": "Combien peux-tu vraiment dépenser ? Pas ton salaire. Loyer, factures, crédits partent d’abord : le chiffre utile, c’est ton reste à vivre. Calcule-le en trois étapes. Première étape : additionne ton salaire net, tes allocations et tes autres revenus fixes. Les primes, les rentrées exceptionnelles ? Laisse-les de côté : elles ne reviennent pas chaque mois. Deuxième étape : liste tes charges fixes, du loyer aux abonnements. Ouvre tes trois derniers relevés. Trois, pas un : un seul mois peut tromper. La moyenne donne une base plus honnête. Troisième étape : fais la soustraction. Exemple : 2 200 € de revenus, moins 1 350 € de charges fixes. Ça laisse 850 € par mois. Environ 28 € par jour pour vivre : courses, loisirs, imprévus, épargne. Pour un crédit, ta banque ne regarde pas seulement ton taux d’endettement. Elle regarde aussi ton reste à vivre, une fois la mensualité payée. Et toi, tu le connais ? Abonne-toi pour comprendre ton argent.",
-    "legende": "Ton salaire ne dit pas combien tu peux dépenser.\n\nCalcule ton vrai reste à vivre en 3 étapes.\n\nTon reste à vivre par jour, tu le connais ? Fais le calcul et enregistre cette vidéo pour le refaire chaque trimestre.\n\nAbonne-toi pour comprendre ton argent.",
+    "texte": "Ton salaire vient de tomber. Mais combien peux-tu vraiment dépenser ce mois-ci ? Dans cette vidéo, on va calculer ton vrai reste à vivre, en 3 étapes simples. Ton salaire trompe un peu. Une partie est déjà réservée avant même que tu y penses : loyer, factures, crédits. Le chiffre utile, c’est ce qui reste après. Tes revenus du mois, moins tes charges incontournables. C’est ça, ton reste à vivre. Pourquoi commencer par les revenus ? Parce qu’il te faut une base fiable, pas un bon mois. Première étape : additionne ton salaire net, tes allocations et tes autres revenus fixes. Les primes et les rentrées exceptionnelles ? Laisse-les de côté : elles ne reviennent pas chaque mois. Ensuite, il faut voir ce qui part avant même que tu dépenses. Deuxième étape : liste tes charges fixes, du loyer aux abonnements. Ouvre tes 3 derniers relevés. Pourquoi 3 ? Parce qu’un seul mois peut tromper : une facture annuelle, un mois sans prime, une dépense oubliée. La moyenne sur 3 mois donne une base plus honnête. Il ne reste plus qu’à mettre les deux face à face. Troisième étape : fais la soustraction. Exemple : 2 200 € de revenus, moins 1 350 € de charges fixes. Il te reste 850 € par mois. Soit environ 28 € par jour, pour tout le reste : courses, loisirs, imprévus, épargne. Pour un crédit, ta banque regarde ton taux d’endettement. Mais elle regarde aussi ce qu’il te reste pour vivre, une fois la mensualité payée. Alors, ton reste à vivre par jour, tu le connais ? Abonne-toi pour comprendre ton argent.",
+    "legende": "Ton salaire ne dit pas combien tu peux dépenser.\n\nDans cette vidéo, on calcule ton vrai reste à vivre en 3 étapes : revenus réguliers, charges fixes, soustraction.\n\nTon reste à vivre par jour, tu le connais ? Fais le calcul et enregistre cette vidéo pour le refaire chaque trimestre.\n\nAbonne-toi pour comprendre ton argent.",
     "hashtags": [
       "#WealthTechHorizon",
       "#Argent",
@@ -500,7 +550,14 @@
         "slides": [
           1
         ],
-        "texte": "Combien peux-tu vraiment dépenser ? Pas ton salaire."
+        "texte": "Ton salaire vient de tomber. Mais combien peux-tu vraiment dépenser ce mois-ci ?"
+      },
+      {
+        "partie": "annonce",
+        "slides": [
+          1
+        ],
+        "texte": "Dans cette vidéo, on va calculer ton vrai reste à vivre, en 3 étapes simples."
       },
       {
         "partie": "contexte",
@@ -508,36 +565,36 @@
           2,
           3
         ],
-        "texte": "Loyer, factures, crédits partent d’abord : le chiffre utile, c’est ton reste à vivre."
+        "texte": "Ton salaire trompe un peu. Une partie est déjà réservée avant même que tu y penses : loyer, factures, crédits. Le chiffre utile, c’est ce qui reste après. Tes revenus du mois, moins tes charges incontournables. C’est ça, ton reste à vivre."
       },
       {
         "partie": "point1",
         "slides": [
           4
         ],
-        "texte": "Calcule-le en trois étapes. Première étape : additionne ton salaire net, tes allocations et tes autres revenus fixes. Les primes, les rentrées exceptionnelles ? Laisse-les de côté : elles ne reviennent pas chaque mois."
+        "texte": "Pourquoi commencer par les revenus ? Parce qu’il te faut une base fiable, pas un bon mois. Première étape : additionne ton salaire net, tes allocations et tes autres revenus fixes. Les primes et les rentrées exceptionnelles ? Laisse-les de côté : elles ne reviennent pas chaque mois."
       },
       {
         "partie": "point2",
         "slides": [
-          5
+          5,
+          7
         ],
-        "texte": "Deuxième étape : liste tes charges fixes, du loyer aux abonnements. Ouvre tes trois derniers relevés. Trois, pas un : un seul mois peut tromper. La moyenne donne une base plus honnête."
+        "texte": "Ensuite, il faut voir ce qui part avant même que tu dépenses. Deuxième étape : liste tes charges fixes, du loyer aux abonnements. Ouvre tes 3 derniers relevés. Pourquoi 3 ? Parce qu’un seul mois peut tromper : une facture annuelle, un mois sans prime, une dépense oubliée. La moyenne sur 3 mois donne une base plus honnête."
       },
       {
         "partie": "point3",
         "slides": [
           6
         ],
-        "texte": "Troisième étape : fais la soustraction. Exemple : 2 200 € de revenus, moins 1 350 € de charges fixes. Ça laisse 850 € par mois. Environ 28 € par jour pour vivre : courses, loisirs, imprévus, épargne."
+        "texte": "Il ne reste plus qu’à mettre les deux face à face. Troisième étape : fais la soustraction. Exemple : 2 200 € de revenus, moins 1 350 € de charges fixes. Il te reste 850 € par mois. Soit environ 28 € par jour, pour tout le reste : courses, loisirs, imprévus, épargne."
       },
       {
         "partie": "chute",
         "slides": [
-          8,
-          9
+          8
         ],
-        "texte": "Pour un crédit, ta banque ne regarde pas seulement ton taux d’endettement. Elle regarde aussi ton reste à vivre, une fois la mensualité payée. Et toi, tu le connais ?"
+        "texte": "Pour un crédit, ta banque regarde ton taux d’endettement. Mais elle regarde aussi ce qu’il te reste pour vivre, une fois la mensualité payée. Alors, ton reste à vivre par jour, tu le connais ?"
       },
       {
         "partie": "cta",
@@ -547,16 +604,16 @@
         "texte": "Abonne-toi pour comprendre ton argent."
       }
     ],
-    "mots": 146,
-    "notes_prononciation": "- Nombres lus correctement : 2 200 €, 1 350 €, 850 €, 28 €"
+    "mots": 252,
+    "notes_prononciation": "- « reste à vivre » : sans pause\n- Nombres lus correctement : 2 200 €, 1 350 €, 850 €, 28 €, 3"
   },
   {
     "id": "V09",
     "source": "WTH-019",
     "date": "2026-11-05",
     "titre": "« Capital garanti, 5 %, disponible » ?",
-    "texte": "Capital garanti, 5 %, disponible ? Vraiment ? Le piège : croire que ces trois promesses vont toujours ensemble. D’abord, ton capital garanti : garanti par qui ? Ça peut être un assureur, une banque ou l’émetteur du produit. La garantie vaut ce que vaut celui qui la donne. Parfois, elle exclut les frais, ou ne joue qu’à une date précise. Ensuite, le rendement qu’on t’annonce : sur quelle période ? Un rendement passé ne prédit pas le futur. Un taux dit « boosté » ? Il peut ne valoir que quelques mois, et sous conditions. Enfin, ton argent disponible à tout moment ? Certains produits imposent une durée, des pénalités de sortie ou un délai. Et un capital protégé, donc sans risque ? Faux : tu peux perdre en sortant avant l’échéance, ou ne rien gagner. Quand une promesse paraît simple, ce sont les conditions qui la rendent vraie. Lis-les avant de signer. Abonne-toi pour comprendre ton argent.",
-    "legende": "« Capital garanti, rendement de 5 %, disponible à tout moment. »\n\nTrois promesses, trois réalités différentes. Avant de signer, pose 4 questions : qu’est-ce qui est garanti ? Par qui ? Jusqu’à quand ? Sous quelles conditions ? Et demande les réponses par écrit.\n\nTu as déjà vu une offre trop belle pour être vraie ? Raconte-la en commentaire.\n\nAbonne-toi pour comprendre ton argent.",
+    "texte": "« Capital garanti, rendement de 5 %, disponible à tout moment. » Sur le papier, l’offre est parfaite. Dans cette vidéo, on va voir pourquoi ces trois promesses sont trois réalités différentes. Et quelles questions poser avant de signer. Une offre peut être vraie sur un point, et conditionnelle sur les autres. Le piège, c’est de croire que les trois vont toujours ensemble. Alors on les sépare, une par une. Pourquoi commencer par la garantie ? Parce que c’est elle qui rassure le plus. « Capital garanti » : mais garanti par qui ? Un assureur, une banque, un émetteur. La garantie vaut ce que vaut celui qui la donne. Et elle s’entend parfois hors frais, ou seulement à une date précise. Vient ensuite le chiffre qui attire l’œil : le rendement. Un rendement annoncé, d’accord, mais sur quelle période ? Un rendement passé ne prédit pas le futur. Et un taux « boosté » peut ne valoir que quelques mois, et sous conditions. Reste la promesse la plus concrète au quotidien : récupérer ton argent. « Disponible », vraiment tout de suite ? Certains produits imposent une durée, des pénalités de sortie ou un délai. Et attention au mythe : protégé ne veut pas dire sans risque. Tu peux perdre si tu sors avant l’échéance, ou ne rien gagner du tout. Avant de signer, pose 4 questions. Qu’est-ce qui est garanti ? Par qui ? Jusqu’à quand ? Sous quelles conditions ? Et demande les réponses par écrit. Quand une promesse paraît simple, ce sont les conditions qui la rendent vraie. Abonne-toi pour comprendre ton argent.",
+    "legende": "« Capital garanti, rendement de 5 %, disponible à tout moment. »\n\nDans cette vidéo : trois promesses, trois réalités différentes. Avant de signer, pose 4 questions : qu’est-ce qui est garanti ? Par qui ? Jusqu’à quand ? Sous quelles conditions ? Et demande les réponses par écrit.\n\nTu as déjà vu une offre trop belle pour être vraie ? Raconte-la en commentaire.\n\nAbonne-toi pour comprendre ton argent.",
     "hashtags": [
       "#WealthTechHorizon",
       "#WealthTech",
@@ -570,28 +627,35 @@
         "slides": [
           1
         ],
-        "texte": "Capital garanti, 5 %, disponible ? Vraiment ?"
+        "texte": "« Capital garanti, rendement de 5 %, disponible à tout moment. » Sur le papier, l’offre est parfaite."
+      },
+      {
+        "partie": "annonce",
+        "slides": [
+          1
+        ],
+        "texte": "Dans cette vidéo, on va voir pourquoi ces trois promesses sont trois réalités différentes. Et quelles questions poser avant de signer."
       },
       {
         "partie": "contexte",
         "slides": [
           2
         ],
-        "texte": "Le piège : croire que ces trois promesses vont toujours ensemble."
+        "texte": "Une offre peut être vraie sur un point, et conditionnelle sur les autres. Le piège, c’est de croire que les trois vont toujours ensemble. Alors on les sépare, une par une."
       },
       {
         "partie": "point1",
         "slides": [
           3
         ],
-        "texte": "D’abord, ton capital garanti : garanti par qui ? Ça peut être un assureur, une banque ou l’émetteur du produit. La garantie vaut ce que vaut celui qui la donne. Parfois, elle exclut les frais, ou ne joue qu’à une date précise."
+        "texte": "Pourquoi commencer par la garantie ? Parce que c’est elle qui rassure le plus. « Capital garanti » : mais garanti par qui ? Un assureur, une banque, un émetteur. La garantie vaut ce que vaut celui qui la donne. Et elle s’entend parfois hors frais, ou seulement à une date précise."
       },
       {
         "partie": "point2",
         "slides": [
           4
         ],
-        "texte": "Ensuite, le rendement qu’on t’annonce : sur quelle période ? Un rendement passé ne prédit pas le futur. Un taux dit « boosté » ? Il peut ne valoir que quelques mois, et sous conditions."
+        "texte": "Vient ensuite le chiffre qui attire l’œil : le rendement. Un rendement annoncé, d’accord, mais sur quelle période ? Un rendement passé ne prédit pas le futur. Et un taux « boosté » peut ne valoir que quelques mois, et sous conditions."
       },
       {
         "partie": "point3",
@@ -599,14 +663,15 @@
           5,
           6
         ],
-        "texte": "Enfin, ton argent disponible à tout moment ? Certains produits imposent une durée, des pénalités de sortie ou un délai. Et un capital protégé, donc sans risque ? Faux : tu peux perdre en sortant avant l’échéance, ou ne rien gagner."
+        "texte": "Reste la promesse la plus concrète au quotidien : récupérer ton argent. « Disponible », vraiment tout de suite ? Certains produits imposent une durée, des pénalités de sortie ou un délai. Et attention au mythe : protégé ne veut pas dire sans risque. Tu peux perdre si tu sors avant l’échéance, ou ne rien gagner du tout."
       },
       {
         "partie": "chute",
         "slides": [
+          7,
           8
         ],
-        "texte": "Quand une promesse paraît simple, ce sont les conditions qui la rendent vraie. Lis-les avant de signer."
+        "texte": "Avant de signer, pose 4 questions. Qu’est-ce qui est garanti ? Par qui ? Jusqu’à quand ? Sous quelles conditions ? Et demande les réponses par écrit. Quand une promesse paraît simple, ce sont les conditions qui la rendent vraie."
       },
       {
         "partie": "cta",
@@ -616,16 +681,16 @@
         "texte": "Abonne-toi pour comprendre ton argent."
       }
     ],
-    "mots": 145,
-    "notes_prononciation": "- Nombres lus correctement : 5 %"
+    "mots": 246,
+    "notes_prononciation": "- « boosté » : « bous-té »\n- Nombres lus correctement : 5 %, 4"
   },
   {
     "id": "V10",
     "source": "WTH-064",
     "date": "2026-11-07",
     "titre": "Offre urgente : le moment de ralentir",
-    "texte": "Offre réservée jusqu’à minuit ? Ralentis. L’urgence t’empêche de vérifier : c’est l’arme numéro un des arnaques financières. Voici les pièges à éviter. Premier piège : décider dans la journée. Une vraie opportunité supporte quelques jours de réflexion. Si on te refuse ce délai, c’est pour éviter que tu vérifies. Autre piège : ne pas vérifier l’autorisation ni les listes noires. Pour un établissement financier, consulte le registre REGAFI. Pour un intermédiaire, c’est l’ORIAS. L’AMF publie ces listes noires : deux minutes peuvent t’éviter de tout perdre. Dernier piège : te fier à l’apparence. Site soigné, nom proche d’une institution connue : les escrocs savent inspirer confiance. Méfie-toi plutôt d’un rendement élevé garanti ou d’un contact non sollicité. Et d’un paiement en crypto ou vers un compte à l’étranger. Au moindre doute, contacte Assurance Banque Épargne Info Service. Retiens : une opportunité qui refuse la vérification ne mérite pas ton argent. Abonne-toi pour comprendre ton argent.",
-    "legende": "« Offre réservée jusqu’à ce soir minuit. » C’est précisément le moment de ralentir.\n\nLes pièges à éviter et les signaux d’alerte à repérer face à une offre urgente.\n\nOn t’a déjà proposé une offre « à saisir avant ce soir » ? Raconte en commentaire pour prévenir les autres.\n\nAbonne-toi pour comprendre ton argent.",
+    "texte": "« Offre réservée jusqu’à ce soir minuit. » Tu sens la pression monter ? C’est le moment de ralentir. Dans cette vidéo, on va voir les pièges à éviter face à une offre urgente. Et comment vérifier en quelques minutes. Pourquoi l’urgence ? Parce que la pression du temps t’empêche de vérifier l’offre et ton interlocuteur. C’est l’arme numéro un des arnaques financières. Elle te pousse à agir avant de réfléchir. Le premier réflexe, c’est donc de reprendre la main sur le temps. Premier piège : décider dans la journée. Une vraie opportunité supporte quelques jours de réflexion. Si on te refuse ce délai, c’est pour éviter que tu vérifies. Ce délai, utilise-le pour savoir à qui tu as affaire. Deuxième piège : ne pas vérifier l’autorisation. Pour un établissement financier, consulte le registre REGAFI. Pour un intermédiaire, c’est l’ORIAS. Regarde aussi les listes noires de l’AMF, qui recensent les sites et acteurs non autorisés. Une recherche de deux minutes peut t’éviter de tout perdre. Mais les escrocs le savent, et ils soignent les apparences. Troisième piège : te fier à l’image. Site soigné, faux témoignages, nom proche d’une institution connue, conseiller très sympathique. Fie-toi plutôt aux signaux d’alerte. Un rendement élevé garanti. Un contact non sollicité. Un paiement en crypto, ou vers un compte à l’étranger. Au moindre doute, contacte Assurance Banque Épargne Info Service. Et retiens : une opportunité qui refuse la vérification ne mérite pas ton argent. Abonne-toi pour comprendre ton argent.",
+    "legende": "« Offre réservée jusqu’à ce soir minuit. » C’est précisément le moment de ralentir.\n\nDans cette vidéo : les pièges à éviter face à une offre urgente, où vérifier un acteur, et les signaux d’alerte à repérer.\n\nOn t’a déjà proposé une offre « à saisir avant ce soir » ? Raconte en commentaire pour prévenir les autres.\n\nAbonne-toi pour comprendre ton argent.",
     "hashtags": [
       "#WealthTechHorizon",
       "#WealthTech",
@@ -639,21 +704,28 @@
         "slides": [
           1
         ],
-        "texte": "Offre réservée jusqu’à minuit ? Ralentis."
+        "texte": "« Offre réservée jusqu’à ce soir minuit. » Tu sens la pression monter ? C’est le moment de ralentir."
+      },
+      {
+        "partie": "annonce",
+        "slides": [
+          1
+        ],
+        "texte": "Dans cette vidéo, on va voir les pièges à éviter face à une offre urgente. Et comment vérifier en quelques minutes."
       },
       {
         "partie": "contexte",
         "slides": [
           2
         ],
-        "texte": "L’urgence t’empêche de vérifier : c’est l’arme numéro un des arnaques financières."
+        "texte": "Pourquoi l’urgence ? Parce que la pression du temps t’empêche de vérifier l’offre et ton interlocuteur. C’est l’arme numéro un des arnaques financières. Elle te pousse à agir avant de réfléchir."
       },
       {
         "partie": "point1",
         "slides": [
           3
         ],
-        "texte": "Voici les pièges à éviter. Premier piège : décider dans la journée. Une vraie opportunité supporte quelques jours de réflexion. Si on te refuse ce délai, c’est pour éviter que tu vérifies."
+        "texte": "Le premier réflexe, c’est donc de reprendre la main sur le temps. Premier piège : décider dans la journée. Une vraie opportunité supporte quelques jours de réflexion. Si on te refuse ce délai, c’est pour éviter que tu vérifies."
       },
       {
         "partie": "point2",
@@ -661,7 +733,7 @@
           4,
           5
         ],
-        "texte": "Autre piège : ne pas vérifier l’autorisation ni les listes noires. Pour un établissement financier, consulte le registre REGAFI. Pour un intermédiaire, c’est l’ORIAS. L’AMF publie ces listes noires : deux minutes peuvent t’éviter de tout perdre."
+        "texte": "Ce délai, utilise-le pour savoir à qui tu as affaire. Deuxième piège : ne pas vérifier l’autorisation. Pour un établissement financier, consulte le registre REGAFI. Pour un intermédiaire, c’est l’ORIAS. Regarde aussi les listes noires de l’AMF, qui recensent les sites et acteurs non autorisés. Une recherche de deux minutes peut t’éviter de tout perdre."
       },
       {
         "partie": "point3",
@@ -669,14 +741,14 @@
           6,
           7
         ],
-        "texte": "Dernier piège : te fier à l’apparence. Site soigné, nom proche d’une institution connue : les escrocs savent inspirer confiance. Méfie-toi plutôt d’un rendement élevé garanti ou d’un contact non sollicité. Et d’un paiement en crypto ou vers un compte à l’étranger."
+        "texte": "Mais les escrocs le savent, et ils soignent les apparences. Troisième piège : te fier à l’image. Site soigné, faux témoignages, nom proche d’une institution connue, conseiller très sympathique. Fie-toi plutôt aux signaux d’alerte. Un rendement élevé garanti. Un contact non sollicité. Un paiement en crypto, ou vers un compte à l’étranger."
       },
       {
         "partie": "chute",
         "slides": [
           8
         ],
-        "texte": "Au moindre doute, contacte Assurance Banque Épargne Info Service. Retiens : une opportunité qui refuse la vérification ne mérite pas ton argent."
+        "texte": "Au moindre doute, contacte Assurance Banque Épargne Info Service. Et retiens : une opportunité qui refuse la vérification ne mérite pas ton argent."
       },
       {
         "partie": "cta",
@@ -686,7 +758,7 @@
         "texte": "Abonne-toi pour comprendre ton argent."
       }
     ],
-    "mots": 148,
+    "mots": 237,
     "notes_prononciation": "- « REGAFI » : « ré-ga-fi », pas épelé\n- « ORIAS » : « o-ri-asse », pas épelé\n- « AMF » : épelé\n- « crypto »\n- « Assurance Banque Épargne Info Service » : nom propre, sans pause"
   },
   {
@@ -694,8 +766,8 @@
     "source": "WTH-021",
     "date": "2026-11-09",
     "titre": "La meilleure info n’est pas dans le dossier",
-    "texte": "La meilleure info client ? Pas dans le dossier. Ton dossier client est figé, mais la vie, elle, continue : un conseil peut alors devenir inadapté. D’abord, la famille : ton client se marie, se pacse ou se sépare ? Régime matrimonial, donation, transmission : tout peut être à revoir. Une naissance ? Prévois un nouvel objectif d’épargne, revois la prévoyance et la clause bénéficiaire. Ensuite, le travail. Il crée son entreprise, perd son emploi, est promu ou part à la retraite ? Ses revenus, sa fiscalité et son besoin d’argent disponible changent. Enfin, l’immobilier : ton client achète ou vend un bien ? Son patrimoine se recompose, son endettement évolue. Et s’il déménage, surtout à l’étranger ? Quitter la France change sa fiscalité et les produits auxquels il a accès. Alors, à chaque entretien, demande-lui ce qui a changé depuis le dernier échange. Simple, ouverte, c’est souvent la question la plus utile. Abonne-toi pour comprendre ton argent.",
-    "legende": "La meilleure info sur ton client n’est pas dans son dossier.\n\nCouple, naissance, travail, immobilier, déménagement : 5 changements de vie qui doivent tout faire revoir.\n\nTu es conseiller en gestion de patrimoine (CGP) ? Quel changement de vie tes clients oublient-ils de te signaler ? Réponds en commentaire.\n\nAbonne-toi pour comprendre ton argent.",
+    "texte": "La meilleure info sur ton client n’est pas dans son dossier. Elle est dans sa vie. Dans cette vidéo, on va voir les changements de vie qui doivent tout faire revoir. Et la question qui les fait remonter. Le problème, c’est la fiche figée. Un dossier client est une photo prise à une date. La vie, elle, continue. Et un conseil fondé sur une situation dépassée peut devenir inadapté. Pourquoi commencer par la famille ? Parce qu’un seul événement familial peut tout remettre en question. Ton client se marie, se pacse ou se sépare ? Régime matrimonial, clause bénéficiaire, donation, transmission : tout peut être à revoir. Une naissance ? Nouvel objectif d’épargne, protection du foyer, prévoyance, et clause bénéficiaire à mettre à jour. La famille n’est pas seule à changer : il y a aussi le travail. Ton client crée son entreprise, perd son emploi, est promu ou part à la retraite ? Ses revenus, sa fiscalité et son besoin de liquidités changent. Et ton conseil doit suivre. Enfin, il y a les décisions qui déplacent le patrimoine lui-même. Ton client achète ou vend un bien immobilier ? Son patrimoine se recompose, son endettement évolue, de nouvelles liquidités peuvent apparaître. Et s’il déménage, surtout à l’étranger ? Fiscalité, résidence, produits accessibles : quitter la France change beaucoup de choses. Alors, à chaque rendez-vous, pose une question simple et ouverte. « Qu’est-ce qui a changé depuis notre dernier échange ? » C’est souvent la plus utile de l’entretien. Abonne-toi pour comprendre ton argent.",
+    "legende": "La meilleure info sur ton client n’est pas dans son dossier.\n\nDans cette vidéo : couple, naissance, travail, immobilier, déménagement. 5 changements de vie qui doivent tout faire revoir, et la question à poser à chaque rendez-vous.\n\nTu es conseiller en gestion de patrimoine (CGP) ? Quel changement de vie tes clients oublient-ils de te signaler ? Réponds en commentaire.\n\nAbonne-toi pour comprendre ton argent.",
     "hashtags": [
       "#WealthTechHorizon",
       "#IA",
@@ -708,14 +780,21 @@
         "slides": [
           1
         ],
-        "texte": "La meilleure info client ? Pas dans le dossier."
+        "texte": "La meilleure info sur ton client n’est pas dans son dossier. Elle est dans sa vie."
+      },
+      {
+        "partie": "annonce",
+        "slides": [
+          1
+        ],
+        "texte": "Dans cette vidéo, on va voir les changements de vie qui doivent tout faire revoir. Et la question qui les fait remonter."
       },
       {
         "partie": "contexte",
         "slides": [
           2
         ],
-        "texte": "Ton dossier client est figé, mais la vie, elle, continue : un conseil peut alors devenir inadapté."
+        "texte": "Le problème, c’est la fiche figée. Un dossier client est une photo prise à une date. La vie, elle, continue. Et un conseil fondé sur une situation dépassée peut devenir inadapté."
       },
       {
         "partie": "point1",
@@ -723,14 +802,14 @@
           3,
           4
         ],
-        "texte": "D’abord, la famille : ton client se marie, se pacse ou se sépare ? Régime matrimonial, donation, transmission : tout peut être à revoir. Une naissance ? Prévois un nouvel objectif d’épargne, revois la prévoyance et la clause bénéficiaire."
+        "texte": "Pourquoi commencer par la famille ? Parce qu’un seul événement familial peut tout remettre en question. Ton client se marie, se pacse ou se sépare ? Régime matrimonial, clause bénéficiaire, donation, transmission : tout peut être à revoir. Une naissance ? Nouvel objectif d’épargne, protection du foyer, prévoyance, et clause bénéficiaire à mettre à jour."
       },
       {
         "partie": "point2",
         "slides": [
           5
         ],
-        "texte": "Ensuite, le travail. Il crée son entreprise, perd son emploi, est promu ou part à la retraite ? Ses revenus, sa fiscalité et son besoin d’argent disponible changent."
+        "texte": "La famille n’est pas seule à changer : il y a aussi le travail. Ton client crée son entreprise, perd son emploi, est promu ou part à la retraite ? Ses revenus, sa fiscalité et son besoin de liquidités changent. Et ton conseil doit suivre."
       },
       {
         "partie": "point3",
@@ -738,14 +817,14 @@
           6,
           7
         ],
-        "texte": "Enfin, l’immobilier : ton client achète ou vend un bien ? Son patrimoine se recompose, son endettement évolue. Et s’il déménage, surtout à l’étranger ? Quitter la France change sa fiscalité et les produits auxquels il a accès."
+        "texte": "Enfin, il y a les décisions qui déplacent le patrimoine lui-même. Ton client achète ou vend un bien immobilier ? Son patrimoine se recompose, son endettement évolue, de nouvelles liquidités peuvent apparaître. Et s’il déménage, surtout à l’étranger ? Fiscalité, résidence, produits accessibles : quitter la France change beaucoup de choses."
       },
       {
         "partie": "chute",
         "slides": [
           8
         ],
-        "texte": "Alors, à chaque entretien, demande-lui ce qui a changé depuis le dernier échange. Simple, ouverte, c’est souvent la question la plus utile."
+        "texte": "Alors, à chaque rendez-vous, pose une question simple et ouverte. « Qu’est-ce qui a changé depuis notre dernier échange ? » C’est souvent la plus utile de l’entretien."
       },
       {
         "partie": "cta",
@@ -755,16 +834,16 @@
         "texte": "Abonne-toi pour comprendre ton argent."
       }
     ],
-    "mots": 148,
-    "notes_prononciation": "- « se pacse »"
+    "mots": 241,
+    "notes_prononciation": "- « se pacse »\n- « clause bénéficiaire » : sans pause"
   },
   {
     "id": "V12",
     "source": "WTH-049",
     "date": "2026-11-11",
     "titre": "L’inflation : la perte que tu ne vois pas",
-    "texte": "Tes euros dorment. Leur pouvoir d’achat, lui, fond. L’inflation, c’est la hausse générale des prix, donc tes euros achètent moins. D’abord, un exemple pour illustrer. Imagine 10 000 € qui ne rapportent rien, avec 2 % d’inflation par an. Après 10 ans, ils n’achètent plus que l’équivalent d’environ 8 200 € d’aujourd’hui. Pourtant, ton solde affiche toujours 10 000 € : la perte est invisible. Faut-il fuir le cash ? Non. Il sert à faire face aux imprévus, ou à financer un projet proche. Pour ça, la stabilité compte plus que le rendement. Enfin, l’inflation pèse sur l’argent immobile dont tu n’as pas besoin avant longtemps. Sur 10 ou 20 ans, l’érosion devient importante. Alors sépare ton argent : à court terme, garde-le sûr et disponible. À long terme, cherche au moins à compenser l’inflation, en acceptant un risque. Le problème n’est pas le cash. C’est le cash sans mission. Abonne-toi pour comprendre ton argent.",
-    "legende": "Tes euros dorment. Leur pouvoir d’achat, lui, fond.\n\nCe que l’inflation fait à ton argent, et pourquoi le cash garde quand même un rôle.\n\nTu as de l’argent qui dort sans objectif ? Dis-le en commentaire, et enregistre cette vidéo.\n\nAbonne-toi pour comprendre ton argent.",
+    "texte": "Tes euros ne bougent pas. Leur pouvoir d’achat, si. Et tu ne le vois même pas. Dans cette vidéo, on va voir ce que l’inflation fait à ton argent. Et comment donner une mission à ton cash. L’inflation, c’est la hausse générale des prix. Quand elle est de 2 % par an, ce qui coûtait 100 € coûte 102 € un an plus tard. Pourquoi partir d’un exemple ? Parce que cette perte n’apparaît sur aucun relevé. Imagine 10 000 € laissés sans intérêt pendant 10 ans, avec 2 % d’inflation par an. À la fin, ils achètent l’équivalent d’environ 8 200 € d’aujourd’hui. C’est un exemple illustratif. Pourtant, ton solde affiche toujours 10 000 €. La perte est invisible. Face à ça, on a envie de tout placer. Mais faut-il fuir le cash ? Non. L’argent disponible a un rôle : faire face aux imprévus, ou financer un projet proche. Pour ça, la stabilité compte plus que le rendement. Le vrai sujet, c’est donc l’argent qui dort sans raison. L’inflation pèse surtout sur l’argent dont tu n’as pas besoin avant longtemps, et qui reste immobile. Sur 10 ou 20 ans, l’érosion devient importante. Alors sépare les horizons. À court terme, vise la sécurité et la disponibilité. À long terme, cherche à faire progresser ton argent au moins aussi vite que les prix. Mais en acceptant un risque. Garder du cash a une utilité. Son rôle et sa durée comptent. Le problème n’est pas le cash. C’est le cash sans mission. Abonne-toi pour comprendre ton argent.",
+    "legende": "Tes euros ne bougent pas. Leur pouvoir d’achat, si.\n\nDans cette vidéo : ce que l’inflation fait à ton argent, pourquoi le cash garde quand même un rôle, et comment séparer court terme et long terme.\n\nTu as de l’argent qui dort sans objectif ? Dis-le en commentaire, et enregistre cette vidéo.\n\nAbonne-toi pour comprendre ton argent.",
     "hashtags": [
       "#WealthTechHorizon",
       "#Argent",
@@ -778,14 +857,21 @@
         "slides": [
           1
         ],
-        "texte": "Tes euros dorment. Leur pouvoir d’achat, lui, fond."
+        "texte": "Tes euros ne bougent pas. Leur pouvoir d’achat, si. Et tu ne le vois même pas."
+      },
+      {
+        "partie": "annonce",
+        "slides": [
+          1
+        ],
+        "texte": "Dans cette vidéo, on va voir ce que l’inflation fait à ton argent. Et comment donner une mission à ton cash."
       },
       {
         "partie": "contexte",
         "slides": [
           2
         ],
-        "texte": "L’inflation, c’est la hausse générale des prix, donc tes euros achètent moins."
+        "texte": "L’inflation, c’est la hausse générale des prix. Quand elle est de 2 % par an, ce qui coûtait 100 € coûte 102 € un an plus tard."
       },
       {
         "partie": "point1",
@@ -793,14 +879,14 @@
           3,
           4
         ],
-        "texte": "D’abord, un exemple pour illustrer. Imagine 10 000 € qui ne rapportent rien, avec 2 % d’inflation par an. Après 10 ans, ils n’achètent plus que l’équivalent d’environ 8 200 € d’aujourd’hui. Pourtant, ton solde affiche toujours 10 000 € : la perte est invisible."
+        "texte": "Pourquoi partir d’un exemple ? Parce que cette perte n’apparaît sur aucun relevé. Imagine 10 000 € laissés sans intérêt pendant 10 ans, avec 2 % d’inflation par an. À la fin, ils achètent l’équivalent d’environ 8 200 € d’aujourd’hui. C’est un exemple illustratif. Pourtant, ton solde affiche toujours 10 000 €. La perte est invisible."
       },
       {
         "partie": "point2",
         "slides": [
           5
         ],
-        "texte": "Faut-il fuir le cash ? Non. Il sert à faire face aux imprévus, ou à financer un projet proche. Pour ça, la stabilité compte plus que le rendement."
+        "texte": "Face à ça, on a envie de tout placer. Mais faut-il fuir le cash ? Non. L’argent disponible a un rôle : faire face aux imprévus, ou financer un projet proche. Pour ça, la stabilité compte plus que le rendement."
       },
       {
         "partie": "point3",
@@ -808,14 +894,14 @@
           6,
           7
         ],
-        "texte": "Enfin, l’inflation pèse sur l’argent immobile dont tu n’as pas besoin avant longtemps. Sur 10 ou 20 ans, l’érosion devient importante. Alors sépare ton argent : à court terme, garde-le sûr et disponible. À long terme, cherche au moins à compenser l’inflation, en acceptant un risque."
+        "texte": "Le vrai sujet, c’est donc l’argent qui dort sans raison. L’inflation pèse surtout sur l’argent dont tu n’as pas besoin avant longtemps, et qui reste immobile. Sur 10 ou 20 ans, l’érosion devient importante. Alors sépare les horizons. À court terme, vise la sécurité et la disponibilité. À long terme, cherche à faire progresser ton argent au moins aussi vite que les prix. Mais en acceptant un risque."
       },
       {
         "partie": "chute",
         "slides": [
           8
         ],
-        "texte": "Le problème n’est pas le cash. C’est le cash sans mission."
+        "texte": "Garder du cash a une utilité. Son rôle et sa durée comptent. Le problème n’est pas le cash. C’est le cash sans mission."
       },
       {
         "partie": "cta",
@@ -825,16 +911,16 @@
         "texte": "Abonne-toi pour comprendre ton argent."
       }
     ],
-    "mots": 148,
-    "notes_prononciation": "- « cash » : à l’anglaise\n- Nombres lus correctement : 10 000 €, 8 200 €, 2 %, 20, 10"
+    "mots": 246,
+    "notes_prononciation": "- « cash » : à l’anglaise\n- Nombres lus correctement : 2 %, 100 €, 102 €, 10 000 €, 8 200 €, 10 ans, 10 ou 20 ans"
   },
   {
     "id": "V13",
     "source": "WTH-058",
     "date": "2026-11-13",
     "titre": "Ton patrimoine net n’est pas ton solde",
-    "texte": "Ton solde bancaire n’est pas ton patrimoine net. Ton patrimoine net, c’est la photo la plus honnête de ta situation. D’abord, additionne tout ce que tu possèdes. Par exemple, tes comptes, ton assurance-vie, ton épargne salariale, ton immobilier. Note leur valeur actuelle, pas leur prix d’achat. Ensuite, retire le capital restant dû sur tes crédits. Pas tes mensualités, mais le montant restant à rembourser. Imagine un appartement estimé à 250 000 €, avec 180 000 € de crédit restant. Il ne représente pas 250 000 € de patrimoine, mais environ 70 000 €. Attention, ce chiffre mélange du disponible et du bloqué, du sûr et du risqué. Alors utilise-le comme repère, sans oublier la part bloquée ni la part risquée. Retiens ça : pas ton solde, mais ce que tu possèdes moins ce que tu dois. C’est le point de départ de toute stratégie patrimoniale. Abonne-toi pour comprendre ton argent.",
-    "legende": "Ton patrimoine net n’est pas le solde de tes comptes.\n\nComment le calculer, et pourquoi ce chiffre a ses limites.\n\nTu as déjà calculé ton patrimoine net ? Oui, non, jamais pensé ? Dis-le en commentaire.\n\nAbonne-toi pour comprendre ton argent.",
+    "texte": "Tu regardes ton solde bancaire pour savoir où tu en es ? Ce chiffre ne dit presque rien. Dans cette vidéo, on va voir comment calculer ton patrimoine net. Et comment bien lire ce chiffre. Ton patrimoine net, c’est tout ce que tu possèdes, moins tout ce que tu dois. C’est la photo la plus honnête de ta situation. Et c’est le point de départ de toute stratégie patrimoniale. Pourquoi commencer par ce que tu possèdes ? Parce que ton solde n’en montre souvent qu’une partie. Fais la liste complète : comptes, livrets, assurance-vie, PEA, épargne salariale, PER. Ajoute l’immobilier, un véhicule, des parts de société. Et note leur valeur actuelle, pas leur prix d’achat. Ça ne suffit pas : posséder un bien ne veut pas dire qu’il est à toi en entier. Ensuite, retire le capital restant dû sur tes crédits. Pas les mensualités, mais le montant restant à rembourser. Imagine un appartement estimé 250 000 €, avec 180 000 € de crédit restant. Il ne représente pas 250 000 € de patrimoine, mais environ 70 000 € nets. Dernier point, et pas le moindre : ce chiffre a ses limites. Il mélange du disponible et du bloqué, du sûr et du risqué, de l’estimé et du réel. Utilise-le comme repère, sans oublier liquidité et risques. Et calcule-le une ou deux fois par an : c’est son évolution qui compte. Retiens ça : ton patrimoine, ce n’est pas ton solde. C’est ce que tu possèdes moins ce que tu dois. Simple, et pourtant essentiel. Abonne-toi pour comprendre ton argent.",
+    "legende": "Ton patrimoine net n’est pas le solde de tes comptes.\n\nDans cette vidéo : comment le calculer, ce qu’il faut compter et retirer, et pourquoi ce chiffre a ses limites.\n\nTu as déjà calculé ton patrimoine net ? Oui, non, jamais pensé ? Dis-le en commentaire.\n\nAbonne-toi pour comprendre ton argent.",
     "hashtags": [
       "#WealthTechHorizon",
       "#WealthTech",
@@ -848,21 +934,28 @@
         "slides": [
           1
         ],
-        "texte": "Ton solde bancaire n’est pas ton patrimoine net."
+        "texte": "Tu regardes ton solde bancaire pour savoir où tu en es ? Ce chiffre ne dit presque rien."
+      },
+      {
+        "partie": "annonce",
+        "slides": [
+          1
+        ],
+        "texte": "Dans cette vidéo, on va voir comment calculer ton patrimoine net. Et comment bien lire ce chiffre."
       },
       {
         "partie": "contexte",
         "slides": [
           2
         ],
-        "texte": "Ton patrimoine net, c’est la photo la plus honnête de ta situation."
+        "texte": "Ton patrimoine net, c’est tout ce que tu possèdes, moins tout ce que tu dois. C’est la photo la plus honnête de ta situation. Et c’est le point de départ de toute stratégie patrimoniale."
       },
       {
         "partie": "point1",
         "slides": [
           3
         ],
-        "texte": "D’abord, additionne tout ce que tu possèdes. Par exemple, tes comptes, ton assurance-vie, ton épargne salariale, ton immobilier. Note leur valeur actuelle, pas leur prix d’achat."
+        "texte": "Pourquoi commencer par ce que tu possèdes ? Parce que ton solde n’en montre souvent qu’une partie. Fais la liste complète : comptes, livrets, assurance-vie, PEA, épargne salariale, PER. Ajoute l’immobilier, un véhicule, des parts de société. Et note leur valeur actuelle, pas leur prix d’achat."
       },
       {
         "partie": "point2",
@@ -870,21 +963,22 @@
           4,
           5
         ],
-        "texte": "Ensuite, retire le capital restant dû sur tes crédits. Pas tes mensualités, mais le montant restant à rembourser. Imagine un appartement estimé à 250 000 €, avec 180 000 € de crédit restant. Il ne représente pas 250 000 € de patrimoine, mais environ 70 000 €."
+        "texte": "Ça ne suffit pas : posséder un bien ne veut pas dire qu’il est à toi en entier. Ensuite, retire le capital restant dû sur tes crédits. Pas les mensualités, mais le montant restant à rembourser. Imagine un appartement estimé 250 000 €, avec 180 000 € de crédit restant. Il ne représente pas 250 000 € de patrimoine, mais environ 70 000 € nets."
       },
       {
         "partie": "point3",
         "slides": [
-          6
+          6,
+          7
         ],
-        "texte": "Attention, ce chiffre mélange du disponible et du bloqué, du sûr et du risqué. Alors utilise-le comme repère, sans oublier la part bloquée ni la part risquée."
+        "texte": "Dernier point, et pas le moindre : ce chiffre a ses limites. Il mélange du disponible et du bloqué, du sûr et du risqué, de l’estimé et du réel. Utilise-le comme repère, sans oublier liquidité et risques. Et calcule-le une ou deux fois par an : c’est son évolution qui compte."
       },
       {
         "partie": "chute",
         "slides": [
           8
         ],
-        "texte": "Retiens ça : pas ton solde, mais ce que tu possèdes moins ce que tu dois. C’est le point de départ de toute stratégie patrimoniale."
+        "texte": "Retiens ça : ton patrimoine, ce n’est pas ton solde. C’est ce que tu possèdes moins ce que tu dois. Simple, et pourtant essentiel."
       },
       {
         "partie": "cta",
@@ -894,16 +988,16 @@
         "texte": "Abonne-toi pour comprendre ton argent."
       }
     ],
-    "mots": 145,
-    "notes_prononciation": "- Nombres lus correctement : 180 000 €, 250 000 €, 70 000 €"
+    "mots": 249,
+    "notes_prononciation": "- « PEA » : épelé\n- « PER » : épelé\n- Nombres lus correctement : 250 000 €, 180 000 €, 70 000 €"
   },
   {
     "id": "V14",
     "source": "WTH-086",
     "date": "2026-11-15",
     "titre": "Ton IA financière dit « je ne sais pas » ?",
-    "texte": "Ton IA avoue quand elle ne sait pas ? Le problème : même sans l’info, une IA générative peut fabriquer une réponse qui paraît crédible. En finance, c’est dangereux. Imagine une règle fiscale inventée, un plafond erroné, une date fausse. Dite avec aplomb, une erreur peut coûter cher. Une bonne réponse donne sa source, sa date et ses limites. Du genre « cette règle s’applique en général, mais dépend de ta situation ». Prudente et sourcée, cette réponse te dit où vérifier. C’est souvent plus utile qu’une certitude affichée. Une question réglementaire hors contexte ? Une situation personnelle complexe ? Un montant important ? Là, l’outil doit te signaler qu’une vérification humaine s’impose, pas le cacher. Pour choisir ton IA, teste-la avec une question dont tu connais la réponse. Retiens bien : une IA qui dit « je ne sais pas » montre ses limites. Et la confiance naît aussi de là. Abonne-toi pour comprendre ton argent.",
-    "legende": "Une IA financière devrait savoir dire « je ne sais pas ».\n\nPourquoi c’est un signe de qualité et comment tester ton IA.\n\nTu as déjà vu une IA dire « je ne sais pas » ? Dis-le en commentaire.\n\nAbonne-toi pour comprendre ton argent.",
+    "texte": "Tu poses une question fiscale à ton IA. Elle répond avec aplomb. Et si c’était faux ? Dans cette vidéo, on va voir pourquoi une IA financière doit savoir dire « je ne sais pas ». Et comment tester la tienne. Le réflexe des IA, c’est de répondre. Une IA générative est conçue pour produire une réponse. Même sans l’information, elle peut en fabriquer une qui paraît crédible. Pourquoi c’est grave en finance ? Parce qu’une erreur n’y reste jamais théorique. Une règle fiscale inventée, un plafond erroné, une date fausse. Dite avec assurance, une telle erreur peut coûter cher. Alors, à quoi ressemble une bonne réponse ? Elle donne la réponse, sa source, sa date et ses limites. Par exemple : « Cette règle s’applique en général, mais dépend de ta situation ». Une réponse prudente et sourcée te dit où vérifier. C’est souvent plus utile qu’une certitude affichée. Et parfois, aucune réponse ne suffit : il faut un humain. Question réglementaire hors contexte, situation personnelle complexe, montant important ? L’outil doit te le signaler, pas le cacher. Pour choisir le tien, privilégie les outils qui montrent leurs sources et signalent l’incertitude. Puis teste-le avec une question dont tu connais déjà la réponse. Une IA qui dit « je ne sais pas » ne montre pas une faiblesse. Elle montre ses limites. Et la confiance naît aussi de là. Abonne-toi pour comprendre ton argent.",
+    "legende": "Une IA financière devrait savoir dire « je ne sais pas ».\n\nDans cette vidéo : pourquoi c’est un signe de qualité, ce que contient une bonne réponse, et comment tester ton IA.\n\nTu as déjà vu une IA dire « je ne sais pas » ? Dis-le en commentaire.\n\nAbonne-toi pour comprendre ton argent.",
     "hashtags": [
       "#WealthTechHorizon",
       "#IA",
@@ -917,21 +1011,28 @@
         "slides": [
           1
         ],
-        "texte": "Ton IA avoue quand elle ne sait pas ?"
+        "texte": "Tu poses une question fiscale à ton IA. Elle répond avec aplomb. Et si c’était faux ?"
+      },
+      {
+        "partie": "annonce",
+        "slides": [
+          1
+        ],
+        "texte": "Dans cette vidéo, on va voir pourquoi une IA financière doit savoir dire « je ne sais pas ». Et comment tester la tienne."
       },
       {
         "partie": "contexte",
         "slides": [
           2
         ],
-        "texte": "Le problème : même sans l’info, une IA générative peut fabriquer une réponse qui paraît crédible."
+        "texte": "Le réflexe des IA, c’est de répondre. Une IA générative est conçue pour produire une réponse. Même sans l’information, elle peut en fabriquer une qui paraît crédible."
       },
       {
         "partie": "point1",
         "slides": [
           3
         ],
-        "texte": "En finance, c’est dangereux. Imagine une règle fiscale inventée, un plafond erroné, une date fausse. Dite avec aplomb, une erreur peut coûter cher."
+        "texte": "Pourquoi c’est grave en finance ? Parce qu’une erreur n’y reste jamais théorique. Une règle fiscale inventée, un plafond erroné, une date fausse. Dite avec assurance, une telle erreur peut coûter cher."
       },
       {
         "partie": "point2",
@@ -939,7 +1040,7 @@
           4,
           5
         ],
-        "texte": "Une bonne réponse donne sa source, sa date et ses limites. Du genre « cette règle s’applique en général, mais dépend de ta situation ». Prudente et sourcée, cette réponse te dit où vérifier. C’est souvent plus utile qu’une certitude affichée."
+        "texte": "Alors, à quoi ressemble une bonne réponse ? Elle donne la réponse, sa source, sa date et ses limites. Par exemple : « Cette règle s’applique en général, mais dépend de ta situation ». Une réponse prudente et sourcée te dit où vérifier. C’est souvent plus utile qu’une certitude affichée."
       },
       {
         "partie": "point3",
@@ -947,14 +1048,14 @@
           6,
           7
         ],
-        "texte": "Une question réglementaire hors contexte ? Une situation personnelle complexe ? Un montant important ? Là, l’outil doit te signaler qu’une vérification humaine s’impose, pas le cacher. Pour choisir ton IA, teste-la avec une question dont tu connais la réponse."
+        "texte": "Et parfois, aucune réponse ne suffit : il faut un humain. Question réglementaire hors contexte, situation personnelle complexe, montant important ? L’outil doit te le signaler, pas le cacher. Pour choisir le tien, privilégie les outils qui montrent leurs sources et signalent l’incertitude. Puis teste-le avec une question dont tu connais déjà la réponse."
       },
       {
         "partie": "chute",
         "slides": [
           8
         ],
-        "texte": "Retiens bien : une IA qui dit « je ne sais pas » montre ses limites. Et la confiance naît aussi de là."
+        "texte": "Une IA qui dit « je ne sais pas » ne montre pas une faiblesse. Elle montre ses limites. Et la confiance naît aussi de là."
       },
       {
         "partie": "cta",
@@ -964,16 +1065,16 @@
         "texte": "Abonne-toi pour comprendre ton argent."
       }
     ],
-    "mots": 147,
-    "notes_prononciation": "- « IA » : i-a, lettre par lettre"
+    "mots": 223,
+    "notes_prononciation": "- « IA » : i-a, lettre par lettre\n- « sourcée » : « sour-cée »"
   },
   {
     "id": "V15",
     "source": "WTH-090",
     "date": "2026-11-17",
     "titre": "Pas besoin de tout réorganiser ce soir",
-    "texte": "Ton argent ? Commence par une seule décision. Budget, épargne, placements, papiers : on veut tout reprendre en un week-end, et le lundi, on abandonne. D’abord, pourquoi on abandonne ? Parce que c’était trop. Tout réorganiser d’un coup demande trop d’énergie et trop de décisions. Et plus la marche est haute, plus on repousse le départ. Ensuite, fais l’inverse. Choisis une seule petite action, fais-la, puis note la suivante. Par exemple, en 10 minutes, tu peux résilier un abonnement inutile. L’élan vient de l’action, pas du plan. Et enfin, chaque petite action réussie rend la suivante plus facile. En quelques semaines, tu as avancé plus qu’avec un grand plan jamais commencé. D’où la règle : une décision par semaine. À la fin de l’année, ça fait 52 décisions financières. Tu n’as pas besoin de tout maîtriser pour commencer. Abonne-toi pour comprendre ton argent.",
-    "legende": "Tu n’as pas besoin de tout réorganiser ce soir.\n\nUne seule décision suffit pour commencer.\n\nQuelle est ta petite action de cette semaine ? Écris-la en commentaire. L’écrire, c’est déjà s’engager.\n\nAbonne-toi pour comprendre ton argent.",
+    "texte": "Tu t’étais promis de reprendre ton argent en main ce week-end. Et lundi, tu as tout lâché ? Dans cette vidéo, on va voir pourquoi le grand plan échoue. Et comment avancer avec une seule décision à la fois. C’est le piège du grand plan. On veut tout reprendre d’un coup : budget, épargne, placements, papiers. Un week-end entier. Et le lundi, on abandonne, parce que c’était trop. Pourquoi ça bloque ? Ce n’est pas un manque de volonté. Tout réorganiser d’un coup demande trop d’énergie et trop de décisions. Et plus la marche est haute, plus on repousse le départ. La solution, c’est donc de baisser la marche. Fais l’inverse : choisis une seule petite action. Fais-la, puis note la suivante. Par exemple, en 10 minutes, tu peux résilier un abonnement inutile. Ou programmer un virement d’épargne, dater un projet, vérifier les frais d’un contrat. L’élan vient de l’action, pas du plan. Et pourquoi ça marche ? Parce que chaque petite action réussie rend la suivante plus facile. En quelques semaines, tu as avancé plus qu’avec un grand plan jamais commencé. D’où la règle : une décision par semaine. À la fin de l’année, ça fait 52 décisions financières. Avant, tu attendais d’avoir le temps de tout faire. Maintenant, tu fais une seule chose. Tu n’as pas besoin de tout maîtriser pour commencer à mieux comprendre ton argent. Abonne-toi pour comprendre ton argent.",
+    "legende": "Tu n’as pas besoin de tout réorganiser ce soir.\n\nDans cette vidéo : pourquoi le grand plan bloque, et comment une seule décision suffit pour commencer.\n\nQuelle est ta petite action de cette semaine ? Écris-la en commentaire. L’écrire, c’est déjà s’engager.\n\nAbonne-toi pour comprendre ton argent.",
     "hashtags": [
       "#WealthTechHorizon",
       "#Argent",
@@ -986,21 +1087,28 @@
         "slides": [
           1
         ],
-        "texte": "Ton argent ? Commence par une seule décision."
+        "texte": "Tu t’étais promis de reprendre ton argent en main ce week-end. Et lundi, tu as tout lâché ?"
+      },
+      {
+        "partie": "annonce",
+        "slides": [
+          1
+        ],
+        "texte": "Dans cette vidéo, on va voir pourquoi le grand plan échoue. Et comment avancer avec une seule décision à la fois."
       },
       {
         "partie": "contexte",
         "slides": [
           2
         ],
-        "texte": "Budget, épargne, placements, papiers : on veut tout reprendre en un week-end, et le lundi, on abandonne."
+        "texte": "C’est le piège du grand plan. On veut tout reprendre d’un coup : budget, épargne, placements, papiers. Un week-end entier. Et le lundi, on abandonne, parce que c’était trop."
       },
       {
         "partie": "point1",
         "slides": [
           3
         ],
-        "texte": "D’abord, pourquoi on abandonne ? Parce que c’était trop. Tout réorganiser d’un coup demande trop d’énergie et trop de décisions. Et plus la marche est haute, plus on repousse le départ."
+        "texte": "Pourquoi ça bloque ? Ce n’est pas un manque de volonté. Tout réorganiser d’un coup demande trop d’énergie et trop de décisions. Et plus la marche est haute, plus on repousse le départ."
       },
       {
         "partie": "point2",
@@ -1008,7 +1116,7 @@
           4,
           5
         ],
-        "texte": "Ensuite, fais l’inverse. Choisis une seule petite action, fais-la, puis note la suivante. Par exemple, en 10 minutes, tu peux résilier un abonnement inutile. L’élan vient de l’action, pas du plan."
+        "texte": "La solution, c’est donc de baisser la marche. Fais l’inverse : choisis une seule petite action. Fais-la, puis note la suivante. Par exemple, en 10 minutes, tu peux résilier un abonnement inutile. Ou programmer un virement d’épargne, dater un projet, vérifier les frais d’un contrat. L’élan vient de l’action, pas du plan."
       },
       {
         "partie": "point3",
@@ -1016,14 +1124,14 @@
           6,
           7
         ],
-        "texte": "Et enfin, chaque petite action réussie rend la suivante plus facile. En quelques semaines, tu as avancé plus qu’avec un grand plan jamais commencé. D’où la règle : une décision par semaine. À la fin de l’année, ça fait 52 décisions financières."
+        "texte": "Et pourquoi ça marche ? Parce que chaque petite action réussie rend la suivante plus facile. En quelques semaines, tu as avancé plus qu’avec un grand plan jamais commencé. D’où la règle : une décision par semaine. À la fin de l’année, ça fait 52 décisions financières."
       },
       {
         "partie": "chute",
         "slides": [
           8
         ],
-        "texte": "Tu n’as pas besoin de tout maîtriser pour commencer."
+        "texte": "Avant, tu attendais d’avoir le temps de tout faire. Maintenant, tu fais une seule chose. Tu n’as pas besoin de tout maîtriser pour commencer à mieux comprendre ton argent."
       },
       {
         "partie": "cta",
@@ -1033,7 +1141,7 @@
         "texte": "Abonne-toi pour comprendre ton argent."
       }
     ],
-    "mots": 139,
-    "notes_prononciation": "- Nombres lus correctement : 10, 52"
+    "mots": 228,
+    "notes_prononciation": "- Nombres lus correctement : 10 minutes, 52"
   }
 ]
