@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-23T19:45:06+00:00",
+  "updated_at": "2026-10-23T20:13:48+00:00",
   "checkpoints": {
     "v01_full_approved": {
       "state": "done",
@@ -170,22 +170,28 @@
           "updated_at": "2026-10-23T13:25:00+00:00"
         },
         "spec": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-23T20:13:47+00:00"
         },
         "render": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-23T20:13:47+00:00"
         },
         "review": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-23T20:13:48+00:00"
         },
         "mute_verify": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-23T20:13:48+00:00"
         },
         "qa": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-23T20:13:48+00:00"
         },
         "delivered": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-23T20:13:48+00:00"
         },
         "published": {
           "state": "pending"
@@ -193,7 +199,12 @@
       },
       "open_issues": [],
       "notes": [],
-      "max_duration_s": 62.0
+      "max_duration_s": 62.0,
+      "livraison": {
+        "date": "2026-10-23",
+        "fichier": "output/WTH-V03.mp4",
+        "sans_son": "6/10 GOT après correction de S19, aucune idée principale manquée, critère oui (mode rapide)"
+      }
     },
     "V04": {
       "title": "Ton solde n’est pas ton budget",
