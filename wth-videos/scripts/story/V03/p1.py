@@ -1,5 +1,5 @@
 """V03, partie 1 : S01-S07, images 0-982 (32 temps forts, 32,8 s). L'étiquette « 1 % / an » sur la colonne de
-l'épargne, les trois questions, les jetons arrachés chaque année, « + » contre « + 0 € », la pile « plus de 4 600 € »,
+l'épargne, les trois questions, les jetons arrachés chaque année, « + » qui meurt sur le bac, la pile « plus de 4 600 € »,
 puis le réarrangement en graphique vide.
 
 État d'entrée : l'état de distribution (image 0) : colonne `epargne` en EPARGNE_C à 0,60 avec `epargne_euro` et
@@ -25,7 +25,7 @@ Tour de revue 1 :
   (« baisse. ») ; chaque jeton sort par le haut de la colonne (y 645, au-dessus du bord) puis file à gauche par une
   courbe qui contourne la colonne jusqu'au bac.
 - S05 : sur « travaille » et « suivantes. », un « + » deep naît aussi au-dessus du bac et meurt sur les jetons
-  immobiles (vanish 8 images) ; « + 0 € » (48 px) en est le résultat. La colonne monte 0,42 -> 0,52 -> 0,62.
+  immobiles (vanish 8 images) ; « + 0 € » retiré après le contrôle sans son (mal lu). La colonne monte 0,42 -> 0,52 -> 0,62.
 - S06 : les 4 jetons glissent l'un sur l'autre (kit.stagger, 2 images) puis deviennent la base cyan (60 px) de la
   pile ; sur « coûter », deux blocs fantômes (tirets cyan, sans fond, sans « + ») montent de la base, et sur la colonne
   un trait pointillé deep marque le niveau sans frais, un crochet rouge « 4 600 € » le relie au remplissage.
@@ -205,7 +205,7 @@ def part(S, kit, c):
     S.key("vague", "rot", f + 16, 0, 10, "inOut")
     assert abs(level[0] - LEVELS["S04"]) < 1e-6 and end <= scene_f0(S, "S05") + 2, (level, end)
 
-    # ================= S05 : la colonne grossit, le « + » du bac meurt : « + 0 € » =================
+    # ================= S05 : la colonne grossit, le « + » du bac meurt =================
     f = kit.at("S05", "l’argent", "les 4 jetons du bac battent ensemble : c'est l'argent prélevé")
     for k in range(4):
         kit.pulse(f"jeton{k + 1}", f, peak=1.15)
@@ -218,26 +218,23 @@ def part(S, kit, c):
 
     f = kit.at("S05", "travaille", "une année de plus (case 5) : un « + » surgit à côté de « 10 000 € » et la colonne "
                                    "monte (0,42 -> 0,52) ; le même « + » naît au-dessus du bac et meurt aussitôt sur "
-                                   "les jetons immobiles : « + 0 € »")
+                                   "les jetons immobiles")
     S.key("barre_temps", "value", f, 5 / BARRE_N, 6, "out")
     kit.pop("epargne_plus", f)
     S.key("epargne", "value", f, LEVELS["S05a"], 10, "out")
-    g = plus_meurt(f)
-    kit.pop("bac_zero", g)
+    plus_meurt(f)
 
     f = kit.at("S05", "suivantes.", "encore une année (case 6) : le « + » rebat, la colonne monte (0,52 -> 0,62) ; au "
-                                    "bac, « + 0 € » s'efface, un « + » renaît et meurt de nouveau : « + 0 € ». Tenue")
+                                    "bac, un « + » renaît et meurt de nouveau sur les jetons immobiles. Tenue")
     S.key("barre_temps", "value", f, 6 / BARRE_N, 6, "out")
     kit.pulse("epargne_plus", f, peak=1.2)
     S.key("epargne", "value", f, LEVELS["S05"], 10, "out")
-    S.key("bac_zero", "scale", f, 0, 3, "in")
-    g = plus_meurt(f + 2)
-    kit.pop("bac_zero", g)
+    plus_meurt(f + 2)
 
     # ================= S06 : la pile de 20 ans : plus de 4 600 € =================
-    f = kit.at("S06", "Résultat :", "la vague et « marché » se réduisent et sortent ; « + » et « + 0 € » s'effacent ; "
+    f = kit.at("S06", "Résultat :", "la vague et « marché » se réduisent et sortent ; « + » s'efface ; "
                                     "les 4 jetons glissent l'un sur l'autre, puis deviennent la base cyan de la pile")
-    for o in ("vague", "vague_marche", "epargne_plus", "bac_zero"):
+    for o in ("vague", "vague_marche", "epargne_plus"):
         kit.vanish(o, f)
     jetons = [f"jeton{k + 1}" for k in range(4)]
     kit.stagger(jetons, f, 2, kit.move, PILE_FROM, d=8)

@@ -27,9 +27,13 @@ Tour de revue 1 :
   à portée de son stylo (« communiquer ») ; « obligatoire » (pilule claire, texte encre) est tamponné sur le relevé à
   la remise ; « Toi » touche le relevé (« euros ») avant que les lignes ne s'écrivent, « sur 10 000 € » sous
   « 100 € / an », puis il le coche. « ton intermédiaire » au-dessus de sa tête, hors du buste.
-- S19 : le repère se réduit avec l'intermédiaire et le document. La vague plate se trace (« ne ») pendant que « Toi »
-  tourne la tête vers elle sans bouger le stylo ; elle monte de 200 px en basculant de −10° (« pas », flèche deep vers
-  le haut à côté de « marché »), puis plonge de 260 px à +10° (« marchés. », flèche vers le bas).
+- S19 (corrigée après le contrôle sans son, idée h) : le repère se réduit avec l'intermédiaire et le document ;
+  l'étiquette se pose au sol devant « Toi » (« Tu »). La vague se trace (« ne ») et « Toi » tend le stylo vers elle ;
+  elle l'esquive en sautant vers le haut (« pas », flèche haut), retombe sur la pointe qui recule, et un cadenas se pose
+  sur elle (« marchés. », flèche bas, tenue 1 s). « Toi » pique l'étiquette au sol et la ramène dans sa main, basse
+  (« contrôles ») ; il la retourne, pastille deep cochée (« frais. »). Bras jamais au-dessus de la tête.
+- S16 : le bac sort du cadre par la gauche (il ne rentre plus dans la colonne).
+- S21 : « 1 % / an » s'efface (piste `textOp`) avant que l'étiquette ne devienne le bouton « S’abonner ».
 - S20 : panneau élargi (420), textes centrés, colonne remontée à 0,8 à sa gauche (40 px d'ivoire) ; l'étiquette bute
   sur le bord haut du panneau et se pose 28 px au-dessus ; « Toi » barre le 5 % depuis x 620.
 - S21 : l'étiquette, seule sur l'ivoire, va et s'élargit en bouton en 14 images en gardant « 1 % / an », bat, puis
@@ -38,15 +42,16 @@ Tour de revue 1 :
 from pipeline.story import DRAW, FADE, MORPH, MOVE, POP
 from pipeline.story_kit import TAP
 
-from . import (DIC_C, ENTRY_P3, EPARGNE_MINI, EPARGNE_MINI_K, EPARGNE_S16, EPARGNE_S20, EPARGNE_S20_K, ETIQ_BTN_SCALE,
-               ETIQ_BUTE, ETIQ_LISTE, ETIQ_POSEE, ETIQ_S20, ETIQ_SIZE, ETIQ_TAP, ETIQ_TIRE, ETIQ_TOI, FIN_BUTTON,
-               FIN_TAP, INTERM_FROM, INTERM_NOM, INTERM_NOM_PAS, LISTE_B_X, LISTE_FIL_B, LISTE_ROWS, LISTE_SLOTS,
-               P_INTERM, P_INTERM_PAS, P_TOI, P_TOI_S20, PANNEAU_TAUX, QUESTION_COIN, QUESTION_DIC,
-               QUESTION_NEE, RELEVE_C, RELEVE_COCHE, RELEVE_FROM, RELEVE_MAIN, RELEVE_MAIN_K, RELEVE_TAP,
-               VAGUE_FLECHE_S19, VAGUE_MARCHE_S19, VAGUE_S19, VAGUE_S19_DOWN, VAGUE_S19_UP, fig_pos, ring, scene_f0)
+from . import (BAC_C, DIC_C, ENTRY_P3, EPARGNE_MINI, EPARGNE_MINI_K, EPARGNE_S16, EPARGNE_S20, EPARGNE_S20_K,
+               ETIQ_BTN_SCALE, ETIQ_BUTE, ETIQ_LISTE, ETIQ_POSEE, ETIQ_S20, ETIQ_SIZE, ETIQ_SOL, ETIQ_SOL_PRISE,
+               ETIQ_TENUE_DX, FIN_BUTTON, FIN_TAP, INTERM_FROM, INTERM_NOM, INTERM_NOM_PAS, LISTE_B_X, LISTE_FIL_B,
+               LISTE_ROWS, LISTE_SLOTS, P_INTERM, P_INTERM_PAS, P_TOI, P_TOI_S20, PANNEAU_TAUX, QUESTION_COIN,
+               QUESTION_DIC, QUESTION_NEE, RELEVE_C, RELEVE_COCHE, RELEVE_FROM, RELEVE_MAIN, RELEVE_MAIN_K, RELEVE_TAP,
+               TIP_TIENT, TIP_VAGUE, VAGUE_S19, VAGUE_S19_ESQUIVE, fig_pos, ring,
+               scene_f0)
 
 F_START, F_END = 2088, 2926
-TIP_TIENT = (770, 990)                     # S19 « frais. » : la pointe recule à gauche de la tête, la ficelle tendue
+BAC_SORTIE = (-200, BAC_C[1])              # S16 : le bac des frais sort du cadre par la gauche (jamais dans la colonne)
 P_TOI_APPROCHE = fig_pos(720)              # S20 « rendement » : « Toi » s'approche ; stylo au repos hors du panneau
 P_TOI_RECUL = fig_pos(770)                 # S20 après la rature : il recule, « 5 % / an » et « 4 % net » dégagés
 FIN_TAP_S21 = (FIN_TAP[0] + 32, FIN_TAP[1] - 4)   # S21 : bout droit du bouton, hors de « S’abonner » (corps 60, x ≤ 691)
@@ -81,7 +86,8 @@ def part(S, kit, c):
     kit.morph(["jeton_entree"], ["liste2"], f + 4, d=MOVE - 2)
     for o in ("jeton_entree_txt", "etiquette_entree"):
         kit.vanish(o, f + 4, into=list(LISTE_SLOTS[1]), d=MOVE - 4)
-    kit.vanish("bac", f + 4, d=MORPH)
+    g = kit.move("bac", f, list(BAC_SORTIE), 12, e="in")       # il sort par la gauche, devant la colonne qui glisse
+    S.key("bac", "scale", g, 0)
     kit.fade("pile_repere", f, to=0)
 
     f = kit.at("S16", "s’allonger :", "deux ficelles deep se tracent vers le bas sous l'étiquette : la liste s'allonge, "
@@ -187,56 +193,72 @@ def part(S, kit, c):
 
     # ================= S19 « Tu ne contrôles pas les marchés. Tu contrôles les frais. » =================
     f = kit.at("S19", "Tu", "l'intermédiaire et sa pilule se réduisent et sortent ; le document, le relevé et le repère "
-                            "se réduisent ; l'étiquette « 1 % / an » descend devant « Toi »")
+                            "se réduisent ; l'étiquette « 1 % / an » descend se poser au sol devant « Toi », hors de "
+                            "sa main")
     interm.exit(f)
     for o in ("interm_nom", "dic", "releve", "marqueur"):
         kit.vanish(o, f, d=MORPH if o == "marqueur" else POP)
     kit.fade("frais_label", f, to=0)
-    kit.move("etiquette", f, list(ETIQ_TOI), MOVE)
+    kit.move("etiquette", f, list(ETIQ_SOL), 10)
 
     f = kit.at("S19", "ne", "la vague du marché se trace à gauche, « marché » dessous ; « Toi » tourne la tête vers "
-                            "elle, stylo baissé")
+                            "elle et tend le stylo vers elle")
     S.keys("vague", f - 1, pos=list(VAGUE_S19), scale=1, rot=0, opacity=0, draw=0)
     S.key("vague", "opacity", f, 1)
     kit.draw("vague", f, 10, e="out")
-    S.keys("vague_marche", f - 1, pos=list(VAGUE_MARCHE_S19), opacity=1)
-    kit.pop("vague_marche", f + 3)
+    kit.pop("vague_nom", f + 3)
     S.key("toi", "look", f, -1, 5, "out")
+    f_pas = S.word_after("pas", f)
+    toi.reach(f_pas - 9, list(TIP_VAGUE), 10)                    # la pointe arrive au bord de la vague sur « pas »
 
-    f = kit.at("S19", "pas", "la vague monte de 200 px en basculant ; une flèche deep vers le haut surgit à côté de "
-                             "« marché » ; « Toi » ne bouge pas")
-    up = [VAGUE_S19[0], VAGUE_S19[1] + VAGUE_S19_UP]
-    S.key("vague", "pos", f, up, 8, "out")
+    f = kit.at("S19", "pas", "la pointe du stylo arrive au bord de la vague : la vague l'esquive, elle saute vers le "
+                             "haut en basculant ; une flèche deep vers le haut surgit à côté de « marché »")
+    S.key("vague", "pos", f, list(VAGUE_S19_ESQUIVE), 8, "out")
     S.key("vague", "rot", f, -10, 8, "out")
     kit.pop("vague_fleche", f)
 
-    f = kit.at("S19", "marchés.", "la vague plonge de 260 px en basculant de l'autre côté ; la flèche pivote vers le "
-                                  "bas ; « Toi » ne bouge toujours pas")
-    S.key("vague", "pos", f, [up[0], up[1] + VAGUE_S19_DOWN], 12, "inOut")
-    S.key("vague", "rot", f, 10, 12, "inOut")
+    f = kit.at("S19", "marchés.", "la vague retombe d'un coup sur la pointe et la repousse : le stylo revient contre "
+                                  "« Toi » ; un cadenas se pose sur la vague (hors de portée) ; la flèche pivote vers "
+                                  "le bas. Tenue 1 s")
+    S.key("vague", "pos", f, list(VAGUE_S19), 8, "in")
+    S.key("vague", "rot", f, 6, 8, "in")
     S.key("vague_fleche", "rot", f, 90, 8, "inOut")
+    toi.rest(f + 6, 8, "out")
+    kit.pop("vague_lock", f + 8)
+    kit.shake("vague", f + 8, amp=5, axis="y")
 
-    f = kit.at("S19", "contrôles", "« Toi » se retourne et touche l'étiquette « 1 % / an » de la pointe du stylo")
-    S.key("toi", "look", f - 8, 0, 5, "inOut")
-    hit = toi.tap(f - TAP + 1, list(ETIQ_TAP))
-    assert hit == f, (hit, f)
-    kit.pulse("etiquette", hit, peak=1.08)
+    f = kit.at("S19", "contrôles", "« Toi » se penche du stylo vers l'étiquette posée au sol et la pique par son bout")
+    S.key("toi", "look", f - 12, 0, 5, "inOut")
+    toi.reach(f - 9, list(ETIQ_SOL_PRISE), 10)                  # contact sur le mot
+    kit.pulse("etiquette", f, peak=1.08)
+    # il la tire vers lui : l'étiquette suit la pointe et vient dans sa main, basse, devant le buste
+    k0 = f + 1
+    end = toi.reach(k0, list(TIP_TIENT), 12)
+    tip0 = toi.tip(f)
+    off0 = [ETIQ_SOL[0] - tip0[0], ETIQ_SOL[1] - tip0[1]]
+    for n in range(k0, end):
+        p = (n - f) / (end - 1 - f)
+        t = toi.tip(n)
+        S.key("etiquette", "pos", n, [round(t[0] + off0[0] + (ETIQ_TENUE_DX - off0[0]) * p, 2),
+                                      round(t[1] + off0[1] * (1 - p), 2)], 1, "linear")
 
-    f = kit.at("S19", "frais.", "une ficelle se tire de l'étiquette jusqu'à la pointe du stylo ; « Toi » ramène la "
-                                "pointe vers lui et l'étiquette suit : il la tient, la vague non. Tenue")
-    kit.draw("ficelle_toi", f, DRAW)
-    toi.reach(f, list(TIP_TIENT), 12)
-    kit.move("etiquette", f + 1, list(ETIQ_TIRE), 12)
+    f = kit.at("S19", "frais.", "« Toi » tient l'étiquette au bout de son stylo et la retourne pour la vérifier ; une "
+                                "pastille deep cochée s'y pose : les frais, il les contrôle. Tenue")
+    S.key("etiquette", "sx", f, 0.06, 4, "in")
+    S.key("etiquette", "sx", f + 4, 1, 5, "out")
+    kit.pop("etiq_ok", f + 8)
 
     # ================= S20 « Et un rendement affiché sans les frais n’est pas ton rendement. » =================
     f = kit.at("S20", "Et", "la vague se change en panneau papier « Rendement affiché » ; « marché » et la flèche "
                             "s'effacent ; la colonne remonte à côté du panneau")
     kit.morph(["vague"], ["panneau"], f)
-    for o in ("vague_marche", "vague_fleche"):
+    for o in ("vague_nom", "vague_fleche"):
         kit.vanish(o, f)
     kit.move("epargne", f, list(EPARGNE_S20), MOVE, scale=EPARGNE_S20_K)
 
-    f = kit.at("S20", "rendement", "« Toi » marche vers le panneau ; l'étiquette suit au bout de la ficelle")
+    f = kit.at("S20", "rendement", "« Toi » marche vers le panneau ; une ficelle se tire de la pointe du stylo à "
+                                   "l'étiquette, qui monte et suit au bout de la ficelle")
+    kit.draw("ficelle_toi", f, DRAW)
     d = toi.walk(f, list(P_TOI_APPROCHE)) - f
     kit.move("etiquette", f, list(ETIQ_S20), d)
 
@@ -246,6 +268,7 @@ def part(S, kit, c):
     f = kit.at("S20", "sans", "« Toi » lâche la ficelle ; l'étiquette des frais glisse et bute sur le bord haut du "
                               "panneau, qui tremble, puis se pose juste au-dessus")
     kit.draw("ficelle_toi", f, 8, track="from", e="inOut")
+    kit.vanish("etiq_ok", f)
     g = kit.move("etiquette", f + 1, list(ETIQ_BUTE), 8, e="in")
     kit.shake("panneau", g, amp=6, axis="y")
     kit.move("etiquette", g, list(ETIQ_POSEE), 6, e="out")
@@ -276,7 +299,10 @@ def part(S, kit, c):
     kit.ensure("etiquette", "w", S.ents["etiquette"]["p"]["w"])
     S.key("etiquette", "w", f, round(380 / ETIQ_BTN_SCALE, 2), BOUTON, "inOut")
     kit.move("etiquette", f, list(FIN_BUTTON), BOUTON, e="inOut", scale=ETIQ_BTN_SCALE)
+    kit.ensure("etiquette", "textOp", 1)                        # « 1 % / an » s'efface d'abord (ce n'est plus un prix)
+    S.key("etiquette", "textOp", f, 0, 4, "out")
     S.key("etiquette", "text", f + BOUTON, "S’abonner")
+    S.key("etiquette", "textOp", f + BOUTON, 1, FADE, "out")
     kit.pulse("etiquette", f + BOUTON, peak=round(ETIQ_BTN_SCALE * 1.08, 3), step=3)
     S.key(out["id"], "scale", f, 0)                              # la carte attend que l'étiquette soit posée
     kit.pop(out["id"], f + CARTE, d=MORPH)

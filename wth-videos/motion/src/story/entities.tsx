@@ -48,6 +48,14 @@ const Pill: React.FC<EntityProps> = ({r, scene}) => {
   const text = r.get('text', p.text);
   const size = p.size ?? 28;
   const iconW = p.icon ? 30 : 0;
+  // Opt-in track `textOp` (absent = 1, today's pill pixel for pixel): opacity of the label only, the pill stays
+  // (V03 S21: « 1 % / an » fades out before the pill becomes the « S’abonner » button).
+  const textOp = r.get('textOp', 1);
+  const label = (
+    <Txt x={iconW / 2} y={0} size={size} weight={p.weight ?? 700} color={p.color ?? C.ink} anchor="middle">
+      {text}
+    </Txt>
+  );
   return (
     <>
       <Hard
@@ -62,9 +70,7 @@ const Pill: React.FC<EntityProps> = ({r, scene}) => {
           <Icon name={p.icon} s={24} color={p.iconColor ?? C.ink} />
         </g>
       ) : null}
-      <Txt x={iconW / 2} y={0} size={size} weight={p.weight ?? 700} color={p.color ?? C.ink} anchor="middle">
-        {text}
-      </Txt>
+      {textOp >= 1 ? label : textOp > 0 ? <g opacity={textOp}>{label}</g> : null}
     </>
   );
 };

@@ -804,6 +804,15 @@ V01 comparées avant / après : PSNR infini).
 | marker | paramètre `doneStyle: 'kept'` | aucun | aucune légende grise : toutes les légendes restent à l'encre, en Bold 700 pour l'étape active ou faite, en SemiBold 600 pour une étape pas encore atteinte ; le disque d'une étape faite (`done{i}`) passe au bleu clair sous sa coche deep |
 | marker | piste `lbl` (0 → 1), avec `doneStyle: 'kept'` | 1 | opacité de toute la légende (les disques restent) : la retirer pendant qu'une autre composition a besoin de la place |
 
+### Contrôle sans son de V03 : pill, piste `textOp`
+
+Piste facultative (absente ou à 1 : le libellé est dessiné exactement comme avant, sans groupe ajouté ; c'est le même
+chemin de code).
+
+| Type | Option | Défaut | Rôle |
+|---|---|---|---|
+| pill | piste `textOp` (0 → 1) | 1 | opacité du libellé seul, la pilule reste : effacer un texte avant de le changer (`S.key(id, "textOp", f, 0, 4)`, bascule `text`, puis retour à 1 en `FADE`). V03 S21 : « 1 % / an » s'efface avant que l'étiquette ne devienne le bouton « S’abonner ». À poser d'abord avec `kit.ensure(id, "textOp", 1)`. |
+
 ## geometry.json (GEOM)
 
 | Clé | Contenu |

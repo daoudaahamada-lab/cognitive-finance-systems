@@ -11,14 +11,14 @@ sur l'ivoire, le bouton « S’abonner » de la carte de fin (S21).
 
 Parties (scènes contiguës ; coupes aux changements de composition) :
 - p1 : S01-S07, images 0-982. L'étiquette sur la colonne, les trois questions, les jetons arrachés chaque année
-  (vague « marché » plate), « + » qui meurt sur le bac (« + 0 € »), la pile et ses gains fantômes « plus de 4 600 € »,
+  (vague « marché » plate), « + » qui meurt sur le bac, la pile et ses gains fantômes « plus de 4 600 € »,
   l'écart pointillé sur la colonne, puis le réarrangement en graphique vide (pile d'abord, colonne ensuite).
 - p2 : S08-S15, images 983-2087. Les deux courbes (5 % puis 4 % net), l'écart rouge de 4 600 €, le repli en colonne,
   le repère « Frais : Entrée, Gestion, Autres », l'entonnoir (1 000 € -> 970 € + jeton de 30 €), la gestion qui
   tranche l'encours (contour de tout le remplissage) et dont la pile monte en deux paliers à côté du jeton d'entrée.
 - p3 : S16-S21, images 2088-2926. La liste des frais en deux colonnes, le document d'informations clés (papier plat),
   l'intermédiaire qui remet le relevé à « Toi » (« obligatoire » tamponné dessus, coche de « Toi »), la vague plate qui
-  monte et plonge seule pendant que « Toi » prend la ficelle, le panneau barré à côté de la colonne, l'étiquette qui
+  esquive le stylo de « Toi » et reçoit un cadenas, l'étiquette qu'il ramasse, tient et coche, le panneau barré à côté de la colonne, l'étiquette qui
   devient le bouton.
 ENTRY_P2 et ENTRY_P3 (plus bas) sont le contrat des raccords : la partie précédente finit exactement dans cet état,
 la suivante l'épingle à first_frame - 1 (kit.pin). Les figurines n'y sont jamais.
@@ -38,6 +38,14 @@ Tour de revue 1 (corrections) : voir les docstrings des parties. Écarts d'exéc
 - S11-S15 : l'étiquette revient à ETIQ_LOW (775, 870), à portée du stylo de « Toi » ;
 - S16-S17 : liste en deux colonnes (corps 32) ; S17 : document papier plat (et non le livre PNG) ;
 - S20 : panneau en (477, 960), colonne réduite à 0,8 à sa gauche, « Toi » en P_TOI_S20 (x 620) pour la rature.
+
+Correction après le contrôle sans son (idée h manquée en S19, lue « les frais tombent quoi qu'il arrive ») :
+- S19 en deux temps : « Toi » tend le stylo vers la vague, elle l'esquive (« pas »), retombe et le repousse, un cadenas
+  se pose sur elle (« marchés. ») ; puis il pique l'étiquette posée au sol, la ramène dans sa main, basse, devant le
+  buste (« contrôles »), la retourne et une pastille deep cochée s'y pose (« frais. »). Bras jamais levé au-dessus de
+  la tête. La ficelle du stylo ne se tire qu'en S20 (« rendement »).
+- S05 : plus de « + 0 € » (mal lu) ; S16 : le bac sort du cadre par la gauche (il semblait aspiré dans la colonne) ;
+  S21 : « 1 % / an » s'efface (piste facultative `textOp` de la pilule) avant que l'étiquette ne devienne le bouton.
 """
 import importlib
 import math
@@ -74,7 +82,6 @@ T_4NET = f"4{NBSP}%{NBSP}net"
 T_DIFF = f"5{NBSP}%{NBSP}−{NBSP}1{NBSP}%"
 T_20ANS = f"20{NBSP}ans"
 T_1AN = f"1{NBSP}an"
-T_ZERO = f"+{NBSP}0{NBSP}€"
 T_1000_CARTE = f"1{NBSP}000{NBSP}€"             # carte du versement : espace insécable pleine (la fine s'y perd)
 T_970 = f"970{NBSP}€"
 T_30 = f"30{NBSP}€"
@@ -145,9 +152,11 @@ ETIQ_TAUX = (560, 480)                     # S09 « 1 % » : à droite de la pil
 ETIQ_ON_TAUX = (320, 522)                  # S09 « tombes » : posée sur la pilule tombée (y 558-622)
 GESTION_ABOVE = (775, 812)                 # S14 : « gestion » s'écrit au-dessus de l'étiquette en ETIQ_LOW
 ETIQ_LISTE = (680, 440)                    # S16-S18 : tête de la liste des frais (x 570-790)
-ETIQ_TOI = (790, 860)                      # S19 : devant « Toi »
-ETIQ_TAP = (790, 888)                      # S19 : point touché (bord bas de l'étiquette, à portée)
-ETIQ_TIRE = (812, 880)                     # S19 « frais. » : tirée vers « Toi »
+ETIQ_SOL = (470, 1195)                     # S19 « Tu » : posée au sol devant « Toi », hors de sa main (x 360-580)
+ETIQ_SOL_PRISE = (555, 1177)               # S19 « contrôles » : la pointe la prend par son bout droit (261 px de l'épaule)
+TIP_TIENT = (705, 1140)                    # S19 « frais. » : pointe du stylo tenue basse, devant le buste (bras au repos)
+ETIQ_TENUE_DX = -95                        # S19 : l'étiquette tenue, centrée 95 px à gauche de la pointe (x 500-720)
+ETIQ_OK = (-ETIQ_W / 2 - 8, 0)             # S19 : pastille deep cochée sur le bout gauche de l'étiquette (repère local)
 ETIQ_BTN_SCALE = 112 / ETIQ_H              # S21 : 1,75 -> ≈ 385 x 112, la taille du bouton de la carte
 TILT = -14                                 # S04, S14 : l'étiquette bascule contre la colonne
 
@@ -156,7 +165,6 @@ BAC_C, BAC_W, BAC_H = (200, 1170), 260, 100        # x 70-330, y 1120-1220 (trap
 BAC_RIM = BAC_C[1] - BAC_H / 2                     # 1120 : bord du bac
 JETON_R = 26
 BAC_SLOTS = [(118, 1108), (166, 1108), (214, 1108), (262, 1108)]   # 4 jetons (S04), moitié basse dans le bac
-BAC_ZERO = (200, 1044)                     # S05 : « + 0 € » Bold 48 au-dessus des jetons
 BAC_PLUS = (200, 1040)                     # S05 : le « + » que le bac essaie de faire (il meurt sur les jetons)
 PILE_X, PILE_W, PILE_SEG = 150, 80, 30     # pile cyan à blocs de 30 px posée sur le bord du bac (x 110-190)
 PILE_H = {"base": 60, "S06": 120, "S14": 160, "S15a": 188, "S15": 215}   # hauteur de la pile (= son contenu)
@@ -189,10 +197,12 @@ VAGUE_BASE = 64                            # bas de l'aire (repère de la vague)
 VAGUE_S04, VAGUE_S04_K = (180, 600), 0.9   # S04 : à gauche, sous la barre
 VAGUE_S04_DY = 85                          # S04 : elle monte (« monte ») puis plonge (« baisse. ») de 85 px
 VAGUE_MARCHE_S04 = (165, 815)              # « marché » sous la vague (hors du vol des jetons)
-VAGUE_S19 = (400, 620)                     # S19
-VAGUE_S19_UP, VAGUE_S19_DOWN = -200, 260   # S19 : la vague monte puis plonge ; ±10° d'inclinaison
-VAGUE_MARCHE_S19 = (400, 820)
-VAGUE_FLECHE_S19 = (535, 820)              # disque deep à flèche, à droite de « marché »
+VAGUE_S19 = (420, 1000)                    # S19 : à gauche de « Toi », à hauteur d'épaule (x 270-570, y 954-1064)
+VAGUE_S19_ESQUIVE = (430, 790)             # S19 « pas » : elle esquive le stylo (vers le haut, -10°)
+TIP_VAGUE = (575, 1030)                    # S19 : pointe tendue à l'horizontale jusqu'au bord de la vague (251 px)
+VAGUE_NOM_S19 = (-20, -112)                # « marché » au-dessus de la vague (repère local : il la suit)
+VAGUE_FLECHE_S19 = (125, -112)             # disque deep à flèche, à droite de « marché » (repère local de la vague)
+VAGUE_LOCK = (0, 4)                        # S19 « marchés. » : cadenas (disque encre 88 px) posé sur la vague (repère local)
 VAGUE_PILL_SIZE = 40
 
 # --- le graphique (S07-S10) ---
@@ -337,7 +347,7 @@ ENTRY_P2 = {   # fin de S07 = etat_initial de S08 : graphique vide, chiffre roug
     "courbe_a": {"draw": 0}, "courbe_b": {"draw": 0}, "crochet": {"draw": 0},
     "epargne_nofee": {"opacity": 0}, "epargne_ecart": {"opacity": 0}, "epargne_ecart_txt": {"opacity": 0},
     **_OFF("epargne", "bac", "pile", "fantome1", "fantome2", "pile_plusde", "barre_temps", "barre_1an", "barre_20ans",
-           "vague", "vague_marche", "epargne_plus", "bac_zero", "bac_plus", "jeton1", "jeton2", "jeton3", "jeton4",
+           "vague", "vague_marche", "epargne_plus", "bac_plus", "jeton1", "jeton2", "jeton3", "jeton4",
            "pilule_taux", "courbe_a_txt", "courbe_b_txt", "marqueur", "question1", "question2", "question3"),
 }
 ENTRY_P3 = {   # fin de S15 = etat_initial de S16 : colonne au centre, pile « gestion » à côté du jeton, disque 2 actif
@@ -409,6 +419,8 @@ def cast(S, kit):
     S.set("ficelle", sag=0, draw=0, opacity=1)
     S.set("ficelle", **{"from": 0})
     kit.text("etiquette_gestion", GESTION_ABOVE, "gestion", size=34, weight=700, z=10.2, typed=True)
+    # S19 « frais. » : l'étiquette tenue par « Toi » est vérifiée : pastille deep cochée sur son bout gauche
+    kit.icon("etiq_ok", ETIQ_OK, "check", disc=30, fill=DEEP, color=PAPER, z=10.3, parent="etiquette", scale=0)
 
     # --- les trois questions de l'annonce (S03-S04) ---
     for k, (txt, pos) in enumerate(zip(QUESTIONS, QUESTIONS_C)):
@@ -420,7 +432,7 @@ def cast(S, kit):
     kit.text("barre_1an", BARRE_1AN, T_1AN, size=34, weight=700, z=5.1, scale=0)
     kit.text("barre_20ans", BARRE_20ANS, T_20ANS, size=34, weight=700, z=5.1, scale=0)
 
-    # --- le bac des frais, ses 4 jetons, son « + » qui meurt, « + 0 € » ---
+    # --- le bac des frais, ses 4 jetons, son « + » qui meurt ---
     hw, hh = BAC_W / 2, BAC_H / 2
     kit.shape("bac", BAC_C, kind="poly", pts=[[-hw, -hh], [hw, -hh], [hw - 20, hh], [-hw + 20, hh]], fill=PAPER,
               stroke=INK, sw=5, shadow=6, z=7.5, scale=0)
@@ -428,7 +440,6 @@ def cast(S, kit):
     for k in range(4):        # arrachés au haut du remplissage, ils sortent par le haut et tombent dans le bac
         kit.icon(f"jeton{k + 1}", BAC_SLOTS[k], "euro", disc=JETON_R, fill=CYAN, shadow=3, z=7.3, scale=0)
     kit.text("bac_plus", BAC_PLUS, "+", size=56, weight=800, color=DEEP, z=11, scale=0)
-    kit.text("bac_zero", BAC_ZERO, T_ZERO, size=48, weight=800, z=11, scale=0)
 
     # --- la pile des frais (jauge pleine à blocs de 30 px, hauteur = contenu), 2 gains fantômes, « plus de 4 600 € » ---
     kit.gauge("pile", pile_pos(PILE_H["base"]), value=1, w=PILE_W, h=PILE_H["base"], dir="up", fill=CYAN,
@@ -444,7 +455,12 @@ def cast(S, kit):
     kit.curve("vague", list(VAGUE_S04), VAGUE_PTS, draw=1, z=5, color=DEEP, sw=8, area=LIGHT, base=VAGUE_BASE,
               dot=False, scale=0)
     pill(S, "vague_marche", VAGUE_MARCHE_S04, "marché", size=VAGUE_PILL_SIZE, fill=PAPER, h=64, z=5.1, shadow=4)
-    kit.icon("vague_fleche", VAGUE_FLECHE_S19, "arrow", disc=26, fill=DEEP, color=PAPER, z=5.2, scale=0, rot=-90)
+    pill(S, "vague_nom", VAGUE_NOM_S19, "marché", size=VAGUE_PILL_SIZE, fill=PAPER, h=64, z=5.1, shadow=4,
+         parent="vague")                   # S19 : l'étiquette « marché » enfant de la vague (elle esquive avec elle)
+    kit.icon("vague_fleche", VAGUE_FLECHE_S19, "arrow", disc=32, fill=DEEP, color=PAPER, z=5.2, scale=0, rot=-90,
+             parent="vague")
+    # S19 « marchés. » : le marché est hors de portée de « Toi » : un cadenas se pose sur la vague (et la suit)
+    kit.icon("vague_lock", VAGUE_LOCK, "lock", disc=44, fill=INK, color=PAPER, z=5.3, parent="vague", scale=0)
 
     # --- le graphique (S07-S10) : axes, point de départ, deux courbes, crochet rouge, libellés ---
     half_x = (AXE_X1 - AXE_O[0]) / 2
