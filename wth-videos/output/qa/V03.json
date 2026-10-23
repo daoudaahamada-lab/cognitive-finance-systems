@@ -3,7 +3,7 @@
   "mode": "story",
   "source": "WTH-016",
   "file": "output/WTH-V03.mp4",
-  "checked_at": "2026-10-23T19:34:50+00:00",
+  "checked_at": "2026-10-23T20:07:14+00:00",
   "ok": true,
   "checks": [
     {
@@ -25,7 +25,7 @@
       "ok": true,
       "value": "2926 images, empreintes identiques",
       "expected": "2926 images (props), empreintes props + storyboard + mise en scène du rendu = fichiers actuels, version sans sous-titres du même rendu",
-      "detail": "props ae5779f61c, storyboard cc24fcdd03, mise en scène c9f40f8d81"
+      "detail": "props 87390e8212, storyboard cc24fcdd03, mise en scène 1f63ebd6fb"
     },
     {
       "check": "Mise en scène complète",
@@ -93,7 +93,7 @@
     {
       "check": "Version sans sous-titres conforme",
       "ok": true,
-      "value": "PSNR 55.1 dB au pire (image 2836), 2926 / 2926 images",
+      "value": "PSNR 50.7 dB au pire (image 2838), 2926 / 2926 images",
       "expected": "≥ 40 dB au-dessus de y = 1270, 2926 images dans les deux versions",
       "detail": "médiane 99.0 dB"
     },
