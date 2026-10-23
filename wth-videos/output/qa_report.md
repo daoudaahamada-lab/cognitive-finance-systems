@@ -2,7 +2,7 @@
 
 | Vidéo | Source | Résultat | Durée | Synchro | Loudness | Contrôlée le |
 |---|---|---|---|---|---|---|
-| V01 | WTH-003 | ✅ OK | 93.23 s | 89 ms | -14.2 LUFS | 2026-10-21T18:00:23+00:00 |
+| V01 | WTH-003 | ✅ OK | 93.23 s | 89 ms | -14.2 LUFS | 2026-10-21T19:49:43+00:00 |
 | V02 | WTH-002 | ✅ OK | 89.27 s | 76 ms | -14.2 LUFS | 2026-10-21T17:58:55+00:00 |
 
 ## V01 (WTH-003) — OK
@@ -11,7 +11,7 @@
 |---|---|---|---|---|
 | Durée | ✔ | 93.23 s | 45 à 180 s |  |
 | Format | ✔ | h264 1080x1920 30/1 yuv420p + aac, profil High, tv/bt709, audio 48000 Hz, 190 kb/s | h264 1080x1920 30/1 yuv420p + aac, BT.709 plage tv |  |
-| Rendu Story à jour | ✔ | 2797 images, empreintes identiques | 2797 images (props), empreintes props + storyboard + mise en scène du rendu = fichiers actuels, version sans sous-titres du même rendu | props b363732a09, storyboard 0b19fdde73, mise en scène 52fa221933 |
+| Rendu Story à jour | ✔ | 2797 images, empreintes identiques | 2797 images (props), empreintes props + storyboard + mise en scène du rendu = fichiers actuels, version sans sous-titres du même rendu | props 75bc29d3cd, storyboard 0b19fdde73, mise en scène 597b73309a |
 | Mise en scène complète | ✔ | 22 scènes mises en scène, tous les temps forts posés | chaque scène du storyboard mise en scène, chaque temps fort avec son événement, pas de rendu partiel | mise en scène scripts/story/V01/__init__.py, storyboard scripts/storyboards/V01.json |
 | Synchro sous-titres | ✔ | 89 ms | < 150 ms | sous-titres (props Story)/alignement + image : 86 ms ; décalage audio MP4 : 3 ms ; alignement scribe vérifié sur 28 pauses mesurées, aucun conflit |
 | Aucun mot coupé | ✔ | ok | tous les mots, entiers, dans la largeur | 239 mots, groupe le plus large 717/760 px (Inter Bold 64 px, film Story) |

@@ -3,7 +3,7 @@
   "mode": "story",
   "source": "WTH-003",
   "file": "output/WTH-V01.mp4",
-  "checked_at": "2026-10-21T18:00:23+00:00",
+  "checked_at": "2026-10-21T19:49:43+00:00",
   "ok": true,
   "checks": [
     {
@@ -25,7 +25,7 @@
       "ok": true,
       "value": "2797 images, empreintes identiques",
       "expected": "2797 images (props), empreintes props + storyboard + mise en scène du rendu = fichiers actuels, version sans sous-titres du même rendu",
-      "detail": "props b363732a09, storyboard 0b19fdde73, mise en scène 52fa221933"
+      "detail": "props 75bc29d3cd, storyboard 0b19fdde73, mise en scène 597b73309a"
     },
     {
       "check": "Mise en scène complète",
