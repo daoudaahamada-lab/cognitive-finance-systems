@@ -90,8 +90,12 @@ Toute la recette, pas à pas : `references/voice-elevenlabs-mcp.md`.
 
 ```
 Workflow({scriptPath: "/home/user/cognitive-finance-systems/.claude/skills/wth-storyboard/workflows/storyboard.wf.js",
-          args: {id: "V07", root: "/home/user/cognitive-finance-systems/wth-videos"}})
+          args: {id: "V07", root: "/home/user/cognitive-finance-systems/wth-videos", fast: true}})
 ```
+**Mode rapide (par défaut en production en série, demandé par l'utilisateur le 23/10 : « va plus vite dans la
+production »)** : `fast: true` au storyboard (un seul auteur, sans brouillons concurrents ni juges, puis test muet et
+--check), `maxRounds: 1` au film. Le contrôle sans son final ne bloque la livraison que si une idée principale est
+MISSED ou si le critère de l'utilisateur est « non » ; sinon livre, et consigne les idées PARTIAL dans l'état.
 Lis d'abord `.claude/skills/wth-storyboard/SKILL.md` : options (`notes`, `overwrite`, `muteRounds`), révision
 (`revise.wf.js`), contrôles. Compte 70 à 90 min. Ensuite :
 - commite les deux fichiers ;
@@ -103,7 +107,7 @@ Lis d'abord `.claude/skills/wth-storyboard/SKILL.md` : options (`notes`, `overwr
 
 ```
 Workflow({scriptPath: "/home/user/cognitive-finance-systems/.claude/skills/wth-story-build/workflows/build-review.wf.js",
-          args: {id: "V07", root: "/home/user/cognitive-finance-systems/wth-videos", parts: 3, maxRounds: 2}})
+          args: {id: "V07", root: "/home/user/cognitive-finance-systems/wth-videos", parts: 3, maxRounds: 1}})
 ```
 Le workflow enchaîne :
 - distribution, parties écrites deux par deux, intégration et rendu ;

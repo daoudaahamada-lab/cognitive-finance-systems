@@ -263,6 +263,9 @@ Seuil de réussite :
 - aucune idée principale en MISSED ;
 - « oui » au critère de l'utilisateur.
 
+En production en série (mode rapide, demandé par l'utilisateur) : le seuil de 85 % est une cible, pas un blocage.
+Livre dès qu'aucune idée principale n'est MISSED et que le critère est « oui » ; consigne les PARTIAL dans l'état.
+
 En dessous : un seul tour de correction ciblé sur les scènes des idées manquées, nouveau rendu, nouveau contrôle. Si
 le seuil n'est toujours pas atteint, remonte à l'utilisateur avec les points faibles plutôt que de recommencer.
 

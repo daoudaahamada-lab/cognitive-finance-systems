@@ -81,6 +81,7 @@ Workflow({scriptPath: "<dépôt>/.claude/skills/wth-storyboard/workflows/storybo
 | `notes` | — | consignes propres à la vidéo (de l'utilisateur, ou d'un retour sur un film précédent) ; elles priment sur les défauts |
 | `overwrite` | `false` | réécrire un storyboard existant |
 | `excerpt` | `false` | recommander un extrait de 10 à 15 s (validation rapide) |
+| `fast` | `false` | `true` : un seul auteur écrit directement (les trois angles à la fois), sans brouillons concurrents, juges ni synthèse ; test muet et --check gardés. Défaut de la production en série (≈ 3 fois moins cher) |
 | `muteRounds` | `1` | 2 pour un second tour test muet + révision si des idées restent PARTIAL ou MISSED |
 
 Ordres de grandeur : 11 agents, 2 à la fois (machine à 4 cœurs), 70 à 90 min, ~1,5 M jetons (V01 : 80 min). Le

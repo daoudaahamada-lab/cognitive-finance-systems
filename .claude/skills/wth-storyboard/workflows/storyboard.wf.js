@@ -1,7 +1,7 @@
 export const meta = {
   name: 'wth-storyboard',
   description: 'Storyboard Story d’une vidéo WealthTech Horizon (méthode A) : préparation, 3 brouillons, 3 juges, synthèse, test du spectateur muet, révision, contrôle --check',
-  whenToUse: 'Écrire scripts/storyboards/Vxx.json et Vxx.md quand la voix de Vxx est finale. args: {id: "V05", root: "<abs>/wth-videos", notes?, overwrite?, excerpt?, muteRounds?}',
+  whenToUse: 'Écrire scripts/storyboards/Vxx.json et Vxx.md quand la voix de Vxx est finale. args: {id: "V05", root: "<abs>/wth-videos", notes?, overwrite?, excerpt?, muteRounds?, fast?}',
   phases: [
     { title: 'Prep', detail: 'phrases minutées, segments, PNG utilisables, public, chiffres' },
     { title: 'Draft', detail: '3 storyboards complets sous 3 angles' },
@@ -18,6 +18,7 @@ export const meta = {
 //         overwrite?: false   (un storyboard existant n’est jamais écrasé sans ce drapeau : utiliser revise.wf.js),
 //         excerpt?: false     (recommander un extrait de 10-15 s),
 //         muteRounds?: 1      (tours test muet + révision, 1 ou 2),
+//         fast?: false        (mode rapide : un seul auteur écrit directement, sans brouillons concurrents ni juges),
 //         repo?: racine du dépôt (défaut : root sans /wth-videos) }
 const A = args || {}
 if (!A.id || !A.root) throw new Error('args requis : {id: "V05", root: "/abs/wth-videos"} ; options : notes, overwrite, excerpt, muteRounds, repo')
@@ -30,6 +31,7 @@ const KIT_REF = `${REPO}/.claude/skills/wth-story-build/references`
 const WORK = `${ROOT}/build/${ID}/storyboard`
 const SB_JSON = `${ROOT}/scripts/storyboards/${ID}.json`
 const SB_MD = `${ROOT}/scripts/storyboards/${ID}.md`
+const FAST = A.fast === true
 const MUTE_ROUNDS = Math.max(1, Math.min(2, Number(A.muteRounds || 1)))
 
 // ---------- schémas ----------
@@ -166,8 +168,10 @@ const ANGLES = [
   ['grammaire-reference', `Angle "reference grammar". Stay as close as possible to the reference's minimal motion language (motion-grammar.md): flat primitives (cards, dots, bars, lines, a protagonist circle or pill) that meet obstacles, get closer, split apart, merge and transform, with hold-then-burst timing and morph handovers. Use the PNGs only as a few anchor places or objects where they add meaning. Keep each composition very simple: 1-3 elements on stage.`],
   ['lisible-sans-son', `Angle "readable with the sound off". Design every scene from the success criterion: with captions hidden, a viewer grasps the main action and sees what changed. Use unmistakable visual verbs (visual-verbs.md): enter, blocked by a wall, extract, stack, link with a thread to a source, crack, strike, stamp, fill, drain, tilt, count, compare before/after. Strong before/after contrasts; no abstract symbolism that needs the voice; labels only confirm what the action already shows.`],
 ]
+let drafts = [], judged = [], totals = {}, winner = 'rapide', final = null
+if (!FAST) {
 phase('Draft')
-const drafts = (await parallel(ANGLES.map(([key, brief], i) => () => agent(`${CTX}
+drafts = (await parallel(ANGLES.map(([key, brief], i) => () => agent(`${CTX}
 TASK: write a COMPLETE storyboard for ${ID} (0 to ${prep.duree} s) from this angle:
 ${brief}
 ${REQUIREMENTS}
@@ -183,7 +187,7 @@ const LENSES = [
   ['sens-faisabilite', `Faithfulness to the full meaning of each sentence (rule 3), rules 4 and 5 exactly, and correctness for the audience (financial and regulatory accuracy, numbers equal to the script, French typography, no implicit personal advice). Feasibility with the existing entity catalogue (${KIT_REF}/entities.md, ${KIT_REF}/kit.md, ${REF}/visual-verbs.md): a draft that needs more than 3 new simple entities, or anything beyond flat shapes and the Figure rig (3D, liquids, particles, character animation), loses points. Check also the hard constraints: contiguous scenes on word onsets, beats on exact onsets, no gap over 3 s.`],
 ]
 phase('Judge')
-const judged = (await parallel(LENSES.map(([lens, q]) => () => agent(`${CTX}
+judged = (await parallel(LENSES.map(([lens, q]) => () => agent(`${CTX}
 You are a judge. Score the ${drafts.length} storyboards below from 0 to 10 through ONE lens, "${lens}": ${q}
 Use exactly the draft labels ${drafts.map(d => d.label).join(', ')} in "scores". For each draft, list its best ideas worth keeping and its weakest scenes, with scene ids and a concrete fix. Do not write any file.
 
@@ -197,19 +201,18 @@ ${JSON.stringify(drafts)}`, { label: `judge:${lens}`, phase: 'Judge', schema: {
     weak: { type: 'array', items: { type: 'string' } } },
   required: ['lens', 'scores', 'best', 'keep', 'weak'] } })))).filter(Boolean)
 
-const totals = {}
 for (const d of drafts) totals[d.label] = 0
 for (const j of judged) for (const s of j.scores) {
   const m = String(s.draft).match(/D\d/)
   if (m && m[0] in totals) totals[m[0]] += Number(s.score) || 0
 }
 const ranking = Object.entries(totals).sort((a, b) => b[1] - a[1])
-const winner = ranking[0][0]
+winner = ranking[0][0]
 log(`${ID} : notes cumulées ${ranking.map(([k, v]) => `${k} ${v}`).join(', ')} → gagnant ${winner}`)
 
 // ---------- 3. Synthesize ----------
 phase('Synthesize')
-let final = await agent(`${CTX}
+final = await agent(`${CTX}
 TASK: produce the storyboard of ${ID} by synthesising the drafts and the judges' verdicts. Start from the overall winner, ${winner} (summed scores: ${JSON.stringify(totals)}), graft the best ideas the judges listed for the others, and fix every weak scene they flagged.
 The result must form ONE coherent thread around one thread object, read clearly without sound, respect the 7 rules, the series bible and the V01 lessons, and stay buildable with the entity catalogue. Keep the cast small and consistent.
 ${REQUIREMENTS}
@@ -222,6 +225,21 @@ Then run \`python3 -m pipeline.story ${ID} --check\` from ${ROOT} and fix what i
 DRAFTS: ${JSON.stringify(drafts)}
 JUDGES: ${JSON.stringify(judged)}`, { label: 'synthesis', phase: 'Synthesize', schema: SB_SCHEMA })
 if (!final) return { ok: false, id: ID, stage: 'synthesis', judges: judged.map(j => ({ lens: j.lens, scores: j.scores, best: j.best })) }
+} else {
+// ---------- mode rapide : un seul auteur, les trois angles à la fois ----------
+phase('Synthesize')
+final = await agent(`${CTX}
+TASK: write the storyboard of ${ID} (0 to ${prep.duree} s) in ONE pass, combining three angles:
+${ANGLES.map(([k, b]) => `- ${b}`).join('\n')}
+Above all: readable with the sound off (the user's criterion), one coherent thread around one thread object, a small consistent cast (series-bible.md), the V01 and V02 lessons (lessons-v01.md), and buildable with the entity catalogue (${KIT_REF}/entities.md, ${KIT_REF}/kit.md) with at most 2 new simple entities. Prefer reusing scenes and devices that already exist in earlier storyboards of the series (scripts/storyboards/V01.json, V02.json) when they fit: it makes the build faster.
+${REQUIREMENTS}
+
+WRITE two files:
+- ${SB_JSON}: the storyboard (this schema; UTF-8, ensure_ascii off, 1-space or 2-space indentation).
+- ${SB_MD}: the French Markdown version following the template in ${REF}/storyboard-schema.md §6. Leave the « Test sans son » section as « à venir ».
+Then run \`python3 -m pipeline.story ${ID} --check\` from ${ROOT} and fix what it reports. Return exactly the final content of ${SB_JSON}, after these fixes.`, { label: 'author', phase: 'Synthesize', schema: SB_SCHEMA })
+if (!final) return { ok: false, id: ID, stage: 'author' }
+}
 
 // ---------- 4. Mute test + revision ----------
 phase('Mute test')
