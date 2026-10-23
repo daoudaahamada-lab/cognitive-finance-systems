@@ -1,0 +1,1094 @@
+{
+ "version": "v1",
+ "angle": "Parti pris « le chemin vers la caisse » : tout le film se joue sur un seul axe horizontal, entre la caisse « Disponible » de « Toi » (à gauche) et ce qu’il possède (à droite). La liquidité se voit comme une distance et un temps : un livret posé tout près rend ses pièces en un clin d’œil, l’appartement bute, puis avance des mois une fois « À vendre », les placements bloqués cognent un mur à cadenas. La pilule « 200 000 € » ne change jamais de chiffre et ne paie jamais rien : c’est l’écart entre ce qu’on possède et ce qu’on peut payer, montré avec la même facture « 3 000 € » au début et à la fin. Les trois angles combinés : objets persistants (la caisse et la facture du début reviennent dans la chute ; le « ? » de « Toi » devient l’horloge ; le rail devient la frise ; ce que la vente montre (horloge, pièce de frais, « ? ») rentre dans l’appartement et en ressort pour former le repère « Délai · Frais · Risque » ; la feuille d’estimation devient « Ma liste » ; les délais affichés sur la frise s’écrivent dans la liste) ; grammaire de la référence (disques, pilules, cartes, un fil ; 1 à 3 éléments actifs par temps fort ; tenir puis éclater ; un seul PNG, l’appartement) ; lisibilité sans le son (verbes francs : tomber, extraire, glisser, compter, buter, avancer lentement, perdre, vaciller, ranger, écrire, entourer, payer ; avant / après sur la même facture). Procédés repris de V01-V04 : places vides en tirets jamais remplies (V04), bulle de pensée en tirets de « Toi » (V02, V04), pièces comptées qui partent (V04), repère né d’objets de la scène (V04 : les alertes), relais de la pastille vers le bouton de fin (V01).\nRéponse aux 7 points :\n1) Fil conducteur : ce que possède « Toi », porté par la pilule « 200 000 € » : sur l’appartement (S01), sur la feuille d’estimation (S07-S10), rangée pendant la frise (S11-S16), sur l’en-tête de « Ma liste » (S17-S19), rebondissant sur la facture de demain (S20), bouton « S’abonner » (S22) ; face à elle, la même caisse et la même facture « 3 000 € » de S02 à S21.\n2) État initial / action / résultat : chaque scène part du résultat précédent et finit sur un état visible (facture rouge sur caisse vide ; rail et horloge ; facture payée par le livret ; appartement bloqué ; « ≠ » ; « ? » ; « À vendre » ; mois, frais et prix qui vacille ; frise ; pièces rapides, lentes ou bloquées ; « Ma liste » ; colonnes remplies ; facture de demain payée) ; 87 temps forts, tous sur des débuts de mots.\n3) Sens complet : « vite, et sans perdre de valeur » = les trois pièces arrivent en 550 ms et se comptent trois sur trois ; « à tort » = les places de la caisse tremblent vides puis « ≠ » ; « estimé… ? » = un « ? » sort de la pilule ; « plusieurs mois, avec des frais, et un prix qui n’est pas garanti » = l’appartement avance à 15 px/s sous une horloge qui se remplit, deux pièces tombent, la pilule vacille ; « se vendent vite, mais leur prix varie » = pièces rapides puis qui grossissent et rapetissent ; « sauf déblocage anticipé » = une petite porte en tirets ne laisse passer qu’une pièce ; « pas combien tu possèdes » = la pilule rebondit sur la facture ; « si tu en as besoin demain » = la facture revient avec « demain » et c’est la ligne la plus rapide qui la paie.\n4) Rôles : pas d’IA dans ce script (AI.png non utilisé, aucun pointillé). « Toi », figurine encre nommée dès l’image 0, est seul à tenir le stylo et seul à décider : il touche la caisse vide, pose la question (« ? »), met en vente, écrit les délais, les frais et le risque, choisit la ligne qui paie, touche le bouton. Les placements n’agissent pas : ils rendent leurs pièces, plus ou moins vite.\n5) Mêmes éléments qui évoluent : « ? » → horloge → disque « Délai » ; rail → frise → colonne délai ; feuille « Estimation » → « Ma liste » ; « frais » et pièce perdue → disque « Frais » → pièce dans la case frais ; « ? » du prix → disque « Risque » → « ? » dans la case ; courbe des actions → « ? » ; livret → ligne « Comptes, livrets » qui paie ; pilules de délai → textes de la liste ; facture (S02) → payée (S05) → revenue pour demain (S20) → payée (S21) ; pilule → bouton.\n6) PNG au service de la scène : un seul, TOKEN.png, l’appartement : un objet qui bute, avance, reçoit la pancarte, l’horloge, les frais et le « ? », puis les rend au point 3. Tout processus est en code (pièces qui filent, horloge qui se remplit, mur, porte, liste) ; aucun zoom ne raconte.\n7) Simplicité : ivoire quadrillé, encre, cyan seul accent ; un rouge unique (le montant de la facture impayée) ; aucun gris ; 1 à 3 éléments actifs par temps fort ; places fixes (caisse à gauche, possessions à droite sur un même axe, « Toi » en bas, repère en haut) ; libellés clés de 34 px et plus.",
+ "thread": "On suit ce que possède « Toi » : un appartement, avec posée dessus la pilule cyan « 200 000 € », en face de sa caisse « Disponible », vide. Dans l’accroche, une facture « 3 000 € » tombe sur la caisse et rougit : le gros chiffre ne la paie pas. Un rail se trace de l’appartement à la caisse, une horloge au-dessus : toute la question est le temps que met l’argent à faire ce chemin, la liquidité ; un livret posé près de la caisse la remplit tout de suite, l’appartement bute sur un cadenas. Au point 1, la pilule monte sur une feuille d’estimation (≠ caisse vide) ; pour toucher l’argent, « Toi » met l’appartement en vente : il avance des mois sur le rail, perd des pièces en frais, et son prix vacille sous un « ? ». Au point 2, le rail devient une frise du temps où chaque placement prend sa place et envoie ses pièces : vite, lentement, ou contre un mur à cadenas. Au point 3, la feuille devient « Ma liste » : les placements s’y rangent, et ce que la vente a montré (horloge, pièce, « ? ») devient le repère « Délai · Frais · Risque ». Dans la chute, la même facture revient pour demain : la pilule « 200 000 € » rebondit dessus sans la payer, « Toi » choisit dans sa liste la ligne la plus rapide, et ses pièces la paient ; la pilule devient le bouton « S’abonner ».",
+ "objet_fil": {
+  "id": "pastille",
+  "description": "La pilule cyan « 200 000 € » (300×90, contour encre 4 px, ombre dure, Inter ExtraBold 52) : ce que « Toi » possède, la valeur affichée de son appartement. Posée sur l’appartement dès l’image 0 (700, 705), elle monte sur la feuille « Estimation » au point 1 (la valeur sur le papier), penche, perd deux pièces en frais et vacille sous un « ? » sans jamais changer de chiffre ; elle se range en haut à gauche avec la feuille pendant le point 2, se pose sur l’en-tête de « Ma liste » au point 3, vole jusqu’à la facture de demain et rebondit dessus dans la chute (posséder ne paie pas), puis devient le bouton « S’abonner » de la carte de fin."
+ },
+ "cast": [
+  {
+   "id": "pastille",
+   "name_fr": "La pilule « 200 000 € » (objet du fil : ce que tu possèdes)",
+   "look": "Pilule cyan #19B3C7 300×90, contour encre 4 px, ombre dure +6/+6, texte encre Inter ExtraBold 52 « 200 000 € » (espaces fines insécables). Image 0 : centre (700, 705), posée juste au-dessus de l’appartement. S07-S10 : sur la feuille « Estimation », (720, 545), ×0,85. S11-S16 : avec la feuille en haut à gauche, (230, 478), ×0,68. S17-S21 : sur l’en-tête de la liste, à droite, (760, 500), ×0,7. S22 : « S’abonner ».",
+   "source": "code",
+   "entite": "pill (pistes text, rot, scale) ; kit.pulse, kit.move (arc), S.key rot ; kit.outro (btn_at : devient le bouton de la carte de fin)",
+   "evolution": "S01 : à l’écran dès l’image 0, sur l’appartement ; bat sur « 200 000 € ». S02 : ne bouge pas pendant que la facture rougit. S06 : suit l’appartement qui bute sur le cadenas. S07 : monte sur la feuille « Estimation » (la valeur sur le papier) et bat sur « chiffre ». S08 : penche ; un « ? » sort de son bord droit. S10 : deux pièces tombent d’elle (frais) et elle vacille (prix pas garanti) : le chiffre reste « 200 000 € » mais il est signalé par le « ? ». S11 : se range en haut à gauche avec la feuille. S17 : descend avec la feuille et se pose sur l’en-tête de « Ma liste ». S20 : vole jusqu’à la facture de demain, rebondit dessus sans la payer et revient sur la liste. S21 : reste immobile pendant que la ligne rapide paie. S22 : devient le bouton « S’abonner »."
+  },
+  {
+   "id": "toi",
+   "name_fr": "« Toi » (le spectateur qui possède le patrimoine)",
+   "look": "Figurine pleine encre #1E1416 (Figure variant=\"ink\") : tête ronde, buste trapèze, bras à longueur fixe, stylo ; ombre dure +6/+6 ; échelle 1, pied sur y 1230, bras baissé au repos. Deux places : P1 (420, 1135) de S01 à S16, P2 (640, 1135) de S17 à la fin. Étiquette « Toi » (Inter Bold 34 encre) au-dessus de sa tête, en (420, 1000), de S01 à S04 seulement.",
+   "source": "code",
+   "entite": "figure ink (Figure) + reach, tap, walk, lean_to, rest ; places vérifiées par fig.place_for",
+   "evolution": "S01 : nommé « Toi », tend le stylo vers son appartement. S02 : touche la caisse vide. S03 : lève le stylo, un « ? » en sort. S07 : se détend (bulle cochée), puis se redresse quand le « ≠ » tombe. S09 : touche l’appartement, la pancarte « À vendre » sort de son stylo. S12-S16 : regarde la frise, bras baissé. S17 : marche en P2, bulle « ? ». S18-S19 : écrit le délai, la pièce des frais et le « ? » du risque dans la ligne de l’appartement. S21 : touche la colonne délai : c’est lui qui choisit la ligne qui paie. S22 : touche le bouton « S’abonner »."
+  },
+  {
+   "id": "maison",
+   "name_fr": "L’appartement (le jeton à maison)",
+   "look": "TOKEN.png (jeton de verre cyan contenant une petite maison), 240 px, centre (700, 880) (x 580-820, y 760-1000), alpha strict, ombre de contact. S10 : glisse jusqu’à x 640. S11-S16 : 100 px sur la frise en (650, 880). S17-S21 : 52 px, disque de la ligne 6 de la liste (165, 955).",
+   "source": "TOKEN.png + code",
+   "entite": "png ; kit.move (scale), kit.pulse, kit.shake ; reçoit et rend des objets (kit.vanish into, kit.pop from_pt)",
+   "evolution": "S01 : le patrimoine de « Toi », la pilule posée dessus. S06 et S09 : s’élance vers la caisse et bute sur le cadenas. S09 : reçoit la pancarte « À vendre ». S10 : avance très lentement vers la caisse (plusieurs mois). S11 : l’horloge, la pancarte, « frais » et le « ? » rentrent en lui ; il se réduit et prend sa place sur la frise. S17 : glisse dans la dernière ligne de la liste. S18 : l’horloge, une pièce et le « ? » ressortent de lui et deviennent le repère ; son délai sort de lui. S19 : sa ligne reçoit la pièce des frais et le « ? »."
+  },
+  {
+   "id": "caisse",
+   "name_fr": "La caisse « Disponible » (ton argent disponible)",
+   "look": "Forme arrondie papier #FFFDF8 220×240, rayon 22, contour encre 5, ombre dure +6/+6 ; centre (170, 880) (x 60-280, y 760-1000) ; en-tête : pictogramme euro sur disque light r 16 (82, 795) et « Disponible » Inter Bold 30 encre (180, 795), filet #E6DECF 190×3 en y 825 ; trois places en tirets (cercles r 28, contour encre 3, tirets [8, 7], sans fond) en (115, 880), (225, 880), (170, 950). S17-S19 : ×0,55 en (110, 1150).",
+   "source": "code",
+   "entite": "shape round + icon euro (disc) + text + shape rect (filet) + 3 shape circle (dash) ; kit.shake, kit.pulse (contours seulement), kit.move (scale)",
+   "evolution": "S01 : vide, à gauche, en face de l’appartement. S02 : « Toi » la touche, ses places tremblent, vides. S05 : reçoit les trois pièces du livret, qui paient la facture. S06 : la facture payée y rentre, elle redevient vide. S07 et S09 : ses places vides tremblent (preuve du « à tort »). S12-S16 : point d’arrivée de la frise : reçoit vite les pièces du livret et des actions, lentement celles de l’assurance-vie, une seule pièce par la porte du mur. S17 : se réduit en bas à gauche. S20 : reprend sa taille, la facture de demain retombe dessus. S21 : reçoit les pièces de la ligne la plus rapide, qui paient la facture. Un signe de vide reste vide : jamais rempli de couleur."
+  },
+  {
+   "id": "pieces",
+   "name_fr": "Les pièces (l’argent qui arrive)",
+   "look": "Disques light #D3F0F6 r 26, pictogramme euro encre, contour encre 4, ombre +3 (icon euro, disc 26, fill light) ; par groupes de trois. Pièces des frais (S10) : r 22.",
+   "source": "code",
+   "entite": "icon (euro, disc) ; kit.pop from_pt, kit.move (arc), kit.stagger, kit.pulse, kit.drop out=True, kit.vanish into",
+   "evolution": "S05 : sortent du livret, filent dans la caisse, se comptent (trois sur trois) et paient la facture. S10 : deux pièces tombent de la pilule hors de l’image (les frais). S12 : sortent du livret et arrivent vite. S13 : sortent de l’assurance-vie et avancent lentement. S14 : sortent des actions, arrivent vite, puis grossissent et rapetissent (le prix varie). S15-S16 : sortent du PER et de l’épargne salariale, cognent le mur ; une seule passe par la porte. S18 : une pièce sort de l’appartement et devient le disque « Frais » du repère. S19 : une pièce se pose dans la case frais de l’appartement. S21 : sortent de la ligne « Comptes, livrets », tombent dans la caisse et paient la facture de demain."
+  },
+  {
+   "id": "facture",
+   "name_fr": "La facture « 3 000 € » (le besoin d’argent)",
+   "look": "Carte papier 220×110, rayon 14, contour encre 4, ombre +6 ; « Facture » Inter SemiBold 28 encre (170, 670) ; « 3 000 € » Inter ExtraBold 44 (170, 715), encre puis rouge #C8102E tant qu’elle n’est pas payée, deep #0A7487 une fois payée ; centre (170, 695), posée sur le dessus de la caisse (x 60-280, y 640-750). S20-S21 : pilule light « demain » au-dessus (voir `demain`).",
+   "source": "code",
+   "entite": "shape round + text ×2 (piste color en hex) ; kit.drop, kit.shake, kit.vanish into",
+   "evolution": "S02 : tombe sur la caisse vide, son montant rougit : impayable. S05 : les trois pièces du livret sautent sur elle, le montant passe au deep : payée. S06 : rentre dans la caisse. S20 : retombe sur la caisse, rouge, avec « demain » ; la pilule « 200 000 € » rebondit dessus sans la payer. S21 : les pièces de la ligne la plus rapide la paient (montant deep)."
+  },
+  {
+   "id": "demain",
+   "name_fr": "La pilule « demain »",
+   "look": "Pilule light #D3F0F6 ≈ 160×50, contour encre 4, ombre +4, pictogramme cal encre et « demain » Inter Bold 28 encre ; centre (170, 610), au-dessus de la facture.",
+   "source": "code",
+   "entite": "pill (icon cal) ; kit.pop, kit.pulse",
+   "evolution": "S20 : arrive avec la facture qui retombe (le besoin de demain). S21 : bat sur « demain. ». S22 : s’efface sous la carte de fin."
+  },
+  {
+   "id": "rail",
+   "name_fr": "Le rail, puis la frise du temps",
+   "look": "Fil plein deep #0A7487 6 px, horizontal en y 880, du bord gauche de l’appartement (580) au bord droit de la caisse (280) ; flèche deep 36 px (icon arrow, rot 180) au bout, pointée sur la caisse (300, 880). S11 : prolongé jusqu’à x 920 : la frise (plus on est loin de la caisse, plus l’argent met de temps à arriver).",
+   "source": "code",
+   "entite": "wire (pistes draw, sw ; pa / pb monde) + icon arrow ; kit.draw, kit.pulse (piste sw)",
+   "evolution": "S03 : se trace de l’appartement à la caisse (combien de temps pour que l’argent arrive ?). S04 : bat et reçoit le mot « liquidité ». S05 : les pièces du livret y filent. S06 : un cadenas s’y pose. S10 : l’appartement y avance très lentement. S11 : s’allonge jusqu’au bord droit et devient la frise où chaque placement a sa place. S12-S16 : les pièces y glissent vers la caisse. S17 : se réduit dans la liste (son rôle passe à la colonne délai)."
+  },
+  {
+   "id": "horloge",
+   "name_fr": "L’horloge (le délai)",
+   "look": "Cadran papier r 50, contour encre 5, ombre +6, 12 graduations, aiguille ; secteur deep qui se remplit (sector, unit 60) ; centre (430, 760), au-dessus du rail.",
+   "source": "code",
+   "entite": "sector (piste value) ; kit.morph (depuis le « ? »), S.key value linéaire, kit.vanish into, kit.morph vers le repère",
+   "evolution": "S03 : naît du « ? » de « Toi ». S05 : une fine tranche (le livret arrive vite). S10 : se remplit sur une grosse tranche (plusieurs mois de vente). S11 : rentre dans l’appartement. S18 : en ressort et devient le disque 1 « Délai » du repère."
+  },
+  {
+   "id": "liquidite",
+   "name_fr": "Le mot « liquidité »",
+   "look": "Texte Inter ExtraBold 52 deep #0A7487 « liquidité », centre (430, 945), sous le rail ; surligneur light (piste mark) en S05.",
+   "source": "code",
+   "entite": "text (typed, pistes chars, mark) ; kit.type, kit.fade",
+   "evolution": "S04 : s’écrit sous le rail : le chemin a un nom. S05 : se surligne sur « facilité ». S07 : s’efface."
+  },
+  {
+   "id": "livret",
+   "name_fr": "Le livret (puis « Comptes, livrets »)",
+   "look": "Disque light r 38, pictogramme bank encre, contour encre 4, ombre +4 ; sur le rail en (330, 880), à 50 px de la caisse ; nom « Livret » Inter Bold 30 encre au-dessus (330, 815) en S06. S17-S21 : r 22, ligne 1 de la liste (165, 580), nom « Comptes, livrets ».",
+   "source": "code",
+   "entite": "icon bank (disc 38, fill light) + text ; kit.drop, kit.pulse, kit.pop from_pt, kit.move",
+   "evolution": "S05 : tombe près de la caisse ; ses trois pièces paient la facture (l’actif changé en argent disponible). S06 : nommé « Livret », bat : très liquide. S12 : rend trois pièces en quelques jours, sans perte. S17 : devient la ligne 1 de la liste. S21 : sa ligne, entourée par « Toi », rend les pièces qui paient la facture de demain."
+  },
+  {
+   "id": "cadenas",
+   "name_fr": "Le cadenas sur le rail",
+   "look": "Pictogramme lock encre sur disque papier r 28, contour encre 4, ombre +4 ; sur le rail en (520, 880), entre le livret et l’appartement.",
+   "source": "code",
+   "entite": "icon lock (disc 28, fill paper) ; kit.drop, kit.shake, kit.vanish",
+   "evolution": "S06 : tombe devant l’appartement, qui bute dessus. S09 : l’appartement bute encore. S10 : s’efface quand la vente commence (vendre ouvre le chemin, lentement)."
+  },
+  {
+   "id": "feuille",
+   "name_fr": "La feuille « Estimation », puis « Ma liste »",
+   "look": "Carte papier 280×200, rayon 14, contour encre 4, ombre +6 ; bandeau light 280×56 avec pictogramme house encre 30 px et « Estimation » Inter Bold 30 encre ; centre (720, 510) (x 580-860, y 410-610). S11-S16 : ×0,8 en (230, 450). S17 : grandit en liste 760×560, centre (515, 740) (x 135-895, y 460-1020), en-tête light de 80 px « Ma liste » (Inter ExtraBold 36, à gauche, x 165) ; 6 lignes en y 580, 655, 730, 805, 880, 955 : disque en x 165, nom Inter SemiBold 26 encre à partir de x 200, délai Inter Bold 28 deep centré en x 565, case frais en x 715, case risque en x 865. S20-S21 : ×0,7 en (590, 700) (x 324-856, y 504-896).",
+   "source": "code",
+   "entite": "shape round + shape rect (bandeau) + icon house + text (piste text) ; puis lignes à la main (icon, text, text) ; kit.pop, kit.move (scale), kit.type, kit.stagger ; surligneur (shape rect light) + anneau (shape ellipse deep, draw)",
+   "evolution": "S07 : surgit au-dessus de l’appartement ; la pilule monte s’y poser : la valeur sur le papier. S08 : son « ? » apparaît à droite. S11 : se range en haut à gauche avec la pilule. S17 : descend au centre et grandit en « Ma liste » ; les placements y prennent chacun une ligne. S18-S19 : colonnes délai, frais, risque remplies. S20 : se réduit en haut à droite. S21 : « Toi » y entoure la ligne la plus rapide. S22 : s’efface sous la carte de fin."
+  },
+  {
+   "id": "different",
+   "name_fr": "Le signe « ≠ »",
+   "look": "« ≠ » Inter ExtraBold 96 encre, centre (430, 640), entre la feuille et la caisse.",
+   "source": "code",
+   "entite": "text ; kit.pop, kit.vanish",
+   "evolution": "S07 : surgit sur « tort. » : valeur sur le papier ≠ argent disponible. S10 : s’efface quand la vente commence."
+  },
+  {
+   "id": "doute",
+   "name_fr": "Le « ? » du prix",
+   "look": "« ? » Inter ExtraBold 72 encre, centre (895, 545), à droite de la pilule sur la feuille ; en S19 : ExtraBold 44 dans les cases risque (865, 955) et (865, 655).",
+   "source": "code",
+   "entite": "text ; kit.pop from_pt, kit.pulse, kit.vanish into, kit.morph",
+   "evolution": "S08 : sort du bord droit de la pilule (estimé… ?). S10 : bat deux fois (prix pas garanti). S11 : rentre dans l’appartement. S18 : ressort et devient le disque 3 « Risque » du repère. S19 : un « ? » naît sous le stylo dans la case risque de l’appartement ; la courbe des actions devient un « ? » dans la leur."
+  },
+  {
+   "id": "bulle",
+   "name_fr": "La bulle de pensée de « Toi »",
+   "look": "Bulle sans fond 160×90, rayon 28, contour encre 4 en tirets [14, 10] ; trois petits ronds en tirets (r 6, 9, 12) vers la tête de « Toi ». S07 : en (290, 1110), coche pleine deep 36 px. S17 : en (500, 1110), « ? » encre ExtraBold 56.",
+   "source": "code",
+   "entite": "shape round (dash) + shape circle (dash) ×3 + tick deep / text « ? » ; kit.pop, kit.draw, kit.vanish",
+   "evolution": "S07 : « rassuré » (coche) ; éclate sur « tort. ». S17 : revient avec un « ? » devant la frise chargée (comment s’y retrouver ?) ; se réduit quand la liste grandit."
+  },
+  {
+   "id": "a_vendre",
+   "name_fr": "La pancarte « À vendre »",
+   "look": "Pilule papier 190×56, contour encre 4, ombre +4, « À vendre » Inter Bold 30 encre ; centre (700, 975), sur le bas de l’appartement, qu’elle suit.",
+   "source": "code",
+   "entite": "pill (fill paper) ; kit.pop from_pt pointe du stylo, parent maison, kit.vanish into",
+   "evolution": "S09 : sort du stylo de « Toi » et s’accroche à l’appartement. S10 : avance avec lui. S11 : rentre dans l’appartement."
+  },
+  {
+   "id": "frais",
+   "name_fr": "L’étiquette « frais »",
+   "look": "Pilule papier 100×50, contour encre 4, ombre +4, « frais » Inter Bold 28 encre ; centre (880, 660).",
+   "source": "code",
+   "entite": "pill (fill paper) ; kit.pop, kit.vanish into",
+   "evolution": "S10 : se pose là d’où deux pièces tombent de la pilule. S11 : rentre dans l’appartement (avec l’horloge et le « ? », elle redeviendra une pièce du repère en S18)."
+  },
+  {
+   "id": "delais",
+   "name_fr": "Les délais",
+   "look": "Pilules light #D3F0F6, contour encre 4, ombre +4, Inter Bold 28 encre, sans pictogramme sauf « retraite » (hourglass) : « plusieurs mois » ≈ 250×52 en (430, 645) puis (650, 800) ; « quelques jours » ≈ 250×52 en (320, 960) ; « 2 mois max. » ≈ 200×52 en (560, 960) ; « vite » ≈ 90×52 en (420, 800) ; « retraite » ≈ 170×52 en (810, 720) ; « 5 ans » ≈ 110×52 en (875, 960). Dans la liste : texte Inter Bold 28 deep, sans fond, centré en x 565.",
+   "source": "code",
+   "entite": "pill ×6 ; kit.pop, kit.move, kit.vanish into ; puis text (kit.type) dans la colonne délai",
+   "evolution": "S10 : « plusieurs mois » au-dessus de l’horloge. S11 : se range au-dessus de l’appartement. S12-S16 : chaque placement reçoit le sien (« quelques jours », « 2 mois max. », « vite », « retraite », « 5 ans »). S17 : rentrent dans leurs placements. S18 : en ressortent et s’écrivent dans la colonne « Délai » de la liste. S21 : « quelques jours » est entouré par « Toi »."
+  },
+  {
+   "id": "actions",
+   "name_fr": "Les actions et fonds",
+   "look": "Disque light r 38, pictogramme bars encre, contour encre 4, ombre +4 ; sur la frise en (420, 880). S17-S21 : r 22, ligne 2 de la liste (165, 655), nom « Actions, fonds ».",
+   "source": "code",
+   "entite": "icon bars (disc 38, fill light) ; kit.drop, kit.pop from_pt, kit.move",
+   "evolution": "S14 : tombe près du livret ; ses pièces arrivent vite mais leur taille varie ; la courbe en dents de scie se trace au-dessus. S17 : devient la ligne 2. S19 : sa courbe ressort en « ? » dans sa case risque."
+  },
+  {
+   "id": "courbe",
+   "name_fr": "La courbe en dents de scie (le prix varie)",
+   "look": "Courbe deep 6 px, 120×50 (monte, descend, remonte, descend), sans aire ni axes, pastille de tête ; centre (420, 730).",
+   "source": "code",
+   "entite": "curve (draw) ; kit.draw, kit.vanish into, kit.morph vers « ? »",
+   "evolution": "S14 : se trace au-dessus des actions sur « prix ». S17 : rentre dans les actions. S19 : ressort et se change en « ? » dans la case risque des actions."
+  },
+  {
+   "id": "assurance_vie",
+   "name_fr": "L’assurance-vie",
+   "look": "Disque light r 38, pictogramme shield encre, contour encre 4, ombre +4 ; sur la frise en (560, 880). S17-S21 : r 22, ligne 3 de la liste (165, 730), nom « Assurance-vie ».",
+   "source": "code",
+   "entite": "icon shield (disc 38, fill light) ; kit.drop, kit.pop from_pt, dérive linéaire des pièces (S.key pos)",
+   "evolution": "S13 : tombe entre le livret et l’appartement ; ses pièces avancent lentement jusqu’à la caisse, « 2 mois max. ». S17 : devient la ligne 3."
+  },
+  {
+   "id": "per",
+   "name_fr": "Le plan d’épargne retraite (PER)",
+   "look": "Disque light r 38, pictogramme hourglass encre, contour encre 4, ombre +4 ; sur la frise derrière le mur, en (795, 880). S17-S21 : r 22, ligne 4 de la liste (165, 805), nom « PER ».",
+   "source": "code",
+   "entite": "icon hourglass (disc 38, fill light) ; kit.drop, kit.pop from_pt, kit.move (buter)",
+   "evolution": "S15 : tombe loin à droite ; ses pièces cognent le mur ; « retraite » au-dessus ; une seule pièce passe la petite porte (déblocage anticipé). S17 : devient la ligne 4."
+  },
+  {
+   "id": "epargne_salariale",
+   "name_fr": "L’épargne salariale",
+   "look": "Disque light r 38, pictogramme building encre, contour encre 4, ombre +4 ; sur la frise derrière le mur, en (875, 880). S17-S21 : r 22, ligne 5 de la liste (165, 880), nom « Épargne salariale ».",
+   "source": "code",
+   "entite": "icon building (disc 38, fill light) ; kit.drop, kit.pop from_pt, kit.move (buter)",
+   "evolution": "S16 : tombe derrière le mur ; ses pièces cognent le mur ; « 5 ans » ; une pièce passe la porte (exceptions). S17 : devient la ligne 5."
+  },
+  {
+   "id": "mur",
+   "name_fr": "Le mur à cadenas et sa petite porte",
+   "look": "Rectangle papier 26×240, contour encre 4, ombre +6, centre (725, 880) (y 760-1000) ; cadenas (lock sur disque papier r 26) en (725, 790) ; porte : rectangle 34×70 contour encre 3 en tirets [8, 6], sans fond, en (725, 880), là où la frise traverse le mur.",
+   "source": "code",
+   "entite": "shape rect + icon lock (disc) + shape rect (dash, draw) ; kit.drop, kit.shake, kit.draw, kit.vanish",
+   "evolution": "S15 : tombe entre l’appartement et le PER ; les pièces cognent ; la porte en tirets s’ouvre une fois pour une pièce, puis se ferme. S16 : même jeu pour l’épargne salariale. S17 : se réduit."
+  },
+  {
+   "id": "marqueur",
+   "name_fr": "Le repère 1-2-3 légendé « Délai · Frais · Risque »",
+   "look": "Trois disques cernés d’encre (r 20, numéros 1, 2, 3 ExtraBold) en x 565, 715, 865, y 300, chacun au-dessus de la colonne correspondante de la liste ; légende Inter 26 « Délai » · « Frais » · « Risque » ; disque actif cyan agrandi ×1,6 ; étape faite : coche deep dans son disque.",
+   "source": "code",
+   "entite": "marker via kit.steps_marker([\"Délai\", \"Frais\", \"Risque\"], cx=715, gap=150) (pistes on, done0-2) + kit.step",
+   "evolution": "S18 : naît de l’horloge, d’une pièce et du « ? » sortis de l’appartement (ce que la vente a montré au point 1) ; disque 1. S19 : disque 2 puis 3, coches 1 et 2. S20 : coche 3, puis se range dans l’en-tête de la liste."
+  },
+  {
+   "id": "fin",
+   "name_fr": "La carte de fin",
+   "look": "Carte papier 620×520 centrée (540, 760), titre « WealthTech Horizon », ligne « Comprendre ton argent » (deep), bouton cyan « S’abonner » (la pilule du fil, ≈ 380×112, centre ≈ 540, 930). Aucun pointeur de souris : le clic est le toucher du stylo de « Toi » (anneau d’impact deep).",
+   "source": "code",
+   "entite": "endcard via kit.outro (clear=\"fade\", btn_at) ; Toi.tap + piste press ; ondes d’impact (piste ring)",
+   "evolution": "S22 : la carte surgit pendant que tout s’efface ; la pilule « 200 000 € » devient son bouton ; « Toi » le touche, puis plus rien ne bouge."
+  }
+ ],
+ "style": "Conforme à style.md. Fond ivoire #F6F0E4, quadrillage fixe de 36 px (#ECE4D4, 2 px), sans grain, caméra ni zoom global. Encre #1E1416 pour les contours de 4 à 5 px, les textes, « Toi », les ombres dures +6/+6, le « ≠ » et les « ? ». Un seul accent, le cyan : #19B3C7 en aplat pour la pilule « 200 000 € » (objet du fil), le disque actif du repère et le bouton de fin ; deep #0A7487 pour le rail devenu frise, la flèche, le secteur de l’horloge, le mot « liquidité », la courbe des actions, les délais écrits dans la liste, les coches du repère, l’anneau et le montant payé ; light #D3F0F6 pour les pièces, les disques des placements, les pilules de délai (« plusieurs mois », « quelques jours », « 2 mois max. », « vite », « retraite », « 5 ans »), « demain », le bandeau de la feuille et les surligneurs. Papier #FFFDF8 pour la caisse, la facture, la feuille puis la liste, le mur, le cadenas, « À vendre », « frais ». Rouge #C8102E pour une seule chose : le montant « 3 000 € » de la facture tant qu’elle n’est pas payée (S02-S05, puis S20-S21). Ni le cadenas, ni le mur, ni les frais ne sont rouges. Gris : aucun (rien n’est grisé pour être mis en retrait : ce qui a fini d’agir rentre dans son objet ou se réduit). Pas d’IA dans ce film : aucun pointillé d’IA, AI.png non utilisé. Grammaire de trait : trait plein deep = chemin réel de l’argent (rail, frise) ou geste de « Toi » ; tirets encre = ce qui est vide ou exceptionnel (places de la caisse, bulle de pensée, petite porte du mur). Places fixes : la caisse « Disponible » à gauche (170, 880), point d’arrivée de toute pièce ; ce que l’on possède à droite, sur le rail puis la frise (y 880, x 280 → 920 ; plus loin de la caisse = plus lent) ; la feuille et la pilule au-dessus ; « Toi » en bas, P1 (420, 1135) jusqu’à S16 puis P2 (640, 1135) ; repère 1-2-3 en haut (y 300) seulement au point 3, aligné sur les colonnes de la liste ; action entre y 250 et 1250, x 40 à 940. PNG retenu : TOKEN.png seul (l’appartement : un objet qui reçoit la pancarte, l’horloge, les frais et le « ? », et les rend au point 3). Écartés : WAVE (métaphore indirecte de la liquidité), TREE et CRADLE (blocage dit par un mur à cadenas, plus direct), TRUCK (se lirait « déménagement »), BOOK (la liste doit avoir des lignes animées : en code), TAG, BUOY, BELL, GEAR, SUITCASE, TARGET, CRYSTAL, HEART, PRINTER, SHOES, GLOBE, FINGERPRINT, RINGS, AI. Textes : Inter, 26 px au moins sur les objets, 34 px et plus pour les libellés clés (« 200 000 € », « 3 000 € », « liquidité », « ≠ », « ? », « Ma liste ») ; espaces fines insécables dans les nombres et avant « € » ; « 2 mois max. », « 5 ans », « quelques jours », « plusieurs mois », « demain », « PER », « assurance-vie » avec trait d’union ; apostrophe ’. Rythme : tenir, puis éclater ; POP 300 ms, MORPH 350 ms, MOVE 550 ms ease-in-out, DROP 370 ms, DRAW 300 ms ; deux dérives narratives seulement (l’appartement en vente, S10 ; les pièces de l’assurance-vie, S13) ; 87 temps forts, jamais plus de 3 s sans temps fort ; environ 27 compositions ; état final de la chute tenu 1,8 s avant la carte de fin.",
+ "scenes": [
+  {
+   "id": "S01",
+   "segment": "accroche",
+   "t_start": 0.0,
+   "t_end": 3.135,
+   "texte": "Tu peux avoir 200 000 € de patrimoine…",
+   "elements": "pastille, maison, caisse, toi",
+   "etat_initial": "Image 0, déjà lisible et sobre : ivoire quadrillé ; à droite, l’appartement (TOKEN.png 240 px, centre 700, 880 ; x 580-820, y 760-1000) et, posée juste au-dessus, la pilule cyan « 200 000 € » (300×90, centre 700, 705) ; à gauche, en face, la caisse « Disponible » (papier 220×240, centre 170, 880) et ses trois places vides en tirets ; « Toi » en P1 (420, 1135), pied sur y 1230, bras baissé, nommé par l’étiquette « Toi » (Inter Bold 34) au-dessus de sa tête (420, 1000). Rien ne bouge.",
+   "action": "La pilule « 200 000 € » bat sur son mot. « Toi » tend son stylo vers l’appartement, sans le toucher : c’est à lui.",
+   "resultat": "« Toi » possède un appartement de « 200 000 € » ; sa caisse « Disponible », en face, est vide.",
+   "transition": "Sur « payer » (S02), « Toi » ramène le stylo vers la caisse.",
+   "beats": [
+    {
+     "t": 0.801,
+     "mot": "200 000 €",
+     "evenement": "Battre : la pilule « 200 000 € » grandit à ×1,15 et revient (kit.pulse, 2 × 100 ms) ; elle est seule à bouger."
+    },
+    {
+     "t": 1.834,
+     "mot": "patrimoine…",
+     "evenement": "Montrer : « Toi » tend le stylo vers le bas gauche de l’appartement (pointe en 600, 990, à 20 px du bord ; fig.reach 550 ms ease-in-out) sans le toucher, puis tient la pose."
+    }
+   ],
+   "lecture_sans_son": "Une personne a un appartement qui vaut 200 000 €, et sa caisse « Disponible » est vide."
+  },
+  {
+   "id": "S02",
+   "segment": "accroche",
+   "t_start": 3.135,
+   "t_end": 6.374,
+   "texte": "et ne pas pouvoir payer une facture de 3 000 €.",
+   "elements": "pastille, maison, caisse, facture, toi",
+   "etat_initial": "Résultat de S01 : appartement et pilule à droite, caisse vide à gauche, « Toi » en P1, stylo tendu vers l’appartement.",
+   "action": "« Toi » touche le bord de la caisse : ses trois places tremblent, vides. Une facture tombe sur la caisse ; son montant « 3 000 € » vire au rouge et elle tremble. La pilule « 200 000 € », de l’autre côté, ne bouge pas.",
+   "resultat": "Une facture rouge « 3 000 € » posée sur une caisse vide, face à un appartement de « 200 000 € » immobile.",
+   "transition": "Sur « pourquoi, » (S03), « Toi » lève le stylo entre la caisse et l’appartement.",
+   "beats": [
+    {
+     "t": 3.959,
+     "mot": "payer",
+     "evenement": "Toucher : « Toi » touche du stylo le bord droit de la caisse (275, 950 ; fig.tap, contact sur le mot) ; les trois places en tirets tremblent (kit.shake x, amp 6) et restent vides (contours seulement, jamais remplies)."
+    },
+    {
+     "t": 4.412,
+     "mot": "facture",
+     "evenement": "Tomber : la facture (carte papier 220×110, « Facture » Inter SemiBold 28, « 3 000 € » Inter ExtraBold 44 encre) tombe du haut (170, 300) sur le dessus de la caisse, centre (170, 695) (kit.drop 370 ms ease-out, sans rebond)."
+    },
+    {
+     "t": 5.039,
+     "mot": "3 000 €.",
+     "evenement": "Alerter : « 3 000 € » vire au rouge #C8102E (100 ms) et la facture tremble (kit.shake x, amp 8) ; la pilule « 200 000 € » reste immobile, à 500 px de là."
+    }
+   ],
+   "lecture_sans_son": "Une facture de 3 000 € arrive et la caisse est vide : impossible de la payer, alors que l’appartement vaut 200 000 €."
+  },
+  {
+   "id": "S03",
+   "segment": "accroche",
+   "t_start": 6.374,
+   "t_end": 12.121,
+   "texte": "Dans cette vidéo, on va voir pourquoi, et comment savoir en combien de temps tu récupères ton argent.",
+   "elements": "pastille, maison, caisse, facture, toi, horloge, rail",
+   "etat_initial": "Résultat de S02 : facture rouge sur la caisse vide, appartement et pilule à droite, « Toi » en P1.",
+   "action": "« Toi » lève le stylo dans l’espace entre la caisse et l’appartement : un grand « ? » en sort. Le « ? » se change en horloge. Un rail se trace de l’appartement jusqu’à la caisse, sous l’horloge, avec une flèche pointée sur la caisse : la question du film est le temps que met l’argent à faire ce chemin.",
+   "resultat": "Entre l’appartement et la caisse : un rail fléché vers la caisse et une horloge vide au-dessus.",
+   "transition": "Sur « Tout » (S04), le rail bat et l’étiquette « Toi » s’efface.",
+   "beats": [
+    {
+     "t": 7.964,
+     "mot": "pourquoi,",
+     "evenement": "Questionner : « Toi » lève le stylo (pointe en 430, 900 ; fig.reach 300 ms) ; un « ? » encre ExtraBold 100 naît sous la pointe et monte en (430, 760) (kit.pop from_pt pointe + kit.move 550 ms)."
+    },
+    {
+     "t": 9.671,
+     "mot": "combien",
+     "evenement": "Se changer : le « ? » se change en horloge (cadran papier r 50, 12 graduations, aiguille sur midi, secteur deep vide ; centre 430, 760 ; kit.morph 350 ms) ; « Toi » rabaisse le bras (fig.rest)."
+    },
+    {
+     "t": 10.577,
+     "mot": "récupères",
+     "evenement": "Relier : un rail deep 6 px se trace du bord gauche de l’appartement (580, 880) au bord droit de la caisse (280, 880), sous l’horloge (kit.draw 300 ms ease-out) ; une flèche deep 36 px (icon arrow, rot 180) surgit à son bout, pointée sur la caisse (300, 880) (pop 300 ms)."
+    }
+   ],
+   "lecture_sans_son": "La question posée : combien de temps faut-il pour que la valeur de l’appartement arrive dans la caisse ?"
+  },
+  {
+   "id": "S04",
+   "segment": "contexte",
+   "t_start": 12.121,
+   "t_end": 14.559,
+   "texte": "Tout tient en un mot : la liquidité.",
+   "elements": "pastille, maison, caisse, facture, toi, horloge, rail, liquidite",
+   "etat_initial": "Résultat de S03 : rail fléché de l’appartement (580) à la caisse (280) en y 880, horloge vide (430, 760), facture rouge sur la caisse, « Toi » en P1 avec son étiquette.",
+   "action": "Le rail bat ; l’étiquette « Toi » s’efface. Le mot « liquidité » s’écrit sous le rail : le chemin de l’appartement vers la caisse a un nom.",
+   "resultat": "Le rail porte le mot « liquidité » ; rien d’autre n’a changé.",
+   "transition": "Sur « facilité » (S05), le mot se surligne.",
+   "beats": [
+    {
+     "t": 12.121,
+     "mot": "Tout",
+     "evenement": "Battre : le rail s’épaissit de 6 à 10 px et revient (kit.pulse piste sw, 2 × 150 ms) ; l’étiquette « Toi » s’efface en fondu (200 ms)."
+    },
+    {
+     "t": 13.491,
+     "mot": "liquidité.",
+     "evenement": "Écrire : « liquidité » (Inter ExtraBold 52, deep) s’écrit lettre à lettre sous le rail, centre (430, 945) (kit.type, 1 caractère par image) : le mot nomme le chemin, ce n’est pas un nouvel objet."
+    }
+   ],
+   "lecture_sans_son": "Ce chemin entre ce qu’on possède et la caisse a un nom : la liquidité."
+  },
+  {
+   "id": "S05",
+   "segment": "contexte",
+   "t_start": 14.559,
+   "t_end": 20.968,
+   "texte": "C’est la facilité à transformer un actif en argent disponible, vite, et sans perdre de valeur.",
+   "elements": "pastille, maison, caisse, facture, toi, horloge, rail, liquidite, livret, pieces",
+   "etat_initial": "Résultat de S04 : rail et « liquidité », horloge vide, facture rouge sur la caisse vide, appartement et pilule à droite, « Toi » en P1.",
+   "action": "« liquidité » se surligne. Un livret tombe sur le rail tout près de la caisse. Trois pièces en sortent, filent sur le rail et remplissent les trois places de la caisse ; l’horloge ne prend qu’une fine tranche : c’est rapide. Les trois pièces se comptent, aucune ne manque, puis sautent sur la facture : « 3 000 € » passe du rouge au cyan profond, payée.",
+   "resultat": "Facture « 3 000 € » payée (montant deep, trois pièces sur son bord bas) ; le livret, vidé, reste sur le rail près de la caisse ; l’horloge marque une tranche fine.",
+   "transition": "Sur « Un » (S06), la facture et ses pièces rentrent dans la caisse.",
+   "beats": [
+    {
+     "t": 14.931,
+     "mot": "facilité",
+     "evenement": "Surligner : un surligneur light passe sous « liquidité » de gauche à droite (piste mark, 300 ms)."
+    },
+    {
+     "t": 16.591,
+     "mot": "actif",
+     "evenement": "Tomber : le livret (disque light r 38, pictogramme bank encre, contour encre 4, ombre +4) tombe du haut (330, 300) sur le rail en (330, 880), à 50 px de la caisse (kit.drop 370 ms ease-out)."
+    },
+    {
+     "t": 17.346,
+     "mot": "argent",
+     "evenement": "Extraire : trois pièces (disques light r 26, € encre, contour encre 4, ombre +3) sortent du livret et se posent en éventail juste au-dessus de lui, en (290, 800), (330, 790), (370, 800) (kit.stagger 2 images de kit.pop from_pt livret, 300 ms)."
+    },
+    {
+     "t": 17.682,
+     "mot": "disponible,",
+     "evenement": "Glisser : les trois pièces descendent sur le rail et filent dans les trois places de la caisse, (115, 880), (225, 880), (170, 950) (kit.stagger 2 images de kit.move 550 ms ease-in-out)."
+    },
+    {
+     "t": 18.576,
+     "mot": "vite,",
+     "evenement": "Remplir : l’horloge prend une tranche fine (secteur deep de 0 à 3 sur 60, 200 ms) ; l’aiguille s’arrête juste après midi."
+    },
+    {
+     "t": 19.714,
+     "mot": "perdre",
+     "evenement": "Compter : les trois pièces de la caisse battent l’une après l’autre (kit.stagger 4 images de kit.pulse ×1,2) : trois sur trois, rien n’a été perdu."
+    },
+    {
+     "t": 20.179,
+     "mot": "valeur.",
+     "evenement": "Payer : les trois pièces sautent en arc (arc 60 px, 550 ms) sur le bord bas de la facture, en (115, 745), (170, 745), (225, 745) ; à leur arrivée, « 3 000 € » passe du rouge au deep (300 ms)."
+    }
+   ],
+   "lecture_sans_son": "Un livret se change tout de suite en pièces, sans en perdre une, et elles paient la facture."
+  },
+  {
+   "id": "S06",
+   "segment": "contexte",
+   "t_start": 20.968,
+   "t_end": 24.869,
+   "texte": "Un livret est très liquide. Un appartement, beaucoup moins.",
+   "elements": "pastille, maison, caisse, facture, pieces, toi, horloge, rail, liquidite, livret, cadenas",
+   "etat_initial": "Résultat de S05 : facture payée sur la caisse, livret vidé sur le rail (330, 880), horloge à fine tranche, appartement et pilule à droite.",
+   "action": "La facture payée et ses pièces rentrent dans la caisse, qui redevient vide. Le livret reçoit son nom et bat deux fois, tout près de la caisse. Puis un cadenas tombe sur le rail devant l’appartement ; l’appartement s’élance vers la caisse, bute contre le cadenas et revient à sa place.",
+   "resultat": "Le livret, nommé, tout près de la caisse ; l’appartement bloqué derrière un cadenas ; caisse vide.",
+   "transition": "Sur « valeur » (S07), « liquidité » et « Livret » s’effacent et une feuille surgit au-dessus de l’appartement.",
+   "beats": [
+    {
+     "t": 20.968,
+     "mot": "Un",
+     "evenement": "Ranger : la facture et ses trois pièces se réduisent dans la caisse (kit.vanish into caisse, 300 ms) ; la caisse redevient vide, places en tirets."
+    },
+    {
+     "t": 21.165,
+     "mot": "livret",
+     "evenement": "Nommer : « Livret » (Inter Bold 30 encre) apparaît au-dessus du livret, en (330, 815) (fondu 200 ms)."
+    },
+    {
+     "t": 21.908,
+     "mot": "liquide.",
+     "evenement": "Battre : le livret bat deux fois (kit.pulse ×1,15, 2 fois) ; la fine tranche de l’horloge bat avec lui."
+    },
+    {
+     "t": 22.977,
+     "mot": "appartement,",
+     "evenement": "Tomber : un cadenas (pictogramme lock encre sur disque papier r 28, contour encre 4, ombre +4) tombe sur le rail en (520, 880), entre le livret et l’appartement (kit.drop 370 ms)."
+    },
+    {
+     "t": 23.871,
+     "mot": "beaucoup",
+     "evenement": "Buter : l’appartement glisse vers la caisse jusqu’au contact du cadenas (bord gauche en 550 ; 250 ms ease-in), puis recule à sa place (700, 880 ; 300 ms ease-out) ; le cadenas tremble (kit.shake x, amp 6). La pilule suit l’appartement."
+    }
+   ],
+   "lecture_sans_son": "Le livret, tout près de la caisse, arrive tout de suite ; l’appartement, lui, est bloqué en chemin."
+  },
+  {
+   "id": "S07",
+   "segment": "point1",
+   "t_start": 24.869,
+   "t_end": 30.883,
+   "texte": "Pourquoi commencer par la valeur sur le papier ? Parce que c’est le chiffre qui rassure, à tort.",
+   "elements": "pastille, maison, feuille, caisse, toi, bulle, different, horloge, rail, livret, cadenas",
+   "etat_initial": "Rail (280-580, y 880) fléché vers la caisse, horloge à fine tranche (430, 760), « liquidité » sous le rail, livret nommé (330, 880), cadenas (520, 880), appartement (700, 880) et pilule (700, 705), caisse vide (170, 880), « Toi » en P1.",
+   "action": "« liquidité » et « Livret » s’effacent. Une feuille « Estimation » surgit au-dessus de l’appartement et la pilule « 200 000 € » monte s’y poser : la valeur est sur le papier. La pilule bat. « Toi » se détend, une bulle de pensée cochée sort de sa tête : rassuré. Mais les places de la caisse tremblent, vides ; un grand « ≠ » surgit entre la feuille et la caisse, et la bulle éclate.",
+   "resultat": "« 200 000 € » sur la feuille ≠ caisse vide ; « Toi » n’est plus rassuré.",
+   "transition": "Sur « appartement » (S08), l’appartement bat.",
+   "beats": [
+    {
+     "t": 26.193,
+     "mot": "valeur",
+     "evenement": "Se poser : « liquidité » et « Livret » s’effacent (fondu 200 ms) ; la feuille « Estimation » (papier 280×200, rayon 14, contour encre 4, ombre +6 ; bandeau light avec pictogramme house et « Estimation » Inter Bold 30) surgit en (720, 510) (pop 300 ms), et la pilule monte de l’appartement sur la feuille, en (720, 545), en passant à ×0,85 (kit.move 550 ms ease-in-out)."
+    },
+    {
+     "t": 28.468,
+     "mot": "chiffre",
+     "evenement": "Battre : la pilule bat deux fois (kit.pulse ×1,15)."
+    },
+    {
+     "t": 29.048,
+     "mot": "rassure,",
+     "evenement": "Se détendre : « Toi » s’incline en arrière (lean_to −8°, 450 ms ease-out) ; une bulle de pensée en tirets (160×90) sort de sa tête par trois petits ronds et se pose en (290, 1110) ; une coche pleine deep (36 px) s’y trace (pop 300 ms + draw 300 ms)."
+    },
+    {
+     "t": 29.745,
+     "mot": "à",
+     "evenement": "Prouver : les trois places vides de la caisse tremblent (kit.shake x, amp 6), contours seulement, toujours vides."
+    },
+    {
+     "t": 29.884,
+     "mot": "tort.",
+     "evenement": "Comparer : un « ≠ » encre ExtraBold 96 surgit entre la feuille et la caisse, en (430, 640) (pop 300 ms) ; la bulle de « Toi » éclate (se réduit vers son centre, 300 ms) et il se redresse (lean 0)."
+    }
+   ],
+   "lecture_sans_son": "Le 200 000 € n’est qu’un chiffre sur une feuille : il rassure, mais il n’est pas dans la caisse, qui reste vide."
+  },
+  {
+   "id": "S08",
+   "segment": "point1",
+   "t_start": 30.883,
+   "t_end": 33.704,
+   "texte": "Ton appartement est estimé 200 000 € ?",
+   "elements": "pastille, maison, feuille, doute, different, caisse, toi, horloge, rail, livret, cadenas",
+   "etat_initial": "Résultat de S07 : pilule sur la feuille (720, 545), « ≠ » (430, 640), caisse vide, appartement derrière le cadenas, « Toi » en P1 redressé.",
+   "action": "L’appartement bat ; la pilule penche sur la feuille ; un « ? » sort de la pilule : ce prix n’est qu’une estimation.",
+   "resultat": "Pilule « 200 000 € » penchée, un « ? » à sa droite (895, 545).",
+   "transition": "Sur « récupérer » (S09), l’appartement s’élance de nouveau vers la caisse.",
+   "beats": [
+    {
+     "t": 31.115,
+     "mot": "appartement",
+     "evenement": "Battre : l’appartement bat (kit.pulse ×1,1)."
+    },
+    {
+     "t": 31.846,
+     "mot": "estimé",
+     "evenement": "Pencher : la pilule penche de −6° sur la feuille (TILT 450 ms ease-out) et reste penchée."
+    },
+    {
+     "t": 32.381,
+     "mot": "200 000 € ?",
+     "evenement": "Douter : un « ? » encre ExtraBold 72 sort du bord droit de la pilule et se pose en (895, 545) (kit.pop from_pt pilule, 300 ms)."
+    }
+   ],
+   "lecture_sans_son": "Ce 200 000 € n’est qu’une estimation : le prix n’est pas sûr."
+  },
+  {
+   "id": "S09",
+   "segment": "point1",
+   "t_start": 33.704,
+   "t_end": 36.247,
+   "texte": "Pour récupérer cet argent, il faut le vendre.",
+   "elements": "pastille, maison, feuille, doute, different, caisse, cadenas, a_vendre, toi, horloge, rail, livret",
+   "etat_initial": "Résultat de S08 : pilule penchée et « ? » sur la feuille, appartement derrière le cadenas, caisse vide, « Toi » en P1.",
+   "action": "L’appartement s’élance vers la caisse et bute encore contre le cadenas ; les places vides de la caisse battent. « Toi » touche l’appartement du stylo : une pancarte « À vendre » en sort et s’accroche à l’appartement.",
+   "resultat": "Appartement « À vendre », toujours derrière le cadenas ; caisse vide.",
+   "transition": "Sur « prend » (S10), le cadenas et le « ≠ » s’effacent et l’appartement se met en route.",
+   "beats": [
+    {
+     "t": 33.913,
+     "mot": "récupérer",
+     "evenement": "Buter : comme en S06, l’appartement glisse jusqu’au cadenas (250 ms ease-in) et recule (300 ms ease-out) ; le cadenas tremble (kit.shake x)."
+    },
+    {
+     "t": 34.61,
+     "mot": "argent,",
+     "evenement": "Prouver : les trois places vides de la caisse battent (contours ×1,15), toujours vides."
+    },
+    {
+     "t": 35.585,
+     "mot": "vendre.",
+     "evenement": "Toucher : « Toi » touche du stylo le bas gauche de l’appartement (610, 985 ; fig.tap, contact sur le mot) ; une pancarte « À vendre » (pilule papier 190×56, contour encre 4, ombre +4, Inter Bold 30 encre) naît sous la pointe et se pose sur le bas de l’appartement, en (700, 975) (pop 300 ms) ; elle suivra l’appartement."
+    }
+   ],
+   "lecture_sans_son": "Pour avoir cet argent dans la caisse, il faut vendre l’appartement : la personne le met en vente."
+  },
+  {
+   "id": "S10",
+   "segment": "point1",
+   "t_start": 36.247,
+   "t_end": 40.833,
+   "texte": "Ça prend plusieurs mois, avec des frais, et un prix qui n’est pas garanti.",
+   "elements": "pastille, maison, feuille, doute, a_vendre, horloge, delais, pieces, frais, caisse, rail, livret, toi",
+   "etat_initial": "Résultat de S09 : appartement « À vendre » (700, 880), cadenas (520, 880), « ≠ » (430, 640), pilule penchée et « ? » sur la feuille, horloge à fine tranche, caisse vide.",
+   "action": "Le cadenas et le « ≠ » s’effacent. L’appartement « À vendre » avance très lentement sur le rail vers la caisse. L’horloge se remplit sur une grosse tranche, « plusieurs mois » s’affiche au-dessus. Deux pièces tombent de la pilule hors de l’image : « frais ». La pilule vacille, son « ? » bat.",
+   "resultat": "Après des mois, l’appartement n’a fait qu’un bout du chemin (bord gauche en 520) ; l’horloge est presque pleine ; deux pièces sont perdues en frais ; le prix vacille sous son « ? ». Le chiffre « 200 000 € » n’a pas changé, mais il est signalé par le « ? ».",
+   "transition": "Sur « l’immobilier » (S11), tout ce que la vente a montré rentre dans l’appartement, qui se range sur le rail.",
+   "beats": [
+    {
+     "t": 36.456,
+     "mot": "prend",
+     "evenement": "Avancer : le cadenas et le « ≠ » se réduisent (vanish 300 ms) ; l’appartement, sa pancarte avec lui, part vers la caisse en dérive lente et linéaire, de x 700 à x 640 entre 36,46 s et 40,40 s (≈ 15 px/s) ; la feuille et la pilule restent en place."
+    },
+    {
+     "t": 37.083,
+     "mot": "mois,",
+     "evenement": "Remplir : l’horloge se remplit de 3 à 50 sur 60 (piste value, linéaire, 1,2 s) ; une pilule light « plusieurs mois » (Inter Bold 28, ≈ 250×52, contour encre 4, ombre +4) surgit au-dessus d’elle, en (430, 645) (pop 300 ms)."
+    },
+    {
+     "t": 37.907,
+     "mot": "frais,",
+     "evenement": "Perdre : deux pièces (disques light r 22, €) sortent du bas de la pilule (720, 585) et tombent hors de l’image vers le bas droit (kit.drop out=True, rot 20°, 370 ms) ; une petite pilule papier « frais » (Inter Bold 28, 100×50) se pose là d’où elles sont parties, en (880, 660) (pop 300 ms)."
+    },
+    {
+     "t": 38.847,
+     "mot": "prix",
+     "evenement": "Vaciller : la pilule oscille de −6° à +6° puis revient à −6° (2 × 200 ms ease-in-out) sur la feuille."
+    },
+    {
+     "t": 39.962,
+     "mot": "garanti.",
+     "evenement": "Douter : le « ? » bat deux fois (kit.pulse ×1,3)."
+    }
+   ],
+   "lecture_sans_son": "Vendre l’appartement prend des mois, coûte des pièces en frais, et le prix n’est pas sûr."
+  },
+  {
+   "id": "S11",
+   "segment": "point2",
+   "t_start": 40.833,
+   "t_end": 45.372,
+   "texte": "Et l’immobilier n’est pas un cas isolé : chaque placement a son propre délai.",
+   "elements": "pastille, feuille, maison, horloge, a_vendre, frais, doute, delais, rail, livret, caisse, toi",
+   "etat_initial": "Résultat de S10 : appartement « À vendre » arrêté en (640, 880), horloge presque pleine (430, 760) sous « plusieurs mois » (430, 645), « frais » (880, 660), pilule et « ? » sur la feuille (720, 510), livret (330, 880), caisse vide, « Toi » en P1.",
+   "action": "L’horloge, la pancarte, « frais » et le « ? » rentrent dans l’appartement. La feuille et la pilule se rangent en haut à gauche. L’appartement, réduit, se pose sur le rail. Le rail s’allonge jusqu’au bord droit : il devient une frise qui mène à la caisse. « plusieurs mois » se range au-dessus de l’appartement : c’est son délai.",
+   "resultat": "Une frise fléchée vers la caisse (x 280 → 920, y 880) : le livret tout près de la caisse, l’appartement plus loin sous « plusieurs mois » ; la feuille et la pilule en haut à gauche.",
+   "transition": "Sur « livrets : » (S12), le livret bat et sort ses pièces.",
+   "beats": [
+    {
+     "t": 41.006,
+     "mot": "l’immobilier",
+     "evenement": "Ranger : l’horloge, la pancarte « À vendre », « frais » et le « ? » se réduisent dans l’appartement (kit.vanish into maison, décalés de 2 images) ; la feuille et la pilule glissent ensemble en haut à gauche, en (230, 450), à ×0,8 (kit.move 550 ms) ; l’appartement passe à 100 px et se pose sur le rail en (650, 880) (kit.move + scale 550 ms)."
+    },
+    {
+     "t": 42.411,
+     "mot": "isolé :",
+     "evenement": "S’allonger : le rail se prolonge vers la droite, de 580 à 920 (kit.draw 300 ms ease-out) : il devient une frise, flèche toujours sur la caisse."
+    },
+    {
+     "t": 44.71,
+     "mot": "délai.",
+     "evenement": "Se ranger : la pilule « plusieurs mois » glisse de (430, 645) au-dessus de l’appartement, en (650, 800) (kit.move 550 ms) : chaque placement aura son délai à côté de lui."
+    }
+   ],
+   "lecture_sans_son": "Le temps de vente de l’appartement devient sa place sur une frise : plus on est loin de la caisse, plus l’argent met de temps à arriver."
+  },
+  {
+   "id": "S12",
+   "segment": "point2",
+   "t_start": 45.372,
+   "t_end": 50.074,
+   "texte": "Comptes courants et livrets : en général sous quelques jours, sans perte.",
+   "elements": "pastille, feuille, rail, livret, pieces, delais, maison, caisse, toi",
+   "etat_initial": "Frise (y 880, x 280-920), livret (330, 880), appartement (650, 880) sous « plusieurs mois » (650, 800), feuille et pilule en haut à gauche (230, 450), caisse vide (170, 880), « Toi » en P1.",
+   "action": "Le livret bat et lâche trois pièces, qui filent sur la frise jusqu’à la caisse, très vite. « quelques jours » s’affiche sous le livret. Les trois pièces se comptent : aucune perdue.",
+   "resultat": "Caisse pleine des trois pièces du livret ; « quelques jours » sous le livret.",
+   "transition": "Sur « Pour » (S13), les trois pièces rentrent dans la caisse.",
+   "beats": [
+    {
+     "t": 46.452,
+     "mot": "livrets :",
+     "evenement": "Extraire : le livret bat (×1,15) et trois pièces en sortent au-dessus de lui (kit.stagger 2 images de kit.pop from_pt livret)."
+    },
+    {
+     "t": 47.984,
+     "mot": "quelques",
+     "evenement": "Glisser : les trois pièces filent le long de la frise dans les places de la caisse (kit.stagger 2 images de kit.move 400 ms ease-in-out) : le trajet est court."
+    },
+    {
+     "t": 48.309,
+     "mot": "jours,",
+     "evenement": "Afficher : une pilule light « quelques jours » (Inter Bold 28, ≈ 250×52, contour encre 4, ombre +4) surgit sous le livret, en (320, 960) (pop 300 ms)."
+    },
+    {
+     "t": 49.261,
+     "mot": "perte.",
+     "evenement": "Compter : les trois pièces de la caisse battent l’une après l’autre (kit.stagger 4 images de kit.pulse ×1,2) : trois sur trois."
+    }
+   ],
+   "lecture_sans_son": "Un compte ou un livret rend son argent en quelques jours, en entier."
+  },
+  {
+   "id": "S13",
+   "segment": "point2",
+   "t_start": 50.074,
+   "t_end": 55.321,
+   "texte": "Pour une assurance-vie, l’assureur doit te verser les fonds en deux mois maximum.",
+   "elements": "pastille, feuille, rail, livret, assurance_vie, pieces, delais, maison, caisse, toi",
+   "etat_initial": "Résultat de S12 : trois pièces dans la caisse, livret et « quelques jours », appartement et « plusieurs mois » sur la frise.",
+   "action": "Les pièces du livret rentrent dans la caisse. Une assurance-vie tombe sur la frise, entre le livret et l’appartement. Trois pièces en sortent et avancent lentement vers la caisse ; « 2 mois max. » s’affiche sous elle ; les pièces arrivent dans la caisse au dernier moment.",
+   "resultat": "Assurance-vie en (560, 880) avec « 2 mois max. » ; ses trois pièces dans la caisse.",
+   "transition": "Sur « Actions » (S14), les pièces rentrent dans la caisse.",
+   "beats": [
+    {
+     "t": 50.074,
+     "mot": "Pour",
+     "evenement": "Ranger : les trois pièces se réduisent dans la caisse (kit.vanish into caisse, 300 ms) ; places vides."
+    },
+    {
+     "t": 50.48,
+     "mot": "assurance-vie,",
+     "evenement": "Tomber : l’assurance-vie (disque light r 38, pictogramme shield encre, contour encre 4, ombre +4) tombe du haut (560, 300) sur la frise en (560, 880) (kit.drop 370 ms)."
+    },
+    {
+     "t": 52.315,
+     "mot": "verser",
+     "evenement": "Avancer lentement : trois pièces sortent de l’assurance-vie (pop 300 ms) et glissent en file sur la frise vers la caisse, en dérive linéaire (≈ 200 px/s) par-dessus le livret, jusqu’à 54,2 s."
+    },
+    {
+     "t": 53.661,
+     "mot": "deux",
+     "evenement": "Afficher : une pilule light « 2 mois max. » (Inter Bold 28, ≈ 200×52) surgit sous l’assurance-vie, en (560, 960) (pop 300 ms)."
+    },
+    {
+     "t": 54.195,
+     "mot": "maximum.",
+     "evenement": "Arriver : les trois pièces entrent dans les places de la caisse (fin de la dérive, ease-out 150 ms) et la caisse bat une fois (×1,05)."
+    }
+   ],
+   "lecture_sans_son": "L’assurance-vie rend aussi son argent, mais plus lentement : en 2 mois au plus."
+  },
+  {
+   "id": "S14",
+   "segment": "point2",
+   "t_start": 55.321,
+   "t_end": 58.909,
+   "texte": "Actions et fonds se vendent vite, mais leur prix varie.",
+   "elements": "pastille, feuille, rail, livret, actions, courbe, assurance_vie, pieces, delais, maison, caisse, toi",
+   "etat_initial": "Résultat de S13 : trois pièces dans la caisse ; sur la frise : livret « quelques jours », assurance-vie « 2 mois max. », appartement « plusieurs mois ».",
+   "action": "Les pièces de l’assurance-vie rentrent dans la caisse pendant que les actions tombent près du livret. Leurs trois pièces filent très vite dans la caisse, « vite » s’affiche au-dessus d’elles ; une courbe en dents de scie se trace au-dessus ; dans la caisse, leurs pièces grossissent et rapetissent : leur valeur bouge.",
+   "resultat": "Actions (420, 880) sous « vite » et leur courbe en dents de scie ; trois pièces de taille changeante dans la caisse.",
+   "transition": "Sur « plan » (S15), les pièces rentrent dans la caisse.",
+   "beats": [
+    {
+     "t": 55.321,
+     "mot": "Actions",
+     "evenement": "Tomber : les pièces de l’assurance-vie rentrent dans la caisse (vanish 300 ms) ; les actions (disque light r 38, pictogramme bars encre, contour encre 4, ombre +4) tombent sur la frise en (420, 880), tout près du livret (kit.drop 370 ms)."
+    },
+    {
+     "t": 56.436,
+     "mot": "vendent",
+     "evenement": "Filer : trois pièces sortent des actions et filent dans la caisse en 300 ms (kit.stagger 2 images, ease-out) ; une pilule light « vite » (Inter Bold 28, ≈ 90×52) surgit au-dessus des actions, en (420, 800) (pop 300 ms)."
+    },
+    {
+     "t": 57.783,
+     "mot": "prix",
+     "evenement": "Tracer : une petite courbe en dents de scie deep 6 px (120×50 : monte, descend, remonte, descend) se trace au-dessus de « vite », en (420, 730) (kit.draw 300 ms)."
+    },
+    {
+     "t": 58.084,
+     "mot": "varie.",
+     "evenement": "Varier : les trois pièces de la caisse grossissent et rapetissent à contretemps (×1,25, ×0,8, ×1,2 ; kit.pulse décalés de 3 images) : leur valeur bouge."
+    }
+   ],
+   "lecture_sans_son": "Les actions arrivent vite dans la caisse, mais leur valeur monte et descend."
+  },
+  {
+   "id": "S15",
+   "segment": "point2",
+   "t_start": 58.909,
+   "t_end": 65.201,
+   "texte": "Le plan d’épargne retraite, lui, reste bloqué jusqu’à la retraite, sauf déblocage anticipé.",
+   "elements": "pastille, feuille, rail, livret, actions, courbe, assurance_vie, maison, per, mur, pieces, delais, caisse, toi",
+   "etat_initial": "Résultat de S14 : trois pièces dans la caisse ; frise : livret, actions (courbe, « vite »), assurance-vie, appartement ; la droite de la frise (x 700-920) est libre.",
+   "action": "Le PER tombe loin à droite. Un mur à cadenas tombe entre l’appartement et lui. Ses pièces partent vers la caisse et cognent le mur ; « retraite » s’affiche au-dessus du PER. Une petite porte en tirets s’ouvre dans le mur : une seule pièce passe, puis la porte se referme.",
+   "resultat": "PER derrière le mur à cadenas, « retraite » au-dessus ; une seule pièce passée dans la caisse.",
+   "transition": "Sur « l’épargne » (S16), la pièce passée rentre dans la caisse.",
+   "beats": [
+    {
+     "t": 59.06,
+     "mot": "plan",
+     "evenement": "Tomber : les pièces des actions rentrent dans la caisse (vanish 300 ms) ; le PER (disque light r 38, pictogramme hourglass encre) tombe sur la frise loin à droite, en (795, 880) (kit.drop 370 ms)."
+    },
+    {
+     "t": 61.138,
+     "mot": "reste",
+     "evenement": "Bloquer : un mur (rectangle papier 26×240, contour encre 4, ombre +6) tombe sur la frise en (725, 880), entre l’appartement et le PER, un cadenas (lock sur disque papier r 26) en haut, en (725, 790) (kit.drop 370 ms)."
+    },
+    {
+     "t": 61.44,
+     "mot": "bloqué",
+     "evenement": "Buter : trois pièces sortent du PER, glissent vers la caisse et cognent le mur (contact en 750 ; 250 ms ease-in), puis reculent et rentrent dans le PER (300 ms ease-out) ; le mur tremble (kit.shake x)."
+    },
+    {
+     "t": 61.788,
+     "mot": "jusqu’à",
+     "evenement": "Afficher : une pilule light « retraite » (pictogramme hourglass, Inter Bold 28, ≈ 170×52) surgit au-dessus du PER, en (810, 720) (pop 300 ms)."
+    },
+    {
+     "t": 63.402,
+     "mot": "déblocage",
+     "evenement": "Ouvrir : une petite porte en tirets (34×70, contour encre 3, tirets [8, 6]) se dessine dans le mur, là où la frise le traverse (725, 880) (kit.draw 300 ms) ; une seule pièce sort du PER, passe la porte et file jusqu’à la caisse (550 ms)."
+    },
+    {
+     "t": 63.994,
+     "mot": "anticipé.",
+     "evenement": "Fermer : la porte en tirets se referme (se réduit, 300 ms) ; le mur est de nouveau plein."
+    }
+   ],
+   "lecture_sans_son": "Le PER est bloqué derrière un mur jusqu’à la retraite ; une petite porte, rare, ne laisse passer qu’une pièce."
+  },
+  {
+   "id": "S16",
+   "segment": "point2",
+   "t_start": 65.201,
+   "t_end": 69.671,
+   "texte": "Et l’épargne salariale est souvent bloquée 5 ans, sauf exceptions.",
+   "elements": "pastille, feuille, rail, livret, actions, courbe, assurance_vie, maison, per, epargne_salariale, mur, pieces, delais, caisse, toi",
+   "etat_initial": "Résultat de S15 : une pièce dans la caisse ; PER (795, 880) derrière le mur à cadenas (725), « retraite » au-dessus.",
+   "action": "L’épargne salariale tombe derrière le même mur. Ses pièces cognent le mur ; « 5 ans » s’affiche sous elle. La porte en tirets s’ouvre encore une fois pour une seule pièce, puis se referme.",
+   "resultat": "Frise complète : livret « quelques jours », actions « vite », assurance-vie « 2 mois max. », appartement « plusieurs mois », puis le mur ; derrière, PER « retraite » et épargne salariale « 5 ans ». Une pièce dans la caisse.",
+   "transition": "Sur « Comment » (S17), la pièce rentre dans la caisse et « Toi » se déplace.",
+   "beats": [
+    {
+     "t": 65.364,
+     "mot": "l’épargne",
+     "evenement": "Tomber : la pièce passée rentre dans la caisse (vanish 300 ms) ; l’épargne salariale (disque light r 38, pictogramme building encre) tombe derrière le mur, en (875, 880) (kit.drop 370 ms)."
+    },
+    {
+     "t": 66.815,
+     "mot": "bloquée",
+     "evenement": "Buter : trois pièces sortent de l’épargne salariale, glissent vers la caisse par-dessus le PER et cognent le mur (250 ms ease-in), puis reculent et rentrent en elle (300 ms ease-out) ; le mur tremble."
+    },
+    {
+     "t": 67.407,
+     "mot": "5 ans,",
+     "evenement": "Afficher : une pilule light « 5 ans » (pictogramme cal, Inter Bold 28, ≈ 110×52) surgit sous l’épargne salariale, en (875, 960) (pop 300 ms)."
+    },
+    {
+     "t": 68.615,
+     "mot": "exceptions.",
+     "evenement": "Ouvrir : la porte en tirets se redessine dans le mur (300 ms), une seule pièce de l’épargne salariale la traverse et file à la caisse (550 ms), puis la porte se referme (300 ms)."
+    }
+   ],
+   "lecture_sans_son": "L’épargne salariale est bloquée 5 ans derrière le même mur, sauf exceptions."
+  },
+  {
+   "id": "S17",
+   "segment": "point3",
+   "t_start": 69.671,
+   "t_end": 72.399,
+   "texte": "Comment t’y retrouver ? En faisant ta propre liste.",
+   "elements": "pastille, feuille, toi, bulle, rail, mur, livret, actions, courbe, assurance_vie, maison, per, epargne_salariale, delais, caisse",
+   "etat_initial": "Frise complète de S16 (six placements, leurs délais, le mur), une pièce dans la caisse, feuille et pilule en haut à gauche, « Toi » en P1.",
+   "action": "« Toi » se place à droite ; une bulle « ? » sort de sa tête devant cette frise chargée. La feuille du haut descend au centre et grandit en liste, « Ma liste » ; la frise, le mur, les délais, la courbe et la bulle se rangent ; les six placements glissent chacun sur une ligne de la liste et leur nom s’écrit à côté.",
+   "resultat": "« Ma liste » (760×560, centre 515, 740) : Comptes, livrets · Actions, fonds · Assurance-vie · PER · Épargne salariale · Appartement ; la pilule « 200 000 € » sur l’en-tête ; caisse réduite en bas à gauche (110, 1150) ; « Toi » en P2 (640, 1135).",
+   "transition": "Sur « Pour » (S18), trois objets sortent de l’appartement et montent former le repère.",
+   "beats": [
+    {
+     "t": 69.671,
+     "mot": "Comment",
+     "evenement": "Marcher : la pièce de la caisse y rentre (vanish 300 ms) ; « Toi » marche de P1 (420, 1135) à P2 (640, 1135) (fig.walk, 400 ms)."
+    },
+    {
+     "t": 70.101,
+     "mot": "retrouver ?",
+     "evenement": "Penser : une bulle de pensée en tirets (160×90) sort de la tête de « Toi » et se pose à sa gauche, en (500, 1110), un « ? » encre ExtraBold 56 dedans (pop 300 ms)."
+    },
+    {
+     "t": 71.018,
+     "mot": "faisant",
+     "evenement": "Grandir : la feuille, avec la pilule, descend du coin haut gauche et grandit en liste (760×560, centre 515, 740 ; kit.move + scale 550 ms) ; son bandeau devient l’en-tête « Ma liste » (Inter ExtraBold 36, à gauche) et la pilule « 200 000 € » s’y pose à droite, en (760, 500), à ×0,7. Dans les mêmes images, la frise, sa flèche, le mur, la courbe, la bulle et les délais se réduisent dans leurs placements ou vers leur centre (vanish 300 ms), et la caisse passe à ×0,55 en bas à gauche (110, 1150)."
+    },
+    {
+     "t": 71.784,
+     "mot": "liste.",
+     "evenement": "Se ranger : les six placements glissent dans les lignes de la liste, du plus rapide au plus lent, l’appartement en dernier (kit.stagger 3 images de kit.move 550 ms ; disques réduits à r 22, appartement à 52 px) : x 165, y 580, 655, 730, 805, 880, 955 ; chaque nom s’écrit à droite de son disque (Inter SemiBold 26 encre, à partir de x 200, kit.type) : « Comptes, livrets », « Actions, fonds », « Assurance-vie », « PER », « Épargne salariale », « Appartement »."
+    }
+   ],
+   "lecture_sans_son": "Devant tous ces délais, la personne fait sa propre liste : chaque placement sur une ligne."
+  },
+  {
+   "id": "S18",
+   "segment": "point3",
+   "t_start": 72.399,
+   "t_end": 76.219,
+   "texte": "Pour chaque placement, note en combien de temps tu récupères l’argent.",
+   "elements": "pastille, feuille, toi, maison, livret, actions, assurance_vie, per, epargne_salariale, horloge, pieces, doute, marqueur, delais, caisse",
+   "etat_initial": "Résultat de S17 : « Ma liste » à six lignes, pilule sur l’en-tête, caisse réduite en bas à gauche, « Toi » en P2.",
+   "action": "L’horloge, une pièce et le « ? » ressortent de l’appartement et montent former le repère 1-2-3 légendé « Délai · Frais · Risque », au-dessus des trois colonnes. Le disque 1 s’allume ; « Toi » touche la case délai de l’appartement : « plusieurs mois » s’y écrit ; puis chaque placement pose son délai dans la même colonne.",
+   "resultat": "Colonne « Délai » remplie : quelques jours · vite · 2 mois max. · retraite · 5 ans · plusieurs mois ; repère sur 1.",
+   "transition": "Sur « Puis » (S19), le repère passe à 2.",
+   "beats": [
+    {
+     "t": 72.399,
+     "mot": "Pour",
+     "evenement": "Se changer : l’horloge, une pièce et le « ? » sortent de l’appartement (ligne 6) et montent en arc ; ils deviennent les trois disques du repère (kit.morph 350 ms) en x 565, 715, 865, y 300, avec leurs légendes « Délai », « Frais », « Risque » (Inter 26), chaque disque au-dessus de sa colonne."
+    },
+    {
+     "t": 73.549,
+     "mot": "note",
+     "evenement": "Allumer : le disque 1 « Délai » s’agrandit et se remplit de cyan (kit.step 0, 550 ms) ; « Toi » lève le stylo vers la ligne de l’appartement."
+    },
+    {
+     "t": 74.094,
+     "mot": "combien",
+     "evenement": "Écrire : « Toi » touche la case délai de l’appartement (565, 955 ; fig.tap, contact sur le mot) ; « plusieurs mois » sort de l’appartement et s’écrit dans la case (Inter Bold 28 deep, kit.type)."
+    },
+    {
+     "t": 74.594,
+     "mot": "temps",
+     "evenement": "Remplir : les cinq autres placements posent leur délai dans la colonne, de haut en bas (kit.stagger 4 images : pop from_pt disque + kit.type) : « quelques jours », « vite », « 2 mois max. », « retraite », « 5 ans »."
+    }
+   ],
+   "lecture_sans_son": "Pour chaque placement, la personne note d’abord en combien de temps l’argent revient."
+  },
+  {
+   "id": "S19",
+   "segment": "point3",
+   "t_start": 76.219,
+   "t_end": 79.807,
+   "texte": "Puis avec quels frais. Et avec quel risque sur le prix.",
+   "elements": "pastille, feuille, toi, maison, actions, courbe, pieces, doute, marqueur, delais, caisse",
+   "etat_initial": "Résultat de S18 : colonne délai remplie, repère sur 1 « Délai », « Toi » en P2 sous la ligne de l’appartement.",
+   "action": "Le repère passe à 2 « Frais » : « Toi » touche la case frais de l’appartement, une pièce précédée d’un « − » s’y pose. Le repère passe à 3 « Risque » : « Toi » touche la case risque de l’appartement, un « ? » s’y pose ; la courbe des actions ressort et devient un « ? » dans leur case risque.",
+   "resultat": "Ligne Appartement complète : plusieurs mois · « − » et une pièce · « ? » ; Actions : vite · · « ? » ; repère sur 3, disques 1 et 2 cochés. Les autres cases restent à remplir.",
+   "transition": "Sur « La » (S20), le repère se range dans l’en-tête et la liste recule.",
+   "beats": [
+    {
+     "t": 76.219,
+     "mot": "Puis",
+     "evenement": "Passer : le disque actif glisse sur 2 « Frais » (kit.step 1, 550 ms) ; une coche deep se trace dans le disque 1."
+    },
+    {
+     "t": 77.055,
+     "mot": "frais.",
+     "evenement": "Toucher : « Toi » touche la case frais de l’appartement (715, 955 ; fig.tap) ; une pièce (disque light r 20, €) naît sous la pointe, un « − » encre (Inter ExtraBold 34) à sa gauche (pop 300 ms) : de l’argent part en frais."
+    },
+    {
+     "t": 77.833,
+     "mot": "Et",
+     "evenement": "Passer : le disque actif glisse sur 3 « Risque » (kit.step 2) ; une coche deep se trace dans le disque 2."
+    },
+    {
+     "t": 78.483,
+     "mot": "risque",
+     "evenement": "Toucher : « Toi » touche la case risque de l’appartement (865, 955 ; fig.tap) ; un « ? » encre ExtraBold 44 naît sous la pointe (pop 300 ms)."
+    },
+    {
+     "t": 79.122,
+     "mot": "prix.",
+     "evenement": "Se changer : la courbe en dents de scie ressort du disque des actions et se change en « ? » dans leur case risque, en (865, 655) (kit.pop from_pt disque + kit.morph 350 ms)."
+    }
+   ],
+   "lecture_sans_son": "Puis la personne note les frais et le risque sur le prix : pour l’appartement, des frais et un prix incertain ; pour les actions, un prix incertain."
+  },
+  {
+   "id": "S20",
+   "segment": "chute",
+   "t_start": 79.807,
+   "t_end": 82.836,
+   "texte": "La vraie question, ce n’est pas combien tu possèdes.",
+   "elements": "pastille, feuille, marqueur, caisse, facture, demain, toi",
+   "etat_initial": "Résultat de S19 : liste remplie (délais, frais et risque de l’appartement, risque des actions), repère sur 3, caisse réduite en bas à gauche, « Toi » en P2.",
+   "action": "Le repère se range dans l’en-tête ; la liste recule en haut à droite ; la caisse reprend sa taille et sa place, et la facture « 3 000 € », rouge, retombe dessus avec « demain ». La pilule « 200 000 € » quitte la liste, vole vers la facture et rebondit dessus sans la payer, puis revient sur la liste.",
+   "resultat": "Même situation qu’au début : facture rouge « 3 000 € » pour demain sur la caisse vide ; la pilule « 200 000 € » revenue sur l’en-tête de la liste.",
+   "transition": "Sur « comment » (S21), « Toi » touche la colonne délai.",
+   "beats": [
+    {
+     "t": 79.807,
+     "mot": "La",
+     "evenement": "Se ranger : le repère (coche dans le disque 3) se réduit dans l’en-tête de la liste (kit.vanish into feuille, 300 ms) ; la liste passe à ×0,7 et glisse en (590, 700) (x 324-856, y 504-896 ; kit.move + scale 550 ms) ; la caisse revient à ×1 en (170, 880)."
+    },
+    {
+     "t": 79.969,
+     "mot": "vraie",
+     "evenement": "Tomber : la facture (« Facture », « 3 000 € » rouge) retombe sur le dessus de la caisse en (170, 695) (kit.drop 370 ms), une pilule light « demain » (pictogramme cal, Inter Bold 28, ≈ 160×50) au-dessus, en (170, 610) ; la facture tremble une fois (kit.shake x)."
+    },
+    {
+     "t": 81.571,
+     "mot": "combien",
+     "evenement": "Voler : la pilule quitte l’en-tête, reprend ×1 (300×90) et vole en arc vers la facture jusqu’au contact de son bord droit (≈ 430, 700 ; 400 ms ease-in)."
+    },
+    {
+     "t": 82.058,
+     "mot": "possèdes.",
+     "evenement": "Rebondir : la pilule recule et remonte à sa place sur l’en-tête (761, 532, ×0,7 ; 450 ms ease-out) ; la facture tremble, « 3 000 € » reste rouge, la caisse reste vide."
+    }
+   ],
+   "lecture_sans_son": "Le même problème revient pour demain : le gros chiffre de 200 000 € ne paie toujours pas la facture."
+  },
+  {
+   "id": "S21",
+   "segment": "chute",
+   "t_start": 82.836,
+   "t_end": 86.401,
+   "texte": "C’est comment tu récupères ton argent, si tu en as besoin demain.",
+   "elements": "pastille, feuille, livret, delais, pieces, caisse, facture, demain, toi",
+   "etat_initial": "Résultat de S20 : liste ×0,7 en (590, 700), pilule sur son en-tête ; facture rouge « 3 000 € » et « demain » sur la caisse vide ; « Toi » en P2.",
+   "action": "« Toi » touche le bas de la colonne délai : un surligneur remonte la colonne jusqu’à « quelques jours », qu’un anneau entoure. Trois pièces sortent de la ligne « Comptes, livrets », tombent dans la caisse puis sautent sur la facture : « 3 000 € » passe au cyan profond, payée. « demain » bat.",
+   "resultat": "Facture « 3 000 € » de demain payée (montant deep, trois pièces), la ligne la plus rapide entourée dans la liste, pilule « 200 000 € » inchangée sur l’en-tête. Image tenue de 84,6 s à 86,4 s.",
+   "transition": "Sur « Abonne-toi » (S22), la pilule devient le bouton « S’abonner » ; tout le reste s’efface.",
+   "beats": [
+    {
+     "t": 83.08,
+     "mot": "comment",
+     "evenement": "Toucher : « Toi » touche la case délai du bas de la liste (625, 850 ; fig.tap, contact sur le mot) ; un surligneur light (bande de 160 px) remonte la colonne délai jusqu’à la ligne 1 (de y 850 à 588 ; 400 ms ease-out) et un anneau deep 4 px se trace autour de « quelques jours », en (625, 588) (kit.draw 300 ms)."
+    },
+    {
+     "t": 83.521,
+     "mot": "récupères",
+     "evenement": "Extraire : trois pièces sortent du disque « Comptes, livrets » (345, 588) et tombent en arc par la gauche de la liste dans les places de la caisse (kit.stagger 2 images de kit.move arc, 550 ms)."
+    },
+    {
+     "t": 84.195,
+     "mot": "argent,",
+     "evenement": "Payer : les trois pièces sautent sur le bord bas de la facture, en (115, 745), (170, 745), (225, 745) (arc 60 px, 400 ms) ; « 3 000 € » passe du rouge au deep (300 ms)."
+    },
+    {
+     "t": 85.762,
+     "mot": "demain.",
+     "evenement": "Battre : la pilule « demain » bat une fois (×1,1) ; rien d’autre ne bouge (état final tenu jusqu’à 86,4 s)."
+    }
+   ],
+   "lecture_sans_son": "Avec sa liste, la personne voit quelle épargne arrive vite : c’est elle qui paie la facture de demain."
+  },
+  {
+   "id": "S22",
+   "segment": "cta",
+   "t_start": 86.401,
+   "t_end": 89.3,
+   "texte": "Abonne-toi pour comprendre ton argent.",
+   "elements": "pastille → fin, feuille, caisse, facture, demain, pieces, toi, fin",
+   "etat_initial": "Résultat de S21 : liste avec la ligne rapide entourée, pilule sur son en-tête, facture payée sur la caisse, « Toi » en P2.",
+   "action": "Fin standard : la pilule du fil change son texte en « S’abonner » ; tout le reste s’efface pendant que la carte de fin surgit au centre ; la pilule descend au bas de la carte et grandit : c’est son bouton. « Toi » reste sous la carte et touche le bouton du stylo : le bouton s’enfonce, un anneau d’impact part du point touché. Plus rien ne bouge.",
+   "resultat": "La pilule qui affichait « 200 000 € » est devenue le bouton « S’abonner » de la carte « WealthTech Horizon », touché par « Toi » ; image immobile jusqu’à 89,3 s.",
+   "transition": "Image finale tenue jusqu’à 89,3 s.",
+   "beats": [
+    {
+     "t": 86.401,
+     "mot": "Abonne-toi",
+     "evenement": "Fin standard (kit.outro, outs : liste et son contenu, caisse, facture, pièces, « demain » ; clear=\"fade\") : la pilule passe à « S’abonner » (fondu 200 ms) ; les autres éléments s’effacent pendant que la carte papier 620×520 surgit en (540, 760) ; « WealthTech Horizon » et « Comprendre ton argent » entrent en fondu à f + 4 ; la pilule descend au bas de la carte et grandit en bouton (≈ 380×112, centre ≈ 540, 930 ; btn_at). « Toi » reste en P2, sous la carte."
+    },
+    {
+     "t": 88.084,
+     "mot": "argent.",
+     "evenement": "Toucher : Toi.tap sur le coin bas droit du bouton (690, 965), contact sur le mot, sans couvrir le libellé ; le bouton s’enfonce de 8 px dans son ombre (piste press, 5 images) et deux ondes deep partent du point touché (anneau d’impact, 18 images) ; aucun pointeur de souris. Puis plus rien ne bouge jusqu’à 89,3 s."
+    }
+   ],
+   "lecture_sans_son": "La pilule qui affichait 200 000 € devient le bouton « S’abonner » de WealthTech Horizon, et la personne appuie dessus."
+  }
+ ],
+ "idees_cles": [
+  {
+   "id": "a",
+   "idee": "La personne possède un appartement de 200 000 €, mais sa caisse « Disponible » est vide : une facture de 3 000 € tombe dessus et reste rouge, impayée.",
+   "scenes": [
+    "S01",
+    "S02"
+   ],
+   "principale": false
+  },
+  {
+   "id": "b",
+   "idee": "La liquidité, c’est le chemin entre ce qu’on possède et la caisse : un livret posé tout près rend tout de suite ses pièces, sans en perdre, et paie la facture ; l’appartement, lui, bute sur un cadenas.",
+   "scenes": [
+    "S03",
+    "S04",
+    "S05",
+    "S06"
+   ],
+   "principale": false
+  },
+  {
+   "id": "c",
+   "idee": "Le 200 000 € n’est qu’un chiffre écrit sur une feuille d’estimation, avec un « ? » : il rassure la personne, mais la caisse reste vide (≠).",
+   "scenes": [
+    "S07",
+    "S08"
+   ],
+   "principale": true
+  },
+  {
+   "id": "d",
+   "idee": "Pour toucher cet argent, la personne met l’appartement en vente : il avance très lentement pendant que l’horloge se remplit (plusieurs mois), deux pièces tombent en frais et le prix vacille.",
+   "scenes": [
+    "S09",
+    "S10"
+   ],
+   "principale": true
+  },
+  {
+   "id": "e",
+   "idee": "Sur une frise qui mène à la caisse, chaque placement a sa place : comptes et livrets rendent leurs pièces en quelques jours, en entier ; l’assurance-vie lentement, en 2 mois au plus ; les actions vite, mais leurs pièces changent de taille.",
+   "scenes": [
+    "S11",
+    "S12",
+    "S13",
+    "S14"
+   ],
+   "principale": true
+  },
+  {
+   "id": "f",
+   "idee": "Le PER et l’épargne salariale sont derrière un mur à cadenas (jusqu’à la retraite, 5 ans) : leurs pièces rebondissent, une seule passe par une petite porte d’exception.",
+   "scenes": [
+    "S15",
+    "S16"
+   ],
+   "principale": true
+  },
+  {
+   "id": "g",
+   "idee": "La personne fait sa propre liste : pour chaque placement elle note le délai, puis les frais et le risque sur le prix (repère « Délai · Frais · Risque » ; pour l’appartement : plusieurs mois, des frais, un « ? »).",
+   "scenes": [
+    "S17",
+    "S18",
+    "S19"
+   ],
+   "principale": true
+  },
+  {
+   "id": "h",
+   "idee": "Face à la même facture de 3 000 € pour demain, le 200 000 € rebondit sans la payer ; la personne choisit dans sa liste la ligne la plus rapide, et ses pièces paient la facture.",
+   "scenes": [
+    "S20",
+    "S21"
+   ],
+   "principale": true
+  }
+ ],
+ "entites_nouvelles": [],
+ "risks": [
+  "Le rail horizontal doit se lire « chemin vers la caisse » et pas « décor » : la flèche deep (36 px) pointe sur la caisse et toutes les pièces le suivent ; repli : flèche à 44 px et rail à 8 px.",
+  "Le livret paie la facture dès S05 : un spectateur muet pourrait croire le problème réglé. La facture revient pour demain en S20 (même carte, pilule « demain ») et c’est encore la ligne la plus rapide qui la paie : l’avant / après tient. Si le contrôle sans son lit « la personne avait donc un livret », garder la facture rouge jusqu’en S20 et ne faire que remplir la caisse en S05.",
+  "TOKEN.png (jeton de verre à maison) peut se lire « une pièce » plutôt qu’« un appartement » : vérifier à 360 px que la maison se voit ; repli : disque papier r 90 avec pictogramme house encre 110 px, même jeu.",
+  "Allonge de « Toi » : depuis P1 (420, 1135), bord de la caisse (275, 950) ≈ 190 px, bas de l’appartement (610, 985) ≈ 215 px ; depuis P2 (640, 1135), cases de la ligne 6 (565 / 715 / 865, 955) ≈ 140 à 250 px, case délai du bas en S21 (625, 850) ≈ 225 px, bouton (690, 965) ≈ 160 px ; vérifier avec fig.place_for, au besoin décaler P2 de 20 px.",
+  "Frise chargée en S16 (6 disques, 6 délais, mur) : c’est voulu (« comment s’y retrouver ? ») mais à 360 px les pilules de délai doivent rester ≥ 28 px et ≥ 12 px d’air entre elles ; repli : « quelques jours » en (300, 960) et « 2 mois max. » en (580, 960).",
+  "Les pièces qui « grossissent et rapetissent » (S14) peuvent se lire « elles battent » : faire varier franchement (×1,3 / ×0,7) et décaler de 3 images ; repli : la courbe en dents de scie se trace au-dessus de la caisse plutôt qu’au-dessus des actions.",
+  "La petite porte en tirets du mur (S15-S16) dit « exception » ; si elle se lit « le mur est cassé », la réduire (26×56) et ne faire passer la pièce qu’à moitié de la vitesse.",
+  "Le repère « Délai · Frais · Risque » n’apparaît qu’au point 3 (pas de « Première / Deuxième / Dernière » dans le script) : il passe sur « note », « Puis », « Et ». Il naît de l’horloge, de la pièce et du « ? » rangés dans l’appartement en S11 : vérifier que ces trois objets se voient sortir (arc 550 ms, décalés de 3 images).",
+  "La liste ne remplit que ce que le script dit (délais de tous, frais et risque de l’appartement, risque des actions) : les autres cases restent vides, c’est « ta propre liste » ; ne pas inventer de frais pour les autres placements.",
+  "La pilule qui rebondit sur la facture (S20) traverse la liste : la faire passer au-dessus (z) et revenir sans laisser de trace ; si « rebondir » se lit « payer », ajouter un tremblement net de la facture au contact et garder « 3 000 € » rouge.",
+  "Fin sans pointeur de souris (leçon 32) : si kit.outro impose son pointeur, le masquer (opacité 0) et caler le clic (press) sur le toucher du stylo de « Toi » ; « Toi » reste en P2 sous la carte (bas de carte y 1020, haut de sa tête y 1039).",
+  "87 temps forts, près du plafond (31 à 89) : une retouche qui en ajoute un doit en retirer un ailleurs."
+ ],
+ "excerpt": {
+  "t_start": 33.704,
+  "t_end": 45.372,
+  "why": "Point 1 et passage au point 2 (11,7 s, S09-S11) : l’appartement bute, « À vendre » sort du stylo de « Toi », l’appartement avance des mois sous l’horloge, perd des pièces en frais et vacille sous son « ? », puis tout rentre en lui et le rail devient la frise ; on y juge le cœur du film : posséder n’est pas disposer."
+ }
+}
