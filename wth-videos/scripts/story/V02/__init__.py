@@ -144,11 +144,13 @@ MUR_C, MUR_H = (680, 730), 150             # S06 : trait du mur gauche (y 655-80
 QUESTION_C = (440, 726)                    # S02 : le « ? » juste au-dessus du câble, près du bouton
 QUESTION_LINK = ((318, 796), (424, 774))   # S02 : trait court du coin du bouton au pied du « ? »
 ALERTES_CABLE = [(408, 860), (515, 860), (622, 860)]
-ALERTE_R, ALERTE_NUM = 48, 62                 # alertes et numéros bien plus grands (récapitulatif lisible à 360 px)
+ALERTE_R, ALERTE_NUM = 48, 44                 # alertes et numéros bien plus grands (récapitulatif lisible à 360 px)
 # S19-S21 : chaque alerte se pose SUR son objet (bulle, bout du badge, câble de l'appli testée) et y reste ; son
 # numéro est écrit à côté (décalage propre à chaque alerte, côté libre) ; la coche de « Toi » la remplace sur place.
-ALERTES_S19 = [(236, 1142), (80, 1006), (557, 955)]
-ALERTES_NUM_DXY = [(50, -50), (52, 52), (-66, 42)]
+ALERTES_S19 = [(112, 1150), (298, 1006), (557, 955)]
+ALERTES_NUM_DXY = [(42, -42), (30, 46), (-44, 42)]   # pastille encre du numéro (sur le bord du disque)
+P_S19 = (410, 1133.5)                      # S19 : « Toi » près du téléphone, plus à droite que P1 (place pour l'alerte 2)
+BOUTON_TAP_S19 = (318, 870)                # S19 : bout bas droit du bouton, à portée depuis P_S19
 FIN_BUTTON = (540, 908)                                # bouton de la carte de fin (kit.outro : 380 x 112)
 FIN_TAP = (684, 944)                                   # point touché (bas droit du bouton, hors du libellé)
 
@@ -185,12 +187,12 @@ CADENAS_CLE = (775, 902)                   # S10 : grand cadenas posé SUR la cl
 # Société : un IMMEUBLE de bureaux (plus de figurine devant : tour sans son 1, « lue comme une pièce d'identité de
 # personne ») ; porteur invisible `societe` (calque 3, sous le téléphone) et sa tour enfant ; badge-enseigne en façade ;
 # attache en tirets vers le téléphone
-SOCIETE_C = (190, 1118)                    # tour x 80-300, y 1000-1236
+SOCIETE_C = (178, 1118)                    # tour x 68-288, y 1000-1236
 SOC_HIDDEN = (200, 850)                    # cachée derrière le téléphone (z 3 < 4), ombre comprise
 TOUR_W, TOUR_H, TOUR_CY = 220, 236, 0
 TOUR_WINDOWS = [(x, y) for y in (-84, -44, -4) for x in (-75, -25, 25, 75)]   # trois rangées de 4 fenêtres
 TOUR_DOOR = (0, 101)                       # porte (sous le badge-enseigne)
-BADGE_W, BADGE_H = 290, 56
+BADGE_W, BADGE_H = 276, 56
 BADGE_ICON_S = 44                          # immeuble agrandi (x 1,5) dès l'apparition
 BADGE_CASE_X = BADGE_W / 2 - 26            # case de coche (vide, en tirets, S12) puis coche (S14)
 BADGE_ON_SOC = (190, 1162)                 # enseigne sur la façade (x 45-335), au-dessus de la porte
@@ -219,7 +221,7 @@ P_REG = fig_pos(474)                       # S20 : « Toi » à portée de la pi
 CADRAN_C, CADRAN_R = (440, 508), 72
 CADRAN_S21 = (440, 524)
 BOUCLE_R = 80
-ROUTINE_TXT = (532, 486)                   # « tous les / 6 mois » (2 lignes) entre la boucle et la banque (y ≥ 510)
+ROUTINE_TXT = (552, 480)                   # « tous les / 6 mois » (2 lignes) entre la boucle et la banque (y ≥ 510)
 CADRE_C, CADRE_W, CADRE_H = (490, 812), 876, 892       # S19-S21 : cadre du montage (x 52-928, y 366-1258) : x < 940
 CADRAN_TXT = (528, 508)                    # « 6 mois » / « tous les 6 mois » à droite du cadran (ancre start)
 ETIQUETTE_C = (540, 408)
@@ -230,7 +232,7 @@ TESTEE_SWITCH_DY = 70
 TESTEE_SWITCH = (610, 1215)
 TESTEE_TOP = (600, 1047)
 CABLE_T_A, CABLE_T_B = (515, 864), (600, 1047)          # du tourniquet de la porte au haut de l'appli testée
-CABLE_LOOSE = [578, 1004]                  # S18 : bout côté appli débranché, pendu sous la porte
+CABLE_LOOSE = [566, 984]                  # S18 : bout côté appli débranché, pendu sous la porte
 FICHE_C = (534, 905)                       # S18 : fiche cyan du câble, côté porte (sortie du tourniquet)
 # Panneau « Espace client » : une fenêtre de la banque, posée DANS sa carte (sur les comptes), deux lignes ON
 ESPACE_C, ESPACE_W, ESPACE_H = (795, 812), 270, 160    # x 660-930, y 732-892 (ombre comprise : x < 940)
@@ -533,13 +535,18 @@ def cast(S, kit):
         S.add(f"guide{i + 1}", "wire", z=17.5, color=INK, sw=3, dash=[9, 7], tension=0)
         S.set(f"guide{i + 1}", pa=[MARKER_XS[i], MARKER_Y], pb=[MARKER_XS[i], MARKER_Y], sag=0, draw=0, opacity=1)
         kit.icon(a, ALERTES_CABLE[i], "warning", disc=ALERTE_R, fill=PAPER, shadow=4, z=18, scale=0)
-        kit.text(f"{a}_num", list(ALERTES_NUM_DXY[i]), str(i + 1), size=ALERTE_NUM, weight=800, z=18.1,
-                 parent=a, opacity=0)
+        # numéro : pastille encre, chiffre papier, posée sur le bord du disque (lisible à 360 px, sans place en plus)
+        kit.shape(f"{a}_num", list(ALERTES_NUM_DXY[i]), kind="circle", w=60, fill=INK, stroke=PAPER, sw=4, shadow=0,
+                  z=18.2, parent=a, opacity=0)
+        kit.text(f"{a}_num_txt", [0, 1], str(i + 1), size=ALERTE_NUM, weight=800, color=PAPER, z=18.3,
+                 parent=f"{a}_num")
         kit.shape(f"{a}_ok", ALERTES_CABLE[i], kind="circle", w=2 * ALERTE_R, fill=PAPER, stroke=INK, sw=5, shadow=5,
                   z=18, scale=0)
         kit.tick(f"{a}_ok_coche", [0, 2], DEEP, size=56, sw=10, z=18.1, parent=f"{a}_ok", draw=0)
-        kit.text(f"{a}_ok_num", list(ALERTES_NUM_DXY[i]), str(i + 1), size=ALERTE_NUM, weight=800, z=18.1,
-                 parent=f"{a}_ok")                                 # la coche garde le numéro de son alerte
+        kit.shape(f"{a}_ok_num", list(ALERTES_NUM_DXY[i]), kind="circle", w=60, fill=INK, stroke=PAPER, sw=4,
+                  shadow=0, z=18.2, parent=f"{a}_ok")              # la coche garde le numéro de son alerte
+        kit.text(f"{a}_ok_num_txt", [0, 1], str(i + 1), size=ALERTE_NUM, weight=800, color=PAPER, z=18.3,
+                 parent=f"{a}_ok_num")
         # S03 : l'anneau qui bat sur le disque du repère quand l'alerte k s'y pose (alerte -> étape)
         kit.shape(f"marqueur_ping{i + 1}", [MARKER_XS[i], MARKER_Y], kind="circle", w=72, fill="none", stroke=DEEP,
                   sw=6, shadow=0, z=20.8, opacity=0)

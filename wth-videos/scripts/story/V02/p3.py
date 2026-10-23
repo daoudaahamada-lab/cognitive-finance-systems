@@ -35,7 +35,7 @@ from pipeline.story_kit import TAP
 from . import (ALERTES_S19, BADGE_H, BADGE_UNDER_PHONE, BANK_C, BOUTON_C, BOUTON_TAP, BULLE_H, BULLE_S19,
                BULLE_S19_K, BULLE_W, CABLE_B, CABLE_LOOSE, CABLE_T_A, CABLE_T_B, CADRAN_S21, CADRE_C, CADRE_W,
                COMPTES_MID, ENTRY_P3, ESPACE_C, FICHE_APP_C, FICHE_C, FIN_BUTTON, FIN_TAP, GREY, HEAD_DY, MARKER_XS,
-               MARKER_Y, P1, P2, P_BACK, CLE_HOME, CYAN, DEEP, P_REG, PAPER, REGAFI_PILL_C, SOC_HIDDEN, SOCIETE_C,
+               MARKER_Y, P1, P2, P_BACK, P_S19, BOUTON_TAP_S19, CLE_HOME, CYAN, DEEP, P_REG, PAPER, REGAFI_PILL_C, SOC_HIDDEN, SOCIETE_C,
                TESTEE_SWITCH, TESTEE_TOP, TOI_SCALE, bulle_ronds, cable_route, fig_pos, perle_route, press, ring,
                scene_f0, t_at_x, toggle, vanish, wire_point)
 
@@ -268,13 +268,13 @@ def part(S, kit, c):
     cross(toi, f + 3, P_BACK, 11)
 
     f = kit.at("S19", "tu", "« Toi » revient d'un bond près du téléphone")
-    hop_end = toi.hop(f, list(P1), 6, h=16)
+    hop_end = toi.hop(f, list(P_S19), 6, h=16)
 
     f = kit.at("S19", "cliquais", "« Toi » tape trois fois très vite sur « Connecter » : le bouton s'enfonce trois "
                                   "fois, une pastille file aussitôt des comptes au bouton ; il range son stylo")
     hits = []
     for k in range(3):
-        hits.append(toi.tap(f - 1 + 4 * k, list(BOUTON_TAP), d=4, lift=12))
+        hits.append(toi.tap(f - 1 + 4 * k, list(BOUTON_TAP_S19), d=4, lift=12))
         press(S, hits[-1], d_in=2, d_out=2)
     assert hits[0] >= hop_end - 1, (hits, hop_end)
     end = perle_route(S, "perle1", hits[-1], 10, bank_to_button(S, hits[-1]))
@@ -283,7 +283,7 @@ def part(S, kit, c):
 
     f = kit.at("S19", "sans", "trois petits ronds puis la bulle (mini « Mon budget », clé fantôme) ressortent de la "
                               "tête de « Toi », en bas à gauche")
-    head = [P1[0], P1[1] + HEAD_DY * TOI_SCALE]
+    head = [P_S19[0], P_S19[1] + HEAD_DY * TOI_SCALE]
     k_b = BULLE_S19_K
     corner = [BULLE_S19[0] + (BULLE_W / 2 - 18) * k_b, BULLE_S19[1] - (BULLE_H / 2 - 18) * k_b]
     for k, pt in enumerate(bulle_ronds(head, corner, head_r=35 * TOI_SCALE)):
@@ -341,7 +341,7 @@ def part(S, kit, c):
                                  "plein et coché ; l'alerte 2 se change sur place en coche pleine numérotée 2 ; le "
                                  "disque 2 du repère se coche")
     hit = toi.tap(f - TAP + 1, tap_pt)
-    x = REGAFI_PILL_C[0] - 10
+    x = REGAFI_PILL_C[0] - 50
     S.key("preuve", "pa", hit + 1, [x, REGAFI_PILL_C[1] - 24])
     S.key("preuve", "pb", hit + 1, [x, BADGE_UNDER_PHONE[1] + BADGE_H / 2 - 4])
     S.key("preuve", "sag", hit + 1, 0)
@@ -366,7 +366,7 @@ def part(S, kit, c):
                            "la flèche : une habitude qui revient")
     S.key("cadran", "pos", f - 1, list(CADRAN_S21))
     S.key("cadran", "value", f - 1, 0)
-    kit.pop("cadran", f, d=6)
+    kit.pop("cadran", f, d=6, scale=0.84)                   # dans la boucle (r 80)
     S.key("cadran", "value", f + 3, 6, 6, "inOut")
     S.key("cadran", "value", f + 9, 0)
     S.key("cadran", "value", f + 10, 6, 6, "inOut")
