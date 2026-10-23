@@ -971,7 +971,8 @@ const Burst: React.FC<EntityProps> = ({r}) => {
 // ---------- marker: numbered steps 1-2-3, the active disc slides ----------
 // `labels` (optionnel) : légende sous chaque disque (ex. Limiter / Exiger / Relire), encre pour l'étape active, gris
 // (ai_tick) pour les autres, en fondu selon la piste `active` ; `labelDy` / `labelSize` : GEOM.MARKER par défaut.
-type MarkerP = {xs: number[]; y: number; labels?: string[]; labelDy?: number; labelSize?: number; moveBlank?: boolean};
+type MarkerP = {xs: number[]; y: number; labels?: string[]; labelDy?: number; labelSize?: number; moveBlank?: boolean;
+  doneStyle?: 'kept'};
 const Marker: React.FC<EntityProps> = ({r}) => {
   const C = usePalette();
   const p = r.e.p as MarkerP;
@@ -984,10 +985,28 @@ const Marker: React.FC<EntityProps> = ({r}) => {
   // inactive one (r, paper, no shadow, small digit) and every label stays grey; 0 -> 1 grows it into the cyan disc.
   const on = r.get('on', 1);
   const lit = on === 1 ? 1 : clamp01(on);
+  const kept = p.doneStyle === 'kept';
+  const lbl = clamp01(r.get('lbl', 1));
   return (
     <>
       <line x1={p.xs[0]} x2={p.xs[p.xs.length - 1]} y1={p.y} y2={p.y} stroke={C.ink} strokeWidth={4} />
-      {p.labels
+      {p.labels && kept
+        ? (
+            // opt-in doneStyle 'kept' (absent = today's legend): no grey label at all. Every label stays ink; the
+            // active or done step is Bold 700, a step not reached yet SemiBold 600. Track `lbl` (absent = 1) fades
+            // the whole legend (the discs stay).
+            <g opacity={lbl < 0.999 ? lbl : undefined}>
+              {p.labels.map((t, i) => {
+                const strong = Math.max(clamp01(r.get(`done${i}`, 0)), clamp01(1 - Math.abs(a - i)) * lit);
+                return (
+                  <Txt key={`l${i}`} x={p.xs[i]} y={p.y + (p.labelDy ?? M.labelDy)} size={p.labelSize ?? M.labelSize} weight={strong >= 0.5 ? 700 : 600} color={C.ink} anchor="middle">
+                    {t}
+                  </Txt>
+                );
+              })}
+            </g>
+          )
+        : p.labels
         ? p.labels.map((t, i) => (
             <Txt key={`l${i}`} x={p.xs[i]} y={p.y + (p.labelDy ?? M.labelDy)} size={p.labelSize ?? M.labelSize} weight={700} color={mixHex(C.aiTick, C.ink, Math.max(clamp01(r.get(`done${i}`, 0)), on === 1 ? clamp01(1 - Math.abs(a - i)) : clamp01(1 - Math.abs(a - i)) * lit))} anchor="middle">
               {t}
@@ -1001,7 +1020,7 @@ const Marker: React.FC<EntityProps> = ({r}) => {
         const tk = tickPath(26);
         return (
           <g key={x}>
-            <circle cx={x} cy={p.y} r={M.r} fill={C.paper} stroke={C.ink} strokeWidth={4} />
+            <circle cx={x} cy={p.y} r={M.r} fill={kept && dn > 0 ? mixHex(C.paper, C.light, dn) : C.paper} stroke={C.ink} strokeWidth={4} />
             {dn < 1 ? (
               <g opacity={1 - dn}>
                 <Txt x={x} y={p.y} size={22} weight={800} anchor="middle">

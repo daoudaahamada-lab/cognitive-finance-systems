@@ -253,7 +253,7 @@ const Sector: React.FC<EntityProps> = ({r}) => {
 // up, down. segments : séparateurs (blocs, jetons) ; marks : repères (fractions comptées depuis l'origine du
 // remplissage, ex. 0,8 = budget). Pistes : value, fill (couleur ; ex. cyan -> rouge au dépassement), w, h.
 type GaugeP = {w?: number; h?: number; r?: number; fill?: string; empty?: string; sw?: number; shadow?: number;
-  dir?: 'right' | 'left' | 'up' | 'down'; segments?: number; marks?: number[]};
+  dir?: 'right' | 'left' | 'up' | 'down'; segments?: number; marks?: number[]; segPx?: number};
 const Gauge: React.FC<EntityProps> = ({r}) => {
   const C = usePalette();
   const p = r.e.p as GaugeP;
@@ -281,7 +281,22 @@ const Gauge: React.FC<EntityProps> = ({r}) => {
         </clipPath>
       </defs>
       {v > 0.001 ? <rect x={fr[0]} y={fr[1]} width={fr[2]} height={fr[3]} fill={fill} clipPath={`url(#${id})`} /> : null}
-      {Array.from({length: Math.max(0, n - 1)}, (_, i) => {
+      {/* opt-in segPx (absent = today's gauge): a separator every segPx px from the fill origin, so the blocks keep
+          their size while the gauge's w / h track grows (a pile of blocks); replaces `segments` */}
+      {p.segPx
+        ? Array.from({length: Math.max(0, Math.ceil((vertical ? h : w) / p.segPx) - 1)}, (_, i) => {
+            const L = vertical ? h : w;
+            const o = (i + 1) * (p.segPx ?? 1);
+            if (o > L - 2) return null;
+            const t = dir === 'left' || dir === 'up' ? 1 - o / L : o / L;
+            return vertical ? (
+              <line key={`s${i}`} x1={x0} x2={x0 + w} y1={y0 + h * t} y2={y0 + h * t} stroke={C.ink} strokeWidth={3} />
+            ) : (
+              <line key={`s${i}`} x1={x0 + w * t} x2={x0 + w * t} y1={y0} y2={y0 + h} stroke={C.ink} strokeWidth={3} />
+            );
+          })
+        : null}
+      {Array.from({length: p.segPx ? 0 : Math.max(0, n - 1)}, (_, i) => {
         const t = (i + 1) / n;
         return vertical ? (
           <line key={i} x1={x0} x2={x0 + w} y1={y0 + h * t} y2={y0 + h * t} stroke={C.ink} strokeWidth={3} />

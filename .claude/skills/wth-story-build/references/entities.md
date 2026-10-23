@@ -793,6 +793,17 @@ S.key("outil", "lockDx", f - 1, 42 + SEAL_W)          # cadenas accroché au mur
 S.set(toi.arm, rim=0)                                 # puis S.key(toi.arm, "rim", f, 1, 3, "out")
 ```
 
+### Tour de revue 1 de V03 : gauge `segPx`, marker `doneStyle` et piste `lbl`
+
+Options facultatives ajoutées pour V03 (tour de revue 1). Absentes, le dessin est identique au pixel près (images de
+V01 comparées avant / après : PSNR infini).
+
+| Type | Option | Défaut | Rôle |
+|---|---|---|---|
+| gauge | paramètre `segPx` | aucun | un séparateur tous les `segPx` px depuis l'origine du remplissage (remplace `segments`) : les blocs gardent leur taille quand la piste `h` ou `w` grandit (une pile de blocs dont la hauteur suit son contenu) |
+| marker | paramètre `doneStyle: 'kept'` | aucun | aucune légende grise : toutes les légendes restent à l'encre, en Bold 700 pour l'étape active ou faite, en SemiBold 600 pour une étape pas encore atteinte ; le disque d'une étape faite (`done{i}`) passe au bleu clair sous sa coche deep |
+| marker | piste `lbl` (0 → 1), avec `doneStyle: 'kept'` | 1 | opacité de toute la légende (les disques restent) : la retirer pendant qu'une autre composition a besoin de la place |
+
 ## geometry.json (GEOM)
 
 | Clé | Contenu |

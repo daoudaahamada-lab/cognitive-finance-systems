@@ -82,12 +82,15 @@ def pause_conflicts(words, pauses, margin=0.15):
 
     Un mot ne doit ni commencer au milieu d'une pause, ni l'enjamber (de plus de `margin` des deux côtés).
     Le dernier mot est seulement contrôlé sur son début : sa fin est souvent prolongée jusqu'à la fin du fichier.
+    Un groupe insécable (« 26 500 € », « 20 ans. ») réunit plusieurs mots prononcés : la voix peut marquer une pause
+    entre eux (« vingt-six mille cinq cents … euros »), donc il peut enjamber une pause, mais jamais y commencer.
     """
     bad = []
     for s0, s1 in pauses:
         for i, w in enumerate(words):
             starts_inside = s0 + margin < w["start"] < s1 - margin
-            spans = w["start"] < s1 - margin and w["end"] > s0 + margin and i < len(words) - 1
+            spans = (w["start"] < s1 - margin and w["end"] > s0 + margin and i < len(words) - 1
+                     and " " not in w["w"])
             if starts_inside or spans:
                 bad.append(f"« {w['w']} » ({w['start']:.2f}–{w['end']:.2f}) dans la pause {s0:.2f}–{s1:.2f}")
     return bad

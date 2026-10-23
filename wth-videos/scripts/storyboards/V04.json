@@ -746,9 +746,9 @@
    "transition": "Sur « Troisième » (S16), le disque actif glisse sur 3.",
    "beats": [
     {
-     "t": 56.679,
-     "mot": "À",
-     "evenement": "Ranger : le miroir et ses deux fils se réduisent vers le centre du miroir (kit.vanish 300 ms) ; « Toi » regarde devant lui (look −1 → 0, 4 images)."
+     "t": 56.819,
+     "mot": "l’inverse,",
+     "evenement": "Ranger : le miroir se réduit lentement vers son centre (kit.vanish 350 ms) et ses deux fils se retirent ; « Toi » se retourne vers le téléphone et revient à côté de lui (P2)."
     },
     {
      "t": 58.607,
@@ -846,9 +846,9 @@
      "evenement": "Rayer : « Toi » barre la pièce de sa bulle d’un trait encre (fig.strike de (520, 905) à (575, 855), 6 images)."
     },
     {
-     "t": 70.217,
-     "mot": "dépense",
-     "evenement": "Renoncer : la bulle, sa pièce rayée et son petit téléphone se réduisent vers sa queue et disparaissent (kit.vanish 300 ms)."
+     "t": 70.6,
+     "mot": "pas.",
+     "evenement": "Renoncer : les petits ronds de la pensée se réduisent dans la tête de « Toi » ; la pièce rayée qu’il croyait avoir sort du téléphone, sa place reste vide (kit.vanish 300 ms)."
     }
    ],
    "lecture_sans_son": "Un remboursement ou un salaire attendu n’est pas encore sur le compte ; tant qu’il n’est pas arrivé, on ne le dépense pas."
