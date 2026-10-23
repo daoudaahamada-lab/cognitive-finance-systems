@@ -102,6 +102,15 @@ l'extrait, tours 1 et 2), contrôle sans son final de l'extrait (deux spectateur
 32. **Pas de curseur de souris (V02).** Le film est vu sur téléphone : toucher au doigt (anneau d'impact) ou stylet de
     « Toi ».
 
+33. **Pas de métaphore indirecte (V03-V04).** Miroir, pellicule, viseur, hélice, vide, rond vide, tampon : jamais
+    compris sans le son. Montrer les objets concrets du sujet (pièces, carte, téléphone, facture, calendrier,
+    graphique) et des gestes directs (prendre, retirer, compter, barrer, relier).
+34. **Contraste « subi / maîtrisé » en deux temps nets (V03).** Une main levée seule se lit « gêne ». Montrer la main
+    repoussée par ce qu'on ne contrôle pas (croix ou cadenas dessus), puis la main qui saisit ce qu'on contrôle.
+35. **Chiffre immobile = bug apparent (V04).** Un solde qui ne bouge pas pendant que tout change doit être signalé
+    (cerclé, « toujours 800 € ») ; et le résultat final s'écrit en chiffres.
+36. **« Toi » nommé dès sa première image, bras baissé au repos (V03).** Sinon on y voit un élève ou un présentateur.
+
 ## 8. Ce qui a marché (à garder)
 
 - Un objet unique qui change sous les yeux (la fiche) et une pastille-protagoniste qui ne le quitte pas.
