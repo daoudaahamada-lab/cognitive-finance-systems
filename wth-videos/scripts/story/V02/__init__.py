@@ -95,26 +95,31 @@ P_BACK = fig_pos(450)                      # S19 : « Toi » recule (rembobinage
 HEAD_DY = GEOM["FIGURE"]["head"]["cy"]     # -64 : centre de la tête (repère de la figurine, x échelle)
 
 # Repère 1-2-3 légendé (S03 -> S22), sans étape active jusqu'à « Première » (piste on)
-MARKER_Y, MARKER_GAP, MARKER_LABEL, MARKER_DY = 270, 150, 32, 66
-MARKER_XS = [CX - MARKER_GAP, CX, CX + MARKER_GAP]          # 390, 540, 690
+MARKER_Y, MARKER_GAP, MARKER_LABEL, MARKER_DY = 262, 170, 36, 68
+MARKER_XS = [CX - MARKER_GAP, CX, CX + MARKER_GAP]          # 370, 540, 710
 MARKER_LABELS = ["Codes", "Société", "Accès"]
 
 # Téléphone « Mon budget » (à gauche)
-PHONE_C, PHONE_W, PHONE_H, PHONE_R = (200, 768), 300, 416, 36          # x 50-350, y 560-976
-PHONE_TITLE_DY, PHONE_RULE_DY = -168, -133                             # en-tête (y 600) et filet (y 635)
-RELEVE_DY, RELEVE_W, RELEVE_H = [-96, -58, -20], 228, 30               # lignes de relevé de l'écran (y 672-748)
-BOUTON_C, BOUTON_W, BOUTON_H, BOUTON_SIZE = (200, 840), 250, 96, 32    # objet du fil, deux lignes (y 792-888)
+# Tour sans son 1 : « l'action tient dans le tiers haut, libellés illisibles à 360 px ». La largeur utile
+# (x 40-940) est déjà prise : le téléphone et la banque grandissent EN HAUTEUR (leurs bas, le câble et la bande
+# basse ne bougent pas) et les libellés clés passent à 36-38 px.
+PHONE_C, PHONE_W, PHONE_H, PHONE_R = (200, 718), 300, 516, 36          # x 50-350, y 460-976
+PHONE_TITLE_DY, PHONE_RULE_DY = -210, -172                             # en-tête (y 508) et filet (y 546)
+PHONE_TITLE_SIZE = 38
+RELEVE_DY, RELEVE_W, RELEVE_H = [-126, -74, -22], 244, 40              # lignes de relevé de l'écran (y 572-716)
+BOUTON_C, BOUTON_W, BOUTON_H, BOUTON_SIZE = (200, 840), 262, 104, 38   # objet du fil, deux lignes (y 788-892)
 BOUTON_TEXT = "Connecter\nma banque"
 BOUTON_SHADOW = 6
 BOUTON_TAP = (292, 846)                                                # bout droit : à portée depuis P1
 SWITCH_C, SWITCH_W, SWITCH_H = (290, 932), 92, 46                      # interrupteur « Accès » (x 244-336)
 SWITCH_LABEL_X = -62                                                   # « Accès » finit à x 228 (ancre end)
+LABEL_SIZE = 38                                                        # libellés clés (Accès, Identifiant, gratuit…)
 
 # Banque (à droite)
-BANK_C, BANK_W, BANK_H = (800, 788), 240, 376                          # x 680-920, y 600-976
-BANK_ICON_DY, BANK_TITLE_DY = -140, -84
-COMPTES_DY = [-34, 8]                                                  # barres de comptes (y 754, 796)
-COMPTE_W, COMPTE_H = 190, 34
+BANK_C, BANK_W, BANK_H = (800, 743), 240, 466                          # x 680-920, y 510-976
+BANK_ICON_DY, BANK_TITLE_DY, BANK_DISC = -183, -112, 40                # disque (y 560), « Ta banque » (y 631)
+COMPTES_DY = [-21, 35]                                                 # barres de comptes (y 722, 778)
+COMPTE_W, COMPTE_H = 200, 40
 BANK_BOTTOM = (800, 976)
 COMPTES_MID = (BANK_C[0], BANK_C[1] + (COMPTES_DY[0] + COMPTES_DY[1]) / 2 - 1)   # entre les deux barres (800, 774)
 
@@ -136,19 +141,24 @@ DIRECTIVE_DSP2 = (44, 42)
 OPEN_BANKING_C = (515, 762)
 CADENAS_C = (680, 700)                     # S06 : sur le mur gauche de la banque, au point du choc (au-dessus du câble)
 MUR_C, MUR_H = (680, 730), 150             # S06 : trait du mur gauche (y 655-805)
-QUESTION_C = (515, 735)
-ALERTES_CABLE = [(430, 860), (515, 860), (600, 860)]
-ALERTE_R, ALERTE_NUM = 36, 34
-ALERTES_S19 = [(92, 1222), (100, 1070), (557, 955)]   # bord bas gauche de la bulle, sous le bout gauche du badge,
-                                                       # câble de l'appli testée : jamais sur un texte
+QUESTION_C = (440, 726)                    # S02 : le « ? » juste au-dessus du câble, près du bouton
+QUESTION_LINK = ((318, 796), (424, 774))   # S02 : trait court du coin du bouton au pied du « ? »
+ALERTES_CABLE = [(408, 860), (515, 860), (622, 860)]
+ALERTE_R, ALERTE_NUM = 48, 62                 # alertes et numéros bien plus grands (récapitulatif lisible à 360 px)
+# S19-S21 : chaque alerte se pose SUR son objet (bulle, bout du badge, câble de l'appli testée) et y reste ; son
+# numéro est écrit à côté (décalage propre à chaque alerte, côté libre) ; la coche de « Toi » la remplace sur place.
+ALERTES_S19 = [(236, 1142), (80, 1006), (557, 955)]
+ALERTES_NUM_DXY = [(50, -50), (52, 52), (-66, 42)]
 FIN_BUTTON = (540, 908)                                # bouton de la carte de fin (kit.outro : 380 x 112)
+FIN_TAP = (684, 944)                                   # point touché (bas droit du bouton, hors du libellé)
 
 # Clé (PNG WTH-002-03) et carte d'identifiants
 CLE_W = 150                                # échelle 1 : capsule 150 x 80, clé plate cyan profond par-dessus
 CLE_HOME = (775, 920)                      # sous le câble, dans la banque (x 700-850, y 880-960)
 CLE_TICK = (885, 920)
-COMPTES_KEY = (800, 786)                   # S07 : la clé tourne dans les comptes (debout, échelle 0,9)
-CARTE_ID_C = (560, 1062)                   # x 440-680, y 1007-1117 : à gauche de la tête de « Toi » en P2
+COMPTES_KEY = (800, 750)                   # S07 : la clé tourne dans les comptes (debout, échelle 0,9)
+CARTE_ID_C = (556, 1062)                   # x 426-686, y 1004-1120 : à gauche de la tête de « Toi » en P2
+CARTE_ID_W, CARTE_ID_H = 260, 116
 
 # Bulle de pensée (S08-S09 ; S19-S20) : un mini « Mon budget » dont l'écran montre une clé fantôme en tirets,
 # étiquetée « Mot de passe » ; dans la bande basse (x 310-690, y 973-1243)
@@ -158,28 +168,34 @@ BULLE_RONDS_R = [5, 7, 9]
 BULLE_TEL_W, BULLE_TEL_H = 240, 222
 GHOST_KEY = (6, -20)                       # clé fantôme : dans l'écran du mini-téléphone (repère de la bulle)
 
-# Appli qui réclame les codes (S10-S11) : en bas à gauche, en-tête encre au loup (masque), contour épais, pas de cyan
-DOUTEUSE_C, DOUTEUSE_W, DOUTEUSE_H = (190, 1158), 210, 168            # x 85-295, y 1074-1242
-DOUTEUSE_START = (-95, 1158)
-DOUTEUSE_FIL_A = (296, 1150)               # bord droit de l'appli
-DOUTEUSE_FIL_MID = (525, 1060)             # loin sous la porte (70 px d'air au moins) ; le stylo coupe ici
-DOUTEUSE_FIL_B = (660, 975)                # la pince bute sur le trait du mur, juste devant la clé : jamais dedans
+# Tour sans son 1 : « lue comme un fraudeur, pas comme une appli qui contourne la porte ». L'intruse a la MÊME forme
+# de carte-appli que « Mon budget » (titre, filet, bouton), teintée de gris ; son fil épais en tirets file vers le coin
+# bas de la porte, la CONTOURNE par-dessous (V autour du portique) et remonte buter sur la clé.
+DOUTEUSE_C, DOUTEUSE_W, DOUTEUSE_H = (180, 1116), 220, 252            # x 70-290, y 990-1242 (sous « Mon budget »)
+DOUTEUSE_START = (-105, 1116)
+DOUTEUSE_FIL_A = (292, 1040)               # bord droit de l'appli (le fil passe à droite du coin du téléphone)
+DOUTEUSE_VIA1 = (385, 945)                 # coin bas gauche de la porte
+DOUTEUSE_FIL_MID = (560, 1005)             # creux sous la porte : le stylo coupe ici
+DOUTEUSE_VIA2 = (655, 945)                 # coin bas droit de la porte
+DOUTEUSE_FIL_B = (704, 922)                # la pince cogne la clé (bout gauche de la capsule)
 MUR_BAS_C, MUR_BAS_H = (680, 935), 84      # S10 : trait du mur devant la clé (y 893-977), cadenas posé dessus
 CADENAS_BAS = (680, 920)
+CADENAS_CLE = (775, 902)                   # S10 : grand cadenas posé SUR la clé (refus)
 
-# Société (figurine papier, échelle 1) et son badge ; attache en tirets vers le téléphone
-SOC_SCALE = 1.05                           # figurine papier devant une tour de bureaux (enfant soc_tour)
-SOCIETE_C = fig_pos(190, s=SOC_SCALE)      # [190, 1138] : tour jusqu'à y 994
-SOC_HIDDEN = (215, 862)                    # cachée derrière le téléphone (z 3 < 4)
-TOUR_W, TOUR_H, TOUR_CY = 200, 232, -21   # tour de bureaux derrière la société (repère de la figurine : y -137..95)
-TOUR_WINDOWS = ([(x, -112) for x in (-72, -36, 0, 36, 72)]                       # rangée haute (de part et d'autre de la tête)
-                + [(x, y) for y in (-70, -30, 10, 50) for x in (-82, 82)])    # colonnes latérales, hors du buste
-BADGE_W, BADGE_H = 270, 56
+# Société : un IMMEUBLE de bureaux (plus de figurine devant : tour sans son 1, « lue comme une pièce d'identité de
+# personne ») ; porteur invisible `societe` (calque 3, sous le téléphone) et sa tour enfant ; badge-enseigne en façade ;
+# attache en tirets vers le téléphone
+SOCIETE_C = (190, 1118)                    # tour x 80-300, y 1000-1236
+SOC_HIDDEN = (200, 850)                    # cachée derrière le téléphone (z 3 < 4), ombre comprise
+TOUR_W, TOUR_H, TOUR_CY = 220, 236, 0
+TOUR_WINDOWS = [(x, y) for y in (-84, -44, -4) for x in (-75, -25, 25, 75)]   # trois rangées de 4 fenêtres
+TOUR_DOOR = (0, 101)                       # porte (sous le badge-enseigne)
+BADGE_W, BADGE_H = 290, 56
 BADGE_ICON_S = 44                          # immeuble agrandi (x 1,5) dès l'apparition
 BADGE_CASE_X = BADGE_W / 2 - 26            # case de coche (vide, en tirets, S12) puis coche (S14)
-BADGE_ON_SOC = (190, 1168)                 # sur la poitrine (x 55-325)
-BADGE_UNDER_PHONE = (190, 1006)            # S15 -> S22 : accroché sous le téléphone (x 55-325, y 978-1034)
-QUESTION2_C = (340, 1030)                  # S12 : le « ? » de « Toi », à droite de la tour de la société
+BADGE_ON_SOC = (190, 1162)                 # enseigne sur la façade (x 45-335), au-dessus de la porte
+BADGE_UNDER_PHONE = (190, 1006)            # S15 -> S22 : accroché sous le téléphone (x 45-335, y 978-1034)
+QUESTION2_C = (352, 1012)                  # S12 : le « ? » de « Toi », à droite du haut de la tour de la société
 
 # Registre REGAFI (PNG BOOK, 300 px) : sceau de l'autorité et « ACPR » sur la page de gauche ; une feuille papier
 # plate (code) posée sur la page de droite porte les inscriptions ; « REGAFI » sur un bandeau au-dessus du livre
@@ -195,18 +211,18 @@ REG_SEAL = (-85, -52)                      # sceau rond (étoiles + colonne), 64
 REG_ACPR = (-88, -8)                       # « ACPR » tamponnée sous le sceau
 CHAMP_C, CHAMP_W, CHAMP_H = (530, 1000), 210, 48        # x 425-635, y 976-1024 : au-dessus du livre
 CHAMP_TAP = (600, 1002)
-GRATUIT_C = (343, 1000)                    # À GAUCHE du champ : le bras de « Toi » (à droite) ne le couvre jamais
-REGAFI_PILL_C = (262, 1166)                # S20 : le registre en raccourci tombe là où était la bulle
-P_REG = fig_pos(450)                       # S20 : « Toi » à portée de la pilule « REGAFI »
+GRATUIT_C = (335, 1000)                    # À GAUCHE du champ : le bras de « Toi » (à droite) ne le couvre jamais
+REGAFI_PILL_C = (332, 1224)                # S20 : le registre en raccourci tombe sous la place de la bulle (sous la coche 1)
+P_REG = fig_pos(474)                       # S20 : « Toi » à portée de la pilule « REGAFI »
 
 # Cadran des mois, étiquette Avant / Maintenant (bande haute) ; S21 : cadran plus bas, cerné d'une flèche de boucle
-CADRAN_C, CADRAN_R = (440, 508), 62
+CADRAN_C, CADRAN_R = (440, 508), 72
 CADRAN_S21 = (440, 524)
 BOUCLE_R = 80
-ROUTINE_TXT = (540, 528)                   # « tous les 6 mois » ancré à la pointe de la flèche de boucle
+ROUTINE_TXT = (532, 486)                   # « tous les / 6 mois » (2 lignes) entre la boucle et la banque (y ≥ 510)
 CADRE_C, CADRE_W, CADRE_H = (490, 812), 876, 892       # S19-S21 : cadre du montage (x 52-928, y 366-1258) : x < 940
-CADRAN_TXT = (524, 508)                    # « 6 mois » / « tous les 6 mois » à droite du cadran (ancre start)
-ETIQUETTE_C = (540, 402)
+CADRAN_TXT = (528, 508)                    # « 6 mois » / « tous les 6 mois » à droite du cadran (ancre start)
+ETIQUETTE_C = (540, 408)
 
 # Appli testée (bas-centre, à gauche de « Toi » en P2), son câble par la porte, panneau « Espace client »
 TESTEE_C, TESTEE_W, TESTEE_H = (610, 1145), 170, 200   # x 525-695, y 1045-1245
@@ -220,8 +236,9 @@ FICHE_C = (534, 905)                       # S18 : fiche cyan du câble, côté 
 ESPACE_C, ESPACE_W, ESPACE_H = (795, 812), 270, 160    # x 660-930, y 732-892 (ombre comprise : x < 940)
 ESPACE_ROWS = [-6, 44]                                 # « Mon budget », « Appli testée » (repère du panneau)
 ESPACE_SWITCH_X, ESPACE_LABEL_X = -100, -62
-COUPE_COCHE1 = (497, 1212)                 # S18 : coche de « Toi » après la coupure dans l'appli (à gauche de son
-COUPE_COCHE2 = (550, 985)                  # interrupteur), puis à la sortie de la porte, où la fiche a sauté
+COUPE_COCHE1 = (482, 1112)                 # S18 : la coche de « Toi », à gauche de l'appli testée, une fois les deux
+COUPE_COCHE2 = (550, 985)                  # fiches tombées (coupe_coche2 n'est plus posée)
+FICHE_APP_C = (600, 1047)                  # S18 : fiche du câble côté appli, posée sur le haut de l'appli testée
 
 # Interrupteurs : id -> (rond, course du rond depuis le centre)
 SWITCHES = {"interrupteur": ("interrupteur_rond", (SWITCH_W - SWITCH_H) / 2),
@@ -464,15 +481,15 @@ def cast(S, kit):
     # --- téléphone « Mon budget », lignes de relevé de l'écran, bouton (objet du fil), interrupteur « Accès » ---
     kit.shape("appli", PHONE_C, kind="round", w=PHONE_W, h=PHONE_H, r=PHONE_R, fill=PAPER, stroke=INK, sw=5,
               shadow=6, z=4)
-    kit.text("appli_titre", [0, PHONE_TITLE_DY], "Mon budget", size=32, weight=600, z=4.1, parent="appli")
+    kit.text("appli_titre", [0, PHONE_TITLE_DY], "Mon budget", size=PHONE_TITLE_SIZE, weight=600, z=4.1, parent="appli")
     kit.shape("appli_filet", [0, PHONE_RULE_DY], kind="rect", w=PHONE_W - 40, h=3, fill=RULE, stroke=RULE, sw=0,
               shadow=0, z=4.1, parent="appli")
     for k, dy in enumerate(RELEVE_DY):
         rid = f"releve{k + 1}"
-        kit.shape(rid, [0, dy], kind="round", w=RELEVE_W, h=RELEVE_H, r=9, fill=LIGHT, stroke=INK, sw=3, shadow=0,
+        kit.shape(rid, [0, dy], kind="round", w=RELEVE_W, h=RELEVE_H, r=11, fill=LIGHT, stroke=INK, sw=3, shadow=0,
                   z=4.2, parent="appli", scale=0)
-        kit.icon(f"{rid}_ic", [-RELEVE_W / 2 + 20, 0], "bars", s=22, z=4.3, parent=rid)
-        kit.shape(f"{rid}_trait", [18, 0], kind="round", w=120 - 26 * k, h=8, r=4, fill=INK, stroke=INK, sw=0,
+        kit.icon(f"{rid}_ic", [-RELEVE_W / 2 + 26, 0], "bars", s=30, z=4.3, parent=rid)
+        kit.shape(f"{rid}_trait", [22, 0], kind="round", w=136 - 28 * k, h=11, r=5, fill=INK, stroke=INK, sw=0,
                   shadow=0, z=4.3, parent=rid)
     kit.shape("bouton", BOUTON_C, kind="round", w=BOUTON_W, h=BOUTON_H, r=30, fill=CYAN, stroke=INK, sw=4, shadow=0,
               z=6)
@@ -480,21 +497,21 @@ def cast(S, kit):
     kit.shape("bouton_ombre", [BOUTON_SHADOW, BOUTON_SHADOW], kind="round", w=BOUTON_W, h=BOUTON_H, r=30, fill=INK,
               stroke=INK, sw=4, shadow=0, z=5.9, parent="bouton")
     _switch(kit, "interrupteur", SWITCH_C, SWITCH_W, SWITCH_H, 36, on=False, z=6.2, scale=0)
-    kit.text("interrupteur_txt", [SWITCH_LABEL_X, 0], "Accès", size=32, weight=600, anchor="end", z=6.3,
+    kit.text("interrupteur_txt", [SWITCH_LABEL_X, 0], "Accès", size=LABEL_SIZE, weight=700, anchor="end", z=6.3,
              parent="interrupteur")
 
     # --- la banque : carte, disque cyan au temple, « Ta banque », deux barres de comptes (et leurs copies) ---
     kit.shape("banque", BANK_C, kind="round", w=BANK_W, h=BANK_H, r=30, fill=PAPER, stroke=INK, sw=5, shadow=6, z=4,
               scale=0)
-    kit.icon("banque_icone", [0, BANK_ICON_DY], "bank", disc=34, fill=CYAN, z=4.1, parent="banque")
-    kit.text("banque_titre", [0, BANK_TITLE_DY], "Ta banque", size=32, weight=700, z=4.1, parent="banque")
+    kit.icon("banque_icone", [0, BANK_ICON_DY], "bank", disc=BANK_DISC, fill=CYAN, z=4.1, parent="banque")
+    kit.text("banque_titre", [0, BANK_TITLE_DY], "Ta banque", size=LABEL_SIZE, weight=700, z=4.1, parent="banque")
     for k, dy in enumerate(COMPTES_DY):
         cid = f"compte{k + 1}"
-        kit.shape(cid, [0, dy], kind="round", w=COMPTE_W, h=COMPTE_H, r=10, fill=LIGHT, stroke=INK, sw=3, shadow=0,
+        kit.shape(cid, [0, dy], kind="round", w=COMPTE_W, h=COMPTE_H, r=11, fill=LIGHT, stroke=INK, sw=3, shadow=0,
                   z=4.2, parent="banque")
-        kit.icon(f"{cid}_euro", [-COMPTE_W / 2 + 22, 0], "euro", s=24, z=4.3, parent=cid)
+        kit.icon(f"{cid}_euro", [-COMPTE_W / 2 + 26, 0], "euro", s=30, z=4.3, parent=cid)
         # copie en tirets qui se détache de la barre (S02 : des données COPIÉES, la barre reste pleine)
-        kit.shape(f"{cid}_copie", [0, dy], kind="round", w=COMPTE_W, h=COMPTE_H, r=10, fill="none", stroke=DEEP,
+        kit.shape(f"{cid}_copie", [0, dy], kind="round", w=COMPTE_W, h=COMPTE_H, r=11, fill="none", stroke=DEEP,
                   sw=3, dash=[8, 6], shadow=0, z=4.4, parent="banque", scale=0)
 
     # --- le câble de la connexion (pa / pb : extrémités monde ; via sur la droite tant qu'il n'y a pas de porte) ---
@@ -516,11 +533,19 @@ def cast(S, kit):
         S.add(f"guide{i + 1}", "wire", z=17.5, color=INK, sw=3, dash=[9, 7], tension=0)
         S.set(f"guide{i + 1}", pa=[MARKER_XS[i], MARKER_Y], pb=[MARKER_XS[i], MARKER_Y], sag=0, draw=0, opacity=1)
         kit.icon(a, ALERTES_CABLE[i], "warning", disc=ALERTE_R, fill=PAPER, shadow=4, z=18, scale=0)
-        kit.text(f"{a}_num", [ALERTE_R + 14, -ALERTE_R + 8], str(i + 1), size=ALERTE_NUM, weight=800, z=18.1,
+        kit.text(f"{a}_num", list(ALERTES_NUM_DXY[i]), str(i + 1), size=ALERTE_NUM, weight=800, z=18.1,
                  parent=a, opacity=0)
-        kit.shape(f"{a}_ok", ALERTES_CABLE[i], kind="circle", w=2 * ALERTE_R, fill=PAPER, stroke=INK, sw=4, shadow=4,
+        kit.shape(f"{a}_ok", ALERTES_CABLE[i], kind="circle", w=2 * ALERTE_R, fill=PAPER, stroke=INK, sw=5, shadow=5,
                   z=18, scale=0)
-        kit.tick(f"{a}_ok_coche", [0, 0], DEEP, size=40, sw=8, z=18.1, parent=f"{a}_ok", draw=0)
+        kit.tick(f"{a}_ok_coche", [0, 2], DEEP, size=56, sw=10, z=18.1, parent=f"{a}_ok", draw=0)
+        kit.text(f"{a}_ok_num", list(ALERTES_NUM_DXY[i]), str(i + 1), size=ALERTE_NUM, weight=800, z=18.1,
+                 parent=f"{a}_ok")                                 # la coche garde le numéro de son alerte
+        # S03 : l'anneau qui bat sur le disque du repère quand l'alerte k s'y pose (alerte -> étape)
+        kit.shape(f"marqueur_ping{i + 1}", [MARKER_XS[i], MARKER_Y], kind="circle", w=72, fill="none", stroke=DEEP,
+                  sw=6, shadow=0, z=20.8, opacity=0)
+    # S02 : trait court en tirets qui relie le « ? » au bouton d'où il sort
+    S.add("question_lien", "wire", z=11.9, color=INK, sw=5, dash=[10, 8], tension=0)
+    S.set("question_lien", pa=list(BOUTON_C), pb=list(BOUTON_C), sag=0, draw=0, opacity=1)
 
     # --- étiquette « open banking » (S04-S05) ---
     S.add("open_banking", "pill", z=9, text="open banking", w=round(text_width("open banking", 32, 700) + 40), h=60,
@@ -566,15 +591,15 @@ def cast(S, kit):
 
     # --- le mur fermé de la banque et son cadenas (S06-S07 ; reparaît en S10) ---
     kit.shape("mur", MUR_C, kind="round", w=14, h=MUR_H, r=7, fill=INK, stroke=INK, sw=0, shadow=0, z=7.9, scale=0)
-    kit.icon("cadenas", CADENAS_C, "lock", disc=32, fill=PAPER, shadow=4, z=8, scale=0)
+    kit.icon("cadenas", CADENAS_C, "lock", disc=32, fill=PAPER, shadow=4, z=9.7, scale=0)
     kit.shape("mur_bas", MUR_BAS_C, kind="round", w=14, h=MUR_BAS_H, r=7, fill=INK, stroke=INK, sw=0, shadow=0,
               z=7.9, scale=0)
 
     # --- la carte d'identifiants (S07) puis la clé (PNG WTH-002-03 + clé plate), son anneau et sa coche ---
-    kit.shape("carte_id", CARTE_ID_C, kind="round", w=240, h=110, r=16, fill=PAPER, stroke=INK, sw=4, shadow=6,
-              z=13, scale=0)
-    kit.text("carte_id_txt", [0, -22], "Identifiant", size=32, weight=600, z=13.1, parent="carte_id")
-    kit.text("carte_id_mdp", [0, 24], "••••••", size=34, weight=700, z=13.1, parent="carte_id")
+    kit.shape("carte_id", CARTE_ID_C, kind="round", w=CARTE_ID_W, h=CARTE_ID_H, r=16, fill=PAPER, stroke=INK, sw=4,
+              shadow=6, z=13, scale=0)
+    kit.text("carte_id_txt", [0, -24], "Identifiant", size=LABEL_SIZE, weight=700, z=13.1, parent="carte_id")
+    kit.text("carte_id_mdp", [0, 26], "••••••", size=38, weight=700, z=13.1, parent="carte_id")
     key = S.png("WTH-002-03")
     cle_h = round(CLE_W * key["h"] / key["w"])
     S.add("cle", "png", z=6.5, src=key["src"], w=CLE_W, h=cle_h,
@@ -597,7 +622,7 @@ def cast(S, kit):
     kit.shape("bulle_tel_bouton", [0, 84], kind="round", w=130, h=26, r=13, fill=CYAN, stroke=INK, sw=3, shadow=0,
               z=17.2, parent="bulle_tel")
     key_glyph(kit, "bulle_cle", "bulle_tel", list(GHOST_KEY), k=1.8, color=INK, z=17.3, dash=[8, 6], sw=5)
-    kit.text("bulle_txt", [0, 40], "Mot de passe", size=32, weight=600, z=17.3, parent="bulle_tel", typed=True)
+    kit.text("bulle_txt", [0, 40], "Mot de passe", size=34, weight=700, z=17.3, parent="bulle_tel", typed=True)
     for k in range(3):
         kit.shape(f"bulle_rond{k + 1}", BULLE_C, kind="circle", w=2 * BULLE_RONDS_R[k], fill=PAPER, stroke=INK,
                   sw=3, dash=[5, 4], shadow=0, z=17, scale=0)
@@ -606,50 +631,53 @@ def cast(S, kit):
     S.add("bulle_guide", "wire", z=16.5, color=INK, sw=4, dash=[10, 8], tension=0)    # clé fantôme -> vraie clé
     S.set("bulle_guide", pa=list(BULLE_C), pb=list(CLE_HOME), sag=0, draw=0, opacity=1)
 
-    # --- l'appli qui réclame les codes (S10-S11) : en-tête encre et crochet, contour épais ; texte en hex (rouge) ---
-    kit.shape("douteuse", DOUTEUSE_C, kind="round", w=DOUTEUSE_W, h=DOUTEUSE_H, r=26, fill=PAPER, stroke=INK, sw=7,
+    # --- l'appli qui réclame les codes (S10-S11) : la même carte-appli que « Mon budget » (titre, filet, bouton),
+    #     teintée de gris, sans cyan ; contour, titre et texte en hex (ils virent au rouge après le geste de « Toi ») ---
+    kit.shape("douteuse", DOUTEUSE_C, kind="round", w=DOUTEUSE_W, h=DOUTEUSE_H, r=30, fill=GREY, stroke=INK, sw=6,
               shadow=6, z=10, scale=0)
     S.set("douteuse", stroke=INK)
-    kit.shape("douteuse_tete", [0, -DOUTEUSE_H / 2 + 24], kind="round", w=DOUTEUSE_W - 8, h=44, r=20, fill=INK,
-              stroke=INK, sw=0, shadow=0, z=10.05, parent="douteuse")
-    S.set("douteuse_tete", fill=INK)             # hex : l'en-tête vire au rouge en fondu après le geste (S10)
-    # loup de voleur (bandeau papier, deux yeux encre) : impossible à lire comme une lettre
-    kit.shape("douteuse_loup", [0, -DOUTEUSE_H / 2 + 24], kind="round", w=86, h=30, r=15, fill=PAPER, stroke=PAPER,
-              sw=0, shadow=0, z=10.1, parent="douteuse")
-    for k, dx in enumerate((-20, 20)):
-        kit.shape(f"douteuse_oeil{k + 1}", [dx, 1], kind="ellipse", w=24, h=12, fill=INK, stroke=INK, sw=0,
-                  shadow=0, z=10.12, parent="douteuse_loup")
-    kit.text("douteuse_txt", [0, -6], "Tes codes ?", size=32, weight=700, z=10.1, parent="douteuse", typed=True)
+    kit.text("douteuse_titre", [0, -DOUTEUSE_H / 2 + 34], "Appli", size=LABEL_SIZE, weight=700, z=10.1,
+             parent="douteuse")
+    S.set("douteuse_titre", color=INK)
+    kit.shape("douteuse_filet", [0, -DOUTEUSE_H / 2 + 64], kind="rect", w=DOUTEUSE_W - 36, h=3, fill=INK,
+              stroke=INK, sw=0, shadow=0, z=10.1, parent="douteuse")
+    kit.text("douteuse_txt", [0, -12], "Tes codes ?", size=34, weight=700, z=10.1, parent="douteuse", typed=True)
     S.set("douteuse_txt", color=INK)
-    kit.shape("douteuse_champ", [0, 46], kind="round", w=160, h=44, r=10, fill=PAPER, stroke=INK, sw=3, shadow=0,
+    kit.shape("douteuse_champ", [0, 44], kind="round", w=172, h=44, r=10, fill=PAPER, stroke=INK, sw=3, shadow=0,
               z=10.1, parent="douteuse", scale=0)
-    kit.shape("douteuse_curseur", [-60, 0], kind="rect", w=3, h=26, fill=INK, stroke=INK, sw=0, shadow=0, z=10.2,
+    kit.shape("douteuse_curseur", [-64, 0], kind="rect", w=3, h=26, fill=INK, stroke=INK, sw=0, shadow=0, z=10.2,
               parent="douteuse_champ")
-    for k, (a, b) in enumerate(((DOUTEUSE_FIL_A, DOUTEUSE_FIL_MID), (DOUTEUSE_FIL_MID, DOUTEUSE_FIL_B))):
-        wid = f"douteuse_fil{k + 1}"   # deux moitiés d'un même fil (tension 0) : il se sépare au trait du stylo
-        S.add(wid, "wire", z=9.5, color=INK, sw=7, dash=[18, 11], tension=0)
-        S.set(wid, pa=list(a), pb=list(b), sag=0, draw=0, opacity=1, color=INK)
+    kit.shape("douteuse_bouton", [0, DOUTEUSE_H / 2 - 30], kind="round", w=150, h=30, r=15, fill=STYLE["ai_tick"],
+              stroke=INK, sw=3, shadow=0, z=10.1, parent="douteuse")      # bouton gris : pas le bouton cyan du héros
+    for k, (a, v, b) in enumerate(((DOUTEUSE_FIL_A, DOUTEUSE_VIA1, DOUTEUSE_FIL_MID),
+                                   (DOUTEUSE_FIL_MID, DOUTEUSE_VIA2, DOUTEUSE_FIL_B))):
+        wid = f"douteuse_fil{k + 1}"   # deux moitiés d'un même fil coudé (tension 0) : il se sépare au trait du stylo
+        S.add(wid, "wire", z=9.5, color=INK, sw=12, dash=[22, 12], tension=0)
+        S.set(wid, pa=list(a), pb=list(b), via=list(v), sag=0, draw=0, opacity=1, color=INK)
     # pince ouverte au bout du fil, tournée vers la clé (repère : la pointe du fil, axe = direction du fil)
     kit.shape("douteuse_pince", list(DOUTEUSE_FIL_B), kind="circle", w=2, fill="none", stroke="none", sw=0, shadow=0,
-              z=9.6, scale=0, rot=round(math.degrees(math.atan2(DOUTEUSE_FIL_B[1] - DOUTEUSE_FIL_MID[1],
-                                                                 DOUTEUSE_FIL_B[0] - DOUTEUSE_FIL_MID[0])), 2))
+              z=9.6, scale=0, rot=round(math.degrees(math.atan2(DOUTEUSE_FIL_B[1] - DOUTEUSE_VIA2[1],
+                                                                 DOUTEUSE_FIL_B[0] - DOUTEUSE_VIA2[0])), 2))
     for k, sy in enumerate((-1, 1)):
-        kit.shape(f"douteuse_machoire{k + 1}", [0, 0], kind="poly", pts=[[-6, 0], [6, 7 * sy], [18, 13 * sy]],
-                  closed=False, fill="none", stroke=INK, sw=6, shadow=0, z=9.61, parent="douteuse_pince")
+        kit.shape(f"douteuse_machoire{k + 1}", [0, 0], kind="poly", pts=[[-8, 0], [8, 10 * sy], [24, 17 * sy]],
+                  closed=False, fill="none", stroke=INK, sw=8, shadow=0, z=9.61, parent="douteuse_pince")
     S.add("coupure", "burst", z=16, r0=12, r1=58, n=10, sw=7, color=INK)             # éclair au point de coupe
     S.set("coupure", pos=list(DOUTEUSE_FIL_MID), p=0)
 
-    # --- la société derrière l'appli (figurine papier, sans outil), son badge, l'attache vers le téléphone ---
-    # tour de bureaux derrière la figurine (enfant, calque 2,9 sous la figurine et le téléphone) : une entreprise,
-    # pas un temple (le temple est l'icône de la banque) ; contrôle sans son : « on peut le prendre pour une deuxième
-    # banque »
-    societe = Figure(kit, "societe", pos=list(SOC_HIDDEN), scale=SOC_SCALE, variant="paper", tool=False, z=3,
-                     show=False)
+    # --- la société derrière l'appli : un immeuble de bureaux (porteur invisible + tour, fenêtres, porte), son
+    #     badge-enseigne, l'attache vers le téléphone. Pas de figurine (tour sans son 1 : « portrait, pièce
+    #     d'identité ») ni de temple (l'icône de la banque) ---
+    kit.shape("societe", list(SOC_HIDDEN), kind="circle", w=2, fill="none", stroke="none", sw=0, shadow=0, z=3,
+              scale=0)
     kit.shape("soc_tour", [0, TOUR_CY], kind="round", w=TOUR_W, h=TOUR_H, r=8, fill=PAPER, stroke=INK, sw=5,
               shadow=6, z=2.9, parent="societe")
+    kit.shape("soc_toit", [0, -TOUR_H / 2 - 7], kind="rect", w=TOUR_W - 60, h=14, fill=INK, stroke=INK, sw=0,
+              shadow=0, z=2.92, parent="societe")
     for k, (wx, wy) in enumerate(TOUR_WINDOWS):
-        kit.shape(f"soc_fenetre{k + 1}", [wx, wy], kind="rect", w=20, h=22, fill=LIGHT, stroke=INK, sw=3, shadow=0,
+        kit.shape(f"soc_fenetre{k + 1}", [wx, wy], kind="rect", w=30, h=26, fill=LIGHT, stroke=INK, sw=3, shadow=0,
                   z=2.95, parent="soc_tour")
+    kit.shape("soc_porte", list(TOUR_DOOR), kind="rect", w=46, h=34, fill=INK, stroke=INK, sw=0, shadow=0, z=2.95,
+              parent="soc_tour")
     kit.shape("badge", BADGE_ON_SOC, kind="circle", w=2, fill="none", stroke="none", sw=0, shadow=0, z=16, scale=0)
     kit.shape("badge_fond", [0, 0], kind="round", w=BADGE_W, h=BADGE_H, r=BADGE_H / 2, fill=PAPER, stroke=INK, sw=4,
               dash=[12, 8], shadow=0, z=16, parent="badge")
@@ -661,7 +689,7 @@ def cast(S, kit):
     for k, (wx, wy) in enumerate([(-5, -10), (5, -10), (-5, 0), (5, 0), (-5, 10), (5, 10)]):
         kit.shape(f"badge_fenetre{k + 1}", [wx, wy], kind="rect", w=5, h=5, fill=INK, stroke=INK, sw=0, shadow=0,
                   z=16.25, parent="badge_icone")
-    kit.text("badge_nom", [2, 0], "Société X", size=32, weight=700, z=16.2, parent="badge", typed=True)
+    kit.text("badge_nom", [0, 0], "Société X", size=34, weight=700, z=16.2, parent="badge", typed=True)
     kit.shape("badge_case", [BADGE_CASE_X, 0], kind="round", w=30, h=30, r=6, fill=PAPER, stroke=INK, sw=3,
               dash=[6, 4], shadow=0, z=16.2, parent="badge", scale=0)     # case vide : nommée, pas vérifiée
     kit.tick("badge_coche", [BADGE_CASE_X, 0], DEEP, size=30, sw=7, z=16.25, parent="badge", draw=0)
@@ -671,7 +699,7 @@ def cast(S, kit):
               b={"id": "badge", "at": [-BADGE_W / 2 + 24, -BADGE_H / 2]}, **({"dash": dash} if dash else {}))
         S.set(wid, sag=0, draw=0, opacity=1)
     S.add("question2", "qmark", z=17)
-    S.set("question2", pos=list(QUESTION2_C), scale=0, opacity=1, gs=90)
+    S.set("question2", pos=list(QUESTION2_C), scale=0, opacity=1, gs=110)
 
     # --- le registre REGAFI (PNG BOOK) : sceau de l'autorité, « REGAFI », « ACPR », inscriptions ; champ, « gratuit » ---
     book = S.png("BOOK")
@@ -715,7 +743,8 @@ def cast(S, kit):
     kit.shape("champ_curseur", [-CHAMP_W / 2 + 16, 0], kind="rect", w=3, h=30, fill=INK, stroke=INK, sw=0, shadow=0,
               z=12.2, parent="champ")
     kit.text("champ_nom", [0, 0], "Société X", size=32, weight=700, z=12.1, parent="champ", typed=True)
-    S.add("gratuit", "pill", z=12, text="gratuit", w=round(text_width("gratuit", 32, 700) + 36), h=CHAMP_H, size=32,
+    S.add("gratuit", "pill", z=12, text="gratuit", w=round(text_width("gratuit", LABEL_SIZE, 700) + 36), h=CHAMP_H + 6,
+          size=LABEL_SIZE,
           weight=700, fill=LIGHT)
     S.set("gratuit", pos=list(GRATUIT_C), scale=0, opacity=1)
     S.add("preuve", "wire", z=15.8, color=DEEP, sw=6, dots=True, tension=0.45)    # sous le badge (z 16)
@@ -727,8 +756,10 @@ def cast(S, kit):
     # --- cadran des mois (S15-S17, S21) et ses textes ---
     kit.sector("cadran", CADRAN_C, start=0, value=0, r=CADRAN_R, unit=12, face=PAPER, fill=DEEP, ticks=12, sw=5,
                z=9, scale=0)
-    kit.text("cadran_txt", CADRAN_TXT, f"6{NBSP}mois", size=44, weight=800, anchor="start", z=9, scale=0)
-    kit.text("cadran_routine", ROUTINE_TXT, f"tous les 6{NBSP}mois", size=34, weight=700, anchor="start", z=9,
+    # tour sans son 1 : « le cadran tourne 7 s sans dire ce qu'il mesure » -> un compteur de mois, visible dès que le
+    # cadran paraît, monte avec lui de 0 à 6 mois
+    kit.counter("cadran_txt", CADRAN_TXT, value=0, size=44, weight=800, suffix=" mois", anchor="start", z=9, scale=0)
+    kit.text("cadran_routine", ROUTINE_TXT, f"tous les\n6{NBSP}mois", size=36, weight=700, anchor="start", z=9,
              typed=True)
     a0, a1 = 12, 344                                        # flèche de boucle : un tour presque complet, sens horaire
     arc = [[round(BOUCLE_R * math.cos(math.radians(a0 + (a1 - a0) * i / 24)), 1),
@@ -747,33 +778,37 @@ def cast(S, kit):
     kit.shape("testee", TESTEE_C, kind="round", w=TESTEE_W, h=TESTEE_H, r=26, fill=PAPER, stroke=INK, sw=5,
               shadow=6, z=10, scale=0)
     S.set("testee", fill=PAPER, stroke=INK)      # hex : le contour plein s'efface quand elle s'endort (S16)
-    kit.text("testee_titre", [0, -60], "Appli\ntestée", size=32, weight=600, lh=1.0, z=10.1, parent="testee")
-    kit.icon("testee_lune", [-36, 14], "moon", s=62, z=10.1, parent="testee", scale=0)
-    for k in range(3):
-        kit.shape(f"testee_l{k + 1}", [36, -4 + 15 * k], kind="round", w=56, h=8, r=4, fill=INK, stroke=INK, sw=0,
-                  shadow=0, z=10.1, parent="testee", scale=0)
+    kit.text("testee_titre", [0, -62], "Appli\ntestée", size=36, weight=700, lh=1.0, z=10.1, parent="testee")
+    kit.icon("testee_lune", [-36, 14], "moon", s=62, z=10.1, parent="testee", scale=0)     # (plus utilisée)
+    for k in range(3):      # lignes de données qui s'empilent dans l'appli oubliée (S17)
+        kit.shape(f"testee_l{k + 1}", [0, -8 + 19 * k], kind="round", w=120 - 16 * k, h=11, r=5, fill=INK,
+                  stroke=INK, sw=0, shadow=0, z=10.1, parent="testee", scale=0)
     _switch(kit, "testee_inter", [0, TESTEE_SWITCH_DY], 80, 40, 30, on=False, z=10.2, parent="testee", shadow=3)
     kit.shape("testee_veille", [0, 0], kind="round", w=TESTEE_W + 20, h=TESTEE_H + 20, r=34, fill="none", stroke=INK,
               sw=4, dash=[12, 9], shadow=0, z=10.15, parent="testee", scale=0)   # en veille : contour en tirets
     S.add("cable_testee", "wire", z=3.5, color=DEEP, sw=7, dots=True, tension=0.45)
     S.set("cable_testee", pa=list(CABLE_T_A), pb=list(CABLE_T_B), sag=0, draw=0, opacity=1)
-    kit.shape("fiche", FICHE_C, kind="round", w=30, h=20, r=6, fill=CYAN, stroke=INK, sw=3, shadow=2, z=7.8,
-              scale=0, rot=65)                                        # fiche du câble, côté porte (S18)
+    # S18 : les deux fiches du câble, côté porte et côté appli : elles sautent l'une après l'autre (tour sans son 1 :
+    # « deux options ? » -> les deux moitiés d'un même débranchement)
+    kit.shape("fiche", FICHE_C, kind="round", w=44, h=28, r=7, fill=CYAN, stroke=INK, sw=4, shadow=3, z=7.8,
+              scale=0, rot=65)
+    kit.shape("fiche_app", FICHE_APP_C, kind="round", w=44, h=28, r=7, fill=CYAN, stroke=INK, sw=4, shadow=3,
+              z=10.3, scale=0, rot=0)
     kit.shape("espace_client", ESPACE_C, kind="round", w=ESPACE_W, h=ESPACE_H, r=18, fill=PAPER, stroke=INK, sw=4,
               shadow=6, z=8, scale=0)
-    kit.text("espace_txt", [0, -ESPACE_H / 2 + 28], "Espace client", size=30, weight=700, z=8.1,
+    kit.text("espace_txt", [0, -ESPACE_H / 2 + 28], "Espace client", size=34, weight=700, z=8.1,
              parent="espace_client")
     kit.shape("espace_filet", [0, -ESPACE_H / 2 + 52], kind="rect", w=ESPACE_W - 30, h=3, fill=RULE, stroke=RULE,
               sw=0, shadow=0, z=8.1, parent="espace_client")
     for k, (dy, lab) in enumerate(zip(ESPACE_ROWS, ("Mon budget", "Appli testée"))):
         _switch(kit, f"espace_inter{k + 1}", [ESPACE_SWITCH_X, dy], 60, 32, 24, on=True, z=8.2,
                 parent="espace_client", shadow=2)
-        kit.text(f"espace_lab{k + 1}", [ESPACE_LABEL_X, dy], lab, size=30, weight=600, anchor="start", z=8.1,
+        kit.text(f"espace_lab{k + 1}", [ESPACE_LABEL_X, dy], lab, size=32, weight=600, anchor="start", z=8.1,
                  parent="espace_client")
 
-    # --- S18 : les deux coupures sont deux gestes faits (coches pleines de « Toi ») ---
+    # --- S18 : UNE coche de « Toi », seulement quand les deux fiches sont tombées (coupe_coche2 : plus utilisée) ---
     for k, pt in enumerate((COUPE_COCHE1, COUPE_COCHE2)):
-        kit.tick(f"coupe_coche{k + 1}", list(pt), DEEP, size=44, sw=9, z=10.4, draw=0)
+        kit.tick(f"coupe_coche{k + 1}", list(pt), DEEP, size=60, sw=11, z=10.4, draw=0)
 
     # --- S21 : le disque 3 du repère se coche (le disque actif garde son chiffre : pastille posée par-dessus) ---
     kit.shape("marqueur_fait3", [MARKER_XS[2], MARKER_Y], kind="circle", w=2 * GEOM["MARKER"]["r"], fill=PAPER,
@@ -787,6 +822,12 @@ def cast(S, kit):
     kit.shape("balayage", [CADRE_C[0] + CADRE_W / 2 - 20, CADRE_C[1]], kind="round", w=10, h=CADRE_H - 40, r=5,
               fill=DEEP, stroke=DEEP, sw=0, shadow=0, z=19, scale=0)
 
+    # --- S22 : toucher au doigt (point d'appui + deux ondes) au lieu du pointeur de souris (tour sans son 1) ---
+    kit.shape("fin_doigt", FIN_TAP, kind="circle", w=44, fill=INK, stroke=PAPER, sw=4, shadow=0, z=42, scale=0)
+    for k in range(2):
+        kit.shape(f"fin_onde{k + 1}", FIN_TAP, kind="circle", w=70, fill="none", stroke=DEEP, sw=6, shadow=0, z=41.9,
+                  opacity=0)
+
     # --- étiquettes « ◀◀ Avant » puis « Maintenant » (S19-S22) ---
     S.add("etiquette_avant", "pill", z=21, text="Avant", icon="rewind", w=300, h=70, size=34, weight=800, fill=LIGHT)
     S.set("etiquette_avant", pos=list(ETIQUETTE_C), scale=0, opacity=1)
@@ -796,7 +837,7 @@ def cast(S, kit):
     # --- « Toi » : en P1 dès l'image 0, stylo levé (bras côté gauche : il fait face à ce qu'il touche) ---
     toi = Figure(kit, "toi", pos=list(P1), scale=TOI_SCALE, z=15)
 
-    return SimpleNamespace(toi=toi, societe=societe, book_h=book_h, porte_h=porte_h, cle_h=cle_h)
+    return SimpleNamespace(toi=toi, book_h=book_h, porte_h=porte_h, cle_h=cle_h)
 
 
 def build(S):

@@ -25,11 +25,12 @@ import math
 from pipeline.story import DRAW, DROP, FADE, MORPH, MOVE, POP, text_width  # noqa: F401
 from pipeline.story_kit import TAP
 
-from . import (BADGE_H, BADGE_ON_SOC, BADGE_W, BOUTON_C, BULLE_C, BULLE_H, BULLE_W, CABLE_A, CABLE_B, CADENAS_BAS,
+from . import (BADGE_H, BADGE_ON_SOC, BADGE_W, BOUTON_C, BULLE_C, BULLE_H, BULLE_W, CABLE_A, CABLE_B,
                CHAMP_TAP, CLE_HOME, COMPTES_MID, CYAN, DEEP, DOUTEUSE_C, DOUTEUSE_FIL_A, DOUTEUSE_FIL_B,
-               DOUTEUSE_FIL_MID, DOUTEUSE_START, ENTRY_P2, HEAD_DY, P2, QUESTION2_C, RED, REG_DOT_X, REG_ROWS,
-               REGISTRE_C,
-               SOC_HIDDEN, SOCIETE_C, TOI_SCALE, bulle_ronds, fig_pos, cable_route, perle_route, ring, scene_f0, vanish)
+               DOUTEUSE_FIL_MID, DOUTEUSE_START, DOUTEUSE_VIA1, DOUTEUSE_VIA2, ENTRY_P2, HEAD_DY, P2, QUESTION2_C,
+               RED, REG_DOT_X, REG_ROWS, REGISTRE_C,
+               CADENAS_CLE, SOC_HIDDEN, SOCIETE_C, TOI_SCALE, bulle_ronds, fig_pos, cable_route, perle_route, ring,
+               scene_f0, vanish)
 
 F_START = 923
 PHONE_BOTTOM = 982                         # bas du téléphone, ombre comprise : le badge (z 16) ne paraît qu'en dessous
@@ -43,7 +44,7 @@ def bank_to_button(S, f):
 
 
 def part(S, kit, c):
-    toi, soc = c.toi, c.societe
+    toi = c.toi
     f0 = scene_f0(S, "S08")
     assert f0 == F_START, f0
     kit.pin(f0 - 1, ENTRY_P2)
@@ -122,8 +123,8 @@ def part(S, kit, c):
         kit.vanish(rid, burst + 2 * (k + 1), style="burst", n=5, spread=24, sw=3)
 
     # ================= S10 « Une appli te demande directement tes codes bancaires ? Méfiance. » =================
-    f = kit.at("S10", "Une", "une autre appli, en-tête noir au loup de voleur, sans bouton cyan, entre par le bord "
-                             "gauche, loin du téléphone")
+    f = kit.at("S10", "Une", "une autre appli entre par le bord gauche, sous « Mon budget » : la même carte-appli "
+                             "(titre « Appli », filet, bouton), mais grise et sans cyan")
     S.key("douteuse", "pos", f - 1, list(DOUTEUSE_START))
     S.key("douteuse", "scale", f - 1, 1)
     S.key("douteuse", "opacity", f - 1, 1)
@@ -135,14 +136,15 @@ def part(S, kit, c):
     kit.pop("douteuse_champ", g - 4)
 
     A, M, B = DOUTEUSE_FIL_A, DOUTEUSE_FIL_MID, DOUTEUSE_FIL_B
-    L = math.dist(M, B)
-    u = ((B[0] - M[0]) / L, (B[1] - M[1]) / L)
+    V2 = DOUTEUSE_VIA2
+    L = math.dist(V2, B)
+    u = ((B[0] - V2[0]) / L, (B[1] - V2[1]) / L)
     B0 = [round(B[0] - 22 * u[0], 2), round(B[1] - 22 * u[1], 2)]
     S.set("douteuse_fil2", pb=B0)
 
-    f = kit.at("S10", "directement", "la porte officielle et son câble s'allument (la voie officielle) ; le fil épais en "
-                                     "tirets de l'appli passe loin sous la porte, vers la clé, et finit par une pince "
-                                     "ouverte tournée vers elle")
+    f = kit.at("S10", "directement", "la porte officielle et son câble s'allument (la voie officielle, une pastille la "
+                                     "traverse) ; le fil épais en tirets de l'appli file vers le coin de la porte, la "
+                                     "CONTOURNE par-dessous et remonte vers la clé ; une pince ouverte au bout")
     kit.pulse("porte", f, peak=1.06)
     kit.pulse("porte_dsp2", f, peak=1.1)
     S.key("cable", "color", f, CYAN, 3, "out")
@@ -152,21 +154,26 @@ def part(S, kit, c):
     end = perle_route(S, "perle1", f, 18, bank_to_button(S, f))
     S.key("perle1", "scale", f, 1.4, 4, "out")
     vanish(kit, "perle1", end, into=list(BOUTON_C), d=5)
-    kit.draw("douteuse_fil1", f + 2, 6, e="linear")
-    kit.draw("douteuse_fil2", f + 8, 6, e="out")
-    S.key("douteuse_pince", "pos", f + 12, B0)
-    kit.pop("douteuse_pince", f + 12, d=5)
+    kit.draw("douteuse_fil1", f + 2, 8, e="linear")
+    kit.draw("douteuse_fil2", f + 10, 8, e="out")
+    S.key("douteuse_pince", "pos", f + 16, B0)
+    kit.pop("douteuse_pince", f + 16, d=5)
 
-    f = kit.at("S10", "codes", "la pince cogne le mur de la banque juste devant la clé : un trait de mur et un cadenas "
-                               "s'y posent, la clé tremble ; le fil recule. Le mur protège la clé")
+    f = kit.at("S10", "codes", "la pince cogne la clé : choc (éclair), la clé tremble fort ; un GRAND cadenas tombe sur "
+                               "la clé et se ferme : refusé ; le fil recule")
     S.key("douteuse_fil2", "pb", f, list(B), 2, "in")
     S.key("douteuse_pince", "pos", f, list(B), 2, "in")
-    kit.pop("mur_bas", f + 1, d=3)
-    S.key("cadenas", "pos", f - 1, list(CADENAS_BAS))
-    kit.pop("cadenas", f + 2, d=4)
-    kit.shake("cle", f + 2, amp=6)
-    kit.shake("cle", f + 5, amp=4)
-    back = [round(B[0] - 24 * u[0], 2), round(B[1] - 24 * u[1], 2)]
+    hit = f + 2
+    S.key("coupure", "pos", hit - 1, [B[0] + 4, B[1]])
+    S.key("coupure", "scale", hit - 1, 1.3)
+    S.key("coupure", "p", hit, 1, 6, "out")
+    S.key("coupure", "p", hit + 6, 0)
+    kit.shake("cle", hit, amp=12)
+    kit.shake("cle", hit + 4, amp=7)
+    S.key("cadenas", "pos", hit - 1, list(CADENAS_CLE))
+    kit.pop("cadenas", hit, scale=2.6, d=5)
+    S.key("cadenas", "scale", hit + 8, 1.9, 6, "inOut")
+    back = [round(B[0] - 30 * u[0], 2), round(B[1] - 30 * u[1], 2)]
     S.key("douteuse_fil2", "pb", f + 8, back, 6, "out")
     S.key("douteuse_pince", "pos", f + 8, back, 6, "out")
 
@@ -189,7 +196,7 @@ def part(S, kit, c):
     red = cut + 2                                              # contrôle sans son : « le passage au rouge est bref »
     S.key("douteuse", "stroke", red, RED, 6, "out")
     S.key("douteuse_txt", "color", red, RED, 6, "out")
-    S.key("douteuse_tete", "fill", red, RED, 6, "out")        # l'en-tête au loup vire au rouge : un grand aplat
+    S.key("douteuse_titre", "color", red, RED, 6, "out")
     kit.shake("douteuse", red + 4, amp=8)
 
     # ================= S11 « Ça ne suffit pas : une connexion propre ne dit rien de la société en face. » ==========
@@ -199,7 +206,7 @@ def part(S, kit, c):
     kit.drop("douteuse", f, h=H, out=True)
     toi.walk(f + 2, list(P2), 8)
     for wid in ("douteuse_fil1", "douteuse_fil2"):
-        for tr in ("pa", "pb"):
+        for tr in ("pa", "pb", "via"):
             p = S.val(wid, tr, f - 1)
             S.key(wid, tr, f, [p[0], round(p[1] + H, 2)], DROP, "out")
         S.key(wid, "opacity", f + DROP // 2, 0, 6, "linear")
@@ -207,28 +214,29 @@ def part(S, kit, c):
     kit.drop("douteuse_pince", f, h=H, out=True)
     S.key("douteuse", "scale", f + DROP + 2, 0)
     S.key("douteuse_pince", "scale", f + DROP + 2, 0)
-    vanish(kit, "cadenas", f, into=[CLE_HOME[0] - 40, CLE_HOME[1]], d=7)
-    vanish(kit, "mur_bas", f + 2, d=6)
+    vanish(kit, "cadenas", f, into=list(CLE_HOME), d=7)
 
     f = kit.at("S11", "connexion", "une pastille propre part des comptes, franchit la porte et rejoint le bouton")
     end = perle_route(S, "perle1", f, 18, bank_to_button(S, f))
     vanish(kit, "perle1", end, into=list(BOUTON_C), d=6)
     kit.pulse("releve2", end + 3, peak=1.08)
 
-    f = kit.at("S11", "société", "le téléphone se soulève : la société (silhouette blanche coiffée d'un fronton "
-                                 "d'immeuble) sort de derrière lui ; sur sa poitrine, un grand immeuble et un badge vide "
-                                 "en tirets, relié au téléphone par un fil en tirets")
+    f = kit.at("S11", "société", "le téléphone se soulève : un immeuble de bureaux (fenêtres, porte, toit) sort de "
+                                 "derrière lui ; sur sa façade, une enseigne-badge vide en tirets, reliée au téléphone "
+                                 "par un fil en tirets")
     for id in ("appli", "bouton", "interrupteur"):
         p = S.val(id, "pos", f - 1)
         S.key(id, "pos", f, [p[0], p[1] - 18], 4, "out")
         S.key(id, "pos", f + 10, list(p), 8, "inOut")
     S.key("cable", "pa", f, [CABLE_A[0], CABLE_A[1] - 18], 4, "out")
     S.key("cable", "pa", f + 10, list(CABLE_A), 8, "inOut")
-    soc.enter(f - POP - 1, at=list(SOC_HIDDEN))                # cachée sous le calque du téléphone (z 3 < 4)
-    mid = [118, 1040]
+    S.key("societe", "pos", f - 1, list(SOC_HIDDEN))
+    S.key("societe", "scale", f - 1, 1)                        # cachée sous le calque du téléphone (z 3 < 4)
+    S.key("societe", "opacity", f - 1, 1)
+    mid = [150, 1000]
+    S.key("societe", "pos", f, mid, 8, "linear")
+    S.key("societe", "pos", f + 8, list(SOCIETE_C), 10, "out")
     S.key("badge", "pos", f - 1, [SOC_HIDDEN[0], round(SOC_HIDDEN[1] + BADGE_DY, 2)])
-    soc.hop(f, mid, 8, h=0)
-    soc.hop(f + 8, list(SOCIETE_C), 10, h=0)
     S.key("badge", "pos", f, [mid[0], round(mid[1] + BADGE_DY, 2)], 8, "linear")
     S.key("badge", "pos", f + 8, list(BADGE_ON_SOC), 10, "out")
     show = next(n for n in range(f, f + 18) if S.val("badge", "pos", n)[1] - BADGE_H / 2 > PHONE_BOTTOM)
@@ -237,8 +245,8 @@ def part(S, kit, c):
     S.key("badge", "scale", show, 1, 5, "out")
     kit.draw("attache", show + 3, 8)
 
-    f = kit.at("S11", "face.", "la société s'incline vers « Toi » : face à face. Tenue")
-    soc.lean_to(f, 10)
+    f = kit.at("S11", "face.", "l'immeuble bat une fois, face à « Toi » : la société en face. Tenue")
+    kit.pulse("societe", f, peak=1.05, step=4)
 
     # ================= S12 « Deuxième erreur : ne pas vérifier qui est derrière l'appli. » =================
     f = kit.at("S12", "Deuxième", "repère : le disque actif glisse sur 2 « Société » ; le disque 1 garde une coche, "
@@ -260,10 +268,14 @@ def part(S, kit, c):
     g = kit.type("badge_nom", f, rate=1.5)
     kit.pop("badge_case", g, d=5)
 
-    f = kit.at("S12", "l’appli.", "la case vide du badge et le « ? » de « Toi » battent deux fois ensemble : nommée, "
-                                  "pas vérifiée. Tenue")
-    kit.pulse("question2", f, times=2)
-    kit.pulse("badge_case", f, times=2, peak=1.3)
+    f = kit.at("S12", "l’appli.", "les tirets du badge clignotent et le « ? » de « Toi » bat en grand, deux fois ; la "
+                                  "case reste vide : un nom ne suffit pas. Tenue")
+    # tour sans son 1 : « le badge en tirets et le ? ne sont pas perçus » -> clignotement franc + grand battement
+    kit.pulse("question2", f, times=2, peak=1.55, step=4)
+    kit.pulse("badge_case", f, times=2, peak=1.35, step=4)
+    for k in range(3):
+        S.key("badge_fond", "opacity", f + 6 * k, 0.15, 2, "out")
+        S.key("badge_fond", "opacity", f + 6 * k + 3, 1, 2, "out")
 
     # ================= S13 « En France, ces services doivent être enregistrés auprès de l'ACPR. » =================
     f = kit.at("S13", "France,", "un registre (livre ouvert, sceau rond de l'autorité sur la page de gauche, une "

@@ -27,7 +27,7 @@ from pipeline.story_kit import TAP
 from . import (ALERTE_R, ALERTES_CABLE, BANK_C, BARRIERE_C, BARRIERE_W, BOUTON_C, BOUTON_TAP, CABLE_A, CABLE_B,
                CADENAS_C, CARTE_ID_C, CLE_HOME, COMPTES_DY, COMPTES_KEY, COMPTES_MID, DIRECTIVE_C, DIRECTIVE_CROWN,
                DIRECTIVE_DSP2, MARKER_XS, MARKER_Y, MUR_C, OPEN_BANKING_C, P2, PHONE_C, PORTE_C, PORTE_UE_C,
-               PORTE_VIA, QUESTION_C, RELEVE_DY, SWITCH_C, HEAD_DY, TOI_SCALE, along, bulle_ronds, cable_route,
+               PORTE_VIA, QUESTION_C, QUESTION_LINK, RELEVE_DY, SWITCH_C, HEAD_DY, TOI_SCALE, along, bulle_ronds, cable_route,
                perle_route, press, ring, scene_f0, t_at_x, toggle, vanish)
 from pipeline.story import text_width
 
@@ -84,18 +84,18 @@ def part(S, kit, c):
         vanish(kit, f"perle{k + 1}", end, into=releve_pt(k), d=6)
         kit.pop(f"releve{k + 1}", end + 2, d=7)
 
-    f = kit.at("S02", "autorisé ?", "un grand « ? » sort du bouton, passe au-dessus de la tête de « Toi », qui se "
-                                    "penche vers lui, et se pose au-dessus du câble")
-    kit.pop("question", f, from_pt=BOUTON_C, to=list(OVER_HEAD))
-    kit.move("question", f + POP, list(QUESTION_C), 13, arc=40)
+    f = kit.at("S02", "autorisé ?", "un grand « ? » jaillit du bouton cliqué et se pose juste au-dessus du câble, "
+                                    "relié au bouton par un trait court en tirets ; « Toi » se penche vers lui")
+    # tour sans son 1 : « le ? paraît venir de l'utilisateur » -> il sort DU BOUTON et y reste relié (plus de ronds
+    # de pensée depuis la tête de « Toi »)
+    kit.pop("question", f, from_pt=BOUTON_C, to=list(QUESTION_C), d=11)
+    S.key("question", "scale", f + 11, 1.12, 4, "out")
+    S.key("question", "scale", f + 15, 1.0, 5, "inOut")
+    S.key("question_lien", "pa", f - 1, list(QUESTION_LINK[0]))
+    S.key("question_lien", "pb", f - 1, list(QUESTION_LINK[1]))
+    kit.draw("question_lien", f + 6, 6)
+    kit.pulse("bouton", f + 1, peak=1.05)
     toi.lean_to(f + 2, 6)
-    # contrôle sans son : « on ne sait pas qui doute ». Trois ronds de pensée relient la tête de « Toi » au « ? » :
-    # c'est SA question, sur le bouton qu'il vient de cliquer
-    land = f + POP + 13
-    head = S.to_world("toi", [0, HEAD_DY], land)
-    for k, pt in enumerate(bulle_ronds(head, [QUESTION_C[0] - 14, QUESTION_C[1] + 70], head_r=35 * TOI_SCALE)):
-        S.key(f"bulle_rond{k + 1}", "pos", land - 1, pt)
-        kit.pop(f"bulle_rond{k + 1}", land + 3 * k, d=5, scale=1.7)
     g = S.word_after("vidéo,", f)                                    # vie secondaire : le « ? » oscille
     for k, dy in enumerate((-7, 7, -7, 0)):
         S.key("question", "pos", g + 9 * k, [QUESTION_C[0], QUESTION_C[1] + dy], 9, "inOutSine")
@@ -103,8 +103,7 @@ def part(S, kit, c):
     # ================= S03 : trois alertes sur le câble, puis le repère 1-2-3 =================
     f = kit.at("S03", "trois", "le « ? » éclate en trois alertes qui tombent sur le câble, une à une : 1, 2, 3")
     vanish(kit, "question", f)
-    for k in range(3):
-        vanish(kit, f"bulle_rond{k + 1}", f + 2 * (2 - k), d=6)
+    kit.draw("question_lien", f, 5, to=0, e="in")
     toi.lean_to(f, 0)
     for k in range(3):
         a = f"alerte{k + 1}"
@@ -119,14 +118,19 @@ def part(S, kit, c):
     kit.pulse("releve1", end, peak=1.08)
     kit.pulse("releve2", end + 2, peak=1.08)
 
-    f = kit.at("S03", "réflexe", "chaque alerte monte sur un disque du repère 1-2-3 légendé (Codes, Société, Accès), "
-                                 "aucun disque actif")
+    f = kit.at("S03", "réflexe", "le repère 1-2-3 légendé (Codes, Société, Accès) surgit ; chaque alerte s'envole, "
+                                 "l'une après l'autre, jusqu'à SON disque, qui s'entoure d'un anneau à l'impact")
+    # tour sans son 1 : « les triangles disparaissent sans cause visible » -> le repère est là AVANT, chaque alerte
+    # vole vers sa case numérotée et la case « bat » à l'impact
+    kit.pop("marqueur", f)
     k_disc = 20 / ALERTE_R
     for k in range(3):
         a = f"alerte{k + 1}"
-        g = kit.move(a, f + 3 * k, [MARKER_XS[k], MARKER_Y], arc=90, scale=k_disc)
-        vanish(kit, a, g - 2, d=6)
-    kit.pop("marqueur", f + MOVE - 4)
+        g = kit.move(a, f + 3 + 7 * k, [MARKER_XS[k], MARKER_Y], arc=90, scale=k_disc)
+        vanish(kit, a, g - 2, d=5)
+        S.key(f"marqueur_ping{k + 1}", "pos", g - 3, [MARKER_XS[k], MARKER_Y])
+        ring(S, f"marqueur_ping{k + 1}", g - 2, d=10, s0=0.6, s1=1.3)
+    assert g + 8 <= 352 + 1, g
 
     # ================= S04 : le bouton, c'est l'open banking =================
     f = kit.at("S04", "bouton,", "« Toi » touche à nouveau le bouton : il s'enfonce")
