@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-23T13:04:34+00:00",
+  "updated_at": "2026-10-23T13:20:43+00:00",
   "checkpoints": {
     "v01_full_approved": {
       "state": "done",
@@ -116,29 +116,40 @@
           "version": "v1 · révisé après le test sans son"
         },
         "spec": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-23T13:20:43+00:00"
         },
         "render": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-23T13:20:43+00:00"
         },
         "review": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-23T13:20:43+00:00"
         },
         "mute_verify": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-23T13:20:43+00:00"
         },
         "qa": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-23T13:20:43+00:00"
         },
         "delivered": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-23T13:20:43+00:00"
         },
         "published": {
           "state": "pending"
         }
       },
       "open_issues": [],
-      "notes": []
+      "notes": [],
+      "livraison": {
+        "date": "2026-10-23",
+        "fichier": "output/WTH-V02.mp4",
+        "sans_son": "3/9 GOT, aucune idée principale manquée, critère oui (mode rapide, après 1 tour de correction)"
+      }
     },
     "V03": {
       "title": "1 % de frais par an : ce que ça coûte",
