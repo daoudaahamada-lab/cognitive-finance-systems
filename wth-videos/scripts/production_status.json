@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-23T20:13:48+00:00",
+  "updated_at": "2026-10-23T20:36:02+00:00",
   "checkpoints": {
     "v01_full_approved": {
       "state": "done",
@@ -317,7 +317,8 @@
           "cache_key": "a2827042f4129fc14363d619"
         },
         "storyboard": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-23T20:36:02+00:00"
         },
         "spec": {
           "state": "pending"
