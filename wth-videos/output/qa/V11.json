@@ -3,7 +3,7 @@
   "mode": "story",
   "source": "WTH-021",
   "file": "output/WTH-V11.mp4",
-  "checked_at": "2026-10-24T21:35:16+00:00",
+  "checked_at": "2026-10-24T22:06:06+00:00",
   "ok": true,
   "checks": [
     {
@@ -25,7 +25,7 @@
       "ok": true,
       "value": "2791 images, empreintes identiques",
       "expected": "2791 images (props), empreintes props + storyboard + mise en scène du rendu = fichiers actuels, version sans sous-titres du même rendu",
-      "detail": "props 62061c8f4c, storyboard 387fc40c45, mise en scène 260d51a254"
+      "detail": "props b75ba40aeb, storyboard 387fc40c45, mise en scène e26cdcf1bd"
     },
     {
       "check": "Mise en scène complète",
@@ -88,7 +88,7 @@
       "ok": true,
       "value": "tenue la plus longue 1.8 s (images 1859-1913)",
       "expected": "aucune image figée plus de 3.5 s, hors carte de fin (dès l'image 2697)",
-      "detail": "36 tenues ≥ 0,5 s (au moins 12 px à mi-résolution qui changent de plus de 16 niveaux = mouvement)"
+      "detail": "38 tenues ≥ 0,5 s (au moins 12 px à mi-résolution qui changent de plus de 16 niveaux = mouvement)"
     },
     {
       "check": "Version sans sous-titres conforme",

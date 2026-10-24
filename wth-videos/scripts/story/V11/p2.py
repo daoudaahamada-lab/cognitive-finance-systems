@@ -159,8 +159,8 @@ def part(S, kit, c):
     arr = kit.pop("mini_cradle", f, from_pt=list(BADGES[1]), to=list(mini_r), d=14)
     kit.pulse("pile_clause", arr, times=2, step=3)
     kit.shake("pile_clause", arr + 12, 5)
-    kit.pop("fois2", arr)                         # « ×2 » entre les deux pictogrammes, tenu jusqu'à S12 « La »
-    kit.pulse("mini_rings", arr, peak=1.2, step=3)
+    kit.pulse("mini_rings", arr, peak=1.2, step=3)  # contrôle sans son : plus de « ×2 » (obscur), les deux
+    kit.pulse("mini_cradle", arr + 4, peak=1.2, step=3)  # pictogrammes battent l'un après l'autre
 
     f = kit.at("S11", "jour.", "les trois nouvelles pilules passent au cyan pâle, « à revoir », de bas en haut")
     for k, pid in enumerate(pile):
@@ -168,7 +168,7 @@ def part(S, kit, c):
 
     # ================= S12 : la famille n'est pas seule à changer =================
     f = kit.at("S12", "La", "la pile et ses deux pictogrammes se résorbent sur place, de haut en bas ; le conseil bat")
-    fondre(kit, ["fois2", "mini_rings", "mini_cradle", "pile_clause"] + pile[::-1], f, step=2)
+    fondre(kit, ["mini_rings", "mini_cradle", "pile_clause"] + pile[::-1], f, step=2)
 
     f = kit.at("S12", "changer :", "les deux rangées de la famille battent ensemble ; « Enfants » passe à « à revoir »")
     for i in (0, 1):

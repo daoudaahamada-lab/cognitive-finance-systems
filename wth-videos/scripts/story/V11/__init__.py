@@ -35,6 +35,16 @@ Aucune entité nouvelle : tout se compose avec le catalogue.
 - Nouvelle valeur de rangée (S21) : texte deep enfant de la fiche (`fiche_vN`, ancré à droite, tapé) ; l'ancienne valeur
   tombe (piste `fall` de la line).
 - Pilule « Info » : capsule cyan + étoile en polygone + anneau deep (shape, draw).
+
+Correction ciblée après le contrôle sans son (build/V11/mute_verify_r1.json : l'ouverture contredisait la morale) :
+- S01-S03 : « Toi » ne pose PAS la question au début (c'est la morale de la fin) : plus de bulle « ? » en S03, il
+  lève le stylo vers la fiche (il ne regarde qu'elle) ; plus de « × » rouge (S01, S04) : la fiche repousse l'info
+  d'une secousse et d'un éclat encre, la pilule s'écrase au contact puis rebondit ; elle RESTE au-dessus du client
+  (S02 : les trois disques sortent d'elle ; S06 : elle monte d'un cran pour la date de la vie ; S08 : fondu) ;
+- S11 : plus de « ×2 » (obscur) : les deux pictogrammes posés sur les bouts de la clause suffisent ;
+- S16 : la flèche va de la pièce à la maison (acheter avec de l'argent), et non plus de la maison à la pièce ;
+- S21 : la réponse du client est une bulle papier à hauteur de sa tête, où ses cinq badges se rangent en ligne
+  avant de monter à leur rangée (plus de « … »).
 """
 import importlib
 import math
@@ -99,7 +109,6 @@ JAUGES = [  # S14 : (id, légende, niveau d'avant, nouveau niveau, y, sens) ; se
 ]
 T_PATRIMOINE, T_EPARGNE, T_MAISON, T_CREDIT = "Patrimoine", "Épargne", "Maison", "− Crédit"
 T_QUESTION = f"«{NBSP}Qu’est-ce qui\na changé depuis\nnotre dernier\néchange{NBSP}?{NBSP}»"
-T_DOTS = "…"
 
 # ---------- mise en page (1080 x 1920) ----------
 X_MIN, X_MAX, Y_MIN, Y_MAX = 40, 940, 160, 1270
@@ -152,10 +161,9 @@ INFO_C0, INFO_W, INFO_H = (330, 640), 150, 62   # S01 « meilleure »
 INFO_BUMP = (390, 640)                          # S01 « dans » : bord droit contre la fiche (465)
 INFO_BACK = (285, 668)                          # S01 « dossier. » : repoussée loin, penchée
 INFO_BACK_ROT = -8
-INFO_CLIENT = (220, 870)                        # S01 « Elle » : au-dessus du client
+INFO_CLIENT = (220, 870)                        # S01 « Elle » : au-dessus du client (y reste jusqu'en S06)
+INFO_HAUT = (220, 790)                          # S06 « vie, » : monte d'un cran, la date de la vie se pose dessous
 INFO_BACK_ARC = 70                              # S01 « dossier. » : rebond en arc ample (contrôle muet)
-REFUS_S01, REFUS_S04 = (440, 640), (425, 560)   # grand « × » rouge au point de contact : la fiche refuse
-REFUS_A = 36                                    # demi-diagonale du « × » (72 px)
 VIE_C = (220, 915)                              # la pilule de la vie (date du client)
 DISQUE_R = 36
 DISQUES_S02 = [(95, 560), (220, 560), (345, 560)]   # personne, immeuble, euro
@@ -194,7 +202,6 @@ CONSEIL_TAP = conseil_world((CONSEIL_W / 2 - 14, -CONSEIL_H / 2))   # S14 « con
 PILE_X, PILE_H = 240, 54
 PILE_YS = [760, 680, 600, 520]                  # du bas vers le haut ; 26 px entre deux pilules
 MINI_R, MINI_DY = 30, -62                       # S11 : pictogrammes famille / enfants posés sur les bouts de la clause
-FOIS2_DY = -64                                  # S11 « clause » : « ×2 » deep entre les deux pictogrammes
 
 # --- S09 (famille) ---
 RINGS_C, RINGS_W = (225, 640), 240              # 240 x 137 : y 572-708
@@ -229,24 +236,24 @@ EPARGNE_FIN, MAISON_FIN = (155, 220), (352.5, 165)          # S17 « apparaître
 CREDIT_C, CREDIT_W, CREDIT_H = (337.5, 648), 195, 40        # S17 : sous « Maison », dette en rouge
 PIECE_R = 40
 TOKEN_C, TOKEN_W = (225, 762), 190              # 190 x 207 : y 658-866
-VENTE_FLECHE, VENTE_PIECE = (332, 812), (382, 852)   # S16 « vend » : maison -> € (vendre refait de l'argent),
-VENTE_ROT = 38                                         # en bas à droite de la maison, loin des puces de la fiche
+VENTE_FLECHE, VENTE_PIECE = (332, 812), (382, 852)   # S16 « vend » : € -> maison (contrôle muet : la flèche maison
+VENTE_ROT = 210                                        # -> € se lisait « vente ») ; en bas à droite de la maison
 
 # --- les illustrations (une seule à la fois dans la vie du client) ---
 TRUCK_C, TRUCK_FROM, TRUCK_W = (225, 700), (-160, 700), 280
 GLOBE_C, GLOBE_W = (225, 700), 190              # 190 x 231 : y 585-815
 
-# --- la question de « Toi » (S03 : petite bulle ; S20-S21 : grande bulle) ; la réponse du client (S21) ---
-Q_GS_S03, Q_GS_S20, Q_GS_COIN = 64, 64, 40
-BULLE1_C, BULLE1_W, BULLE1_H = (520, 960), 150, 110   # S03 : à mi-chemin, queue sur la pointe du stylo
-Q_S03 = (705, 1000)                             # S03 : la pointe du stylo levé
+# --- la question de « Toi » (S20-S21 : grande bulle) ; la réponse du client (S21) ---
+Q_GS_S20, Q_GS_COIN = 64, 40
+TOI_LIT = (705, 885)                            # S03 : le stylo levé vers la fiche (« Toi » ne regarde qu'elle)
 BULLE2_C, BULLE2_W, BULLE2_H = (240, 730), 360, 220   # x 60-420, y 620-840
 BULLE2_TIP = (626, 1046)                        # S20 : queue vers la tête de « Toi » en TOI_RDV (660, 1071)
 BULLE2_K0 = 0.65
 Q_COIN = (90, 650)                              # S20 « ouverte. » : le « ? » dans le coin haut gauche
 QUESTION_TXT = (112, 735)                       # S21 : 4 lignes, ancre start, bloc centré dans la bulle
-BULLE3_C, BULLE3_W, BULLE3_H = (372, 1012), 124, 78   # S21 : la réponse du client (x 310-434, y 973-1051)
-BULLE3_TIP = (258, 1050)                        # queue vers la tête du client (220, 1071)
+BULLE3_C, BULLE3_W, BULLE3_H = (414, 1020), 224, 64   # S21 : la réponse du client, à hauteur de sa tête
+BULLE3_TIP = (285, 1072)                        # (x 302-526, y 988-1052) ; queue vers sa tête (220, 1071)
+BULLE3_DX = 40                                  # S21 : les cinq badges (r 18) en ligne dans la bulle (x 316-512)
 Q_PEN = (580, 1005)                             # S20 « pose » : la pointe se lève devant « Toi »
 FIN_BTN_TAP = (560, 960)                        # S22 « comprendre » : bas du bouton, sous le libellé
 
@@ -280,7 +287,7 @@ def assert_reach(fig_x, pt, what, fig_y=TOI_HOME[1]):
         f"{what} : hors d'allonge depuis x {fig_x} : {d} px, côté sûr {safe}, tête {clear} px"
 
 
-for _x, _pt, _what in [(TOI_HOME[0], Q_S03, "S03 « ? » à la pointe"), (TOI_HOME[0], CONSEIL_SPAWN, "S07"),
+for _x, _pt, _what in [(TOI_HOME[0], TOI_LIT, "S03 stylo vers la fiche"), (TOI_HOME[0], CONSEIL_SPAWN, "S07"),
                        (TOI_HOME[0], CONSEIL_TAP, "S14 conseil"), (TOI_RDV[0], Q_PEN, "S20 pose"),
                        (TOI_RDV[0], PASTILLE_TAP, "S21 pastille"), (TOI_RDV[0], FIN_BTN_TAP, "S22 bouton")]:
     assert_reach(_x, _pt, _what)
@@ -438,7 +445,7 @@ _COMMON = {   # S07 -> S20 : la photo datée et le conseil inadapté ne changent
     "conseil_rouge": {"opacity": 1},
     "conseil_fil": {"draw": 1, "sag": 60, "from": 0, "opacity": 1},
     "conseil_fil2": {"draw": 0},
-    **_OFF("info", "bulle1", "question", "vie_disque1", "vie_disque2", "vie_disque3", "refus"),
+    **_OFF("info", "question", "vie_disque1", "vie_disque2", "vie_disque3"),
     "fil_vie1": {"draw": 0}, "fil_vie2": {"draw": 0}, "fil_vie3": {"draw": 0},
 }
 
@@ -451,8 +458,7 @@ ENTRY_P2 = {   # fin de S08 = etat_initial de S09 (image 822)
     **{f"q_ligne{i + 1}": {"scale": 1} for i in range(5)},
     "eclat_evt": {"p": 0},
     **_OFF(*(pid for pid, _ in PILE), "evt_rings", "ring_g", "ring_d", "evt_cradle", *BADGE_IDS, "ou_famille",
-           "separation", "mini_rings", "mini_cradle", "coeur_g", "coeur_d", "fois2", "vente_fleche",
-           "vente_piece"),
+           "separation", "mini_rings", "mini_cradle", "coeur_g", "coeur_d", "vente_fleche", "vente_piece"),
 }
 ENTRY_P3 = {   # fin de S14 = etat_initial de S15 (image 1771)
     **_COMMON,
@@ -468,7 +474,7 @@ ENTRY_P3 = {   # fin de S14 = etat_initial de S15 (image 1771)
     "fil_jauge1": {"draw": 1}, "fil_jauge2": {"draw": 1}, "fil_jauge3": {"draw": 1},
     **_OFF(*(pid for pid, _ in PILE), "evt_disque", *(f"q_ligne{i + 1}" for i in range(5)), "evt_rings", "ring_g",
            "ring_d", "evt_cradle", "ou_famille", "separation", *(t[0] for t in TRAVAIL), "ou_travail",
-           "mini_rings", "mini_cradle", "coeur_g", "coeur_d", "fois2", "vente_fleche", "vente_piece"),
+           "mini_rings", "mini_cradle", "coeur_g", "coeur_d", "vente_fleche", "vente_piece"),
 }
 
 
@@ -533,12 +539,8 @@ def cast(S, kit):
               stroke=DEEP, sw=5, shadow=0, z=11.9, parent="info", draw=0)
     S.add("eclat_info", "burst", z=11.8, r0=50, r1=100, n=8, sw=6, color=DEEP)
     S.set("eclat_info", pos=list(INFO_C0), p=0)
-    S.add("eclat_refus", "burst", z=12.5, r0=24, r1=96, n=8, sw=9, color=RED, a0=22.5)   # S01 : la fiche refuse
-    # grand « × » rouge au point de contact (S01 « dossier. », S04 « problème, ») : la fiche refuse
-    kit.shape("refus", list(REFUS_S01), kind="poly", pts=[[-REFUS_A, -REFUS_A], [REFUS_A, REFUS_A]], closed=False,
-              fill="none", stroke=RED, sw=13, shadow=0, z=12.7, scale=0)
-    kit.shape("refus_b", [0, 0], kind="poly", pts=[[-REFUS_A, REFUS_A], [REFUS_A, -REFUS_A]], closed=False,
-              fill="none", stroke=RED, sw=13, shadow=0, z=12.7, parent="refus")
+    # S01 : le choc contre la fiche (encre : un rebond, pas une erreur ; plus de « × » rouge, contrôle muet)
+    S.add("eclat_refus", "burst", z=12.5, r0=24, r1=96, n=8, sw=9, color=INK, a0=22.5)
     S.set("eclat_refus", pos=[FICHE_C[0] - SHEET.w / 2, INFO_BUMP[1]], p=0)
 
     # --- les trois disques de la vie (S02-S08) et leurs fils tiretés, arrêtés avant L1, L3, L4 ---
@@ -602,7 +604,6 @@ def cast(S, kit):
     # S11 : la clause touchée par les deux événements : les pictogrammes famille et enfants posés sur ses bouts
     for mid, ico in (("mini_rings", "person"), ("mini_cradle", "plus")):
         kit.icon(mid, [PILE_X, PILE_YS[3] + MINI_DY], ico, disc=MINI_R, fill=CYAN, shadow=3, z=13.5, scale=0)
-    kit.text("fois2", [PILE_X, PILE_YS[3] + FOIS2_DY], "×2", size=52, weight=800, color=DEEP, z=13.5, scale=0)
 
     # --- travail : un cas à la fois (disque + pictogramme + étiquette), « ou » deep ---
     for tid, txt, icon, rot in TRAVAIL:
@@ -661,20 +662,17 @@ def cast(S, kit):
     png(S, "evt_truck", "TRUCK", TRUCK_W, TRUCK_C, z=5)
     png(S, "evt_globe", "GLOBE", GLOBE_W, GLOBE_C, z=5, opacity=0)
 
-    # --- la question de « Toi » : « ? » (qmark), petite bulle (S03), grande bulle (S20-S21) et son texte ---
+    # --- la question de « Toi » (S20-S21 seulement : c'est la morale) : « ? » (qmark), grande bulle, son texte ---
     S.add("question", "qmark", z=17)
-    S.set("question", pos=list(Q_S03), scale=0, opacity=1, gs=Q_GS_S03)
-    S.add("bulle1", "bubble", z=16, **bubble_params(BULLE1_W, BULLE1_H, Q_S03, BULLE1_C, base=(30, 62)))
-    S.set("bulle1", pos=list(BULLE1_C), scale=0, s=0, q=0, glyph=0, pulse=0, opacity=1, rot=0)
+    S.set("question", pos=list(Q_PEN), scale=0, opacity=1, gs=Q_GS_S20)
     S.add("bulle2", "bubble", z=16, **bubble_params(BULLE2_W, BULLE2_H, BULLE2_TIP, BULLE2_C, base=(90, 150)))
     S.set("bulle2", pos=bulle2_pos(BULLE2_K0), scale=0, s=0, q=0, glyph=0, pulse=0, opacity=1, rot=0)
     kit.text("question_texte", list(QUESTION_TXT), T_QUESTION, size=32, weight=700, anchor="start", z=16.5,
              typed=True)
-    # --- S21 : la réponse du client (petite bulle papier, « … ») ---
-    S.add("bulle3", "bubble", z=16.2, **bubble_params(BULLE3_W, BULLE3_H, BULLE3_TIP, BULLE3_C, base=(-50, -18),
+    # --- S21 : la réponse du client (bulle papier à hauteur de sa tête ; ses badges s'y rangent en ligne) ---
+    S.add("bulle3", "bubble", z=16.2, **bubble_params(BULLE3_W, BULLE3_H, BULLE3_TIP, BULLE3_C, base=(-75, -45),
                                                        sw=4, shadow=4))
     S.set("bulle3", pos=list(BULLE3_C), scale=0, s=0, q=0, glyph=0, pulse=0, opacity=1, rot=0)
-    kit.text("bulle3_mot", [0, -8], T_DOTS, size=48, weight=800, z=16.3, parent="bulle3")
 
     return SimpleNamespace(toi=toi, client=client, conjoint=conjoint, sheet=SHEET, rows=rows, pile_w=pile_w)
 

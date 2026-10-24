@@ -38,7 +38,7 @@ TOKEN_BLOC, TOKEN_BLOC_K = (392, BLOC_C[1]), 0.4   # S17 « patrimoine » : la m
 TRUCK_OUT = (-220, TRUCK_C[1])                  # S18 « surtout » : hors champ à gauche
 B2_SMALL = (300, 776)                           # S20 « pose » : petite bulle (0,65 : x 183-417, y 704-848)
 BADGE_ROW_K = 0.73                              # S21 : un badge (r 30) se pose sur la puce (r 22) de sa rangée
-BUBBLE3_K = 0.6                                 # S21 : les badges réunis dans la bulle-réponse
+BUBBLE3_K = 0.6                                 # S21 : les badges en ligne dans la bulle-réponse (r 18)
 PASTILLE_K_PEAK = 1.3
 BTN_W, BTN_H = 380, 112
 BTN_K = BTN_H / PASTILLE_H                      # relais pastille -> bouton (w = BTN_W / BTN_K, échelle BTN_K)
@@ -91,12 +91,13 @@ def part(S, kit, c):
     f = kit.at("S16", "achète", "une maison tombe dans la vie du client, juste sous le bloc « Épargne »")
     kit.drop("evt_token", f, h=150, to=list(TOKEN_C))
 
-    # contrôle muet : « aucun n'a vu l'idée de la vente » ; vendre = la maison donne de l'argent
-    f = kit.at("S16", "vend", "une flèche part de la maison et une pièce cyan surgit au bout : vendre la maison "
-                              "redonne de l'argent")
-    kit.pop("vente_fleche", f, d=6)
-    kit.pop("vente_piece", f + 5)
-    kit.pulse("vente_piece", f + 5 + POP, peak=1.2, step=3)
+    # contrôle sans son r1 : la flèche maison -> € se lisait « vente » ; on garde l'achat lisible : de l'argent va
+    # dans la maison (pièce, puis flèche vers la maison, qui bat)
+    f = kit.at("S16", "vend", "une pièce cyan surgit à droite de la maison et une flèche part d'elle vers la maison, "
+                              "qui bat : de l'argent passe dans la maison")
+    kit.pop("vente_piece", f)
+    kit.pop("vente_fleche", f + 5, d=6)
+    kit.pulse("evt_token", f + 11, peak=1.1, step=3)
 
     f = kit.at("S16", "immobilier ?", "« Patrimoine : épargne » vire au rouge et sa puce bat deux fois")
     rows_state(S, kit, f, red=3)
@@ -244,15 +245,16 @@ def part(S, kit, c):
     kit.move("pastille", f, list(PASTILLE_LOW))
 
     f_cest = S.word_after("C’est", f)                         # temps fort « C’est » (posé plus bas)
-    f = kit.at("S21", "échange ? »", "le client bondit et répond : une petite bulle « … » sort de sa tête ; ses cinq "
-                                     "badges y entrent, puis la date de sa vie en sort")
+    f = kit.at("S21", "échange ? »", "le client bondit et répond : une bulle sort à hauteur de sa tête ; ses cinq "
+                                     "badges s'y rangent en ligne, puis la date de sa vie en sort")
     client.hop(f, CLIENT_C, 8, h=14)
     client.lean_to(f + 8, 8, TILT)
     kit.pop("bulle3", f, d=POP)
     arrive = []
     for i, bid in enumerate(BADGE_IDS):
         set_z(kit, bid, f, 17.5)                              # au-dessus de la fiche et des bulles
-        kit.move(bid, f + 2 + 2 * i, list(BULLE3_C), d=8, e="inOut", scale=BUBBLE3_K)
+        slot = [BULLE3_C[0] + (i - 2) * BULLE3_DX, BULLE3_C[1]]   # en ligne dans la bulle (contrôle sans son)
+        kit.move(bid, f + 1 + i, slot, d=7, e="inOut", scale=BUBBLE3_K)
         a = f_cest + 3 * i                                    # arrivée sur la puce de la rangée i
         kit.move(bid, a - 11, [BULLET_X, ROWS_Y[i]], d=11, e="inOut", scale=BADGE_ROW_K)
         arrive.append(a)
