@@ -3,8 +3,8 @@
   "mode": "story",
   "source": "WTH-021",
   "file": "output/WTH-V11.mp4",
-  "checked_at": "2026-10-24T17:40:41+00:00",
-  "ok": false,
+  "checked_at": "2026-10-24T21:35:16+00:00",
+  "ok": true,
   "checks": [
     {
       "check": "Durée",
@@ -25,7 +25,7 @@
       "ok": true,
       "value": "2791 images, empreintes identiques",
       "expected": "2791 images (props), empreintes props + storyboard + mise en scène du rendu = fichiers actuels, version sans sous-titres du même rendu",
-      "detail": "props b258fbb70e, storyboard 387fc40c45, mise en scène 61b6265b0f"
+      "detail": "props 62061c8f4c, storyboard 387fc40c45, mise en scène 260d51a254"
     },
     {
       "check": "Mise en scène complète",
@@ -43,10 +43,10 @@
     },
     {
       "check": "Aucun mot coupé",
-      "ok": false,
-      "value": "groupe trop large : 805 px",
+      "ok": true,
+      "value": "ok",
       "expected": "tous les mots, entiers, dans la largeur",
-      "detail": "241 mots, groupe le plus large 805/760 px (Inter Bold 64 px, film Story)"
+      "detail": "241 mots, groupe le plus large 752/760 px (Inter Bold 64 px, film Story)"
     },
     {
       "check": "Accents et caractères",
@@ -79,30 +79,30 @@
     {
       "check": "Zones réservées dégagées",
       "ok": true,
-      "value": "haut 0.00% (image 0); bas 0.00% (image 0); droite 0.00% (image 0)",
+      "value": "haut 0.09% (image 358); bas 0.00% (image 0); droite 0.00% (image 0)",
       "expected": "≤ 0.3% de pixels hors fond dans les 160 px du haut, les 380 px du bas et à droite de x = 940 (version sans sous-titres)",
       "detail": "interface TikTok / Reels : rien d'important sous les bandeaux ni sous la colonne d'icônes"
     },
     {
       "check": "Jamais d'image figée",
       "ok": true,
-      "value": "tenue la plus longue 1.8 s (images 124-178)",
+      "value": "tenue la plus longue 1.8 s (images 1859-1913)",
       "expected": "aucune image figée plus de 3.5 s, hors carte de fin (dès l'image 2697)",
-      "detail": "35 tenues ≥ 0,5 s (au moins 12 px à mi-résolution qui changent de plus de 16 niveaux = mouvement)"
+      "detail": "36 tenues ≥ 0,5 s (au moins 12 px à mi-résolution qui changent de plus de 16 niveaux = mouvement)"
     },
     {
       "check": "Version sans sous-titres conforme",
       "ok": true,
-      "value": "PSNR 46.1 dB au pire (image 2699), 2791 / 2791 images",
+      "value": "PSNR 53.2 dB au pire (image 2702), 2791 / 2791 images",
       "expected": "≥ 40 dB au-dessus de y = 1270, 2791 images dans les deux versions",
       "detail": "médiane 99.0 dB"
     },
     {
       "check": "Bande d'action jamais vide",
       "ok": true,
-      "value": "6.8% au pire (image 2)",
+      "value": "3.7% au pire (image 2703)",
       "expected": "≥ 1% de pixels hors fond entre y = 160 et 1270, à chaque image",
-      "detail": "médiane 19.6%"
+      "detail": "médiane 19.4%"
     }
   ]
 }

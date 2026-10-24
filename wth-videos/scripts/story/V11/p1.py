@@ -2,57 +2,28 @@
 
 ÉTAT D'ENTRÉE : l'image 0 (distribution de `cast`), qui est l'etat_initial de S01 : fiche « Fiche client » (690, 565),
 5 rangées écrites à l'encre, pastille « mars 2023 » sur l'en-tête (566, 365, échelle 0,76) ; « Toi » en TOI_HOME
-(820, 1135) avec sa pilule « Toi », BRAS BAISSÉ dès l'image 0 (`toi.hold_low` / `toi.lower(0, 1)`, puis `lower`
-entre deux gestes) ; la moitié gauche vide. Rien à épingler (pas de kit.pin) : la partie commence au film.
+(820, 1135) avec sa pilule « Toi », BRAS BAISSÉ dès l'image 0 ; la moitié gauche vide. Rien à épingler.
 SORTIE : ENTRY_P2 à l'image 822 (voir __init__.py). Tout ce que cette partie commence finit avant 823.
 
-Ids : fiche, fiche_L1-L5, fiche_hl1-5, q_ligne1-5, eclair, cadre, punaise, pastille, pastille_rouge, toi (+ bras,
-stylo), nom_toi, client, nom_client, info (+ info_etoile, info_mot, info_anneau), eclat_info, vie_disque1-3,
-fil_vie1-3, marqueur, evt_disque, eclat_evt, vie, conseil, conseil_rouge, conseil_fil, question, bulle1.
-
-BRIEF, scène par scène (temps forts : kit.at(scène, mot) ; écrire dans `what` ce qu'on voit) :
-- S01 (0-132) « meilleure » : `info` pop en INFO_C0 + `eclat_info` (p 0 -> 1, 9 images). « client » : client.enter
-  (frm=CLIENT_FROM_X, à CLIENT_C, face à « Toi ») avec sa pilule (enfant). « dans » : `info` file (move ease-in, 9 im.)
-  jusqu'à INFO_BUMP (bord gauche à 465, contre la fiche). « dossier. » : kit.shake("fiche", x, 6) et `info` rebondit
-  à INFO_BACK (POP, out) ; aucune rangée ne change. « Elle » : `info` vole en arc 80 jusqu'à INFO_CLIENT. « vie. » :
-  kit.draw("info_anneau") + client.lean_to(5°, TILT) vers elle (puis revient à 0 avant S02 « vie »).
-- S02 (133-267) « changements » : kit.morph("info", vie_disque1-3) pairs 1 -> 3 : les disques naissent en
-  INFO_CLIENT et s'écartent vers DISQUES_S02 (décalés de 2 images). « vie » : client.hop(12 px, 8 im.) + kit.pulse des
-  3 disques. « revoir. » : kit.draw fil_vie1-3 (décalés de 3) ; à l'arrivée de chacun, kit.shake de sa rangée (L1,
-  L3, L4 ; 4 px) et sa puce flash (piste flash 1 puis 0, ~6 images).
-- S03 (268-322) « question » : toi.reach vers la pointe (705, 1000) (assert_reach OK depuis TOI_HOME) ; `question`
-  pop sous la pointe (gs Q_GS_S03) et `bulle1` grandit autour (scale 0 -> 1, SCALE) ; client.lean_to vers la bulle
-  (5°, droite). « remonter. » : les 3 disques glissent vers DISQUES_S03 (MOVE, décalés de 2 ; les fils raccourcissent
-  d'eux-mêmes, ancrés au disque) ; à l'arrivée, flash des 3 puces.
-- S04 (323-383) « problème, » : kit.vanish("question", into=toi.tip) et `bulle1` se réduit avec ; kit.shake("fiche",
-  x, 6) ; les 3 disques renvoyés à DISQUES_S04 (MOVE 12 im., out) pendant que fil_vie1-3 se retirent (piste from
-  0 -> 1, 9 im.) ; « Toi » baisse le bras. « fiche » : kit.draw("cadre") (300 ms ; l'aplat paraît à la fermeture).
-  « figée. » : kit.drop("punaise") en PUNAISE_C ; au contact, kit.shake("cadre", y, 4) et "fiche" (y, 4).
-- S05 (384-466) « photo » : `eclair` p 0 -> 1 (12 im.) ; le contour du cadre clignote deep 2 images (hex) puis encre.
-  « date. » : kit.move("pastille", PASTILLE_PHOTO, scale=1) (MOVE).
-- S06 (467-517) « vie, » : `vie` naît sur la pastille (pop from_pt=pastille) et glisse à VIE_C (MOVE). « continue. » :
-  bascules de la piste text de `vie` toutes les 5 images : T_MARS24, T_MARS25, T_NOV ; client.hop sur place.
-- S07 (518-656) « conseil » : toi.reach(CONSEIL_SPAWN) ; `conseil` pop sous la pointe puis kit.move à CONSEIL_C ;
-  le bras se rebaisse. « fondé » : kit.draw("conseil_fil") (9 im.). « dépassée » : kit.fade("pastille_rouge", to=1)
-  + kit.shake("pastille", 6) ; kit.pulse("vie"). « inadapté. » : kit.fade("conseil_rouge", to=1) ; rot 0 -> 8 (TILT) ;
-  conseil_fil sag 0 -> 30.
-- S08 (657-822) « Pourquoi » : les 3 disques volent en arc vers MARKER_XS (y 200) et se réduisent dans le repère
-  pendant que `marqueur` grandit (scale 0 -> 1, on reste 0) : relais (morph) ; légendes grises. « famille ? » :
-  S.key("marqueur", "on", f, 1, POP) ; L1, L2 surlignées : fiche_hl1-2 opacity 0 -> 1 et slotFill 1 -> 0 (6 im.).
-  « seul » : `evt_disque` part du disque 1 (MARKER_XS[0], 200) et tombe à EVT_C (kit.drop to=EVT_C ou pop from_pt +
-  move DROP). « tout » : `eclat_evt` p 0 -> 1 (12 im.) + kit.shake("fiche", x, 8) deux fois. « question. » :
-  kit.stagger q_ligne1-5 kit.pop, 2 images d'écart ; les « ? » restent à l'encre (rien ne rougit en S08).
-
-RACCORD vers p2 : l'image 822 doit valoir ENTRY_P2 (marqueur on 1, active 0 ; L1-L2 surlignées ; 5 « ? » ; disque-
-événement en EVT_C ; pastille et conseil rouges ; vie « nov. 2026 » ; conseil penché, fil sag 30 ; « Toi » en
-TOI_HOME bras baissé ; client en CLIENT_C, lean 0).
+Tour de revue 1 :
+- S01 « dossier. » : la fiche tremble fort (14 px), un éclat ROUGE jaillit de son bord gauche au point de contact et
+  la pilule « Info » est repoussée loin (MOVE), penchée de 8° ; « vie. » : l'anneau se trace lentement (24 images)
+  pendant que le client s'incline vers elle ; puis « vidéo » (l'info bat) et « voir » (le client s'incline encore) :
+  plus de longue image figée au début de S02.
+- S01 « client » : le client est hors champ à f - 1 et franchit le bord sur le mot (marche ease-out).
+- S02 « revoir. » : fils TIRETÉS qui s'arrêtent 40 px avant les puces ; les rangées tremblent (6 px) et leur puce bat.
+- S03 : la bulle se tient à mi-chemin (520, 960), queue sur la pointe du stylo ; le client fait un petit bond.
+- S04 « figée. » : grosse punaise (r 24, reflet), chute + secousse.
+- S05 « photo » : flash blanc sur toute la photo (0,85 puis 0), éclair, contour qui clignote ; « date. » : la pastille
+  passe SOUS la fiche (z 7) en descendant : elle ne couvre plus les rangées.
+- S07 « conseil » : la pilule naît à gauche du buste de « Toi » (pointe en CONSEIL_SPAWN) et glisse en CONSEIL_C
+  (470, 1200), à 100 px du stylo au repos ; « inadapté. » : le fil se détend de 60 px.
 """
 from . import *  # noqa: F401,F403
 from pipeline.story import DRAW, DROP, FADE, MORPH, MOVE, POP, SCALE, TILT  # noqa: F401
-from pipeline.story_kit import TAP  # noqa: F401
+from pipeline.story_kit import TAP, r3  # noqa: F401
 
-LEAN_CLIENT = 5                                 # S01 « vie. », S03 « question » : le client se tourne vers l'info / la bulle
-Q_S03 = (705, 1000)                             # S03 : la pointe du stylo levé
+LEAN_CLIENT = 5                                 # S01 « vie. » : le client se tourne vers l'info
 Q_BULLE = (BULLE1_C[0] - 6, BULLE1_C[1] - 4)    # S03 : le « ? » glisse de la pointe au centre de la bulle
 SAG_FIL1 = -55                                  # S02 : le fil personne -> Famille passe AU-DESSUS du disque immeuble
 MARKER_DISC_K = 0.55                            # S08 : un disque de la vie (r 36) se réduit à la taille d'un disque du
@@ -93,23 +64,38 @@ def part(S, kit, c):
 
     f = kit.at("S01", "client", "le client (figurine papier, pilule « Client ») entre en marchant depuis le bord "
                                 "gauche jusqu'en bas à gauche, face à « Toi »")
-    client.enter(f, at=CLIENT_C, frm=CLIENT_FROM_X, d=16)
+    S.key("client", "pos", f - 1, [CLIENT_FROM_X, CLIENT_C[1]])     # hors champ à f - 1 (buste x -121 à -3)
+    S.key("client", "scale", f - 1, 1)
+    if S.val("client", "opacity", f - 1) < 1:
+        S.key("client", "opacity", f - 1, 1)
+    client.walk(f, list(CLIENT_C), d=18, e="out")                    # franchit le bord sur le mot
 
     f = kit.at("S01", "dans", "la pilule « Info » file vers la fiche et bute contre son bord gauche")
     kit.move("info", f, INFO_BUMP, d=9, e="in")
 
-    f = kit.at("S01", "dossier.", "au contact, la fiche tremble et repousse la pilule « Info », qui rebondit vers la "
-                                  "gauche ; aucune rangée de la fiche ne change")
-    kit.shake("fiche", f, 6)
-    kit.move("info", f, INFO_BACK, d=POP, e="out")
+    f = kit.at("S01", "dossier.", "au contact, un grand « × » ROUGE frappe le bord de la fiche (tenu ~1 s), un éclat "
+                                  "rouge jaillit, la fiche tremble fort et renvoie la pilule « Info » en arc ample, "
+                                  "penchée ; aucune rangée ne change : refusée")
+    kit.shake("fiche", f, 14)
+    S.key("eclat_refus", "p", f, 1, 12, "out")
+    S.key("eclat_refus", "p", f + 12, 0)
+    kit.pop("refus", f, d=5)
+    kit.move("info", f, INFO_BACK, d=MOVE, e="out", arc=INFO_BACK_ARC)
+    S.key("info", "rot", f, INFO_BACK_ROT, MOVE, "out")
 
     f = kit.at("S01", "Elle", "la pilule « Info » vole en arc et se pose au-dessus du client")
     kit.move("info", f, INFO_CLIENT, arc=80)
+    S.key("info", "rot", f, 0, MOVE, "inOut")
 
-    f = kit.at("S01", "vie.", "un anneau deep se trace autour de la pilule « Info » ; le client s'incline vers elle : "
-                              "elle est à lui")
-    kit.draw("info_anneau", f, DRAW)
+    f = kit.at("S01", "vie.", "un anneau deep se trace lentement autour de la pilule « Info » pendant que le client "
+                              "s'incline vers elle : elle est à lui")
+    kit.draw("info_anneau", f, 24, e="inOut")
     client.lean_to(f, LEAN_CLIENT, TILT)
+    kit.vanish("refus", f, d=6)                     # le « × » du refus a tenu de « dossier. » à « vie. » (~1,3 s)
+    g = S.word_after("vidéo", f)                    # S02 « Dans cette vidéo » : l'info bat (pas de longue tenue)
+    kit.pulse("info", g, peak=1.15, step=4)
+    g = S.word_after("voir", g)                     # « on va voir » : le client s'incline encore vers son info
+    client.lean_to(g, LEAN_CLIENT + 4, 8, "inOut")
 
     # ================= S02 : « … les changements de vie qui doivent tout faire revoir. » =================
     f = kit.at("S02", "changements", "la pilule « Info » se divise en trois disques cyan (personne, immeuble, euro) "
@@ -125,29 +111,30 @@ def part(S, kit, c):
     for did in disques:
         kit.pulse(did, f)
 
-    f = kit.at("S02", "revoir.", "de chaque disque part un fil deep vers la puce de sa rangée (Famille, Travail, "
-                                 "Patrimoine) ; à l'arrivée, la rangée tremble et sa puce grossit : à revoir")
+    f = kit.at("S02", "revoir.", "de chaque disque part un fil tireté deep vers sa rangée (Famille, Travail, "
+                                 "Patrimoine), sans la toucher ; la rangée tremble et sa puce grossit : à revoir")
     S.set(fils[0], sag=SAG_FIL1)
     for k, (fid, row) in enumerate(zip(fils, reliees)):
         g = kit.draw(fid, f + 3 * k, DRAW)
-        kit.shake(row, g, 4)
+        kit.shake(row, g, 6)
         flash(S, kit, row, g)
 
     # ================= S03 : « Et la question qui les fait remonter. » =================
-    f = kit.at("S03", "question", "« Toi » lève le stylo : un « ? » sort de la pointe et une bulle grandit autour, "
-                                  "queue vers sa tête ; le client lève la tête vers la bulle")
+    f = kit.at("S03", "question", "« Toi » lève le stylo : un « ? » sort de la pointe et une bulle grandit à mi-chemin "
+                                  "des deux, queue sur le stylo ; le client fait un petit bond vers elle")
     tip0 = toi.tip(f - 1)
     toi.reach(f, list(Q_S03), d=9)
     kit.pop("question", f, from_pt=tip0, to=list(Q_BULLE))     # sort de la pointe, se pose au centre de la bulle
     kit.pop("bulle1", f + 3, d=SCALE)
-    client.lean_to(f, LEAN_CLIENT, TILT)
+    client.hop(f + 2, CLIENT_C, 8, h=10)
 
-    f = kit.at("S03", "remonter.", "les trois disques remontent le long de leurs fils jusqu'au bord gauche de la "
-                                   "fiche, chacun à côté de sa rangée, dont la puce s'allume")
+    # contrôle muet : le va-et-vient des disques (vers la fiche, puis renvoyés) se lisait comme une hésitation ; ils
+    # restent en place : ce qui remonte, c'est le signal le long des fils, jusqu'aux puces des rangées
+    f = kit.at("S03", "remonter.", "les trois disques battent l'un après l'autre et, au bout de chaque fil, la puce "
+                                   "de la rangée s'allume : ce qui a changé remonte vers la fiche (sans aller-retour)")
     for k, (did, row) in enumerate(zip(disques, reliees)):
-        g = kit.move(did, f + 2 * k, DISQUES_S03[k])
-        if k == 0:
-            S.key(fils[0], "sag", f, 0, MOVE, "inOut")     # fil raccourci : plus besoin de contourner        flash(S, kit, row, g - 2)
+        kit.pulse(did, f + 3 * k, peak=1.25, step=4)
+        flash(S, kit, row, f + 3 * k + 6)
 
     # ================= S04 : « Le problème, c’est la fiche figée. » =================
     f = kit.at("S04", "problème,", "la bulle et son « ? » rentrent dans le stylo ; la fiche tremble et renvoie les "
@@ -155,33 +142,41 @@ def part(S, kit, c):
     tip = toi.tip(f - 1)
     kit.vanish("question", f, into=tip)
     g = kit.vanish("bulle1", f, into=tip)
-    kit.shake("fiche", f, 6)
+    kit.shake("fiche", f, 12)
+    S.key("refus", "pos", f - 1, list(REFUS_S04))   # le même « × » rouge qu'en S01 : la fiche refuse encore
+    kit.pop("refus", f, d=5)
     for k, (did, fid) in enumerate(zip(disques, fils)):
         kit.move(did, f, DISQUES_S04[k], d=12, e="out")
         S.key(fid, "from", f, 1, 9, "out")
         S.key(fid, "draw", f + 9, 0)                # fil rentré : effacé (raccord p2 : draw 0)
     toi.lower(g, 8)
-    client.lean_to(g, 0, TILT)
 
-    f = kit.at("S04", "fiche", "un cadre de photo papier, à marge basse large, se trace derrière la fiche")
+    f = kit.at("S04", "fiche", "le « × » s'efface ; un cadre de photo papier, à marge basse large, se trace derrière "
+                               "la fiche")
+    kit.vanish("refus", f, d=6)
     kit.draw("cadre", f, DRAW)
 
-    f = kit.at("S04", "figée.", "une punaise cyan tombe sur le milieu du bord haut du cadre ; au contact, le cadre et "
-                                "la fiche tremblent : la fiche est une photo épinglée")
+    f = kit.at("S04", "figée.", "une grosse punaise cyan tombe sur le milieu du bord haut du cadre ; au contact, le "
+                                "cadre et la fiche tremblent : la fiche est une photo épinglée")
     hit = kit.drop("punaise", f, h=150, to=PUNAISE_C)
-    kit.shake("cadre", hit, 4, axis="y")
-    kit.shake("fiche", hit, 4, axis="y")
+    kit.shake("cadre", hit, 5, axis="y")
+    kit.shake("fiche", hit, 5, axis="y")
+    kit.shake("punaise", hit, 3, axis="y")
 
     # ================= S05 : « Un dossier client est une photo prise à une date. » =================
-    f = kit.at("S05", "photo", "un éclair blanc balaie la photo-fiche en diagonale ; le contour du cadre clignote en "
-                               "cyan profond, comme au déclenchement")
+    f = kit.at("S05", "photo", "flash : la photo-fiche blanchit d'un coup puis revient, un éclair la balaie et le "
+                               "contour du cadre clignote en cyan profond, comme au déclenchement")
+    S.key("flash", "opacity", f, 0.85, 2, "out")
+    S.key("flash", "opacity", f + 2, 0, 9, "inOut")
     S.key("eclair", "p", f, 1, 12, "inOut")
     S.key("cadre", "stroke", f, DEEP)
     S.key("cadre", "stroke", f + 2, INK)
 
-    f = kit.at("S05", "date.", "la pastille « mars 2023 » quitte l'en-tête et descend dans la marge basse du cadre en "
-                               "grandissant : c'est la date de la photo")
-    kit.move("pastille", f, PASTILLE_PHOTO, scale=1)
+    # contrôle muet : passer SOUS la fiche la faisait disparaître ~0,3 s (« clignotement, comme un bug ») ; elle glisse
+    # désormais d'un seul mouvement continu, par-dessus
+    f = kit.at("S05", "date.", "la pastille « mars 2023 » glisse d'un seul mouvement continu de l'en-tête à la marge "
+                               "basse du cadre en grandissant : c'est la date de la photo")
+    kit.move("pastille", f, PASTILLE_PHOTO, scale=1, d=MOVE + 4)
 
     # ================= S06 : « La vie, elle, continue. » =================
     f = kit.at("S06", "vie,", "une copie de la pastille « mars 2023 » sort d'elle et glisse au-dessus du client : la "
@@ -189,24 +184,26 @@ def part(S, kit, c):
     g = kit.pop("vie", f, from_pt="pastille", to=list(PASTILLE_PHOTO), d=4)
     kit.move("vie", g, VIE_C)
 
-    f = kit.at("S06", "continue.", "la date de la vie défile : « mars 2024 », « mars 2025 », « nov. 2026 » ; le client "
-                                   "fait un pas sur place ; sous la photo, la pastille reste à « mars 2023 »")
-    for k, t in enumerate((T_MARS24, T_MARS25, T_NOV)):
-        S.key("vie", "text", f + 5 * k, t)
+    f = kit.at("S06", "continue.", "la date de la vie défile, une année à chaque battement : « mars 2024 », « mars "
+                                   "2025 », « mars 2026 », « nov. 2026 » ; le client fait deux pas sur place ; sous la "
+                                   "photo, la pastille reste à « mars 2023 »")
+    for k, t in enumerate((T_MARS24, T_MARS25, "mars 2026", T_NOV)):
+        S.key("vie", "text", f + 8 * k, t)
+        kit.pulse("vie", f + 8 * k, peak=1.12, step=3)
     client.hop(f, CLIENT_C, 8, h=12)
+    client.hop(f + 16, CLIENT_C, 8, h=12)
 
     # ================= S07 : « Et un conseil fondé sur une situation dépassée peut devenir inadapté. » ======
-    f = kit.at("S07", "conseil", "« Toi » tend le stylo vers le sol : la pilule « Ton conseil » sort de la pointe et "
-                                 "glisse entre lui et le client ; il baisse le bras")
-    tip0 = toi.tip(f - 1)
+    f = kit.at("S07", "conseil", "« Toi » tend le stylo devant lui : la pilule « Ton conseil » sort de la pointe, à "
+                                 "gauche de son buste, et glisse entre lui et le client ; il baisse le bras")
     g = toi.reach(f, list(CONSEIL_SPAWN), d=9)
-    kit.pop("conseil", f, from_pt=tip0, to=list(CONSEIL_SPAWN))
-    kit.move("conseil", g, CONSEIL_C, d=12)
-    toi.lower(g, 8)
+    kit.pop("conseil", f + 2, from_pt=r3(toi.tip(f + 1)), to=list(CONSEIL_BORN))
+    kit.move("conseil", g + 1, list(CONSEIL_C), d=MOVE)
+    toi.lower(g + 1, 10)
 
     f = kit.at("S07", "fondé", "un fil deep se trace du haut de « Ton conseil » jusqu'au bas du cadre-photo : le "
                                "conseil repose sur la fiche")
-    kit.draw("conseil_fil", f, DRAW)
+    kit.draw("conseil_fil", max(f, g + 1), DRAW)
 
     f = kit.at("S07", "dépassée", "le contour de la pastille « mars 2023 » passe au rouge et elle tremble ; la date de "
                                   "la vie « nov. 2026 » bat : la fiche est dépassée")
@@ -215,23 +212,23 @@ def part(S, kit, c):
     kit.pulse("vie", f)
 
     f = kit.at("S07", "inadapté.", "le contour de « Ton conseil » passe au rouge, la pilule penche et son fil se "
-                                   "détend : le conseil n'est plus adapté")
+                                   "détend nettement : le conseil n'est plus adapté")
     kit.fade("conseil_rouge", f, to=1)
     S.key("conseil", "rot", f, CONSEIL_TILT, TILT, "out")
     kit.ensure("conseil_fil", "sag", 0)
-    S.key("conseil_fil", "sag", f, 30, TILT, "out")
+    S.key("conseil_fil", "sag", f, 60, TILT, "out")
 
     # ================= S08 : « Pourquoi commencer par la famille ? … peut tout remettre en question. » ======
     f = kit.at("S08", "Pourquoi", "les trois disques de la vie volent en arc vers le haut et se fondent dans le repère "
-                                  "1-2-3 légendé « Famille », « Travail », « Patrimoine », qui grandit")
+                                  "1-2-3, qui grandit")
     for k, did in enumerate(disques):
         g = kit.move(did, f + 2 * k, (MARKER_XS[k], MARKER_Y), arc=60)
         S.key(did, "scale", f + 2 * k + 6, MARKER_DISC_K, 10, "inOut")
         kit.vanish(did, g, d=4)
     kit.pop("marqueur", f + 8, d=MORPH)
 
-    f = kit.at("S08", "famille ?", "l'étape 1 « Famille » s'allume en cyan ; les rangées Famille et Enfants de la "
-                                   "fiche se surlignent")
+    f = kit.at("S08", "famille ?", "l'étape 1 s'allume en cyan, légendée « Famille » ; les rangées Famille et "
+                                   "Enfants de la fiche se surlignent")
     S.key("marqueur", "on", f, 1, POP, "out")
     for i in (0, 1):
         S.key(f"fiche_hl{i + 1}", "opacity", f, 1, 6, "out")

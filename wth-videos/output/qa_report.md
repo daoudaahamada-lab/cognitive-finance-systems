@@ -12,7 +12,8 @@
 | V08 | WTH-004 | ✅ OK | 95.73 s | 80 ms | -14.3 LUFS | 2026-10-24T11:24:25+00:00 |
 | V09 | WTH-019 | ✅ OK | 90.80 s | 60 ms | -14.1 LUFS | 2026-10-24T16:13:55+00:00 |
 | V10 | WTH-064 | ✅ OK | 94.97 s | 95 ms | -14.2 LUFS | 2026-10-24T16:43:00+00:00 |
-| V11 | WTH-021 | ❌ ÉCHEC | 93.03 s | 78 ms | -14.3 LUFS | 2026-10-24T17:40:41+00:00 |
+| V11 | WTH-021 | ✅ OK | 93.03 s | 78 ms | -14.3 LUFS | 2026-10-24T21:35:16+00:00 |
+| V12 | WTH-049 | ✅ OK | 95.77 s | 86 ms | -14.3 LUFS | 2026-10-24T21:31:48+00:00 |
 
 ## V01 (WTH-003) — OK
 
@@ -204,21 +205,40 @@
 | Version sans sous-titres conforme | ✔ | PSNR 54.9 dB au pire (image 2659), 2849 / 2849 images | ≥ 40 dB au-dessus de y = 1270, 2849 images dans les deux versions | médiane 99.0 dB |
 | Bande d'action jamais vide | ✔ | 4.6% au pire (image 7) | ≥ 1% de pixels hors fond entre y = 160 et 1270, à chaque image | médiane 12.0% |
 
-## V11 (WTH-021) — ÉCHEC
+## V11 (WTH-021) — OK
 
 | Contrôle | Résultat | Valeur | Attendu | Détail |
 |---|---|---|---|---|
 | Durée | ✔ | 93.03 s | 45 à 180 s |  |
 | Format | ✔ | h264 1080x1920 30/1 yuv420p + aac, profil High, tv/bt709, audio 48000 Hz, 190 kb/s | h264 1080x1920 30/1 yuv420p + aac, BT.709 plage tv |  |
-| Rendu Story à jour | ✔ | 2791 images, empreintes identiques | 2791 images (props), empreintes props + storyboard + mise en scène du rendu = fichiers actuels, version sans sous-titres du même rendu | props b258fbb70e, storyboard 387fc40c45, mise en scène 61b6265b0f |
+| Rendu Story à jour | ✔ | 2791 images, empreintes identiques | 2791 images (props), empreintes props + storyboard + mise en scène du rendu = fichiers actuels, version sans sous-titres du même rendu | props 62061c8f4c, storyboard 387fc40c45, mise en scène 260d51a254 |
 | Mise en scène complète | ✔ | 22 scènes mises en scène, tous les temps forts posés | chaque scène du storyboard mise en scène, chaque temps fort avec son événement, pas de rendu partiel | mise en scène scripts/story/V11/__init__.py, storyboard scripts/storyboards/V11.json |
 | Synchro sous-titres | ✔ | 78 ms | < 150 ms | sous-titres (props Story)/alignement + image : 75 ms ; décalage audio MP4 : 3 ms ; alignement scribe vérifié sur 25 pauses mesurées, aucun conflit |
-| Aucun mot coupé | ✘ | groupe trop large : 805 px | tous les mots, entiers, dans la largeur | 241 mots, groupe le plus large 805/760 px (Inter Bold 64 px, film Story) |
+| Aucun mot coupé | ✔ | ok | tous les mots, entiers, dans la largeur | 241 mots, groupe le plus large 752/760 px (Inter Bold 64 px, film Story) |
 | Accents et caractères | ✔ | ok | UTF-8 NFC, glyphes présents, aucun mojibake | mots hors dictionnaire à relire : Info, info, nov, pacse |
 | Pas de saturation | ✔ | true peak -2.1 dBTP, 0 échantillon(s) écrêté(s) | ≤ -1.0 dBTP, 0 écrêtage |  |
 | Loudness | ✔ | -14.3 LUFS | -14 ± 1 LUFS |  |
 | Surbrillance à l'image près | ✔ | 240/240 changements à l'image exacte | le mot surligné change à l'image du début du mot, pas avant ; toujours un mot surligné à l'écran | mesuré sur la ligne de sous-titres décodée |
-| Zones réservées dégagées | ✔ | haut 0.00% (image 0); bas 0.00% (image 0); droite 0.00% (image 0) | ≤ 0.3% de pixels hors fond dans les 160 px du haut, les 380 px du bas et à droite de x = 940 (version sans sous-titres) | interface TikTok / Reels : rien d'important sous les bandeaux ni sous la colonne d'icônes |
-| Jamais d'image figée | ✔ | tenue la plus longue 1.8 s (images 124-178) | aucune image figée plus de 3.5 s, hors carte de fin (dès l'image 2697) | 35 tenues ≥ 0,5 s (au moins 12 px à mi-résolution qui changent de plus de 16 niveaux = mouvement) |
-| Version sans sous-titres conforme | ✔ | PSNR 46.1 dB au pire (image 2699), 2791 / 2791 images | ≥ 40 dB au-dessus de y = 1270, 2791 images dans les deux versions | médiane 99.0 dB |
-| Bande d'action jamais vide | ✔ | 6.8% au pire (image 2) | ≥ 1% de pixels hors fond entre y = 160 et 1270, à chaque image | médiane 19.6% |
+| Zones réservées dégagées | ✔ | haut 0.09% (image 358); bas 0.00% (image 0); droite 0.00% (image 0) | ≤ 0.3% de pixels hors fond dans les 160 px du haut, les 380 px du bas et à droite de x = 940 (version sans sous-titres) | interface TikTok / Reels : rien d'important sous les bandeaux ni sous la colonne d'icônes |
+| Jamais d'image figée | ✔ | tenue la plus longue 1.8 s (images 1859-1913) | aucune image figée plus de 3.5 s, hors carte de fin (dès l'image 2697) | 36 tenues ≥ 0,5 s (au moins 12 px à mi-résolution qui changent de plus de 16 niveaux = mouvement) |
+| Version sans sous-titres conforme | ✔ | PSNR 53.2 dB au pire (image 2702), 2791 / 2791 images | ≥ 40 dB au-dessus de y = 1270, 2791 images dans les deux versions | médiane 99.0 dB |
+| Bande d'action jamais vide | ✔ | 3.7% au pire (image 2703) | ≥ 1% de pixels hors fond entre y = 160 et 1270, à chaque image | médiane 19.4% |
+
+## V12 (WTH-049) — OK
+
+| Contrôle | Résultat | Valeur | Attendu | Détail |
+|---|---|---|---|---|
+| Durée | ✔ | 95.77 s | 45 à 180 s |  |
+| Format | ✔ | h264 1080x1920 30/1 yuv420p + aac, profil High, tv/bt709, audio 48000 Hz, 190 kb/s | h264 1080x1920 30/1 yuv420p + aac, BT.709 plage tv |  |
+| Rendu Story à jour | ✔ | 2873 images, empreintes identiques | 2873 images (props), empreintes props + storyboard + mise en scène du rendu = fichiers actuels, version sans sous-titres du même rendu | props 29301101cc, storyboard 015dcd2364, mise en scène 12504f5451 |
+| Mise en scène complète | ✔ | 22 scènes mises en scène, tous les temps forts posés | chaque scène du storyboard mise en scène, chaque temps fort avec son événement, pas de rendu partiel | mise en scène scripts/story/V12/__init__.py, storyboard scripts/storyboards/V12.json |
+| Synchro sous-titres | ✔ | 86 ms | < 150 ms | sous-titres (props Story)/alignement + image : 83 ms ; décalage audio MP4 : 3 ms ; alignement scribe vérifié sur 30 pauses mesurées, aucun conflit |
+| Aucun mot coupé | ✔ | ok | tous les mots, entiers, dans la largeur | 241 mots, groupe le plus large 679/760 px (Inter Bold 64 px, film Story) |
+| Accents et caractères | ✔ | ok | UTF-8 NFC, glyphes présents, aucun mojibake | mots hors dictionnaire à relire : cash, illustratif, z |
+| Pas de saturation | ✔ | true peak -2.3 dBTP, 0 échantillon(s) écrêté(s) | ≤ -1.0 dBTP, 0 écrêtage |  |
+| Loudness | ✔ | -14.3 LUFS | -14 ± 1 LUFS |  |
+| Surbrillance à l'image près | ✔ | 240/240 changements à l'image exacte | le mot surligné change à l'image du début du mot, pas avant ; toujours un mot surligné à l'écran | mesuré sur la ligne de sous-titres décodée |
+| Zones réservées dégagées | ✔ | haut 0.00% (image 0); bas 0.00% (image 0); droite 0.10% (image 1895) | ≤ 0.3% de pixels hors fond dans les 160 px du haut, les 380 px du bas et à droite de x = 940 (version sans sous-titres) | interface TikTok / Reels : rien d'important sous les bandeaux ni sous la colonne d'icônes |
+| Jamais d'image figée | ✔ | tenue la plus longue 1.9 s (images 1085-1142) | aucune image figée plus de 3.5 s, hors carte de fin (dès l'image 2786) | 43 tenues ≥ 0,5 s (au moins 12 px à mi-résolution qui changent de plus de 16 niveaux = mouvement) |
+| Version sans sous-titres conforme | ✔ | PSNR 53.1 dB au pire (image 2793), 2873 / 2873 images | ≥ 40 dB au-dessus de y = 1270, 2873 images dans les deux versions | médiane 99.0 dB |
+| Bande d'action jamais vide | ✔ | 3.1% au pire (image 2790) | ≥ 1% de pixels hors fond entre y = 160 et 1270, à chaque image | médiane 12.0% |

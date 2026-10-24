@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-24T17:47:30+00:00",
+  "updated_at": "2026-10-24T19:32:03+00:00",
   "checkpoints": {
     "v01_full_approved": {
       "state": "done",
@@ -640,12 +640,13 @@
       "stages": {
         "voice": {
           "state": "done",
-          "updated_at": "2026-10-21T11:38:06+00:00",
-          "note": "voix du script réécrit (21/10), choisie parmi 2 prises",
+          "updated_at": "2026-10-24T19:32:03+00:00",
+          "note": "voix du script réécrit (21/10), choisie parmi 2 prises ; words.json refait le 24/10 par python3 -m pipeline.words V12 --trim-pauses (fins de « par » 16,38 -> 15,98 s et « un » 19,97 -> 19,67 s ramenées au début des pauses mesurées, QA « Synchro sous-titres » ; débuts et temps forts identiques). Refaire make voice ID=V12 SANS cette option rouvre le conflit.",
           "take": "430um8cwu8xkQE6bOGOb",
           "duration_s": 95.19,
           "cache_key": "88579511c219abc49e1e71c2",
-          "aligned": "241/241"
+          "aligned": "241/241",
+          "words_trim_pauses": true
         },
         "storyboard": {
           "state": "done",
