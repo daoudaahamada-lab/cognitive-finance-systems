@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-24T16:24:42+00:00",
+  "updated_at": "2026-10-24T16:50:49+00:00",
   "checkpoints": {
     "v01_full_approved": {
       "state": "done",
@@ -553,22 +553,28 @@
           "updated_at": "2026-10-24T12:18:42+00:00"
         },
         "spec": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-24T16:50:49+00:00"
         },
         "render": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-24T16:50:49+00:00"
         },
         "review": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-24T16:50:49+00:00"
         },
         "mute_verify": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-24T16:50:49+00:00"
         },
         "qa": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-24T16:50:49+00:00"
         },
         "delivered": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-24T16:50:49+00:00"
         },
         "published": {
           "state": "pending"
@@ -576,7 +582,12 @@
       },
       "open_issues": [],
       "notes": [],
-      "max_duration_s": 62.5
+      "max_duration_s": 62.5,
+      "livraison": {
+        "date": "2026-10-24",
+        "fichier": "output/WTH-V10.mp4",
+        "sans_son": "5/10 GOT, aucune idée principale manquée (b, secondaire, MISSED), critère oui (mode rapide)"
+      }
     },
     "V11": {
       "title": "La meilleure info n’est pas dans le dossier",
