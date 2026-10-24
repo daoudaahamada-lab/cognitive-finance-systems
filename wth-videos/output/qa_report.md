@@ -11,7 +11,7 @@
 | V07 | WTH-014 | ✅ OK | 98.93 s | 70 ms | -14.2 LUFS | 2026-10-24T11:20:43+00:00 |
 | V08 | WTH-004 | ✅ OK | 95.73 s | 80 ms | -14.3 LUFS | 2026-10-24T11:24:25+00:00 |
 | V09 | WTH-019 | ✅ OK | 90.80 s | 60 ms | -14.1 LUFS | 2026-10-24T16:13:55+00:00 |
-| V10 | WTH-064 | ❌ ÉCHEC | 94.97 s | 95 ms | -14.2 LUFS | 2026-10-24T16:32:23+00:00 |
+| V10 | WTH-064 | ✅ OK | 94.97 s | 95 ms | -14.2 LUFS | 2026-10-24T16:43:00+00:00 |
 
 ## V01 (WTH-003) — OK
 
@@ -184,13 +184,13 @@
 | Version sans sous-titres conforme | ✔ | PSNR 50.7 dB au pire (image 2647), 2724 / 2724 images | ≥ 40 dB au-dessus de y = 1270, 2724 images dans les deux versions | médiane 99.0 dB |
 | Bande d'action jamais vide | ✔ | 5.9% au pire (image 790) | ≥ 1% de pixels hors fond entre y = 160 et 1270, à chaque image | médiane 11.9% |
 
-## V10 (WTH-064) — ÉCHEC
+## V10 (WTH-064) — OK
 
 | Contrôle | Résultat | Valeur | Attendu | Détail |
 |---|---|---|---|---|
 | Durée | ✔ | 94.97 s | 45 à 180 s |  |
 | Format | ✔ | h264 1080x1920 30/1 yuv420p + aac, profil High, tv/bt709, audio 48000 Hz, 190 kb/s | h264 1080x1920 30/1 yuv420p + aac, BT.709 plage tv |  |
-| Rendu Story à jour | ✔ | 2849 images, empreintes identiques | 2849 images (props), empreintes props + storyboard + mise en scène du rendu = fichiers actuels, version sans sous-titres du même rendu | props a649fc5097, storyboard 8dd401ae24, mise en scène b8f9b39704 |
+| Rendu Story à jour | ✔ | 2849 images, empreintes identiques | 2849 images (props), empreintes props + storyboard + mise en scène du rendu = fichiers actuels, version sans sous-titres du même rendu | props b32d118c44, storyboard 8dd401ae24, mise en scène 91d5dd3185 |
 | Mise en scène complète | ✔ | 22 scènes mises en scène, tous les temps forts posés | chaque scène du storyboard mise en scène, chaque temps fort avec son événement, pas de rendu partiel | mise en scène scripts/story/V10/__init__.py, storyboard scripts/storyboards/V10.json |
 | Synchro sous-titres | ✔ | 95 ms | < 150 ms | sous-titres (props Story)/alignement + image : 92 ms ; décalage audio MP4 : 3 ms ; alignement scribe vérifié sur 25 pauses mesurées, aucun conflit |
 | Aucun mot coupé | ✔ | ok | tous les mots, entiers, dans la largeur | 237 mots, groupe le plus large 757/760 px (Inter Bold 64 px, film Story) |
@@ -198,7 +198,7 @@
 | Pas de saturation | ✔ | true peak -2.1 dBTP, 0 échantillon(s) écrêté(s) | ≤ -1.0 dBTP, 0 écrêtage |  |
 | Loudness | ✔ | -14.2 LUFS | -14 ± 1 LUFS |  |
 | Surbrillance à l'image près | ✔ | 237/237 changements à l'image exacte | le mot surligné change à l'image du début du mot, pas avant ; toujours un mot surligné à l'écran | mesuré sur la ligne de sous-titres décodée |
-| Zones réservées dégagées | ✘ | haut 0.00% (image 0); bas 0.00% (image 0); droite 0.36% (image 2470) | ≤ 0.3% de pixels hors fond dans les 160 px du haut, les 380 px du bas et à droite de x = 940 (version sans sous-titres) | interface TikTok / Reels : rien d'important sous les bandeaux ni sous la colonne d'icônes |
+| Zones réservées dégagées | ✔ | haut 0.00% (image 0); bas 0.00% (image 0); droite 0.10% (image 1001) | ≤ 0.3% de pixels hors fond dans les 160 px du haut, les 380 px du bas et à droite de x = 940 (version sans sous-titres) | interface TikTok / Reels : rien d'important sous les bandeaux ni sous la colonne d'icônes |
 | Jamais d'image figée | ✔ | tenue la plus longue 1.6 s (images 639-685) | aucune image figée plus de 3.5 s, hors carte de fin (dès l'image 2764) | 40 tenues ≥ 0,5 s (au moins 12 px à mi-résolution qui changent de plus de 16 niveaux = mouvement) |
 | Version sans sous-titres conforme | ✔ | PSNR 54.9 dB au pire (image 2659), 2849 / 2849 images | ≥ 40 dB au-dessus de y = 1270, 2849 images dans les deux versions | médiane 99.0 dB |
 | Bande d'action jamais vide | ✔ | 4.6% au pire (image 7) | ≥ 1% de pixels hors fond entre y = 160 et 1270, à chaque image | médiane 12.0% |
