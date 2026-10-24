@@ -1,0 +1,4 @@
+{
+  "why": "Chemin par défaut du navigateur de rendu (headless shell Playwright installé sur la machine). Lu par remotion.config.ts, scripts/stills.mjs et pipeline/motion.py ; la variable REMOTION_BROWSER_EXECUTABLE a priorité.",
+  "executable": "/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell"
+}

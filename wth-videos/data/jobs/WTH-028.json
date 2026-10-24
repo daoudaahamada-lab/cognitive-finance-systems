@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-028",
+  "date": "2026-10-29",
+  "heure": "08:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1kr_9BWrNT--g02UtQ9MPi8AX8mzJKJiR",
+        "public_id": "WTH-V2-Pro-028-01",
+        "asset_folder": "WTH-V2/WTH-028",
+        "display_name": "WTH-V2-Pro-028-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-028"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1aiC42zq7zpvKiyx3gJ_Q853t4OSI9R83",
+        "public_id": "WTH-V2-Pro-028-02",
+        "asset_folder": "WTH-V2/WTH-028",
+        "display_name": "WTH-V2-Pro-028-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-028"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1-k8LS6DZrPTk1cSJhvJlSNilA5wpQyvb",
+        "public_id": "WTH-V2-Pro-028-03",
+        "asset_folder": "WTH-V2/WTH-028",
+        "display_name": "WTH-V2-Pro-028-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-028"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1ucqIaLpvDj5dUxX8O8Ssmex-auOTkpsG",
+        "public_id": "WTH-V2-Pro-028-04",
+        "asset_folder": "WTH-V2/WTH-028",
+        "display_name": "WTH-V2-Pro-028-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-028"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1NVDfikgPZxCADsMZpaoLUnenKmWmtBTu",
+        "public_id": "WTH-V2-Pro-028-05",
+        "asset_folder": "WTH-V2/WTH-028",
+        "display_name": "WTH-V2-Pro-028-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-028"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1EjrT4DnO2MnQsGD0F8qIAbhwGoDdlqh9",
+        "public_id": "WTH-V2-Pro-028-06",
+        "asset_folder": "WTH-V2/WTH-028",
+        "display_name": "WTH-V2-Pro-028-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-028"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1XuIvwxd5sdsRQtpgWJhpCEoWGR2La2gN",
+        "public_id": "WTH-V2-Pro-028-07",
+        "asset_folder": "WTH-V2/WTH-028",
+        "display_name": "WTH-V2-Pro-028-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-028"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1OFd9kiW4ATI9tnQjwPNH57z6209acu_s",
+        "public_id": "WTH-V2-Pro-028-08",
+        "asset_folder": "WTH-V2/WTH-028",
+        "display_name": "WTH-V2-Pro-028-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-028"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1hIptWfwBumwH0L2Ej6B1vFJksrvk_vdX",
+        "public_id": "WTH-V2-Pro-028-09",
+        "asset_folder": "WTH-V2/WTH-028",
+        "display_name": "WTH-V2-Pro-028-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-028"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "Pourquoi tenir un dossier financier personnel ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386578263",
+        "uuid": "-2567719630228469129",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-29T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Pour bien gérer mon budget, je dois suivre chaque dépense au centime. »\\n\\nMythe ou réalité ? 4 idées reçues sur le budget.\\n\\nTu suis ton budget comment aujourd’hui ? Au centime, au feeling, pas du tout ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-028-01.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-028-02.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-028-03.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-028-04.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-028-05.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-028-06.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-028-07.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-028-08.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-028-09.jpg\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"« Pour bien gérer mon budget, je dois suivre chaque dépense au centime. »\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "Pourquoi tenir un dossier financier personnel ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386578831",
+        "uuid": "-6104688468208041561",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-29T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Pour bien gérer mon budget, je dois suivre chaque dépense au centime. »\\n\\nMythe ou réalité ? 4 idées reçues sur le budget.\\n\\nTu suis ton budget comment aujourd’hui ? Au centime, au feeling, pas du tout ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "Pourquoi tenir un dossier financier personnel ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386578491",
+        "uuid": "5166633902225835160",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-29T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Pour bien gérer mon budget, je dois suivre chaque dépense au centime. »\\n\\nMythe ou réalité ? 4 idées reçues sur le budget.\\n\\nTu suis ton budget comment aujourd’hui ? Au centime, au feeling, pas du tout ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-028-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+# Configuration du pipeline vidéo WealthTech Horizon.
+# Les secrets ne vont jamais ici : ELEVENLABS_API_KEY et CLOUDINARY_URL viennent de l'environnement.
+
+tts:
+  # Voix retenue pour les 15 vidéos. Vide tant que le choix n'est pas validé (make voices).
+  voice_id: SWPcnF19luPOF81eOcxl   # Abdelatif - Clear & Direct (choisie le 18/10, modifiable)
+  model_id: eleven_multilingual_v2
+  output_format: mp3_44100_128   # 192 kb/s exige l’offre Creator
+  seed: 4242
+  voice_settings:
+    stability: 0.5
+    similarity_boost: 0.75
+    style: 0.0
+    use_speaker_boost: true
+    speed: 1.0
+  # Voix proposées pour l'écoute (make voices). Extrait lu : accroche + contexte de V01.
+  shortlist:
+    - {voice_id: SWPcnF19luPOF81eOcxl, name: "Abdelatif - Clear & Direct"}
+    - {voice_id: HUIkvxZj0mU5hsHnKc8f, name: "Chloé"}
+    - {voice_id: 7pDdnNI6PhXmAp0pXFZm, name: "Noé - Content Creator"}
+
+brand:
+  # Remplacées par assets/brand/brand.yaml s'il existe.
+  bordeaux: "#7A0E14"
+  creme: "#F6F0E4"
+  rouge: "#C8102E"
+  font_bold: Inter ExtraBold
+  font_bold_file: /usr/share/fonts/opentype/inter/Inter-ExtraBold.otf
+  font_label: Inter SemiBold
+  font_label_file: /usr/share/fonts/opentype/inter/Inter-SemiBold.otf
+  fonts_dir: /usr/share/fonts/opentype/inter
+
+video:
+  width: 1080
+  height: 1920
+  fps: 30
+  crf: 18
+  preset: slow
+  audio_bitrate: 192k
+  audio_rate: 48000
+  tail_seconds: 0.6        # image tenue après la dernière syllabe
+  # Fond carrousel : slide 1080x1350 réduite et placée en haut, zoom lent.
+  slide_box: {x: 80, y: 100, w: 920, h: 1150}
+  zoom_max: 1.05
+  crossfade: 0.3
+
+subtitles:
+  font_size: 96
+  active_scale: 100        # % du mot prononcé (100 = pas de grossissement, la ligne ne bouge pas)
+  outline: 5
+  shadow: 0
+  # Couleurs prises dans brand : base = mots affichés, active = mot prononcé.
+  palette: {base_fill: bordeaux, base_outline: creme, active_fill: rouge, active_outline: creme}
+  max_words: 3
+  max_chars: 18
+  max_width_px: 860       # zone sûre : hors icônes TikTok à droite
+  pause_break: 0.35        # une pause plus longue démarre un nouveau groupe
+  center_y: 1400           # tiers inférieur (1280-1920), au-dessus de la légende TikTok
+
+loudness:
+  integrated: -14.0
+  true_peak: -1.5
+  lra: 11.0
+
+qa:
+  min_duration: 45.0
+  max_duration: 180.0      # plus de limite à 60 s (21/10) ; 3 min = plafond des Reels Instagram
+  max_duration_by_video: {}
+  max_sync_ms: 150
+  max_true_peak: -1.0
+  loudness_tolerance: 1.0
+
+cloudinary:
+  folder: WTH-V2/videos
+  public_id_pattern: "WTH-{id}"
+  # Dossiers des PNG de carrousel V2 (make assets) : public_id WTH-V2-002-01, etc.
+  slides_public_id_pattern: "WTH-V2-{num}-"
+
+planning:
+  heure: "17:00"

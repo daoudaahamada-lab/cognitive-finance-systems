@@ -1,0 +1,1223 @@
+{
+  "version": "v1 · révisé après le test sans son",
+  "angle": "Parti pris : un seul objet-fil, l’étiquette de prix « 1 % / an », agit sur une seule épargne (une colonne de jetons) d’un bout à l’autre ; tout ce qui apparaît naît d’elle ou de la colonne (questions, jetons, pile, graphique, repère, liste), avec la grammaire de la référence (formes plates, tenir puis éclater, morphs) et des verbes sans voix : peser, arracher, tomber dans un bac, croître ou non, heurter, tomber d’un cran, trancher, empiler, ranger dans un livre, barrer. Construction rapide : uniquement des entités du catalogue (gauge, curve, pill, wire, qmark, marker, figure, png, endcard), deux PNG porteurs (WAVE, BOOK), des procédés déjà faits sur V01-V02 (« ? » né du stylo qui devient le repère, autre personne face à « Toi », fin standard), aucune entité nouvelle.\nRéponse aux 7 points :\n1) Fil conducteur : l’étiquette « 1 % / an » pendue à la colonne de l’épargne, de l’image 0 (S01) au bouton « S’abonner » (S21) ; la pile qu’elle remplit devient l’écart rouge de 4 600 € du calcul (S06 → S10).\n2) État initial / action / résultat : chaque scène part de la précédente et finit sur un changement visible (colonne baissée, 4 jetons dans le bac « frais » et « + 0 € », pile « plus de 4 600 € », courbe à ≈ 21 900 €, 970 € entrés, pile « gestion » haute, liste rangée dans le DIC, 5 % barré) ; 99 temps forts sur des débuts de mots, jamais plus de 3 s sans mouvement.\n3) Sens complet : « que le marché monte ou baisse » = la vague monte puis baisse et le jeton tombe à chaque fois (S04) ; « ne travaille plus pour toi » = la colonne pousse un « + » deux fois, le bac jamais (S05) ; « tu tombes à 4 % net » = l’étiquette heurte la pilule 5 %, qui tombe d’un cran (S09) ; « sur l’encours » = la tranche part du haut et toute la colonne bat (S14) ; « pèsent le plus sur la durée » = la pile de gestion monte, le jeton d’entrée non (S15) ; « sans les frais n’est pas ton rendement » = l’étiquette bute contre le panneau, « Toi » barre 5 % (S20).\n4) Rôles : pas d’IA dans ce film (AI.png non utilisé, aucun pointillé) ; « Toi », figurine encre, est seul à tenir le stylo, à poser des questions (« ? » nés sous sa pointe), à verser, toucher, tenir la ficelle et barrer ; l’intermédiaire est une figurine papier sans outil, entrée sur son mot, face à « Toi », qui reste 4,8 s.\n5) Les mêmes éléments évoluent : jetons → pile → « 4 600 € » rouge → écart entre les courbes ; colonne → point de départ du graphique → colonne ; barre du temps → axe des 20 ans ; « ? » → repère 1-2-3 ; entonnoir → étiquette « entrée » ; pile → étiquette « gestion » ; liste → lignes du DIC ; vague → panneau du rendement ; étiquette → bouton.\n6) PNG au service de la scène : WAVE.png est le marché qui monte et baisse (S04, S19) puis se change en panneau ; BOOK.png est le DIC qui reçoit les étiquettes (S17-S18) ; tout processus (prélèvement, croissance, courbes, entonnoir, liste) est animé en code ; aucun zoom sur PNG.\n7) Simplicité : ivoire quadrillé, encre, cyan seul accent, rouge réservé au coût de 4 600 € ; 2 à 4 éléments actifs par temps fort, libellés de 34 px, composition de y 300 à y 1230.",
+  "thread": "On suit une seule étiquette de prix, « 1 % / an », accrochée à la colonne de ton épargne de 10 000 €. Minuscule au départ, elle pèse : chaque année elle arrache un jeton qui tombe dans un bac et ne grossit plus, que la vague du marché monte ou baisse ; en 20 ans la pile du bac dépasse 4 600 €. Le calcul déplie la colonne en graphique : l’étiquette fait tomber le taux de 5 % à 4 % net, et l’écart rouge entre les deux courbes (≈ 26 500 € contre ≈ 21 900 €) est la pile de 4 600 €. Repliée en colonne, l’épargne montre ensuite d’où viennent les frais : un entonnoir d’entrée garde 30 € sur 1 000 €, l’étiquette « gestion » tranche l’encours chaque année et sa pile écrase le jeton d’entrée, puis la liste des étiquettes s’allonge. « Toi » demande : le DIC avale la liste et l’intermédiaire lui remet les coûts en € et en %. Dans la chute, la vague bouge seule mais « Toi » prend en main la ficelle de l’étiquette, barre le 5 % affiché et garde 4 % net ; l’étiquette devient le bouton « S’abonner ».",
+  "objet_fil": {
+    "id": "etiquette",
+    "description": "L’étiquette de prix cyan « 1 % / an » (pilule 220×64, texte encre Bold 34), pendue par une ficelle deep au coin haut droit de la colonne de ton épargne (775, 720) : c’est le prix des frais. Elle surgit sur « 1 % » à la première seconde, paraît minuscule, puis pèse, arrache un jeton par an, frappe le taux de 5 % qui tombe à 4 % net, se coiffe de « gestion » pour trancher l’encours, prend la tête de la liste des frais, est prise en main par « Toi » au bout de son stylo, bute contre le rendement affiché, et devient le bouton « S’abonner » de la carte de fin."
+  },
+  "cast": [
+    {
+      "id": "etiquette",
+      "name_fr": "L’étiquette « 1 % / an » (objet du fil : le prix des frais)",
+      "look": "Pilule cyan #19B3C7 220×64, contour encre 4 px, ombre dure +6/+6, texte encre Inter Bold 34 « 1 % / an » ; pendue au coin haut droit de la colonne par une ficelle deep #0A7487 de 6 px ; place de repos (775, 720). Mot « gestion » Bold 34 au-dessus en S14 ; mot « frais » Bold 34 encre au-dessus de S01 à S07 ; en S19 sa ficelle passe au stylo de « Toi ». Devient le bouton « S’abonner ».",
+      "source": "code",
+      "entite": "pill (pistes text, rot via S.key, scale) + wire (ficelle) ; kit.pop, kit.move, kit.pulse, kit.shake ; kit.outro (btn_at : relais vers le bouton)",
+      "evolution": "S01 : surgit au bout de sa ficelle sur « 1 % », coiffée du mot « frais », puis rapetisse à 0,6 (« ça paraît rien »). S02 : pèse et fait baisser la colonne. S03 : trois questions en sortent. S04-S05 : bascule chaque année et arrache un jeton. S06 : bat sur « 1 % ». S07 : se range sous l’axe du graphique. S09 : heurte la pilule « 5 % / an », qui tombe à « 4 % net ». S11 : revient sur la colonne ; touchée par « Toi », elle fait naître le « ? » qui devient le repère. S14 : coiffée de « gestion », tranche l’encours. S16 : tête de la liste des frais. S17 : la liste part dans le DIC, elle reste. S19 : descend devant « Toi », qui en prend la ficelle et la tire à lui. S20 : bute contre le panneau « Rendement affiché ». S21 : perd sa ficelle et son prix, devient le bouton « S’abonner »."
+    },
+    {
+      "id": "toi",
+      "name_fr": "« Toi » (le spectateur épargnant)",
+      "look": "Figurine pleine encre #1E1416 (tête ronde, buste trapèze, bras à longueur fixe, stylo), ombre dure +6/+6, échelle 1, pied sur y 1230 ; repos en (840, 1135), place P2 (660, 1135) en S20. Pas d’étiquette.",
+      "source": "code",
+      "entite": "figure ink (Figure) + fig.tap, fig.strike, fig.walk, fig.exit ; kit.pop from_pt pointe du stylo",
+      "evolution": "S01-S06 : regarde, au repos. S07 : un « ? » naît de son stylo. S11 : touche l’étiquette, un « ? » naît (il devient le repère). S12 : sort de son stylo la carte « 1 000 € ». S17 : son « ? » appelle le livre DIC. S18 : reçoit le relevé de l’intermédiaire, face à lui. S19 : ne bouge pas devant la vague ; touche l’étiquette et en tient la ficelle. S20 : s’approche, barre « 5 % / an ». S21 : sort."
+    },
+    {
+      "id": "epargne",
+      "name_fr": "La colonne de ton épargne",
+      "look": "Jauge verticale (gauge, dir up) 220×520, 10 blocs (segments), remplissage cyan, vide papier, contour encre 4, ombre dure ; centre (520, 950), posée sur le sol y 1210 ; disque cyan r 34 au pictogramme euro sur son sommet (520, 650) ; « 10 000 € » ExtraBold 56 encre au-dessus (520, 565). Niveau de départ 0,60.",
+      "source": "code",
+      "entite": "gauge (piste value) + icon euro (disc) + text ; kit.pulse, kit.morph",
+      "evolution": "S01 : à l’écran dès l’image 0. S02 : baisse sous le poids de l’étiquette et reste baissée (S03). S04 : perd un jeton par année. S05 : grossit deux fois (« + »), pas le bac. S06 : son « 10 000 € » bat. S07 : se réduit en point de départ du graphique. S11 : regrandit depuis ce point. S12-S13 : coiffée de l’entonnoir, reçoit 970 €. S14 : tranchée deux fois, embrassée par le crochet « encours ». S16 : glisse à gauche. S17-S20 : réduite en bas à gauche (160, 1110), échelle 0,45. S21 : se réduit dans la carte de fin."
+    },
+    {
+      "id": "bac",
+      "name_fr": "Le bac des frais et ses jetons",
+      "look": "Bac ouvert (shape poly en U) papier 260×100, contour encre 5, ombre dure, centre (200, 1170), mot « frais » Bold 34 encre sur sa face ; jetons : disques cyan r 26, contour encre 3, pictogramme euro encre.",
+      "source": "code",
+      "entite": "shape poly ouvert + icon euro (disc 26) ×n ; kit.drop, kit.pulse, kit.morph",
+      "evolution": "S04 : surgit sous le premier jeton arraché ; reçoit 4 jetons. S05 : ses jetons battent puis ne bougent plus ; « + 0 € » au-dessus de lui. S06 : ils se fondent en pile. S07 : s’efface dans le graphique. S11 : revient avec la pile. S13 : reçoit le jeton de 30 €. S16 : se vide dans la liste et s’efface."
+    },
+    {
+      "id": "pile_frais",
+      "name_fr": "La pile des frais (puis « 4 600 € » rouge)",
+      "look": "Jauge verticale cyan 80×400 (dir up, 8 blocs) : base cyan des frais prélevés, surmontée en S06 d’une 2e jauge light #D3F0F6 à « + » deep (les gains perdus), fondue dans la pile en S11, contour encre 4, ombre dure, ancrée au fond du bac (160, 920) ; au-dessus « plus de » SemiBold 30 encre (190, 735) et « 4 600 € » ExtraBold 56 rouge #C8102E (190, 785). Libellé « gestion » Bold 34 sur son sommet en S15.",
+      "source": "code",
+      "entite": "gauge (pistes value, h) + text ; kit.morph, kit.move",
+      "evolution": "S06 : naît des 4 jetons (base cyan), monte avec un haut clair à « + » (gains perdus), « plus de 4 600 € » en rouge. S07 : se range dans son chiffre rouge, qui monte en haut à droite avec le « ? ». S10 : le chiffre se loge dans le crochet entre les deux courbes. S11 : redevient la pile du bac. S14 : reçoit deux tranches. S15 : coiffée de « gestion », elle monte encore, loin devant le jeton d’entrée. S16 : se range dans l’étiquette du fil."
+    },
+    {
+      "id": "barre_temps",
+      "name_fr": "La barre du temps (puis l’axe des 20 ans)",
+      "look": "Jauge horizontale 500×40, 20 cases, vide papier, remplissage cyan, contour encre 4 ; centre (590, 300) ; « 20 ans » Bold 34 à sa droite (590, 365) en S06. Devient l’axe horizontal (160 → 760, y 1060) avec « 20 ans » sous son bout. ; « 1 an » Bold 34 sous la 1re case en S04.",
+      "source": "code",
+      "entite": "gauge (segments, piste value) + text ; kit.morph vers l’axe de curve",
+      "evolution": "S04 : s’étire en haut, une case par prélèvement. S05 : une case par année de croissance. S06 : se remplit jusqu’à « 20 ans ». S07 : descend et devient l’axe horizontal du graphique. S08 : « 20 ans » bat. S11 : se replie dans la colonne."
+    },
+    {
+      "id": "vague",
+      "name_fr": "La vague du marché (puis le panneau)",
+      "look": "WAVE.png (vague de verre cyan), 280 px de large en S04, 340 px en S19, alpha strict, ombre de contact ; jamais déformée. ; pilule papier « marché » Bold 34 collée dessous.",
+      "source": "WAVE.png",
+      "entite": "png ; kit.drop, kit.move, kit.morph vers panneau",
+      "evolution": "S04 : tombe à gauche ; monte, puis baisse, et le jeton tombe quand même. S06 : sort. S19 : revient, monte et plonge seule pendant que « Toi » reste immobile. S20 : se change en panneau « Rendement affiché »."
+    },
+    {
+      "id": "questions",
+      "name_fr": "Les trois questions de l’annonce",
+      "look": "Pilules papier 210×60, contour encre 4, ombre dure +4, texte encre Bold 34 : « Combien ? », « D’où ? », « Comment ? » ; en (230, 430), (520, 430), (790, 430).",
+      "source": "code",
+      "entite": "pill (fill paper) ×3 ; kit.pop from_pt étiquette, kit.move, kit.vanish into étiquette",
+      "evolution": "S03 : sortent de l’étiquette une à une. S04 : y rentrent."
+    },
+    {
+      "id": "courbes",
+      "name_fr": "Le graphique : deux courbes et leur écart",
+      "look": "Axes encre en L (origine (160, 1060), axe vertical jusqu’à y 420) ; point de départ cyan r 16 (160, 960) et « 10 000 € » Bold 34 (165, 910) ; courbe A deep 7 px avec aire light, de (160, 960) à (680, 480), « ≈ 26 500 € » Bold 40 (600, 425) ; courbe B deep 7 px sans aire, de (160, 960) à (680, 614), « ≈ 21 900 € » Bold 40 (600, 690) ; crochet rouge #C8102E 6 px à x 715 entre y 480 et 614, « 4 600 € » ExtraBold 44 rouge (825, 547).",
+      "source": "code",
+      "entite": "curve ×2 (axes, area, piste draw) + shape (crochet, piste draw) + text",
+      "evolution": "S07 : naît de la colonne (point de départ) et de la barre du temps (axe). S08 : la courbe A monte à ≈ 26 500 €. S10 : la courbe B s’arrête à ≈ 21 900 € ; le crochet rouge reçoit « 4 600 € ». S11 : se replie dans la colonne."
+    },
+    {
+      "id": "pilule_taux",
+      "name_fr": "La pilule du taux « 5 % / an » → « 4 % net »",
+      "look": "Pilule light #D3F0F6 200×64, contour encre 4, ombre dure, texte encre Bold 36 « 5 % / an » puis « 4 % net » ; (320, 480) puis (320, 590).",
+      "source": "code",
+      "entite": "pill (piste text) ; kit.pop, kit.shake, kit.drop",
+      "evolution": "S08 : surgit sur « 5 % ». S09 : heurtée par l’étiquette, tombe d’un cran et devient « 4 % net ». S11 : se replie avec le graphique. S20 : son « 4 % net » revient sous le chiffre barré du panneau."
+    },
+    {
+      "id": "mention",
+      "name_fr": "La mention de prudence",
+      "look": "Texte SemiBold 30 encre sur deux lignes « Exemple théorique, » / « rendement non garanti », centre (430, 330) ; « non garanti » souligné deep.",
+      "source": "code",
+      "entite": "text (pistes opacity, under)",
+      "evolution": "S07 : entre en fondu sur « théorique », se souligne sur « garanti ». S08-S10 : reste affichée pendant tout le calcul. S11 : s’efface."
+    },
+    {
+      "id": "question",
+      "name_fr": "Le « ? » de « Toi »",
+      "look": "« ? » encre Inter ExtraBold 80 à 90 px, toujours né sous la pointe du stylo de « Toi ».",
+      "source": "code",
+      "entite": "qmark ; kit.pop from_pt pointe du stylo, kit.move, kit.vanish, kit.morph vers marker",
+      "evolution": "S07 : naît et se pose contre « 4 600 € » ; monte avec lui. S10 : se réduit dans le crochet de l’écart (réponse trouvée). S11 : un nouveau « ? » naît du toucher de l’étiquette, monte et éclate en repère 1-2-3. S17 : un troisième « ? » appelle le livre DIC et s’y réduit."
+    },
+    {
+      "id": "marqueur",
+      "name_fr": "Le repère 1-2-3 légendé",
+      "look": "Trois disques cernés d’encre, numéros 1, 2, 3 ExtraBold, en x 390, 540, 690, y 300 ; légendes 26 px « Entrée » · « Gestion » · « Autres » ; disque actif agrandi ×1,6 puis ×1,2 et rempli de cyan. ; « Frais : » Bold 34 encre à gauche (230, 300).",
+      "source": "code",
+      "entite": "marker via kit.steps_marker([\"Entrée\", \"Gestion\", \"Autres\"]) + kit.step",
+      "evolution": "S11 : naît du « ? » de « Toi ». S12 : disque 1 sur « D’abord ». S14 : disque 2 sur « Ensuite ». S16 : disque 3 sur « Et ». S17-S20 : reste. S21 : se réduit dans la carte de fin."
+    },
+    {
+      "id": "entonnoir",
+      "name_fr": "L’entonnoir d’entrée et sa pilule « 3 % »",
+      "look": "Trapèze papier (240 px en haut, 80 px au goulot, 110 px de haut), contour encre 5, ombre dure, centre (520, 640) sur le sommet de la colonne ; pilule light « 3 % » Bold 34 110×56 sur sa lèvre gauche (360, 610).",
+      "source": "code",
+      "entite": "shape poly + pill ; kit.drop, kit.pop, kit.morph vers l’étiquette « entrée 3 % »",
+      "evolution": "S12 : tombe sur la colonne. S13 : reçoit « 3 % », garde 30 € du versement. S14 : se replie en étiquette « entrée 3 % » sur le bac. S16 : devient l’étiquette « entrée » de la liste."
+    },
+    {
+      "id": "versement",
+      "name_fr": "La carte du versement « 1 000 € » → « 970 € »",
+      "look": "Carte papier 200×90, contour encre 4, ombre dure, texte ExtraBold 40 encre « 1 000 € » puis « 970 € » ; jeton détaché : disque cyan r 26 + « 30 € » Bold 34.",
+      "source": "code",
+      "entite": "shape round + text (piste text) ; kit.pop from_pt pointe du stylo, kit.move, kit.drop, kit.vanish into colonne",
+      "evolution": "S12 : sort du stylo de « Toi ». S13 : tombe dans l’entonnoir, perd 30 € au goulot, ressort « 970 € » et se fond dans la colonne."
+    },
+    {
+      "id": "liste",
+      "name_fr": "La liste des étiquettes de frais",
+      "look": "Ficelle deep 4 px verticale sous l’étiquette du fil (x 720, de 610 à 960) ; étiquettes light #D3F0F6 pour « gestion » et « entrée », papier #FFFDF8 pour les cinq nouvelles, contour encre 4, ombre +4, 56 px de haut, texte encre Bold 34 : « gestion » (510), « entrée » (580), « arbitrage » (650), « sortie » (720), « transaction » (790), « change » (860), « droits de garde » (930).",
+      "source": "code",
+      "entite": "wire + pill ×7 ; kit.morph, kit.draw, kit.drop, kit.stagger",
+      "evolution": "S16 : « gestion » vient de la pile, « entrée » du jeton de 30 € ; la ficelle s’allonge, cinq étiquettes y tombent. S17 : toutes volent dans le livre DIC et deviennent ses lignes."
+    },
+    {
+      "id": "livre",
+      "name_fr": "Le DIC (document d’informations clés)",
+      "look": "BOOK.png (livre ouvert de verre), 360 px de large, centre (330, 720), alpha strict, ombre de contact ; « DIC » ExtraBold 44 encre à cheval sur les pages (330, 690) ; lignes encre 90×8 sur les pages ; légende SemiBold 34 « Document » / « d’informations clés » (330, 900).",
+      "source": "BOOK.png + code",
+      "entite": "png + text + shape ×7 (lignes) ; kit.drop, kit.stagger",
+      "evolution": "S17 : tombe sous le « ? » de « Toi », reçoit la liste. S18 : le relevé des coûts en sort ; l’intermédiaire se tient dessous. S19 : se réduit."
+    },
+    {
+      "id": "intermediaire",
+      "name_fr": "Ton intermédiaire",
+      "look": "Figurine papier (Figure variant=\"paper\", tool=False), échelle 0,9, contour encre 5, intérieur blanc, ni visage ni bras ; (400, 1135), tournée vers « Toi » (440 px d’écart) ; pilule papier « ton intermédiaire » Bold 34 sur la poitrine ; pilule deep « obligatoire » au-dessus de lui sur « doit ».",
+      "source": "code",
+      "entite": "figure paper + pill ; Figure.enter / Figure.exit",
+      "evolution": "S18 : entre sur « intermédiaire », face à « Toi », reste 4,8 s ; le relevé part du livre vers « Toi ». S19 : sort en marchant vers la gauche."
+    },
+    {
+      "id": "releve",
+      "name_fr": "Le relevé « Coûts et frais »",
+      "look": "Carte papier 320×220, contour encre 4, ombre dure ; titre « Coûts et frais » Bold 34 souligné deep ; lignes Bold 34 « en € : 100 € / an » et « en % : 1 % / an » (« en € », « en % » en deep) ; centre (680, 790).",
+      "source": "code",
+      "entite": "shape round + text (piste under) + text ×2 (kit.type)",
+      "evolution": "S18 : sort du livre, passe devant l’intermédiaire, glisse devant « Toi », ses deux lignes s’écrivent. S19 : se réduit."
+    },
+    {
+      "id": "panneau",
+      "name_fr": "Le panneau « Rendement affiché »",
+      "look": "Panneau papier 380×260, contour encre 5, ombre dure, centre (400, 860) ; titre « Rendement affiché » SemiBold 32 (400, 775) ; « 5 % / an » ExtraBold 64 encre (400, 855), barré d’un trait encre ; « 4 % net » ExtraBold 56 deep (400, 935) ; pilule light « ton rendement » Bold 34 sous le panneau (400, 1050).",
+      "source": "code",
+      "entite": "shape round + text ×3 + pill ; fig.strike sur la valeur ; kit.pop",
+      "evolution": "S20 : naît de la vague ; l’étiquette des frais bute contre lui ; « Toi » barre « 5 % / an », « 4 % net » s’écrit. S21 : se réduit dans la carte de fin."
+    },
+    {
+      "id": "fin",
+      "name_fr": "Carte de fin et toucher",
+      "look": "Carte papier 620×520 centrée (540, 760), titre « WealthTech Horizon », ligne « Comprendre ton argent » (deep), bouton « S’abonner » (l’étiquette du fil, ≈ 380×112) ; toucher : anneau d’impact, pas de flèche de souris.",
+      "source": "code",
+      "entite": "endcard + cursor via kit.outro (btn_at, press=\"argent.\")",
+      "evolution": "S21 : la carte grandit pendant que tout se réduit ; l’étiquette devient son bouton ; un toucher l’enfonce, puis plus rien ne bouge."
+    }
+  ],
+  "style": "Conforme à style.md. Fond ivoire #F6F0E4 et quadrillage fixe de 36 px, sans caméra ni zoom global. Encre #1E1416 pour contours de 4 à 5 px, textes, « Toi » et ombres dures +6/+6. Un seul accent, le cyan : #19B3C7 en aplat (étiquette du fil, colonne de l’épargne, jetons, pile des frais, disque actif du repère), toujours cerné d’encre ; deep #0A7487 pour la ficelle, les courbes, « 4 % net » et les soulignements ; light #D3F0F6 pour l’aire sous la courbe à 5 %, les pilules de taux, les étiquettes de la liste, « ton rendement ». Papier #FFFDF8 pour le bac, l’entonnoir, la carte du versement, le relevé, le panneau, l’intermédiaire et la carte de fin. Rouge #C8102E pour une seule chose : le coût des frais, « 4 600 € » (S06-S10) et le crochet de l’écart (S10) ; rien d’autre n’est rouge (ni la vague, ni l’étiquette, ni le 5 % barré, barré à l’encre). Pas de gris de mise en retrait : ce qui a fini d’agir se réduit ou sort. Places fixes : la colonne de l’épargne au centre (520, 950) puis en bas à gauche, « Toi » en bas à droite (840, 1135), le repère 1-2-3 en haut (y 300) avec ses légendes « Entrée », « Gestion », « Autres », le bac des frais en bas à gauche. Pas d’IA dans ce film. PNG retenus : WAVE.png (le marché) et BOOK.png (le DIC), un seul à la fois. Chiffres en typographie française avec espaces insécables : « 1 % / an », « 10 000 € », « 20 ans », « plus de 4 600 € », « 5 % / an », « ≈ 26 500 € », « 4 % net », « ≈ 21 900 € », « 3 % », « 1 000 € », « 30 € », « 970 € ». Mention « Exemple théorique, rendement non garanti » affichée pendant tout le calcul (S07-S10). Libellés lus à 34 px au moins (légendes du repère 26 px, règle du kit).",
+  "scenes": [
+    {
+      "id": "S01",
+      "segment": "accroche",
+      "t_start": 0.0,
+      "t_end": 3.03,
+      "texte": "1 % de frais par an ? Ça paraît rien.",
+      "elements": "epargne, etiquette, toi",
+      "etat_initial": "Image 0 déjà lisible : la colonne de ton épargne (jauge verticale à 10 blocs, 6 pleins en cyan, 220×520, centre (520, 950), posée sur le sol y 1210), son disque cyan au pictogramme euro (520, 650) et le chiffre « 10 000 € » ExtraBold 56 encre (520, 565) ; « Toi » au repos en bas à droite (840, 1135), stylo baissé. Aucune étiquette encore.",
+      "action": "Sur « 1 % », l’étiquette cyan « 1 % / an » surgit au bout de sa ficelle accrochée au coin haut droit de la colonne ; sur « frais », le mot « frais » s’inscrit au-dessus d’elle. Sur « paraît », elle rapetisse à l’échelle 0,6, toujours lisible : ça paraît petit.",
+      "resultat": "Une petite étiquette « frais 1 % / an » pend à la colonne de l’épargne ; rien d’autre n’a bougé.",
+      "transition": "Sur « Pourtant, » (S02), l’étiquette reprend sa taille et commence à peser.",
+      "beats": [
+        {
+          "t": 0.0,
+          "mot": "1 %",
+          "evenement": "Entrer : l’étiquette « 1 % / an » (pilule cyan 220×64, texte encre Bold 34) surgit en (775, 720) (kit.pop 300 ms, ease-out) pendant que sa ficelle deep 6 px se trace du coin haut droit de la colonne (630, 700) jusqu’à son bord gauche (665, 720) (kit.draw 300 ms). Un seul geste."
+        },
+        {
+          "t": 0.743,
+          "mot": "frais",
+          "evenement": "Nommer : le mot « frais » Bold 34 encre s’inscrit juste au-dessus de l’étiquette (775, 665) (FADE 200 ms) ; il la suit partout jusqu’au graphique : ce 1 % est un prix payé, pas un gain."
+        },
+        {
+          "t": 2.02,
+          "mot": "paraît",
+          "evenement": "Réduire : l’étiquette et son mot « frais » rapetissent à l’échelle 0,6 sur place (330 ms, ease-out), ficelle comprise : un petit prix, toujours lisible, accroché à l’épargne. Tenue jusqu’à « Pourtant »."
+        }
+      ],
+      "lecture_sans_son": "Une petite étiquette de frais « 1 % / an » s’accroche à une colonne d’argent de 10 000 € et rapetisse : ça a l’air de rien."
+    },
+    {
+      "id": "S02",
+      "segment": "accroche",
+      "t_start": 3.03,
+      "t_end": 6.362,
+      "texte": "Pourtant, sur ton épargne, la facture peut devenir lourde.",
+      "elements": "epargne, etiquette, toi",
+      "etat_initial": "Résultat de S01 : colonne à 6 blocs, « 10 000 € » au-dessus, étiquette « frais 1 % / an » réduite (échelle 0,6) au bout de sa ficelle en (775, 720), « Toi » en (840, 1135).",
+      "action": "L’étiquette reprend sa taille ; la colonne bat (c’est ton épargne) ; puis l’étiquette descend au bout de sa ficelle tendue comme un poids, et le haut de la colonne baisse d’un cran sous la traction.",
+      "resultat": "L’étiquette pend plus bas, ficelle tendue, et le niveau de la colonne a baissé : le petit prix pèse sur l’épargne.",
+      "transition": "Sur « Dans » (S03), l’étiquette remonte à sa place ; la colonne garde son niveau baissé.",
+      "beats": [
+        {
+          "t": 3.03,
+          "mot": "Pourtant,",
+          "evenement": "Grandir : l’étiquette revient à l’échelle 1 (330 ms, ease-out) en (775, 720)."
+        },
+        {
+          "t": 4.005,
+          "mot": "épargne,",
+          "evenement": "Battre : la colonne et son disque euro battent une fois (échelle 1,05, kit.pulse step 3) : c’est ton épargne."
+        },
+        {
+          "t": 4.702,
+          "mot": "facture",
+          "evenement": "Peser : l’étiquette descend de 150 px au bout de sa ficelle, jusqu’en (775, 870) (MOVE 550 ms, ease-in-out) ; la ficelle s’allonge et reste tendue depuis le coin de la colonne."
+        },
+        {
+          "t": 5.619,
+          "mot": "lourde.",
+          "evenement": "Baisser : sous la traction, le niveau de la colonne perd un demi-bloc (value 0,60 → 0,55, 330 ms, ease-out) ; l’étiquette descend encore de 20 px. Tenue."
+        }
+      ],
+      "lecture_sans_son": "Le petit prix accroché à l’épargne devient lourd : il tire vers le bas et le niveau de l’argent baisse."
+    },
+    {
+      "id": "S03",
+      "segment": "accroche",
+      "t_start": 6.362,
+      "t_end": 12.562,
+      "texte": "Dans cette vidéo, on va voir combien coûtent vraiment ces frais, d’où ils viennent, et comment les connaître.",
+      "elements": "etiquette, epargne, questions, toi",
+      "etat_initial": "Résultat de S02 : étiquette basse (775, 890) et son mot « frais », ficelle tendue, colonne à 0,55.",
+      "action": "L’étiquette remonte à sa place mais la colonne garde son niveau baissé ; puis trois pilules-questions sortent l’une après l’autre de l’étiquette et se rangent en haut : « Combien ? », « D’où ? », « Comment ? ».",
+      "resultat": "Trois questions sur ces frais sont posées en haut de l’image, nées de l’étiquette ; la colonne est restée plus basse qu’au départ.",
+      "transition": "Sur « Les » (S04), les trois questions rentrent dans l’étiquette.",
+      "beats": [
+        {
+          "t": 6.362,
+          "mot": "Dans",
+          "evenement": "Remonter : l’étiquette et son mot « frais » remontent en (775, 720) (MOVE 550 ms), ficelle détendue ; la colonne, elle, reste à 0,55 : la perte est acquise."
+        },
+        {
+          "t": 8.092,
+          "mot": "combien",
+          "evenement": "Extraire : la pilule papier « Combien ? » (Bold 34, contour encre 4, 210×60) sort de l’étiquette (kit.pop from_pt (775, 720)) et va se poser en (230, 430) (MOVE 550 ms)."
+        },
+        {
+          "t": 10.484,
+          "mot": "viennent,",
+          "evenement": "Extraire : la pilule « D’où ? » sort de l’étiquette et se pose en (520, 430) (pop + MOVE 550 ms)."
+        },
+        {
+          "t": 11.68,
+          "mot": "connaître.",
+          "evenement": "Extraire : la pilule « Comment ? » sort de l’étiquette et se pose en (790, 430) (pop + MOVE 550 ms). Tenue."
+        }
+      ],
+      "lecture_sans_son": "Trois questions sortent de l’étiquette des frais : combien, d’où, comment. La vidéo va y répondre."
+    },
+    {
+      "id": "S04",
+      "segment": "contexte",
+      "t_start": 12.562,
+      "t_end": 16.37,
+      "texte": "Les frais sont prélevés chaque année, que le marché monte ou baisse.",
+      "elements": "etiquette, epargne, barre_temps, bac, vague, toi",
+      "etat_initial": "Résultat de S03 : colonne à 0,55, étiquette « frais 1 % / an » (775, 720), trois pilules-questions en haut (y 430).",
+      "action": "Les questions rentrent dans l’étiquette pendant qu’une barre du temps de 20 cases s’étire en haut. Chaque année (une case de la barre se remplit), l’étiquette bascule contre la colonne et en détache un jeton qui tombe dans un bac à gauche. La vague du marché arrive, marquée « marché », monte, puis baisse : le jeton tombe quand même.",
+      "resultat": "Quatre cases d’années remplies (« 1 an » sous la première), quatre jetons dans le bac « frais », la colonne a perdu quatre fines tranches ; la vague « marché » est basse.",
+      "transition": "Sur « Et » (S05), la vague reste en place, immobile ; les jetons du bac battent.",
+      "beats": [
+        {
+          "t": 12.562,
+          "mot": "Les",
+          "evenement": "Relais : les trois pilules-questions se réduisent dans l’étiquette (kit.vanish into, 300 ms) ; la barre du temps (jauge horizontale 500×40, 20 cases, vide, contour encre 4) s’étire en (590, 300) (STRETCH 200 ms)."
+        },
+        {
+          "t": 13.142,
+          "mot": "prélevés",
+          "evenement": "Prélever : la case 1 de la barre se remplit de cyan et « 1 an » Bold 34 s’inscrit sous elle (370, 355) ; l’étiquette bascule de −14° vers la colonne (TILT) et un jeton cyan (disque r 26, pictogramme euro) se détache du haut de la colonne (value −0,02) ; le bac (bac ouvert papier 260×100 en (200, 1170), mot « frais » Bold 34 encre sur sa face) surgit et le jeton y tombe (kit.drop 370 ms)."
+        },
+        {
+          "t": 14.013,
+          "mot": "année,",
+          "evenement": "Prélever : case 2 ; même bascule ; un 2e jeton tombe de la colonne dans le bac (kit.drop 370 ms)."
+        },
+        {
+          "t": 14.872,
+          "mot": "marché",
+          "evenement": "Entrer : la vague (WAVE.png, 280 px de large) tombe en (200, 560), à gauche sous la barre, avec sa pilule papier « marché » Bold 34 collée dessous (200, 680) (kit.drop 370 ms) : ce qui monte et descend, c’est le marché."
+        },
+        {
+          "t": 15.209,
+          "mot": "monte",
+          "evenement": "Monter et prélever : la vague monte de 60 px (MOVE 400 ms) ; au même moment, case 3 et 3e jeton qui tombe dans le bac : la hausse n’arrête pas le prélèvement."
+        },
+        {
+          "t": 15.65,
+          "mot": "baisse.",
+          "evenement": "Baisser et prélever : la vague descend de 120 px (MOVE 400 ms) ; case 4 et 4e jeton dans le bac : la baisse non plus. Tenue."
+        }
+      ],
+      "lecture_sans_son": "Chaque année qui passe, l’étiquette des frais arrache un jeton à l’épargne et le jette dans le bac des frais, que la vague du marché monte ou descende."
+    },
+    {
+      "id": "S05",
+      "segment": "contexte",
+      "t_start": 16.37,
+      "t_end": 19.841,
+      "texte": "Et l’argent prélevé ne travaille plus pour toi les années suivantes.",
+      "elements": "bac, epargne, barre_temps, etiquette, vague, toi",
+      "etat_initial": "Résultat de S04 : 4 jetons dans le bac « frais » (200, 1170), colonne à 0,47, barre du temps à 4 cases, vague « marché » basse (200, 620).",
+      "action": "Les jetons du bac battent : c’est l’argent prélevé. Puis, deux fois, une année passe : la colonne grossit et un « + » cyan pousse au-dessus d’elle ; au même instant, au-dessus du bac, s’inscrit « + 0 € » : l’argent tombé ne rapporte plus rien.",
+      "resultat": "La colonne a grossi deux fois (« + ») ; au-dessus du bac, « + 0 € » : il est resté exactement pareil.",
+      "transition": "Sur « Résultat » (S06), la vague se réduit et sort ; les jetons du bac se fondent en une pile.",
+      "beats": [
+        {
+          "t": 16.521,
+          "mot": "l’argent",
+          "evenement": "Battre : les 4 jetons du bac battent une fois ensemble (kit.pulse, échelle 1,15)."
+        },
+        {
+          "t": 17.31,
+          "mot": "travaille",
+          "evenement": "Croître : un « + » deep ExtraBold 56 surgit au-dessus de la colonne (520, 600) ; la colonne monte d’un cran (value 0,47 → 0,53, 330 ms, ease-out) ; case 5 de la barre. Au même instant, « + 0 € » Bold 40 encre surgit au-dessus du bac (200, 1060) (kit.pop 300 ms) : les jetons ne bougent pas."
+        },
+        {
+          "t": 18.901,
+          "mot": "suivantes.",
+          "evenement": "Croître encore : le « + » rebat, la colonne monte (0,53 → 0,59) ; case 6 ; « + 0 € » rebat au-dessus du bac, toujours immobile. Tenue."
+        }
+      ],
+      "lecture_sans_son": "L’argent qui reste dans la colonne grossit chaque année ; celui qui est tombé dans le bac des frais fait « + 0 € » : il ne grossit plus jamais."
+    },
+    {
+      "id": "S06",
+      "segment": "contexte",
+      "t_start": 19.841,
+      "t_end": 26.737,
+      "texte": "Résultat : sur 10 000 € placés 20 ans, 1 % de frais peut coûter plus de 4 600 €.",
+      "elements": "bac, pile_frais, epargne, barre_temps, etiquette, toi",
+      "etat_initial": "Résultat de S05 : 4 jetons dans le bac, « + 0 € » au-dessus, colonne à 0,59 et son « + », barre à 6 cases, vague « marché » basse à gauche.",
+      "action": "La vague sort ; les jetons du bac se fondent en une pile cyan. Le chiffre « 10 000 € » bat ; la barre du temps se remplit jusqu’à « 20 ans » ; l’étiquette bat ; la pile monte haut : sur la base cyan des frais prélevés s’empilent des blocs clairs marqués « + », les gains que cet argent n’a pas faits ; le total s’affiche en rouge : « plus de 4 600 € ».",
+      "resultat": "Au-dessus du bac, une haute pile (base cyan des frais, haut clair à « + » des gains perdus) surmontée de « plus de 4 600 € » en rouge ; la barre du temps est pleine, « 20 ans ».",
+      "transition": "Sur « D’où » (S07), un « ? » sort du stylo de « Toi ».",
+      "beats": [
+        {
+          "t": 19.841,
+          "mot": "Résultat :",
+          "evenement": "Fusionner : la vague et sa pilule « marché » se réduisent et sortent (300 ms) ; les 4 jetons glissent l’un sur l’autre et deviennent une pile cyan (jauge verticale 80×400, value 0,15, ancrée au fond du bac en (160, 920)) (MORPH 350 ms) ; les « + » et « + 0 € » s’effacent."
+        },
+        {
+          "t": 21.014,
+          "mot": "10 000 €",
+          "evenement": "Battre : « 10 000 € » au-dessus de la colonne bat (échelle 1,12, kit.pulse)."
+        },
+        {
+          "t": 22.059,
+          "mot": "20 ans,",
+          "evenement": "Remplir : la barre du temps se remplit jusqu’à 20 cases (600 ms, linéaire) ; « 20 ans » Bold 34 surgit à sa droite (590, 365)."
+        },
+        {
+          "t": 22.976,
+          "mot": "1 %",
+          "evenement": "Battre : l’étiquette « 1 % / an » bat (échelle 1,12) et bascule de −8° vers la colonne."
+        },
+        {
+          "t": 24.369,
+          "mot": "coûter",
+          "evenement": "Monter : au-dessus de la base cyan (frais prélevés), une 2e jauge light #D3F0F6 de même largeur, à « + » deep dans chaque bloc, monte de 0 à 0,60 (550 ms, ease-out) : de y 1060 à y 820 ; ce sont les gains que l’argent prélevé n’a pas faits."
+        },
+        {
+          "t": 25.077,
+          "mot": "4 600 €.",
+          "evenement": "Chiffrer : « plus de » SemiBold 30 encre (190, 735) et « 4 600 € » ExtraBold 56 rouge #C8102E (190, 785) surgissent sur la pile (kit.pop 300 ms). Tenue."
+        }
+      ],
+      "lecture_sans_son": "Sur 20 ans, les jetons arrachés plus ce qu’ils auraient rapporté forment une pile qui pèse plus de 4 600 €, sur 10 000 € au départ."
+    },
+    {
+      "id": "S07",
+      "segment": "point1",
+      "t_start": 26.737,
+      "t_end": 32.763,
+      "texte": "D’où vient un tel écart ? Regarde le calcul, sur un exemple théorique, sans rendement garanti.",
+      "elements": "question, pile_frais, epargne, barre_temps, courbes, mention, etiquette, toi",
+      "etat_initial": "Résultat de S06 : pile des frais haute avec « plus de 4 600 € » rouge, colonne à 0,59 avec « 10 000 € », barre pleine « 20 ans », étiquette (775, 720), « Toi » (840, 1135).",
+      "action": "Un « ? » sort du stylo de « Toi » et va se poser contre le rouge « 4 600 € ». Puis tout se réarrange en graphique, en deux temps : la colonne se réduit en un point de départ « 10 000 € », la barre du temps descend et devient l’axe horizontal « 20 ans », la pile se range dans son chiffre rouge, qui monte en haut à droite avec son « ? » ; l’axe vertical se trace. La mention « Exemple théorique, rendement non garanti » s’écrit en haut et se souligne.",
+      "resultat": "Un graphique vide : point « 10 000 € » sur l’axe vertical, axe « 20 ans » ; en haut à droite, « 4 600 € » rouge et son « ? » attendent ; la mention de prudence est affichée.",
+      "transition": "Sur « 5 % » (S08), une pilule « 5 % / an » surgit en haut à gauche du graphique.",
+      "beats": [
+        {
+          "t": 26.737,
+          "mot": "D’où",
+          "evenement": "Demander : « Toi » lève le stylo ; un « ? » encre ExtraBold 90 naît sous la pointe (kit.pop from_pt pointe du stylo, 300 ms)."
+        },
+        {
+          "t": 27.492,
+          "mot": "écart ?",
+          "evenement": "Voler : le « ? » vole jusqu’à droite du chiffre rouge, en (340, 760) (MOVE 550 ms, arc)."
+        },
+        {
+          "t": 28.211,
+          "mot": "Regarde",
+          "evenement": "Réarranger, 1er temps (morph 350 ms) : le bac s’efface ; la colonne se réduit en un point cyan r 16 (160, 960) et son « 10 000 € » se pose à sa gauche, Bold 34 (165, 910) ; la barre du temps descend et devient l’axe horizontal (160 → 760, y 1060), « 20 ans » sous son bout (760, 1100) ; l’étiquette quitte son mot « frais » (qui s’efface) et descend se ranger sous l’axe (480, 1150). La pile et son chiffre rouge ne bougent pas encore."
+        },
+        {
+          "t": 28.688,
+          "mot": "calcul,",
+          "evenement": "Tracer et monter, 2e temps : l’axe vertical se trace de (160, 1060) à (160, 420) (kit.draw 300 ms) ; 6 images plus tard, la pile se réduit dans son chiffre rouge, qui monte avec son « ? » en (800, 400) et (900, 330) (MOVE 550 ms)."
+        },
+        {
+          "t": 30.278,
+          "mot": "théorique,",
+          "evenement": "Écrire : la mention « Exemple théorique, » / « rendement non garanti » (SemiBold 30 encre, deux lignes) entre en fondu en (430, 330) (FADE 200 ms)."
+        },
+        {
+          "t": 31.799,
+          "mot": "garanti.",
+          "evenement": "Souligner : « non garanti » se souligne en deep (piste under, 300 ms). Tenue."
+        }
+      ],
+      "lecture_sans_son": "On se demande d’où viennent ces 4 600 €, et l’on passe au calcul : un graphique part de 10 000 € sur 20 ans, présenté comme un exemple sans garantie."
+    },
+    {
+      "id": "S08",
+      "segment": "point1",
+      "t_start": 32.763,
+      "t_end": 39.903,
+      "texte": "À 5 % par an, 10 000 € deviendraient environ 26 500 € en 20 ans.",
+      "elements": "pilule_taux, courbes, epargne, mention, pile_frais, question, etiquette, toi",
+      "etat_initial": "Résultat de S07 : graphique vide (point « 10 000 € » en (160, 960), axes), « 4 600 € » rouge et « ? » en haut à droite, mention en haut, étiquette sous l’axe (480, 1150).",
+      "action": "La pilule « 5 % / an » surgit en haut à gauche ; le point de départ bat ; la courbe à 5 % se trace jusqu’au bout des 20 ans en montant fort ; « ≈ 26 500 € » s’affiche au bout ; « 20 ans » bat.",
+      "resultat": "Une courbe monte de 10 000 € à ≈ 26 500 € en 20 ans, sous la pilule « 5 % / an ».",
+      "transition": "Sur « 1 % » (S09), l’étiquette quitte sa place sous l’axe.",
+      "beats": [
+        {
+          "t": 32.948,
+          "mot": "5 %",
+          "evenement": "Entrer : la pilule light « 5 % / an » (Bold 36, 200×64, contour encre 4) surgit en (320, 480) (kit.pop 300 ms)."
+        },
+        {
+          "t": 34.434,
+          "mot": "10 000 €",
+          "evenement": "Battre : le point de départ et « 10 000 € » battent (échelle 1,2, kit.pulse)."
+        },
+        {
+          "t": 35.212,
+          "mot": "deviendraient",
+          "evenement": "Croître : la courbe A (deep 7 px, aire light) se trace du point (160, 960) à (680, 480), en s’incurvant vers le haut (kit.draw 1,6 s, linéaire : dérive narrative)."
+        },
+        {
+          "t": 36.826,
+          "mot": "26 500 €",
+          "evenement": "Chiffrer : « ≈ 26 500 € » Bold 40 encre surgit au-dessus du bout de la courbe A (600, 425) (kit.pop 300 ms)."
+        },
+        {
+          "t": 38.405,
+          "mot": "20 ans.",
+          "evenement": "Battre : « 20 ans » sous le bout de l’axe bat (échelle 1,15). Tenue."
+        }
+      ],
+      "lecture_sans_son": "À 5 % par an, 10 000 € grimpent à environ 26 500 € en 20 ans."
+    },
+    {
+      "id": "S09",
+      "segment": "point1",
+      "t_start": 39.903,
+      "t_end": 44.292,
+      "texte": "Avec 1 % de frais en plus, tu tombes à 4 % net.",
+      "elements": "etiquette, pilule_taux, courbes, mention, pile_frais, question, toi",
+      "etat_initial": "Résultat de S08 : courbe A tracée jusqu’à ≈ 26 500 €, pilule « 5 % / an » (320, 480), étiquette sous l’axe (480, 1150).",
+      "action": "L’étiquette « 1 % / an » monte jusqu’à la pilule « 5 % / an » et la heurte ; la pilule tombe d’un cran et devient « 4 % net ».",
+      "resultat": "La pilule du taux affiche « 4 % net », un cran plus bas, avec l’étiquette à côté d’elle et « 5 % − 1 % » dessous.",
+      "transition": "Sur « Et » (S10), une deuxième courbe part du même point.",
+      "beats": [
+        {
+          "t": 40.286,
+          "mot": "1 %",
+          "evenement": "Monter : l’étiquette quitte sa place sous l’axe et monte jusqu’à droite de la pilule, en (560, 480) (MOVE 550 ms, ease-in-out)."
+        },
+        {
+          "t": 40.948,
+          "mot": "frais",
+          "evenement": "Heurter : l’étiquette avance de 24 px contre la pilule (200 ms) ; la pilule tremble (kit.shake 3 images) ; l’étiquette recule de 24 px."
+        },
+        {
+          "t": 42.295,
+          "mot": "tombes",
+          "evenement": "Tomber : la pilule descend de 110 px, de (320, 480) à (320, 590) (DROP 370 ms) ; son texte bascule de « 5 % / an » à « 4 % net » à mi-chute ; l’étiquette la suit d’autant (560, 590)."
+        },
+        {
+          "t": 43.328,
+          "mot": "net.",
+          "evenement": "Battre et expliquer : « 4 % net » bat (échelle 1,1) ; sous la pilule, « 5 % − 1 % » Bold 34 encre s’inscrit (320, 665) (FADE 200 ms) : net = après les frais. Tenue."
+        }
+      ],
+      "lecture_sans_son": "L’étiquette de 1 % frappe le taux de 5 % : il retombe à 4 % net, 5 % moins 1 %."
+    },
+    {
+      "id": "S10",
+      "segment": "point1",
+      "t_start": 44.292,
+      "t_end": 48.042,
+      "texte": "Et là, tu obtiens environ 21 900 €.",
+      "elements": "courbes, pile_frais, question, pilule_taux, etiquette, mention, toi",
+      "etat_initial": "Résultat de S09 : courbe A (≈ 26 500 €), pilule « 4 % net » (320, 590) et étiquette (560, 590), « 4 600 € » rouge et « ? » en (800, 400).",
+      "action": "La courbe à 4 % net se trace sous la première et s’arrête plus bas, « ≈ 21 900 € ». Puis un crochet rouge relie les deux bouts, et le « 4 600 € » rouge descend s’y loger : le « ? » disparaît, l’écart est expliqué.",
+      "resultat": "Deux courbes partent du même point ; entre leurs bouts, le crochet rouge « 4 600 € » : c’est l’écart. Plus de « ? ».",
+      "transition": "Sur « Connaître » (S11), le graphique se replie dans la colonne de l’épargne.",
+      "beats": [
+        {
+          "t": 44.292,
+          "mot": "Et",
+          "evenement": "Croître : la courbe B (deep 7 px, sans aire) se trace de (160, 960) à (680, 614), sous la courbe A (kit.draw 0,9 s, linéaire)."
+        },
+        {
+          "t": 45.186,
+          "mot": "environ",
+          "evenement": "Chiffrer : « ≈ 21 900 € » Bold 40 encre surgit sous le bout de la courbe B (600, 690) (kit.pop 300 ms)."
+        },
+        {
+          "t": 45.836,
+          "mot": "21 900 €.",
+          "evenement": "Relier : un crochet rouge #C8102E (trait 6 px) se trace entre les deux bouts, à x 715, de y 480 à 614 (kit.draw 300 ms) ; « 4 600 € » rouge glisse de (800, 400) à droite du crochet (825, 547) (MOVE 550 ms) ; le « ? » se réduit dedans (kit.vanish 300 ms). Tenue."
+        }
+      ],
+      "lecture_sans_son": "Avec les frais, la courbe finit à ≈ 21 900 € au lieu de ≈ 26 500 € : l’écart rouge entre les deux, ce sont les 4 600 €."
+    },
+    {
+      "id": "S11",
+      "segment": "point2",
+      "t_start": 48.042,
+      "t_end": 52.454,
+      "texte": "Connaître un taux ne suffit pas : encore faut-il savoir quels frais tu paies.",
+      "elements": "epargne, pile_frais, etiquette, question, marqueur, toi",
+      "etat_initial": "Résultat de S10 : graphique complet (deux courbes, crochet rouge « 4 600 € », pilule « 4 % net », mention), étiquette (560, 590).",
+      "action": "Le graphique se replie dans la colonne de l’épargne et le chiffre rouge redevient la pile du bac. L’étiquette revient sur la colonne et bat. « Toi » la touche : un « ? » naît sous son stylo, monte en haut et éclate en trois disques numérotés légendés « Entrée », « Gestion », « Autres », précédés de « Frais : ».",
+      "resultat": "Repère 1-2-3 « Frais : Entrée, Gestion, Autres » en haut ; colonne au centre avec son étiquette ; pile des frais dans le bac à gauche.",
+      "transition": "Sur « D’abord, » (S12), le disque 1 s’allume.",
+      "beats": [
+        {
+          "t": 48.042,
+          "mot": "Connaître",
+          "evenement": "Replier (morph 350 ms) : courbes, axes, mention, pilule et « 5 % − 1 % » se réduisent vers le point de départ, qui regrandit en colonne (520, 950), value 0,60, avec « 10 000 € » et son disque euro ; le crochet et « 4 600 € » se réduisent vers le bac, qui réapparaît en (200, 1170) avec la pile (value 0,75) ; l’étiquette revient en (775, 720), ficelle retracée."
+        },
+        {
+          "t": 48.669,
+          "mot": "taux",
+          "evenement": "Battre : l’étiquette « 1 % / an » bat (échelle 1,12) : un taux, seul."
+        },
+        {
+          "t": 48.947,
+          "mot": "suffit",
+          "evenement": "Toucher : « Toi » touche l’étiquette du stylo (Figure.tap, contact sur le mot) ; un « ? » encre ExtraBold 80 naît sous la pointe (kit.pop from_pt)."
+        },
+        {
+          "t": 50.503,
+          "mot": "savoir",
+          "evenement": "Monter : le « ? » monte en (540, 300) (MOVE 550 ms)."
+        },
+        {
+          "t": 51.258,
+          "mot": "frais",
+          "evenement": "Éclater : le « ? » se change en trois disques cernés numérotés 1, 2, 3 en x 390, 540, 690, y 300 (kit.morph 350 ms) ; leurs légendes « Entrée », « Gestion », « Autres » (26 px) entrent en fondu. Tenue. « Frais : » Bold 34 encre s’inscrit à gauche du repère (230, 300) : ce sont trois sortes de frais."
+        }
+      ],
+      "lecture_sans_son": "« Toi » interroge l’étiquette : le seul taux ne suffit pas, la question se découpe en trois sortes de frais à voir."
+    },
+    {
+      "id": "S12",
+      "segment": "point2",
+      "t_start": 52.454,
+      "t_end": 56.006,
+      "texte": "D’abord, les frais d’entrée, prélevés sur chaque versement.",
+      "elements": "marqueur, entonnoir, versement, epargne, etiquette, bac, toi",
+      "etat_initial": "Résultat de S11 : repère sans disque actif, colonne (520, 950), étiquette (775, 720), bac et pile à gauche.",
+      "action": "Le disque 1 « Entrée » s’allume ; un entonnoir tombe sur le haut de la colonne : c’est par là que l’argent entre. « Toi » sort de son stylo une carte « 1 000 € » : un versement.",
+      "resultat": "Un entonnoir coiffe la colonne ; une carte « 1 000 € » attend près de « Toi ».",
+      "transition": "Sur « 3 % » (S13), une pilule « 3 % » s’accroche à la lèvre de l’entonnoir.",
+      "beats": [
+        {
+          "t": 52.454,
+          "mot": "D’abord,",
+          "evenement": "Passer à l’étape 1 : le disque 1 grandit (×1,6 puis ×1,2) et se remplit de cyan (kit.step 1)."
+        },
+        {
+          "t": 53.533,
+          "mot": "d’entrée,",
+          "evenement": "Tomber : l’entonnoir (trapèze papier 240 → 80 px de large, 110 px de haut, contour encre 5, ombre dure) tombe sur le haut de la colonne, en (520, 640) (kit.drop 370 ms) ; le disque euro se range dedans."
+        },
+        {
+          "t": 55.112,
+          "mot": "versement.",
+          "evenement": "Extraire : une carte papier « 1 000 € » (200×90, ExtraBold 40 encre) sort de la pointe du stylo de « Toi » (kit.pop from_pt) et se pose en (720, 990), à portée de sa main. Tenue."
+        }
+      ],
+      "lecture_sans_son": "L’argent entre dans l’épargne par un entonnoir ; « Toi » s’apprête à verser 1 000 €."
+    },
+    {
+      "id": "S13",
+      "segment": "point2",
+      "t_start": 56.006,
+      "t_end": 62.787,
+      "texte": "Avec 3 % de frais d’entrée, sur 1 000 € versés, seuls 970 € sont investis.",
+      "elements": "entonnoir, versement, epargne, bac, marqueur, etiquette, toi",
+      "etat_initial": "Résultat de S12 : entonnoir sur la colonne (520, 640), carte « 1 000 € » (720, 990), disque 1 actif.",
+      "action": "Une pilule « 3 % » s’accroche à l’entonnoir. La carte « 1 000 € » monte au-dessus et y tombe ; au goulot, un petit jeton « 30 € » se détache et tombe dans le bac ; la carte ressort en bas, devenue « 970 € », et entre dans la colonne, qui monte.",
+      "resultat": "La colonne a monté d’un cran avec 970 € ; dans le bac, à côté de la pile, un jeton « 30 € ».",
+      "transition": "Sur « Ensuite, » (S14), l’entonnoir se replie en une étiquette « entrée » posée sur le bac.",
+      "beats": [
+        {
+          "t": 56.331,
+          "mot": "3 %",
+          "evenement": "Accrocher : une pilule light « 3 % » (Bold 34, 110×56) surgit sur la lèvre gauche de l’entonnoir (360, 610) (kit.pop 300 ms)."
+        },
+        {
+          "t": 58.41,
+          "mot": "1 000 €",
+          "evenement": "Monter : la carte « 1 000 € » glisse au-dessus de l’entonnoir, en (520, 480) (MOVE 550 ms, arc)."
+        },
+        {
+          "t": 58.897,
+          "mot": "versés,",
+          "evenement": "Tomber : la carte tombe dans l’embouchure de l’entonnoir en se réduisant à l’échelle 0,6 (kit.drop 370 ms)."
+        },
+        {
+          "t": 59.687,
+          "mot": "seuls",
+          "evenement": "Prélever : au goulot, sous la pilule « 3 % », un jeton cyan r 26 se détache et tombe dans le bac (kit.drop 370 ms) ; « 30 € » Bold 34 encre surgit à côté de lui (285, 1060)."
+        },
+        {
+          "t": 60.151,
+          "mot": "970 €",
+          "evenement": "Ressortir : la carte reparaît sous le goulot, dans le haut de la colonne (520, 720), avec le texte « 970 € » (bascule de texte, échelle 1)."
+        },
+        {
+          "t": 61.916,
+          "mot": "investis.",
+          "evenement": "Investir : la carte se fond dans la colonne (kit.vanish into colonne, 300 ms) et le niveau monte d’un cran (value 0,60 → 0,66, 330 ms). Tenue."
+        }
+      ],
+      "lecture_sans_son": "Sur 1 000 € versés, l’entonnoir garde 30 € pour les frais ; seulement 970 € entrent dans l’épargne."
+    },
+    {
+      "id": "S14",
+      "segment": "point2",
+      "t_start": 62.787,
+      "t_end": 67.047,
+      "texte": "Ensuite, les frais de gestion, prélevés chaque année sur l’encours.",
+      "elements": "marqueur, entonnoir, etiquette, epargne, pile_frais, bac, toi",
+      "etat_initial": "Résultat de S13 : entonnoir (520, 640) et sa pilule « 3 % », colonne à 0,66, bac avec pile et jeton « 30 € », disque 1 actif.",
+      "action": "Le disque 2 « Gestion » s’allume pendant que l’entonnoir se replie en une petite étiquette « entrée 3 % » posée au-dessus du jeton de 30 €. Le mot « gestion » s’affiche au-dessus de l’étiquette « 1 % / an ». Deux fois, elle bascule et tranche le haut de la colonne : une tranche tombe sur la pile. Puis un crochet embrasse la colonne du sol à son sommet, marqué « encours » : c’est sur tout le contenu que l’on prélève.",
+      "resultat": "« gestion » coiffe l’étiquette du fil ; la pile a reçu deux tranches de plus ; un crochet « encours » embrasse toute la colonne.",
+      "transition": "Sur « Ce » (S15), le mot « gestion » descend se poser sur la pile du bac.",
+      "beats": [
+        {
+          "t": 62.787,
+          "mot": "Ensuite,",
+          "evenement": "Passer à l’étape 2 : le disque 2 grandit et se remplit de cyan, le disque 1 revient à ×1 (kit.step 2) ; l’entonnoir et sa pilule se réduisent en une étiquette light « entrée 3 % » (Bold 30, 170×48) posée au-dessus du jeton de 30 €, en (280, 1000) (kit.morph 350 ms)."
+        },
+        {
+          "t": 64.157,
+          "mot": "gestion,",
+          "evenement": "Écrire : « gestion » Bold 34 encre s’écrit au-dessus de l’étiquette du fil (775, 660) (kit.type)."
+        },
+        {
+          "t": 64.946,
+          "mot": "prélevés",
+          "evenement": "Trancher : l’étiquette bascule de −14° contre la colonne ; une fine tranche cyan (value −0,03) se détache du haut et tombe sur la pile du bac (kit.drop 370 ms) ; la pile monte de 0,05."
+        },
+        {
+          "t": 65.782,
+          "mot": "année",
+          "evenement": "Trancher : même geste ; une 2e tranche tombe sur la pile (value colonne −0,03, pile +0,05)."
+        },
+        {
+          "t": 66.246,
+          "mot": "l’encours.",
+          "evenement": "Désigner : un crochet deep 6 px se trace le long du flanc gauche de la colonne, du sol jusqu’à son niveau (x 395, de y 1210 à y 760) (kit.draw 300 ms) et « encours » Bold 34 encre s’inscrit à sa gauche (300, 990) ; la colonne entière bat (échelle 1,05) : la tranche est prise sur tout ce qui est placé. Tenue."
+        }
+      ],
+      "lecture_sans_son": "Après l’entrée, l’étiquette des frais de gestion tranche chaque année un morceau, calculé sur tout ce qui est placé (l’encours, du sol au sommet de la colonne)."
+    },
+    {
+      "id": "S15",
+      "segment": "point2",
+      "t_start": 67.047,
+      "t_end": 69.59,
+      "texte": "Ce sont eux qui pèsent le plus sur la durée.",
+      "elements": "pile_frais, bac, etiquette, epargne, marqueur, toi",
+      "etat_initial": "Résultat de S14 : pile des frais (value 0,85) et étiquette « entrée 3 % » sur son jeton de 30 €, dans le bac ; « gestion » au-dessus de l’étiquette du fil ; crochet « encours » le long de la colonne.",
+      "action": "Le mot « gestion » descend sur la pile : la pile, ce sont les frais de gestion ; le jeton de 30 €, les frais d’entrée. Puis, à mesure que les années passent, la pile de gestion monte encore deux fois ; le jeton d’entrée ne change pas.",
+      "resultat": "Dans le bac : une très haute pile « gestion » à côté d’un seul petit jeton « entrée 3 % ».",
+      "transition": "Sur « Et » (S16), le disque 3 s’allume.",
+      "beats": [
+        {
+          "t": 67.047,
+          "mot": "Ce",
+          "evenement": "Glisser : « gestion » quitte le dessus de l’étiquette et descend se poser sur le sommet de la pile (160, 650) (MOVE 550 ms) ; le crochet « encours » s’efface."
+        },
+        {
+          "t": 67.883,
+          "mot": "pèsent",
+          "evenement": "Monter : la pile des frais de gestion monte de 0,85 à 0,95 et son contour s’allonge vers le haut (de 400 à 460 px, 330 ms, ease-out) ; « gestion » monte avec elle ; le jeton d’entrée ne bouge pas."
+        },
+        {
+          "t": 68.847,
+          "mot": "durée.",
+          "evenement": "Monter encore : la pile passe à 520 px de haut (330 ms) ; à côté, le jeton « entrée 3 % » reste identique. Tenue."
+        }
+      ],
+      "lecture_sans_son": "Les frais d’entrée ne pèsent qu’une fois, un jeton ; les frais de gestion s’empilent chaque année et finissent bien plus lourds."
+    },
+    {
+      "id": "S16",
+      "segment": "point3",
+      "t_start": 69.59,
+      "t_end": 77.148,
+      "texte": "Et selon le produit, la liste peut s’allonger : arbitrage, sortie, transaction, change, droits de garde.",
+      "elements": "marqueur, etiquette, liste, pile_frais, epargne, toi",
+      "etat_initial": "Résultat de S15 : pile « gestion » très haute et jeton « entrée 3 % » dans le bac, colonne (520, 950), étiquette (775, 720), disque 2 actif.",
+      "action": "Le disque 3 « Autres » s’allume. L’étiquette du fil monte en haut à droite : la pile de gestion se range en elle, le jeton d’entrée devient une étiquette « entrée » accrochée sous elle ; la colonne glisse à gauche. Une ficelle descend sous les étiquettes et s’allonge, vide, puis cinq nouvelles étiquettes, en papier blanc (les deux connues restent bleu clair), y tombent une à une : « arbitrage », « sortie », « transaction », « change », « droits de garde ».",
+      "resultat": "Une longue liste pend sous l’étiquette « 1 % / an », à droite : « gestion » et « entrée » en bleu clair, puis cinq nouvelles en papier ; la colonne est à gauche.",
+      "transition": "Sur « Alors, » (S17), la colonne se réduit en bas à gauche.",
+      "beats": [
+        {
+          "t": 69.59,
+          "mot": "Et",
+          "evenement": "Passer à l’étape 3 : le disque 3 grandit et se remplit de cyan (kit.step 3)."
+        },
+        {
+          "t": 70.159,
+          "mot": "produit,",
+          "evenement": "Ranger (morph 350 ms) : l’étiquette du fil monte en tête de liste (720, 440) (sa ficelle vers la colonne s’efface) ; la pile « gestion » se réduit dans l’étiquette, « gestion » devient une étiquette light accrochée juste dessous (720, 510) ; le jeton et « entrée 3 % » deviennent l’étiquette « entrée » (720, 580) ; le bac s’efface ; la colonne glisse en (300, 950)."
+        },
+        {
+          "t": 71.273,
+          "mot": "s’allonger :",
+          "evenement": "S’allonger : une ficelle deep 4 px se trace sous l’étiquette « entrée », de (720, 610) jusqu’en (720, 960) (kit.draw 400 ms, ease-out) : la liste s’allonge, vide."
+        },
+        {
+          "t": 72.26,
+          "mot": "arbitrage,",
+          "evenement": "Tomber : l’étiquette papier « arbitrage » (nouvelle, fond papier, pour la distinguer des deux étiquettes light déjà connues) (Bold 34, 56 px de haut) tombe sur la ficelle en (720, 650) (kit.drop 370 ms)."
+        },
+        {
+          "t": 73.491,
+          "mot": "sortie,",
+          "evenement": "Tomber : « sortie » tombe en (720, 720)."
+        },
+        {
+          "t": 74.362,
+          "mot": "transaction,",
+          "evenement": "Tomber : « transaction » tombe en (720, 790)."
+        },
+        {
+          "t": 75.29,
+          "mot": "change,",
+          "evenement": "Tomber : « change » tombe en (720, 860)."
+        },
+        {
+          "t": 75.941,
+          "mot": "droits",
+          "evenement": "Tomber : « droits de garde » tombe en (720, 930). Tenue."
+        }
+      ],
+      "lecture_sans_son": "Selon le produit, la liste des frais pendue à l’étiquette s’allonge : entrée, gestion, puis cinq autres."
+    },
+    {
+      "id": "S17",
+      "segment": "point3",
+      "t_start": 77.148,
+      "t_end": 82.511,
+      "texte": "Alors, comment tout retrouver ? Demande le document d’informations clés et le détail des frais.",
+      "elements": "liste, etiquette, question, livre, epargne, marqueur, toi",
+      "etat_initial": "Résultat de S16 : liste de 7 étiquettes sous l’étiquette du fil (720, 440 → 930), colonne (300, 950), « Toi » (840, 1135).",
+      "action": "La colonne se réduit en bas à gauche. Un « ? » sort du stylo de « Toi » et se pose à gauche, face à la liste. Le livre tombe à la place du « ? » : sur ses pages, « DIC » ; sa légende dit « Document d’informations clés ». Les sept étiquettes volent une à une dans le livre et deviennent des lignes de ses pages ; le « ? » disparaît.",
+      "resultat": "Le livre du DIC, à gauche, contient la liste ; l’étiquette « 1 % / an » reste seule en haut à droite ; plus de « ? ».",
+      "transition": "Sur « intermédiaire » (S18), une figurine papier entre par la gauche, sous le livre.",
+      "beats": [
+        {
+          "t": 77.148,
+          "mot": "Alors,",
+          "evenement": "Réduire : la colonne glisse en bas à gauche (160, 1110) et passe à l’échelle 0,45 (MOVE 550 ms)."
+        },
+        {
+          "t": 77.984,
+          "mot": "retrouver ?",
+          "evenement": "Demander : un « ? » encre ExtraBold 90 naît sous la pointe du stylo de « Toi » et vole se poser à gauche en (330, 700) (pop 300 ms puis MOVE 550 ms)."
+        },
+        {
+          "t": 78.959,
+          "mot": "Demande",
+          "evenement": "Tomber : le livre (BOOK.png, 360 px de large, alpha strict, ombre de contact) tombe en (330, 720), sous le « ? », qui remonte se poser sur son coin haut droit (470, 590) (kit.drop 370 ms)."
+        },
+        {
+          "t": 80.631,
+          "mot": "clés",
+          "evenement": "Titrer : « DIC » ExtraBold 44 encre surgit à cheval sur les deux pages (330, 690) ; la légende « Document » / « d’informations clés » (SemiBold 34, deux lignes) entre en fondu sous le livre (330, 900)."
+        },
+        {
+          "t": 81.339,
+          "mot": "détail",
+          "evenement": "Ranger : les 7 étiquettes de la liste volent dans le livre, une toutes les 2 images, en se réduisant en traits encre 90×8 sur ses pages (kit.stagger kit.move + scale, 450 ms chacune) ; la ficelle se réduit ; puis le « ? » se réduit dans le livre (kit.vanish 300 ms, à f + 14). Tenue."
+        }
+      ],
+      "lecture_sans_son": "Pour tout retrouver, « Toi » pose sa question et le livre DIC arrive : toutes les étiquettes de frais y entrent, rangées en lignes."
+    },
+    {
+      "id": "S18",
+      "segment": "point3",
+      "t_start": 82.511,
+      "t_end": 87.585,
+      "texte": "Ton intermédiaire doit te communiquer les coûts et frais, en euros et en pourcentage.",
+      "elements": "intermediaire, livre, releve, etiquette, epargne, toi",
+      "etat_initial": "Résultat de S17 : livre DIC (330, 720) avec ses lignes et sa légende, étiquette « 1 % / an » (720, 440), colonne réduite (160, 1110), « Toi » (840, 1135).",
+      "action": "Une figurine papier « ton intermédiaire » entre par la gauche et se place sous le livre, face à « Toi » ; une pilule « obligatoire » s’allume au-dessus d’elle. Un relevé papier « Coûts et frais » sort du livre, passe devant l’intermédiaire et glisse vers « Toi » ; deux lignes s’y écrivent : l’une en €, l’autre en %.",
+      "resultat": "Entre l’intermédiaire (« obligatoire ») et « Toi », un relevé « Coûts et frais » : « en € : 100 € / an », « en % : 1 % / an ».",
+      "transition": "Sur « Tu » (S19), l’intermédiaire sort par la gauche, le livre et le relevé se réduisent.",
+      "beats": [
+        {
+          "t": 82.744,
+          "mot": "intermédiaire",
+          "evenement": "Entrer : la légende du livre s’efface (FADE 200 ms) ; l’intermédiaire (figurine papier, tool=False, échelle 0,9, ni visage ni bras) entre en marchant depuis la gauche jusqu’en (400, 1135), tourné vers « Toi » (Figure.enter, 550 ms) ; pilule papier « ton intermédiaire » Bold 34 sur sa poitrine (400, 1160)."
+        },
+        {
+          "t": 83.394,
+          "mot": "doit",
+          "evenement": "Exiger : une pilule deep « obligatoire » (texte papier Bold 34, 230×56) s’inscrit au-dessus de l’intermédiaire (400, 1000) (kit.pop 300 ms) : il doit le faire, ce n’est pas une faveur."
+        },
+        {
+          "t": 83.754,
+          "mot": "communiquer",
+          "evenement": "Remettre : le relevé papier « Coûts et frais » (320×220, titre Bold 34 souligné deep) sort du livre (kit.pop from_pt (330, 760)), passe devant l’intermédiaire (400, 900) puis glisse jusque devant « Toi », en (680, 790) (MOVE 550 ms, arc) : c’est l’intermédiaire qui le remet."
+        },
+        {
+          "t": 85.82,
+          "mot": "euros",
+          "evenement": "Écrire : la ligne « en € : 100 € / an » (Bold 34, « en € » en deep) s’écrit sur le relevé (680, 790) (kit.type, rate 2) : 1 % de 10 000 €."
+        },
+        {
+          "t": 86.575,
+          "mot": "pourcentage.",
+          "evenement": "Écrire : la ligne « en % : 1 % / an » s’écrit dessous (680, 850) (kit.type, rate 2). Tenue."
+        }
+      ],
+      "lecture_sans_son": "Ton intermédiaire arrive face à « Toi » et, parce qu’il y est obligé, lui remet un relevé des frais chiffré en euros et en pourcentage."
+    },
+    {
+      "id": "S19",
+      "segment": "chute",
+      "t_start": 87.585,
+      "t_end": 90.859,
+      "texte": "Tu ne contrôles pas les marchés. Tu contrôles les frais.",
+      "elements": "vague, etiquette, epargne, marqueur, toi",
+      "etat_initial": "Résultat de S18 : livre, intermédiaire, relevé, étiquette (720, 440), colonne réduite, « Toi » (840, 1135).",
+      "action": "L’intermédiaire sort, le livre et le relevé se réduisent, l’étiquette descend devant « Toi ». La vague du marché revient à gauche : elle monte puis plonge toute seule, « Toi » ne bouge pas. Puis « Toi » touche l’étiquette des frais, en prend la ficelle au bout de son stylo et la tire vers lui.",
+      "resultat": "La vague, basse, à gauche, libre ; l’étiquette « 1 % / an » devant « Toi », au bout d’une ficelle qu’il tient.",
+      "transition": "Sur « Et » (S20), la vague se change en panneau « Rendement affiché ».",
+      "beats": [
+        {
+          "t": 87.585,
+          "mot": "Tu",
+          "evenement": "Relais : l’intermédiaire et sa pilule « obligatoire » sortent vers la gauche (Figure.exit) ; le livre et le relevé se réduisent vers leur centre (kit.vanish 300 ms) ; l’étiquette descend en (790, 860), devant « Toi » (MOVE 550 ms)."
+        },
+        {
+          "t": 87.771,
+          "mot": "ne",
+          "evenement": "Entrer : la vague (WAVE.png, 340 px) tombe en (330, 640) avec sa pilule « marché » dessous (330, 780) (kit.drop 370 ms)."
+        },
+        {
+          "t": 88.305,
+          "mot": "pas",
+          "evenement": "Monter : la vague monte de 70 px (MOVE 250 ms, ease-out) ; « Toi » reste immobile, stylo baissé."
+        },
+        {
+          "t": 88.56,
+          "mot": "marchés.",
+          "evenement": "Plonger : la vague descend de 140 px (MOVE 400 ms) ; « Toi » ne bouge toujours pas."
+        },
+        {
+          "t": 89.57,
+          "mot": "contrôles",
+          "evenement": "Toucher : « Toi » touche l’étiquette du stylo (Figure.tap sur (790, 860), contact sur le mot)."
+        },
+        {
+          "t": 90.174,
+          "mot": "frais.",
+          "evenement": "Prendre en main : la ficelle de l’étiquette se rattache à la pointe du stylo de « Toi » (kit.draw 300 ms) et « Toi » la tire de 40 px vers lui : l’étiquette des frais est désormais tenue par lui, la vague non. Tenue."
+        }
+      ],
+      "lecture_sans_son": "Le marché bouge tout seul, « Toi » n’y peut rien ; l’étiquette des frais, elle, il la prend en main et la tire à lui."
+    },
+    {
+      "id": "S20",
+      "segment": "chute",
+      "t_start": 90.859,
+      "t_end": 94.505,
+      "texte": "Et un rendement affiché sans les frais n’est pas ton rendement.",
+      "elements": "panneau, etiquette, epargne, marqueur, toi",
+      "etat_initial": "Résultat de S19 : vague « marché » basse (330, 710), étiquette tenue par la ficelle du stylo de « Toi » (790, 860), « Toi » (840, 1135).",
+      "action": "La vague se change en panneau « Rendement affiché » ; « Toi » s’en approche ; « 5 % / an » s’y affiche en grand. L’étiquette des frais vient buter contre le panneau ; « Toi » barre le 5 % et « 4 % net » s’écrit dessous, avec « ton rendement ».",
+      "resultat": "Panneau « Rendement affiché » : « 5 % / an » barré, « 4 % net » en dessous, pilule « ton rendement » ; l’étiquette des frais collée à son bord.",
+      "transition": "Sur « Abonne-toi » (S21), l’étiquette devient le bouton « S’abonner ».",
+      "beats": [
+        {
+          "t": 90.859,
+          "mot": "Et",
+          "evenement": "Changer : la vague et sa pilule « marché » se changent en panneau papier 380×260, contour encre 5, ombre dure, centre (400, 860), titre « Rendement affiché » SemiBold 32 en haut (400, 775) (kit.morph 350 ms)."
+        },
+        {
+          "t": 91.184,
+          "mot": "rendement",
+          "evenement": "Marcher : « Toi » marche de (840, 1135) à (660, 1135), à portée du panneau (Figure.walk 550 ms)."
+        },
+        {
+          "t": 91.66,
+          "mot": "affiché",
+          "evenement": "Afficher : « 5 % / an » ExtraBold 64 encre surgit au centre du panneau (400, 855) (kit.pop 300 ms)."
+        },
+        {
+          "t": 92.299,
+          "mot": "sans",
+          "evenement": "Buter : « Toi » lâche la ficelle ; l’étiquette glisse de (790, 860) contre le bord droit du panneau, en (720, 860), bute (le panneau tremble, kit.shake) et reste collée : les frais qui manquaient au chiffre."
+        },
+        {
+          "t": 92.693,
+          "mot": "frais",
+          "evenement": "Barrer : « Toi » barre « 5 % / an » d’un trait encre (Figure.strike, 300 ms)."
+        },
+        {
+          "t": 93.135,
+          "mot": "n’est",
+          "evenement": "Écrire : « 4 % net » ExtraBold 56 deep surgit sous le chiffre barré (400, 935) (kit.pop 300 ms) ; la pilule light « ton rendement » (Bold 34) surgit sous le panneau (400, 1050). Tenue jusqu’à la fin de la scène."
+        }
+      ],
+      "lecture_sans_son": "Le 5 % affiché ne compte pas les frais : une fois l’étiquette ajoutée, « Toi » le barre ; ton vrai rendement, c’est 4 % net."
+    },
+    {
+      "id": "S21",
+      "segment": "cta",
+      "t_start": 94.505,
+      "t_end": 97.52,
+      "texte": "Abonne-toi pour comprendre ton argent.",
+      "elements": "etiquette, fin, panneau, epargne, marqueur, toi",
+      "etat_initial": "Résultat de S20 : panneau barré « 4 % net » et « ton rendement », étiquette collée au panneau (720, 860), colonne réduite (160, 1110), repère sur 3, « Toi » (660, 1135).",
+      "action": "Fin standard : le texte de l’étiquette devient « S’abonner » ; « Toi » sort ; tout le reste se réduit pendant que la carte de fin grandit ; l’étiquette descend au bas de la carte et grandit : c’est son bouton. Un toucher (anneau d’impact, sans flèche de souris) l’enfonce.",
+      "resultat": "L’étiquette des frais suivie depuis la première image est devenue le bouton « S’abonner » de la carte « WealthTech Horizon » ; image immobile jusqu’à 97,52 s.",
+      "transition": "Image finale tenue jusqu’à 97,52 s.",
+      "beats": [
+        {
+          "t": 94.505,
+          "mot": "Abonne-toi",
+          "evenement": "Fin standard (kit.outro, outs : panneau, « ton rendement », colonne, repère) : sa ficelle se détache et tombe, son « 1 % / an » s’efface puis « S’abonner » s’inscrit (fondus 100 + 100 ms) : ce n’est plus un prix ; « Toi » sort (Figure.exit) ; les autres éléments se réduisent pendant que la carte papier 620×520 grandit en (540, 760) (morph 350 ms) ; « WealthTech Horizon » et « Comprendre ton argent » entrent en fondu à f + 4 ; l’étiquette descend au bas de la carte et devient son bouton (≈ 380×112)."
+        },
+        {
+          "t": 95.596,
+          "mot": "comprendre",
+          "evenement": "Approcher : le pointeur de toucher (doigt, anneau d’impact) glisse jusqu’au coin bas droit du bouton, sans couvrir le libellé (300 ms, ease-out)."
+        },
+        {
+          "t": 96.316,
+          "mot": "argent.",
+          "evenement": "Toucher : le bouton s’enfonce de 8 px dans son ombre (kit.click, 5 images) avec un anneau d’impact, puis remonte ; plus rien ne bouge jusqu’à 97,52 s."
+        }
+      ],
+      "lecture_sans_son": "Le prix des frais suivi tout le film devient le bouton « S’abonner » de WealthTech Horizon."
+    }
+  ],
+  "idees_cles": [
+    {
+      "id": "a",
+      "idee": "Une petite étiquette « 1 % / an » accrochée à une colonne d’argent de 10 000 € paraît minuscule, puis pèse dessus et fait baisser son niveau.",
+      "scenes": [
+        "S01",
+        "S02"
+      ],
+      "principale": false
+    },
+    {
+      "id": "b",
+      "idee": "À chaque case de temps qui se remplit, l’étiquette arrache un jeton à la colonne et le fait tomber dans un bac, que la vague du marché monte ou baisse.",
+      "scenes": [
+        "S04"
+      ],
+      "principale": false
+    },
+    {
+      "id": "c",
+      "idee": "La colonne grossit chaque année (« + »), le bac des frais fait « + 0 € » ; au bout des 20 ans, les jetons et les gains qu’ils n’ont pas faits forment une pile marquée en rouge « plus de 4 600 € ».",
+      "scenes": [
+        "S05",
+        "S06"
+      ],
+      "principale": false
+    },
+    {
+      "id": "d",
+      "idee": "Dans le graphique, 10 000 € montent à ≈ 26 500 € à « 5 % / an » ; l’étiquette heurte ce taux, qui tombe à « 4 % net », et la seconde courbe s’arrête à ≈ 21 900 € : l’écart rouge entre les deux bouts est les 4 600 €, et le « ? » disparaît.",
+      "scenes": [
+        "S07",
+        "S08",
+        "S09",
+        "S10"
+      ],
+      "principale": true
+    },
+    {
+      "id": "e",
+      "idee": "Une carte « 1 000 € » versée par « Toi » passe dans l’entonnoir marqué « 3 % » : un jeton de 30 € tombe dans le bac et seulement « 970 € » entrent dans la colonne.",
+      "scenes": [
+        "S12",
+        "S13"
+      ],
+      "principale": true
+    },
+    {
+      "id": "f",
+      "idee": "L’étiquette « gestion » tranche chaque année le haut de toute la colonne (« encours ») ; sa pile monte bien plus haut que le seul jeton des frais d’entrée.",
+      "scenes": [
+        "S14",
+        "S15"
+      ],
+      "principale": true
+    },
+    {
+      "id": "g",
+      "idee": "La liste d’étiquettes de frais s’allonge (arbitrage, sortie, transaction, change, droits de garde) ; le « ? » de « Toi » fait venir le DIC qui les range toutes, puis l’intermédiaire, face à « Toi » et marqué « obligatoire », lui remet un relevé des coûts en € et en %.",
+      "scenes": [
+        "S16",
+        "S17",
+        "S18"
+      ],
+      "principale": true
+    },
+    {
+      "id": "h",
+      "idee": "La vague du marché monte et plonge sans que « Toi » y touche ; l’étiquette des frais, lui, la prend en main au bout de son stylo.",
+      "scenes": [
+        "S19"
+      ],
+      "principale": true
+    },
+    {
+      "id": "i",
+      "idee": "Contre le panneau « Rendement affiché », l’étiquette des frais bute ; « Toi » barre « 5 % / an » et « 4 % net » s’écrit : c’est ton rendement.",
+      "scenes": [
+        "S20"
+      ],
+      "principale": true
+    },
+    {
+      "id": "j",
+      "idee": "L’étiquette suivie depuis la première image devient le bouton « S’abonner » de WealthTech Horizon.",
+      "scenes": [
+        "S21"
+      ],
+      "principale": false
+    }
+  ],
+  "entites_nouvelles": [],
+  "risks": [
+    "La colonne-jauge à moitié vide peut se lire « réservoir » plutôt que « argent » : le disque euro et « 10 000 € » restent posés dessus ; repli : jetons empilés (shape) au lieu de la jauge.",
+    "S04 enchaîne quatre prélèvements en 2,5 s : si le spectateur muet ne lie pas le jeton à l’étiquette, faire basculer l’étiquette jusqu’au contact (cause visible) à chaque fois et garder 370 ms de chute.",
+    "S07 est un gros réarrangement (colonne → point, barre → axe, pile → chiffre) : décaler les pièces de 2 à 3 images et laisser l’étiquette en dernier ; repli : faire sortir le bac avant le morph.",
+    "S18 : le relevé affiche le coût d’une année (« en € : 100 € / an » = 1 % de 10 000 €, « en % : 1 % / an ») et non l’écart de 4 600 € sur 20 ans, pour ne pas faire lire ce dernier comme une facture ; aucun autre montant inventé.",
+    "S20 tient l’état final 1,37 s avant la carte de fin (93,135 → 94,505) : si c’est trop court, avancer « 4 % net » sur « frais » et la rature sur « sans ».",
+    "La vague en S19 doit se lire « ça bouge tout seul » et non « Toi l’a touchée » : « Toi » ne lève pas le stylo avant le toucher de l’étiquette.",
+    "Densité en S16 (7 étiquettes + repère + colonne + « Toi ») : étiquettes de 56 px, espacées de 70 px ; repli : n’afficher que les 5 nouvelles et ranger « entrée » et « gestion » dans l’étiquette du fil.",
+    "S01 : le mot « frais » doit suivre l’étiquette (groupe) dans ses déplacements S01-S06 ; il s’efface au réarrangement de S07.",
+    "S06 : deux jauges empilées pour la pile (base cyan + haut clair à « + ») ; repli : une seule jauge dont les blocs du haut portent un « + »."
+  ],
+  "excerpt": {
+    "t_start": 39.903,
+    "t_end": 52.454,
+    "why": "Le cœur du calcul (l’étiquette fait tomber 5 % à 4 % net, la seconde courbe, l’écart rouge de 4 600 €) puis le repli en colonne et la naissance du repère : valide le graphique et le morph le plus chargé."
+  },
+  "test_sans_son": {
+    "message_reconstruit": "« Des frais qui paraissent minuscules, comme 1 % par an, pèsent lourd sur une épargne : ils sont prélevés chaque année, que le marché monte ou baisse, et l'argent prélevé ne rapporte plus rien. Sur 10 000 € placés 20 ans à 5 %, 1 % de frais ramène le rendement à 4 % net, soit environ 21 900 € au lieu de 26 500 € : plus de 4 600 € d'écart. Ces frais sont de trois sortes. Les frais d'entrée sont pris sur chaque versement (3 % de 1 000 € font 30 €). Les frais de gestion sont pris chaque année sur tout l'encours, et ce sont les plus lourds. S'y ajoutent d'autres frais : arbitrage, sortie, transaction, change, droits de garde. On les trouve tous dans le DIC (Document d'informations clés), et l'intermédiaire doit fournir un relevé des coûts en euros et en pourcentage. On ne contrôle pas le marché, mais on peut vérifier ses frais et toujours juger un placement sur son rendement net, pas sur le rendement affiché. »",
+    "idees": [
+      {
+        "id": "a",
+        "score": "GOT",
+        "preuve": "S02 : « Je comprends que ce 1 % est un coût qui tire l'épargne vers le bas », mais doute gain/coût en S01 et retour au niveau en S03 qui « peut faire croire que l'effet n'était pas réel »."
+      },
+      {
+        "id": "b",
+        "score": "PARTIAL",
+        "preuve": "S04 : « les frais sont prélevés chaque année, que le marché monte ou baisse », mais « je ne sais pas d'emblée que la vague représente le marché » et les cases ne se lisent en années que si la barre est graduée."
+      },
+      {
+        "id": "c",
+        "score": "PARTIAL",
+        "preuve": "S05 : « le bac [pourrait être] un argent mis à l'abri » ; S06 : « je croirais à tort que 4 600 € ont été payés directement en frais »."
+      },
+      {
+        "id": "d",
+        "score": "GOT",
+        "preuve": "S09 « L'image est très claire » ; S10 « les 4 600 € sont l'écart entre avec et sans frais. Le puzzle se résout. » Réserve : « net » implicite, réarrangement S07 rapide."
+      },
+      {
+        "id": "e",
+        "score": "GOT",
+        "preuve": "S13 : « Les 1 000 € y passent, 30 € tombent dans le bac, et seuls 970 € entrent dans l'épargne. »"
+      },
+      {
+        "id": "f",
+        "score": "PARTIAL",
+        "preuve": "S15 comparaison claire, mais S14 : « Encours est un mot technique […] l'image (toute la colonne bat) l'explique seulement à moitié »."
+      },
+      {
+        "id": "g",
+        "score": "PARTIAL",
+        "preuve": "Liste et DIC compris (S16-S17), mais S16 « 7 étiquettes alors que seules 5 nouvelles tombent » et S18 « je ne sais pas qui est l'intermédiaire », « ni si c'est une obligation », « 4 600 € […] sur un relevé de frais peut prêter à confusion »."
+      },
+      {
+        "id": "h",
+        "score": "PARTIAL",
+        "preuve": "S19 : « Le marché ne se contrôle pas, mais les frais si », mais « la coche peut se lire à tort comme “j'accepte les frais” »."
+      },
+      {
+        "id": "i",
+        "score": "GOT",
+        "preuve": "S20 : « Le rendement annoncé n'est pas ce que je touche : il faut retirer les frais. »"
+      },
+      {
+        "id": "j",
+        "score": "GOT",
+        "preuve": "S21 : « L'étiquette des frais devient le bouton “S'abonner” », avec la crainte qu'on croie l'abonnement payant."
+      }
+    ],
+    "bilan": "Message principal reconstitué presque en entier (calcul 26 500 / 21 900 / 4 600, frais d’entrée 30 sur 1 000, gestion la plus lourde, DIC, net contre affiché). Contresens à retirer : la coche de S19 lue « j’accepte les frais » ; 4 600 € lus comme frais payés directement (S06) et repris comme montant d’un relevé de frais (S18) ; le bac lu comme argent à l’abri (S05) ; l’abonnement payant suggéré par l’étiquette-prix devenue bouton (S21) ; le retour au niveau en S03 qui annule la perte. Flous : étiquette gain ou coût en S01 et rapetissement lu « disparaît » ; vague non identifiée comme marché, cases non lues comme années (S04) ; réarrangement S07 trop rapide ; « net » implicite (S09) ; « Entrée » lu comme entrée d’argent (S11) ; « encours » à moitié montré (S14) ; 7 étiquettes pour 5 nouvelles (S16) ; intermédiaire anonyme et obligation invisible (S18). Changements : un mot « frais » sur l’étiquette et le bac, « marché » sous la vague, « 1 an » sous la 1re case, « + 0 € » sur le bac, gains perdus visibles dans la pile, réarrangement en deux temps, « 5 % − 1 % », « Frais : » devant le repère, crochet « encours », nouvelles étiquettes en papier, « ton intermédiaire » + « obligatoire », relevé annuel 100 € / 1 %, ficelle prise en main au lieu de la coche, prix effacé avant « S’abonner ». Aucune entité nouvelle, timings et débuts de mots inchangés, deux temps forts ajoutés (S01 « frais », S18 « doit »).",
+    "changements": [
+      {
+        "id": "S01",
+        "lecture": "« Je ne sais pas si c'est un gain ou un coût » ; le rapetissement « peut se lire comme ça disparaît ».",
+        "changement": "Mot « frais » au-dessus de l’étiquette sur « frais » (0,743 s) ; réduction à 0,6 au lieu de 0,45, toujours lisible."
+      },
+      {
+        "id": "S03",
+        "lecture": "« Le retour au niveau d'origine peut faire croire que l'effet n'était pas réel. »",
+        "changement": "Seule l’étiquette remonte ; la colonne garde son niveau baissé (0,55), repris dans les scènes suivantes."
+      },
+      {
+        "id": "S04",
+        "lecture": "Vague lue comme eau, risque ou inflation ; cases pas forcément des années.",
+        "changement": "Pilule « marché » sous la vague, « 1 an » sous la première case, mot « frais » sur le bac."
+      },
+      {
+        "id": "S05",
+        "lecture": "Le bac pourrait être « un argent mis à l'abri » ; l’absence de « + » ne se voit pas.",
+        "changement": "À chaque « + » de la colonne, « + 0 € » surgit au-dessus du bac : l’absence de croissance devient visible."
+      },
+      {
+        "id": "S06",
+        "lecture": "« Je croirais à tort que 4 600 € ont été payés directement en frais. »",
+        "changement": "La pile garde une base cyan (frais prélevés) et monte avec des blocs clairs à « + » (gains perdus) avant « plus de 4 600 € »."
+      },
+      {
+        "id": "S07",
+        "lecture": "« Je risque de perdre la trace de quel objet devient quoi. »",
+        "changement": "Réarrangement en deux temps : colonne → point et barre → axe sur « Regarde », puis axe vertical et pile → chiffre rouge sur « calcul »."
+      },
+      {
+        "id": "S09",
+        "lecture": "« Le mot net […] pour un débutant, il est implicite. »",
+        "changement": "« 5 % − 1 % » s’inscrit sous la pilule « 4 % net »."
+      },
+      {
+        "id": "S11",
+        "lecture": "« Je pourrais lire Entrée comme une entrée d'argent. »",
+        "changement": "« Frais : » Bold 34 devant le repère 1-2-3."
+      },
+      {
+        "id": "S14",
+        "lecture": "« Encours […] l'image l'explique seulement à moitié. »",
+        "changement": "Un crochet deep embrasse la colonne du sol au sommet, marqué « encours » : tout ce qui est placé."
+      },
+      {
+        "id": "S16",
+        "lecture": "« 7 étiquettes alors que seules 5 nouvelles tombent. »",
+        "changement": "Les cinq nouvelles étiquettes sont en papier blanc, les deux connues restent bleu clair."
+      },
+      {
+        "id": "S18",
+        "lecture": "Intermédiaire anonyme, obligation invisible, 4 600 € sur un relevé de frais.",
+        "changement": "Pilule « ton intermédiaire », pilule « obligatoire » sur « doit », relevé passant par lui ; lignes « en € : 100 € / an » et « en % : 1 % / an »."
+      },
+      {
+        "id": "S19",
+        "lecture": "« La coche peut se lire à tort comme j'accepte les frais. »",
+        "changement": "La coche est remplacée : la ficelle de l’étiquette passe au stylo de « Toi », qui la tire à lui (il la tient, la vague non)."
+      },
+      {
+        "id": "S21",
+        "lecture": "L’étiquette-prix devenue bouton « peut laisser croire que l'abonnement est payant ».",
+        "changement": "La ficelle tombe et le « 1 % / an » s’efface avant que « S’abonner » s’inscrive."
+      }
+    ]
+  }
+}

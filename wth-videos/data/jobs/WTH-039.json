@@ -1,0 +1,173 @@
+{
+  "carrousel": "WTH-039",
+  "date": "2026-11-01",
+  "heure": "19:30",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1aw5V6-WeaMo-jypLChA9CRm3rhNmZnZ1",
+        "public_id": "WTH-V2-Pro-039-01",
+        "asset_folder": "WTH-V2/WTH-039",
+        "display_name": "WTH-V2-Pro-039-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-039"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=16HiML3aD4rl3dZHQHTHChYAZxUDBeO1y",
+        "public_id": "WTH-V2-Pro-039-02",
+        "asset_folder": "WTH-V2/WTH-039",
+        "display_name": "WTH-V2-Pro-039-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-039"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1NVAQGJFbaRESN-lCiJgY_swfjrgg3pKv",
+        "public_id": "WTH-V2-Pro-039-03",
+        "asset_folder": "WTH-V2/WTH-039",
+        "display_name": "WTH-V2-Pro-039-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-039"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1s-Y9U5nRr5bTUBwblMdIAW-H5TEzxmlv",
+        "public_id": "WTH-V2-Pro-039-04",
+        "asset_folder": "WTH-V2/WTH-039",
+        "display_name": "WTH-V2-Pro-039-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-039"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1l0Q_6nl-1TdvQG8QRGGjbB-DAhXjWBi4",
+        "public_id": "WTH-V2-Pro-039-05",
+        "asset_folder": "WTH-V2/WTH-039",
+        "display_name": "WTH-V2-Pro-039-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-039"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1e00Ia5y1OPq0n0Kvb6BYft_LKm6yjQ86",
+        "public_id": "WTH-V2-Pro-039-06",
+        "asset_folder": "WTH-V2/WTH-039",
+        "display_name": "WTH-V2-Pro-039-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-039"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1OMBJpivEV5wC9hNq00o0xzYoKrhWlJYq",
+        "public_id": "WTH-V2-Pro-039-07",
+        "asset_folder": "WTH-V2/WTH-039",
+        "display_name": "WTH-V2-Pro-039-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-039"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=19sGxDvd1X_z8OAnK6yvKoPbjPvmu8U46",
+        "public_id": "WTH-V2-Pro-039-08",
+        "asset_folder": "WTH-V2/WTH-039",
+        "display_name": "WTH-V2-Pro-039-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-039"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1Sl_bn6oiBJk8hke93LR8n7KdTwEGxkqi",
+        "public_id": "WTH-V2-Pro-039-09",
+        "asset_folder": "WTH-V2/WTH-039",
+        "display_name": "WTH-V2-Pro-039-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-039"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-01T19:30:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-11-01T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Une IA sans traçabilité ne te fait pas gagner de temps\\n\\nElle le déplace. Explication en 7 points.\\n\\nCGP : tu fais confiance à une synthèse IA sans source ? Oui, non, ça dépend ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-039-01.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-039-02.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-039-03.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-039-04.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-039-05.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-039-06.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-039-07.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-039-08.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-039-09.jpg\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Une IA sans traçabilité ne te fait pas gagner de temps\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-01T19:30:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-01T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Une IA sans traçabilité ne te fait pas gagner de temps\\n\\nElle le déplace. Explication en 7 points.\\n\\nCGP : tu fais confiance à une synthèse IA sans source ? Oui, non, ça dépend ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-01T19:30:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-01T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Une IA sans traçabilité ne te fait pas gagner de temps\\n\\nElle le déplace. Explication en 7 points.\\n\\nCGP : tu fais confiance à une synthèse IA sans source ? Oui, non, ça dépend ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-039-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

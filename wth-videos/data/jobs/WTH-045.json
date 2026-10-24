@@ -1,0 +1,173 @@
+{
+  "carrousel": "WTH-045",
+  "date": "2026-11-03",
+  "heure": "19:30",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1_LdLDybocgP7cJSK340bsrwDy_OwDENj",
+        "public_id": "WTH-V2-Pro-045-01",
+        "asset_folder": "WTH-V2/WTH-045",
+        "display_name": "WTH-V2-Pro-045-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-045"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1owxgFIrTgn7Are7CXCWZ9p8AV4o2jN-C",
+        "public_id": "WTH-V2-Pro-045-02",
+        "asset_folder": "WTH-V2/WTH-045",
+        "display_name": "WTH-V2-Pro-045-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-045"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1ndDOLTBcAVTK-JhpjPq558xBAeXbVasK",
+        "public_id": "WTH-V2-Pro-045-03",
+        "asset_folder": "WTH-V2/WTH-045",
+        "display_name": "WTH-V2-Pro-045-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-045"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=18Nk7-XLAVADENKttLTi6M4zQ9RabssQ8",
+        "public_id": "WTH-V2-Pro-045-04",
+        "asset_folder": "WTH-V2/WTH-045",
+        "display_name": "WTH-V2-Pro-045-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-045"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1_QUk8RD7pYIbQz-WBRcai1Gn6Bozcvy7",
+        "public_id": "WTH-V2-Pro-045-05",
+        "asset_folder": "WTH-V2/WTH-045",
+        "display_name": "WTH-V2-Pro-045-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-045"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1QcRNcMBZG_yA7vtQAHe-zn0yojP0iZ24",
+        "public_id": "WTH-V2-Pro-045-06",
+        "asset_folder": "WTH-V2/WTH-045",
+        "display_name": "WTH-V2-Pro-045-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-045"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1xhtfrEhLcHErI9OJ2anMfrpNUqTS4zef",
+        "public_id": "WTH-V2-Pro-045-07",
+        "asset_folder": "WTH-V2/WTH-045",
+        "display_name": "WTH-V2-Pro-045-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-045"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=10WILYbW4XL7gcdtWR9A3eCnA3AB9IDya",
+        "public_id": "WTH-V2-Pro-045-08",
+        "asset_folder": "WTH-V2/WTH-045",
+        "display_name": "WTH-V2-Pro-045-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-045"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1di2slNnrgxi-bUBX5Y6KZfd1pKo9k7oC",
+        "public_id": "WTH-V2-Pro-045-09",
+        "asset_folder": "WTH-V2/WTH-045",
+        "display_name": "WTH-V2-Pro-045-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-045"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-03T19:30:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-11-03T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Merci de nous transmettre un justificatif de domicile. »\\n\\nComment rendre une demande de document claire avec l’aide de l’IA, en 4 étapes.\\n\\nCGP : quelle pièce te demande le plus de relances ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-045-01.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-045-02.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-045-03.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-045-04.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-045-05.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-045-06.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-045-07.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-045-08.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-045-09.jpg\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"« Merci de nous transmettre un justificatif de domicile. »\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-03T19:30:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-03T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Merci de nous transmettre un justificatif de domicile. »\\n\\nComment rendre une demande de document claire avec l’aide de l’IA, en 4 étapes.\\n\\nCGP : quelle pièce te demande le plus de relances ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-03T19:30:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-03T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Merci de nous transmettre un justificatif de domicile. »\\n\\nComment rendre une demande de document claire avec l’aide de l’IA, en 4 étapes.\\n\\nCGP : quelle pièce te demande le plus de relances ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-045-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}
