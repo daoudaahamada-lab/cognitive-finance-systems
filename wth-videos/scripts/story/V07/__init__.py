@@ -444,6 +444,7 @@ def cast(S, kit):
         kit.steps_marker(labels, id=mid, y=MARKER_Y, cx=MARKER_CX, gap=MARKER_GAP, z=20)
         S.ents[mid]["p"].update(moveBlank=True, labelSize=MARKER_LABEL_SIZE, doneStyle="kept")
         S.set(mid, scale=0, on=0, done0=0, done1=0, done2=0)
+    kit.tick("disque1_coche", list(DISQUE_PT[0]), PAPER, size=30, sw=7, z=20.5)   # p2 S12 « Ça » : sur le disque actif
     kit.text("titre_erreurs", list(TITRE_MARQUEUR_C), T_3_ERREURS, size=40, weight=800, z=20, scale=0)
     kit.text("titre_questions", list(TITRE_MARQUEUR_C), T_3_QUESTIONS, size=40, weight=800, z=20, scale=0)
 
