@@ -1169,8 +1169,10 @@ def check_storyboard(video_id, words=None, storyboard=None):
     if scenes[-1]["t_end"] < words[-1]["end"] - ONSET_TOL:
         errors.append(f"{scenes[-1]['id']} finit à {scenes[-1]['t_end']} s, avant la fin du dernier mot "
                       f"({words[-1]['end']} s)")
-    # Débuts de scène sur un début de mot.
-    for s in scenes:
+    # Débuts de scène sur un début de mot (sauf S01, qui commence à 0 même si la voix commence après : « « Capital… »).
+    for k, s in enumerate(scenes):
+        if k == 0 and abs(s["t_start"]) <= 1e-3:
+            continue
         near = min(starts, key=lambda t: abs(t - s["t_start"]))
         if abs(near - s["t_start"]) > ONSET_TOL:
             errors.append(f"{s['id']} commence à {s['t_start']} s, hors début de mot (le plus proche : {near} s)")

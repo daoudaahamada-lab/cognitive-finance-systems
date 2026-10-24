@@ -35,7 +35,7 @@ import math
 from pipeline.story import DRAW, DROP, FADE, MORPH, MOVE, POP, STYLE, cubic_at  # noqa: F401
 from pipeline.story_kit import REACH, TAP  # noqa: F401
 
-from . import (AI_TICK, CARD_W, CARTE_A_C, CARTE_B_C, CARTE_B_PARK, CARTE_B_PARK_S, CARTE_B_S12, DOSSIER_C,  # noqa: F401
+from . import (AI_TICK, CARD_W, FICHE_S, CARTE_A_C, CARTE_B_C, CARTE_B_PARK, CARTE_B_PARK_S, CARTE_B_S12, DOSSIER_C,  # noqa: F401
                ENTRY_P2, ENTRY_P3, FAIT_C, FAIT_W, FICHE_S13, FICHE_S13_S, HYP_W, MIETTES, NEQ_C, PREVOIT, POURRAIT,
                ROWS, T_CARTE_A, T_CARTE_B, TOI_REST, TOI_S13, TY, VALUE_W, WIRE_DY, WIRE_X, X, seam, vanish)
 
@@ -49,6 +49,7 @@ V5_X0 = X["value"] - VALUE_W[4] - 2              # soulignement : « vendre » s
 STUB = 34                        # S10 : départ de fil de 34 px
 FIL_IDS = [f"fil{i + 1}" for i in range(5)]
 FLOOR = 1250                     # sol : y monde où tombent miettes et fils pendants
+CRUMB_DX = 120                   # S09 : les miettes dérivent vers la droite en tombant (IA en x 50-180)
 INK, PAPER = STYLE["ink"], STYLE["paper"]
 
 
@@ -103,7 +104,8 @@ def _crumble(S, kit, fid, f, d=15):
         S.key(mid, "pos", g - 1, [round(p0[0], 1), round(p0[1], 1)])
         S.key(mid, "rot", g - 1, round(math.degrees(rot), 1))
         S.key(mid, "scale", g - 1, 1)
-        S.key(mid, "pos", g, [round(p0[0] + (k - 3) * 9, 1), FLOOR - 8 * (k % 3)], dd, "in")
+        S.key(mid, "pos", g, [round(p0[0] + CRUMB_DX + (k - 3) * 9, 1), FLOOR - 8 * (k % 3)], dd, "in")   # à droite
+        #                                          de l'IA : les miettes ne tombent pas sur sa tête
         S.key(mid, "rot", g, round(math.degrees(rot) + (-1) ** k * (40 + 15 * k), 1), dd, "linear")
         S.key(mid, "opacity", g + dd, 0, 5, "linear")
         S.key(mid, "scale", g + dd + 5, 0)
@@ -119,14 +121,21 @@ def part(S, kit, c):
         toi.enter(f0 - 10, at=list(TOI_REST))
 
     # ================= S09 : les vides n'ont qu'une fausse carte ; « Toi » les touche, elles s'émiettent =================
-    f = kit.at("S09", "date", "un trait pointillé gris de l'IA relie « mars 2027 » (L2) à la fausse carte de la place "
-                              "« Vente » : sa seule preuve est une fausse carte ; la carte bat")
-    g = kit.draw("lien_vente", f, 8)
-    kit.pulse("fantome_vente", g - 2, peak=1.12)
+    def same_origin(lid, fid, f):
+        """Contrôle sans son (idée c) : la valeur, la fausse carte, son petit nuage et la tête de l'IA battent ensemble,
+        deux fois : la carte vient de l'IA, pas d'un document (plus de trait valeur -> carte, lu « sourcé »)."""
+        kit.pulse(f"{lid}_cadre", f, times=2, peak=1.15, step=3)
+        kit.pulse(fid, f, times=2, peak=1.15, step=3)
+        kit.pulse(f"{fid}_ia", f, times=2, peak=1.5, step=3)
+        kit.pulse("ia", f + 1, times=2, peak=1.12, step=3)
 
-    f = kit.at("S09", "montant", "même trait de « 250 000 € » (L4) à la fausse carte de la place « Contrat », qui bat")
-    g = kit.draw("lien_contrat", f, 8)
-    kit.pulse("fantome_contrat", g - 2, peak=1.12)
+    f = kit.at("S09", "date", "« mars 2027 » (L2), la fausse carte de la place « Vente », son petit nuage et la tête de "
+                              "l'IA battent ensemble, deux fois : cette carte vient de l'IA")
+    same_origin("L2", "fantome_vente", f)
+
+    f = kit.at("S09", "montant", "même battement : « 250 000 € » (L4), la fausse carte de la place « Contrat », son "
+                                 "nuage et la tête de l'IA")
+    same_origin("L4", "fantome_contrat", f)
 
     f = kit.at("S09", "intention", "« vendre » (L5) et, en face, la vraie carte Compte rendu battent ensemble")
     kit.pulse("L5", f, peak=1.12)
@@ -139,14 +148,16 @@ def part(S, kit, c):
 
     def touch(lien, eclair, fid, place, hit):
         """Au contact : un éclair plein deep file de la valeur à la place (3 images), tient 2, rentre ; la fausse carte
-        s'émiette quand il arrive ; le trait pointillé de l'IA s'efface ; la place vide tremble."""
+        s'émiette quand il arrive ; la place vide tremble, puis son contour en tirets s'épaissit et le reste (le trou
+        revient et se voit : contrôle sans son, idée c) ; elle bat deux fois."""
         kit.draw(eclair, hit, 3, e="linear")
         kit.draw(eclair, hit + 5, 3, track="from", e="in")
         S.key(eclair, "draw", hit + 8, 0)
         S.key(eclair, "from", hit + 8, 0)
         _crumble(S, kit, fid, hit + 3)
-        S.key(lien, "draw", hit + 3, 0, 5, "in")
         kit.shake(place, hit + 4, amp=8)
+        kit.fade(f"{place}_hi", hit + 4, to=1, d=4)
+        kit.pulse(place, hit + 10, times=2, peak=1.15, step=3)
 
     f = kit.at("S09", "absents", "la pointe touche « mars 2027 » : un éclair plein file jusqu'à la place « Vente » ; "
                                  "la fausse carte s'émiette et ses miettes tombent au sol ; la place vide tremble")
@@ -236,8 +247,8 @@ def part(S, kit, c):
             p0 = S.val(place, "pos", arr - 1)
             S.key(place, "pos", arr + k, [round(p0[0] + dx, 2), p0[1]])
         kit.pop(f"{lid}_vide", arr + 2)                        # pas de document : case de pictogramme vide
-        S.key(wid, "bAt", arr + 4, [proof[0] + 16, proof[1] + 120], 8, "in")   # le bout libre se détache et pend
-        S.key(wid, "sag", arr + 4, 60, 8, "out")
+        S.key(wid, "bAt", arr + 4, [proof[0] + 10, proof[1] + 46], 8, "in")   # le bout libre se détache et pend,
+        S.key(wid, "sag", arr + 4, 40, 8, "out")                   # sans descendre sur la carte suivante
 
     link(0, t11)
     f = kit.at("S11", "contrat,", "la pointe touche L4 ; son fil file vers la place « Contrat » : vide, elle tremble ; "
@@ -256,12 +267,15 @@ def part(S, kit, c):
     f = kit.at("S11", "certitude.", "les bouts des deux fils pendants (L2, L4) tombent jusqu'au sol et s’effacent ; "
                                     "« mars 2027 » et « 250 000 € », rouges, tremblent")
     for k, (wid, place) in enumerate((("fil2", "place_vente"), ("fil4", "place_contrat"))):
+        # contrôle sans son (idée d) : le fil tombait jusqu'au sol, le long du compte rendu, vers la tête de l'IA ; il se
+        # décroche maintenant des deux bouts et tombe sur place, de 90 px, en s'effaçant (il ne va nulle part)
         g = f + 2 * k
-        b0 = S.val(wid, "bAt", g - 1)
-        py = S.to_world(place, [0, 0], g)[1]
-        S.key(wid, "bAt", g, [b0[0] + 10, round(FLOOR - py, 1)], DROP, "in")
-        S.key(wid, "sag", g, 30, DROP, "inOut")
-        S.key(wid, "opacity", g + DROP, 0, 5, "linear")
+        a0, b0 = S.val(wid, "aAt", g - 1), S.val(wid, "bAt", g - 1)
+        S.key(wid, "aAt", g, [a0[0], round(a0[1] + 90 / FICHE_S, 1)], DROP, "in")
+        S.key(wid, "bAt", g, [b0[0] + 6, round(b0[1] + 90, 1)], DROP, "in")
+        S.key(wid, "sag", g, 20, DROP, "inOut")
+        S.key(wid, "opacity", g + 2, 0, DROP + 2, "in")
+        kit.pulse(place, g + 2, times=2, peak=1.15, step=3)
     kit.shake("L2", f, amp=8)
     kit.shake("L4", f, amp=8)
 
@@ -298,6 +312,7 @@ def part(S, kit, c):
     S.key("L5_souligne", "pos", g, p0, d, "inOut")
     _sweep(S, "carteB_surligne", g, d, POURRAIT[1] + 12)
     kit.fade("carteB_souligne", g + 2, to=1, d=d - 2)
+    kit.pop("carteB_q", g + d)                                  # « ? » au bout du compte rendu : incertain
     toi.rest(hits[-1] + 2)
 
     # ================= S13 : « 3 · Hypothèse » ; L5 sort du brief en carte A, « Fait » =================
@@ -315,6 +330,8 @@ def part(S, kit, c):
     S.key("dossier", "opacity", f + MORPH + 1, 1)
     for k in (1, 3, 5):
         S.key(f"fil{k}", "draw", f, 0, 6, "in")
+    for pid in ("place_vente", "place_contrat"):               # les trous épaissis (S09) reprennent leur trait
+        S.key(f"{pid}_hi", "opacity", f + MORPH, 0)
     for lid in ("L2", "L4"):                                    # les erreurs 1 restent fendues, sans rouge vif
         S.key(lid, "red", f, 0, MORPH, "out")
     S.key("L5", "chars", f, 0, 6, "linear")
@@ -367,8 +384,11 @@ def part(S, kit, c):
     S.key("fait", "sx", g, k, FADE, "out")
     S.key("fait", "scale", g + FADE, 0)
     S.key("fait", "sx", g + FADE, 1)
-    S.key("carteA", "stroke", g, PAPER, 8, "inOut")             # le bord plein s'efface sous les tirets
-    kit.fade("carteA_tirets", g, to=1, d=8)
+    # contrôle sans son (idée e) : la coche de la carte A se retire et devient le « ? » de la carte B, juste dessous ;
+    # le bord de la carte ne change plus (un mouvement de moins dans le même instant)
+    S.key("carteA_coche", "draw", hit, 0, 4, "in")
+    kit.pop("carteA_q", hit + 3)
+    kit.pulse("carteB_q", hit + 3 + POP, peak=1.2)
     kit.fade("carteA_souligne", g, to=0, d=8)
     kit.fade("carteA_souligne_t", g, to=1, d=8)
     end = toi.rest(hit + 6)

@@ -225,7 +225,7 @@ DOCS = {"doc_releve": ("Relevé", "bars", T_12), "doc_mail": ("Mail", "mail", No
         "doc_cr": ("Compte\nrendu", "person", None)}
 PLACES = {"place_vente": ("Vente", "cal"), "place_contrat": ("Contrat", "shield")}
 FANTOMES = {"fantome_vente": (T_MARS, -8, "place_vente"), "fantome_contrat": (T_250, 8, "place_contrat")}
-FANTOME_W, FANTOME_H = 224, 84                  # fausses cartes : plus larges que les places, de travers (bourrées)
+FANTOME_W, FANTOME_H = 244, 84                  # fausses cartes : plus larges que les places, de travers (bourrées)
 MAISON_LOCAL = (40, -335)                       # maison (pictogramme sur disque) sur le haut de la chemise (210, 410)
 MAISON_VENTE = (98, -109)                       # S06 « c’est » : posée sur le bord droit de la place « Vente »
 
@@ -355,7 +355,7 @@ ENTRY_P3 = {   # fin de S14 = etat_initial de S15 : brief et dossier réduits en
     "carteA": {"pos": list(CARTE_A_C), "scale": 1, "opacity": 1},
     "carteA_txt": {"text": T_CARTE_A, "chars": len(T_CARTE_A.replace("\n", ""))},
     "carteA_surligne": {"scale": 1}, "carteA_souligne": {"opacity": 0}, "carteA_souligne_t": {"opacity": 1},
-    "carteA_tirets": {"opacity": 1}, "carteA_coche": {"draw": 1},
+    "carteA_tirets": {"opacity": 0}, "carteA_coche": {"draw": 0}, "carteA_q": {"scale": 1}, "carteB_q": {"scale": 1},
     "carteB": {"pos": list(CARTE_B_C), "scale": 1, "opacity": 1},
     "carteB_txt": {"chars": len(T_CARTE_B.replace("\n", ""))},
     "carteB_surligne": {"scale": 1}, "carteB_souligne": {"opacity": 1},
@@ -415,9 +415,13 @@ def cast(S, kit):
         kit.shape(fid, [DOSSIER_C[0] + at[0] + 8, DOSSIER_C[1] + at[1]], kind="round", w=FANTOME_W, h=FANTOME_H,
                   r=12, fill=PAPER, stroke=AI_TICK, sw=5, dash=[0.01, 10], shadow=4, z=3.7, scale=0)
         S.set(fid, rot=rot)
-        kit.tick(f"{fid}_ia", [-FANTOME_W / 2 + 24, 0], AI_TICK, size=24, sw=6, variant="ai", z=3.72, parent=fid,
-                 draw=1, thin=5, boxSw=3, boxFill=PAPER)
-        kit.text(f"{fid}_txt", [-FANTOME_W / 2 + 46, 1], txt, size=TEXT_MIN, weight=700, anchor="start", z=3.75,
+        # contrôle sans son : la coche se lisait « document » ; un petit nuage pointillé (celui de l'IA) dit d'où
+        # vient la carte, à la place du pictogramme d'un vrai document
+        kit.shape(f"{fid}_bandeau", [-FANTOME_W / 2 + 28, 0], kind="round", w=48, h=FANTOME_H - 8, r=10,
+                  fill=STYLE["grey"], stroke="none", sw=0, shadow=0, z=3.71, parent=fid)
+        kit.shape(f"{fid}_ia", [-FANTOME_W / 2 + 28, 1], kind="poly", pts=cloud_pts(42, 32, bumps=7, amp=0.2),
+                  fill=AI_TICK, stroke="none", sw=0, shadow=0, z=3.72, parent=fid)
+        kit.text(f"{fid}_txt", [-FANTOME_W / 2 + 60, 1], txt, size=TEXT_MIN, weight=700, anchor="start", z=3.75,
                  parent=fid)
 
     # --- le brief : page, reflet (sous les textes), pastille, 5 rangées vides ---
@@ -603,7 +607,9 @@ def cast(S, kit):
     kit.text("p1_vide", [0, 0], "?", size=44, weight=800, color=AI_TICK, z=13.3, scale=0)   # S05 : retour bredouille
 
     # --- le repère des 4 erreurs et son titre ---
-    kit.steps_marker(MARKER_LABELS, id="marqueur", y=MARKER_Y, cx=CX, z=20)
+    gap = round(max(text_width(t, TEXT_MIN, 700) for t in MARKER_LABELS) + 30)   # légendes en 32 px : deux légendes
+    #                                              voisines qui se croisent en fondu (kit.step) ne se touchent pas
+    kit.steps_marker(MARKER_LABELS, id="marqueur", y=MARKER_Y, cx=CX, gap=gap, z=20)
     S.ents["marqueur"]["p"].update(moveBlank=True, labelShow="active", labelSize=TEXT_MIN)   # seule l'étape active
     #                                              est légendée, à l'encre, en 32 px (revue 1 : légendes grises illisibles)
     S.set("marqueur", scale=0, on=0)
@@ -640,6 +646,10 @@ def cast(S, kit):
               dash=[10, 8], shadow=0, z=14.15, parent="carteA", opacity=0)
     kit.tick("carteA_coche", [CARTE_W / 2 - 40, 0], AI_TICK, size=40, sw=8, variant="ai", z=14.2, parent="carteA",
              draw=0, thin=6, boxSw=3.5, boxFill=PAPER)
+    # contrôle sans son : la certitude se lit sans les mots : coche (carte A) au-dessus de « ? » (carte B) ; au
+    # reclassement (S14 « même »), la coche de la carte A devient le même « ? »
+    kit.text("carteA_q", [CARTE_W / 2 - 40, 2], "?", size=64, weight=800, color=DEEP, z=14.2, parent="carteA",
+             scale=0)
     kit.shape("carteB", list(CARTE_B_C), kind="round", w=CARTE_W, h=CARTE_H, r=16, fill=PAPER, stroke=INK, sw=5,
               dash=[14, 10], shadow=6, z=14, scale=0)
     S.add("carteB_tete", "figure", z=14.1, parent="carteB", variant="paper")       # le client : « ce qu'il a dit »
@@ -652,6 +662,8 @@ def cast(S, kit):
               pts=[[POURRAIT[0] - POURRAIT[1] / 2, LIGNE1_Y + 23], [POURRAIT[0] + POURRAIT[1] / 2, LIGNE1_Y + 23]],
               closed=False, fill="none", stroke=DEEP, sw=5, dash=[10, 8], shadow=0, z=14.15, parent="carteB",
               opacity=0)
+    kit.text("carteB_q", [CARTE_W / 2 - 40, 2], "?", size=64, weight=800, color=DEEP, z=14.2, parent="carteB",
+             scale=0)
     kit.text("different", list(NEQ_C), "≠", size=100, weight=800, z=14.3, scale=0)
     kit.shape("fait", list(FAIT_C), kind="round", w=FAIT_W, h=PILL2_H, r=PILL2_H / 2, fill=LIGHT, stroke=DEEP, sw=4,
               shadow=5, z=14.4, scale=0)

@@ -3,8 +3,8 @@
   "mode": "story",
   "source": "WTH-009",
   "file": "output/WTH-V05.mp4",
-  "checked_at": "2026-10-24T07:24:54+00:00",
-  "ok": false,
+  "checked_at": "2026-10-24T08:17:23+00:00",
+  "ok": true,
   "checks": [
     {
       "check": "Durée",
@@ -25,7 +25,7 @@
       "ok": true,
       "value": "2684 images, empreintes identiques",
       "expected": "2684 images (props), empreintes props + storyboard + mise en scène du rendu = fichiers actuels, version sans sous-titres du même rendu",
-      "detail": "props 3e4d1a2bf9, storyboard 38992e8c46, mise en scène f6c2805708"
+      "detail": "props 10e5529f95, storyboard 38992e8c46, mise en scène 60d2af8300"
     },
     {
       "check": "Mise en scène complète",
@@ -36,10 +36,10 @@
     },
     {
       "check": "Synchro sous-titres",
-      "ok": false,
+      "ok": true,
       "value": "85 ms",
       "expected": "< 150 ms",
-      "detail": "sous-titres (props Story)/alignement + image : 82 ms ; décalage audio MP4 : 3 ms ; alignement scribe vérifié sur 29 pauses mesurées, conflits : « aplomb. » (20.41–20.85) dans la pause 20.68–20.96; « hypothèses. » (52.85–53.65) dans la pause 53.40–53.81"
+      "detail": "sous-titres (props Story)/alignement + image : 82 ms ; décalage audio MP4 : 3 ms ; alignement scribe vérifié sur 29 pauses mesurées, aucun conflit"
     },
     {
       "check": "Aucun mot coupé",
@@ -78,8 +78,8 @@
     },
     {
       "check": "Zones réservées dégagées",
-      "ok": false,
-      "value": "haut 0.00% (image 0); bas 0.00% (image 0); droite 0.34% (image 2503)",
+      "ok": true,
+      "value": "haut 0.00% (image 0); bas 0.00% (image 0); droite 0.26% (image 1727)",
       "expected": "≤ 0.3% de pixels hors fond dans les 160 px du haut, les 380 px du bas et à droite de x = 940 (version sans sous-titres)",
       "detail": "interface TikTok / Reels : rien d'important sous les bandeaux ni sous la colonne d'icônes"
     },
@@ -93,7 +93,7 @@
     {
       "check": "Version sans sous-titres conforme",
       "ok": true,
-      "value": "PSNR 51.5 dB au pire (image 2602), 2684 / 2684 images",
+      "value": "PSNR 52.1 dB au pire (image 2602), 2684 / 2684 images",
       "expected": "≥ 40 dB au-dessus de y = 1270, 2684 images dans les deux versions",
       "detail": "médiane 99.0 dB"
     },

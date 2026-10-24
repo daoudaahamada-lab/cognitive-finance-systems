@@ -486,9 +486,9 @@ def part(S, kit, c):
     S.key("bulle_txt", "opacity", f - 1, 0)
     q0 = W("L2_q", [qw / 2 + 8, -6], f - 1)                         # décalée : ne double pas la question
     S.key("p3_question", "pos", f, [round(q0[0], 2), round(q0[1], 2)])
-    kit.pop("p3_question", f + 1, d=3)
-    out_x = 700
-    pts = [q0, [out_x, q0[1]], [out_x, BULLE_C[1] + 70], list(BULLE_C)]
+    out_x = 760                                                     # à droite du brief (bord 618) : la pastille
+    kit.pop("p3_question", f + 1, to=[out_x, round(q0[1], 2)], d=4)  # naît de la question et en sort aussitôt
+    pts = [[out_x, q0[1]], [out_x, BULLE_C[1] + 70], list(BULLE_C)]
 
     def route(p):
         """Polyligne q0 -> à droite du brief -> en haut -> la bulle (longueur parcourue proportionnelle à p)."""
@@ -500,7 +500,8 @@ def part(S, kit, c):
                 return [a[0] + (b[0] - a[0]) * u, a[1] + (b[1] - a[1]) * u]
             t -= L
         return list(pts[-1])
-    S.path("p3_question", f + 4, MOVE, "inOut", route)
+    S.path("p3_question", f + 5, MOVE - 1, "inOut", route, scale_at=lambda p: 1 - 0.3 * p)   # arrive à 0,7 : la
+    #                                              pastille tient dans la bulle, à gauche de x 940 (zone réservée)
     arr = f + 4 + MOVE
     S.key("p3_question", "scale", arr, 0)                            # coupe : la bulle prend la question
     S.key("bulle_txt", "opacity", arr, 1)
