@@ -121,6 +121,13 @@ l'extrait, tours 1 et 2), contrôle sans son final de l'extrait (deux spectateur
 40. **Les erreurs et les questions de la chute gardent les mêmes mots (V07).** Si « Doublons » devient « Frais » dans la
     fiche finale, le parallèle se casse : la chute reprend les mêmes trois étiquettes que le repère.
 
+41. **Le rouge se dose (V11).** Quand toutes les lignes passent au rouge, le rouge ne désigne plus rien : une seule
+    ligne rouge à la fois, la précédente redevient neutre ou se range.
+42. **Cas possibles ≠ histoire du client (V11).** Des cas reliés par « ou » se lisent comme une suite d'événements :
+    les montrer côte à côte, en fantômes, puis n'en garder qu'un.
+43. **L'ouverture ne fait pas déjà ce que la morale recommande (V11).** Si « Toi » pose la question dès le début, la
+    morale finale (« pose la question ») perd son sens.
+
 ## 8. Ce qui a marché (à garder)
 
 - Un objet unique qui change sous les yeux (la fiche) et une pastille-protagoniste qui ne le quitte pas.
