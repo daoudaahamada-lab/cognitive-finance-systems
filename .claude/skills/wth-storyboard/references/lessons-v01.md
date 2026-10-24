@@ -111,6 +111,11 @@ l'extrait, tours 1 et 2), contrôle sans son final de l'extrait (deux spectateur
     (cerclé, « toujours 800 € ») ; et le résultat final s'écrit en chiffres.
 36. **« Toi » nommé dès sa première image, bras baissé au repos (V03).** Sinon on y voit un élève ou un présentateur.
 
+37. **Un tableau final se remplit (V06).** Des cases en tirets « à remplir » se lisent « rien ici » (« seul
+    l'appartement a des frais ») : remplir chaque case, ou écrire en clair « à toi de remplir ».
+38. **Un axe de frise se légende à ses deux bouts (V06).** « tout de suite » / « des années » ; sinon on ne lit pas
+    qu'il mesure un délai.
+
 ## 8. Ce qui a marché (à garder)
 
 - Un objet unique qui change sous les yeux (la fiche) et une pastille-protagoniste qui ne le quitte pas.
