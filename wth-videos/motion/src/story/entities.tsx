@@ -978,7 +978,7 @@ const Burst: React.FC<EntityProps> = ({r}) => {
 // `labels` (optionnel) : légende sous chaque disque (ex. Limiter / Exiger / Relire), encre pour l'étape active, gris
 // (ai_tick) pour les autres, en fondu selon la piste `active` ; `labelDy` / `labelSize` : GEOM.MARKER par défaut.
 type MarkerP = {xs: number[]; y: number; labels?: string[]; labelDy?: number; labelSize?: number; moveBlank?: boolean;
-  doneStyle?: 'kept'};
+  doneStyle?: 'kept'; labelShow?: 'active'};
 const Marker: React.FC<EntityProps> = ({r}) => {
   const C = usePalette();
   const p = r.e.p as MarkerP;
@@ -996,7 +996,22 @@ const Marker: React.FC<EntityProps> = ({r}) => {
   return (
     <>
       <line x1={p.xs[0]} x2={p.xs[p.xs.length - 1]} y1={p.y} y2={p.y} stroke={C.ink} strokeWidth={4} />
-      {p.labels && kept
+      {p.labels && p.labelShow === 'active'
+        ? (
+            // opt-in labelShow 'active' (absent = today's legend): only the active step's label is drawn, in ink,
+            // fading in with the disc (no grey labels for the other steps; nothing while `on` is 0).
+            p.labels.map((t, i) => {
+              const k = clamp01(1 - Math.abs(a - i)) * (on === 1 ? 1 : lit);
+              return k > 0.001 ? (
+                <g key={`l${i}`} opacity={k < 0.999 ? k : undefined}>
+                  <Txt x={p.xs[i]} y={p.y + (p.labelDy ?? M.labelDy)} size={p.labelSize ?? M.labelSize} weight={700} color={C.ink} anchor="middle">
+                    {t}
+                  </Txt>
+                </g>
+              ) : null;
+            })
+          )
+        : p.labels && kept
         ? (
             // opt-in doneStyle 'kept' (absent = today's legend): no grey label at all. Every label stays ink; the
             // active or done step is Bold 700, a step not reached yet SemiBold 600. Track `lbl` (absent = 1) fades

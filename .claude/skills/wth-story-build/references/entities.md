@@ -17,7 +17,7 @@ combinaison qui fait l'affaire : un type de plus est du code à maintenir en Pyt
   - **Fiche.** fiche, line, tick, label, doc, case, sheen ;
   - **Liens et signes.** wire, qmark, bubble, bullet, burst, pill, window, marker, stamp ;
   - **Personnages et objets.** figure, limb, pen, png.
-- Ajouts aux types existants : tick `variant: 'ai'`, marker `labels`, pictogrammes hourglass / clock9 / chat / target /
+- Ajouts aux types existants : tick `variant: 'ai'`, marker `labels` (et `labelShow`, V05), pictogrammes hourglass / clock9 / chat / target /
   sign, window `bar` / `sealOn` / `sealDy` / `lockOn` / `lockDy`, doc `fw` / `fh` / `fts` / `fdate` / `read`,
   stamp `sub` / `subOn`
 - geometry.json (GEOM)
@@ -812,6 +812,14 @@ chemin de code).
 | Type | Option | Défaut | Rôle |
 |---|---|---|---|
 | pill | piste `textOp` (0 → 1) | 1 | opacité du libellé seul, la pilule reste : effacer un texte avant de le changer (`S.key(id, "textOp", f, 0, 4)`, bascule `text`, puis retour à 1 en `FADE`). V03 S21 : « 1 % / an » s'efface avant que l'étiquette ne devienne le bouton « S’abonner ». À poser d'abord avec `kit.ensure(id, "textOp", 1)`. |
+
+### Tour de revue 1 de V05 : marker `labelShow`
+
+Paramètre facultatif (absent : légende dessinée exactement comme avant, même chemin de code).
+
+| Type | Option | Défaut | Rôle |
+|---|---|---|---|
+| marker | paramètre `labelShow: 'active'` | aucun | seule la légende de l'étape active est dessinée, à l'encre (Bold 700), en fondu avec le disque pendant `kit.step` ; aucune légende grise pour les autres étapes, aucune tant que `on` vaut 0. À combiner avec `labelSize` (V05 : 32 px, lisible au téléphone) : `S.ents["marqueur"]["p"].update(labelShow="active", labelSize=32)` |
 
 ## geometry.json (GEOM)
 

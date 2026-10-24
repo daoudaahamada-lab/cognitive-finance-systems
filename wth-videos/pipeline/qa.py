@@ -84,13 +84,16 @@ def pause_conflicts(words, pauses, margin=0.15):
     Le dernier mot est seulement contrôlé sur son début : sa fin est souvent prolongée jusqu'à la fin du fichier.
     Un groupe insécable (« 26 500 € », « 20 ans. ») réunit plusieurs mots prononcés : la voix peut marquer une pause
     entre eux (« vingt-six mille cinq cents … euros »), donc il peut enjamber une pause, mais jamais y commencer.
+    Un mot de fin de phrase (« aplomb. ») peut déborder sur la pause qui le suit : Scribe compte la chute de la voix
+    dans sa durée, et le surlignage, calé sur les débuts de mots, reste juste.
     """
     bad = []
     for s0, s1 in pauses:
         for i, w in enumerate(words):
             starts_inside = s0 + margin < w["start"] < s1 - margin
+            sentence_end = w["w"].rstrip("»  ").endswith((".", "!", "?", "…")) and w["start"] <= s0
             spans = (w["start"] < s1 - margin and w["end"] > s0 + margin and i < len(words) - 1
-                     and " " not in w["w"])
+                     and " " not in w["w"] and not sentence_end)
             if starts_inside or spans:
                 bad.append(f"« {w['w']} » ({w['start']:.2f}–{w['end']:.2f}) dans la pause {s0:.2f}–{s1:.2f}")
     return bad
