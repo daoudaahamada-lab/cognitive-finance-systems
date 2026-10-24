@@ -116,6 +116,11 @@ l'extrait, tours 1 et 2), contrôle sans son final de l'extrait (deux spectateur
 38. **Un axe de frise se légende à ses deux bouts (V06).** « tout de suite » / « des années » ; sinon on ne lit pas
     qu'il mesure un délai.
 
+39. **Pas de plan figé sans effet (V07).** Un geste sans résultat visible (taper sur un couvercle fermé) fait décrocher :
+    chaque geste produit un changement (tremble, rebondit, s'ouvre) dans la seconde.
+40. **Les erreurs et les questions de la chute gardent les mêmes mots (V07).** Si « Doublons » devient « Frais » dans la
+    fiche finale, le parallèle se casse : la chute reprend les mêmes trois étiquettes que le repère.
+
 ## 8. Ce qui a marché (à garder)
 
 - Un objet unique qui change sous les yeux (la fiche) et une pastille-protagoniste qui ne le quitte pas.
