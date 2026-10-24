@@ -1,0 +1,1057 @@
+{
+ "version": "v1",
+ "angle": "Parti pris « une question, trois réponses » : un seul objet suivi, la question fiscale de « Toi » (pastille cyan), et la réponse qui se pose sous elle, montrée dans trois états qu’on compare : la réponse d’aplomb aux puces vides (tirée d’une boule de cristal, cassée par le stylo), la réponse prudente à puces pleines (réponse, source reliée à un livre, date, limites), et la réponse qui dit « Je ne sais pas » et montre sa limite. Vocabulaire minimal de la référence et de V01-V05 (carte-fiche, puces, fils, case vide, cassure, coches, bulles, tampon), 1 à 4 éléments actifs par temps fort, pointillés pour l’IA, trait plein pour « Toi », 5 PNG seulement, aucune entité nouvelle.\n\nRéponse aux 7 points :\n1) Fil conducteur : la pastille « Question fiscale ? » de « Toi », de sa main (S01) à l’en-tête de chaque réponse (S02, S10, S20), au test (S19), puis au bouton « S’abonner » (S22) ; on voit son état initial (posée, réponse douteuse) et final (réponse tamponnée CONFIANCE).\n2) État initial / action / résultat : chaque scène part du résultat précédent (positions données) et finit sur un état visible : réponse cochée aux puces vides ; carte vierge rembobinée ; case « Source » vide et boule de cristal ; trois lignes cassées ; deux pièces tombées ; carte à 4 lignes reliée au livre ; faisceau qui retombe avant l’empreinte ; trois cas au-dessus du conseiller ; cache barré tombé ; outil encadré ; case de test cochée ; Avant / Après tamponné.\n3) Sens complet : « avec aplomb » = gras, coches de l’IA, reflet ; « et si c’était faux ? » = les puces vides rougissent, « Toi » doute ; « même sans l’information… crédible » = la case « Source » vide, les valeurs sortent de la boule, puis reflet et coches ; « jamais théorique… coûter cher » = un fil vers les pièces, qui tombent ; « où vérifier » = un point court le long du fil jusqu’au livre encadré ; « plus utile qu’une certitude affichée » = « Toi » coche la carte prudente, la boule brille sans coche ; « aucune réponse ne suffit » = le faisceau de l’IA retombe avant l’empreinte ; « signaler, pas cacher » = la sonnette sonne, le cache est barré ; « teste-le… tu connais la réponse » = « en général » = « en général », la case se coche ; « pas une faiblesse » = la bulle tient sous le stylo, là où la réponse d’aplomb a cassé.\n4) IA ≠ « Toi » : l’IA (AI.png, à gauche, « Ton IA ») n’agit qu’en pointillés et reste immobile quand ses lignes cassent, ses coches restent dessus ; « Toi » (figurine encre, à droite, nommé dès l’image 0, bras baissé au repos) est seul à tenir le stylo et le tampon : il envoie, doute, casse, coche, choisit, teste, tamponne. Le conseiller est une figurine papier face à « Toi ».\n5) Mêmes éléments qui évoluent : la bulle « ? » de « Toi » devient l’autocollant de la réponse ; la réponse d’aplomb est rembobinée, réécrite, cassée, rangée dans la boule, ressort en « Avant » ; la case « Source » vide reçoit le livre ; la citation rentre dans la ligne « Réponse » ; les pièces de « Toi » tombent, rentrent en lui, ressortent dans le cas « Montant » ; l’empreinte sort de lui, monte dans le cas « Situation » ; la sonnette et le livre rentrent dans les puces de la carte « Après » ; la réponse connue sort de la ligne « Réponse » ; la case de test tracée en S03 se coche en S19 ; la pastille devient le bouton.\n6) PNG au service de la scène : AI.png émet les pointillés ; CRYSTAL.png émet les valeurs inventées et garde la réponse fausse ; BOOK.png reçoit le fil de la source ; FINGERPRINT.png est la situation que le faisceau n’atteint pas ; BELL.png est frappée et sonne. Tous les processus (écrire, cocher, casser, relier, tomber, sonner, comparer) sont dessinés en code ; aucun zoom sur un PNG.\n7) Simplicité : ivoire quadrillé, encre, un seul accent cyan (deep et light pour les traits et les fonds), rouge réservé aux trois lignes fausses, au fil des pièces et au cache ; Inter lisible (34 px pour les étiquettes, 30-36 pour les textes lus) ; 1 à 4 éléments actifs par temps fort ; ce qui a fini d’agir rentre dans un objet (boule, IA, « Toi », conseiller, puces) au lieu de rester. Pas de repère 1-2-3 : le script ne numérote rien, et les étiquettes des lignes (Règle, Plafond, Date ; Réponse, Source, Date, Limites) font ce travail ; la chute reprend « Limites : ton cas ».",
+ "thread": "On suit la question fiscale de « Toi », une pastille cyan « Question fiscale ? » qu’il envoie du stylo à son IA dès la première image, et la réponse qui se pose dessous. Dans l’accroche, l’IA sort aussitôt une carte « Réponse » en gras, cochée par elle-même, mais aux puces vides ; « Toi » doute. Le contexte rembobine : la case « Source » est vide, l’IA tire ses valeurs d’une boule de cristal. Au point 1, le stylo de « Toi » casse la règle, le plafond et la date, et un fil rouge fait tomber ses pièces ; au point 2, la même question reçoit une carte neuve à quatre lignes (réponse, source reliée à un livre, date, limites) qui renvoie à l’empreinte de « Toi » ; au point 3, le faisceau de l’IA n’atteint pas sa situation, un conseiller prend les cas, la sonnette les signale, « Toi » choisit l’outil au livre et à la sonnette et le teste (sa case se coche). Dans la chute, « Avant » (cassée) face à « Après » : l’IA dit « Je ne sais pas », montre sa limite, et « Toi » tamponne CONFIANCE ; la pastille devient le bouton « S’abonner ».",
+ "objet_fil": {
+  "id": "pastille",
+  "description": "La pilule cyan « Question fiscale ? » (388 × 64 ; 0,8 sur un en-tête), à l’écran dès l’image 0 dans la main de « Toi » : c’est sa question. Il l’envoie à l’IA (S01) ; elle se pose sur l’en-tête de chaque réponse qu’on lui donne : la réponse d’aplomb (S02-S09), puis, restée seule en l’air quand celle-ci rentre dans la boule de cristal, la carte neuve (S10-S18) ; elle repart devant l’IA pour le test (S19), revient sur la carte « Après » (S20-S21) et devient le bouton « S’abonner » de la carte de fin (S22)."
+ },
+ "cast": [
+  {
+   "id": "pastille",
+   "name_fr": "La question de « Toi » (objet du fil)",
+   "look": "Pilule cyan #19B3C7 388 × 64, contour encre 4 px, ombre dure +6/+6, texte encre Inter Bold 34 « Question fiscale ? ». Sur un en-tête de carte : échelle 0,8 (310 × 51). En S22 : texte « S’abonner », bouton de la carte de fin (≈ 380 × 112).",
+   "source": "code",
+   "entite": "pill ; kit.pulse, kit.move (arc) ; enfant de la fiche ; piste text / textOp ; bouton de kit.outro (btn_at)",
+   "evolution": "S01 dans la main de « Toi » (630, 1060), touchée du stylo, envoyée devant l’IA ; S02 posée sur l’en-tête de la réponse d’aplomb ; S04-S09 y reste (rembobinage, fabrication, cassure) ; S10 reste seule en l’air quand la réponse fausse rentre dans la boule, puis se pose sur l’en-tête de la carte neuve ; S11-S18 suit la bonne réponse (réduite en S15) ; S19 repart devant l’IA pour le test ; S20 revient sur l’en-tête de la carte « Après » ; S22 devient le bouton « S’abonner »."
+  },
+  {
+   "id": "toi",
+   "name_fr": "« Toi », le spectateur",
+   "look": "Figurine pleine encre #1E1416 (tête ronde, buste trapèze), échelle 0,9, ombre dure, bras à longueur fixe et stylo à plume cyan ; étiquette « Toi » (pilule fond encre, texte ivoire Inter Bold 34) au-dessus de la tête dès l’image 0 et jusqu’à la carte de fin. Repos en bas à droite (870, 1144), pied sur y 1230, bras baissé. Positions hautes pour atteindre les cartes : (870, 640) en S08, S18-S19 ; (860, 830) en S21. Seul à tenir le stylo et le tampon, seul à casser, cocher, choisir, tester, tamponner.",
+   "source": "code",
+   "entite": "Figure variant=\"ink\" (tap, reach, trace, hop, stamp, look) ; pill (étiquette)",
+   "evolution": "S01 nommé, envoie sa question du stylo ; S02 doute (bulle « ? ») ; S03 trace sa case de test, vide ; S08 monte et casse les trois affirmations ; S09 redescend ; S12 son empreinte sort de lui ; S13 regarde le livre ; S14 coche la réponse prudente ; S15 fait face au conseiller ; S16 ses pièces partent dans la carte-cas « Montant » ; S18 monte et choisit l’outil au livre et à la sonnette ; S19 teste l’IA et coche sa case ; S20 touche la bulle « Je ne sais pas » : elle tient ; S21 tamponne CONFIANCE ; S22 touche le bouton « S’abonner »."
+  },
+  {
+   "id": "case_test",
+   "name_fr": "La case de test de « Toi »",
+   "look": "Case carrée en tirets deep 4 px (case, 50 × 50), toujours juste au-dessus de l’étiquette « Toi » ((870, 952) au repos, (870, 450) en haut, (860, 640) en S21). Vide jusqu’en S19, puis coche pleine deep 8 px.",
+   "source": "code",
+   "entite": "case (draw) + tick (coche pleine deep) ; suit « Toi » (kit.move avec ses sauts)",
+   "evolution": "S03 tracée vide par « Toi » sur « tester » (un test à faire) ; S04-S18 suit « Toi », vide ; S19 cochée au contact du stylo quand les deux réponses sont égales ; S20-S21 reste cochée ; S22 s’efface."
+  },
+  {
+   "id": "ia",
+   "name_fr": "Ton IA",
+   "look": "AI.png (tête de céramique au cerveau de verre) 170 px, tournée vers la droite, en bas à gauche (165, 1110), jamais plus grande que « Toi » ; étiquette « Ton IA » (pilule papier, contour encre, Inter Bold 34) au-dessus (165, 995). N’agit qu’en pointillés ai_tick #8E8887 : faisceaux, coches tick variant « ai » (pointillés dans un carré tireté), bulle au contour pointillé. Immobile quand elle se trompe.",
+   "source": "AI.png + code",
+   "entite": "png ; wire (dots) ; tick variant=\"ai\" ; burst ; kit.pulse (étiquette)",
+   "evolution": "S01 lit la question ; S02 sort la réponse d’aplomb et la coche ; S03 dit « Je ne sais pas » ; S04 ravale sa bulle ; S05-S06 écrit la forme, cherche dans la case « Source » vide, tire les valeurs de la boule de cristal ; S08-S09 immobile pendant la cassure, ses coches restent ; S10-S11 écrit la bonne réponse ; S12 cite l’exemple ; S15 son faisceau n’atteint pas l’empreinte ; S17 frappe la sonnette ; S19 répond au test « en général » ; S20 redit « Je ne sais pas » ; S22 s’efface."
+  },
+  {
+   "id": "reponse",
+   "name_fr": "La réponse d’aplomb (« Avant »)",
+   "look": "Carte « Réponse » : fiche Sheet(3) 520 × 512, papier #FFFDF8, contour encre 4 px, ombre dure +8 ; en-tête « Réponse » Inter ExtraBold 36 à droite, la pastille à gauche ; centre (540, 640), x 280-800, y 384-896 ; 3 rangées SemiBold 32, valeurs en Bold : L1 « Règle : déductible », L2 « Plafond : aucun », L3 « Date : fin du mois » (aucun chiffre) ; puces = cercles en tirets VIDES ; coches pointillées de l’IA ; autocollant cyan « ? » au coin bas droit (780, 870). Cassée : texte rouge #C8102E, fente en zigzag, moitié droite tombée de 14 px. Réduite (S18, S20) : échelle 0,55-0,6, lignes en barres rouges (lite).",
+   "source": "code",
+   "entite": "fiche + line ×3 via Sheet(3) (chars, alarm, pulse, red, crack, lite) ; tick variant ai ; sheen ; bubble (autocollant)",
+   "evolution": "S02 sort de l’IA, écrite d’un trait, cochée, reflet ; puces vides rougies ; S03 reçoit l’autocollant « ? » ; S04 rembobinée, effacée ; S05 la forme réécrite ; S06 valeurs tirées de la boule, cochée, reflet ; S07 reliée aux pièces ; S08 ses trois lignes cassent sous le stylo de « Toi » ; S09 reflet encore, fil rouge ; S10 rentre dans la boule de cristal ; S18 ressort de la boule face à l’outil choisi ; S19 y rentre ; S20-S21 ressort, étiquetée « Avant » ; S22 s’efface."
+  },
+  {
+   "id": "bonne_reponse",
+   "name_fr": "La réponse prudente (« Après »)",
+   "look": "Carte « Réponse » : fiche Sheet(4) 520 × 616, même dessin ; centre (540, 640), x 280-800, y 332-948 ; 4 rangées SemiBold 32 à puce PLEINE (pictogramme sur disque cyan) : L1 « Réponse : en général » (chat), L2 « Source : BOFiP » (bank), L3 « Date : à jour » (cal), L4 « Limites : ton cas » (person). Coche pleine deep de « Toi » (70 px) dans la marge basse droite dès S14. Réduite : 0,55 (S15-S17), 0,6 (S18-S19), lignes en barres (lite) ; « Après » : 0,85 en (575, 700), texte (27 px).",
+   "source": "code",
+   "entite": "fiche + line ×4 via Sheet(4) (chars, bulletOn, flash, mark, lite) ; tick plein ; shape round (cadres) ; stamp",
+   "evolution": "S10 sort de l’IA, vierge, sous la même question ; S11 écrite ligne par ligne, L2 reliée au livre ; S12 L4 s’allume avec l’exemple ; S13 L1 reçoit la citation, L4 surlignée, chemin vers le livre ; S14 cochée par « Toi » ; S15 réduite en haut à droite ; S18 outil choisi, encadré ; S19 L1 donne la réponse connue « en général » ; S20 « Après », livre et sonnette rangés dans ses puces, L4 encadrée ; S21 tamponnée CONFIANCE ; S22 s’efface."
+  },
+  {
+   "id": "source",
+   "name_fr": "La case « Source » et le livre",
+   "look": "Case en tirets deep (case 180 × 160, centre (150, 700)) avec le mot « Source » (Inter Bold 34, encre) au-dessus (150, 590) ; puis BOOK.png (livre ouvert, 170 px) posé dedans, relié à L2 par un fil plein deep 5 px (9 px quand il « montre ») ; cadre deep 5 px autour en S13.",
+   "source": "BOOK.png + code",
+   "entite": "case (draw, shake) + text ; png ; wire (plein, sw, along_wire) ; shape round (cadre)",
+   "evolution": "S05 la case se trace, vide ; S06 le faisceau de l’IA y bute : vide ; S11 le livre y tombe, L2 s’y relie ; S13 un point court jusqu’à lui, il est encadré ; S15 suit la carte en haut (420, 450) ; S18 sous la carte choisie (520, 760), son fil s’épaissit ; S20 rentre dans la puce de L2."
+  },
+  {
+   "id": "boule",
+   "name_fr": "La boule de cristal (certitude affichée)",
+   "look": "CRYSTAL.png (boule de cristal cyan sur pied argenté), 100 à 130 px, ombre de contact douce ; au sol à droite de l’IA (340, 1180) quand elle est rangée.",
+   "source": "CRYSTAL.png",
+   "entite": "png ; kit.pop from_pt, kit.move, kit.pulse ; burst (éclat light)",
+   "evolution": "S06 sort de la tête de l’IA (340, 1000), les valeurs inventées en viennent ; S10 la réponse cassée y rentre, elle descend au sol ; S14 se relève et brille, sans coche, redescend ; S18 la réponse cassée en ressort (outil d’en face) ; S19 y rentre ; S20-S21 la réponse « Avant » en ressort ; S22 s’efface."
+  },
+  {
+   "id": "bulle_ia",
+   "name_fr": "La bulle de l’IA",
+   "look": "Bulle papier au contour pointillé ai_tick 4 px (shape round dash + queue poly dash), coins 30, queue vers la bouche de l’IA : 380 × 120 en (470, 1000-1040) avec « Je ne sais pas » (Inter Bold 36, encre) ; 480 × 150 en (510, 1045) pour la citation (Bold 30, 3 lignes : « « Cette règle s’applique », « en général, mais dépend », « de ta situation » »).",
+   "source": "code",
+   "entite": "shape round (dash) + shape poly (queue, dash) + text (chars, mark, under) ; kit.pop, kit.vanish",
+   "evolution": "S03 dit « Je ne sais pas » (annonce) ; S04 ravalée par l’IA ; S12 ressort avec la citation de l’exemple ; S13 rentre dans L1 ; S20 redit « Je ne sais pas », tient sous le stylo de « Toi » ; S22 s’efface."
+  },
+  {
+   "id": "doute",
+   "name_fr": "Le doute de « Toi »",
+   "look": "Bulle papier de « Toi » (bubble, 150 × 120, « ? » ExtraBold 80, queue vers sa tête) en (720, 960) ; puis autocollant cyan « ? » (bubble piste s = 1) au coin bas droit de la carte d’aplomb (780, 870).",
+   "source": "code",
+   "entite": "bubble (s, q, pulse)",
+   "evolution": "S02 sort de la tête de « Toi » sur « faux ? » ; S03 devient autocollant sur la réponse d’aplomb ; S07 bat sur « erreur » ; S10 rentre avec la carte dans la boule."
+  },
+  {
+   "id": "rembobiner",
+   "name_fr": "Le retour en arrière",
+   "look": "Pictogramme ◀◀ (icon rewind, encre) sur disque light r 56, au-dessus de la carte (540, 312).",
+   "source": "code",
+   "entite": "icon rewind (disc) ; kit.pop, kit.vanish",
+   "evolution": "S04 paraît pendant que la réponse s’efface, puis se retire."
+  },
+  {
+   "id": "jetons",
+   "name_fr": "L’argent de « Toi »",
+   "look": "Pile de 4 pièces : ellipses light #D3F0F6 110 × 30, contour encre 4 px, ombre +6, « € » Inter ExtraBold 30 sur la pièce du dessus ; centre (700, 1185), posée sur y 1235. Fil en tirets encre (puis rouge 7 px) depuis la carte. En S16 : petite pile de 3 puis 5 pièces (60 px) dans la carte-cas « Montant ».",
+   "source": "code",
+   "entite": "shape ellipse ×4 + text ; wire (dash, couleur hex) ; kit.drop (out), kit.shake, kit.vanish into toi",
+   "evolution": "S07 tombe à côté de « Toi », reliée à la réponse ; S09 deux pièces tombent ; S10 les deux restantes rentrent dans « Toi » ; S16 ressortent de « Toi » dans la carte-cas « Montant important » et la pile grandit ; S18 partent avec le conseiller."
+  },
+  {
+   "id": "empreinte",
+   "name_fr": "La situation de « Toi »",
+   "look": "FINGERPRINT.png (empreinte digitale sur plaque de verre) 110 px, au sol à gauche de « Toi » (745, 1185) ; 70 px dans la carte-cas 2.",
+   "source": "FINGERPRINT.png",
+   "entite": "png ; kit.pop from_pt toi, kit.move, kit.shake",
+   "evolution": "S12 sort de « Toi » sur « situation » ; S15 le faisceau de l’IA retombe avant elle ; elle est entre « Toi » et le conseiller ; S16 monte dans la carte-cas « Situation personnelle » ; S18 part avec le conseiller."
+  },
+  {
+   "id": "conseiller",
+   "name_fr": "Le conseiller (l’humain)",
+   "look": "Figurine papier (contour encre, intérieur blanc, ni visage ni bras), échelle 0,9, en (600, 1144), pied sur y 1230, tournée vers « Toi » (270 px entre les centres) ; étiquette « Conseiller » (pilule papier, Inter Bold 34) au-dessus (600, 1022).",
+   "source": "code",
+   "entite": "Figure variant=\"paper\" tool=False (enter, lean_to, exit) ; pill",
+   "evolution": "S15 arrive sur « humain. », face à « Toi », l’empreinte entre eux ; S16-S17 reste sous les trois cas (≈ 9 s à l’écran) ; S18 les cas rentrent en lui, puis il sort."
+  },
+  {
+   "id": "cas",
+   "name_fr": "Les trois cas pour un humain",
+   "look": "3 cartes papier 480 × 100, contour encre 4 px, ombre +6, en colonne (540, 690 / 800 / 910), x 300-780 ; à gauche l’objet : temple (icon bank) sur disque cyan, empreinte (70 px), petite pile de pièces ; texte Inter Bold 30 à partir de x 390 : « Question réglementaire / hors contexte », « Situation personnelle / complexe », « Montant important ».",
+   "source": "code (+ FINGERPRINT.png, pièces)",
+   "entite": "shape round + icon (disc) + text (chars) ; kit.pop, kit.type, kit.vanish into conseiller",
+   "evolution": "S16 s’empilent une à une sur leur mot ; S17 la sonnette les signale, le cache barré tombe sans les cacher ; S18 rentrent dans le conseiller."
+  },
+  {
+   "id": "sonnette",
+   "name_fr": "La sonnette (signaler)",
+   "look": "BELL.png (sonnette de comptoir en verre cyan) 130 px, à côté de l’IA (165, 830) ; arcs deep 6 px (3 arcs) qui partent de son flanc ; 100 px sous la carte choisie en S18-S19.",
+   "source": "BELL.png + code",
+   "entite": "png ; shape poly ouverte ×3 (arcs, draw) ; kit.drop, kit.pulse, kit.vanish into ligne",
+   "evolution": "S17 tombe à côté de l’IA, frappée par son faisceau, sonne vers les cas ; S18 se place sous la carte choisie et sonne encore ; S20 rentre dans la puce de L4 « Limites »."
+  },
+  {
+   "id": "cache",
+   "name_fr": "Le cache barré",
+   "look": "Feuille papier 480 × 330, contour encre 4 px, ombre +6 ; croix rouge #C8102E (2 traits 8 px).",
+   "source": "code",
+   "entite": "shape round ; shape poly ×2 (draw, rouge) ; kit.move, kit.drop out",
+   "evolution": "S17 glisse sur les cas pour les cacher, se fait barrer en rouge et tombe hors de l’image."
+  },
+  {
+   "id": "test",
+   "name_fr": "Le test",
+   "look": "Pilule de « Toi » « en général » (fond light, contour deep plein 4 px, Inter Bold 34, 230 × 60) en (700, 900) ; pilule de l’IA « en général » (papier, contour pointillé ai_tick 4 px, même taille) en (330, 900) ; « = » Inter ExtraBold 80 deep en (515, 900).",
+   "source": "code",
+   "entite": "pill ×2 (dash pour l’IA) + text ; kit.pop from_pt, kit.vanish",
+   "evolution": "S19 la pilule de « Toi » sort de L1 de la carte choisie, celle de l’IA sort de sa tête, le « = » paraît ; S20 rentrent l’une dans l’IA, l’autre dans « Toi »."
+  },
+  {
+   "id": "etiquettes",
+   "name_fr": "Avant / Après",
+   "look": "Pilule « Avant » (papier, contour encre, Inter Bold 34) au-dessus de la carte cassée (190, 380) ; pilule « Après » (fond light, contour encre, Bold 34) au-dessus de la carte prudente (575, 395).",
+   "source": "code",
+   "entite": "pill ×2 ; kit.pop",
+   "evolution": "S20 paraissent avec chaque carte ; S22 s’effacent."
+  },
+  {
+   "id": "tampon",
+   "name_fr": "Le tampon « CONFIANCE »",
+   "look": "Tampon deep « CONFIANCE » (stamp, texte ExtraBold espacé 30, double cadre arrondi, sans fond), 260 × 84, incliné de −6°, dans la marge basse de la carte « Après » (690, 905).",
+   "source": "code",
+   "entite": "stamp + Figure.stamp (handle, shake)",
+   "evolution": "S21 abattu par « Toi » sur « confiance » ; S22 s’efface."
+  },
+  {
+   "id": "fin",
+   "name_fr": "Carte de fin",
+   "look": "Carte papier 620 × 520 (centre (540, 760)), ombre +8 ; « WealthTech Horizon » Bold 44 ; « Comprendre ton argent » SemiBold 30 deep ; bouton cyan « S’abonner » (la pastille, ≈ 380 × 112, centre ≈ (540, 930)). Aucun pointeur de souris : le clic est le toucher du stylo de « Toi » (ondes deep).",
+   "source": "code",
+   "entite": "endcard via kit.outro (clear=\"fade\", btn_at) ; Figure.tap + piste press ; ondes (ring)",
+   "evolution": "S22 surgit pendant que tout s’efface ; la pastille devient son bouton ; « Toi » le touche sur « argent. », puis plus rien ne bouge."
+  }
+ ],
+ "style": "FOND : ivoire #F6F0E4, quadrillage fixe de 36 px (traits 2 px #ECE4D4), sans grain, vignette, dégradé, caméra ni zoom global (style.md).\n\nCOULEURS : encre #1E1416 pour les contours de 4-5 px, les textes et « Toi ». Un seul accent, le cyan : cyan #19B3C7 en aplat cerné d’encre (la pastille-question, les puces pleines de la bonne réponse, le disque du temple, l’autocollant « ? », le bouton) ; deep #0A7487 pour ce que fait « Toi » et pour la preuve (fil plein vers le livre, cadres, coches pleines, case de test, tampon, ondes de la sonnette, « = ») ; light #D3F0F6 pour les fonds (pièces, pilule « Après », réponse connue, surligneur, disque du ◀◀). Papier #FFFDF8 pour les cartes, les bulles, le conseiller, la carte de fin. ai_tick #8E8887 seulement pour ce que fait l’IA, toujours en POINTILLÉS (faisceaux, coches variant « ai », contour de sa bulle et de sa réponse au test). Aucun gris de mise en retrait : ce qui a fini d’agir se réduit, rentre dans un objet ou sort.\n\nROUGE #C8102E, seule alerte, annoncé : contour des trois puces vides de la réponse d’aplomb (S02 « faux ? », 5,027 s, effacé au rembobinage S04 ; de nouveau S18) ; les trois lignes cassées « Règle : déductible », « Plafond : aucun », « Date : fin du mois » (S08, 29,571 s → réduites dans la boule en S10, de nouveau visibles S18 et S20-S21) ; le fil vers les pièces (S09) ; la croix sur le cache (S17). Jamais sur l’IA, la boule, la sonnette, le conseiller ni la bonne réponse. Mots d’alerte des sous-titres : « faux », « inventée », « erroné », « fausse », « cher », « cacher ».\n\nPLACES FIXES : IA en bas à gauche (165, 1110), étiquette « Ton IA » (165, 995) ; « Toi » en bas à droite (870, 1144), étiquette « Toi » (870, 1022), case de test au-dessus (870, 952) ; positions hautes de « Toi » pour toucher les cartes : (870, 640) et (860, 830) ; cartes « Réponse » au centre (540, 640, x 280-800) ; case « Source » et livre à gauche (150, 700) ; boule de cristal rangée au sol (340, 1180) ; empreinte au sol (745, 1185) ; conseiller face à « Toi » (600, 1144). La composition va de y ≈ 290 à y ≈ 1240 ; rien à droite de x 930 (« Toi » et ses ombres compris).\n\nGRAMMAIRE DE TRAIT : pointillés = IA (lire, écrire, cocher, tirer de la boule, sonner) ; trait plein = « Toi » ou preuve (fil vers le livre, coches pleines, cadres, case de test). Puce vide = rien ne porte la ligne ; puce pleine = la ligne a sa source.\n\nTYPOGRAPHIE : Inter ; lignes des cartes SemiBold 32 (valeurs Bold) ; étiquettes « Toi », « Ton IA », « Conseiller », « Avant », « Après », « Source » Bold 34 ; citation et cas Bold 30 ; « Je ne sais pas » Bold 36 ; « = » ExtraBold 80 ; aucun texte lu sous 26 px (les cartes réduites passent en barres). Aucun nombre, montant, pourcentage ni date chiffrée : le plafond et la date fausse ont des valeurs en mots (« aucun », « fin du mois »), la date de la source est « à jour ». « IA » toujours en capitales ; « « Je ne sais pas » » avec espaces insécables.\n\nPNG (5) : AI.png (ton IA, d’où partent ses pointillés) ; CRYSTAL.png (la boule d’où sortent les valeurs inventées, qui garde la réponse fausse) ; BOOK.png (la source, au bout du fil plein) ; FINGERPRINT.png (la situation de « Toi ») ; BELL.png (l’IA qui signale). Tout processus est dessiné en code ; aucun PNG zoomé pour raconter ; un seul PNG entre à la fois.\n\nRYTHME : tenir, puis éclater (motion-grammar.md) : événements sur des débuts de mots (≈ 1 par seconde), jamais plus de 2,9 s sans mouvement ; morph de 350 ms aux changements de composition ; tenue « Et » avant le doute (S02) ; état final tenu ≈ 1,4 s avant la carte de fin. Aucun pointeur de souris : le clic final est le toucher du stylo de « Toi ».",
+ "scenes": [
+  {
+   "id": "S01",
+   "segment": "accroche",
+   "t_start": 0.0,
+   "t_end": 2.752,
+   "texte": "Tu poses une question fiscale à ton IA.",
+   "elements": "toi, case_test (absente), pastille, ia",
+   "etat_initial": "Image 0, déjà lisible et légère : ivoire quadrillé, presque vide. À droite, « Toi » (figurine encre, échelle 0,9, centre (870, 1144), pied sur y 1230, bras baissé au repos) avec son étiquette « Toi » au-dessus de la tête (870, 1022). Devant lui, à hauteur de main, la pastille cyan « Question fiscale ? » (pilule 388 × 64, centre (630, 1060), x 436-824). En bas à gauche, l’IA (AI.png 170 px, (165, 1110), tournée vers la droite) et son étiquette « Ton IA » au-dessus (165, 995). Rien d’autre : ni carte, ni repère.",
+   "action": "« Toi » touche sa question du stylo ; la pastille part en arc jusque devant le visage de l’IA ; un faisceau pointillé de l’IA la lit.",
+   "resultat": "La question de « Toi » est posée devant l’IA (pastille en (450, 930)), reliée à sa tête par un court faisceau pointillé.",
+   "transition": "Sur « répond », un éclat jaillit du cerveau de l’IA et la carte « Réponse » sort de sa tête.",
+   "beats": [
+    {
+     "t": 0.232,
+     "mot": "poses",
+     "evenement": "Toucher : « Toi » touche du stylo le bout droit de la pastille (790, 1060) (fig.tap, contact sur le mot) ; la pastille bat ×1,1 (kit.pulse, 6 images). Son bras revient au repos."
+    },
+    {
+     "t": 0.975,
+     "mot": "fiscale",
+     "evenement": "Envoyer : la pastille « Question fiscale ? » part en arc (kit.move 550 ms ease-in-out, arc −160 px) de (630, 1060) à (450, 930), devant le visage de l’IA."
+    },
+    {
+     "t": 2.02,
+     "mot": "IA.",
+     "evenement": "Lire : un faisceau pointillé ai_tick (wire dots, 4 px) part de la tête de l’IA (240, 1050) et touche le bout gauche de la pastille (270, 930) (DRAW 300 ms) ; la pastille bat une fois (×1,08). L’IA a reçu la question."
+    }
+   ],
+   "lecture_sans_son": "Une personne (« Toi ») envoie sa question fiscale à une machine (« Ton IA »), qui la lit."
+  },
+  {
+   "id": "S02",
+   "segment": "accroche",
+   "t_start": 2.752,
+   "t_end": 5.538,
+   "texte": "Elle répond avec aplomb. Et si c’était faux ?",
+   "elements": "ia, reponse, pastille, toi, doute",
+   "etat_initial": "Résultat de S01 : la pastille « Question fiscale ? » devant l’IA (450, 930), faisceau pointillé vers sa tête ; « Toi » au repos à droite, étiquette « Toi ».",
+   "action": "Un éclat jaillit du cerveau de l’IA ; la carte « Réponse » sort de sa tête et vient au centre ; la pastille se pose sur son en-tête. Trois lignes s’écrivent d’un trait, en gras : « Règle : déductible », « Plafond : aucun », « Date : fin du mois » ; l’IA les coche en pointillés et un reflet balaie la carte : c’est l’aplomb. Tenue. Puis les trois puces vides, que rien ne remplit, battent et leur contour rougit ; une bulle « ? » sort de la tête de « Toi », tournée vers la carte.",
+   "resultat": "Une réponse nette, cochée par l’IA, dont aucune ligne n’a de source (trois puces vides au contour rouge), et « Toi » qui doute (bulle « ? »).",
+   "transition": "Sur « Dans », la bulle « ? » de « Toi » se réduit en autocollant « ? » posé au coin bas droit de la carte.",
+   "beats": [
+    {
+     "t": 2.937,
+     "mot": "répond",
+     "evenement": "Produire : un éclat deep (burst, 8 rayons, 300 ms) jaillit du cerveau de l’IA ; la carte « Réponse » (fiche Sheet(3), 520 × 512, papier, ombre +8) sort de sa tête et grandit jusqu’au centre (540, 640) (MORPH 350 ms, depuis l’échelle 0,1 en (200, 1060)) ; en même temps la pastille « Question fiscale ? » se pose à gauche de l’en-tête (440, 426), à l’échelle 0,8 (kit.move 350 ms). Le faisceau pointillé s’éteint."
+    },
+    {
+     "t": 3.32,
+     "mot": "avec",
+     "evenement": "Écrire : les trois lignes s’écrivent ensemble, d’un trait (kit.type, 3 caractères par image, ≈ 0,25 s), valeurs en gras : L1 « Règle : déductible » (y 520), L2 « Plafond : aucun » (y 624), L3 « Date : fin du mois » (y 728). Leurs puces sont des cercles en tirets vides (icon none)."
+    },
+    {
+     "t": 3.657,
+     "mot": "aplomb.",
+     "evenement": "Aplomb : la coche pointillée de l’IA (tick variant « ai », 40 px) se trace au bout de L1, L2 et L3 (x 750, DRAW 150 ms, décalées de 2 images) ; un reflet blanc (sheen) balaie la carte en diagonale (400 ms)."
+    },
+    {
+     "t": 4.412,
+     "mot": "Et",
+     "evenement": "Tenue : rien ne bouge."
+    },
+    {
+     "t": 5.027,
+     "mot": "faux ?",
+     "evenement": "Manque, puis doute : les trois puces vides battent deux fois (piste pulse ×1,6, 200 ms) et leur contour passe au rouge (piste alarm) ; elles restent vides, jamais remplies, et les coches de l’IA ne bougent pas. 6 images plus tard, une bulle papier (bubble, 150 × 120, « ? » ExtraBold 80) sort de la tête de « Toi » et se pose en (720, 960), queue tournée vers sa tête (POP 300 ms)."
+    }
+   ],
+   "lecture_sans_son": "La machine répond tout de suite, en gras, et coche elle-même sa réponse ; mais aucune ligne ne vient de nulle part de vérifiable (puces vides, rouges) et la personne doute."
+  },
+  {
+   "id": "S03",
+   "segment": "accroche",
+   "t_start": 5.538,
+   "t_end": 13.293,
+   "texte": "Dans cette vidéo, on va voir pourquoi une IA financière doit savoir dire « je ne sais pas ». Et comment tester la tienne.",
+   "elements": "reponse, pastille, doute, ia, bulle_ia, toi, case_test",
+   "etat_initial": "Résultat de S02 : carte « Réponse » au centre (540, 640 ; x 280-800, y 384-896), pastille sur l’en-tête, trois lignes cochées en pointillés, puces vides au contour rouge ; bulle « ? » de « Toi » en (720, 960) ; IA en bas à gauche, « Toi » en bas à droite.",
+   "action": "La bulle « ? » de « Toi » devient un petit autocollant « ? » sur la carte. Puis une bulle en pointillés sort de la bouche de l’IA et s’y écrit « Je ne sais pas » : la phrase que l’IA devrait savoir dire. « Toi » trace au-dessus de son étiquette une case à cocher vide : un test à faire.",
+   "resultat": "Deux choses annoncées côte à côte : la réponse sûre d’elle (marquée « ? ») et la bulle de l’IA « Je ne sais pas » ; au-dessus de « Toi », une case vide qui attend un test.",
+   "transition": "Sur « réflexe », la bulle « Je ne sais pas » rentre dans la tête de l’IA.",
+   "beats": [
+    {
+     "t": 5.538,
+     "mot": "Dans",
+     "evenement": "Ranger le doute : la bulle « ? » se réduit en autocollant cyan « ? » (piste s 0 → 1, 350 ms) et glisse se coller au coin bas droit de la carte (780, 870), dans sa marge basse libre, sans rien couvrir."
+    },
+    {
+     "t": 7.338,
+     "mot": "pourquoi",
+     "evenement": "L’autocollant « ? » bat une fois (piste pulse +25 %, 200 ms)."
+    },
+    {
+     "t": 10.147,
+     "mot": "dire",
+     "evenement": "Dire : une bulle de l’IA (papier, contour pointillé ai_tick 4 px, 380 × 120, coins 30) sort de la bouche de l’IA et se pose en (470, 1000) (x 280-660, y 940-1060), petite queue pointillée tournée vers sa bouche (250, 1060) (POP 300 ms)."
+    },
+    {
+     "t": 10.727,
+     "mot": "« je",
+     "evenement": "Écrire : « Je ne sais pas » s’écrit dans la bulle (Inter Bold 36, encre, kit.type 1 caractère par image, ≈ 0,5 s)."
+    },
+    {
+     "t": 12.144,
+     "mot": "tester",
+     "evenement": "Tracer : « Toi » lève le stylo et trace au-dessus de son étiquette une case à cocher vide (case en tirets deep, 50 × 50, centre (870, 952)) (fig.trace sur le contour, DRAW 300 ms) : un test qui reste à faire. Bras au repos ensuite."
+    }
+   ],
+   "lecture_sans_son": "Sujet du film : une réponse sûre d’elle et douteuse, face à une IA qui sait dire « Je ne sais pas » ; et une case à cocher qui attend un test."
+  },
+  {
+   "id": "S04",
+   "segment": "contexte",
+   "t_start": 13.293,
+   "t_end": 15.72,
+   "texte": "Le réflexe des IA, c’est de répondre.",
+   "elements": "bulle_ia, ia, reponse, pastille, doute, rembobiner, toi, case_test",
+   "etat_initial": "Résultat de S03 : carte « Réponse » au centre avec ses trois lignes cochées et l’autocollant « ? » ; bulle « Je ne sais pas » de l’IA en (470, 1000) ; case vide au-dessus de l’étiquette « Toi ».",
+   "action": "L’IA ravale sa bulle « Je ne sais pas ». Un ◀◀ paraît au-dessus de la carte : les lignes s’effacent de la fin vers le début et les coches pointillées disparaissent ; la carte redevient vierge, la question toujours sur son en-tête. Le ◀◀ se retire.",
+   "resultat": "La carte « Réponse » vierge (en-tête, pastille, autocollant « ? », trois rangées vides) : on va revoir comment l’IA l’a produite.",
+   "transition": "Sur « IA » (S05), un faisceau pointillé relie la tête de l’IA à la carte vierge.",
+   "beats": [
+    {
+     "t": 13.444,
+     "mot": "réflexe",
+     "evenement": "Ravaler : la bulle « Je ne sais pas » se réduit et rentre dans la tête de l’IA (kit.vanish into ia, 300 ms) : son réflexe n’est pas de le dire."
+    },
+    {
+     "t": 14.071,
+     "mot": "IA,",
+     "evenement": "Rembobiner : le pictogramme ◀◀ (icon rewind, encre, sur disque light r 56) paraît au-dessus de la carte (540, 312) (POP 300 ms)."
+    },
+    {
+     "t": 14.605,
+     "mot": "c’est",
+     "evenement": "Effacer : les trois lignes s’effacent de droite à gauche (piste chars → 0, 200 ms) ; les coches pointillées de l’IA se dé-tracent (draw → 0, 150 ms) ; les puces vides reviennent au contour encre (alarm → 0). La pastille et l’autocollant « ? » restent. Dès que tout est effacé, le ◀◀ se réduit et disparaît (kit.vanish, 300 ms). Carte vierge, immobile."
+    }
+   ],
+   "lecture_sans_son": "On rembobine : la machine efface sa réponse pour qu’on la regarde se fabriquer."
+  },
+  {
+   "id": "S05",
+   "segment": "contexte",
+   "t_start": 15.72,
+   "t_end": 19.992,
+   "texte": "Une IA générative est conçue pour produire une réponse.",
+   "elements": "ia, reponse, pastille, source, toi, case_test",
+   "etat_initial": "Résultat de S04 : carte « Réponse » vierge au centre (en-tête, pastille, autocollant « ? », trois rangées vides à puce vide) ; IA en bas à gauche ; « Toi » au repos.",
+   "action": "Un faisceau pointillé relie l’IA à la carte ; un éclat jaillit de son cerveau. À gauche, une case en tirets « Source » se trace : la place de l’information. L’IA écrit seulement la forme de la réponse, « Règle : », « Plafond : », « Date : », sans valeurs ; puis son faisceau se tend vers la case « Source » pour y chercher les valeurs.",
+   "resultat": "Une réponse en forme, sans valeurs ; un faisceau de l’IA arrive au bord de la case « Source ».",
+   "transition": "Sur « sans », le faisceau entre dans la case : elle est vide.",
+   "beats": [
+    {
+     "t": 16.544,
+     "mot": "générative",
+     "evenement": "Relier et produire : un éclat deep (burst, 300 ms) jaillit du cerveau de l’IA et un faisceau pointillé ai_tick part de sa tête (240, 1050) vers le bord gauche de la carte (290, 720) (DRAW 300 ms)."
+    },
+    {
+     "t": 17.484,
+     "mot": "conçue",
+     "evenement": "Tracer : à gauche de la carte, une case en tirets deep (case 180 × 160, centre (150, 700), x 60-240) se trace (DRAW 400 ms) ; au-dessus, le mot « Source » (Inter Bold 34, encre, (150, 590)) entre en fondu (200 ms). Elle est vide."
+    },
+    {
+     "t": 18.251,
+     "mot": "produire",
+     "evenement": "Écrire la forme : les intitulés seuls s’écrivent, « Règle : », « Plafond : », « Date : » (kit.type, 2 caractères par image) ; la place des valeurs reste blanche."
+    },
+    {
+     "t": 18.994,
+     "mot": "réponse.",
+     "evenement": "Chercher : le faisceau de l’IA se dédouble ; une branche pointillée se tend vers le bord droit de la case « Source » (240, 700) (DRAW 300 ms) et s’y arrête."
+    }
+   ],
+   "lecture_sans_son": "La machine est faite pour sortir une réponse : elle en écrit d’abord la forme, puis va chercher les valeurs dans la case « Source »."
+  },
+  {
+   "id": "S06",
+   "segment": "contexte",
+   "t_start": 19.992,
+   "t_end": 24.16,
+   "texte": "Même sans l’information, elle peut en fabriquer une qui paraît crédible.",
+   "elements": "ia, source, boule, reponse, pastille, doute, toi, case_test",
+   "etat_initial": "Résultat de S05 : carte « Réponse » au centre avec trois intitulés sans valeur ; case « Source » vide à gauche (150, 700), branche pointillée de l’IA arrêtée à son bord ; « Toi » au repos.",
+   "action": "La branche de l’IA entre dans la case « Source » : rien. La case tremble et reste vide ; la branche retombe. Une boule de cristal sort de la tête de l’IA ; trois traits pointillés en partent vers la carte et les valeurs s’écrivent depuis elle, en gras : « déductible », « aucun », « fin du mois ». Un reflet balaie la carte, l’IA coche en pointillés : la réponse a exactement l’air de celle de l’accroche.",
+   "resultat": "La même réponse qu’en S02, mais on sait d’où elle vient : d’une boule de cristal, pas de la case « Source », qui reste vide. Puces vides, coches pointillées de l’IA, reflet.",
+   "transition": "Sur « finance ? », une pile de pièces tombe à côté de « Toi ».",
+   "beats": [
+    {
+     "t": 20.271,
+     "mot": "sans",
+     "evenement": "Buter : la branche pointillée entre dans la case « Source » (150, 700) ; elle est vide : la case tremble (kit.shake, axe x) et reste vide ; la branche se détend, pend (piste sag 40 px) et retombe en s’effaçant (300 ms)."
+    },
+    {
+     "t": 21.594,
+     "mot": "peut",
+     "evenement": "Sortir : la boule de cristal (CRYSTAL.png 120 px) sort de la tête de l’IA et se pose à sa droite (340, 1000) (kit.pop from_pt tête, 300 ms)."
+    },
+    {
+     "t": 21.954,
+     "mot": "fabriquer",
+     "evenement": "Fabriquer : trois traits pointillés ai_tick partent de la boule vers la place des valeurs (DRAW 200 ms, décalés de 2 images) et les valeurs s’écrivent en gras au bout : « déductible », « aucun », « fin du mois » (kit.type). Les puces restent vides."
+    },
+    {
+     "t": 22.953,
+     "mot": "paraît",
+     "evenement": "Paraître crédible : les traits pointillés s’effacent ; un reflet blanc balaie la carte en diagonale (sheen 400 ms) et la coche pointillée de l’IA se trace au bout des trois lignes (DRAW 150 ms, décalées de 2 images). La boule reste à côté de l’IA."
+    }
+   ],
+   "lecture_sans_son": "La case « Source » est vide ; la machine tire ses valeurs d’une boule de cristal, et la réponse a l’air aussi propre et cochée qu’avant."
+  },
+  {
+   "id": "S07",
+   "segment": "point1",
+   "t_start": 24.16,
+   "t_end": 28.526,
+   "texte": "Pourquoi c’est grave en finance ? Parce qu’une erreur n’y reste jamais théorique.",
+   "elements": "reponse, pastille, doute, jetons, toi, ia, boule, source, case_test",
+   "etat_initial": "Résultat de S06 : carte « Réponse » au centre, trois lignes en gras à puce vide, cochées par l’IA, autocollant « ? » ; case « Source » vide à gauche ; boule de cristal près de l’IA ; « Toi » au repos à droite.",
+   "action": "Une pile de quatre pièces tombe à côté de « Toi » : son argent. Un fil en tirets encre descend de la carte jusqu’à la pièce du dessus ; la pile vacille : la réponse touche l’argent de « Toi ».",
+   "resultat": "La réponse douteuse est reliée par un fil à la pile de pièces de « Toi ».",
+   "transition": "Sur « Une », « Toi » monte à côté de la carte, le stylo prêt.",
+   "beats": [
+    {
+     "t": 25.414,
+     "mot": "finance ?",
+     "evenement": "Tomber : une pile de 4 pièces (ellipses light 110 × 30, contour encre 4 px, ombre +6 ; « € » Inter ExtraBold 30 sur la pièce du dessus) tombe à côté de « Toi », centre (700, 1185), posée sur y 1235 (kit.drop 370 ms, pièces décalées de 2 images) : l’argent de « Toi »."
+    },
+    {
+     "t": 27.365,
+     "mot": "jamais",
+     "evenement": "Relier : un fil en tirets encre (wire, 4 px, dash 14/10) descend du bas de la carte (720, 896) jusqu’à la pièce du dessus (700, 1140) (DRAW 300 ms)."
+    },
+    {
+     "t": 27.667,
+     "mot": "théorique.",
+     "evenement": "Vaciller : la pile s’incline de 6° vers la carte puis revient (TILT 450 ms, ease-out) : ça la touche pour de vrai."
+    }
+   ],
+   "lecture_sans_son": "La réponse n’est pas qu’un papier : un fil la relie à l’argent de la personne, qui vacille."
+  },
+  {
+   "id": "S08",
+   "segment": "point1",
+   "t_start": 28.526,
+   "t_end": 33.1,
+   "texte": "Une règle fiscale inventée, un plafond erroné, une date fausse.",
+   "elements": "toi, case_test, reponse, pastille, doute, ia, boule, jetons, source",
+   "etat_initial": "Résultat de S07 : carte « Réponse » au centre (rangées y 520, 624, 728 ; valeurs finissant à x 700), fil en tirets vers les pièces ; « Toi » au repos (870, 1144).",
+   "action": "« Toi » monte à côté de la carte. Son stylo touche « déductible » : la valeur vire au rouge et la ligne se fend, sa moitié droite tombe. Puis « aucun », puis « fin du mois » : même geste, même cassure. Les coches pointillées de l’IA restent sur les trois lignes cassées ; l’IA ne bouge pas.",
+   "resultat": "Les trois affirmations (règle, plafond, date) sont rouges et fendues, toujours cochées par l’IA immobile.",
+   "transition": "Sur « Dite », « Toi » redescend au repos.",
+   "beats": [
+    {
+     "t": 28.526,
+     "mot": "Une",
+     "evenement": "Monter : « Toi » saute à côté de la carte (fig.hop vers (870, 640), 10 images, penché 4°) ; son étiquette « Toi » (870, 520) et la case vide (870, 450) le suivent."
+    },
+    {
+     "t": 29.571,
+     "mot": "inventée,",
+     "evenement": "Casser : la pointe du stylo vient toucher la fin de « déductible » (690, 510) (fig.tap, approche puis contact sur le mot) : « Règle : déductible » vire au rouge (100 ms), une fente en zigzag la coupe entre l’intitulé et la valeur et la moitié droite descend de 14 px en pivotant de 5° (piste crack 300 ms, ease-out). La coche pointillée de l’IA reste en place. L’IA ne bouge pas."
+    },
+    {
+     "t": 31.127,
+     "mot": "erroné,",
+     "evenement": "Casser : le stylo glisse et touche la fin de « aucun » (690, 614) (fig.tap) : « Plafond : aucun » vire au rouge et se fend comme L1 (300 ms). Coche de l’IA intacte."
+    },
+    {
+     "t": 32.357,
+     "mot": "fausse.",
+     "evenement": "Casser : le stylo glisse et touche la fin de « fin du mois » (690, 718) (fig.tap) : « Date : fin du mois » vire au rouge et se fend (300 ms). Les trois coches pointillées de l’IA restent sur les trois lignes cassées."
+    }
+   ],
+   "lecture_sans_son": "Quand la personne vérifie du stylo, la règle, le plafond et la date cassent l’un après l’autre en rouge, alors que la machine les avait cochés."
+  },
+  {
+   "id": "S09",
+   "segment": "point1",
+   "t_start": 33.1,
+   "t_end": 36.56,
+   "texte": "Dite avec assurance, une telle erreur peut coûter cher.",
+   "elements": "toi, case_test, reponse, pastille, doute, jetons, ia, boule, source",
+   "etat_initial": "Résultat de S08 : carte aux trois lignes rouges fendues, cochées par l’IA ; fil en tirets encre de la carte aux 4 pièces ; « Toi » en haut à droite (870, 640).",
+   "action": "« Toi » redescend. Un reflet balaie encore la carte cassée : elle garde son air sûr. Le fil vers les pièces devient rouge et épais ; deux pièces tombent de la pile et sortent de l’image ; les deux restantes tremblent.",
+   "resultat": "La pile de « Toi » a perdu deux pièces sur quatre, reliée par un fil rouge à la réponse fausse.",
+   "transition": "Sur « Alors », la carte cassée rentre dans la boule de cristal.",
+   "beats": [
+    {
+     "t": 33.1,
+     "mot": "Dite",
+     "evenement": "Redescendre : « Toi » revient au repos (fig.hop vers (870, 1144), 10 images) ; étiquette (870, 1022) et case vide (870, 952) suivent."
+    },
+    {
+     "t": 33.762,
+     "mot": "assurance,",
+     "evenement": "Assurance : un reflet blanc (sheen 400 ms) balaie encore la carte cassée : elle brille comme avant. Les coches de l’IA ne bougent pas."
+    },
+    {
+     "t": 34.842,
+     "mot": "erreur",
+     "evenement": "Propager : le fil vers les pièces passe de l’encre au rouge et de 4 à 7 px (clé hex, 300 ms)."
+    },
+    {
+     "t": 35.48,
+     "mot": "coûter",
+     "evenement": "Coûter : la pièce du dessus quitte la pile et tombe hors de l’image (kit.drop out, 370 ms), puis la deuxième, 4 images plus tard ; les deux pièces restantes tremblent (kit.shake, axe x) : la pile est moitié moins haute."
+    }
+   ],
+   "lecture_sans_son": "La réponse fausse, dite avec aplomb, fait vraiment perdre de l’argent : deux pièces sur quatre tombent."
+  },
+  {
+   "id": "S10",
+   "segment": "point2",
+   "t_start": 36.56,
+   "t_end": 39.149,
+   "texte": "Alors, à quoi ressemble une bonne réponse ?",
+   "elements": "reponse, boule, pastille, doute, jetons, toi, ia, bonne_reponse, source, case_test",
+   "etat_initial": "Résultat de S09 : carte cassée au centre, fil rouge vers 2 pièces restantes ; boule de cristal (340, 1000) ; case « Source » vide à gauche ; « Toi » au repos.",
+   "action": "La carte cassée (avec ses coches et l’autocollant « ? ») se réduit et rentre dans la boule de cristal, qui descend au sol ; la question reste en l’air, seule. Les pièces rentrent dans « Toi ». L’IA relit la question ; une carte neuve, plus haute, sort de la tête de l’IA et vient sous la question, qui se pose sur son en-tête.",
+   "resultat": "Une carte « Réponse » neuve et vierge à 4 rangées au centre, la même question sur son en-tête ; la réponse fausse est rangée dans la boule de cristal, au sol près de l’IA.",
+   "transition": "Sur « Elle », un faisceau pointillé relie l’IA à la carte neuve.",
+   "beats": [
+    {
+     "t": 36.56,
+     "mot": "Alors,",
+     "evenement": "Ranger : la carte cassée (lignes, coches, autocollant « ? ») se réduit et rentre dans la boule de cristal (kit.vanish into boule, MORPH 350 ms) ; le fil rouge se rétracte. La pastille « Question fiscale ? » ne bouge pas : elle reste seule en l’air (440, 426)."
+    },
+    {
+     "t": 37.35,
+     "mot": "quoi",
+     "evenement": "Libérer la place : la boule de cristal glisse au sol à droite de l’IA (340, 1180) (kit.move 550 ms) ; les 2 pièces rentrent dans « Toi » (kit.vanish into toi, 300 ms)."
+    },
+    {
+     "t": 38.081,
+     "mot": "bonne",
+     "evenement": "Produire : un faisceau pointillé de l’IA touche la pastille (DRAW 250 ms) ; un éclat jaillit du cerveau de l’IA ; une carte « Réponse » neuve (Sheet(4), 520 × 616, papier) sort de sa tête et grandit jusqu’au centre (540, 640 ; x 280-800, y 332-948) (MORPH 350 ms). Ses 4 rangées sont vides."
+    },
+    {
+     "t": 38.278,
+     "mot": "réponse ?",
+     "evenement": "La pastille descend se poser sur l’en-tête de la carte neuve (440, 374) (kit.move 300 ms). Le faisceau s’éteint."
+    }
+   ],
+   "lecture_sans_son": "On range la réponse fausse dans la boule de cristal et la même question reçoit une nouvelle réponse, sur une carte plus grande."
+  },
+  {
+   "id": "S11",
+   "segment": "point2",
+   "t_start": 39.149,
+   "t_end": 42.992,
+   "texte": "Elle donne la réponse, sa source, sa date et ses limites.",
+   "elements": "ia, bonne_reponse, pastille, source, boule, toi, case_test",
+   "etat_initial": "Résultat de S10 : carte « Réponse » vierge à 4 rangées au centre (rangées y 468, 572, 676, 780), question sur l’en-tête ; case « Source » vide à gauche (150, 700) ; boule au sol (340, 1180).",
+   "action": "Un faisceau pointillé relie l’IA à la carte. La 1re ligne s’écrit « Réponse : en général ». Un livre tombe dans la case « Source » et la 2e ligne, « Source : BOFiP », s’y relie par un fil plein. Puis « Date : à jour », puis « Limites : ton cas ». Chaque ligne a une puce pleine (pictogramme), au contraire des puces vides de la réponse fausse.",
+   "resultat": "Une réponse en 4 lignes, réponse, source, date, limites, la source reliée par un fil plein au livre posé dans la case « Source ».",
+   "transition": "Sur « Par », une bulle en pointillés sort de la bouche de l’IA.",
+   "beats": [
+    {
+     "t": 39.718,
+     "mot": "réponse,",
+     "evenement": "Écrire : un faisceau pointillé ai_tick va de la tête de l’IA au bord gauche de la carte (DRAW 250 ms) et L1 « Réponse : en général » s’écrit (kit.type, 2 caractères par image) ; sa puce paraît pleine, pictogramme bulle de dialogue (icon chat) sur disque cyan (bulletOn)."
+    },
+    {
+     "t": 40.647,
+     "mot": "source,",
+     "evenement": "Sourcer : le livre ouvert (BOOK.png 170 px) tombe dans la case « Source » (150, 700) (kit.drop 370 ms), les tirets de la case s’effacent sous lui ; au même moment L2 « Source : BOFiP » s’écrit (puce pleine, icon bank), puis un fil plein deep 5 px part de sa puce (262, 572) jusqu’au livre (230, 680) (DRAW 300 ms, à l’arrivée du livre)."
+    },
+    {
+     "t": 41.425,
+     "mot": "date",
+     "evenement": "Dater : L3 « Date : à jour » s’écrit (puce pleine, icon cal)."
+    },
+    {
+     "t": 42.098,
+     "mot": "limites.",
+     "evenement": "Limiter : L4 « Limites : ton cas » s’écrit (puce pleine, icon person). Le faisceau pointillé s’éteint."
+    }
+   ],
+   "lecture_sans_son": "La bonne réponse a quatre lignes : la réponse, sa source (reliée à un vrai livre), sa date et ses limites ; toutes ses puces sont pleines."
+  },
+  {
+   "id": "S12",
+   "segment": "point2",
+   "t_start": 42.992,
+   "t_end": 48.112,
+   "texte": "Par exemple : « Cette règle s’applique en général, mais dépend de ta situation ».",
+   "elements": "ia, bulle_ia, bonne_reponse, pastille, source, empreinte, toi, case_test, boule",
+   "etat_initial": "Résultat de S11 : carte à 4 lignes au centre (x 280-800, y 332-948), fil plein de L2 au livre (150, 700) ; IA en bas à gauche, boule au sol (340, 1180) ; « Toi » au repos.",
+   "action": "La bulle en pointillés de l’IA (celle de S03) ressort sous la carte et la citation s’y écrit, ligne par ligne : « « Cette règle s’applique / en général, mais dépend / de ta situation » ». « en général » se surligne ; « ta situation » se souligne, la ligne « Limites » de la carte s’allume, et une plaque d’empreinte digitale sort de « Toi » et se pose à ses pieds : sa situation à lui.",
+   "resultat": "La citation complète est lue dans la bulle de l’IA ; la limite « ta situation » est reliée à l’empreinte de « Toi », posée près de lui.",
+   "transition": "Sur « Une », la bulle rentre dans la ligne « Réponse » de la carte.",
+   "beats": [
+    {
+     "t": 42.992,
+     "mot": "Par",
+     "evenement": "Dire : la bulle de l’IA (papier, contour pointillé ai_tick 4 px, 480 × 150, centre (510, 1045), x 270-750) ressort de sa bouche, queue pointillée vers elle (250, 1060) (POP 300 ms)."
+    },
+    {
+     "t": 44.064,
+     "mot": "« Cette",
+     "evenement": "Citer : 1re ligne « « Cette règle s’applique » s’écrit (Inter Bold 30, kit.type)."
+    },
+    {
+     "t": 45.361,
+     "mot": "général,",
+     "evenement": "2e ligne « en général, mais dépend » s’écrit ; « en général » se surligne en light (piste mark, 300 ms)."
+    },
+    {
+     "t": 46.87,
+     "mot": "situation ».",
+     "evenement": "Situation : 3e ligne « de ta situation » » s’écrit, « ta situation » se souligne d’un trait deep (piste under, 300 ms) et la puce de L4 « Limites : ton cas » grossit de 35 % (flash) ; en même temps une plaque d’empreinte digitale (FINGERPRINT.png 110 px) sort de la poitrine de « Toi » et se pose à ses pieds, à gauche (745, 1185) (kit.pop from_pt toi + kit.move, 350 ms) : sa situation."
+    }
+   ],
+   "lecture_sans_son": "La machine cite sa règle mais prévient qu’elle dépend de la situation de la personne : son empreinte apparaît à côté d’elle."
+  },
+  {
+   "id": "S13",
+   "segment": "point2",
+   "t_start": 48.112,
+   "t_end": 51.607,
+   "texte": "Une réponse prudente et sourcée te dit où vérifier.",
+   "elements": "bulle_ia, bonne_reponse, pastille, source, toi, case_test, empreinte, ia, boule",
+   "etat_initial": "Résultat de S12 : bulle de citation sous la carte ; carte à 4 lignes, L4 éclairée ; livre relié à L2 ; empreinte au sol (745, 1185) ; « Toi » au repos.",
+   "action": "La bulle rentre dans la 1re ligne de la carte. La ligne « Limites » se surligne : la réponse est prudente. Le fil vers le livre s’épaissit et le livre bat : elle est sourcée. Un point deep court le long du fil de la ligne « Source » jusqu’au livre, qu’un cadre deep entoure ; « Toi » tourne la tête vers le livre : c’est là qu’il peut vérifier.",
+   "resultat": "La réponse montre où vérifier : le livre est encadré au bout du fil, et « Toi » le regarde.",
+   "transition": "Sur « C’est », la boule de cristal se relève près de l’IA.",
+   "beats": [
+    {
+     "t": 48.112,
+     "mot": "Une",
+     "evenement": "Ranger : la bulle de l’IA se réduit et rentre dans L1 « Réponse : en général » (kit.vanish into ligne, 300 ms) ; L1 bat (flash)."
+    },
+    {
+     "t": 48.716,
+     "mot": "prudente",
+     "evenement": "Prudente : L4 « Limites : ton cas » se surligne en light (piste mark, 300 ms)."
+    },
+    {
+     "t": 49.401,
+     "mot": "sourcée",
+     "evenement": "Sourcée : le fil plein L2 → livre passe de 5 à 9 px (300 ms) et le livre bat ×1,1 (kit.pulse)."
+    },
+    {
+     "t": 50.585,
+     "mot": "vérifier.",
+     "evenement": "Où vérifier : un point deep (r 10) part de la puce de L2 et court le long du fil jusqu’au livre (S.along_wire, 400 ms) ; à son arrivée, un cadre deep 5 px, coins 18 (shape round, 210 × 180) se trace autour du livre (DRAW 300 ms) ; « Toi » tourne la tête vers lui (piste look −1, 4 images)."
+    }
+   ],
+   "lecture_sans_son": "Une réponse prudente et sourcée indique à la personne où vérifier : un fil mène à un livre, encadré."
+  },
+  {
+   "id": "S14",
+   "segment": "point2",
+   "t_start": 51.607,
+   "t_end": 54.37,
+   "texte": "C’est souvent plus utile qu’une certitude affichée.",
+   "elements": "boule, bonne_reponse, toi, case_test, pastille, source, ia, empreinte",
+   "etat_initial": "Résultat de S13 : carte à 4 lignes au centre, livre encadré à gauche, relié à L2 ; boule de cristal au sol (340, 1180) contenant la réponse fausse ; empreinte (745, 1185) ; « Toi » au repos, tête tournée vers le livre.",
+   "action": "La boule de cristal se relève près de l’IA. « Toi » trace une grande coche pleine sur la carte prudente. La boule brille de tous ses feux : la certitude affichée. Personne ne la coche ; elle redescend au sol.",
+   "resultat": "La carte prudente et sourcée porte la grande coche pleine de « Toi » ; la boule de cristal, brillante mais sans coche, est retombée au sol.",
+   "transition": "Sur « Et », la carte se réduit et monte en haut à droite, le livre la suit.",
+   "beats": [
+    {
+     "t": 51.607,
+     "mot": "C’est",
+     "evenement": "Se relever : la boule de cristal monte du sol à (340, 1040) et grandit à 130 px (kit.move 400 ms, scale). Le cadre autour du livre s’efface (200 ms) ; « Toi » regarde de nouveau devant lui (look 0)."
+    },
+    {
+     "t": 52.42,
+     "mot": "utile",
+     "evenement": "Choisir l’utile : « Toi » trace une grande coche pleine deep (70 px, trait 10) dans la marge basse droite de la carte (740, 890) (fig.tap puis kit.draw au contact, DRAW 200 ms)."
+    },
+    {
+     "t": 52.965,
+     "mot": "certitude",
+     "evenement": "Briller : la boule bat ×1,12 et un éclat light (burst, 8 rayons) jaillit d’elle (300 ms) : une certitude qui se montre ; puis elle redescend au sol (340, 1180) et reprend 100 px (kit.move 400 ms, à partir de 53,5 s), sans coche."
+    }
+   ],
+   "lecture_sans_son": "La personne coche la réponse prudente et sourcée ; la boule de cristal qui brille reste sans coche."
+  },
+  {
+   "id": "S15",
+   "segment": "point3",
+   "t_start": 54.37,
+   "t_end": 58.248,
+   "texte": "Et parfois, aucune réponse ne suffit : il faut un humain.",
+   "elements": "bonne_reponse, pastille, source, ia, empreinte, conseiller, toi, case_test, boule",
+   "etat_initial": "Résultat de S14 : carte cochée par « Toi » au centre, livre relié à L2 à gauche ; boule au sol ; empreinte au sol (745, 1185) ; « Toi » au repos (870, 1144).",
+   "action": "La carte se réduit et monte en haut à droite, le livre la suit. Le faisceau pointillé de l’IA se tend vers l’empreinte de « Toi »… et s’arrête avant : trop court, il pend et retombe ; l’empreinte tremble. Un conseiller (figurine papier, étiquette « Conseiller ») arrive face à « Toi », l’empreinte entre eux deux.",
+   "resultat": "L’IA n’atteint pas la situation de « Toi » ; un conseiller humain se tient face à lui, l’empreinte entre eux.",
+   "transition": "Sur « Question », une première carte-cas sort au centre, au-dessus d’eux.",
+   "beats": [
+    {
+     "t": 54.37,
+     "mot": "Et",
+     "evenement": "Faire place : la carte se réduit à 0,55 et monte en haut à droite (650, 450 ; x 507-793, y 281-620) ; ses lignes passent en barres (piste lite) ; le livre (110 px) la suit à sa gauche (420, 450), fil compris (MORPH 350 ms). La coche de « Toi » reste."
+    },
+    {
+     "t": 55.067,
+     "mot": "aucune",
+     "evenement": "Tendre : un faisceau pointillé ai_tick part de la tête de l’IA (250, 1065) vers l’empreinte (745, 1185) et avance (DRAW 600 ms, linéaire)."
+    },
+    {
+     "t": 55.903,
+     "mot": "suffit :",
+     "evenement": "Ne pas suffire : le faisceau s’arrête à 70 px de l’empreinte (vers (675, 1165)), pend (piste sag 50 px) et retombe en s’effaçant (300 ms) ; l’empreinte tremble (kit.shake) et reste seule."
+    },
+    {
+     "t": 57.47,
+     "mot": "humain.",
+     "evenement": "Arriver : un conseiller (figurine papier, ni visage ni bras, échelle 0,9) paraît en (600, 1144), tourné vers « Toi », 270 px entre eux, et s’incline de 5° vers lui (POP 300 ms) ; son étiquette « Conseiller » (pilule papier, Bold 34, (600, 1022)) paraît au-dessus. L’empreinte est entre eux deux."
+    }
+   ],
+   "lecture_sans_son": "La machine ne va pas jusqu’à la situation de la personne : son faisceau retombe avant ; un conseiller humain arrive face à la personne."
+  },
+  {
+   "id": "S16",
+   "segment": "point3",
+   "t_start": 58.248,
+   "t_end": 64.134,
+   "texte": "Question réglementaire hors contexte, situation personnelle complexe, montant important ?",
+   "elements": "cas, empreinte, jetons, conseiller, toi, case_test, bonne_reponse, pastille, source, ia, boule",
+   "etat_initial": "Résultat de S15 : carte réduite en haut à droite (650, 450) avec le livre à sa gauche ; conseiller (600, 1144) face à « Toi » (870, 1144) ; empreinte au sol (745, 1185) ; IA en bas à gauche.",
+   "action": "Trois cartes-cas s’empilent au centre, chacune sur son mot, avec son objet : une question réglementaire hors contexte (temple), la situation personnelle complexe (l’empreinte de « Toi » y monte), un montant important (les pièces sortent de « Toi », la pile grandit). Elles sont juste au-dessus du conseiller.",
+   "resultat": "Une colonne de 3 cas au-dessus du conseiller : « Question réglementaire / hors contexte », « Situation personnelle / complexe », « Montant important ».",
+   "transition": "Sur « L’outil », une sonnette tombe à côté de l’IA.",
+   "beats": [
+    {
+     "t": 58.248,
+     "mot": "Question",
+     "evenement": "Entrer : la carte-cas 1 (papier, contour encre 4 px, ombre +6, 480 × 100, centre (540, 690)) paraît (POP 300 ms) ; à sa gauche, un temple (icon bank) sur disque cyan (r 30, (345, 690)) ; « Question réglementaire » puis « hors contexte » s’y écrivent sur deux lignes au rythme de la voix (Inter Bold 30, à partir de x 390, kit.type, fin vers 60,3 s)."
+    },
+    {
+     "t": 60.663,
+     "mot": "situation",
+     "evenement": "Monter : l’empreinte quitte le sol (745, 1185) et monte se poser à gauche de la carte-cas 2 (345, 800), réduite à 70 px (kit.move 550 ms) ; la carte-cas 2 (centre (540, 800)) paraît autour d’elle ; « Situation personnelle » puis « complexe » s’y écrivent (Bold 30, fin vers 62,3 s)."
+    },
+    {
+     "t": 62.579,
+     "mot": "montant",
+     "evenement": "Sortir : 3 pièces sortent de la poitrine de « Toi » et volent en arc jusqu’à la gauche de la carte-cas 3 (345, 910) en petite pile (60 px) ; la carte-cas 3 (centre (540, 910)) paraît ; « Montant important » s’écrit (Bold 30)."
+    },
+    {
+     "t": 63.078,
+     "mot": "important ?",
+     "evenement": "Grossir : la petite pile monte à 5 pièces (2 pièces tombent dessus, kit.drop 300 ms) : un gros montant."
+    }
+   ],
+   "lecture_sans_son": "Trois cas trop gros pour la machine (règlement hors contexte, situation personnelle, gros montant) s’empilent au-dessus du conseiller humain."
+  },
+  {
+   "id": "S17",
+   "segment": "point3",
+   "t_start": 64.134,
+   "t_end": 66.77,
+   "texte": "L’outil doit te le signaler, pas le cacher.",
+   "elements": "sonnette, ia, cas, cache, conseiller, toi, case_test, bonne_reponse, pastille, source, boule",
+   "etat_initial": "Résultat de S16 : 3 cartes-cas au centre (x 300-780, y 640-960) au-dessus du conseiller ; carte réduite en haut à droite, livre à sa gauche ; IA en bas à gauche.",
+   "action": "Une sonnette tombe à côté de l’IA ; son faisceau pointillé la frappe : elle sonne, des ondes partent vers les cas et vers « Toi ». Puis une feuille cache glisse sur les cas pour les masquer : une croix rouge la barre et elle tombe ; les cas restent visibles.",
+   "resultat": "L’IA a signalé, d’un coup de sonnette, ce qui dépasse ses réponses ; le cache barré est tombé, rien n’est caché.",
+   "transition": "Sur « Pour », les cartes-cas rentrent dans le conseiller.",
+   "beats": [
+    {
+     "t": 64.134,
+     "mot": "L’outil",
+     "evenement": "Tomber : la sonnette (BELL.png 130 px) tombe à côté de l’IA, au-dessus de son étiquette (165, 830) (kit.drop 370 ms)."
+    },
+    {
+     "t": 64.924,
+     "mot": "signaler,",
+     "evenement": "Signaler : un faisceau pointillé ai_tick frappe le bouton de la sonnette (DRAW 200 ms) ; la sonnette bat ×1,12 ; trois arcs deep (traits 6 px) partent de son flanc droit vers les cas et « Toi » et s’effacent (piste draw puis opacity, 400 ms)."
+    },
+    {
+     "t": 65.667,
+     "mot": "pas",
+     "evenement": "Cacher : une feuille papier (480 × 330, contour encre 4 px, ombre +6) entre par la gauche et glisse sur les cartes-cas, qu’elle couvre aux deux tiers (kit.move 300 ms, ease-out, jusqu’à (480, 800))."
+    },
+    {
+     "t": 65.934,
+     "mot": "cacher.",
+     "evenement": "Refuser : une croix rouge (2 traits 8 px) se trace sur la feuille (DRAW 150 ms) puis la feuille tombe hors de l’image (kit.drop out, 370 ms) ; les trois cas sont de nouveau visibles."
+    }
+   ],
+   "lecture_sans_son": "La machine sonne l’alerte pour ces cas-là ; essayer de les cacher est barré en rouge."
+  },
+  {
+   "id": "S18",
+   "segment": "point3",
+   "t_start": 66.77,
+   "t_end": 72.842,
+   "texte": "Pour choisir le tien, privilégie les outils qui montrent leurs sources et signalent l’incertitude.",
+   "elements": "cas, conseiller, bonne_reponse, pastille, source, sonnette, reponse, boule, toi, case_test, ia",
+   "etat_initial": "Résultat de S17 : 3 cartes-cas au centre au-dessus du conseiller ; sonnette près de l’IA (165, 830) ; carte cochée réduite en haut à droite (650, 450) et livre à sa gauche ; boule au sol (340, 1180) ; « Toi » au repos.",
+   "action": "Les cas rentrent dans le conseiller, qui sort. Deux outils se font face : à droite, la carte cochée avec son livre et sa sonnette dessous ; à gauche, la réponse cassée ressort de la boule de cristal, la boule dessous. « Toi » monte. Le fil vers le livre s’épaissit, alors que les puces de la réponse cassée restent vides ; la sonnette sonne. « Toi » entoure d’un cadre l’outil au livre et à la sonnette.",
+   "resultat": "Deux outils côte à côte : boule de cristal + réponse cassée à gauche ; livre + sonnette + réponse cochée à droite, entourée par « Toi ».",
+   "transition": "Sur « Puis », la réponse cassée rentre dans la boule, qui redescend au sol.",
+   "beats": [
+    {
+     "t": 66.77,
+     "mot": "Pour",
+     "evenement": "Confier : les trois cartes-cas se réduisent et rentrent dans le conseiller (kit.vanish into conseiller, décalées de 3 images, 300 ms) ; puis le conseiller sort (fig.exit, 300 ms) avec son étiquette."
+    },
+    {
+     "t": 66.967,
+     "mot": "choisir",
+     "evenement": "Ranger l’outil : la carte cochée glisse à (600, 480) à l’échelle 0,6 (x 444-756, y 295-665) ; le livre (110 px) se place dessous à gauche (520, 760), fil compris (passant par (420, 600)) ; la sonnette (100 px) quitte l’IA et se place dessous à droite (680, 760) (MORPH 350 ms) ; « Toi » saute à (870, 640) (fig.hop, 10 images), étiquette (870, 520) et case vide (870, 450) avec lui."
+    },
+    {
+     "t": 68.14,
+     "mot": "privilégie",
+     "evenement": "Ressortir : la boule de cristal monte à (220, 760) et la réponse cassée en sort et grandit à (220, 500), échelle 0,6 (x 64-376), lignes en barres rouges fendues, puces vides, coches pointillées de l’IA (kit.pop from_pt boule, 350 ms)."
+    },
+    {
+     "t": 70.078,
+     "mot": "sources",
+     "evenement": "Montrer ses sources : le fil L2 → livre s’épaissit (5 → 9 px) et le livre bat ×1,1 ; en face, rien ne part des puces vides de la réponse cassée."
+    },
+    {
+     "t": 70.961,
+     "mot": "signalent",
+     "evenement": "Signaler : la sonnette bat et lance ses trois arcs deep (400 ms)."
+    },
+    {
+     "t": 71.53,
+     "mot": "l’incertitude.",
+     "evenement": "Choisir : « Toi » touche du stylo le coin bas droit de la carte cochée (700, 630) (fig.tap) ; au contact, un cadre deep 5 px, coins 24, se trace autour de l’outil choisi (carte + livre + sonnette : x 425-775, y 280-830) (DRAW 300 ms)."
+    }
+   ],
+   "lecture_sans_son": "La personne compare deux outils et choisit celui qui montre sa source (le livre) et sonne l’alerte (la sonnette), pas celui à la boule de cristal."
+  },
+  {
+   "id": "S19",
+   "segment": "point3",
+   "t_start": 72.842,
+   "t_end": 76.905,
+   "texte": "Puis teste-le avec une question dont tu connais déjà la réponse.",
+   "elements": "reponse, boule, toi, case_test, pastille, bonne_reponse, ia, test, source, sonnette",
+   "etat_initial": "Résultat de S18 : outil choisi encadré à droite (carte cochée (600, 480) à 0,6, livre (520, 760), sonnette (680, 760)) ; réponse cassée + boule à gauche ; « Toi » en haut à droite (870, 640), case vide au-dessus de son étiquette (870, 450).",
+   "action": "La réponse cassée rentre dans la boule, qui redescend. « Toi » pointe la question : la pastille quitte la carte et va devant l’IA, qui la lit. La réponse que « Toi » connaît déjà, « en général », sort de la 1re ligne de sa carte et se pose près de lui ; l’IA envoie sa réponse, « en général », en face. Un « = » paraît entre les deux. « Toi » coche sa case : le test est passé.",
+   "resultat": "Deux réponses identiques, « en général » de l’IA et « en général » de « Toi », séparées par « = » ; la case de « Toi » est cochée d’une coche pleine.",
+   "transition": "Sur « Une », les deux réponses et le « = » se rangent, « Toi » redescend.",
+   "beats": [
+    {
+     "t": 72.842,
+     "mot": "Puis",
+     "evenement": "Ranger : la réponse cassée rentre dans la boule de cristal, qui redescend au sol (340, 1180) (kit.vanish into boule + kit.move 400 ms). Le cadre de l’outil choisi reste."
+    },
+    {
+     "t": 73.341,
+     "mot": "teste-le",
+     "evenement": "Tester : « Toi » pointe le stylo vers la carte (fig.reach vers (620, 420)) ; la pastille « Question fiscale ? » quitte l’en-tête et vole en arc jusque devant l’IA (460, 1080) (kit.move 550 ms, arc −120 px) ; à son arrivée, un faisceau pointillé de l’IA la touche (DRAW 250 ms)."
+    },
+    {
+     "t": 75.198,
+     "mot": "connais",
+     "evenement": "Savoir : la valeur « en général » sort de L1 de la carte cochée et devient une pilule pleine (fond light, contour deep 4 px, Inter Bold 34, 230 × 60) qui se pose à (700, 900), sous « Toi » (kit.pop from_pt L1 + kit.move 350 ms) : la réponse qu’il connaît."
+    },
+    {
+     "t": 75.512,
+     "mot": "déjà",
+     "evenement": "Répondre : de la tête de l’IA sort sa réponse, une pilule papier au contour pointillé ai_tick « en général » (Inter Bold 34, 230 × 60), qui se pose en face à (330, 900) (kit.pop from_pt tête, 350 ms) ; à son arrivée, un « = » (Inter ExtraBold 80, deep) paraît entre les deux pilules (515, 900) (POP 300 ms)."
+    },
+    {
+     "t": 75.907,
+     "mot": "réponse.",
+     "evenement": "Cocher : « Toi » touche sa case vide (870, 450) (fig.tap) ; une coche pleine deep s’y trace au contact (DRAW 150 ms) : test réussi."
+    }
+   ],
+   "lecture_sans_son": "La personne pose à la machine une question dont elle connaît la réponse : les deux réponses sont égales, elle coche sa case de test."
+  },
+  {
+   "id": "S20",
+   "segment": "chute",
+   "t_start": 76.905,
+   "t_end": 82.675,
+   "texte": "Une IA qui dit « je ne sais pas » ne montre pas une faiblesse. Elle montre ses limites.",
+   "elements": "test, toi, case_test, bonne_reponse, pastille, source, sonnette, etiquettes, reponse, boule, ia, bulle_ia",
+   "etat_initial": "Résultat de S19 : pilules « en général » ((330, 900) et (700, 900)) et « = » ; pastille devant l’IA (460, 1080) ; outil choisi encadré (carte (600, 480), livre, sonnette) ; boule au sol ; « Toi » en haut à droite, case cochée.",
+   "action": "Avant / Après. La carte cochée vient à droite, grande, avec l’étiquette « Après », la question sur son en-tête ; livre et sonnette rentrent dans ses puces. La réponse cassée ressort de la boule, à gauche, étiquette « Avant ». L’IA dit dans sa bulle « Je ne sais pas ». « Toi » touche la bulle du stylo : elle tient, rien ne casse, alors qu’à gauche les lignes cassées battent en rouge. La ligne « Limites : ton cas » s’encadre.",
+   "resultat": "À gauche « Avant » : la réponse sûre d’elle, cassée en rouge. À droite « Après » : la réponse prudente avec sa limite encadrée, et la bulle « Je ne sais pas » de l’IA, intacte sous le stylo de « Toi ».",
+   "transition": "Sur « Et », « Toi » monte à côté de la carte « Après ».",
+   "beats": [
+    {
+     "t": 76.905,
+     "mot": "Une",
+     "evenement": "Ranger : les deux pilules « en général » et le « = » se réduisent (celle de l’IA dans sa tête, celle de « Toi » dans « Toi ») ; le cadre de l’outil s’efface ; « Toi » redescend au repos (fig.hop vers (870, 1144)) avec son étiquette et sa case cochée (870, 952)."
+    },
+    {
+     "t": 77.288,
+     "mot": "IA",
+     "evenement": "Après : la carte cochée vient à droite et grandit (575, 700), échelle 0,85 (x 354-796, y 438-962), lignes de nouveau en texte (lite → 0) ; le livre rentre dans la puce de L2, la sonnette dans celle de L4 (kit.vanish into, 300 ms) ; la pastille revient sur son en-tête (490, 474) ; l’étiquette « Après » (pilule light, Bold 34) paraît au-dessus (575, 395) (MORPH 350 ms). Dans les mêmes images, à gauche, « Avant » : la boule monte à (190, 800) et la réponse cassée en ressort à (190, 560), échelle 0,55 (x 47-333), lignes rouges fendues, coches pointillées ; l’étiquette « Avant » (pilule papier, Bold 34) paraît au-dessus (190, 380) (POP 300 ms)."
+    },
+    {
+     "t": 78.194,
+     "mot": "dit",
+     "evenement": "Dire : la bulle de l’IA (contour pointillé, 380 × 120) ressort de sa bouche en (470, 1040) (x 280-660), queue vers elle (POP 300 ms), et « Je ne sais pas » s’y écrit aussitôt (Inter Bold 36, kit.type 1 caractère par image, fin vers 78,9 s)."
+    },
+    {
+     "t": 79.97,
+     "mot": "pas",
+     "evenement": "En face : les trois lignes cassées de la carte « Avant » battent en rouge (pulse, 200 ms)."
+    },
+    {
+     "t": 80.237,
+     "mot": "faiblesse.",
+     "evenement": "Tenir : « Toi » lève le stylo et touche le bout droit de la bulle (650, 1040) (fig.tap, contact sur le mot) : un anneau d’impact deep part du point touché ; la bulle ne bouge pas, rien ne se fend."
+    },
+    {
+     "t": 81.874,
+     "mot": "limites.",
+     "evenement": "Montrer : la puce de L4 « Limites : ton cas » grossit de 35 % (flash) et un cadre deep 5 px, coins 14 (shape round, 420 × 84) se trace autour de L4 « Limites : ton cas » (y 819) (DRAW 300 ms)."
+    }
+   ],
+   "lecture_sans_son": "Avant, la machine affirmait et cassait ; après, elle dit « Je ne sais pas » et montre sa limite, et sa réponse ne casse pas sous le stylo."
+  },
+  {
+   "id": "S21",
+   "segment": "chute",
+   "t_start": 82.675,
+   "t_end": 84.684,
+   "texte": "Et la confiance naît aussi de là.",
+   "elements": "toi, case_test, tampon, bonne_reponse, pastille, etiquettes, reponse, boule, ia, bulle_ia",
+   "etat_initial": "Résultat de S20 : carte « Avant » cassée à gauche (190, 560) au-dessus de la boule ; carte « Après » à droite (575, 700), L4 encadrée ; bulle « Je ne sais pas » de l’IA (470, 1040) ; « Toi » au repos (870, 1144), case cochée.",
+   "action": "« Toi » monte à côté de la carte « Après » et y abat un tampon « CONFIANCE ». La carte tremble. Puis plus rien ne bouge.",
+   "resultat": "La carte « Après » (« Limites : ton cas » encadrée) porte le tampon « CONFIANCE » ; à gauche, la carte « Avant » reste cassée. État final tenu.",
+   "transition": "Sur « Abonne-toi », tout s’efface sauf la pastille, qui devient le bouton « S’abonner ».",
+   "beats": [
+    {
+     "t": 82.675,
+     "mot": "Et",
+     "evenement": "Monter : « Toi » saute à côté de la carte « Après » (fig.hop vers (860, 830), 10 images) ; étiquette (860, 710) et case cochée (860, 640) suivent."
+    },
+    {
+     "t": 82.977,
+     "mot": "confiance",
+     "evenement": "Tamponner : « Toi » abat le tampon « CONFIANCE » (stamp deep, 260 × 84, size 30, rot −6°) dans la marge basse de la carte « Après » (690, 905) (fig.stamp, shake = carte) ; la carte tremble au contact."
+    },
+    {
+     "t": 83.5,
+     "mot": "naît",
+     "evenement": "Tenue : rien ne bouge."
+    }
+   ],
+   "lecture_sans_son": "La personne tamponne CONFIANCE sur la réponse qui avoue ses limites ; la réponse sûre d’elle reste cassée à côté."
+  },
+  {
+   "id": "S22",
+   "segment": "cta",
+   "t_start": 84.684,
+   "t_end": 87.814,
+   "texte": "Abonne-toi pour comprendre ton argent.",
+   "elements": "fin, pastille, toi, bonne_reponse, reponse, boule, bulle_ia, ia, etiquettes, case_test, tampon",
+   "etat_initial": "Résultat de S21 : cartes « Avant » et « Après » (tamponnée CONFIANCE), bulle de l’IA, IA, boule ; « Toi » en haut à droite (860, 830).",
+   "action": "Fin standard : tout s’efface pendant que la carte de fin surgit au centre ; la pastille « Question fiscale ? » descend au bas de la carte et devient son bouton « S’abonner ». « Toi » redescend sous la carte et touche le bouton du stylo : il s’enfonce, un anneau d’impact part du point touché. Plus rien ne bouge.",
+   "resultat": "Carte de fin « WealthTech Horizon » / « Comprendre ton argent », bouton cyan « S’abonner » touché par « Toi » ; immobile jusqu’à 87,814 s.",
+   "transition": "Fin : immobile jusqu’à 87,814 s.",
+   "beats": [
+    {
+     "t": 84.684,
+     "mot": "Abonne-toi",
+     "evenement": "Fin standard (kit.outro, clear=\"fade\", btn_at) : les cartes « Avant » et « Après », le tampon, la bulle, la boule, l’IA, les étiquettes « Avant », « Après », « Ton IA », « Toi » et la case cochée s’effacent (FADE 200 ms) pendant que la carte papier 620 × 520 surgit en (540, 760) ; « WealthTech Horizon » (Bold 44) et « Comprendre ton argent » (SemiBold 30, deep) entrent en fondu à +4 images ; la pastille quitte l’en-tête, son texte passe à « S’abonner » (textOp 0 → 1) et elle grandit en bouton (≈ 380 × 112, centre ≈ (540, 930)). « Toi » redescend au repos (870, 1144) (fig.hop)."
+    },
+    {
+     "t": 86.623,
+     "mot": "argent.",
+     "evenement": "Toucher : « Toi » touche du stylo le coin bas droit du bouton (690, 965) (fig.tap, contact sur le mot, sans couvrir le libellé) ; le bouton s’enfonce de 8 px dans son ombre (piste press, 5 images) et deux ondes deep partent du point touché (18 images) ; aucun pointeur de souris. Puis plus rien ne bouge jusqu’à 87,814 s."
+    }
+   ],
+   "lecture_sans_son": "Fin de la série : la carte WealthTech Horizon et son bouton « S’abonner », que la personne touche du stylo."
+  }
+ ],
+ "idees_cles": [
+  {
+   "id": "a",
+   "idee": "La personne envoie sa question ; la machine sort aussitôt une réponse en gras qu’elle coche elle-même, mais dont aucune ligne n’a de source (puces vides).",
+   "scenes": [
+    "S01",
+    "S02"
+   ],
+   "principale": false
+  },
+  {
+   "id": "b",
+   "idee": "Quand la case « Source » est vide, la machine tire quand même ses valeurs d’une boule de cristal, et la réponse a l’air aussi propre et cochée.",
+   "scenes": [
+    "S04",
+    "S05",
+    "S06"
+   ],
+   "principale": false
+  },
+  {
+   "id": "c",
+   "idee": "Sous le stylo de la personne, la règle, le plafond et la date cassent en rouge l’un après l’autre, alors que la machine les avait cochés.",
+   "scenes": [
+    "S08"
+   ],
+   "principale": true
+  },
+  {
+   "id": "d",
+   "idee": "La réponse fausse est reliée à l’argent de la personne : le fil devient rouge et deux pièces sur quatre tombent.",
+   "scenes": [
+    "S07",
+    "S09"
+   ],
+   "principale": true
+  },
+  {
+   "id": "e",
+   "idee": "Une bonne réponse a quatre lignes (réponse, source, date, limites) et sa source est reliée à un vrai livre, où la personne peut vérifier.",
+   "scenes": [
+    "S10",
+    "S11",
+    "S13"
+   ],
+   "principale": true
+  },
+  {
+   "id": "f",
+   "idee": "La bonne réponse prévient qu’elle dépend de la situation de la personne (son empreinte) ; c’est elle que la personne coche, pas la boule de cristal qui brille.",
+   "scenes": [
+    "S12",
+    "S14"
+   ],
+   "principale": true
+  },
+  {
+   "id": "g",
+   "idee": "Quand la situation dépasse la machine (règlement hors contexte, situation personnelle, gros montant), son faisceau n’arrive pas : un conseiller humain prend les cas, et la machine le signale d’un coup de sonnette au lieu de le cacher.",
+   "scenes": [
+    "S15",
+    "S16",
+    "S17"
+   ],
+   "principale": true
+  },
+  {
+   "id": "h",
+   "idee": "La personne choisit l’outil au livre et à la sonnette, puis le teste avec une question dont elle connaît la réponse : les deux réponses sont égales, elle coche sa case de test.",
+   "scenes": [
+    "S18",
+    "S19"
+   ],
+   "principale": true
+  },
+  {
+   "id": "i",
+   "idee": "Avant : la réponse sûre d’elle a cassé. Après : la machine dit « Je ne sais pas », montre sa limite, ne casse pas sous le stylo, et la personne tamponne CONFIANCE.",
+   "scenes": [
+    "S20",
+    "S21"
+   ],
+   "principale": true
+  }
+ ],
+ "entites_nouvelles": [],
+ "risks": [
+  "Puces vides lues comme un détail graphique (S02) : elles battent et rougissent sur « c’était », et au point 2 la carte neuve a des puces pleines à pictogramme ; repli : un « ? » en tirets dans chaque puce vide, jamais rempli.",
+  "Rembobinage (S04) lu comme « l’IA efface sa réponse » : le ◀◀ reste visible pendant tout l’effacement et la pastille ne bouge pas ; repli : supprimer le ◀◀ et réécrire seulement les valeurs depuis la boule en S06.",
+  "Boule de cristal lue comme un simple décor (S06) : elle sort de la tête de l’IA juste après que la case « Source » a été trouvée vide, et les trois traits pointillés en partent jusqu’aux valeurs, qui s’écrivent au bout ; repli : les valeurs naissent dans la boule et volent dans les lignes.",
+  "« Plafond : aucun » et « Date : fin du mois » lus comme de vraies informations : elles cassent en rouge sous le stylo en S08 et ne reviennent jamais ; aucune valeur chiffrée n’est inventée (consigne du script).",
+  "Pièces lues comme des jetons de jeu (S07) : « € » sur la pièce du dessus, fond light, elles tombent à côté de « Toi » et rentrent en lui ; repli : pictogramme euro sur chaque pièce.",
+  "« BOFiP » inconnu du spectateur : le livre au bout du fil plein porte le sens ; repli : « Source : texte officiel » sur deux lignes.",
+  "Faisceau de l’IA qui retombe avant l’empreinte (S15) lu comme « l’IA est en panne » : la scène suit la bonne réponse et l’IA n’est pas punie ; le conseiller arrive sur « humain. » ; repli : l’IA écrit « Je ne sais pas » dans sa bulle sur « suffit ».",
+  "Cache barré (S17) lu comme « l’outil a refusé » : il entre par la gauche, sans lien avec l’IA, couvre les cas puis tombe barré ; repli : le retirer et tenir les ondes de la sonnette sur « cacher. ».",
+  "Choix de l’outil (S18) : deux cartes pour deux outils peuvent se lire comme deux réponses ; chacune a son objet dessous (boule ; livre + sonnette) et le cadre de « Toi » entoure tout l’outil ; repli : deux AI.png, celle d’en face en tint mono.",
+  "Positions hautes de « Toi » (S08, S18-S19, S21) lues comme un saut gratuit : un seul saut avant chaque série de gestes, et il redescend dès que les gestes sont finis.",
+  "Bulle « Je ne sais pas » touchée du stylo (S20) : le contraste avec la cassure de S08 peut échapper ; les lignes cassées de la carte « Avant » battent en rouge juste avant le contact ; repli : un petit tremblement de la carte « Avant » au même instant.",
+  "Densité en S16-S18 (cas, conseiller, carte réduite, livre, IA, sonnette) : la carte réduite passe en barres, les cas rentrent dans le conseiller avant la comparaison des outils ; ~8 formes au plus à l’image."
+ ],
+ "excerpt": {
+  "t_start": 28.526,
+  "t_end": 42.992,
+  "why": "S08 à S11 (14,5 s) : le cœur du film : le stylo de « Toi » casse la règle, le plafond et la date de la réponse d’aplomb, deux pièces tombent, puis la même question reçoit une réponse à quatre lignes dont la source est reliée à un livre."
+ }
+}
