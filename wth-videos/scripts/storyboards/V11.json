@@ -1,6 +1,6 @@
 {
- "version": "v1",
- "angle": "Parti pris « la photo et la vie » : deux colonnes qui se lisent sans le son, à droite la fiche du client (une photo épinglée, datée « mars 2023 »), à gauche sa vie (une date qui avance, des événements qui tombent au-dessus de lui). Tout le film joue l’écart entre les deux : chaque événement de la vie fait virer au rouge une ligne de la fiche et fait sortir du conseil les sujets à revoir ; la question de « Toi » est le seul pont, et dans la chute les événements remontent dans la fiche, qui reprend la date de la vie. Les trois angles combinés : objets persistants (la pastille d’information de l’accroche se divise en trois disques qui deviennent le repère ; un disque du repère tombe et devient les alliances ; chaque événement se range en badge puis remonte dans sa rangée ; la pilule de la vie naît de la pastille et s’y refond ; le conseil sort du stylo de « Toi » et émet puis avale les sujets à revoir ; le « ? » sort du stylo, y rentre et en ressort ; l’épargne sort de sa rangée ; la pastille devient le bouton) ; grammaire de la référence (pastilles, disques, pilules, barres, fils ; buter, se diviser, relier, tomber, extraire, empiler, remplir, recomposer, remonter ; tenir puis éclater ; un seul PNG à la fois) ; lisibilité sans le son (rouge = ce que la vie a rendu faux, cyan/deep = la mise à jour ; avant / après sur la même fiche). Procédés repris de V01-V10 : fiche à rangées (Sheet) et pastille-protagoniste qui devient le bouton (V01, V05), repère légendé coché (V02-V03, V10), figurine papier face à « Toi » (V05, V10), pilules qui sortent d’un objet et s’empilent, fin standard touchée au stylo (V05, V10). Aucune entité nouvelle.\n\nRéponse aux 7 points :\n1) Fil conducteur : la date de la fiche, pastille « mars 2023 », de l’en-tête (S01) à la légende de la photo (S05), rouge face à la vie (S07-S20), mise à jour « nov. 2026 » par le geste de « Toi » (S21), puis bouton « S’abonner » (S22) ; on suit en même temps la même fiche, de 5 lignes justes à 5 lignes rouges, puis à 5 lignes mises à jour.\n2) État initial / action / résultat : chaque scène part du résultat précédent (positions données) et finit sur un état visible : information refusée par la fiche (S01), photo datée (S05), deux dates face à face (S06), conseil rouge penché (S07), une ligne rouge par événement (S09, S11, S13, S16, S18), pile de sujets rouges (S10, S11, S19), barres déplacées et conseil rattaché (S14), patrimoine recomposé (S17), fiche à jour (S21) ; 91 temps forts sur des débuts de mots.\n3) Sens complet : « n’est pas dans son dossier / dans sa vie » = l’information bute contre la fiche et se pose sur le client ; « photo prise à une date » = cadre, éclair, date en légende ; « la vie continue » = la date du client défile, celle de la fiche non ; « fondé sur… peut devenir inadapté » = le conseil relié à la fiche rougit et penche ; « tout remettre en question » = un « ? » devant chaque ligne ; « clause bénéficiaire » citée deux fois = la même pilule reste et bat de nouveau ; « ton conseil doit suivre » = « Toi » rattache son conseil aux nouveaux niveaux ; « se recompose » = l’épargne rétrécit, la maison grandit, un crédit se remplit ; « la question qui les fait remonter » = les badges remontent dans la fiche après la question.\n4) Rôles lisibles sans texte : pas d’IA dans ce film ; « Toi » (encre, nommé dès l’image 0, seul à tenir le stylo) sort le conseil de son stylo, le redresse, pose la question et met la fiche à jour ; le client (papier, sans outil, face à lui) vit les changements et répond ; le conjoint (papier) n’apparaît que pour le mariage.\n5) Les mêmes éléments évoluent : information → trois disques → repère → disque-événement → alliances → badge → rangée L1 ; pastille → pilule de la vie → retour dans la pastille → bouton ; conseil → sujets à revoir → barres → conseil rattaché ; L4 → bloc « Épargne » → « Épargne + Maison » ; « ? » du stylo → bulle de la question.\n6) PNG au service de la scène : cinq objets concrets reconnaissables sans étiquette (alliances, berceau, maison, camion, globe), un seul à la fois, chacun lieu d’un événement qui agit sur la fiche puis réduit en badge qui voyage ; tout processus (buter, relier, recomposer, remplir, remonter, réécrire) est animé en code.\n7) Simplicité : ivoire quadrillé, encre, un seul accent cyan (rouge seulement pour ce qui est dépassé, toujours suivi de la parade), Inter 32-34 px, places fixes (fiche à droite, vie à gauche, conseil au sol, repère en haut), 1 à 3 éléments actifs par temps fort.",
+ "version": "v1 · révisé après le test sans son",
+ "angle": "Parti pris « la photo et la vie » : deux colonnes qui se lisent sans le son, à droite la fiche du client (une photo épinglée, datée « mars 2023 »), à gauche sa vie (une date qui avance, des événements qui tombent au-dessus de lui). Tout le film joue l’écart entre les deux : chaque événement de la vie fait virer au rouge une ligne de la fiche et fait sortir du conseil les sujets à revoir ; la question de « Toi » est le seul pont, et dans la chute les événements remontent dans la fiche, qui reprend la date de la vie. Les trois angles combinés : objets persistants (la pilule « Info » de l’accroche se divise en trois disques qui deviennent le repère ; un disque du repère tombe et devient les alliances ; chaque événement se range en badge puis remonte dans sa rangée ; la pilule de la vie naît de la pastille et s’y refond ; le conseil sort du stylo de « Toi » et émet puis avale les sujets à revoir ; le « ? » sort du stylo, y rentre et en ressort ; l’épargne sort de sa rangée ; la pastille devient le bouton) ; grammaire de la référence (pastilles, disques, pilules, barres, fils ; buter, se diviser, relier, tomber, extraire, empiler, remplir, recomposer, remonter ; tenir puis éclater ; un seul PNG à la fois) ; lisibilité sans le son (rouge = ce que la vie a rendu faux, cyan/deep = la mise à jour ; avant / après sur la même fiche). Procédés repris de V01-V10 : fiche à rangées (Sheet) et pastille-protagoniste qui devient le bouton (V01, V05), repère légendé coché (V02-V03, V10), figurine papier face à « Toi » (V05, V10), pilules qui sortent d’un objet et s’empilent, fin standard touchée au stylo (V05, V10). Aucune entité nouvelle.\n\nRéponse aux 7 points :\n1) Fil conducteur : la date de la fiche, pastille « mars 2023 », de l’en-tête (S01) à la légende de la photo (S05), rouge face à la vie (S07-S20), mise à jour « nov. 2026 » par le geste de « Toi » (S21), puis bouton « S’abonner » (S22) ; on suit en même temps la même fiche, de 5 lignes justes à 5 lignes rouges, puis à 5 lignes mises à jour.\n2) État initial / action / résultat : chaque scène part du résultat précédent (positions données) et finit sur un état visible : information refusée par la fiche (S01), photo datée (S05), deux dates face à face (S06), conseil rouge penché (S07), une ligne rouge par événement (S09, S11, S13, S16, S18), pile de sujets rouges (S10, S11, S19), barres déplacées et conseil tiré vers elles, encore rouge (S14), patrimoine recomposé (S17), fiche à jour (S21) ; 93 temps forts sur des débuts de mots.\n3) Sens complet : « n’est pas dans son dossier / dans sa vie » = l’information bute contre la fiche et se pose sur le client ; « photo prise à une date » = cadre, éclair, date en légende ; « la vie continue » = la date du client défile, celle de la fiche non ; « fondé sur… peut devenir inadapté » = le conseil relié à la fiche rougit et penche ; « tout remettre en question » = un « ? » devant chaque ligne ; « clause bénéficiaire » citée deux fois = la même pilule reste et porte les mini-badges des deux événements ; « ton conseil doit suivre » = « Toi » touche son conseil, des fils le tirent vers les nouveaux niveaux, mais il reste rouge jusqu’à la mise à jour ; « se marie… ou se sépare », « crée… ou part à la retraite » = des cas reliés par « ou », chacun fait battre la même rangée rouge ; « se recompose » = l’épargne rétrécit, la maison grandit, un crédit se remplit ; « la question qui les fait remonter » = les badges remontent dans la fiche après la question.\n4) Rôles lisibles sans texte : pas d’IA dans ce film ; « Toi » (encre, nommé dès l’image 0, seul à tenir le stylo) sort le conseil de son stylo, le touche, pose la question, met la fiche à jour et redresse alors son conseil ; le client (papier, sans outil, face à lui) vit les changements et répond ; le conjoint (papier) n’apparaît que pour le mariage.\n5) Les mêmes éléments évoluent : information → trois disques → repère → disque-événement → alliances → badge → rangée L1 ; pastille → pilule de la vie → retour dans la pastille → bouton ; conseil → sujets à revoir → barres → conseil tiré, encore rouge → conseil redressé et relié à la fiche à jour (S21) ; « ou » entre les cas (S09, S13) ; L4 → bloc « Épargne » → « Épargne + Maison » ; « ? » du stylo → bulle de la question.\n6) PNG au service de la scène : cinq objets concrets reconnaissables sans étiquette (alliances, berceau, maison, camion, globe), un seul à la fois, chacun lieu d’un événement qui agit sur la fiche puis réduit en badge qui voyage ; tout processus (buter, relier, recomposer, remplir, remonter, réécrire) est animé en code.\n7) Simplicité : ivoire quadrillé, encre, un seul accent cyan (rouge seulement pour ce qui est dépassé, toujours suivi de la parade), Inter 32-34 px, places fixes (fiche à droite, vie à gauche, conseil au sol, repère en haut), 1 à 3 éléments actifs par temps fort.",
  "thread": "On suit la date de la fiche du client, la pastille cyan « mars 2023 », posée sur sa fiche dès l’image 0. Dans l’accroche, une information précieuse bute contre la fiche et va se poser au-dessus du client : elle est dans sa vie, pas dans son dossier. Le contexte fige la fiche en photo épinglée datée « mars 2023 », pendant que la date de la vie du client défile jusqu’à « nov. 2026 » ; le conseil que « Toi » a posé sur cette fiche rougit et penche. Puis trois domaines de la vie (famille, travail, patrimoine) deviennent le repère 1-2-3 : à chaque étape, un événement tombe dans la vie du client (alliances, berceau, changements de travail, maison, globe), la ligne correspondante de la fiche vire au rouge et les sujets à revoir sortent du conseil. Dans la chute, « Toi » pose la question ouverte ; le client répond, les cinq événements de sa vie remontent dans la fiche, « Toi » touche la date : les lignes rouges tombent, les nouvelles s’écrivent, et la pastille passe à « nov. 2026 » avant de devenir le bouton « S’abonner ».",
  "objet_fil": {
   "id": "pastille",
@@ -21,7 +21,7 @@
    "look": "Fiche papier #FFFDF8 450 × 470, centre (690, 565) (x 465-915, y 330-800), contour encre 4 px, ombre +8/+8 ; en-tête 70 px « Fiche client » Inter ExtraBold 36 aligné à droite ; 5 rangées (y 445, 525, 605, 685, 765), puce sur disque cyan, texte Inter SemiBold 32 : L1 « Famille : célibataire » (personne), L2 « Enfants : aucun » (plus), L3 « Travail : salarié » (immeuble), L4 « Patrimoine : épargne » (euro), L5 « Résidence : France » (maison). Valeur dépassée : texte et contour de rangée rouges. Valeurs finales deep : « marié », « 1 », « dirigeant », « maison », « Portugal ».",
    "source": "code",
    "entite": "fiche + line ×5 via Sheet(5) (pistes red, pulse, flash, mark, fall, chars) ; kit.shake ; kit.type",
-   "evolution": "S01 : refuse la pastille d’information (tremble). S02 : trois rangées reliées aux disques de la vie. S04-S05 : encadrée, épinglée, flashée : une photo datée. S08 : secouée, un « ? » devant chaque rangée. S09 : L1 rouge. S11 : L2 rouge. S13 : L3 rouge. S15 : L4 donne naissance au bloc « Épargne ». S16 : L4 rouge. S18 : L5 rouge. S21 : reçoit les cinq badges de la vie ; les valeurs rouges tombent, les nouvelles s’écrivent en deep. S22 : s’efface sous la carte de fin."
+   "evolution": "S01 : repousse la pilule « Info » (tremble). S02 : trois rangées reliées aux disques de la vie tremblent. S04 : repousse les disques remontés. S04-S05 : encadrée, épinglée, flashée : une photo datée. S08 : secouée, un « ? » devant chaque rangée. S09 : L1 rouge. S11 : L2 rouge. S13 : L3 rouge. S15 : L4 donne naissance au bloc « Épargne ». S16 : L4 rouge. S18 : L5 rouge. S21 : reçoit les cinq badges de la vie ; les valeurs rouges tombent, les nouvelles s’écrivent en deep. S22 : s’efface sous la carte de fin."
   },
   {
    "id": "cadre",
@@ -33,11 +33,11 @@
   },
   {
    "id": "info",
-   "name_fr": "La pastille d’information (la meilleure info)",
-   "look": "Disque cyan r 44, contour encre 4 px, ombre +6/+6, pictogramme plus encre ; anneau deep quand il est au client.",
+   "name_fr": "La pilule « Info » (la meilleure info)",
+   "look": "Pilule cyan 150 × 62, contour encre 4 px, ombre +6/+6, pictogramme étoile encre à gauche et mot « Info » Inter Bold 34 encre ; anneau deep quand elle est au client.",
    "source": "code",
-   "entite": "icon (disc, ring) ; burst ; kit.pop, kit.move (arc), kit.morph 1 → 3",
-   "evolution": "S01 : naît à gauche, bute contre la fiche, rebondit et se pose au-dessus du client (anneau). S02 : se divise en trois disques de la vie."
+   "entite": "pill (icon star ; piste ring) ; burst ; kit.pop, kit.move (arc), kit.morph 1 → 3",
+   "evolution": "S01 : naît à gauche, nommée « Info », bute contre la fiche, rebondit et se pose au-dessus du client (anneau). S02 : se divise en trois disques de la vie."
   },
   {
    "id": "disques_vie",
@@ -45,7 +45,7 @@
    "look": "Trois disques cyan r 36, contour encre 4 px, ombre +3, pictogrammes personne, immeuble, euro ; fils pleins deep 3 px vers les puces de L1, L3, L4.",
    "source": "code",
    "entite": "icon (disc) ×3 + wire ×3 ; kit.morph, kit.draw, kit.move ; morph vers marker",
-   "evolution": "S02 : nés de la pastille d’information, reliés à la fiche. S03 : remontent à y 430. S04 : leurs fils se retirent. S08 : montent et deviennent les trois disques du repère."
+   "evolution": "S02 : nés de la pilule « Info », font bondir le client, puis se relient à la fiche, dont les rangées reliées tremblent. S03 : remontent le long des fils jusqu’au bord de la fiche. S04 : la fiche les repousse au-dessus du client (y 430), leurs fils se retirent. S08 : montent et deviennent les trois disques du repère."
   },
   {
    "id": "marqueur",
@@ -61,7 +61,7 @@
    "look": "Figurine pleine encre #1E1416 (tête ronde, buste trapèze), échelle 1, pied sur y 1230, côté « left » (agit vers la gauche), bras à longueur fixe, stylo ; pilule « Toi » (fond light, Bold 34, 96 × 54) au-dessus de la tête. Places : (820, 1135) de S01 à S20, puis (690, 1135).",
    "source": "code",
    "entite": "Figure variant=\"ink\" (reach, tap, walk, stow) ; fig.place_for",
-   "evolution": "S01 : nommé dès l’image 0, bras baissé. S03 : le « ? » sort de son stylo. S04 : le « ? » y rentre. S07 : sort la pilule « Ton conseil » de son stylo. S14 : touche le conseil, qui se redresse et suit les nouveaux chiffres. S20 : s’avance vers le client, le « ? » ressort de son stylo. S21 : touche la date de la fiche, qui se met à jour. S22 : touche le bouton « S’abonner »."
+   "evolution": "S01 : nommé dès l’image 0, bras baissé. S03 : le « ? » sort de son stylo. S04 : le « ? » y rentre. S07 : sort la pilule « Ton conseil » de son stylo. S14 : touche le conseil, qui tremble et que des fils tirent vers les nouveaux chiffres (il reste rouge). S20 : s’avance vers le client, le « ? » ressort de son stylo. S21 : touche la date de la fiche, qui se met à jour ; le conseil se redresse. S22 : touche le bouton « S’abonner »."
   },
   {
    "id": "client",
@@ -69,7 +69,7 @@
    "look": "Figurine papier (contour encre, intérieur blanc, ni visage ni bras), échelle 1, (220, 1135), pied sur y 1230, tournée vers « Toi » ; pilule « Client » (fond light, Bold 34, 150 × 54) au-dessus de la tête (220, 1000).",
    "source": "code",
    "entite": "Figure variant=\"paper\", tool=False (enter, hop, lean_to, exit)",
-   "evolution": "S01 : entre sur « client », face à « Toi » ; la pastille d’information se pose au-dessus de lui. S06 : fait un pas pendant que sa date avance. S09 : le conjoint le rejoint puis s’éloigne. S08-S19 : sa vie reçoit les événements au-dessus de lui. S21 : se penche et répond. S22 : sort."
+   "evolution": "S01 : entre sur « client », déjà nommé, face à « Toi » ; la pilule « Info » se pose au-dessus de lui. S02 : bondit quand les changements arrivent. S03 : lève la tête vers la bulle de « Toi ». S06 : fait un pas pendant que sa date avance. S09 : le conjoint le rejoint puis s’éloigne. S08-S19 : sa vie reçoit les événements au-dessus de lui. S21 : se penche et répond. S22 : sort."
   },
   {
    "id": "vie",
@@ -82,10 +82,10 @@
   {
    "id": "conseil",
    "name_fr": "Le conseil (« Ton conseil »)",
-   "look": "Pilule light #D3F0F6 300 × 64, contour encre 4 px, ombre +6, pictogramme bulle de dialogue, « Ton conseil » Bold 34 encre ; au sol (550, 1195), puis (450, 1195) dès S20 ; contour rouge et penché de 8° (S07-S14), contour deep (S14-S21), rempli de cyan (S21) ; fil plein deep 4 px vers le bas du cadre.",
+   "look": "Pilule light #D3F0F6 300 × 64, contour encre 4 px, ombre +6, pictogramme bulle de dialogue, « Ton conseil » Bold 34 encre ; au sol (550, 1195), puis (450, 1195) dès S20 ; contour rouge et penché de 8° (S07-S21, jamais réparé avant la mise à jour de la fiche), rempli de cyan et droit (S21) ; fil plein deep 4 px vers le bas du cadre.",
    "source": "code",
    "entite": "pill (pistes stroke, fill, rot) + wire (draw, sag, drop) ; kit.pop, kit.move, kit.vanish into",
-   "evolution": "S07 : sort du stylo de « Toi », relié à la fiche ; rougit et penche (inadapté). S10, S11, S19 : les sujets à revoir en sortent. S14 : les barres en sortent ; « Toi » le touche, il se redresse et se relie aux nouveaux niveaux, l’ancien fil tombe. S15, S18 : avale barres et patrimoine. S20 : glisse entre les deux personnages. S21 : se relie à la fiche à jour et devient cyan."
+   "evolution": "S07 : sort du stylo de « Toi », relié à la fiche ; rougit et penche (inadapté). S10, S11, S19 : les sujets à revoir en sortent. S14 : les barres en sortent ; « Toi » le touche, trois fils encre le tirent vers les nouveaux niveaux, mais il reste rouge et penché (il doit suivre). S15, S18 : avale barres et patrimoine. S20 : glisse entre les deux personnages. S21 : lâche son vieux fil, se redresse, se relie à la fiche à jour et devient cyan."
   },
   {
    "id": "pile",
@@ -93,7 +93,7 @@
    "look": "Pilules papier, 54 px de haut, Inter Bold 32 encre, contour encre 4 px (rouge #C8102E quand « à revoir »), ombre +3, centrées en x 550 aux y 1103, 1041, 979, 917 : « Régime matrimonial », « Clause bénéficiaire », « Donation », « Transmission » (S10) ; « Objectif d’épargne », « Protection du foyer », « Prévoyance » (S11) ; « Fiscalité », « Résidence », « Produits accessibles » (S19).",
    "source": "code",
    "entite": "pill ×10 (piste stroke) ; kit.pop from_pt conseil, kit.move, kit.shake, kit.vanish into conseil",
-   "evolution": "S10 : quatre sortent du conseil, rougissent. S11 : trois rentrent, « Clause bénéficiaire » reste et bat de nouveau, trois nouvelles sortent. S12 : rentrent. S19 : trois sortent et rougissent. S20 : rentrent dans le conseil."
+   "evolution": "S10 : quatre sortent du conseil, rougissent. S11 : trois rentrent, « Clause bénéficiaire » reste avec un mini-badge alliances, trois nouvelles sortent, un mini-badge berceau la rejoint. S12 : rentrent. S19 : trois sortent et rougissent. S20 : rentrent dans le conseil."
   },
   {
    "id": "evenements",
@@ -101,7 +101,7 @@
    "look": "Au centre de la colonne de la vie (225, 650) : RINGS.png (240 px), CRADLE.png (250 px), TOKEN.png (220 px), TRUCK.png (280 px), GLOBE.png (220 px), ombre de contact, jamais déformés, un seul à la fois. Rangés ensuite en badges : disque papier r 36, contour encre 4 px, PNG 64 px, en (75 / 155 / 235 / 315 / 395, 430) ; le badge immeuble (S14) est un pictogramme immeuble.",
    "source": "PNG + code",
    "entite": "png (contact) ; icon (disc) ; kit.drop, kit.morph, kit.move, kit.vanish",
-   "evolution": "S08 : un disque-événement tombe du repère. S09 : il devient les alliances. S11 : alliances → badge ; le berceau tombe. S12 : berceau → badge. S13-S14 : quatre pilules de travail (Entreprise, Emploi perdu, Promotion, Retraite) → badge immeuble. S16-S17 : la maison tombe puis entre dans le patrimoine ; S18 : badge. S18 : le camion passe, le globe tombe ; S20 : badge. S21 : les cinq badges remontent dans leurs rangées de la fiche."
+   "evolution": "S08 : un disque-événement tombe du repère. S09 : il devient les alliances ; « ou » et pilule « Séparation » dessous (autre cas). S11 : alliances → badge, un mini-badge alliances reste accroché à « Clause bénéficiaire » ; le berceau tombe, un mini-badge berceau rejoint la même pilule. S12 : berceau → badge. S13-S14 : quatre pilules de travail séparées par « ou » (Entreprise, Emploi perdu, Promotion, Retraite) → badge immeuble. S16-S17 : la maison tombe puis entre dans le patrimoine ; S18 : badge. S18 : le camion passe, le globe tombe ; S20 : badge. S21 : les cinq badges remontent dans leurs rangées de la fiche."
   },
   {
    "id": "conjoint",
@@ -117,15 +117,15 @@
    "look": "Trois gauges 250 × 44 (x 490-740), fond papier, remplissage cyan, contour encre 4 px, ombre +6, aux y 945, 1025, 1105 ; légendes Bold 34 encre ancrées à droite en x 470 : « Revenus », « Fiscalité », « Liquidités » ; trait encre vertical 4 px au niveau d’avant.",
    "source": "code",
    "entite": "gauge ×3 + text ×3 + shape (traits) ; STRETCH, piste value ; wire ×3",
-   "evolution": "S14 : sortent du conseil, changent de niveau, reçoivent les fils du conseil. S15 : rentrent dans le conseil."
+   "evolution": "S14 : sortent du conseil, changent de niveau, tirent le conseil par trois fils encre. S15 : rentrent dans le conseil."
   },
   {
    "id": "patrimoine",
    "name_fr": "Le patrimoine du client",
-   "look": "Bloc 420 × 70 (x 340-760) en (550, 1000), contour encre 4 px, ombre +6 : part cyan « Épargne » (pictogramme euro), puis part light « Maison » (pictogramme maison), Bold 34 ; barre « Crédit » 420 × 44 (gauge, remplissage grey #DDD5C6) en (550, 1100) ; trois pièces (pictogramme pièce sur disque cyan r 26).",
+   "look": "Bloc 420 × 70 (x 340-760) en (550, 1000), contour encre 4 px, ombre +6 : part cyan « Épargne » (pictogramme euro), puis part light « Maison » (pictogramme maison), Bold 34 ; barre « Crédit » 420 × 44 (gauge, remplissage grey #DDD5C6) en (550, 1100) ; trois pièces (pictogramme pièce sur disque cyan r 26) ; titre « Patrimoine » Bold 34 encre en (550, 920).",
    "source": "code",
-   "entite": "shape round ×2 + text ; gauge ; icon coin ×3 ; kit.move, STRETCH, kit.stagger kit.pop",
-   "evolution": "S15 : le bloc « Épargne » naît de L4. S17 : reçoit la maison, se recompose, la barre « Crédit » se remplit, les pièces sortent. S18 : rentre dans le conseil."
+   "entite": "shape round ×2 + text ×2 (kit.type) ; gauge ; icon coin ×3 ; kit.move, STRETCH, kit.stagger kit.pop",
+   "evolution": "S15 : le bloc « Épargne » naît d’une copie de L4 (la rangée garde son texte) et reçoit le titre « Patrimoine ». S17 : reçoit la maison, se recompose, la barre « Crédit » se remplit, trois pièces passent de la maison à l’épargne (liquidités). S18 : rentre dans le conseil avec son titre."
   },
   {
    "id": "question",
@@ -144,7 +144,7 @@
    "evolution": "S22 : surgit, reçoit la pastille comme bouton, touchée par « Toi », puis immobile."
   }
  ],
- "style": "Conforme à style.md. Fond ivoire #F6F0E4, quadrillage fixe de 36 px (#ECE4D4, 2 px), sans caméra ni zoom global. Encre #1E1416 pour les contours de 4 à 5 px, les textes, « Toi », le « ? » et les ombres dures +6/+6. Un seul accent, le cyan : #19B3C7 en aplat pour la pastille « mars 2023 », la pilule de la vie, la pastille d’information et les disques de la vie, le disque actif du repère, les puces de la fiche, le bloc « Épargne », les barres, les pièces, le conseil final et le bouton de fin ; deep #0A7487 pour ce que fait « Toi » (fils du conseil, coches du repère, valeurs mises à jour, anneaux, ondes) ; light #D3F0F6 pour les pilules « Toi », « Client », « Ton conseil », la part « Maison » et le surligneur des rangées. Papier #FFFDF8 pour la fiche, son cadre-photo, les sujets à revoir, la bulle, les figurines du client et du conjoint, la carte de fin. Grey #DDD5C6 seulement pour le remplissage de la barre « Crédit » (pas un refus). Rouge #C8102E réservé à ce qui est dépassé, toujours suivi de sa parade cyan ou deep : contour de la pastille « mars 2023 » (S07-S21), conseil inadapté (S07-S14, parade S14), valeurs et contours des rangées de la fiche que la vie contredit (L1 S09, L2 S11, L3 S13, L4 S16, L5 S18 ; parade S21), contours des sujets à revoir (S10, S11, S19). Aucune IA dans ce film : AI.png n’est pas utilisé. Places fixes : la fiche (le dossier) à droite, la vie du client à gauche (événements au centre de la colonne (225, 650), badges en rangée à y 430, date de la vie à y 915), le client en bas à gauche, « Toi » en bas à droite, le conseil au sol entre eux, le repère en haut (y 200). PNG retenus (5, un seul entre ou sort à la fois, jamais zoomés pour raconter) : RINGS (mariage), CRADLE (naissance), TOKEN (bien immobilier), TRUCK (déménagement), GLOBE (étranger) ; tout processus (buter, relier, se recomposer, remplir, remonter, mettre à jour) est animé en code. Textes à l’écran : rangées de la fiche SemiBold 32, libellés clés Bold 34 (pilules, barres, dates), sujets à revoir Bold 32, 22 caractères au plus par ligne ; dates en clair (« mars 2023 », « nov. 2026 ») ; espaces insécables avant « : » et « ? ».",
+ "style": "Conforme à style.md. Fond ivoire #F6F0E4, quadrillage fixe de 36 px (#ECE4D4, 2 px), sans caméra ni zoom global. Encre #1E1416 pour les contours de 4 à 5 px, les textes, « Toi », le « ? » et les ombres dures +6/+6. Un seul accent, le cyan : #19B3C7 en aplat pour la pastille « mars 2023 », la pilule de la vie, la pilule « Info » et les disques de la vie, le disque actif du repère, les puces de la fiche, le bloc « Épargne », les barres, les pièces, le conseil final et le bouton de fin ; deep #0A7487 pour ce que fait « Toi » (fils du conseil, coches du repère, valeurs mises à jour, anneaux, ondes) ; light #D3F0F6 pour les pilules « Toi », « Client », « Ton conseil », la part « Maison » et le surligneur des rangées. Papier #FFFDF8 pour la fiche, son cadre-photo, les sujets à revoir, la bulle, les figurines du client et du conjoint, la carte de fin. Grey #DDD5C6 seulement pour le remplissage de la barre « Crédit » (pas un refus). Rouge #C8102E réservé à ce qui est dépassé, toujours suivi de sa parade cyan ou deep : contour de la pastille « mars 2023 » (S07-S21), conseil inadapté (S07-S21, parade S21), valeurs et contours des rangées de la fiche que la vie contredit (L1 S09, L2 S11, L3 S13, L4 S16, L5 S18 ; parade S21), contours des sujets à revoir (S10, S11, S19). Aucune IA dans ce film : AI.png n’est pas utilisé. Places fixes : la fiche (le dossier) à droite, la vie du client à gauche (événements au centre de la colonne (225, 650), badges en rangée à y 430, date de la vie à y 915), le client en bas à gauche, « Toi » en bas à droite, le conseil au sol entre eux, le repère en haut (y 200). PNG retenus (5, un seul entre ou sort à la fois, jamais zoomés pour raconter) : RINGS (mariage), CRADLE (naissance), TOKEN (bien immobilier), TRUCK (déménagement), GLOBE (étranger) ; tout processus (buter, relier, se recomposer, remplir, remonter, mettre à jour) est animé en code. Textes à l’écran : rangées de la fiche SemiBold 32, libellés clés Bold 34 (pilules, barres, dates), sujets à revoir Bold 32, 22 caractères au plus par ligne ; dates en clair (« mars 2023 », « nov. 2026 ») ; espaces insécables avant « : » et « ? ».",
  "scenes": [
   {
    "id": "S01",
@@ -152,44 +152,44 @@
    "t_start": 0.0,
    "t_end": 4.423,
    "texte": "La meilleure info sur ton client n’est pas dans son dossier. Elle est dans sa vie.",
-   "elements": "fiche, pastille, toi, info, client",
+   "elements": "fiche, pastille, toi, info (pilule « Info »), client",
    "etat_initial": "Image 0, déjà lisible et légère : ivoire quadrillé. À droite, la fiche « Fiche client » (papier 450 × 470, centre (690, 565), x 465-915, y 330-800, contour encre 4 px, ombre +8/+8), en-tête 70 px avec le titre « Fiche client » (Inter ExtraBold 36, aligné à droite) et, à gauche de l’en-tête, la pastille cyan « mars 2023 » (pictogramme calendrier, 196 × 52, Bold 28, centre (568, 365)) ; 5 rangées écrites en encre (Inter SemiBold 32) : L1 « Famille : célibataire » (puce personne), L2 « Enfants : aucun » (puce plus), L3 « Travail : salarié » (puce immeuble), L4 « Patrimoine : épargne » (puce euro), L5 « Résidence : France » (puce maison). En bas à droite, « Toi » (figurine encre, (820, 1135), pied sur y 1230, bras baissé, stylo au repos) et sa pilule « Toi » au-dessus de la tête (820, 1000). La moitié gauche de l’image est vide.",
-   "action": "Une pastille d’information cyan naît au milieu de la gauche, file vers la fiche et bute contre son bord : elle n’entre pas. Le client arrive par la gauche sur son mot, face à « Toi ». La pastille rebondit, puis va se poser au-dessus du client, et un anneau se trace autour d’elle : elle est à lui.",
-   "resultat": "La fiche de droite est inchangée ; la pastille d’information cyan, refusée par la fiche, flotte au-dessus du client, entourée de son anneau. « Toi » et le client se font face (600 px d’écart).",
-   "transition": "Sur « changements », la pastille d’information se divise en trois disques.",
+   "action": "Une pilule cyan nommée « Info » (étoile) naît au milieu de la gauche, file vers la fiche et bute contre son bord : la fiche la repousse, elle n’entre pas. Le client arrive par la gauche sur son mot, déjà nommé « Client », face à « Toi ». La pilule « Info » rebondit, puis va se poser au-dessus du client, et un anneau se trace autour d’elle : elle est à lui.",
+   "resultat": "La fiche de droite est inchangée ; la pilule « Info », repoussée par la fiche, flotte au-dessus du client nommé « Client », entourée de son anneau. « Toi » et le client se font face (600 px d’écart).",
+   "transition": "Sur « changements », la pilule « Info » se divise en trois disques.",
    "beats": [
     {
      "t": 0.209,
      "mot": "meilleure",
-     "evenement": "Entrer : la pastille d’information (disque cyan r 44, pictogramme plus encre, contour encre 4 px, ombre +6/+6) surgit en (330, 640) (POP 300 ms, ease-out), avec un court éclat de 8 rayons deep autour d’elle (burst, 300 ms)."
+     "evenement": "Entrer : la pilule « Info » (pilule cyan 150 × 62, pictogramme étoile encre, mot « Info » Bold 34 encre, contour encre 4 px, ombre +6/+6) surgit en (330, 640) (POP 300 ms, ease-out), avec un court éclat de 8 rayons deep autour d’elle (burst, 300 ms) : c’est une information précieuse, nommée."
     },
     {
      "t": 1.219,
      "mot": "client",
-     "evenement": "Le client (figurine papier, sans bras ni outil) entre en marchant depuis le bord gauche jusqu’à (220, 1135), tourné vers « Toi » (fig.enter frm 40, ≈ 500 ms) ; sa pilule « Client » (fond light, Bold 34, 150 × 54) surgit au-dessus de sa tête (220, 1000) (POP 300 ms)."
+     "evenement": "Le client (figurine papier, sans bras ni outil) entre en marchant depuis le bord gauche jusqu’à (220, 1135), tourné vers « Toi » (fig.enter frm 40, ≈ 500 ms), avec sa pilule « Client » (fond light, Bold 34, 150 × 54) déjà au-dessus de sa tête (220, 1000) : elle entre avec lui, sur la même image, et ne le quitte plus."
     },
     {
      "t": 2.067,
      "mot": "dans",
-     "evenement": "Buter : la pastille d’information file vers la fiche (MOVE ease-in, 9 images) et touche son bord gauche (465, 640)."
+     "evenement": "Buter : la pilule « Info » file vers la fiche (MOVE ease-in, 9 images) et touche son bord gauche (465, 640)."
     },
     {
      "t": 2.392,
      "mot": "dossier.",
-     "evenement": "Au contact, la fiche tremble (kit.shake axe x, 6 px) et la pastille rebondit de 110 px vers la gauche jusqu’à (355, 640) (300 ms, ease-out). Aucune rangée de la fiche ne change."
+     "evenement": "Au contact, la fiche tremble (kit.shake axe x, 6 px) et repousse la pilule « Info », qui rebondit de 110 px vers la gauche jusqu’à (355, 640) (300 ms, ease-out). Aucune rangée de la fiche ne change : l’info n’est pas dans le dossier."
     },
     {
      "t": 3.019,
      "mot": "Elle",
-     "evenement": "La pastille d’information vole en arc (MOVE 550 ms, arc 80 px) jusqu’au-dessus du client et se pose en (220, 870)."
+     "evenement": "La pilule « Info » vole en arc (MOVE 550 ms, arc 80 px) jusqu’au-dessus du client et se pose en (220, 870)."
     },
     {
      "t": 3.762,
      "mot": "vie.",
-     "evenement": "Un anneau deep se trace autour de la pastille d’information (piste ring 0 → 1, DRAW 300 ms) et le client s’incline de 5° vers elle (TILT 450 ms) : elle est à lui."
+     "evenement": "Un anneau deep se trace autour de la pilule « Info » (piste ring 0 → 1, DRAW 300 ms) et le client s’incline de 5° vers elle (TILT 450 ms) : elle est à lui, dans sa vie."
     }
    ],
-   "lecture_sans_son": "Quelque chose de précieux ne rentre pas dans la fiche du conseiller : ça rebondit et reste avec le client."
+   "lecture_sans_son": "Une info précieuse (la pilule « Info ») ne rentre pas dans la fiche du conseiller : la fiche la repousse, et l’info reste avec le client."
   },
   {
    "id": "S02",
@@ -198,23 +198,28 @@
    "t_end": 8.94,
    "texte": "Dans cette vidéo, on va voir les changements de vie qui doivent tout faire revoir.",
    "elements": "info (→ trois disques), fiche, client, toi, pastille",
-   "etat_initial": "Résultat de S01 : la pastille d’information cerclée au-dessus du client (220, 870) ; fiche à droite, inchangée ; « Toi » en bas à droite.",
-   "action": "La pastille d’information se divise en trois disques cyan, un par grand domaine de la vie (personne, immeuble, euro), alignés au-dessus du client. Puis chaque disque tend un fil vers la rangée de la fiche qu’il concerne, et les puces de ces rangées s’allument : ces changements de vie touchent la fiche.",
-   "resultat": "Trois disques de la vie (personne, immeuble, euro) en rangée dans la colonne gauche, reliés par trois fils deep aux rangées L1, L3 et L4 de la fiche.",
+   "etat_initial": "Résultat de S01 : la pilule « Info » cerclée au-dessus du client (220, 870) ; fiche à droite, inchangée ; « Toi » en bas à droite.",
+   "action": "La pilule « Info » se divise en trois disques cyan, un par grand domaine de la vie (personne, immeuble, euro), alignés au-dessus du client ; le client fait un petit bond : ces changements arrivent dans sa vie. Puis chaque disque tend un fil vers la rangée de la fiche qu’il concerne, et ces trois rangées tremblent : elles sont à revoir.",
+   "resultat": "Trois disques de la vie (personne, immeuble, euro) en rangée au-dessus du client, reliés par trois fils deep aux rangées L1, L3 et L4 de la fiche, qui viennent de trembler.",
    "transition": "Sur « question », une bulle naît du stylo de « Toi ».",
    "beats": [
     {
      "t": 5.968,
      "mot": "changements",
-     "evenement": "Se diviser : la pastille d’information se change en trois disques cyan r 36 (contour encre 4 px, ombre +3) aux pictogrammes personne, immeuble et euro, qui s’écartent en éventail vers (95, 560), (220, 560) et (345, 560) (kit.morph 1 → 3, 350 ms, ease-out, décalés de 2 images)."
+     "evenement": "Se diviser : la pilule « Info » se change en trois disques cyan r 36 (contour encre 4 px, ombre +3) aux pictogrammes personne, immeuble et euro, qui s’écartent en éventail vers (95, 560), (220, 560) et (345, 560) (kit.morph 1 → 3, 350 ms, ease-out, décalés de 2 images)."
+    },
+    {
+     "t": 6.606,
+     "mot": "vie",
+     "evenement": "Arriver dans la vie : le client fait un petit bond sur place (fig.hop 12 px, 8 images) et, au même instant, les trois disques battent une fois au-dessus de lui (kit.pulse 15 %) : ces changements lui arrivent, à lui."
     },
     {
      "t": 7.988,
      "mot": "revoir.",
-     "evenement": "Relier : de chaque disque part un fil plein deep 3 px vers la puce de sa rangée (personne → L1 (490, 445), immeuble → L3 (490, 605), euro → L4 (490, 685)) (DRAW 300 ms, décalés de 3 images) ; à l’arrivée, les trois puces grossissent de 35 % puis reviennent (piste flash, 200 ms)."
+     "evenement": "Relier : de chaque disque part un fil plein deep 3 px vers la puce de sa rangée (personne → L1 (490, 445), immeuble → L3 (490, 605), euro → L4 (490, 685)) (DRAW 300 ms, décalés de 3 images) ; à l’arrivée de chaque fil, sa rangée tremble (kit.shake axe x, 4 px) et sa puce grossit de 35 % puis revient (piste flash, 200 ms) : ces lignes sont à revoir."
     }
    ],
-   "lecture_sans_son": "Trois domaines de la vie du client (famille, travail, argent) sont reliés à des lignes précises de sa fiche."
+   "lecture_sans_son": "Des changements arrivent dans la vie du client (famille, travail, argent) et font trembler les lignes correspondantes de sa fiche : elles sont à revoir."
   },
   {
    "id": "S03",
@@ -224,22 +229,22 @@
    "texte": "Et la question qui les fait remonter.",
    "elements": "toi, question (bulle « ? »), disques de la vie, fils, fiche, client, pastille",
    "etat_initial": "Résultat de S02 : trois disques à y 560 reliés par trois fils aux rangées L1, L3, L4 ; « Toi » en bas à droite.",
-   "action": "Un « ? » sort de la pointe du stylo de « Toi » et une petite bulle grandit autour, la queue tournée vers sa tête : c’est lui qui pose la question. Les trois disques de la vie remontent alors d’un cran, leurs fils toujours tendus vers la fiche.",
-   "resultat": "Une bulle « ? » à côté de « Toi » ; les trois disques remontés à y 430, toujours reliés à la fiche.",
-   "transition": "Sur « problème », la bulle rentre dans le stylo et les fils se retirent.",
+   "action": "Un « ? » sort de la pointe du stylo de « Toi » et une petite bulle grandit autour, la queue tournée vers sa tête ; le client lève la tête vers la bulle : c’est à lui que « Toi » pose la question. Les trois disques de la vie remontent alors le long de leurs fils jusqu’au bord de la fiche, chacun à côté de sa rangée, dont la puce s’allume.",
+   "resultat": "Une bulle « ? » entre « Toi » et le client ; les trois disques arrivés au bord gauche de la fiche (410, 445 / 605 / 685), à côté de leurs rangées.",
+   "transition": "Sur « problème », la bulle rentre dans le stylo et la fiche repousse les disques.",
    "beats": [
     {
      "t": 9.218,
      "mot": "question",
-     "evenement": "Demander : « Toi » lève le stylo vers la gauche ; un « ? » encre (qmark gs 64) sort de la pointe (705, 1000) (POP 300 ms) et une bulle papier 150 × 110 (contour encre 5 px, ombre +6) grandit autour de lui en (650, 975), la queue pointée vers la tête de « Toi » (790, 1050) (SCALE 330 ms)."
+     "evenement": "Demander : « Toi » lève le stylo vers la gauche ; un « ? » encre (qmark gs 64) sort de la pointe (705, 1000) (POP 300 ms) et une bulle papier 150 × 110 (contour encre 5 px, ombre +6) grandit autour de lui en (650, 975), la queue pointée vers la tête de « Toi » (790, 1050) (SCALE 330 ms) ; le client lève la tête vers la bulle (TILT 5° vers la droite, 450 ms)."
     },
     {
      "t": 10.043,
      "mot": "remonter.",
-     "evenement": "Remonter : les trois disques montent ensemble de 130 px, de y 560 à y 430 (MOVE 550 ms, ease-in-out) ; leurs fils suivent (ancres)."
+     "evenement": "Faire remonter : les trois disques glissent le long de leurs fils jusqu’au bord gauche de la fiche, à côté de leur rangée : (410, 445), (410, 605), (410, 685) (MOVE 550 ms, ease-in-out, décalés de 2 images) ; à l’arrivée, les trois puces s’allument (piste flash, 200 ms)."
     }
    ],
-   "lecture_sans_son": "Le conseiller pose une question, et les éléments de la vie du client remontent vers sa fiche."
+   "lecture_sans_son": "Le conseiller pose une question au client, et ce qui a changé dans la vie du client remonte jusqu’à sa fiche."
   },
   {
    "id": "S04",
@@ -248,15 +253,15 @@
    "t_end": 12.806,
    "texte": "Le problème, c’est la fiche figée.",
    "elements": "fiche, cadre-photo, punaise, pastille, disques de la vie, toi, question, client",
-   "etat_initial": "Résultat de S03 : bulle « ? » près de « Toi » ; trois disques à y 430 reliés à la fiche ; fiche nue (sans cadre).",
-   "action": "La bulle rentre dans le stylo de « Toi » et les fils se retirent dans leurs disques. Puis un cadre de photo papier, à marge basse large, se trace autour de la fiche, et une punaise cyan tombe sur son bord haut : la fiche est une photo épinglée, figée.",
-   "resultat": "La fiche est devenue une photo dans son cadre, épinglée en haut ; les trois disques attendent à y 430, sans fil.",
+   "etat_initial": "Résultat de S03 : bulle « ? » près de « Toi » ; trois disques au bord gauche de la fiche (410, 445 / 605 / 685), reliés à leurs rangées ; fiche nue (sans cadre).",
+   "action": "La bulle rentre dans le stylo de « Toi ». La fiche tremble et repousse les trois disques, qui retournent au-dessus du client pendant que leurs fils se retirent : la fiche ne les prend pas. Puis un cadre de photo papier, à marge basse large, se trace autour de la fiche, et une punaise cyan tombe sur son bord haut : la fiche est une photo épinglée, figée.",
+   "resultat": "La fiche est devenue une photo dans son cadre, épinglée en haut ; les trois disques, repoussés, attendent au-dessus du client à y 430, sans fil.",
    "transition": "Sur « photo », un éclair blanc balaie la fiche.",
    "beats": [
     {
      "t": 10.925,
      "mot": "problème,",
-     "evenement": "Ranger : la bulle se réduit dans la pointe du stylo de « Toi » (kit.vanish into pointe, 300 ms) ; les trois fils se rétractent vers leurs disques (piste from 0 → 1, 300 ms)."
+     "evenement": "Repousser : la bulle se réduit dans la pointe du stylo de « Toi » (kit.vanish into pointe, 300 ms) ; la fiche tremble (kit.shake axe x, 6 px) et les trois disques sont renvoyés au-dessus du client en (95, 430), (220, 430), (345, 430) (MOVE 400 ms, ease-out) pendant que leurs fils se rétractent vers eux (piste from 0 → 1, 300 ms)."
     },
     {
      "t": 11.714,
@@ -269,7 +274,7 @@
      "evenement": "Épingler : une punaise (disque cyan r 16, contour encre 3 px, ombre +3) tombe sur le milieu du bord haut du cadre (690, 330) (DROP 370 ms, sans rebond) ; au contact, le cadre et la fiche tremblent une fois (kit.shake axe y, 4 px)."
     }
    ],
-   "lecture_sans_son": "La fiche du client devient une photo épinglée : elle ne bougera plus."
+   "lecture_sans_son": "La fiche repousse ce qui change dans la vie du client, puis devient une photo épinglée : elle ne bougera plus."
   },
   {
    "id": "S05",
@@ -303,7 +308,7 @@
    "t_end": 17.264,
    "texte": "La vie, elle, continue.",
    "elements": "pastille, vie (pilule de date du client), client, fiche, toi, disques de la vie",
-   "etat_initial": "Résultat de S05 : pastille « mars 2023 » sous la photo (690, 838) ; client (220, 1135), pilule « Client » (220, 1000), pastille d’information disparue (devenue les trois disques à y 430).",
+   "etat_initial": "Résultat de S05 : pastille « mars 2023 » sous la photo (690, 838) ; client (220, 1135), pilule « Client » (220, 1000), pilule « Info » disparue (devenue les trois disques à y 430).",
    "action": "Une copie de la pastille sort d’elle et glisse au-dessus du client : sa vie démarre à la même date. Puis cette date de la vie défile, mois après mois, jusqu’à « nov. 2026 », pendant que le client avance d’un pas ; sous la photo, la pastille reste à « mars 2023 ».",
    "resultat": "Deux dates face à face à la même hauteur : « nov. 2026 » au-dessus du client (la vie), « mars 2023 » sous la photo (la fiche).",
    "transition": "Sur « conseil », une pilule sort du stylo de « Toi ».",
@@ -402,11 +407,11 @@
    "t_start": 27.446,
    "t_end": 30.36,
    "texte": "Ton client se marie, se pacse ou se sépare ?",
-   "elements": "alliances (RINGS.png), conjoint, client, fiche (L1), marqueur, conseil, toi, pastille, vie",
+   "elements": "alliances (RINGS.png), conjoint, « ou », pilule « Séparation », client, fiche (L1), marqueur, conseil, toi, pastille, vie",
    "etat_initial": "Résultat de S08 : disque-événement en (225, 650) ; 5 « ? » devant les rangées ; étape 1 active ; client (220, 1135).",
-   "action": "Les « ? » rentrent dans la fiche ; le disque-événement devient les alliances sur leur coussin. Une seconde figurine papier, le conjoint, arrive face au client : ils se rapprochent. La rangée « Famille : célibataire » vire au rouge : la fiche dit le contraire de la vie. Puis le conjoint recule et s’éloigne : séparation, autre cas, même résultat, la rangée reste rouge.",
-   "resultat": "Alliances dans la vie du client ; conjoint à distance du client ; L1 « Famille : célibataire » rouge, puce battante.",
-   "transition": "Sur « Régime », le conjoint sort et une première pilule sort du conseil.",
+   "action": "Les « ? » rentrent dans la fiche ; le disque-événement devient les alliances sur leur coussin. Une seconde figurine papier, le conjoint, arrive face au client : ils se rapprochent. La rangée « Famille : célibataire » vire au rouge : la fiche dit le contraire de la vie. Un grand « ou » s’écrit sous les alliances, puis une pilule « Séparation » apparaît dessous pendant que le conjoint recule : c’est un autre cas possible, pas la suite de l’histoire, et il a le même effet, la rangée bat de nouveau en rouge.",
+   "resultat": "Alliances, puis « ou », puis « Séparation », empilés dans la vie du client : deux cas possibles ; conjoint à distance ; L1 « Famille : célibataire » rouge, qui a battu pour chacun des deux cas.",
+   "transition": "Sur « Régime », le conjoint, le « ou » et « Séparation » sortent ; une première pilule sort du conseil.",
    "beats": [
     {
      "t": 27.446,
@@ -424,12 +429,17 @@
      "evenement": "Contredire : la valeur « célibataire » de L1 et le contour de sa rangée passent au rouge (piste red, 100 ms) et sa puce bat deux fois (piste pulse)."
     },
     {
+     "t": 29.211,
+     "mot": "ou",
+     "evenement": "Alternative : un « ou » encre (Inter ExtraBold 40) s’écrit sous les alliances, en (225, 785) (POP 300 ms) : ce qui suit est un autre cas, pas la suite."
+    },
+    {
      "t": 29.501,
      "mot": "sépare ?",
-     "evenement": "Se séparer : le conjoint se redresse et recule d’un bond de 110 px vers la droite, jusqu’à (480, 1140), penché en arrière de 4° (fig.hop, 12 images) ; un écart vide s’ouvre entre eux. L1 reste rouge."
+     "evenement": "Autre cas : la pilule papier « Séparation » (Bold 34, 54 px de haut, contour encre 4 px, ombre +3) surgit sous le « ou », en (225, 845) (POP 300 ms) ; le conjoint se redresse et recule d’un bond de 110 px vers la droite, jusqu’à (480, 1140), penché en arrière de 4° (fig.hop, 12 images) ; L1, déjà rouge, bat de nouveau deux fois (piste pulse) : même effet sur la fiche."
     }
    ],
-   "lecture_sans_son": "Le client se marie (alliances, conjoint) ou se sépare : dans les deux cas, la ligne « Famille : célibataire » de sa fiche devient fausse (rouge)."
+   "lecture_sans_son": "Le client se marie (alliances, conjoint) ou, autre cas, se sépare : dans un cas comme dans l’autre, la ligne « Famille : célibataire » de sa fiche devient fausse (rouge)."
   },
   {
    "id": "S10",
@@ -438,15 +448,15 @@
    "t_end": 36.722,
    "texte": "Régime matrimonial, clause bénéficiaire, donation, transmission : tout peut être à revoir.",
    "elements": "conseil, pile « à revoir » (4 pilules), conjoint (sortie), alliances, fiche (L1 rouge), toi, client, pastille",
-   "etat_initial": "Résultat de S09 : conjoint en (480, 1140) ; alliances (225, 650) ; L1 rouge ; pilule « Ton conseil » rouge penchée (550, 1195).",
-   "action": "Le conjoint sort. Du conseil sortent l’un après l’autre quatre sujets, qui s’empilent au-dessus de lui : « Régime matrimonial », « Clause bénéficiaire », « Donation », « Transmission ». Puis leurs quatre contours virent au rouge et ils tremblent : tout est à revoir.",
+   "etat_initial": "Résultat de S09 : conjoint en (480, 1140) ; « ou » et « Séparation » sous les alliances ; alliances (225, 650) ; L1 rouge ; pilule « Ton conseil » rouge penchée (550, 1195).",
+   "action": "Le conjoint sort, le « ou » et la pilule « Séparation » s’effacent. Du conseil sortent l’un après l’autre quatre sujets, qui s’empilent au-dessus de lui : « Régime matrimonial », « Clause bénéficiaire », « Donation », « Transmission ». Puis leurs quatre contours virent au rouge et ils tremblent : tout est à revoir.",
    "resultat": "Une pile de quatre pilules à contour rouge au-dessus du conseil : les pièces du conseil touchées par le mariage.",
    "transition": "Sur « Une », la pile rentre dans le conseil, sauf « Clause bénéficiaire ».",
    "beats": [
     {
      "t": 30.36,
      "mot": "Régime",
-     "evenement": "Le conjoint se réduit et sort (fig.exit, 300 ms). Extraire : la pilule papier « Régime matrimonial » (Bold 32, 54 px de haut, contour encre 4 px, ombre +3) sort du haut du conseil (POP 300 ms) et monte en (550, 1103) (MOVE 400 ms)."
+     "evenement": "Le conjoint se réduit et sort (fig.exit, 300 ms) ; le « ou » et la pilule « Séparation » s’effacent (FADE 200 ms). Extraire : la pilule papier « Régime matrimonial » (Bold 32, 54 px de haut, contour encre 4 px, ombre +3) sort du haut du conseil (POP 300 ms) et monte en (550, 1103) (MOVE 400 ms)."
     },
     {
      "t": 31.718,
@@ -477,16 +487,16 @@
    "t_start": 36.722,
    "t_end": 44.408,
    "texte": "Une naissance ? Nouvel objectif d’épargne, protection du foyer, prévoyance, et clause bénéficiaire à mettre à jour.",
-   "elements": "berceau (CRADLE.png), alliances (→ badge), pile « à revoir », conseil, fiche (L2), toi, client, pastille",
+   "elements": "berceau (CRADLE.png), alliances (→ badge), pile « à revoir », mini-badges alliances et berceau sur « Clause bénéficiaire », conseil, fiche (L2), toi, client, pastille",
    "etat_initial": "Résultat de S10 : quatre pilules rouges au-dessus du conseil ; alliances en (225, 650) ; L1 rouge.",
-   "action": "Les sujets du mariage rentrent dans le conseil, sauf « Clause bénéficiaire » qui monte en haut de la pile ; les alliances se rangent en petit badge en haut de la colonne de la vie. Un berceau tombe dans la vie du client et la rangée « Enfants : aucun » vire au rouge. Trois nouveaux sujets sortent du conseil (« Objectif d’épargne », « Protection du foyer », « Prévoyance ») ; « Clause bénéficiaire », déjà là, bat de nouveau. Les nouveaux contours virent au rouge.",
-   "resultat": "Berceau dans la vie du client ; L1 et L2 rouges ; pile de quatre pilules rouges : « Objectif d’épargne », « Protection du foyer », « Prévoyance » et, en haut, « Clause bénéficiaire » ; badge alliances en (75, 430).",
+   "action": "Les sujets du mariage rentrent dans le conseil, sauf « Clause bénéficiaire » qui monte en haut de la pile en gardant, accroché à son bout gauche, un mini-badge alliances : elle reste parce que le mariage l’a touchée. Les alliances se rangent en petit badge en haut de la colonne de la vie. Un berceau tombe dans la vie du client et la rangée « Enfants : aucun » vire au rouge. Trois nouveaux sujets sortent du conseil (« Objectif d’épargne », « Protection du foyer », « Prévoyance »). Puis un mini-badge berceau part du berceau et s’accroche au bout droit de « Clause bénéficiaire », qui bat : elle porte maintenant les deux événements. Les nouveaux contours virent au rouge.",
+   "resultat": "Berceau dans la vie du client ; L1 et L2 rouges ; pile de quatre pilules rouges : « Objectif d’épargne », « Protection du foyer », « Prévoyance » et, en haut, « Clause bénéficiaire » encadrée de ses deux mini-badges (alliances à gauche, berceau à droite) ; badge alliances en (75, 430).",
    "transition": "Sur « La », la pile rentre dans le conseil et le berceau se range en badge.",
    "beats": [
     {
      "t": 36.722,
      "mot": "Une",
-     "evenement": "Ranger : « Régime matrimonial », « Donation » et « Transmission » rentrent dans le conseil (kit.vanish into conseil, 300 ms) ; « Clause bénéficiaire » glisse en haut de la pile (550, 917) (MOVE 400 ms) ; les alliances se réduisent en badge (disque papier r 36, contour encre 4 px, PNG 64 px) en (75, 430) (MOVE + SCALE 550 ms)."
+     "evenement": "Ranger : « Régime matrimonial », « Donation » et « Transmission » rentrent dans le conseil (kit.vanish into conseil, 300 ms) ; « Clause bénéficiaire » glisse en haut de la pile (550, 917) (MOVE 400 ms) et un mini-badge alliances (disque papier r 22, contour encre 3 px, RINGS.png 36 px) s’accroche à son bout gauche (380, 917) (POP 300 ms) : le mariage l’a touchée ; les alliances se réduisent en badge (disque papier r 36, contour encre 4 px, PNG 64 px) en (75, 430) (MOVE + SCALE 550 ms)."
     },
     {
      "t": 36.943,
@@ -511,7 +521,7 @@
     {
      "t": 42.051,
      "mot": "clause",
-     "evenement": "Revenir : « Clause bénéficiaire », en haut de la pile, grossit de 15 % deux fois et tremble (kit.pulse 2 fois, kit.shake) : elle est touchée une seconde fois."
+     "evenement": "Deux fois : un mini-badge berceau (disque papier r 22, contour encre 3 px, CRADLE.png 36 px) part du berceau (225, 650) et vole en arc jusqu’au bout droit de « Clause bénéficiaire » (720, 917) (MOVE 550 ms, arc 60 px) ; à l’arrivée, la pilule grossit de 15 % deux fois et tremble (kit.pulse 2 fois, kit.shake) : elle porte les deux événements, alliances et berceau."
     },
     {
      "t": 43.526,
@@ -519,7 +529,7 @@
      "evenement": "Alerter : les contours d’« Objectif d’épargne », « Protection du foyer » et « Prévoyance » passent au rouge, de bas en haut (2 images d’écart)."
     }
    ],
-   "lecture_sans_son": "Une naissance : le berceau arrive, la ligne « Enfants : aucun » devient fausse, et de nouvelles pièces du conseil sont à revoir, dont la clause bénéficiaire, une seconde fois."
+   "lecture_sans_son": "Une naissance : le berceau arrive, la ligne « Enfants : aucun » devient fausse, de nouvelles pièces du conseil sont à revoir, et la clause bénéficiaire est touchée une seconde fois (elle porte les badges du mariage et de la naissance)."
   },
   {
    "id": "S12",
@@ -528,7 +538,7 @@
    "t_end": 47.996,
    "texte": "La famille n’est pas seule à changer : il y a aussi le travail.",
    "elements": "pile, berceau (→ badge), marqueur, fiche (L1-L3), conseil, toi, client, pastille",
-   "etat_initial": "Résultat de S11 : berceau en (225, 650) ; pile de quatre pilules rouges ; L1, L2 rouges ; étape 1 active.",
+   "etat_initial": "Résultat de S11 : berceau en (225, 650) ; pile de quatre pilules rouges (« Clause bénéficiaire » et ses deux mini-badges en haut) ; L1, L2 rouges ; étape 1 active.",
    "action": "La pile rentre dans le conseil, le berceau se range en badge à côté des alliances. Les deux rangées rouges de la famille battent une fois. Puis le repère glisse sur l’étape 2 « Travail » et la rangée « Travail : salarié » se surligne.",
    "resultat": "Repère sur « Travail » ; deux badges (alliances, berceau) en haut de la vie ; L1, L2 rouges ; L3 surlignée ; la colonne de la vie est libre.",
    "transition": "Sur « crée », une première pilule de travail surgit dans la vie du client.",
@@ -536,7 +546,7 @@
     {
      "t": 44.408,
      "mot": "La",
-     "evenement": "Ranger : les quatre pilules rentrent dans le conseil (kit.vanish into conseil, décalées de 2 images) ; le berceau se réduit en badge en (155, 430) (MOVE + SCALE 550 ms)."
+     "evenement": "Ranger : les quatre pilules, avec les deux mini-badges de « Clause bénéficiaire », rentrent dans le conseil (kit.vanish into conseil, décalées de 2 images) ; le berceau se réduit en badge en (155, 430) (MOVE + SCALE 550 ms)."
     },
     {
      "t": 45.465,
@@ -557,16 +567,16 @@
    "t_start": 47.996,
    "t_end": 53.441,
    "texte": "Ton client crée son entreprise, perd son emploi, est promu ou part à la retraite ?",
-   "elements": "pilules de travail (4), fiche (L3), client, marqueur, conseil, toi, pastille",
+   "elements": "pilules de travail (4) reliées par « ou », fiche (L3), client, marqueur, conseil, toi, pastille",
    "etat_initial": "Résultat de S12 : colonne de la vie libre au-dessus du client ; L3 surlignée ; étape 2 active.",
-   "action": "Dans la vie du client surgissent, l’une sous l’autre, quatre pilules de travail : « Entreprise » (immeuble), et aussitôt la rangée « Travail : salarié » vire au rouge ; puis « Emploi perdu » (moins), « Promotion » (flèche vers le haut), « Retraite » (sablier).",
-   "resultat": "Quatre pilules de travail empilées au-dessus du client (x 225, y 520 à 760) ; L3 rouge.",
-   "transition": "Sur « Ses », les quatre pilules se fondent en un badge immeuble.",
+   "action": "Dans la vie du client surgissent, l’une sous l’autre et séparées chacune par un « ou », quatre pilules de travail : « Entreprise » (immeuble), « Emploi perdu » (moins), « Promotion » (flèche vers le haut), « Retraite » (sablier). Ce sont quatre cas possibles, pas un parcours : la rangée « Travail : salarié » vire au rouge dès le premier, puis bat de nouveau à l’arrivée de chacun des trois autres.",
+   "resultat": "Quatre pilules de travail empilées au-dessus du client (x 225, y 500, 610, 720, 830), séparées par trois « ou » (y 555, 665, 775) : quatre cas ; L3 rouge, qui a battu pour chaque cas.",
+   "transition": "Sur « Ses », les quatre pilules et leurs « ou » se fondent en un badge immeuble.",
    "beats": [
     {
      "t": 48.669,
      "mot": "crée",
-     "evenement": "Entrer : pilule papier « Entreprise » (pictogramme immeuble sur disque cyan r 20, Bold 34, 60 px de haut, contour encre 4 px, ombre +3) surgit en (225, 520) (POP 300 ms)."
+     "evenement": "Entrer : pilule papier « Entreprise » (pictogramme immeuble sur disque cyan r 20, Bold 34, 60 px de haut, contour encre 4 px, ombre +3) surgit en (225, 500) (POP 300 ms)."
     },
     {
      "t": 49.122,
@@ -576,20 +586,20 @@
     {
      "t": 49.969,
      "mot": "perd",
-     "evenement": "Entrer : « Emploi perdu » (pictogramme moins) surgit en (225, 600)."
+     "evenement": "Autre cas : un « ou » encre (Inter ExtraBold 34) s’écrit en (225, 555) puis « Emploi perdu » (pictogramme moins) surgit en (225, 610) (POP 300 ms, 4 images après le « ou ») ; L3, rouge, bat une fois (piste pulse)."
     },
     {
      "t": 51.386,
      "mot": "promu",
-     "evenement": "Entrer : « Promotion » (pictogramme flèche tournée vers le haut, rot −90°) surgit en (225, 680)."
+     "evenement": "Autre cas : « ou » en (225, 665), puis « Promotion » (pictogramme flèche tournée vers le haut, rot −90°) surgit en (225, 720) ; L3 bat une fois."
     },
     {
      "t": 52.57,
      "mot": "retraite ?",
-     "evenement": "Entrer : « Retraite » (pictogramme sablier) surgit en (225, 760)."
+     "evenement": "Autre cas : « ou » en (225, 775), puis « Retraite » (pictogramme sablier) surgit en (225, 830) ; L3 bat une fois."
     }
    ],
-   "lecture_sans_son": "Le travail du client change (création d’entreprise, perte d’emploi, promotion, retraite) : la ligne « Travail : salarié » de la fiche devient fausse."
+   "lecture_sans_son": "Quatre cas possibles de changement de travail (création d’entreprise, ou perte d’emploi, ou promotion, ou retraite) : chacun rend fausse la ligne « Travail : salarié » de la fiche."
   },
   {
    "id": "S14",
@@ -598,15 +608,15 @@
    "t_end": 59.071,
    "texte": "Ses revenus, sa fiscalité et son besoin de liquidités changent. Et ton conseil doit suivre.",
    "elements": "jauges (revenus, fiscalité, liquidités), conseil, toi, pilules de travail (→ badge), fiche, client, pastille",
-   "etat_initial": "Résultat de S13 : quatre pilules de travail au-dessus du client ; L3 rouge ; conseil rouge penché (550, 1195), fil détendu vers la fiche.",
-   "action": "Les pilules de travail se fondent en badge. Du conseil sortent trois barres légendées « Revenus », « Fiscalité », « Liquidités », chacune avec un trait qui marque son niveau. Puis les trois niveaux bougent d’un coup : les revenus baissent, la fiscalité et le besoin de liquidités montent ; les anciens traits restent pour comparer. « Toi » touche son conseil du stylo : la pilule se redresse, passe du rouge au trait deep et se relie par trois fils aux nouveaux niveaux, pendant que son vieux fil vers la fiche tombe.",
-   "resultat": "Trois barres aux nouveaux niveaux (ancien niveau marqué) ; conseil droit, contour deep, relié aux trois nouveaux niveaux.",
+   "etat_initial": "Résultat de S13 : quatre pilules de travail et leurs « ou » au-dessus du client ; L3 rouge ; conseil rouge penché (550, 1195), fil détendu vers la fiche.",
+   "action": "Les pilules de travail et leurs « ou » se fondent en badge. Du conseil sortent trois barres légendées « Revenus », « Fiscalité », « Liquidités », chacune avec un trait qui marque son niveau. Puis les trois niveaux bougent d’un coup : les revenus baissent, la fiscalité et le besoin de liquidités montent ; les anciens traits restent pour comparer. « Toi » touche son conseil du stylo : le conseil tremble, et trois fils encre le tirent vers les nouveaux niveaux. Il n’est pas réparé : il reste rouge et penché, toujours accroché à la vieille fiche ; il devra suivre ces nouveaux chiffres, et ne sera juste qu’une fois la fiche à jour (S21).",
+   "resultat": "Trois barres aux nouveaux niveaux (ancien niveau marqué) ; conseil toujours rouge et penché, tiré par trois fils encre vers les nouveaux niveaux et encore relié à la fiche de mars 2023.",
    "transition": "Sur « Enfin », le repère passe à l’étape 3.",
    "beats": [
     {
      "t": 53.441,
      "mot": "Ses",
-     "evenement": "Fusionner : les quatre pilules de travail se rassemblent en un badge immeuble (disque papier r 36, pictogramme immeuble) en (235, 430) (kit.morph 4 → 1, 350 ms)."
+     "evenement": "Fusionner : les quatre pilules de travail et leurs trois « ou » se rassemblent en un badge immeuble (disque papier r 36, pictogramme immeuble) en (235, 430) (kit.morph 4 → 1, 350 ms)."
     },
     {
      "t": 53.661,
@@ -631,15 +641,15 @@
     {
      "t": 57.631,
      "mot": "conseil",
-     "evenement": "Toucher : « Toi » touche du stylo le bout droit de la pilule « Ton conseil » (690, 1195) (fig.tap, contact sur le mot) ; elle se redresse (rot 8° → 0, 300 ms)."
+     "evenement": "Toucher : « Toi » touche du stylo le bout droit de la pilule « Ton conseil » (690, 1195) (fig.tap, contact sur le mot) ; elle tremble (kit.shake 5 px) et son contour rouge bat (piste pulse) : c’est elle qui doit bouger."
     },
     {
      "t": 58.27,
      "mot": "suivre.",
-     "evenement": "Suivre : le contour du conseil passe du rouge au deep ; trois fils pleins deep 3 px se tracent du conseil jusqu’au bout des trois nouvelles barres (DRAW 300 ms, décalés de 2 images) ; le vieux fil détendu vers la fiche se décroche et tombe (kit.drop out, 370 ms)."
+     "evenement": "Suivre : trois fils encre 3 px se tracent du bout des trois nouvelles barres jusqu’au haut du conseil (DRAW 300 ms, décalés de 2 images) et le tirent de 12 px vers le haut (MOVE 300 ms, puis retour) ; le conseil reste rouge et penché de 8°, son vieux fil vers la fiche reste accroché : il doit suivre, il n’a pas encore suivi."
     }
    ],
-   "lecture_sans_son": "Le changement de travail fait baisser les revenus et monter impôts et besoin de liquidités ; le conseiller redresse son conseil et le rattache aux nouveaux chiffres."
+   "lecture_sans_son": "Le changement de travail fait baisser les revenus et monter impôts et besoin de liquidités ; le conseil, encore rouge et de travers, est tiré vers ces nouveaux chiffres : il va devoir suivre."
   },
   {
    "id": "S15",
@@ -648,9 +658,9 @@
    "t_end": 63.169,
    "texte": "Enfin, il y a les décisions qui déplacent le patrimoine lui-même.",
    "elements": "marqueur, jauges (sortie), conseil, bloc « Épargne », fiche (L4), toi, client, pastille",
-   "etat_initial": "Résultat de S14 : trois barres et leurs fils au-dessus du conseil (deep) ; étape 2 active.",
-   "action": "Le repère passe à l’étape 3 « Patrimoine » et les deux dernières rangées de la fiche se surlignent. Les barres et leurs fils rentrent dans le conseil. Puis l’épargne du client sort de sa rangée de la fiche en un bloc cyan « Épargne » qui descend au centre : le patrimoine lui-même se déplace.",
-   "resultat": "Un bloc cyan « Épargne » au centre (550, 1000), au-dessus du conseil ; L4, L5 surlignées ; étape 3 active.",
+   "etat_initial": "Résultat de S14 : trois barres, et leurs fils encre vers le conseil rouge penché ; étape 2 active.",
+   "action": "Le repère passe à l’étape 3 « Patrimoine » et les deux dernières rangées de la fiche se surlignent. Les barres et leurs fils rentrent dans le conseil. Puis une copie de l’épargne du client sort de sa rangée (qui garde son texte) en un bloc cyan « Épargne » qui descend au centre ; le titre « Patrimoine » s’écrit au-dessus : c’est ce que possède le client, posé là pour voir comment il va bouger.",
+   "resultat": "Un bloc cyan « Épargne » au centre (550, 1000), titré « Patrimoine » (550, 920), au-dessus du conseil ; L4 « Patrimoine : épargne » intacte et surlignée, L5 surlignée ; étape 3 active.",
    "transition": "Sur « achète », une maison tombe dans la vie du client.",
    "beats": [
     {
@@ -666,15 +676,15 @@
     {
      "t": 60.952,
      "mot": "déplacent",
-     "evenement": "Déplacer : un bloc cyan « Épargne » (shape round 420 × 70, contour encre 4 px, ombre +6, pictogramme euro encre et « Épargne » Bold 34 encre) naît sur la valeur de L4 (800, 685) à petite échelle et descend au centre (550, 1000) en grandissant (MOVE 550 ms, ease-in-out, scale 0,4 → 1)."
+     "evenement": "Déplacer : une copie de la valeur de L4 (« épargne » reste écrite dans la rangée) devient un bloc cyan « Épargne » (shape round 420 × 70, contour encre 4 px, ombre +6, pictogramme euro encre et « Épargne » Bold 34 encre) qui naît sur la valeur (800, 685) à petite échelle et descend au centre (550, 1000) en grandissant (MOVE 550 ms, ease-in-out, scale 0,4 → 1)."
     },
     {
      "t": 61.672,
      "mot": "patrimoine",
-     "evenement": "Le pictogramme euro du bloc se cerne d’un anneau deep (piste ring, DRAW 300 ms) : c’est le patrimoine du client."
+     "evenement": "Nommer : le titre « Patrimoine » (Inter Bold 34 encre) s’écrit au-dessus du bloc, en (550, 920) (kit.type, 1 caractère par image) et le pictogramme euro du bloc se cerne d’un anneau deep (piste ring, DRAW 300 ms) : c’est le patrimoine du client, toujours là."
     }
    ],
-   "lecture_sans_son": "Troisième étape : le patrimoine ; l’épargne du client, écrite dans sa fiche, apparaît en grand."
+   "lecture_sans_son": "Troisième étape : le patrimoine ; l’épargne du client, recopiée de sa fiche, est posée en grand sous le titre « Patrimoine »."
   },
   {
    "id": "S16",
@@ -683,7 +693,7 @@
    "t_end": 66.211,
    "texte": "Ton client achète ou vend un bien immobilier ?",
    "elements": "maison (TOKEN.png), bloc « Épargne », fiche (L4), client, conseil, toi, pastille",
-   "etat_initial": "Résultat de S15 : bloc « Épargne » au centre ; colonne de la vie libre ; L4 surlignée.",
+   "etat_initial": "Résultat de S15 : bloc « Épargne » au centre, titré « Patrimoine » ; colonne de la vie libre ; L4 surlignée.",
    "action": "Un jeton-maison tombe dans la vie du client (il achète un bien). Aussitôt, la rangée « Patrimoine : épargne » vire au rouge.",
    "resultat": "Jeton-maison dans la vie du client ; L4 rouge.",
    "transition": "Sur « patrimoine », la maison vole dans le bloc.",
@@ -712,10 +722,10 @@
    "t_start": 66.211,
    "t_end": 72.144,
    "texte": "Son patrimoine se recompose, son endettement évolue, de nouvelles liquidités peuvent apparaître.",
-   "elements": "maison, bloc « Épargne » / « Maison », barre « Crédit », pièces, conseil, toi, client, fiche, pastille",
+   "elements": "maison, bloc « Épargne » / « Maison » (titre « Patrimoine »), barre « Crédit », pièces, conseil, toi, client, fiche, pastille",
    "etat_initial": "Résultat de S16 : jeton-maison en (225, 650) ; bloc « Épargne » (550, 1000) ; L4 rouge.",
-   "action": "La maison vole dans le bloc. L’épargne rétrécit à gauche et une part « Maison » grandit à droite : le patrimoine se recompose. Sous lui, une barre « Crédit » s’étire et se remplit de gris. Enfin trois pièces cyan sortent de la maison : de nouvelles liquidités.",
-   "resultat": "Bloc recomposé « Épargne » (petit) + « Maison » (grand) ; barre « Crédit » remplie aux deux tiers ; trois pièces au-dessus du bloc.",
+   "action": "La maison vole dans le bloc. L’épargne rétrécit à gauche et une part « Maison » grandit à droite : le patrimoine se recompose. Sous lui, une barre « Crédit » s’étire et se remplit de gris. Enfin trois pièces cyan sortent de la part « Maison » et sautent dans la part « Épargne », qui se réélargit pendant que la part « Maison » recule : une partie du bien redevient de l’argent disponible (cas de la vente), de nouvelles liquidités.",
+   "resultat": "Bloc recomposé « Épargne » + « Maison » sous le titre « Patrimoine », l’épargne un peu regonflée par les pièces venues de la maison ; barre « Crédit » remplie aux deux tiers.",
    "transition": "Sur « Et », le patrimoine rentre dans le conseil et la maison se range en badge.",
    "beats": [
     {
@@ -741,15 +751,15 @@
     {
      "t": 70.403,
      "mot": "liquidités",
-     "evenement": "Extraire : trois pièces (pictogramme pièce sur disque cyan r 26, contour encre 3 px) sortent de la part « Maison » et sautent en arc jusqu’à (430, 915), (500, 915), (570, 915) (kit.stagger kit.pop from_pt + MOVE, 3 images d’écart)."
+     "evenement": "Liquider : trois pièces (pictogramme pièce sur disque cyan r 26, contour encre 3 px) sortent de la part « Maison » et sautent en arc dans la part « Épargne » (430, 1000) (kit.stagger kit.pop from_pt + MOVE 400 ms, arc 60 px, 3 images d’écart) ; chacune s’y fond."
     },
     {
      "t": 71.227,
      "mot": "apparaître.",
-     "evenement": "Les trois pièces battent une fois ensemble (kit.pulse, 6 images), puis tenue."
+     "evenement": "Apparaître : la part « Épargne » s’élargit de 170 à 240 px (x 340-580) pendant que la part « Maison » recule d’autant (x 585-760) (MOVE 550 ms) et le pictogramme euro bat (kit.pulse) : de l’argent disponible est apparu. Puis tenue."
     }
    ],
-   "lecture_sans_son": "Acheter ou vendre recompose le patrimoine : l’épargne devient en partie une maison, un crédit apparaît, des liquidités peuvent sortir."
+   "lecture_sans_son": "Acheter ou vendre recompose le patrimoine : l’épargne devient en partie une maison, un crédit apparaît, et une partie du bien peut redevenir de l’argent disponible."
   },
   {
    "id": "S18",
@@ -758,7 +768,7 @@
    "t_end": 74.675,
    "texte": "Et s’il déménage, surtout à l’étranger ?",
    "elements": "camion (TRUCK.png), globe (GLOBE.png), patrimoine (sortie), maison (→ badge), fiche (L5), client, conseil, toi, pastille",
-   "etat_initial": "Résultat de S17 : bloc recomposé, barre « Crédit », trois pièces au centre ; colonne de la vie libre ; L4 rouge.",
+   "etat_initial": "Résultat de S17 : bloc recomposé titré « Patrimoine », barre « Crédit » au centre ; colonne de la vie libre ; L4 rouge.",
    "action": "Le patrimoine recomposé rentre dans le conseil et la maison se range en badge. Un camion de déménagement entre par la gauche dans la vie du client, puis repart vers la gauche ; un globe tombe à sa place. La rangée « Résidence : France » vire au rouge.",
    "resultat": "Globe dans la vie du client ; L5 rouge ; quatre badges (alliances, berceau, immeuble, maison) en haut de la colonne de la vie.",
    "transition": "Sur « Fiscalité », une pilule sort du conseil.",
@@ -766,7 +776,7 @@
     {
      "t": 72.144,
      "mot": "Et",
-     "evenement": "Ranger : le bloc, la barre « Crédit » et les pièces rentrent dans le conseil (kit.vanish into conseil, décalés de 2 images) ; une copie du jeton-maison se réduit en badge en (315, 430) (MOVE + SCALE 550 ms)."
+     "evenement": "Ranger : le bloc, son titre « Patrimoine » et la barre « Crédit » rentrent dans le conseil (kit.vanish into conseil, décalés de 2 images) ; une copie du jeton-maison se réduit en badge en (315, 430) (MOVE + SCALE 550 ms)."
     },
     {
      "t": 72.492,
@@ -793,7 +803,7 @@
    "t_end": 80.492,
    "texte": "Fiscalité, résidence, produits accessibles : quitter la France change beaucoup de choses.",
    "elements": "pile « à revoir » (3 pilules), conseil, globe, fiche (L5), toi, client, pastille",
-   "etat_initial": "Résultat de S18 : globe en (225, 640) ; L5 rouge ; conseil deep au sol.",
+   "etat_initial": "Résultat de S18 : globe en (225, 640) ; L5 rouge ; conseil rouge penché au sol.",
    "action": "Trois sujets sortent du conseil et s’empilent : « Fiscalité », « Résidence », « Produits accessibles ». La rangée « Résidence : France » tremble. Puis les trois contours virent au rouge et tremblent : quitter la France change beaucoup de choses.",
    "resultat": "Pile de trois pilules rouges au-dessus du conseil ; L5 rouge ; globe dans la vie du client.",
    "transition": "Sur « Alors », la pile rentre dans le conseil et le globe se range en badge.",
@@ -868,8 +878,8 @@
    "t_end": 89.907,
    "texte": "« Qu’est-ce qui a changé depuis notre dernier échange ? » C’est souvent la plus utile de l’entretien.",
    "elements": "question (bulle et texte), pastille, vie, badges de la vie, fiche (L1-L5), toi, client, marqueur, conseil",
-   "etat_initial": "Résultat de S20 : grande bulle ouverte au-dessus de la vie du client ; 5 badges à y 430 ; fiche aux 5 rangées rouges ; pastille « mars 2023 » cerclée de rouge sous la photo ; « Toi » (690, 1135) face au client.",
-   "action": "La question s’écrit dans la bulle. La date de la fiche, « mars 2023 », bat : c’est le dernier échange. Le client se penche vers « Toi » et répond : les cinq badges de sa vie remontent et volent chacun jusqu’à sa rangée de la fiche. « Toi » touche du stylo la date de la fiche : la pilule de la vie se fond dans la pastille, qui passe à « nov. 2026 » et redevient cernée d’encre ; en cascade, chaque valeur rouge tombe et la nouvelle s’écrit en deep. Le repère se coche aux trois étapes et le conseil se relie à la fiche à jour, en cyan.",
+   "etat_initial": "Résultat de S20 : grande bulle ouverte au-dessus de la vie du client ; 5 badges à y 430 ; fiche aux 5 rangées rouges ; pastille « mars 2023 » cerclée de rouge sous la photo ; « Toi » (690, 1135) face au client ; conseil rouge penché au sol (450, 1195).",
+   "action": "La question s’écrit dans la bulle. La date de la fiche, « mars 2023 », bat : c’est le dernier échange. Le client se penche vers « Toi » et répond : les cinq badges de sa vie remontent et volent chacun jusqu’à sa rangée de la fiche. « Toi » touche du stylo la date de la fiche : la pilule de la vie se fond dans la pastille, qui passe à « nov. 2026 » et redevient cernée d’encre ; en cascade, chaque valeur rouge tombe et la nouvelle s’écrit en deep. Le repère se coche aux trois étapes ; le conseil, rouge et penché depuis le début, lâche ses vieux fils, se redresse et se relie à la fiche à jour, en cyan.",
    "resultat": "État final, tenu : fiche à jour « Famille : marié », « Enfants : 1 », « Travail : dirigeant », « Patrimoine : maison », « Résidence : Portugal » (valeurs deep, puces cyan), datée « nov. 2026 » ; repère 1-2-3 coché ; conseil cyan relié à la fiche ; « Toi » et le client face à face sous la bulle de la question. Plus aucun rouge.",
    "transition": "Sur « Abonne-toi », tout s’efface et la pastille devient le bouton « S’abonner ».",
    "beats": [
@@ -896,7 +906,7 @@
     {
      "t": 88.247,
      "mot": "plus",
-     "evenement": "Cocher : sous chaque disque du repère, une coche pleine deep se trace (Famille, Travail, Patrimoine ; DRAW 200 ms, 3 images d’écart) ; un fil plein deep se retrace du conseil au bas du cadre (DRAW 300 ms) et le conseil se remplit de cyan."
+     "evenement": "Cocher : sous chaque disque du repère, une coche pleine deep se trace (Famille, Travail, Patrimoine ; DRAW 200 ms, 3 images d’écart) ; le vieux fil détendu du conseil se décroche et tombe (kit.drop out, 370 ms), le conseil se redresse (rot 8° → 0, 300 ms), son contour passe du rouge à l’encre, un fil plein deep se retrace du conseil au bas du cadre (DRAW 300 ms) et le conseil se remplit de cyan : il est de nouveau juste."
     },
     {
      "t": 88.897,
@@ -935,7 +945,7 @@
  "idees_cles": [
   {
    "id": "a",
-   "idee": "Une information précieuse ne rentre pas dans la fiche du conseiller : elle bute contre la fiche et va se poser au-dessus du client.",
+   "idee": "Une information précieuse (la pilule « Info ») ne rentre pas dans la fiche du conseiller : la fiche la repousse et elle va se poser au-dessus du client, dans sa vie.",
    "scenes": [
     "S01",
     "S02"
@@ -955,7 +965,7 @@
   },
   {
    "id": "c",
-   "idee": "Famille : un mariage (ou une séparation) puis une naissance rendent fausses les lignes « Famille » et « Enfants » de la fiche (rouge), et font sortir du conseil plusieurs sujets à revoir, dont la clause bénéficiaire deux fois.",
+   "idee": "Famille : un mariage (ou, autre cas, une séparation) puis une naissance rendent fausses les lignes « Famille » et « Enfants » de la fiche (rouge), et font sortir du conseil plusieurs sujets à revoir, dont la clause bénéficiaire, touchée par les deux événements.",
    "scenes": [
     "S08",
     "S09",
@@ -966,7 +976,7 @@
   },
   {
    "id": "d",
-   "idee": "Travail : un changement de travail rend fausse la ligne « Travail » ; revenus, fiscalité et liquidités changent de niveau et le conseiller rattache son conseil aux nouveaux niveaux.",
+   "idee": "Travail : chacun des cas possibles (création d’entreprise, perte d’emploi, promotion ou retraite) rend fausse la ligne « Travail » ; revenus, fiscalité et liquidités changent de niveau et le conseil, encore faux, doit suivre ces nouveaux niveaux.",
    "scenes": [
     "S12",
     "S13",
@@ -976,7 +986,7 @@
   },
   {
    "id": "e",
-   "idee": "Patrimoine : acheter un bien transforme l’épargne en maison avec un crédit (et peut faire sortir des liquidités) ; partir à l’étranger rend fausse la ligne « Résidence : France » et oblige à revoir fiscalité, résidence et produits.",
+   "idee": "Patrimoine : acheter un bien transforme une part de l’épargne en maison avec un crédit (et vendre peut refaire de l’argent disponible) ; partir à l’étranger rend fausse la ligne « Résidence : France » et oblige à revoir fiscalité, résidence et produits.",
    "scenes": [
     "S15",
     "S16",
@@ -999,7 +1009,7 @@
   },
   {
    "id": "g",
-   "idee": "À chaque rendez-vous, le conseiller va vers le client et lui pose une question ouverte (la bulle part de lui) ; le client répond et tous les changements remontent dans la fiche, qui passe de « mars 2023 » à « nov. 2026 » sans plus aucune ligne rouge.",
+   "idee": "À chaque rendez-vous, le conseiller va vers le client et lui pose une question ouverte (la bulle part de lui) ; le client répond et tous les changements remontent dans la fiche, qui passe de « mars 2023 » à « nov. 2026 » sans plus aucune ligne rouge, et le conseil se redresse.",
    "scenes": [
     "S20",
     "S21"
@@ -1009,19 +1019,149 @@
  ],
  "entites_nouvelles": [],
  "risks": [
-  "Pastille d’information de S01 lue comme un « bonus » abstrait : elle bute franchement contre la fiche (tremblement de la fiche), puis reçoit un anneau au-dessus du client ; repli : remplacer le pictogramme plus par la bulle de dialogue (chat), et la faire naître de la poitrine du client.",
+  "Pilule « Info » de S01 lue comme une notification : elle porte le mot « Info » et une étoile, bute franchement contre la fiche qui la repousse, puis reçoit un anneau au-dessus du client ; repli : la faire naître de la poitrine du client.",
   "Cadre-photo et punaise (S04) lus comme une simple carte : l’éclair blanc et la date en légende (S05) arrivent 2 s après ; repli : 4 coins de photo encre aux angles du cadre au lieu de la punaise.",
-  "Séparation (S09) lue comme une dispute passagère avant la naissance : le recul est franc (bond de 110 px, penché en arrière) et le conjoint sort en S10 ; repli : ne garder que le mariage et faire seulement trembler les alliances sur « sépare ».",
+  "Séparation (S09) lue comme la suite du mariage : un « ou » s’écrit entre les alliances et la pilule « Séparation », et L1 bat pour chacun des deux cas ; repli : ne garder que le mariage et faire seulement trembler les alliances sur « sépare ».",
   "Densité dans les points (fiche, cadre, deux dates, repère, badges, PNG, client, conseil, pile, « Toi ») : les badges sont petits (r 36), la pile ne dépasse jamais 4 pilules et rentre dans le conseil avant la suivante ; repli : réduire la fiche à l’échelle 0,9 pendant S10-S19 si le spectateur muet décroche.",
   "Pilules « à revoir » lues comme refusées : contour rouge seulement (fond papier, texte encre), jamais grisées ; elles rentrent dans le conseil au lieu de tomber.",
   "Barres de S14 lues comme des progrès : le trait de l’ancien niveau reste visible et les trois barres bougent dans des sens différents ; repli : flèches encre ↓ / ↑ / ↑ à droite des barres.",
   "Mise à jour de S21 trop rapide (cinq rangées en 0,5 s) : cascade de L1 à L5 à 3 images d’écart, les nouvelles valeurs en deep Bold, puis repère coché et conseil cyan ; état final tenu ≈ 1,3 s avant la carte ; repli : commencer la cascade sur « échange » si la tenue paraît courte.",
   "Portée du stylo : « Toi » touche le conseil (S14) depuis (820, 1135) et la pastille (690, 838) depuis (690, 1135), toutes deux à moins de 250 px de l’épaule ; à vérifier par fig.place_for ; repli : la pastille descend de 30 px avant le geste.",
-  "Bulle de S20-S21 au-dessus de la vie du client lue comme parlée par le client : la queue part de la tête de « Toi », le « ? » sort de son stylo sous nos yeux ; repli : bulle plus près de « Toi », la fiche réduite à 0,85 pendant la chute."
+  "Bulle de S20-S21 au-dessus de la vie du client lue comme parlée par le client : la queue part de la tête de « Toi », le « ? » sort de son stylo sous nos yeux ; repli : bulle plus près de « Toi », la fiche réduite à 0,85 pendant la chute.",
+  "Conseil de S14 lu comme réparé trop tôt : il reste rouge et penché, seulement tiré par des fils ; il ne se redresse qu’en S21 avec la fiche à jour ; repli : supprimer le geste de « Toi » en S14 et ne garder que les fils.",
+  "Pièces de S17 lues comme des loyers : elles passent de la maison à l’épargne, qui regonfle pendant que la maison recule (une part du bien redevient de l’argent) ; repli : supprimer les pièces et ne garder que l’élargissement de l’épargne.",
+  "Densité de S13 (quatre pilules et trois « ou » dans la colonne de 410 px) : « ou » courts, pilules de 60 px, rien sous y 860 ; repli : ne garder que deux cas visibles à la fois, les précédents s’effaçant."
  ],
  "excerpt": {
   "t_start": 27.446,
   "t_end": 37.872,
   "why": "S09 à S11 (début) : le mécanisme du film en 10,4 s : les alliances tombent dans la vie du client, la ligne « Famille » de la fiche vire au rouge, les sujets à revoir sortent du conseil, puis le berceau arrive et la ligne « Enfants » rougit."
- }
+ },
+ "test_sans_son": {
+  "message_reconstruit": "« La fiche client est une photo : elle montre la situation du client à une date précise (ici mars 2023), alors que sa vie continue d’avancer. Si ton conseil repose sur cette fiche datée, il devient faux sans que tu t’en rendes compte. Trois grands domaines font évoluer une situation : la famille (mariage, séparation, naissance), le travail (création d’entreprise, perte d’emploi, promotion, retraite) et le patrimoine, résidence comprise (achat immobilier avec crédit, départ à l’étranger). Chacun de ces événements oblige à revoir des pièces précises du conseil : régime matrimonial, clause bénéficiaire, prévoyance, fiscalité, liquidités ou produits accessibles. La solution est simple : à chaque rendez-vous, demander au client ce qui a changé depuis le dernier échange, puis mettre la fiche à jour pour que le conseil colle de nouveau à sa vie. Je comprends que « Toi » est le conseiller et que la vidéo s’adresse donc plutôt à des professionnels du conseil, même si le slogan « Comprendre ton argent » m’aurait d’abord fait penser à un public de particuliers. »",
+  "idees": [
+   {
+    "id": "a",
+    "score": "PARTIAL",
+    "preuve": "S01 : « Une pastille cyan part vers la fiche mais rebondit dessus sans y entrer […] une information existe, mais elle reste chez le client, pas dans la fiche. » Mais : « Sans texte sur la pastille, je ne sais pas que c’est une « information ». J’aurais pu croire à une notification, une idée, ou même à un client qui refuse de donner ses données. » ; « Le client n’est pas encore étiqueté ici ». S02 : « « Changements de vie » est une interprétation que je ne tire pas de l’image seule. »"
+   },
+   {
+    "id": "b",
+    "score": "GOT",
+    "preuve": "S04 : « la fiche devient une photo épinglée, une image figée à un moment donné » ; S05 : « la fiche a été prise en mars 2023 » ; S06 : « la vie du client continue (plus de trois ans), la fiche reste bloquée » ; S07 : « le conseil devient rouge, penche […] le conseil n’est plus adapté au client ». Réserve : S04 « J’aurais pu y voir aussi un simple « dossier affiché ou archivé » »."
+   },
+   {
+    "id": "c",
+    "score": "PARTIAL",
+    "preuve": "S09 : « Le disque devient des alliances : un mariage […] « Famille : célibataire » devient rouge » ; S10-S11 : sujets à revoir, berceau, « Enfants : aucun » rouge, « « Clause bénéficiaire » bat de nouveau : elle est touchée à la fois par le mariage et par la naissance ». Mais : « Je lirais probablement la suite comme une seule histoire (mariage puis divorce) et pas comme « autre cas possible, même conséquence » » ; pour la clause, « je pourrais croire à un oubli de rangement plutôt qu’à un point commun aux deux événements »."
+   },
+   {
+    "id": "d",
+    "score": "PARTIAL",
+    "preuve": "S13 : « Dès « Entreprise », « Travail : salarié » devient rouge » ; S14 : « Les revenus baissent, la fiscalité et le besoin de liquidités montent ». Mais : « Je lirais probablement les quatre pilules comme un parcours chronologique […] ce qui est incohérent » ; « Ce redressement me trouble : le conseil semble réparé alors que la fiche est toujours fausse et que le rendez-vous n’a pas eu lieu. »"
+   },
+   {
+    "id": "e",
+    "score": "PARTIAL",
+    "preuve": "S16 : « il achète un bien. « Patrimoine : épargne » devient rouge » ; S17 : « L’épargne rétrécit et une part « Maison » grandit […] Une barre « Crédit » se remplit » ; S18-S19 : globe, « Résidence : France » rouge, « Fiscalité », « Résidence », « Produits accessibles ». Mais : S17 « Les pièces qui sortent de la maison sont ambiguës : je devinerais des loyers […] ce détail me semble contradictoire » ; S15 « je pourrais croire que l’épargne est retirée ou dépensée »."
+   },
+   {
+    "id": "f",
+    "score": "GOT",
+    "preuve": "S11 : « Les alliances deviennent un petit badge (événement archivé) » ; S18 : « Quatre badges résument sa vie : mariage, enfant, travail, maison » ; S20 : « le globe devient un cinquième badge. Toute la fiche est rouge. »"
+   },
+   {
+    "id": "g",
+    "score": "GOT",
+    "preuve": "S20 : « « Toi » s’avance vers le client : un rendez-vous […] c’est lui qui pose la question au client » ; S21 : « Le client répond et ses cinq badges vont chacun dans leur ligne de la fiche. « Toi » met à jour la date (« nov. 2026 ») […] Plus de rouge : tout est réglé. » Réserve : « pendant la vidéo j’ai pu croire » que séparation et emploi perdu étaient son histoire réelle."
+   }
+  ],
+  "bilan": "Message principal reconstitué : la fiche est une photo datée, la vie avance, le conseil fondé sur la fiche devient faux ; trois domaines (famille, travail, patrimoine) font changer la situation et obligent à revoir des pièces précises du conseil ; à chaque rendez-vous, demander ce qui a changé et mettre la fiche à jour. Trois idées-clés principales sur quatre restent PARTIAL à cause de contresens locaux, aucune n’est MISSED. Contresens à retirer : la pastille d’information lue comme une notification, une idée ou un client qui refuse de donner ses données (S01) ; la séparation lue comme la suite du mariage (« mariage puis divorce »), puis contredite par « marié » en S21 (S09) ; « Clause bénéficiaire » restée lue comme un oubli de rangement (S11) ; les quatre cas de travail lus comme un parcours chronologique incohérent (S13) ; le conseil redressé en S14 lu comme « problème résolu pour le travail » alors que la fiche est encore fausse (S14) ; l’épargne lue comme retirée ou dépensée (S15) ; les pièces qui sortent de la maison lues comme des loyers, en contradiction avec l’achat (S17). Flous : les disques lus comme des catégories et non comme des changements (S02) ; la question sans destinataire, et des disques qui « remontent » sans rien apprendre (S03) ; le client pas encore nommé à son entrée (S01) ; les « ? » sur les cinq rangées lus « toute la fiche fausse » plutôt que « à vérifier » (S08, conforme à « tout remettre en question » : gardé, le rouge n’arrive qu’en S09). Non corrigé, faute d’appui dans la voix : la destination du départ (S18), le sens de « produits accessibles » (S19), le texte exact de la question avant S21. Corrections : l’info nommée « Info » et repoussée par la fiche ; les changements qui font bondir le client et trembler leurs lignes ; la question tournée vers le client et la vie qui remonte jusqu’à la fiche, que la fiche repousse ; les cas reliés par un « ou » visible, chacun faisant rebattre la même rangée rouge ; la clause bénéficiaire qui porte les mini-badges des deux événements ; le conseil qui reste rouge et penché jusqu’à la mise à jour de S21 ; le patrimoine nommé et recopié de la fiche ; les liquidités montrées comme un retour de la maison vers l’épargne.",
+  "changements": [
+   {
+    "id": "S01",
+    "lecture": "« Sans texte sur la pastille, je ne sais pas que c’est une « information ». J’aurais pu croire à une notification, une idée, ou même à un client qui refuse de donner ses données. […] Le client n’est pas encore étiqueté ici. »",
+    "changement": "La pastille devient une pilule cyan nommée « Info » (étoile, Bold 34) que la fiche repousse ; la pilule « Client » entre avec le client sur la même image."
+   },
+   {
+    "id": "S02",
+    "lecture": "« Je ne sais pas encore si ces disques sont des changements, ou seulement des catégories. « Changements de vie » est une interprétation que je ne tire pas de l’image seule. »",
+    "changement": "Nouveau temps fort sur « vie » : le client bondit et les trois disques battent au-dessus de lui ; à l’arrivée des fils, les trois rangées reliées tremblent : ces changements touchent la fiche."
+   },
+   {
+    "id": "S03",
+    "lecture": "« Je ne sais pas non plus si elle s’adresse au client ou si « Toi » s’interroge lui-même. Le fait que les disques remontent ne m’apprend rien de précis. »",
+    "changement": "Le client lève la tête vers la bulle de « Toi » ; sur « remonter », les disques glissent le long de leurs fils jusqu’au bord de la fiche, à côté de leurs rangées, dont les puces s’allument."
+   },
+   {
+    "id": "S04",
+    "lecture": "« La coupure des fils suggère que la fiche n’est plus reliée à la vie, sans que ce soit certain. »",
+    "changement": "Sur « problème », la fiche tremble et repousse les trois disques au-dessus du client pendant que les fils se retirent : la fiche refuse ce qui change, avant de devenir une photo épinglée."
+   },
+   {
+    "id": "S08",
+    "lecture": "« Le « ? » sur les cinq lignes […] j’aurais pu croire que toute la fiche devient fausse, plutôt que « à vérifier ». »",
+    "changement": "Pas de changement : « tout remettre en question » est bien le sens ; les « ? » restent à l’encre et le rouge (faux) n’arrive qu’en S09, ligne par ligne."
+   },
+   {
+    "id": "S09",
+    "lecture": "« Je lirais probablement la suite comme une seule histoire (mariage puis divorce) et pas comme « autre cas possible, même conséquence ». Rien d’écrit ne dit « séparation ». »",
+    "changement": "Nouveau temps fort sur « ou » : un grand « ou » s’écrit sous les alliances ; sur « sépare », une pilule « Séparation » surgit dessous et L1 rebat en rouge : deux cas, même effet."
+   },
+   {
+    "id": "S11",
+    "lecture": "« Que « Clause bénéficiaire » soit restée […] je pourrais croire à un oubli de rangement plutôt qu’à un point commun aux deux événements. »",
+    "changement": "« Clause bénéficiaire » garde un mini-badge alliances accroché à gauche quand les autres rentrent ; sur « clause », un mini-badge berceau vole du berceau jusqu’à son bout droit : elle porte les deux événements."
+   },
+   {
+    "id": "S13",
+    "lecture": "« Je lirais probablement les quatre pilules comme un parcours chronologique (il crée une entreprise, perd son emploi, est promu, part à la retraite), ce qui est incohérent, au lieu de quatre cas possibles. »",
+    "changement": "Un « ou » s’écrit avant chaque nouvelle pilule (pilules à y 500, 610, 720, 830) et L3 rebat en rouge à chaque cas : quatre cas possibles, même effet."
+   },
+   {
+    "id": "S14",
+    "lecture": "« Ce redressement me trouble : le conseil semble réparé alors que la fiche est toujours fausse et que le rendez-vous n’a pas eu lieu. »",
+    "changement": "« Toi » touche le conseil, qui tremble ; trois fils encre le tirent vers les nouveaux niveaux, mais il reste rouge et penché, accroché à la vieille fiche : il doit suivre. Il ne se redresse qu’en S21."
+   },
+   {
+    "id": "S15",
+    "lecture": "« « Le patrimoine se déplace » n’est pas évident : je pourrais croire que l’épargne est retirée ou dépensée. »",
+    "changement": "La rangée L4 garde son texte (le bloc en est une copie) et le titre « Patrimoine » s’écrit au-dessus du bloc : c’est ce que possède le client, posé en grand."
+   },
+   {
+    "id": "S17",
+    "lecture": "« Les pièces qui sortent de la maison sont ambiguës : je devinerais des loyers […] Acheter une maison consomme normalement de l’argent, donc ce détail me semble contradictoire. »",
+    "changement": "Les trois pièces passent de la part « Maison » à la part « Épargne », qui regonfle pendant que la maison recule : une partie du bien redevient de l’argent disponible."
+   },
+   {
+    "id": "S21",
+    "lecture": "« Je découvre seulement ici que la séparation et l’emploi perdu n’étaient pas son histoire réelle […] pendant la vidéo j’ai pu croire le contraire. » ; S14 : « ne pas comprendre pourquoi il redevient rouge ou reste droit ensuite ».",
+    "changement": "Les « ou » de S09 et S13 posent les cas comme des exemples avant la réponse ; c’est ici seulement que le conseil lâche son vieux fil, se redresse et passe du rouge au cyan."
+   }
+  ]
+ },
+ "revisions": [
+  {
+   "version": "v1 · révisé après le test sans son",
+   "scenes": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S09",
+    "S10",
+    "S11",
+    "S12",
+    "S13",
+    "S14",
+    "S15",
+    "S16",
+    "S17",
+    "S18",
+    "S19",
+    "S21"
+   ],
+   "pourquoi": "Test du spectateur muet, tour 1 : info nommée, cas reliés par « ou », clause bénéficiaire portant les deux événements, conseil rouge jusqu’à la mise à jour, liquidités montrées comme un retour de la maison vers l’épargne (voir « Test sans son »)."
+  }
+ ]
 }
