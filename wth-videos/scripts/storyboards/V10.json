@@ -1,0 +1,1334 @@
+{
+ "version": "v1 · révisé après le test sans son",
+ "angle": "Parti pris « le compte à rebours qu’on reprend en main » : la pression de l’offre est un objet concret, une barre rouge qui fond entre « maintenant » et « minuit » et un crochet rouge qui tire ton argent ; ralentir, c’est poser le stylo dessus (pause), puis l’allonger en cyan ; ce délai devient littéralement l’outil de vérification (la rallonge se change en champ de recherche) qui va consulter les registres. Les trois angles combinés : objets persistants (la pastille « Ton argent » du premier au dernier plan ; les disques rouges 1-2-3 sortent de l’offre et deviennent le repère ; l’horloge « Vérifier · Quelques minutes » sort du stylo de « Toi », s’y range et en ressort « 2 min » ; le « ? » de « Toi » naît trop tard, monte sur les jours gagnés, entre dans le champ, puis se change en coche sur la bouée ; l’étiquette « Autorisé ? » devient « Non autorisé », est cachée par « Conseiller » puis découverte ; le téléphone soigné accouche des alertes ; l’offre réduite revient pour tomber) ; grammaire de la référence (barres, cartes, fils, disques, pilules ; tenir puis éclater ; 1 à 3 éléments actifs par temps fort, un seul lieu PNG à la fois) ; lisibilité sans le son (verbes francs : tomber, fondre, accrocher, tirer, mettre en pause, buter, allonger, rétracter, chercher, ne rien trouver, trouver en rouge, cacher, faire tomber, sortir, appeler, cocher). Procédés repris de V01-V08 : pastille-protagoniste qui devient le bouton, repère légendé avec étapes cochées (V02-V03), figurine papier face à « Toi » (V02, V08), registre BOOK + fil de recherche qui bute sur une place vide (V02, V01), fin standard sans curseur (V08).\nRéponse aux 7 points :\n1) Fil conducteur : la pastille « Ton argent », de l’image 0 (à côté de « Toi ») au bouton « S’abonner » (S22) : tirée par le crochet de l’offre (S02, S05-S06), revenue à la pause (S03), retenue dans le coin avec l’offre (S12), libérée quand le crochet casse (S15), gardée en grand quand l’offre tombe (S21).\n2) État initial / action / résultat : chaque scène part du résultat de la précédente et finit sur un état visible (barre qui fond ; pastille tirée ; pause ; repère né de l’offre ; stylo qui bute ; « n° 1 » et bouton enfoncé ; rallonge cyan ; rallonge rétractée ; champ « Invest Minuit » ; place vide au REGAFI et à l’ORIAS ; ligne rouge sur la liste noire ; crochet cassé ; façade ; alertes empilées ; bouée cochée ; offre tombée) ; 96 temps forts, tous sur des débuts de mots.\n3) Sens complet : « la pression monter » = le crochet tire deux fois et la barre perd un bloc ; « ralentir » = « Toi » met la barre sur pause et l’argent revient lentement ; « t’empêche de vérifier » = le stylo bute sur la barre, la case reste vide ; « agir avant de réfléchir » = le bouton s’enfonce PUIS le « ? » arrive ; « quelques jours de réflexion » = la barre s’allonge en cyan et le « ? » s’y pose ; « si on te refuse ce délai » = l’escroc se penche, la rallonge se rétracte, « Délai refusé » tombe à sa place, le stylo bute de nouveau ; « ce délai, utilise-le » = la rallonge devient le champ de recherche ; « savoir à qui tu as affaire » = le nom glisse de l’interlocuteur dans le champ ; REGAFI / ORIAS = place vide qui tremble ; « listes noires » = le nom y est, en rouge, et le verdict passe à « Non autorisé » ; « t’éviter de tout perdre » = le crochet casse ; « soignent les apparences » = « Conseiller » cache « Non autorisé » ; « te fier à l’image » = le téléphone relance un crochet sur l’argent ; « nom proche d’une institution » = une étiquette « Banque Nationale » collée sur « Invest Minuit » ; « fie-toi plutôt aux signaux » = « Toi » arrache la façade, le vrai nom apparaît en rouge et les alertes sortent du téléphone ; « refuse la vérification » = la barre de l’offre repousse le champ ; « ne mérite pas ton argent » = « Toi » barre l’offre, elle tombe, l’argent reste en grand avec « Toi ».\n4) L’IA ≠ « Toi » : pas d’IA dans ce film ; « Toi », figurine encre nommée dès l’image 0, est seule à tenir le stylo et à décider (elle met en pause, allonge, cherche, arrache la façade, appelle, barre l’offre) ; l’interlocuteur est une figurine papier sans bras ni outil, face à elle, qui ne fait que se pencher (pousser, refuser, séduire).\n5) Les mêmes éléments évoluent : disques rouges de l’offre → repère 1-2-3 ; barre rouge → barre en pause → rallonge cyan → champ de recherche ; horloge « Vérifier · Quelques minutes » → stylo de « Toi » → « 2 min » ; « ? » → question dans le champ → coche sur la bouée ; « Autorisé ? » → « Non autorisé » → caché → découvert ; registre REGAFI → ORIAS → liste noire ; téléphone soigné → écran vide d’où sortent les alertes → disque « 3 » ; offre en grand → réduite → revenue → tombée ; pastille « Ton argent » → bouton « S’abonner ».\n6) PNG au service de la scène : le registre BOOK reçoit le sceau, les noms, la place vide et « Absent » dessinés en code (S13) ; TOKEN et GLOBE nomment deux alertes dans des cartes en code (S19) ; la bouée BUOY reçoit le fil d’appel, le sceau « AMF » et la coche (S20) ; tous les processus (fondre, tirer, allonger, chercher, tomber) sont en code, aucun zoom sur un PNG.\n7) Simplicité : ivoire, encre, un seul accent cyan, le rouge réservé au piège de l’offre et aux alertes (toujours suivis de leur parade cyan ou deep), Inter 34 pour les mots clés, ExtraBold pour « n° 1 » et « 2 min », 1 à 3 éléments actifs par temps fort, ce qui a fini d’agir se range (coin, disque du repère, stylo) ou sort.",
+ "thread": "On suit la pastille cyan « Ton argent », posée à côté de « Toi » dès l’image 0. Une offre « jusqu’à ce soir minuit » tombe en face, avec un compte à rebours rouge qui fond, et lance sur la pastille un crochet rouge qui la tire vers son bouton « J’investis » : c’est la pression ; « Toi » touche le compte à rebours, il se met en pause et l’argent revient. Étape 1 : « Toi » saisit la barre et l’allonge en cyan, « quelques jours » au lieu de « dans la journée » ; l’escroc la rétracte (« Délai refusé »), et ce délai repris devient un champ de recherche. Étape 2 : le nom « Invest Minuit » n’est ni au REGAFI ni à l’ORIAS, il est sur la liste noire de l’AMF : « Non autorisé », et en 2 minutes le crochet casse, la pastille revient du côté de « Toi ». Étape 3 : l’escroc cache son verdict sous une belle façade (site soigné, avis 5 étoiles, nom de banque, sourire) et son crochet reprend l’argent ; « Toi » arrache la façade, le vrai nom apparaît en rouge et quatre alertes rouges en sortent. Dans la chute, le doute trouve sa bouée (Assurance Banque Épargne Info Service), les trois étapes se cochent, l’offre qui bloque la vérification, barrée par « Toi », tombe, et la pastille « Ton argent », en grand à côté de « Toi », devient le bouton « S’abonner ».",
+ "objet_fil": {
+  "id": "pastille",
+  "description": "La pastille cyan « Ton argent » (pill 300×84, pictogramme euro, Inter ExtraBold 40, contour encre, ombre dure) : l’argent de « Toi », ce que l’offre veut prendre. À côté de « Toi » dès l’image 0 (S01), accrochée par le crochet rouge de l’offre et tirée vers elle (S02, S05-S06, contre le bouton « J’investis » enfoncé), revenue quand « Toi » met le compte à rebours sur pause (S03), entraînée avec l’offre dans le coin quand la vérification commence (S12), libérée quand la liste noire répond et que le crochet casse (S15), reprise par le crochet du téléphone quand « Toi » se fie à l’image (S16-S17), relâchée quand la façade tombe (S18), elle attend en haut à droite (S19-S20), descend au centre et grandit ×1,5 à côté de « Toi » quand l’offre tombe (S21), puis devient le bouton « S’abonner » de la carte de fin (S22)."
+ },
+ "cast": [
+  {
+   "id": "pastille",
+   "name_fr": "La pastille « Ton argent » (objet du fil)",
+   "look": "Pilule cyan #19B3C7 300×84, contour encre 4 px, ombre dure +6/+6, pictogramme euro encre à gauche, « Ton argent » Inter ExtraBold 40 encre. Échelle 0,7 quand elle est retenue dans le coin avec l’offre (S12-S15) ; ×1,5 (450×126) à la fin de S21. Textes : « Ton argent » → « S’abonner ».",
+   "source": "code",
+   "entite": "pill (icon euro ; pistes text, textOp, scale) ; kit.move, kit.pulse ; kit.outro (btn_at : devient le bouton de la carte de fin)",
+   "evolution": "S01 : à côté de « Toi » (760, 700), dès l’image 0. S02 : harponnée par le crochet rouge et tirée deux fois vers l’offre. S03 : revient près de « Toi » quand il met le compte à rebours sur pause. S05 : retirée vers l’offre quand le compte repart. S06 : collée contre le bouton « J’investis » enfoncé. S07 : décolle du bouton quand « Toi » saisit la barre, retenue par le fil mou. S08-S11 : reste accrochée près de la carte. S12 : entraînée avec l’offre dans le coin haut gauche (échelle 0,7). S15 : le crochet casse, elle file de son côté en (780, 420) et bat. S16-S17 : reprise par le crochet du téléphone (760, 432). S18 : relâchée quand la façade tombe, revient en (780, 420). S19-S20 : attend en haut à droite. S21 : descend lentement au centre et grandit ×1,5 à côté de « Toi ». S22 : devient le bouton « S’abonner »."
+  },
+  {
+   "id": "toi",
+   "name_fr": "« Toi » (le spectateur qui reçoit l’offre)",
+   "look": "Figurine pleine encre #1E1416 : tête ronde, buste trapèze, bras à longueur fixe, stylo ; ombre dure +6/+6 ; échelle 1, pied sur y 1230, côté « left » (agit vers la gauche). Places : P2 (760, 1135) de S01 à S18, P3 (700, 1135) de S18 à S22. Bras baissé au repos.",
+   "source": "code",
+   "entite": "figure ink (Figure) + reach, tap, trace, rest, walk, lean ; places vérifiées par fig.place_for",
+   "evolution": "S01 : nommé dès l’image 0, à côté de sa pastille. S02 : penché, tiré par l’offre. S03 : se redresse, touche le bout du compte à rebours : pause. S04 : une horloge sort de son stylo. S05 : l’horloge rentre dans son stylo ; son stylo bute sur la barre rouge. S06 : un « ? » naît à côté de sa tête, trop tard. S07 : saisit la barre, l’arrête et l’allonge. S09 : l’allonge en cyan « Quelques jours ». S10 : bute encore quand le délai est retiré. S11 : reprend le délai, touche le champ de recherche. S13 : lance la recherche (touche le « ? »). S15 : l’horloge ressort de son stylo. S16 : range le champ dans son stylo ; se penche vers le téléphone (le crochet du téléphone reprend l’argent). S18 : marche en P3, tire la façade du téléphone vers le bas : elle tombe. S20 : appelle la bouée (combiné à sa pointe). S21 : pousse son champ vers l’offre, qui le repousse ; barre le bout de la barre d’un trait deep : l’offre tombe ; garde sa pastille à côté de lui. S22 : touche le bouton « S’abonner »."
+  },
+  {
+   "id": "nom_toi",
+   "name_fr": "Le nom « Toi »",
+   "look": "Pilule light #D3F0F6 96×54, contour encre 4, ombre 3, « Toi » Inter Bold 34 encre ; enfant de la figurine, au-dessus de la tête (x de « Toi », y 995).",
+   "source": "code",
+   "entite": "pill (parent toi)",
+   "evolution": "S01-S21 : suit « Toi » partout (nommé dès sa première image). S22 : s’efface avec la fin standard."
+  },
+  {
+   "id": "offre",
+   "name_fr": "L’offre « Offre réservée »",
+   "look": "Carte papier #FFFDF8 420×300, r 18, contour encre 4, ombre +6/+6, centre (300, 560) (x 90-510, y 410-710) : « Offre réservée » Inter ExtraBold 44 encre (y 470) ; « jusqu’à ce soir minuit » Inter Bold 34 encre (y 535) ; bouton « J’investis » : pilule papier 220×64, contour encre 4 (rouge en S06 et S08), Inter Bold 34 (y 640). Parent du compte à rebours, de l’accolade et de la case. Réduite à l’échelle 0,45 en (180, 420) de S12 à S20.",
+   "source": "code",
+   "entite": "shape round + text ×2 + pill (bouton, piste press) ; kit.drop, kit.type, kit.pulse, kit.move/scale, kit.drop out",
+   "evolution": "S01 : tombe du haut, sa ligne « jusqu’à ce soir minuit » s’écrit. S02 : lance le crochet rouge sur la pastille. S04 : trois disques rouges 1-2-3 en sortent ; elle bat une fois en rouge. S05 : se secoue, fait sauter la « pause » ; le nom « Invest Minuit » sort de son titre vers l’interlocuteur. S06 : son bouton « J’investis » s’enfonce sous la pastille. S07 : le bouton remonte quand « Toi » saisit la barre. S08 : le bouton bat en rouge (décider dans la journée). S12 : se réduit dans le coin haut gauche avec la pastille accrochée. S21 : revient en grand, sa barre repousse le champ de recherche, puis, barrée par « Toi », bascule et tombe hors de l’image."
+  },
+  {
+   "id": "compte_rebours",
+   "name_fr": "Le compte à rebours (barre de temps)",
+   "look": "Gauge 440×56, rouge #C8102E sur fond papier, contour encre 4, ombre +6/+6, dir left (le rouge restant reste collé à « minuit » et recule vers lui), centre (420, 900), x 200-640 ; légendes Inter Bold 32 encre à y 960 : « maintenant » (ancre start x 200), « minuit » (ancre end x 640). Signe « pause » (icon pause sur disque papier r 30) au-dessus du bout droit quand il est arrêté. Pictogramme clock encre sur disque papier r 24 (contour encre 4, ombre 3) à gauche de la barre (160, 900) : la barre est du temps.",
+   "source": "code",
+   "entite": "gauge (value, dérive linéaire) + text ×2 + icon pause (disc) ; STRETCH, kit.pulse, kit.shake, kit.pop/vanish ; icon clock (disc)",
+   "evolution": "S01 : s’étire sous l’offre, son horloge à gauche, et commence à fondre. S02 : perd un bloc quand la pression monte. S03 : « Toi » la touche : elle s’arrête, « pause ». S05 : l’offre se secoue, la « pause » saute et tombe ; la barre repart, plus vite ; le stylo de « Toi » bute dessus. S06 : son horloge saute à côté du « n° 1 des arnaques ». S07 : l’horloge revient ; « Toi » la saisit (pause) et l’allonge. S08 : accolade rouge « Dans la journée ». S10 : repart quand le délai est retiré ; « Toi » bute encore. S11 : arrêtée de nouveau. S12 : réduite dans le coin avec l’offre. S21 : revient, glisse devant le champ et le repousse ; « Toi » la barre d’un trait deep et elle tombe avec l’offre."
+  },
+  {
+   "id": "crochet",
+   "name_fr": "Le crochet rouge de l’offre",
+   "look": "Fil plein rouge #C8102E, 5 px (wire), du bord droit de l’offre (510, 560) au bout gauche de la pastille ; à son bout, un crochet en J (shape poly ouverte rouge 5 px, 26×34) planté dans la pastille ; pistes sag (mou), dashed (cassé). En S16-S18, même fil et même crochet, lancés du bord droit du téléphone (590, 600).",
+   "source": "code",
+   "entite": "wire (ancres offre / pastille ; draw, sag, dashed) ; kit.draw, kit.drop out",
+   "evolution": "S02 : se trace, plante son crochet et tire la pastille. S03 : se relâche (mou). S05 : se retend. S06 : tire la pastille contre le bouton. S07 : se relâche quand « Toi » saisit la barre. S12 : raccourci, suit l’offre dans le coin. S15 : se casse en tirets et tombe : l’argent est libre. S16 : revient, lancé par le téléphone, dès que « Toi » se fie à l’image, et retire la pastille. S18 : casse quand « Toi » arrache la façade."
+  },
+  {
+   "id": "pieges_rouges",
+   "name_fr": "Les trois disques rouges 1, 2, 3",
+   "look": "Disques papier r 28, contour rouge #C8102E 4 px, chiffres « 1 », « 2 », « 3 » Inter ExtraBold 30 rouges.",
+   "source": "code",
+   "entite": "shape circle ×3 + text ; kit.stagger kit.pop from_pt, kit.move, kit.morph vers le marqueur",
+   "evolution": "S04 : sortent de l’offre (les pièges de cette offre), montent en haut et deviennent le repère 1-2-3."
+  },
+  {
+   "id": "marqueur",
+   "name_fr": "Le repère 1-2-3 légendé",
+   "look": "kit.steps_marker([« Délai », « Registres », « Apparence »], y 280, labelSize 32, doneStyle « kept », moveBlank) : disques papier r 20 numérotés en x 347, 540, 733 ; disque actif cyan r 32 ; coche deep dans le disque d’une étape faite ; légendes encre (y ≈ 342).",
+   "source": "code",
+   "entite": "marker via kit.steps_marker (pistes on, active, done0-2) ; kit.step",
+   "evolution": "S04 : naît des trois disques rouges, inactif (on 0). S08 : « 1 · Délai » sur « Premier ». S12 : « 2 · Registres » sur « Deuxième », 1 coché. S16 : « 3 · Apparence » sur « Troisième », 2 coché. S20 : reçoit le téléphone et les alertes dans le disque « 3 ». S21 : les trois étapes cochées (récapitulatif de la chute). S22 : s’efface."
+  },
+  {
+   "id": "horloge",
+   "name_fr": "L’horloge de la vérification (l’outil du stylo)",
+   "look": "Sector r 56 (S04) puis r 60 (S15), unit 10, cadran papier, contour deep 5, ombre 6, secteur deep #0A7487 ; légendes « Vérifier » et « Quelques minutes » Inter Bold 34 deep, ancre start x 380 (S04) ; « 2 min » counter Inter ExtraBold 56 deep, espace insécable (S15).",
+   "source": "code",
+   "entite": "sector (value) + text ×2 + counter ; kit.pop from_pt pointe du stylo, kit.move, kit.vanish into pointe",
+   "evolution": "S04 : sort du stylo de « Toi », se pose en (300, 1090), « Vérifier », un petit secteur se remplit, « Quelques minutes ». S05 : rentre dans la pointe du stylo (le stylo garde l’outil). S15 : en ressort, 2 unités se remplissent, « 2 min ». S16 : sort."
+  },
+  {
+   "id": "case_offre",
+   "name_fr": "La case de vérification de l’offre",
+   "look": "Shape round 52×52, r 10, fond papier, contour deep #0A7487 en tirets [10, 8], 4 px, au coin haut droit de l’offre (510, 410) ; contour rouge en S21. Jamais remplie.",
+   "source": "code",
+   "entite": "shape (draw, stroke en hex) enfant de l’offre ; kit.draw, kit.shake, kit.pulse",
+   "evolution": "S05 : se trace, vide (on ne peut pas vérifier l’offre). S10 : tremble, toujours vide. S21 : bat en rouge quand le champ bute ; tombe avec l’offre."
+  },
+  {
+   "id": "n1",
+   "name_fr": "« n° 1 des arnaques »",
+   "look": "« n° 1 » Inter ExtraBold 110 rouge #C8102E (espace insécable) en (330, 800), à droite de l’horloge du compte à rebours (170, 800, ×1,4) + « des arnaques » Inter Bold 34 rouge (ancre start x 445, y 815), au-dessus de la barre.",
+   "source": "code",
+   "entite": "text ×2 ; kit.pop, kit.vanish into",
+   "evolution": "S06 : surgissent au-dessus de la barre. S07 : rentrent dans la barre."
+  },
+  {
+   "id": "rallonge",
+   "name_fr": "La rallonge cyan « Quelques jours »",
+   "look": "Gauge cyan #19B3C7 240×56, contour encre 4, ombre +6/+6, dir right, centre (760, 900) (x 640-880), dans le prolongement de la barre rouge ; « Quelques jours » Inter Bold 32 encre à l’intérieur.",
+   "source": "code",
+   "entite": "gauge (value) + text ; Toi.trace, kit.type, kit.morph vers le champ",
+   "evolution": "S07 : naît au-delà de « minuit » sous le stylo de « Toi » (120 px). S09 : tirée jusqu’au bout, « Quelques jours ». S10 : se rétracte d’un coup quand l’escroc refuse ; « Délai refusé » prend sa place. S11 : revient, pousse « Délai refusé » dehors, puis se détache et se change, sans perdre son cyan, en champ de recherche."
+  },
+  {
+   "id": "refus",
+   "name_fr": "L’étiquette « Délai refusé »",
+   "look": "Pilule papier 250×60, contour rouge #C8102E 4 px, ombre 3, « Délai refusé » Inter Bold 34 rouge, centre (775, 900), à la place de la rallonge retirée, contre le bout de la barre rouge.",
+   "source": "code",
+   "entite": "pill ; kit.drop, kit.pulse, kit.drop out",
+   "evolution": "S10 : tombe à la place des jours retirés quand l’interlocuteur se penche, puis bat : le refus du délai est le signal. S11 : poussée hors de l’image par la rallonge que « Toi » reprend."
+  },
+  {
+   "id": "accolade_jour",
+   "name_fr": "L’accolade « Dans la journée »",
+   "look": "Shape poly ouverte rouge #C8102E 5 px au-dessus de la barre (200 → 640, y 858, crochets à y 868) + « Dans la journée » Inter Bold 34 rouge en (420, 825).",
+   "source": "code",
+   "entite": "shape poly (draw) + text, enfants de l’offre ; kit.draw, kit.pop",
+   "evolution": "S08 : se trace sur la partie rouge (le piège). S09-S11 : reste. S12 : se réduit avec l’offre."
+  },
+  {
+   "id": "question",
+   "name_fr": "Le « ? » de « Toi »",
+   "look": "qmark encre, gs 80 (96 en S06, 48 dans le champ).",
+   "source": "code",
+   "entite": "qmark ; kit.pop, kit.move, kit.drop, puis tick deep (coche)",
+   "evolution": "S06 : naît à côté de la tête de « Toi » (860, 1000), après le bouton enfoncé : trop tard. S09 : monte au-dessus des jours gagnés. S10 : retombe quand le délai est retiré. S11 : saute dans le champ de recherche. S13 : touché par « Toi », lance la recherche. S14 : tombe quand le nom est trouvé. S20 : renaît (au moindre doute), vole jusqu’à la bouée et y devient une coche deep."
+  },
+  {
+   "id": "interlocuteur",
+   "name_fr": "L’interlocuteur (celui qui fait l’offre)",
+   "look": "Figurine papier (Figure paper, tool False : contour encre, intérieur blanc, ni visage ni bras) en (190, 1135), pied y 1230, tournée vers « Toi », toujours à gauche, face à lui, à plus de 300 px.",
+   "source": "code",
+   "entite": "figure paper (Figure, tool False) + enter, lean, exit",
+   "evolution": "S05 : entre sur « interlocuteur » ; son nom sort de l’offre. S06 : se penche (il pousse). S10 : se penche, la rallonge se rétracte et « Délai refusé » tombe (il refuse le délai). S12-S14 : vérifié (« Autorisé ? » → « Non autorisé »). S16 : cache son verdict sous « Conseiller ». S17 : se penche aimablement, une bulle souriante sort de lui. S18 : sa façade tombe. S21 : sort par la gauche quand l’offre tombe (16 s à l’écran au moins, face à « Toi »)."
+  },
+  {
+   "id": "nom_inter",
+   "name_fr": "Le nom « Invest Minuit »",
+   "look": "Pilule papier 275×56, contour encre 4, ombre 3, « Invest Minuit » Inter Bold 34 encre, au-dessus de la tête de l’interlocuteur (190, 1010). Nom fictif.",
+   "source": "code",
+   "entite": "pill (parent interlocuteur) ; kit.pop ; copie text le long de fil_recherche",
+   "evolution": "S05 : sort du titre de l’offre et se pose au-dessus de l’interlocuteur. S11 : relié au champ, sa copie glisse dans le champ. S17 : reste « Invest Minuit » (il bat) pendant que le site se couvre d’une étiquette « Banque Nationale ». S18 : le même nom réapparaît en rouge sur l’écran. S21 : sort avec lui."
+  },
+  {
+   "id": "verdict",
+   "name_fr": "L’étiquette « Autorisé ? » → « Non autorisé »",
+   "look": "Pilule papier 240×60 en (190, 945) : contour rouge #C8102E en tirets [12, 8] 4 px, « Autorisé ? » Inter Bold 34 encre ; puis contour rouge plein, « Non autorisé » Inter Bold 34 rouge.",
+   "source": "code",
+   "entite": "pill (pistes text, stroke, dash) ; kit.pop, kit.pulse",
+   "evolution": "S12 : surgit en tirets rouges, « Autorisé ? ». S14 : le fil rouge de la liste noire la touche : « Non autorisé ». S16 : cachée sous « Conseiller ». S18 : réapparaît. S21 : sort avec l’interlocuteur."
+  },
+  {
+   "id": "champ",
+   "name_fr": "Le champ de recherche (le délai utilisé)",
+   "look": "Shape round light #D3F0F6 360×64, r 32, contour deep #0A7487 4 px, ombre 6, centre (470, 1080) (x 290-650) ; à gauche, une loupe dessinée en code (cercle r 13 contour deep 4 + manche deep 12 px, centre 320, 1080) ; texte « Invest Minuit » Inter Bold 34 encre (ancre start x 345) ; le « ? » (gs 48) à son bout droit. Échelle 0,8 en S21.",
+   "source": "code",
+   "entite": "shape round + shape circle + shape poly (loupe) + text (kit.type) ; kit.morph depuis la rallonge, kit.vanish into / kit.pop depuis le stylo",
+   "evolution": "S11 : naît de la rallonge cyan, qui garde sa couleur pendant le trajet (le délai devient l’outil de vérification) ; reçoit le « ? » puis le nom. S13-S15 : source du fil de recherche. S16 : rentre dans le stylo de « Toi ». S21 : en ressort, est repoussé par la barre de l’offre, puis y rentre."
+  },
+  {
+   "id": "fil_recherche",
+   "name_fr": "Le fil de recherche",
+   "look": "Fil plein deep #0A7487 5 px (wire) parti du champ ; en tirets (dashed) quand il ne trouve rien ; rouge #C8102E quand il porte le verdict.",
+   "source": "code",
+   "entite": "wire (draw, from, dashed, pb, color en hex) ; kit.draw",
+   "evolution": "S11 : relie le champ au nom de l’interlocuteur. S13 : monte dans le REGAFI puis l’ORIAS, descend la liste nom après nom, bute sur la place vide (« Absent »), se casse en tirets. S14 : trouve « Invest Minuit » sur la liste noire, rougit et porte le verdict jusqu’à l’étiquette. S16 : sort."
+  },
+  {
+   "id": "registre",
+   "name_fr": "Le registre (REGAFI, puis ORIAS)",
+   "look": "BOOK.png (livre ouvert), largeur 380, centre (540, 740), ombre de contact ; sceau officiel : pictogramme bank sur disque cyan r 30 (contour encre 4, ombre 3) sur le coin haut droit de la page droite (690, 660) ; sur la page gauche, en code : trois noms inscrits (traits encre 110×10) et une place vide (shape round 130×30 en tirets encre, contour rouge quand elle tremble) ; « Absent » Inter Bold 34 rouge à côté de la place vide (ancre start x 545, y 790) ; au-dessus : « REGAFI » Inter ExtraBold 52 + « Établissement financier » Inter Bold 34, puis « ORIAS » + « Intermédiaire ».",
+   "source": "BOOK.png + code",
+   "entite": "png (contact) + icon bank (disc) + shape ×4 + text ×3 (bascule text, textOp ; kit.type) ; kit.drop, kit.shake, sx (page qui tourne), kit.morph",
+   "evolution": "S13 : tombe au centre avec son sceau ; le fil descend la liste : le nom n’est pas au REGAFI (place vide qui tremble, « Absent ») ; la page tourne : pas à l’ORIAS non plus (« Absent »). S14 : se réduit pendant que la liste noire grandit à sa place."
+  },
+  {
+   "id": "liste_noire",
+   "name_fr": "La liste noire de l’AMF",
+   "look": "Carte papier 420×330, contour encre 4, ombre +6/+6, centre (540, 740) ; bande d’en-tête encre pleine 420×70 avec « Liste noire » Inter Bold 34 papier ; pilule papier « AMF » Inter ExtraBold 34 ; quatre lignes : disque light r 20 portant une fenêtre de navigateur dessinée en code (sites) ou le pictogramme building (acteurs) (fenêtre, fenêtre, building, building) + trait encre 220×12, la dernière « Invest Minuit » Inter Bold 34, rouge une fois trouvée.",
+   "source": "code",
+   "entite": "shape ×2 + pill + icon ×4 + shape ×3 + text ; kit.morph, STRETCH, kit.drop, kit.stagger, kit.type, kit.pulse",
+   "evolution": "S14 : grandit à la place du registre, son en-tête noircit, « AMF » s’y pose, les lignes s’inscrivent ; « Invest Minuit » y est, en rouge. S15 : reste. S16 : sort."
+  },
+  {
+   "id": "telephone",
+   "name_fr": "Le téléphone (le site de l’escroc)",
+   "look": "Shape round papier 300×480, r 36, contour encre 5, ombre +6/+6, centre (440, 680) (x 290-590, y 440-920) ; écran light 260×400 ; site (une couche qu’on peut arracher) : bandeau cyan 260×90 (« Invest Minuit », puis recouvert d’une étiquette light « Banque » / « Nationale » avec pictogramme bank, Inter Bold 34), trois bulles d’avis (pictogramme chat sur disque light r 22 + cinq étoiles shape poly cyan 26 px) ; reflet (sheen) ; sous la façade : « Invest Minuit » Inter Bold 34 rouge dans le bandeau et pictogramme warning sur disque rouge r 40.",
+   "source": "code",
+   "entite": "shape round ×2 + shape ×3 + icon chat ×3 + shape poly (étoiles) ×15 + text + icon bank + sheen + icon warning ; kit.pop, kit.morph, kit.drop out, kit.vanish into",
+   "evolution": "S16 : surgit à côté de l’interlocuteur, écran vide ; lance un crochet rouge sur la pastille quand « Toi » s’y fie. S17 : se remplit d’un site soigné, d’avis 5 étoiles ; une étiquette « Banque Nationale » se colle sur le nom. S18 : « Toi » tire la façade vers le bas, elle tombe : le vrai nom « Invest Minuit » apparaît en rouge, une alerte rouge s’allume ; les cartes d’alerte en sortent (S18-S19). S20 : rentre dans le disque « 3 » du repère."
+  },
+  {
+   "id": "conseiller",
+   "name_fr": "La pilule « Conseiller » (la façade)",
+   "look": "Pilule light #D3F0F6 250×64, contour encre 4, ombre 3, « Conseiller » Inter Bold 34 encre, posée sur l’étiquette « Non autorisé » (190, 945).",
+   "source": "code",
+   "entite": "pill ; kit.drop, kit.drop out",
+   "evolution": "S16 : tombe sur « Non autorisé » et le cache. S18 : glisse et tombe quand « Toi » arrache la façade, et le découvre."
+  },
+  {
+   "id": "sourire",
+   "name_fr": "La bulle souriante (très sympathique)",
+   "look": "Bulle de parole shape round light #D3F0F6 130×90, contour encre 4, ombre 3, queue tournée vers « Toi », centre (190, 830), au-dessus de l’interlocuteur ; un sourire dessiné en code : deux points encre r 6 + un arc encre 5 px.",
+   "source": "code",
+   "entite": "shape round (bulle) + shape circle ×2 + curve (arc) ; kit.pop from_pt interlocuteur, kit.vanish",
+   "evolution": "S17 : sort de l’interlocuteur qui se penche aimablement. S18 : disparaît quand la façade tombe."
+  },
+  {
+   "id": "alertes",
+   "name_fr": "Les quatre cartes d’alerte",
+   "look": "Cartes papier 330×100, contour rouge #C8102E 4, ombre +6/+6, centre x 770 (x 605-935), y 530, 645, 760, 875 ; à gauche un pictogramme sur disque papier à contour rouge r 26 (percent, phone) ou un PNG de 70 px (TOKEN, GLOBE) ; texte Inter Bold 34 encre sur deux lignes : « Rendement » / « élevé garanti » (« garanti » souligné de rouge), « Contact » / « non sollicité », « Paiement » / « en crypto », « Compte » / « à l’étranger ».",
+   "source": "TOKEN.png, GLOBE.png + code",
+   "entite": "shape round ×4 + icon ×2 (disc) + png ×2 (contact) + text ×8 (piste under) ; kit.pop from_pt téléphone, kit.move, kit.shake, kit.pulse, kit.vanish into",
+   "evolution": "S18 : la première sort du téléphone, « garanti » souligné. S19 : les trois autres en sortent une à une, puis toutes battent. S20 : rentrent dans le disque « 3 » du repère."
+  },
+  {
+   "id": "bouee",
+   "name_fr": "La bouée Assurance Banque Épargne Info Service",
+   "look": "BUOY.png (bouée sur socle d’eau), largeur 300, centre (440, 640), ombre de contact ; nom en deux lignes Inter Bold 34 deep : « Assurance Banque » (440, 795) / « Épargne Info Service » (440, 840) ; combiné : pictogramme phone sur disque cyan r 34 à la pointe de « Toi » ; fil plein deep 5 px du combiné à la bouée ; coche deep size 60. Sceau : pilule papier « AMF » Inter ExtraBold 34, contour encre 4, ombre 3, 110×52, en (320, 520), même dessin que sur la liste noire.",
+   "source": "BUOY.png + code",
+   "entite": "png (contact) + text ×2 (kit.type) + icon phone (disc) + wire + tick ; kit.drop, kit.draw, kit.vanish + pill « AMF » (kit.drop)",
+   "evolution": "S20 : « Toi » appelle (combiné et fil), la bouée tombe au bout du fil, son nom s’écrit, le sceau « AMF » s’y pose, le « ? » y devient une coche. S21 : se range."
+  },
+  {
+   "id": "fin",
+   "name_fr": "La carte de fin",
+   "look": "Carte papier 620×520 centrée (540, 760), titre « WealthTech Horizon », ligne « Comprendre ton argent » (deep), bouton cyan « S’abonner » (la pastille du fil, ≈ 380×112). Aucun pointeur de souris : le clic est le toucher du stylo de « Toi ».",
+   "source": "code",
+   "entite": "endcard via kit.outro (clear « fade », btn_at) ; Toi.tap + piste press ; ondes d’impact",
+   "evolution": "S22 : surgit pendant que le repère s’efface ; la pastille devient son bouton ; « Toi » le touche, puis plus rien ne bouge."
+  }
+ ],
+ "style": "Conforme à style.md. Fond ivoire #F6F0E4, quadrillage fixe de 36 px (#ECE4D4, 2 px), sans caméra ni zoom global. Encre #1E1416 pour les contours de 4 à 5 px, les textes, « Toi », le « ? » et les ombres dures +6/+6. Un seul accent, le cyan : #19B3C7 en aplat pour la pastille « Ton argent », la rallonge « Quelques jours », le disque actif du repère, le bandeau du faux site, le sceau des registres, le combiné et le bouton de fin ; deep #0A7487 pour les traits fins et ce que fait « Toi » (case de vérification, champ de recherche, fil de recherche, secteur de l’horloge, « 2 min », coches, nom de la bouée) ; light #D3F0F6 pour le nom « Toi », le champ de recherche (fond), la pilule « Conseiller », l’étiquette « Banque Nationale », la bulle souriante et l’écran du téléphone. Papier #FFFDF8 pour l’offre, le registre, la liste noire, le téléphone, les cartes d’alerte, l’interlocuteur et la carte de fin. Rouge #C8102E réservé au piège de l’offre et aux alertes, toujours suivi de sa parade cyan ou deep : le compte à rebours et son crochet (S01-S15, puis le crochet du téléphone S16-S18 ; parade : la pause, puis la rallonge cyan, puis le champ de recherche), « n° 1 des arnaques » (S06), le bouton « J’investis » enfoncé et l’accolade « Dans la journée » (S06, S08), « Délai refusé » (S10), « Absent » à côté de la place vide des registres (S13), « Autorisé ? » puis « Non autorisé » et la ligne de la liste noire (S12-S14 ; parade : le fil de recherche deep), le contour du téléphone (S16), le vrai nom « Invest Minuit » sous la façade (S18), les quatre cartes d’alerte (S18-S19 ; parade : la bouée et les coches de la chute), la case de l’offre qui refuse la vérification (S21). Aucun gris à 50 %. Places fixes : « Toi » à droite (P2 760 de S01 à S18, P3 700 ensuite ; pied y 1230), son nom au-dessus de sa tête tout le film ; l’interlocuteur en bas à gauche (190, 1135), face à « Toi », son nom au-dessus de la tête ; l’offre en haut à gauche, son compte à rebours entre elle et « Toi » (y 900) ; la pastille à côté de « Toi » ou en haut à droite (780, 420) ; le repère 1-2-3 en haut (y 280) de S04 à S21 ; les objets de vérification au centre (registre, liste noire, téléphone, bouée). Pas d’IA dans ce film : « Toi » est seule à tenir un outil et à décider ; l’interlocuteur est une figurine papier sans bras ni outil. PNG retenus (4) : BOOK (registre, S13-S14), TOKEN et GLOBE (cartes d’alerte, S19), BUOY (S20) ; un seul entre ou sort à la fois, jamais déformés ni zoomés pour raconter ; tout processus (fondre, accrocher, tirer, allonger, chercher, arracher, tomber), le sourire et la loupe est animé en code. Composition de y ≈ 250 (repère) à y ≈ 1230 (pieds), centre vers y 760-800, x 40-940. Libellés clés en Inter Bold 34, chiffres-clés en ExtraBold 56-110 (« n° 1 », « 2 min »).",
+ "scenes": [
+  {
+   "id": "S01",
+   "segment": "accroche",
+   "t_start": 0.0,
+   "t_end": 2.914,
+   "texte": "« Offre réservée jusqu’à ce soir minuit. »",
+   "elements": "toi, nom_toi, pastille, offre, compte_rebours",
+   "etat_initial": "Image 0, déjà lisible et sobre : ivoire quadrillé ; « Toi » en P2 (760, 1135), pied sur y 1230, bras baissé, stylo au repos ; au-dessus de sa tête son nom, pilule light « Toi » (760, 995) ; à sa gauche, en hauteur, la pastille cyan « Ton argent » (pictogramme euro, 300×84) en (760, 700). Rien d’autre : toute la moitié gauche est vide.",
+   "action": "L’offre tombe du haut dans la moitié gauche : une carte papier « Offre réservée ». Sa seconde ligne s’écrit, « jusqu’à ce soir minuit ». Sous elle, la barre du compte à rebours rouge s’étire entre « maintenant » et « minuit », une petite horloge à son bout gauche, et commence à fondre vers « minuit » : c’est du temps qui file, pas un chargement.",
+   "resultat": "À gauche, la carte « Offre réservée · jusqu’à ce soir minuit » (bouton « J’investis ») au-dessus d’une barre rouge qui fond lentement, une horloge à son bout gauche ; à droite, « Toi » et sa pastille « Ton argent ».",
+   "transition": "Sur « Tu » (S02), un fil rouge jaillit de la carte vers la pastille ; la barre continue de fondre.",
+   "beats": [
+    {
+     "t": 0.254,
+     "mot": "« Offre",
+     "evenement": "Tomber : la carte « offre » (shape round papier 420×300, r 18, contour encre 4, ombre +6/+6) naît en haut hors champ et tombe à sa place, centre (300, 560), x 90-510, y 410-710 (kit.drop 370 ms ease-out, sans rebond) ; elle porte déjà « Offre réservée » (Inter ExtraBold 44, encre, 300, 470) et le bouton « J’investis » (pilule papier 220×64, contour encre 4, Inter Bold 34, 300, 640)."
+    },
+    {
+     "t": 1.184,
+     "mot": "jusqu’à",
+     "evenement": "Écrire : « jusqu’à ce soir minuit » s’écrit sous le titre (kit.type, Inter Bold 34, encre, 300, 535 ; 1 caractère par image, fin vers 1,9 s)."
+    },
+    {
+     "t": 1.95,
+     "mot": "minuit. »",
+     "evenement": "Étirer puis fondre : la barre « compte_rebours » (gauge 440×56, rouge #C8102E, fond papier, contour encre 4, ombre +6/+6, dir left) s’étire sous la carte, centre (420, 900), x 200-640 (STRETCH 200 ms) ; ses deux légendes entrent en fondu (Inter Bold 32 encre, y 960) : « maintenant » sous le bout gauche (ancre start, x 200), « minuit » sous le bout droit (ancre end, x 640). Au même moment, à gauche de la barre, un pictogramme clock encre sur disque papier r 24 (contour encre 4, ombre 3) surgit en (160, 900) (kit.pop 300 ms) : la barre mesure du temps. Puis dérive narrative : value 1 → 0,82 en linéaire jusqu’à 4,6 s (le rouge recule vers « minuit », la partie gauche devient papier)."
+    }
+   ],
+   "lecture_sans_son": "Une offre qui expire ce soir à minuit arrive en face de « Toi » ; son compte à rebours rouge (horloge, « maintenant » → « minuit ») fond déjà."
+  },
+  {
+   "id": "S02",
+   "segment": "accroche",
+   "t_start": 2.914,
+   "t_end": 4.69,
+   "texte": "Tu sens la pression monter ?",
+   "elements": "toi, nom_toi, pastille, offre, compte_rebours, crochet",
+   "etat_initial": "Résultat de S01 : carte « Offre réservée » (300, 560), barre rouge qui fond (value ≈ 0,9) entre « maintenant » et « minuit » ; « Toi » en P2 (760, 1135) ; pastille « Ton argent » (760, 700).",
+   "action": "Un fil rouge part de la carte et plante son crochet dans la pastille « Ton argent », qui tremble. Il se tend deux fois : la pastille est tirée vers l’offre, puis encore plus près ; « Toi » se penche malgré lui. La barre rouge continue de fondre.",
+   "resultat": "La pastille « Ton argent », harponnée par le crochet d’un fil rouge tendu, colle presque au bord droit de la carte (650, 650) ; « Toi » penché vers elle ; la barre rouge a encore reculé.",
+   "transition": "Sur « C’est » (S03), « Toi » lève le stylo vers le bout de la barre.",
+   "beats": [
+    {
+     "t": 2.914,
+     "mot": "Tu",
+     "evenement": "Accrocher : un fil rouge plein (wire #C8102E, 5 px, crochet) se trace depuis le bord droit de la carte (510, 560) jusqu’au bout gauche de la pastille (610, 700) (draw 300 ms, ease-out) ; à son bout, un crochet rouge en J (shape poly ouverte, #C8102E, 5 px, 26×34) se plante dans le bord de la pastille ; au contact, la pastille tremble (kit.shake x, 2 × 5 px) : elle est prise, pas reliée."
+    },
+    {
+     "t": 3.39,
+     "mot": "pression",
+     "evenement": "Tirer : le fil se tend (sag 0) et entraîne la pastille vers la carte, de (760, 700) à (700, 675) (kit.move 400 ms, ease-in-out) ; « Toi » se penche de 6° vers la gauche (lean, TILT 450 ms)."
+    },
+    {
+     "t": 3.762,
+     "mot": "monter ?",
+     "evenement": "Tirer plus : second coup de fil, la pastille monte et colle presque au bord de la carte, (650, 650) (kit.move 300 ms ease-out) ; la barre perd d’un coup un bloc de rouge (value 0,88 → 0,74, 300 ms) puis reprend sa fonte lente."
+    }
+   ],
+   "lecture_sans_son": "Un crochet rouge de l’offre harponne ton argent et le tire vers elle, malgré « Toi », pendant que le temps file : la pression monte."
+  },
+  {
+   "id": "S03",
+   "segment": "accroche",
+   "t_start": 4.69,
+   "t_end": 6.467,
+   "texte": "C’est le moment de ralentir.",
+   "elements": "toi, nom_toi, pastille, offre, compte_rebours, crochet, pause",
+   "etat_initial": "Résultat de S02 : pastille tirée contre la carte (650, 650), fil rouge tendu ; barre rouge à ≈ 0,72 qui fond ; « Toi » penché en P2.",
+   "action": "« Toi » se redresse et pose la pointe de son stylo sur le bout droit de la barre : au contact, la barre s’arrête de fondre et un signe « pause » s’y pose. Le fil rouge se relâche et la pastille revient lentement près de « Toi ». Il baisse le bras.",
+   "resultat": "Le compte à rebours est figé, marqué « pause » ; le fil rouge pend, mou ; la pastille « Ton argent » est revenue en (760, 700) ; « Toi » droit, bras baissé.",
+   "transition": "Sur « pièges » (S04), trois disques rouges sortent de la carte ; « pause » et fil mou restent.",
+   "beats": [
+    {
+     "t": 4.69,
+     "mot": "C’est",
+     "evenement": "Atteindre : « Toi » se redresse (lean 0) et tend le bras vers le bout droit de la barre (Toi.reach vers 640, 905 ; 300 ms)."
+    },
+    {
+     "t": 5.039,
+     "mot": "moment",
+     "evenement": "Toucher : Toi.tap sur le bout droit de la barre (640, 905), contact sur le mot ; au contact, la fonte s’arrête net (value figée à 0,72) et le pictogramme « pause » sur disque papier r 30 (contour encre 4, ombre 3) surgit au bout de la barre, (640, 850) (kit.pop 300 ms) ; anneau d’impact deep."
+    },
+    {
+     "t": 5.445,
+     "mot": "ralentir.",
+     "evenement": "Ralentir : le fil rouge se relâche (sag 0 → 90 px, 450 ms ease-out) et la pastille revient lentement de (650, 650) à (760, 700) (kit.move 700 ms ease-in-out, plus lent que le MOVE standard) ; puis « Toi » baisse le bras (Toi.rest, 400 ms)."
+    }
+   ],
+   "lecture_sans_son": "« Toi » met le compte à rebours sur pause : la pression retombe et son argent revient vers lui."
+  },
+  {
+   "id": "S04",
+   "segment": "accroche",
+   "t_start": 6.467,
+   "t_end": 13.444,
+   "texte": "Dans cette vidéo, on va voir les pièges à éviter face à une offre urgente. Et comment vérifier en quelques minutes.",
+   "elements": "toi, nom_toi, pastille, offre, compte_rebours, crochet, pause, pieges_rouges, marqueur, horloge",
+   "etat_initial": "Résultat de S03 : carte et barre figée « pause » à gauche ; fil rouge mou ; pastille (760, 700) ; « Toi » en P2, bras baissé.",
+   "action": "Trois disques rouges numérotés 1, 2, 3 sortent de la carte et montent en haut de l’image, où ils deviennent le repère 1-2-3 légendé « Délai · Registres · Apparence » (encore inactif) ; la carte qui les a lâchés bat une fois en rouge : ce sont les pièges de cette offre. Puis « Toi » lève son stylo : une petite horloge deep en sort et se pose devant lui, légendée « Vérifier » ; un petit secteur s’y remplit, « Quelques minutes » : le temps qu’il faut pour vérifier, pas celui qui reste.",
+   "resultat": "En haut, le repère 1-2-3 avec sa légende ; à gauche l’offre en pause ; en bas à gauche, sortie du stylo de « Toi », une horloge deep (300, 1090) dont un petit secteur est rempli, légendée « Vérifier » / « Quelques minutes » ; « Toi » et sa pastille à droite.",
+   "transition": "Sur « Pourquoi » (S05), l’horloge et ses légendes rentrent dans la pointe du stylo de « Toi » ; sur « l’urgence ? », l’offre fait sauter la « pause ».",
+   "beats": [
+    {
+     "t": 8.081,
+     "mot": "pièges",
+     "evenement": "Extraire : trois disques papier r 28 à contour rouge 4 px, chiffres « 1 », « 2 », « 3 » Inter ExtraBold 30 rouges, sortent un à un du centre de la carte (kit.stagger 4 images, kit.pop from_pt 300, 560) et volent en arc vers (347, 280), (540, 280), (733, 280) (kit.move 550 ms ease-in-out)."
+    },
+    {
+     "t": 8.522,
+     "mot": "éviter",
+     "evenement": "Devenir : relais en place (kit.morph 350 ms) : les trois disques rouges deviennent le repère « marqueur » (kit.steps_marker, labels « Délai », « Registres », « Apparence », y 280, labelSize 32, doneStyle « kept », piste on = 0 : disques papier r 20, chiffres encre) ; les légendes entrent en fondu sous les disques (y ≈ 342)."
+    },
+    {
+     "t": 9.903,
+     "mot": "urgente.",
+     "evenement": "Désigner : la carte de l’offre bat une fois (kit.pulse ×1,05) et son contour passe au rouge puis revient à l’encre (2 × 150 ms) : les trois pièges sortaient d’elle, l’offre urgente."
+    },
+    {
+     "t": 11.389,
+     "mot": "vérifier",
+     "evenement": "Sortir de la main : « Toi » lève le stylo (Toi.reach vers 600, 1040) ; à sa pointe naît une horloge (sector r 56, unit 10, face papier, contour deep 5, ombre 6, secteur deep, value 0) qui glisse se poser en (300, 1090) (kit.pop from_pt pointe + kit.move 550 ms) ; « Vérifier » (Inter Bold 34, deep, ancre start x 380, y 1070) entre en fondu à sa droite ; « Toi » baisse le bras."
+    },
+    {
+     "t": 12.643,
+     "mot": "minutes.",
+     "evenement": "Remplir : le secteur deep de l’horloge se remplit de 0 à 3 unités (400 ms, linéaire) ; « Quelques minutes » (Inter Bold 34, deep, ancre start x 380, y 1115) entre en fondu sous « Vérifier » (200 ms) : la durée de la vérification."
+    }
+   ],
+   "lecture_sans_son": "On va voir trois pièges (1, 2, 3 sortis de cette offre) ; l’outil de « Toi » sort de son stylo : vérifier ne prend que quelques minutes."
+  },
+  {
+   "id": "S05",
+   "segment": "contexte",
+   "t_start": 13.444,
+   "t_end": 19.343,
+   "texte": "Pourquoi l’urgence ? Parce que la pression du temps t’empêche de vérifier l’offre et ton interlocuteur.",
+   "elements": "toi, nom_toi, pastille, offre, compte_rebours, crochet, pause, case_offre, horloge, marqueur, interlocuteur, nom_inter",
+   "etat_initial": "Résultat de S04 : horloge « Vérifier · Quelques minutes » en bas à gauche ; offre et barre en pause à gauche ; fil rouge mou ; pastille (760, 700) ; repère en haut ; « Toi » en P2.",
+   "action": "L’horloge rentre dans le stylo de « Toi ». L’offre secoue sa carte : la « pause » saute du bout de la barre et tombe ; le compte à rebours repart et le fil se retend, la pastille repart vers l’offre. « Toi » tend le stylo vers l’offre pour la vérifier : sa pointe bute sur la barre rouge et rebondit. Une case de vérification se trace au coin de l’offre et reste vide. Puis l’interlocuteur arrive à gauche, face à « Toi » ; son nom « Invest Minuit » sort de la carte de l’offre et se pose au-dessus de sa tête : c’est lui qui fait l’offre.",
+   "resultat": "La barre rouge fond de nouveau entre « Toi » et l’offre ; la case de vérification de l’offre est vide ; la pastille est retirée vers la carte (700, 675) ; l’interlocuteur, figurine papier sans bras, se tient en bas à gauche (190, 1135), tourné vers « Toi ».",
+   "transition": "Sur « numéro » (S06), un grand « n° 1 » rouge surgit au-dessus de la barre ; l’interlocuteur reste jusqu’à S21.",
+   "beats": [
+    {
+     "t": 13.444,
+     "mot": "Pourquoi",
+     "evenement": "Ranger : l’horloge et ses deux légendes se réduisent et rentrent dans la pointe du stylo de « Toi » (kit.vanish into pointe, 350 ms) : le stylo garde l’outil de vérification."
+    },
+    {
+     "t": 13.863,
+     "mot": "l’urgence ?",
+     "evenement": "Relancer : la carte de l’offre tremble (kit.shake x, 3 × 6 px) et son bouton « J’investis » bat (×1,1) ; la secousse fait sauter la « pause » du bout de la barre, qui tombe hors de l’image (kit.drop out 370 ms, rotation 15°) : c’est l’offre qui relance le temps."
+    },
+    {
+     "t": 15.244,
+     "mot": "pression",
+     "evenement": "Repartir : la barre reprend sa fonte, plus vite (dérive linéaire value 0,72 → 0,45 de 15,2 s à 19,3 s) ; le fil rouge se retend (sag 90 → 0, 300 ms) et tire la pastille de (760, 700) à (700, 675) (kit.move 550 ms ease-in-out)."
+    },
+    {
+     "t": 16.173,
+     "mot": "t’empêche",
+     "evenement": "Buter : « Toi » tend le stylo vers la carte (Toi.reach) ; sa pointe heurte par-dessous le bout droit de la barre rouge (640, 930), recule de 40 px en ease-out (300 ms) ; la barre tremble (kit.shake axis x, 3 oscillations de 6 px)."
+    },
+    {
+     "t": 17.183,
+     "mot": "l’offre",
+     "evenement": "Tracer : au coin haut droit de la carte, une case de vérification vide se trace (shape round 52×52, r 10, fond papier, contour deep en tirets [10, 8], 4 px, centre 510, 410 ; draw 300 ms) ; elle reste vide."
+    },
+    {
+     "t": 18.112,
+     "mot": "interlocuteur.",
+     "evenement": "Entrer : l’interlocuteur (Figure variant paper, tool False : contour encre, intérieur blanc, ni visage ni bras) entre par la gauche et se pose en (190, 1135), pied y 1230, tourné vers « Toi » (fig.enter frm −120, 550 ms) ; son nom sort du titre de la carte de l’offre (300, 470) et vole en arc se poser au-dessus de sa tête : pilule papier « Invest Minuit » (Inter Bold 34, contour encre 4, ombre 3, 275×56, centre 190, 1010 ; kit.pop from_pt 300, 470 + kit.move 450 ms) : celui qui arrive est l’auteur de l’offre."
+    }
+   ],
+   "lecture_sans_son": "L’offre relance son compte à rebours ; il se met entre « Toi » et l’offre : impossible de la vérifier (case vide) ; puis arrive celui qui la propose, son nom sorti de l’offre."
+  },
+  {
+   "id": "S06",
+   "segment": "contexte",
+   "t_start": 19.343,
+   "t_end": 24.95,
+   "texte": "C’est l’arme numéro un des arnaques financières. Elle te pousse à agir avant de réfléchir.",
+   "elements": "toi, nom_toi, pastille, offre, compte_rebours, crochet, case_offre, n1, interlocuteur, nom_inter, question, marqueur",
+   "etat_initial": "Résultat de S05 : barre rouge qui fond (≈ 0,6), case vide au coin de l’offre ; pastille tirée (700, 675) ; interlocuteur en bas à gauche face à « Toi » en P2.",
+   "action": "L’horloge du compte à rebours saute au-dessus de la barre et un grand « n° 1 » rouge surgit à côté d’elle, puis « des arnaques » : c’est le compte à rebours qui est l’arme n° 1. L’interlocuteur se penche vers « Toi » et le fil rouge tire la pastille contre la carte, sur le bouton « J’investis » qui s’enfonce : l’argent part. Seulement après, un gros « ? » tremble à côté de la tête de « Toi » : il réfléchit trop tard.",
+   "resultat": "L’horloge du compte à rebours et « n° 1 des arnaques » écrits en rouge au-dessus de la barre ; la pastille collée au bord de la carte, contre le bouton « J’investis » enfoncé ; un gros « ? » à côté de la tête de « Toi », arrivé après.",
+   "transition": "Sur « réflexe, » (S07), « n° 1 des arnaques » se réduit dans la barre et l’horloge reprend sa place.",
+   "beats": [
+    {
+     "t": 19.958,
+     "mot": "numéro",
+     "evenement": "Afficher le chiffre : l’horloge du compte à rebours saute de (160, 900) en (170, 800) et grandit ×1,4 (kit.move 300 ms) ; à sa droite, « n° 1 » (Inter ExtraBold 110, rouge #C8102E) surgit depuis la barre, centre (330, 800) (kit.pop 300 ms) : le n° 1, c’est le compte à rebours."
+    },
+    {
+     "t": 21.038,
+     "mot": "arnaques",
+     "evenement": "Écrire : « des arnaques » (Inter Bold 34, rouge, ancre start x 445, y 815) surgit à droite du « n° 1 » (kit.pop 300 ms) ; la barre rouge bat une fois (kit.pulse ×1,05)."
+    },
+    {
+     "t": 22.872,
+     "mot": "pousse",
+     "evenement": "Pousser : l’interlocuteur se penche de 10° vers « Toi » (lean, TILT 450 ms) ; le fil rouge tire la pastille contre le bord droit de la carte, (640, 640) (kit.move 400 ms ease-in-out)."
+    },
+    {
+     "t": 23.232,
+     "mot": "agir",
+     "evenement": "Agir : la pastille glisse encore de 20 px sur le bord de la carte (620, 640) ; le bouton « J’investis » s’enfonce de 6 px dans son ombre (press 4 images) et son contour passe au rouge (200 ms)."
+    },
+    {
+     "t": 23.952,
+     "mot": "réfléchir.",
+     "evenement": "Trop tard : un grand « ? » encre (qmark gs 96) surgit à côté de la tête de « Toi », (860, 1000) (kit.pop 300 ms) et tremble (kit.shake rot ±8°), 0,7 s APRÈS le bouton enfoncé ; « Toi » se redresse (lean 0)."
+    }
+   ],
+   "lecture_sans_son": "Le compte à rebours (son horloge à côté du « n° 1 ») est l’arme n° 1 des arnaques : il fait appuyer sur « J’investis » avant même que la question « ? » arrive."
+  },
+  {
+   "id": "S07",
+   "segment": "point1",
+   "t_start": 24.95,
+   "t_end": 28.944,
+   "texte": "Le premier réflexe, c’est donc de reprendre la main sur le temps.",
+   "elements": "toi, nom_toi, pastille, offre, compte_rebours, crochet, n1, pause, rallonge, question, interlocuteur, nom_inter, marqueur",
+   "etat_initial": "Résultat de S06 : « n° 1 des arnaques » au-dessus de la barre rouge qui fond ; pastille contre le bouton enfoncé ; « ? » à côté de la tête de « Toi » (860, 1000) ; interlocuteur penché.",
+   "action": "« n° 1 des arnaques » rentre dans la barre et l’horloge y reprend sa place. « Toi » tend le stylo et saisit le bout droit de la barre : la fonte s’arrête (« pause »), le fil rouge se relâche et la pastille décolle du bouton « J’investis », qui remonte : c’est le geste de « Toi » qui arrête tout. Il tire, et au-delà de « minuit » la barre s’allonge d’un net morceau cyan.",
+   "resultat": "La barre rouge est arrêtée sous le stylo de « Toi » ; un prolongement cyan net (120 px) dépasse « minuit » ; le bouton « J’investis » est remonté, la pastille décollée de lui, retenue par le fil mou ; l’interlocuteur s’est redressé.",
+   "transition": "Sur « Premier » (S08), le disque « 1 » du repère s’allume.",
+   "beats": [
+    {
+     "t": 25.461,
+     "mot": "réflexe,",
+     "evenement": "Ranger : « n° 1 » et « des arnaques » se réduisent dans la barre (kit.vanish into 300 ms) ; l’horloge revient à sa place, (160, 900), échelle 1 (kit.move 300 ms) ; l’interlocuteur se redresse (lean 0). Le bouton reste enfoncé."
+    },
+    {
+     "t": 26.981,
+     "mot": "reprendre",
+     "evenement": "Atteindre : « Toi » tend le stylo vers le bout droit de la barre (Toi.reach vers 640, 905 ; 400 ms)."
+    },
+    {
+     "t": 27.655,
+     "mot": "main",
+     "evenement": "Saisir : Toi.tap sur le bout droit (640, 905), le stylo reste au contact ; la fonte s’arrête (value figée ≈ 0,5) et la « pause » ressurgit au-dessus du bout (640, 850) (kit.pop 300 ms) ; aussitôt le fil rouge se relâche (sag 0 → 60) et la pastille décolle du bouton, de (620, 640) à (680, 660) (kit.move 400 ms) ; le bouton « J’investis » remonte et repasse à l’encre (200 ms) : le geste de « Toi » annule l’appui."
+    },
+    {
+     "t": 28.154,
+     "mot": "temps.",
+     "evenement": "Tirer : « Toi » tire le bout vers la droite (Toi.trace de 640 à 760, y 905 ; 400 ms) : la « rallonge » (gauge cyan #19B3C7 240×56, contour encre 4, ombre +6/+6, dir right, centre 760, 900 ; x 640-880) passe de value 0 à 0,5 (120 px) sous la pointe ; « minuit » reste à sa place sous le raccord."
+    }
+   ],
+   "lecture_sans_son": "« Toi » attrape le compte à rebours : il s’arrête, son argent se décolle du bouton « J’investis », et la barre s’allonge en cyan au-delà de minuit : il reprend la main sur le temps."
+  },
+  {
+   "id": "S08",
+   "segment": "point1",
+   "t_start": 28.944,
+   "t_end": 31.788,
+   "texte": "Premier piège : décider dans la journée.",
+   "elements": "toi, nom_toi, pastille, offre, compte_rebours, crochet, pause, rallonge, accolade_jour, question, interlocuteur, nom_inter, marqueur",
+   "etat_initial": "Résultat de S07 : barre rouge figée (pause), rallonge cyan de 120 px au-delà de « minuit », stylo de « Toi » sur le raccord ; repère éteint ; pastille accrochée.",
+   "action": "Le repère s’allume sur « 1 · Délai ». Une accolade rouge se trace au-dessus de toute la partie rouge, de « maintenant » à « minuit » ; le bouton « J’investis » bat en rouge ; « Dans la journée » s’écrit en rouge sur l’accolade : décider dans ce créneau est le piège.",
+   "resultat": "Repère sur 1 « Délai » ; au-dessus de la barre rouge, une accolade rouge « Dans la journée » ; le bouton « J’investis » cerné de rouge ; à droite, la rallonge cyan de 120 px sous le stylo de « Toi ».",
+   "transition": "Sur « supporte » (S09), « Toi » tire la rallonge jusqu’au bout.",
+   "beats": [
+    {
+     "t": 28.944,
+     "mot": "Premier",
+     "evenement": "Étape 1 : le disque « 1 » grandit en disque cyan (piste on 0 → 1, 300 ms) ; « Délai » passe en Bold."
+    },
+    {
+     "t": 29.35,
+     "mot": "piège :",
+     "evenement": "Tracer : une accolade rouge (shape poly ouverte, #C8102E, 5 px) se trace au-dessus de la barre rouge, de (200, 858) à (640, 858), crochets descendant à y 868 aux deux bouts (draw 300 ms)."
+    },
+    {
+     "t": 30.07,
+     "mot": "décider",
+     "evenement": "Alerter : le bouton « J’investis » bat (kit.pulse ×1,1) et son contour passe au rouge (200 ms) : c’est là qu’on déciderait."
+    },
+    {
+     "t": 30.824,
+     "mot": "journée.",
+     "evenement": "Écrire : « Dans la journée » (Inter Bold 34, rouge) surgit au-dessus de l’accolade, centre (420, 825) (kit.pop 300 ms)."
+    }
+   ],
+   "lecture_sans_son": "Piège 1 : décider dans la journée, c’est appuyer sur « J’investis » dans la seule partie rouge de la barre."
+  },
+  {
+   "id": "S09",
+   "segment": "point1",
+   "t_start": 31.788,
+   "t_end": 35.039,
+   "texte": "Une vraie opportunité supporte quelques jours de réflexion.",
+   "elements": "toi, nom_toi, pastille, offre, compte_rebours, crochet, pause, rallonge, accolade_jour, question, interlocuteur, nom_inter, marqueur",
+   "etat_initial": "Résultat de S08 : accolade rouge « Dans la journée » sur la barre rouge ; rallonge cyan 120 px ; stylo de « Toi » sur le raccord ; « ? » à côté de sa tête.",
+   "action": "« Toi » tire la rallonge cyan jusqu’au bout : la barre dépasse largement « minuit ». « Quelques jours » s’écrit dans la partie cyan. Le « ? » de « Toi » monte se poser au-dessus des jours gagnés : il a le temps de réfléchir.",
+   "resultat": "Une barre en deux couleurs : rouge « Dans la journée » jusqu’à « minuit », puis cyan « Quelques jours » (x 640-880) ; le « ? » posé au-dessus de la partie cyan (760, 815) ; « Toi » baisse le bras.",
+   "transition": "Sur « refuse » (S10), l’interlocuteur se penche et la partie cyan se rétracte d’un coup.",
+   "beats": [
+    {
+     "t": 32.914,
+     "mot": "supporte",
+     "evenement": "Allonger : « Toi » tire le bout (Toi.trace de 760 à 880, y 905 ; 500 ms, linéaire) : la rallonge cyan passe de 0,5 à 1 (240 px, x 640-880) sous la pointe ; puis « Toi » baisse le bras (Toi.rest)."
+    },
+    {
+     "t": 33.402,
+     "mot": "quelques",
+     "evenement": "Écrire : « Quelques jours » (Inter Bold 32, encre) s’écrit dans la partie cyan, centre (760, 900) (kit.type, 1 caractère par image)."
+    },
+    {
+     "t": 34.04,
+     "mot": "réflexion.",
+     "evenement": "Monter : le « ? » quitte le côté de la tête de « Toi » et monte en arc se poser au-dessus de la partie cyan, (760, 815) (kit.move 550 ms ease-in-out) : il réfléchit pendant ces jours."
+    }
+   ],
+   "lecture_sans_son": "Une bonne offre laisse du temps : la barre s’allonge en cyan, « quelques jours » pour réfléchir."
+  },
+  {
+   "id": "S10",
+   "segment": "point1",
+   "t_start": 35.039,
+   "t_end": 38.649,
+   "texte": "Si on te refuse ce délai, c’est pour éviter que tu vérifies.",
+   "elements": "toi, nom_toi, pastille, offre, compte_rebours, crochet, pause, rallonge, case_offre, accolade_jour, question, interlocuteur, nom_inter, marqueur, refus",
+   "etat_initial": "Résultat de S09 : barre rouge + rallonge cyan « Quelques jours » ; « ? » au-dessus de la partie cyan ; interlocuteur en bas à gauche ; case vide au coin de l’offre.",
+   "action": "L’interlocuteur se penche vers « Toi » : la rallonge cyan se rétracte d’un coup jusqu’à « minuit » et, à sa place, une étiquette rouge « Délai refusé » tombe ; la « pause » saute et le « ? » retombe à côté de la tête de « Toi ». « Toi » tend de nouveau le stylo vers l’offre : il bute encore sur la barre rouge. La case de vérification de l’offre tremble, toujours vide, et « Délai refusé » bat : c’est ce refus qui est le signal, pas « Toi » qui échoue.",
+   "resultat": "Il ne reste que la partie rouge « Dans la journée », qui fond de nouveau ; à la place des jours retirés, l’étiquette rouge « Délai refusé » (775, 900) ; la case de l’offre est vide ; « ? » à côté de la tête de « Toi ».",
+   "transition": "Sur « Ce » (S11), « Toi » ressaisit le bout de la barre ; la rallonge qui revient pousse « Délai refusé » hors de l’image.",
+   "beats": [
+    {
+     "t": 35.526,
+     "mot": "refuse",
+     "evenement": "Refuser : l’interlocuteur se penche de 10° vers « Toi » (TILT 450 ms) ; au même moment la rallonge cyan se rétracte jusqu’à « minuit » (value 1 → 0 en 250 ms, ease-in, « Quelques jours » s’efface en 150 ms) ; à la place des jours retirés, l’étiquette « refus » (pilule papier 250×60, contour rouge #C8102E 4, ombre 3, « Délai refusé » Inter Bold 34 rouge) tombe en (775, 900), contre le bout de la barre (kit.drop 370 ms) ; la « pause » se réduit (kit.vanish) et la barre rouge recommence à fondre (dérive 0,5 → 0,35 jusqu’à 38,6 s) ; le « ? » retombe à côté de la tête de « Toi » (860, 1000) (kit.drop 370 ms)."
+    },
+    {
+     "t": 37.117,
+     "mot": "éviter",
+     "evenement": "Buter : « Toi » tend le stylo vers la carte ; sa pointe heurte de nouveau le bout de la barre rouge (640, 930) et recule (300 ms) ; la barre tremble (kit.shake x)."
+    },
+    {
+     "t": 37.79,
+     "mot": "vérifies.",
+     "evenement": "Rester vide : la case de vérification de l’offre (510, 410) tremble (kit.shake x, 3 × 5 px) et reste vide ; « Délai refusé » bat deux fois (kit.pulse ×1,08) ; l’interlocuteur se redresse (lean 0) : le refus venait de lui."
+    }
+   ],
+   "lecture_sans_son": "L’escroc retire le délai : « Délai refusé » en rouge à sa place ; sans temps, « Toi » bute sur la barre et ne peut rien vérifier : ce refus est le signal d’alerte."
+  },
+  {
+   "id": "S11",
+   "segment": "point2",
+   "t_start": 38.649,
+   "t_end": 42.492,
+   "texte": "Ce délai, utilise-le pour savoir à qui tu as affaire.",
+   "elements": "toi, nom_toi, pastille, offre, compte_rebours, crochet, rallonge, champ, fil_recherche, case_offre, accolade_jour, question, interlocuteur, nom_inter, marqueur, refus",
+   "etat_initial": "Résultat de S10 : barre rouge qui fond, sans rallonge ; « ? » à côté de la tête de « Toi » ; interlocuteur et son nom « Invest Minuit » en bas à gauche.",
+   "action": "« Toi » ressaisit le bout de la barre et tire : la partie cyan « Quelques jours » revient et pousse « Délai refusé » hors de l’image. Puis elle se détache de la barre, descend sans perdre son cyan et se change en champ de recherche cyan pâle, une loupe à gauche, posé entre « Toi » et l’interlocuteur. « Toi » touche le champ : son « ? » y saute. Un fil deep relie le champ au nom de l’interlocuteur, et « Invest Minuit » glisse le long du fil jusque dans le champ.",
+   "resultat": "Un champ de recherche cyan pâle, loupe à gauche (470, 1080), contient « Invest Minuit » et, au bout, le « ? » ; un fil deep le relie au nom de l’interlocuteur ; « Délai refusé » est tombé ; la barre rouge, de nouveau seule, est figée sous la carte.",
+   "transition": "Sur « piège : » (S12), la carte, sa barre et la pastille accrochée filent dans le coin haut gauche.",
+   "beats": [
+    {
+     "t": 38.649,
+     "mot": "Ce",
+     "evenement": "Reprendre : Toi.tap sur le bout de la barre (640, 905) puis Toi.trace jusqu’à 880 (550 ms) : la rallonge cyan revient (value 0 → 1) avec « Quelques jours » ; en revenant, elle pousse « Délai refusé », qui bascule et tombe hors de l’image par le bas (kit.drop out 370 ms) ; la fonte rouge s’arrête."
+    },
+    {
+     "t": 39.485,
+     "mot": "utilise-le",
+     "evenement": "Devenir : la rallonge se détache (Toi.rest), descend en gardant son cyan et se change en route en champ de recherche (kit.morph 350 ms : shape round light #D3F0F6 360×64, r 32, contour deep 4, ombre 6 ; à gauche, une loupe dessinée en code : cercle r 13 contour deep 4 + manche deep 12 px à 45°, centre 320, 1080), posé en (470, 1080), x 290-650, entre l’interlocuteur et « Toi » (kit.move 550 ms ease-in-out) ; « Quelques jours » reste lisible pendant le trajet, puis s’efface en fondu à l’arrivée."
+    },
+    {
+     "t": 40.472,
+     "mot": "savoir",
+     "evenement": "Toucher : Toi.tap sur le bout droit du champ (630, 1080) ; le « ? » saute de côté de sa tête dans le champ, à son bout droit (620, 1080), réduit à gs 48 (kit.move 400 ms en arc)."
+    },
+    {
+     "t": 41.598,
+     "mot": "affaire.",
+     "evenement": "Relier puis copier : un fil plein deep (wire 5 px) se tire du bout gauche du champ (295, 1080) au nom « Invest Minuit » (300, 1010) (draw 250 ms) ; une copie du nom glisse le long du fil et s’écrit dans le champ, ancre start x 345 (S.along_wire 300 ms + kit.type) ; le nom reste aussi sur l’interlocuteur."
+    }
+   ],
+   "lecture_sans_son": "Malgré le refus, « Toi » reprend ses jours de délai et les change en recherche (loupe) : il cherche le nom de celui qui lui fait l’offre."
+  },
+  {
+   "id": "S12",
+   "segment": "point2",
+   "t_start": 42.492,
+   "t_end": 45.604,
+   "texte": "Deuxième piège : ne pas vérifier l’autorisation.",
+   "elements": "toi, nom_toi, pastille, offre, compte_rebours, crochet, champ, fil_recherche, accolade_jour, case_offre, question, interlocuteur, nom_inter, verdict, marqueur",
+   "etat_initial": "Résultat de S11 : champ « Invest Minuit ? » relié au nom de l’interlocuteur ; carte et barre à gauche, pastille accrochée à la carte ; repère sur 1.",
+   "action": "Le repère passe à « 2 · Registres », l’étape 1 cochée. La carte, sa barre et la pastille accrochée se réduisent dans le coin haut gauche, libérant le centre. Au-dessus du nom de l’interlocuteur apparaît une étiquette en tirets rouges « Autorisé ? » : personne n’a vérifié.",
+   "resultat": "Centre libre ; en haut à gauche, la carte réduite avec sa barre et la pastille accrochée (scale 0,45 / 0,7) ; en bas à gauche, l’interlocuteur sous « Autorisé ? » (tirets rouges) ; champ de recherche devant « Toi ».",
+   "transition": "Sur « établissement » (S13), le registre tombe au centre.",
+   "beats": [
+    {
+     "t": 42.492,
+     "mot": "Deuxième",
+     "evenement": "Étape 2 : le disque actif glisse sur « 2 » (kit.step 550 ms) ; une coche deep se trace dans le disque « 1 » (done0 0 → 1) ; « Registres » en Bold."
+    },
+    {
+     "t": 42.91,
+     "mot": "piège :",
+     "evenement": "Ranger : la carte (avec ses enfants : barre, légendes, accolade, case) se réduit à l’échelle 0,45 et file en (180, 420) (kit.move + scale 550 ms ease-in-out) ; la pastille, toujours accrochée par le fil rouge raccourci, la suit en (420, 430), échelle 0,7."
+    },
+    {
+     "t": 44.443,
+     "mot": "l’autorisation.",
+     "evenement": "Questionner : au-dessus du nom de l’interlocuteur surgit l’étiquette « verdict » : pilule papier 240×60, contour rouge #C8102E en tirets [12, 8] 4 px, texte « Autorisé ? » Inter Bold 34 encre, centre (190, 945) (kit.pop 300 ms) ; son contour bat deux fois (pulse)."
+    }
+   ],
+   "lecture_sans_son": "Piège 2 : on ne sait pas si cet acteur est autorisé ; la question reste en rouge tant que personne ne vérifie."
+  },
+  {
+   "id": "S13",
+   "segment": "point2",
+   "t_start": 45.604,
+   "t_end": 51.792,
+   "texte": "Pour un établissement financier, consulte le registre REGAFI. Pour un intermédiaire, c’est l’ORIAS.",
+   "elements": "toi, nom_toi, pastille, offre, champ, fil_recherche, registre, question, interlocuteur, nom_inter, verdict, marqueur",
+   "etat_initial": "Résultat de S12 : centre libre ; champ « Invest Minuit ? » devant « Toi » ; interlocuteur sous « Autorisé ? » ; offre réduite en haut à gauche.",
+   "action": "Un registre ouvert tombe au centre, marqué d’un sceau officiel et titré « REGAFI · Établissement financier » ; sur sa page, trois noms inscrits et une place vide. « Toi » touche le « ? » du champ : un fil deep monte du champ dans la page et descend la liste, nom après nom. Il arrive sur la place vide, qui tremble en rouge, et « Absent » s’écrit à côté : le nom n’y est pas. La page tourne, le registre devient « ORIAS · Intermédiaire » ; le fil cherche de nouveau : encore une place vide, encore « Absent ».",
+   "resultat": "Registre officiel « ORIAS · Intermédiaire » au centre, sa place vide cernée de rouge, « Absent » écrit à côté ; le fil de recherche, cassé en tirets, pend vers elle : « Invest Minuit » n’est inscrit ni au REGAFI ni à l’ORIAS.",
+   "transition": "Sur « Regarde » (S14), le registre se réduit et la liste noire grandit à sa place.",
+   "beats": [
+    {
+     "t": 46.01,
+     "mot": "établissement",
+     "evenement": "Tomber : le registre BOOK.png (largeur 380, centre 540, 740 ; ombre de contact) tombe au centre (kit.drop 370 ms) ; « REGAFI » (Inter ExtraBold 52, encre, 540, 545) et « Établissement financier » (Inter Bold 34, encre, 540, 600) surgissent au-dessus ; sur la page gauche, en code : trois noms inscrits (traits encre 110×10, x 400-510, y 690, 720, 750) et une place vide (shape round 130×30 en tirets encre, 455, 790). Un sceau (pictogramme bank sur disque cyan r 30, contour encre 4, ombre 3) se pose sur le coin haut droit de la page droite (690, 660) : registre officiel."
+    },
+    {
+     "t": 47.322,
+     "mot": "consulte",
+     "evenement": "Consulter : Toi.tap sur le « ? » du champ (620, 1080) ; un fil plein deep 5 px (fil_recherche, ré-ancré sur le champ) se tire du champ (470, 1050) jusqu’au premier nom de la page (455, 690) (draw 300 ms), puis son bout descend la liste, nom après nom, jusqu’à la place vide (455, 790) (piste pb, 450 ms) : il cherche."
+    },
+    {
+     "t": 48.588,
+     "mot": "REGAFI.",
+     "evenement": "Ne rien trouver : la place vide tremble (kit.shake x) et son contour passe au rouge (alarm, 200 ms), sans jamais se remplir ; « Absent » (Inter Bold 34, rouge, ancre start x 545, y 790) s’écrit à côté d’elle (kit.type) ; le fil se casse en tirets (dashed ≥ 0,5) et s’affaisse (sag 40)."
+    },
+    {
+     "t": 49.888,
+     "mot": "intermédiaire,",
+     "evenement": "Tourner la page : la page gauche se replie et se rouvre (sx 1 → 0 → 1, 2 × 150 ms) avec trois autres noms et une place vide ; au milieu du geste, « REGAFI » devient « ORIAS » et « Établissement financier » devient « Intermédiaire » (bascule de texte, textOp 0 → 1) ; « Absent » s’efface avec l’ancienne page ; le fil se retire dans le champ (from 0 → 1)."
+    },
+    {
+     "t": 51.049,
+     "mot": "l’ORIAS.",
+     "evenement": "Ne rien trouver encore : le fil se tire de nouveau du champ, descend la nouvelle liste jusqu’à sa place vide (draw 300 ms) ; elle tremble, contour rouge, reste vide ; « Absent » s’écrit de nouveau à côté ; le fil se casse en tirets."
+    }
+   ],
+   "lecture_sans_son": "« Toi » cherche le nom dans deux registres officiels (sceau), REGAFI puis ORIAS : il descend la liste, la place reste vide, « Absent »."
+  },
+  {
+   "id": "S14",
+   "segment": "point2",
+   "t_start": 51.792,
+   "t_end": 58.456,
+   "texte": "Regarde aussi les listes noires de l’AMF, qui recensent les sites et acteurs non autorisés.",
+   "elements": "toi, nom_toi, pastille, offre, champ, fil_recherche, registre, liste_noire, question, interlocuteur, nom_inter, verdict, marqueur",
+   "etat_initial": "Résultat de S13 : registre « ORIAS » au centre, place vide rouge, fil cassé ; champ « Invest Minuit ? » ; interlocuteur sous « Autorisé ? » (tirets rouges).",
+   "action": "Le registre se réduit et une liste grandit à sa place ; son en-tête se remplit d’encre, « Liste noire », avec le sceau « AMF ». Quatre lignes s’y inscrivent, deux sites (petite fenêtre de navigateur) et deux sociétés (immeuble). Le fil de recherche y arrive : la dernière ligne est « Invest Minuit », qui passe au rouge. Un fil rouge court de cette ligne à l’étiquette de l’interlocuteur, qui devient « Non autorisé », en rouge plein.",
+   "resultat": "La liste noire de l’AMF au centre, ligne « Invest Minuit » en rouge ; au-dessus de l’interlocuteur, « Non autorisé » en rouge plein, relié à cette ligne ; le « ? » est tombé du champ.",
+   "transition": "Sur « recherche » (S15), une horloge ressort du stylo de « Toi ».",
+   "beats": [
+    {
+     "t": 51.792,
+     "mot": "Regarde",
+     "evenement": "Relayer : le registre, son sceau et ses titres se réduisent vers leur centre pendant qu’une carte papier 420×330 (contour encre 4, ombre +6/+6, liste_noire) grandit à la même place, (540, 740) (kit.morph 350 ms) ; le fil cassé se retire dans le champ."
+    },
+    {
+     "t": 53.057,
+     "mot": "noires",
+     "evenement": "Noircir : la bande d’en-tête de la carte (420×70, x 330-750, y 575-645) s’étire en encre pleine (STRETCH 200 ms) avec « Liste noire » (Inter Bold 34, papier, ancre start x 355)."
+    },
+    {
+     "t": 53.789,
+     "mot": "l’AMF,",
+     "evenement": "Sceller : une pilule papier « AMF » (Inter ExtraBold 34, contour encre 4, 110×52) tombe sur la droite de la bande, (680, 610) (kit.drop 370 ms)."
+    },
+    {
+     "t": 55.437,
+     "mot": "recensent",
+     "evenement": "Inscrire : quatre lignes s’inscrivent une à une (kit.stagger 4 images) : disque light r 20 en x 375 portant, pour les sites, une fenêtre de navigateur dessinée en code (shape round 30×24, contour encre 3, bande haute pleine 6 px) et, pour les acteurs, le pictogramme building (fenêtre, fenêtre, building, building), puis un trait encre 220×12 pour les trois premières (y 690, 745, 800) ; la quatrième (y 855) s’écrit « Invest Minuit » (Inter Bold 34, encre, kit.type)."
+    },
+    {
+     "t": 57.272,
+     "mot": "non",
+     "evenement": "Trouver : le fil de recherche se tire du champ jusqu’à « Invest Minuit » (draw 250 ms) ; la ligne passe au rouge (texte et disque, 200 ms) et bat (kit.pulse) ; le « ? » tombe du champ et sort (kit.drop out)."
+    },
+    {
+     "t": 57.446,
+     "mot": "autorisés.",
+     "evenement": "Juger : le fil, passé au rouge, glisse son bout jusqu’à l’étiquette de l’interlocuteur (piste pb, 300 ms) ; l’étiquette devient « Non autorisé » (bascule de texte, Inter Bold 34 rouge ; contour rouge plein, tirets retirés) et bat une fois."
+    }
+   ],
+   "lecture_sans_son": "Sur la liste noire de l’AMF, le nom de l’interlocuteur est là, en rouge : il n’est pas autorisé."
+  },
+  {
+   "id": "S15",
+   "segment": "point2",
+   "t_start": 58.456,
+   "t_end": 61.707,
+   "texte": "Une recherche de deux minutes peut t’éviter de tout perdre.",
+   "elements": "toi, nom_toi, pastille, offre, crochet, champ, fil_recherche, liste_noire, horloge, interlocuteur, nom_inter, verdict, marqueur",
+   "etat_initial": "Résultat de S14 : liste noire au centre, ligne rouge reliée à « Non autorisé » ; pastille toujours accrochée à l’offre réduite en haut à gauche ; repère sur 2.",
+   "action": "L’horloge du début ressort du stylo de « Toi » et se pose à droite ; un petit secteur s’y remplit : « 2 min ». Le fil rouge qui retenait l’argent casse et tombe ; la pastille « Ton argent » se libère et file en haut à droite, du côté de « Toi », où elle bat.",
+   "resultat": "Horloge « 2 min » à droite ; le crochet rouge a disparu ; la pastille « Ton argent », libre, en (780, 420), à l’opposé de l’offre ; la liste noire et le « Non autorisé » restent.",
+   "transition": "Sur « Mais » (S16), la liste, l’horloge et les fils sortent ; le champ rentre dans le stylo de « Toi ».",
+   "beats": [
+    {
+     "t": 58.665,
+     "mot": "recherche",
+     "evenement": "Ressortir : l’horloge (sector r 60, unit 10, contour deep 5, secteur deep à 0) ressort de la pointe du stylo de « Toi », où elle s’était rangée en S05, et monte se poser en (840, 700) (kit.pop from_pt pointe + kit.move 550 ms)."
+    },
+    {
+     "t": 59.257,
+     "mot": "deux",
+     "evenement": "Compter : le secteur se remplit de 0 à 2 unités (400 ms, linéaire) ; sous l’horloge, « 2 min » (counter Inter ExtraBold 56, deep, value 0 → 2, suffixe « min » avec espace insécable, 840, 810)."
+    },
+    {
+     "t": 60.07,
+     "mot": "t’éviter",
+     "evenement": "Casser : le fil rouge du crochet se casse en tirets (dashed), s’affaisse (sag 0 → 120) et tombe hors de la carte réduite (kit.drop out, 370 ms)."
+    },
+    {
+     "t": 60.801,
+     "mot": "perdre.",
+     "evenement": "Libérer : la pastille « Ton argent » reprend l’échelle 1 et file de (420, 430) à (780, 420), du côté de « Toi » (kit.move 550 ms ease-in-out), puis bat une fois (kit.pulse ×1,1)."
+    }
+   ],
+   "lecture_sans_son": "Deux minutes de recherche suffisent : le crochet de l’offre casse et ton argent revient de ton côté."
+  },
+  {
+   "id": "S16",
+   "segment": "point3",
+   "t_start": 61.707,
+   "t_end": 67.802,
+   "texte": "Mais les escrocs le savent, et ils soignent les apparences. Troisième piège : te fier à l’image.",
+   "elements": "toi, nom_toi, pastille, offre, champ, liste_noire, horloge, telephone, conseiller, interlocuteur, nom_inter, verdict, marqueur, crochet",
+   "etat_initial": "Résultat de S15 : liste noire, horloge « 2 min », champ ; « Non autorisé » rouge au-dessus de l’interlocuteur ; pastille libre en (780, 420).",
+   "action": "La liste noire, l’horloge et les fils sortent ; le champ rentre dans le stylo de « Toi ». À côté de l’interlocuteur surgit un grand téléphone, écran vide. Une belle pilule cyan pâle « Conseiller » tombe sur son « Non autorisé » et le cache. Le repère passe à « 3 · Apparence ». « Toi » se penche vers le téléphone ; aussitôt un crochet rouge part du téléphone, se plante dans la pastille « Ton argent » et la tire : se fier à l’image, c’est redonner prise sur son argent.",
+   "resultat": "L’interlocuteur, « Non autorisé » caché sous « Conseiller », à côté d’un grand téléphone (440, 680) relié par un crochet rouge tendu à la pastille « Ton argent », de nouveau tirée (760, 432) ; « Toi » penché vers lui ; repère sur 3.",
+   "transition": "Sur « Site » (S17), l’écran du téléphone se remplit d’un beau site.",
+   "beats": [
+    {
+     "t": 61.707,
+     "mot": "Mais",
+     "evenement": "Vider la scène : la liste noire, l’horloge, « 2 min » et le fil se réduisent vers leur centre (kit.vanish 350 ms, décalés de 2 images) ; le champ se réduit dans la pointe du stylo de « Toi » (kit.vanish into, 300 ms)."
+    },
+    {
+     "t": 63.39,
+     "mot": "soignent",
+     "evenement": "Entrer : un grand téléphone (shape round papier 300×480, r 36, contour encre 5, ombre +6/+6 ; écran light 260×400 en retrait, encoche encre 60×10) surgit à côté de l’interlocuteur, centre (440, 680), x 290-590, y 440-920 (kit.pop 300 ms) ; écran vide."
+    },
+    {
+     "t": 63.959,
+     "mot": "apparences.",
+     "evenement": "Cacher : la pilule « Conseiller » (light #D3F0F6, contour encre 4, ombre 3, Inter Bold 34, 250×64) tombe sur « Non autorisé » et le couvre entièrement, (190, 945) (kit.drop 370 ms)."
+    },
+    {
+     "t": 65.004,
+     "mot": "Troisième",
+     "evenement": "Étape 3 : le disque actif glisse sur « 3 » (kit.step 550 ms) ; coche deep dans le disque « 2 » (done1) ; « Apparence » en Bold."
+    },
+    {
+     "t": 66.908,
+     "mot": "l’image.",
+     "evenement": "Se fier : « Toi » se penche de 8° vers le téléphone (lean_to, TILT 450 ms) ; au même moment le crochet rouge (même fil plein 5 px, même crochet en J) se trace du bord droit du téléphone (590, 600) jusqu’au bout gauche de la pastille (630, 420) (draw 300 ms) et la tire de (780, 420) à (760, 432) (kit.move 300 ms) ; le contour du téléphone bat une fois en rouge (2 × 150 ms)."
+    }
+   ],
+   "lecture_sans_son": "Démasqué, l’escroc cache son « Non autorisé » sous une belle étiquette et sort un téléphone ; dès que « Toi » s’y fie, un crochet rouge reprend son argent : piège 3."
+  },
+  {
+   "id": "S17",
+   "segment": "point3",
+   "t_start": 67.802,
+   "t_end": 74.153,
+   "texte": "Site soigné, faux témoignages, nom proche d’une institution connue, conseiller très sympathique.",
+   "elements": "toi, nom_toi, pastille, offre, telephone, sourire, conseiller, interlocuteur, nom_inter, verdict, marqueur, crochet",
+   "etat_initial": "Résultat de S16 : téléphone à écran vide à côté de l’interlocuteur ; « Conseiller » sur son étiquette ; crochet rouge du téléphone tendu sur la pastille (760, 432) ; « Toi » penché.",
+   "action": "L’écran se remplit d’un site soigné, qu’un reflet balaie. Trois bulles d’avis à cinq étoiles s’y alignent. Une étiquette « Banque Nationale » se colle sur le nom du site, alors que la pilule au-dessus de l’interlocuteur dit toujours « Invest Minuit ». Une bulle souriante sort de l’interlocuteur, qui se penche aimablement vers « Toi ». Le crochet rouge reste tendu sur la pastille.",
+   "resultat": "Un téléphone au site impeccable (étiquette « Banque Nationale » collée sur le nom, trois avis 5 étoiles) ; une bulle souriante au-dessus de l’interlocuteur penché, toujours nommé « Invest Minuit » ; « Non autorisé » toujours caché ; le crochet rouge tient la pastille.",
+   "transition": "Sur « Fie-toi » (S18), « Toi » se redresse et s’avance vers le téléphone.",
+   "beats": [
+    {
+     "t": 67.802,
+     "mot": "Site",
+     "evenement": "Remplir : l’écran se remplit d’un site (kit.pop décalé de 2 images) : bandeau cyan 260×90 en haut (y 470-560) portant « Invest Minuit » (Inter Bold 34, encre), puis trois blocs light 220×40 (y 610, 680, 750)."
+    },
+    {
+     "t": 68.232,
+     "mot": "soigné,",
+     "evenement": "Reflet : un reflet blanc (sheen) balaie l’écran en diagonale (p 0 → 1, 400 ms) : « soigné »."
+    },
+    {
+     "t": 69.149,
+     "mot": "faux",
+     "evenement": "Ajouter : trois bulles d’avis remplacent les blocs (kit.morph 350 ms) : pictogramme chat sur disque light r 22 (x 330) suivi de cinq étoiles dessinées (shape poly à 5 branches, 26 px, cyan, contour encre 2) en x 370-530, y 610, 680, 750 ; les étoiles se posent une à une (stagger 1 image)."
+    },
+    {
+     "t": 71.1,
+     "mot": "institution",
+     "evenement": "Usurper : une étiquette light #D3F0F6 (contour encre 3) portant « Banque » / « Nationale » (Inter Bold 34, encre, deux lignes) et un pictogramme bank sur disque papier r 22 tombe sur « Invest Minuit » dans le bandeau et le recouvre (kit.drop 370 ms) ; au même moment, au-dessus de la tête de l’interlocuteur, sa pilule « Invest Minuit » bat une fois : c’est toujours lui, sous un nom de banque."
+    },
+    {
+     "t": 72.377,
+     "mot": "conseiller",
+     "evenement": "Séduire : une bulle de parole (shape round light #D3F0F6 130×90, contour encre 4, ombre 3, queue tournée vers « Toi ») sort de l’interlocuteur et se pose au-dessus de lui, (190, 830) ; elle porte un sourire dessiné en code (deux points encre r 6 + un arc encre 5 px) (kit.pop 300 ms) ; l’interlocuteur se penche de 8° vers « Toi » (TILT 450 ms)."
+    }
+   ],
+   "lecture_sans_son": "L’escroc soigne l’image : beau site, avis 5 étoiles, un nom de banque collé sur le sien, un grand sourire ; mais son crochet rouge tient toujours ton argent."
+  },
+  {
+   "id": "S18",
+   "segment": "point3",
+   "t_start": 74.153,
+   "t_end": 78.089,
+   "texte": "Fie-toi plutôt aux signaux d’alerte. Un rendement élevé garanti.",
+   "elements": "toi, nom_toi, pastille, offre, telephone, sourire, conseiller, alertes, interlocuteur, nom_inter, verdict, marqueur, crochet",
+   "etat_initial": "Résultat de S17 : téléphone au site impeccable (« Banque Nationale », avis 5 étoiles), bulle souriante au-dessus de l’interlocuteur penché, « Conseiller » sur son étiquette ; crochet rouge tendu sur la pastille ; « Toi » penché en P2.",
+   "action": "« Toi » se redresse et s’avance. Il accroche du stylo le bas de l’écran et tire vers le bas : toute la façade (étiquette « Banque Nationale », avis, étoiles) glisse et tombe comme un masque décollé ; dessous, le vrai nom « Invest Minuit » apparaît, en rouge, comme sur la liste noire. La bulle disparaît et « Conseiller » glisse, découvrant « Non autorisé ». Le crochet rouge casse, la pastille revient à sa place, et une alerte rouge s’allume sur l’écran. Une première carte d’alerte en sort et se range à droite : « Rendement élevé garanti », « garanti » souligné de rouge.",
+   "resultat": "Écran sans façade : en haut le vrai nom « Invest Minuit » en rouge, au centre une alerte rouge ; « Non autorisé » de nouveau visible ; crochet cassé, pastille revenue en (780, 420) ; à droite, la carte d’alerte 1 « Rendement élevé garanti » (770, 530).",
+   "transition": "Sur « contact » (S19), une deuxième carte sort du téléphone.",
+   "beats": [
+    {
+     "t": 74.153,
+     "mot": "Fie-toi",
+     "evenement": "S’avancer : « Toi » se redresse et marche en P3 (700, 1135) (Toi.walk 550 ms)."
+    },
+    {
+     "t": 74.548,
+     "mot": "plutôt",
+     "evenement": "Arracher la façade : Toi.tap sur le bas de l’écran (560, 900) puis Toi.trace vers le bas jusqu’à (560, 960) (300 ms) : la couche du site (étiquette « Banque Nationale », bandeau, avis et étoiles) glisse vers le bas avec la pointe puis tombe hors de l’image (kit.drop out 450 ms, rotation 10°) ; dessous, dans le bandeau, le vrai nom « Invest Minuit » (Inter Bold 34, rouge, 440, 515) apparaît : le nom de la liste noire."
+    },
+    {
+     "t": 75.082,
+     "mot": "signaux",
+     "evenement": "Découvrir : la bulle souriante se réduit (kit.vanish 300 ms) et l’interlocuteur se redresse ; « Conseiller » glisse et tombe de l’étiquette (kit.drop out 370 ms) : « Non autorisé » réapparaît, rouge."
+    },
+    {
+     "t": 75.407,
+     "mot": "d’alerte.",
+     "evenement": "Lâcher : le crochet rouge du téléphone se casse en tirets et tombe (kit.drop out 370 ms) ; la pastille revient en (780, 420) et bat une fois (kit.pulse ×1,08) ; un pictogramme warning sur disque rouge r 40 (trait papier) surgit au centre de l’écran vide (440, 680) (kit.pop 300 ms)."
+    },
+    {
+     "t": 76.255,
+     "mot": "rendement",
+     "evenement": "Extraire : la carte d’alerte 1 sort du téléphone et se range à droite (kit.pop from_pt 440, 680 + kit.move 550 ms) : carte papier 330×100, contour rouge 4, ombre +6/+6, centre (770, 530), x 605-935 ; pictogramme percent sur disque papier à contour rouge r 26 (x 640) ; « Rendement » / « élevé garanti » (Inter Bold 34, encre, ancre start x 680)."
+    },
+    {
+     "t": 77.334,
+     "mot": "garanti.",
+     "evenement": "Souligner : « garanti » se souligne d’un trait rouge 5 px (piste under, 250 ms) ; la carte bat une fois."
+    }
+   ],
+   "lecture_sans_son": "« Toi » arrache la façade : dessous, le vrai nom en rouge et « Non autorisé » ; le crochet lâche son argent, et le premier signal d’alerte sort : un rendement élevé « garanti »."
+  },
+  {
+   "id": "S19",
+   "segment": "point3",
+   "t_start": 78.089,
+   "t_end": 83.186,
+   "texte": "Un contact non sollicité. Un paiement en crypto, ou vers un compte à l’étranger.",
+   "elements": "toi, nom_toi, pastille, offre, telephone, alertes, interlocuteur, nom_inter, verdict, marqueur",
+   "etat_initial": "Résultat de S18 : téléphone à écran vide marqué d’une alerte rouge ; carte 1 « Rendement élevé garanti » à droite ; « Non autorisé » visible ; « Toi » en P3.",
+   "action": "Trois autres cartes d’alerte sortent du téléphone une à une, chacune sur son mot, et s’empilent sous la première : « Contact non sollicité » (un téléphone qui sonne), « Paiement en crypto » (jeton), « Compte à l’étranger » (globe). Puis les quatre contours rouges battent ensemble.",
+   "resultat": "Une colonne de quatre cartes d’alerte rouges à droite (y 530, 645, 760, 875) ; le téléphone vide marqué d’une alerte ; l’interlocuteur « Non autorisé ».",
+   "transition": "Sur « Au » (S20), le téléphone et les quatre cartes rentrent dans le disque « 3 » du repère.",
+   "beats": [
+    {
+     "t": 78.275,
+     "mot": "contact",
+     "evenement": "Extraire : la carte 2 sort du téléphone et se range sous la première (770, 645) (kit.pop from_pt + kit.move 550 ms) : pictogramme phone sur disque à contour rouge, « Contact » / « non sollicité » (Inter Bold 34) ; son pictogramme tremble comme une sonnerie (kit.shake rot ±12°, 3 oscillations)."
+    },
+    {
+     "t": 80.179,
+     "mot": "paiement",
+     "evenement": "Extraire : la carte 3 sort et se range (770, 760) : TOKEN.png (largeur 70) à gauche, « Paiement » / « en crypto » (Inter Bold 34, « crypto » en minuscules)."
+    },
+    {
+     "t": 81.862,
+     "mot": "compte",
+     "evenement": "Extraire : la carte 4 sort et se range (770, 875) : GLOBE.png (largeur 70) à gauche, « Compte » / « à l’étranger » (Inter Bold 34)."
+    },
+    {
+     "t": 82.222,
+     "mot": "l’étranger.",
+     "evenement": "Alerter : les contours rouges des quatre cartes battent ensemble (kit.pulse ×1,05, stagger 2 images) ; puis plus rien ne bouge."
+    }
+   ],
+   "lecture_sans_son": "Les vrais signaux d’alerte s’empilent : rendement garanti, contact non sollicité, paiement en crypto, compte à l’étranger."
+  },
+  {
+   "id": "S20",
+   "segment": "chute",
+   "t_start": 83.186,
+   "t_end": 87.574,
+   "texte": "Au moindre doute, contacte Assurance Banque Épargne Info Service.",
+   "elements": "toi, nom_toi, pastille, offre, telephone, alertes, question, bouee, interlocuteur, nom_inter, verdict, marqueur",
+   "etat_initial": "Résultat de S19 : colonne de quatre alertes rouges à droite ; téléphone vide ; interlocuteur « Non autorisé » à gauche ; « Toi » en P3 (700, 1135) ; pastille en (780, 420).",
+   "action": "Le téléphone et les alertes rentrent dans le disque « 3 » du repère. Un « ? » naît à côté de la tête de « Toi ». « Toi » touche l’air devant lui : un combiné cyan sort de sa pointe et un fil deep monte ; une bouée tombe au centre, au bout du fil, et son nom s’écrit dessous : « Assurance Banque / Épargne Info Service » ; le sceau « AMF », déjà vu sur la liste noire, se pose sur la bouée : un service officiel. Le « ? » de « Toi » vole jusqu’à la bouée et y devient une coche.",
+   "resultat": "Au centre, la bouée reliée au combiné de « Toi » par un fil deep, nommée « Assurance Banque Épargne Info Service », marquée du sceau « AMF », avec une coche deep : le doute a trouvé sa réponse ; l’interlocuteur reste à gauche.",
+   "transition": "Sur « Et » (S21), la bouée, son nom, le sceau, le fil et le combiné se réduisent.",
+   "beats": [
+    {
+     "t": 83.186,
+     "mot": "Au",
+     "evenement": "Ranger : le téléphone et les quatre cartes d’alerte se réduisent et filent dans le disque « 3 » du repère (733, 280) (kit.vanish into, stagger 2 images, 350 ms)."
+    },
+    {
+     "t": 83.766,
+     "mot": "doute,",
+     "evenement": "Douter : un « ? » encre (qmark gs 80) surgit à côté de la tête de « Toi », (790, 1000) (kit.pop 300 ms)."
+    },
+    {
+     "t": 84.37,
+     "mot": "contacte",
+     "evenement": "Appeler : Toi.tap devant lui (590, 960) ; un pictogramme phone sur disque cyan r 34 (contour encre 4, ombre 3) surgit sous la pointe (kit.pop) et un fil plein deep 5 px se tire vers le haut, vers (560, 700) (draw 300 ms)."
+    },
+    {
+     "t": 84.904,
+     "mot": "Assurance",
+     "evenement": "Tomber : BUOY.png (largeur 300, centre 440, 640, ombre de contact) tombe au bout du fil (kit.drop 370 ms) ; le fil s’ancre sur son bord droit."
+    },
+    {
+     "t": 85.426,
+     "mot": "Banque",
+     "evenement": "Nommer : sous la bouée s’écrivent « Assurance Banque » (440, 795) puis « Épargne Info Service » (440, 840) (Inter Bold 34, deep ; kit.type 3 caractères par image, fin vers 85,9 s)."
+    },
+    {
+     "t": 86.378,
+     "mot": "Info",
+     "evenement": "Authentifier : la pilule « AMF » (Inter ExtraBold 34, contour encre 4, ombre 3, 110×52, même dessin que sur la liste noire) tombe sur le haut gauche de la bouée, (320, 520) (kit.drop 370 ms) : un service des autorités, pas une banque ni un assureur commercial."
+    },
+    {
+     "t": 86.727,
+     "mot": "Service.",
+     "evenement": "Répondre : le « ? » vole de la tête de « Toi » jusqu’à la bouée (kit.move 450 ms en arc) et s’y change en coche pleine deep (tick size 60, draw 200 ms), sur le bord haut droit de la bouée (560, 580)."
+    }
+   ],
+   "lecture_sans_son": "Au moindre doute, « Toi » appelle la bouée Assurance Banque Épargne Info Service, marquée du sceau AMF : un service officiel ; sa question y trouve une réponse."
+  },
+  {
+   "id": "S21",
+   "segment": "chute",
+   "t_start": 87.574,
+   "t_end": 92.137,
+   "texte": "Et retiens : une opportunité qui refuse la vérification ne mérite pas ton argent.",
+   "elements": "toi, nom_toi, pastille, offre, compte_rebours, case_offre, champ, bouee, interlocuteur, nom_inter, verdict, marqueur",
+   "etat_initial": "Résultat de S20 : bouée nommée au centre, coche deep ; interlocuteur « Non autorisé » à gauche ; offre réduite en haut à gauche ; pastille (780, 420) ; repère sur 3 ; « Toi » en P3.",
+   "action": "La bouée se range. Les trois étapes du repère se cochent : Délai, Registres, Apparence. L’offre revient en grand avec son compte à rebours rouge. « Toi » sort son champ de recherche et le pousse vers la case de l’offre : la barre rouge de l’offre glisse devant lui et le repousse ; la case reste vide et rougit : c’est l’offre qui refuse d’être vérifiée. « Toi » barre d’un trait deep le bout de la barre : l’offre bascule et tombe hors de l’image, l’interlocuteur s’en va. Lentement, la pastille « Ton argent » descend au centre et grandit à côté de « Toi ».",
+   "resultat": "Il ne reste que « Toi » et, à côté de lui, sa pastille « Ton argent » en grand (×1,5, centre 480, 760) ; en haut, le repère entièrement coché « Délai · Registres · Apparence ». Plus d’offre, plus d’interlocuteur.",
+   "transition": "Sur « Abonne-toi » (S22), la pastille devient le bouton « S’abonner » de la carte de fin.",
+   "beats": [
+    {
+     "t": 87.574,
+     "mot": "Et",
+     "evenement": "Ranger : la bouée, son nom, le sceau « AMF », le fil, le combiné et la coche se réduisent vers leur centre (kit.vanish 350 ms)."
+    },
+    {
+     "t": 87.748,
+     "mot": "retiens :",
+     "evenement": "Récapituler : les coches deep se tracent dans les disques du repère, « 3 » compris (done2), et le disque « 3 » se calme (on reste, pas de nouveau glissement) : « Délai ✓ · Registres ✓ · Apparence ✓ » — les trois légendes en Bold encre 32 (stagger 4 images, 200 ms chacune)."
+    },
+    {
+     "t": 88.642,
+     "mot": "opportunité",
+     "evenement": "Revenir : la carte de l’offre (avec barre rouge, légendes, case vide) grandit depuis le coin et revient à sa place, (300, 560), barre en (420, 900), échelle 1 (kit.move + scale 550 ms ease-in-out) ; la barre rouge reprend sa fonte (dérive)."
+    },
+    {
+     "t": 89.478,
+     "mot": "refuse",
+     "evenement": "Bloquer : le champ de recherche « Invest Minuit » sort de la pointe du stylo de « Toi » (kit.pop, échelle 0,8, 470, 1075) puis monte vers la case de l’offre ; la barre rouge de l’offre glisse de 30 px vers le bas, devant lui (kit.move 200 ms), et le repousse : il rebondit de 60 px (300 ms ease-out) ; au choc, la case de vérification bat et son contour passe au rouge (alarm), toujours vide : c’est l’offre qui bloque la vérification."
+    },
+    {
+     "t": 90.802,
+     "mot": "mérite",
+     "evenement": "Rejeter : « Toi » barre le bout de la barre rouge d’un trait deep 6 px (Toi.trace de 580, 890 à 680, 970 ; 300 ms) ; aussitôt la carte et sa barre (trait compris) basculent de −20° et tombent hors de l’image par le bas (kit.drop out, 600 ms) ; l’interlocuteur sort par la gauche (fig.exit), son nom et « Non autorisé » avec lui ; le champ rentre dans le stylo."
+    },
+    {
+     "t": 91.429,
+     "mot": "argent.",
+     "evenement": "Garder : la pastille « Ton argent » descend lentement de (780, 420) au centre (480, 760) et grandit ×1,5 (450×126) (kit.move + scale 700 ms ease-in-out), puis bat une fois ; « Toi » baisse le bras à côté d’elle."
+    }
+   ],
+   "lecture_sans_son": "L’offre bloque la vérification (sa barre repousse la recherche, la case reste vide et rouge) : « Toi » la barre, elle tombe ; il garde son argent, en grand, à côté de lui."
+  },
+  {
+   "id": "S22",
+   "segment": "cta",
+   "t_start": 92.137,
+   "t_end": 94.966,
+   "texte": "Abonne-toi pour comprendre ton argent.",
+   "elements": "pastille → fin, toi, nom_toi, marqueur, fin",
+   "etat_initial": "Résultat de S21 : pastille « Ton argent » en grand au centre (480, 760) ; « Toi » en P3 (700, 1135) ; repère coché en haut.",
+   "action": "Fin standard : la pastille efface « Ton argent » et devient « S’abonner » ; le repère et le nom « Toi » s’effacent pendant que la carte de fin surgit au centre ; la pastille se pose au bas de la carte et devient son bouton. « Toi » touche le bouton du stylo : il s’enfonce, une onde part du point touché. Plus rien ne bouge.",
+   "resultat": "La pastille « Ton argent » est devenue le bouton « S’abonner » de la carte « WealthTech Horizon · Comprendre ton argent », touché par « Toi » ; image immobile jusqu’à 94,966 s.",
+   "transition": "Image finale tenue jusqu’à 94,966 s.",
+   "beats": [
+    {
+     "t": 92.137,
+     "mot": "Abonne-toi",
+     "evenement": "Fin standard (kit.outro, clear « fade », outs : marqueur, nom_toi) : la pastille efface son texte (textOp → 0, 4 images) puis passe à « S’abonner » (fondu 200 ms) ; la carte papier 620×520 surgit en (540, 760) ; « WealthTech Horizon » et « Comprendre ton argent » entrent en fondu à f + 4 ; la pastille se pose au bas de la carte et grandit en bouton (≈ 380×112, centre ≈ 540, 930 ; btn_at). « Toi » reste en P3, sous la carte à droite."
+    },
+    {
+     "t": 93.658,
+     "mot": "argent.",
+     "evenement": "Toucher : Toi.tap sur le coin bas droit du bouton (690, 965), contact sur le mot ; le bouton s’enfonce de 8 px dans son ombre (piste press, 5 images) et deux ondes deep partent du point touché (18 images) ; aucun pointeur de souris. Puis plus rien ne bouge jusqu’à 94,966 s."
+    }
+   ],
+   "lecture_sans_son": "L’argent qu’on a gardé devient le bouton « S’abonner » de WealthTech Horizon, et « Toi » appuie dessus."
+  }
+ ],
+ "idees_cles": [
+  {
+   "id": "a",
+   "idee": "Une offre « jusqu’à ce soir minuit » arrive avec un compte à rebours rouge qui fond ; un crochet rouge tire l’argent de « Toi » vers elle.",
+   "scenes": [
+    "S01",
+    "S02"
+   ],
+   "principale": false
+  },
+  {
+   "id": "b",
+   "idee": "Ralentir : « Toi » pose le stylo sur le compte à rebours, il se met en pause et l’argent revient vers lui.",
+   "scenes": [
+    "S03"
+   ],
+   "principale": false
+  },
+  {
+   "id": "c",
+   "idee": "La pression du temps empêche de vérifier et fait agir trop vite : le stylo bute sur la barre rouge, la case de l’offre reste vide, le bouton « J’investis » s’enfonce avant que le « ? » arrive ; le compte à rebours est « n° 1 des arnaques ».",
+   "scenes": [
+    "S05",
+    "S06"
+   ],
+   "principale": false
+  },
+  {
+   "id": "d",
+   "idee": "Piège 1 : décider dans la journée (accolade rouge) ; « Toi » allonge la barre en cyan, « quelques jours » ; quand l’escroc retire ce délai (« Délai refusé »), on ne peut plus rien vérifier : ce refus est un signal.",
+   "scenes": [
+    "S07",
+    "S08",
+    "S09",
+    "S10"
+   ],
+   "principale": true
+  },
+  {
+   "id": "e",
+   "idee": "Piège 2 : « Toi » se sert du délai pour chercher le nom de l’interlocuteur : absent du REGAFI et de l’ORIAS, il figure en rouge sur la liste noire de l’AMF : « Non autorisé ».",
+   "scenes": [
+    "S11",
+    "S12",
+    "S13",
+    "S14"
+   ],
+   "principale": true
+  },
+  {
+   "id": "f",
+   "idee": "Une recherche de 2 minutes suffit : le crochet de l’offre casse et l’argent revient du côté de « Toi ».",
+   "scenes": [
+    "S15"
+   ],
+   "principale": true
+  },
+  {
+   "id": "g",
+   "idee": "Piège 3 : l’escroc cache son « Non autorisé » sous une belle image (site soigné, avis 5 étoiles, nom de banque collé sur le sien, sourire) et son crochet reprend l’argent ; « Toi » arrache la façade : dessous, le vrai nom en rouge.",
+   "scenes": [
+    "S16",
+    "S17",
+    "S18"
+   ],
+   "principale": true
+  },
+  {
+   "id": "h",
+   "idee": "Les vrais signaux d’alerte sortent de derrière la façade : rendement élevé garanti, contact non sollicité, paiement en crypto, compte à l’étranger.",
+   "scenes": [
+    "S18",
+    "S19"
+   ],
+   "principale": true
+  },
+  {
+   "id": "i",
+   "idee": "Au moindre doute, « Toi » appelle Assurance Banque Épargne Info Service, un service officiel (sceau AMF) : la bouée reçoit sa question et la change en coche.",
+   "scenes": [
+    "S20"
+   ],
+   "principale": true
+  },
+  {
+   "id": "j",
+   "idee": "Les trois étapes cochées (Délai, Registres, Apparence) : l’offre qui bloque la vérification est barrée par « Toi » et tombe, et « Toi » garde son argent, en grand, à côté de lui.",
+   "scenes": [
+    "S21",
+    "S22"
+   ],
+   "principale": true
+  }
+ ],
+ "entites_nouvelles": [],
+ "test_sans_son": {
+  "message_reconstruit": "« Une offre d’investissement qui t’impose de décider tout de suite (« jusqu’à ce soir minuit ») utilise le piège numéro un des arnaques : l’urgence tire ton argent avant que tu aies le temps de réfléchir ou de vérifier. Premier réflexe, le délai : ne décide jamais dans la journée, prends quelques jours. Si l’interlocuteur refuse de te laisser ce temps, c’est déjà suspect. Deuxième réflexe, les registres : en deux minutes, cherche son nom dans les registres officiels (REGAFI pour les établissements, ORIAS pour les intermédiaires) et sur la liste noire de l’AMF. Ici, « Invest Minuit » est absent des registres et présent sur la liste noire, donc non autorisé. Troisième réflexe, l’apparence : un beau site, des avis 5 étoiles, un nom de banque et un « conseiller » aimable ne prouvent rien. Méfie-toi d’un rendement élevé garanti, d’un contact non sollicité, d’un paiement en crypto ou d’un compte à l’étranger, et en cas de doute appelle Assurance Banque Épargne Info Service. Une offre qui ne passe pas ces trois filtres, tu la laisses tomber, et ton argent reste chez toi. »",
+  "idees": [
+   {
+    "id": "a",
+    "score": "GOT",
+    "preuve": "S01 : « C’est une offre d’investissement limitée dans le temps, avec un compte à rebours » ; S02 : « L’urgence attire mon argent vers l’offre presque sans que je le décide ». Réserves : S01 « Sans [les mots] je prendrais la barre rouge pour une barre de chargement » ; S02 « Je pourrais lire le fil rouge comme un simple lien »."
+   },
+   {
+    "id": "b",
+    "score": "GOT",
+    "preuve": "S03 : « Le compte à rebours s’arrête, le signe « pause » s’affiche, le fil se relâche et mon argent revient près de moi. Idée : faire une pause casse l’emprise de l’urgence. » Réserve : « je ne comprends pas tout de suite pourquoi le personnage tient un stylo »."
+   },
+   {
+    "id": "c",
+    "score": "GOT",
+    "preuve": "S05 : « L’urgence empêche de vérifier » ; S06 : « l’urgence est la technique d’arnaque numéro un […] Ce n’est qu’après qu’un « ? » apparaît : il réfléchit trop tard. » Réserves : « je pourrais aussi croire que « n° 1 » désigne l’offre elle-même » ; « Le « ? » qui arrive après est un détail subtil » ; S05 « rien de visible ne fait sauter [la pause] »."
+   },
+   {
+    "id": "d",
+    "score": "GOT",
+    "preuve": "S08 : « Décider dans la journée, sous la pression, c’est le piège » ; S09 : « se donner quelques jours pour réfléchir » ; S10 : « Le vendeur refuse qu’on prenne du temps et remet la pression ». Réserves : S10 « Je risque de mal lire la scène comme un échec de « Toi » […] ce « s’il refuse, méfie-toi » n’est pas écrit à l’écran » ; S07 « Le prolongement cyan est très court »."
+   },
+   {
+    "id": "e",
+    "score": "GOT",
+    "preuve": "S11 : « Le temps gagné sert à chercher le nom de l’interlocuteur » ; S13 : « « Invest Minuit » n’est inscrit dans aucun registre officiel » ; S14 : « Il est officiellement repéré comme acteur non autorisé ». Réserves : S13 « Pour un néophyte, REGAFI et ORIAS ne veulent rien dire […] la place vide comme « une place libre » » ; S14 icônes lues « démarchage téléphonique »."
+   },
+   {
+    "id": "f",
+    "score": "GOT",
+    "preuve": "S15 : « cette vérification ne prend que deux minutes. Le fil rouge qui retenait mon argent casse […] Avoir vérifié me protège. » Réserve : « Le lien avec « Quelques minutes » de S04 ne devient clair qu’ici »."
+   },
+   {
+    "id": "g",
+    "score": "GOT",
+    "preuve": "S16 : « L’arnaqueur se déguise en conseiller respectable » ; S17 : « L’arnaque se pare de tous les signes de confiance » ; S18 : « la façade tombe ». Réserves : S16 « Un seul clignotement rouge est facile à rater » ; S17 « un spectateur distrait pourrait retenir « Banque Nationale = rassurant » » ; « Le cœur pourrait faire penser à une arnaque sentimentale »."
+   },
+   {
+    "id": "h",
+    "score": "GOT",
+    "preuve": "S18 : « le premier est un rendement garanti » ; S19 : « Ce sont les quatre signaux d’alerte typiques d’une arnaque ». Réserves : S18 « le geste « toucher le bas du téléphone » ne dit pas quelle action concrète il représente » ; S19 « Je ne sais pas si un seul signal suffit »."
+   },
+   {
+    "id": "i",
+    "score": "GOT",
+    "preuve": "S20 : « En cas de doute, on peut appeler ce service, qui répond à la question. » Réserve : « Le nom long […] pourrait me faire croire à une compagnie d’assurance ou à une banque commerciale »."
+   },
+   {
+    "id": "j",
+    "score": "GOT",
+    "preuve": "S21 : « En appliquant les trois réflexes, on écarte l’arnaque et on garde son argent » ; S22 : « C’est l’appel à s’abonner ». Réserves : S21 « Le champ qui bute […] pourrait se lire comme « la vérification échoue encore » » ; « Le geste qui fait tomber l’offre […] n’est pas explicitement un refus »."
+   }
+  ],
+  "bilan": "Message principal reconstitué en entier : les dix idées-clés sont GOT, aucun contresens global (l’urgence comme arme n° 1, les trois réflexes Délai / Registres / Apparence, REGAFI, ORIAS, liste noire de l’AMF, les quatre signaux, la bouée, l’offre écartée, l’argent gardé). Contresens possibles à retirer : la barre rouge lue « barre de chargement » sans ses mots (S01) ; le fil lu « simple lien » et non emprise (S02) ; « Quelques minutes » lu comme le temps qui reste avant minuit, et l’horloge rangée dans le disque « 2 » alors qu’on l’associe au délai (S04-S05) ; « n° 1 » attribué à l’offre ou à « Invest Minuit » (S06) ; le bouton qui remonte lu « replay » (S07) ; le refus du délai lu comme un échec de « Toi » (S10) ; la place vide lue « place libre » (S13) ; les pictogrammes téléphone lus « démarchage » (S14) ; « Banque Nationale » retenu comme rassurant et le cœur lu « arnaque sentimentale » (S17) ; la bouée prise pour une banque ou un assureur commercial (S20) ; le champ qui bute lu comme une nouvelle impuissance de « Toi » (S21). Flous : la « pause » qui saute sans cause visible (S05), le prolongement cyan trop court (S07), le « ? » trop discret (S06), la métamorphose rallonge → champ subtile (S11), un seul clignotement rouge en S16, le geste « toucher le bas du téléphone » sans action concrète (S18). Non corrigé, faute d’appui dans la voix : ni numéro de téléphone ni adresse de site (S13, S20), ni « un seul signal suffit » (S19). Corrections : causes rendues visibles (l’offre fait sauter la pause, le geste de « Toi » décolle l’argent du bouton, l’offre repousse la recherche), mots rouges qui nomment le refus et l’absence (« Délai refusé », « Absent »), objets concrets à la place des signes ambigus (horloge, crochet en J, loupe, sceau, fenêtre de navigateur, immeuble, sourire), et une conséquence visible pour le piège 3 (le crochet du téléphone reprend l’argent, puis casse quand la façade est arrachée).",
+  "changements": [
+   {
+    "id": "S01",
+    "lecture": "« Sans eux, je prendrais la barre rouge pour une barre de chargement ou de progression. »",
+    "changement": "Un pictogramme horloge (clock sur disque papier r 24) se pose à gauche de la barre sur « minuit » : la barre mesure du temps."
+   },
+   {
+    "id": "S02",
+    "lecture": "« Je pourrais lire le fil rouge comme un simple lien entre mon argent et l’offre […] plutôt que comme un hameçon. »",
+    "changement": "Le fil finit par un crochet rouge en J planté dans la pastille, qui tremble au contact : elle est prise, pas reliée."
+   },
+   {
+    "id": "S03",
+    "lecture": "« Je ne comprends pas tout de suite pourquoi le personnage tient un stylo. »",
+    "changement": "Pas de changement dans la scène ; le stylo devient visiblement l’outil de vérification : l’horloge en sort (S04), y rentre (S05) et en ressort (S15), comme le champ de recherche (S16, S21)."
+   },
+   {
+    "id": "S04",
+    "lecture": "« « Quelques minutes » est ambigu : je pourrais croire que c’est le temps qui reste avant minuit […] La scène est longue (7 s) pour peu d’action. »",
+    "changement": "Horloge deep posée à gauche, légendée « Vérifier » puis « Quelques minutes » ; nouveau temps fort sur « urgente. » : l’offre bat en rouge, les pièges viennent d’elle."
+   },
+   {
+    "id": "S05",
+    "lecture": "« Je ne comprends pas pourquoi l’horloge rentre dans le disque « 2 » […] Je ne sais pas non plus pourquoi la pause saute : rien de visible ne la fait sauter. »",
+    "changement": "L’horloge rentre dans le stylo de « Toi » ; nouveau temps fort sur « l’urgence ? » : l’offre se secoue et fait tomber la « pause » ; le nom « Invest Minuit » sort du titre de l’offre pour se poser sur l’interlocuteur."
+   },
+   {
+    "id": "S06",
+    "lecture": "« Je pourrais aussi croire que « n° 1 » désigne l’offre elle-même ou « Invest Minuit » […] Le « ? » qui arrive après est un détail subtil. »",
+    "changement": "L’horloge du compte à rebours saute à côté du « n° 1 » (c’est le compte à rebours qui est n° 1) ; le « ? » plus grand (gs 96) tremble, 0,7 s après le bouton enfoncé."
+   },
+   {
+    "id": "S07",
+    "lecture": "« Le bouton qui remonte est ambigu : retour en arrière (« et si on rejouait la scène »)… […] Le prolongement cyan est très court. »",
+    "changement": "Le bouton ne remonte plus seul : c’est la saisie de la barre par « Toi » qui relâche le fil, décolle la pastille et fait remonter le bouton ; rallonge de 120 px au lieu de 60."
+   },
+   {
+    "id": "S10",
+    "lecture": "« Je risque de mal lire la scène comme un échec de « Toi » […] Ce « s’il refuse, méfie-toi » n’est pas écrit à l’écran. »",
+    "changement": "Une étiquette rouge « Délai refusé » tombe à la place des jours retirés, sur la même image que le geste de l’interlocuteur, et bat pendant que la case reste vide ; « Toi » la chasse en S11 en reprenant son délai."
+   },
+   {
+    "id": "S11",
+    "lecture": "« La transformation de la rallonge en champ de recherche est élégante mais subtile […] Je reconnais un champ de recherche à sa forme, pas à un mot. »",
+    "changement": "La rallonge garde son cyan pendant le trajet, « Quelques jours » reste lisible jusqu’à l’arrivée ; le champ a un fond cyan pâle et une loupe dessinée en code."
+   },
+   {
+    "id": "S13",
+    "lecture": "« Pour un néophyte, REGAFI et ORIAS ne veulent rien dire […] Je pourrais aussi lire la place vide comme « une place libre » plutôt que « absent ». »",
+    "changement": "Sceau officiel (bank sur disque cyan) sur le registre ; le fil descend la liste nom après nom avant d’arriver à la place vide ; « Absent » s’écrit en rouge à côté, au REGAFI puis à l’ORIAS (la place reste vide)."
+   },
+   {
+    "id": "S14",
+    "lecture": "« Je pourrais prendre les petites icônes téléphone et personne pour du démarchage téléphonique. »",
+    "changement": "Sites = petite fenêtre de navigateur dessinée en code ; acteurs = immeuble (building)."
+   },
+   {
+    "id": "S15",
+    "lecture": "« Le lien avec « Quelques minutes » de S04 ne devient clair qu’ici, après coup. »",
+    "changement": "L’horloge ressort du stylo de « Toi », d’où elle était sortie en S04 et où elle s’était rangée en S05."
+   },
+   {
+    "id": "S16",
+    "lecture": "« Un seul clignotement rouge est facile à rater. »",
+    "changement": "Dès que « Toi » se penche vers le téléphone, un crochet rouge en part, se plante dans la pastille et la tire : se fier à l’image redonne prise sur l’argent."
+   },
+   {
+    "id": "S17",
+    "lecture": "« Un spectateur distrait pourrait retenir « Banque Nationale = rassurant » […] Le cœur pourrait faire penser à une arnaque sentimentale. »",
+    "changement": "« Banque Nationale » est une étiquette qui tombe sur « Invest Minuit » pendant que la pilule de l’interlocuteur, toujours « Invest Minuit », bat ; le cœur (HEART.png) est remplacé par une bulle souriante qui sort de l’interlocuteur ; le crochet rouge reste tendu."
+   },
+   {
+    "id": "S18",
+    "lecture": "« Le geste « toucher le bas du téléphone » ne dit pas quelle action concrète il représente. »",
+    "changement": "« Toi » tire la façade vers le bas : elle tombe comme un masque et le vrai nom « Invest Minuit » apparaît en rouge ; nouveau temps fort sur « d’alerte. » : le crochet casse, la pastille revient, l’alerte s’allume."
+   },
+   {
+    "id": "S20",
+    "lecture": "« Le nom long, avec « Assurance » et « Banque », pourrait me faire croire à une compagnie d’assurance ou à une banque commerciale. »",
+    "changement": "Nouveau temps fort sur « Info » : le sceau « AMF », même pilule que sur la liste noire, tombe sur la bouée (service officiel) ; nom écrit plus vite pour laisser la place à ce geste. Pas de numéro : la voix n’en donne pas."
+   },
+   {
+    "id": "S21",
+    "lecture": "« Le champ qui bute et la case qui rougit pourraient se lire comme « la vérification échoue encore » […] Le geste qui fait tomber l’offre n’est pas explicitement un refus. »",
+    "changement": "C’est la barre rouge de l’offre qui glisse devant le champ et le repousse (l’offre bloque) ; « Toi » barre ensuite le bout de la barre d’un trait deep, puis l’offre tombe."
+   }
+  ]
+ },
+ "risks": [
+  "Compte à rebours : la barre qui fond doit se lire « le temps qui reste » et non « une barre de chargement » : pictogramme clock à son bout gauche et légendes « maintenant » / « minuit » (leçon 38) visibles tant que la barre est grande ; si le test du film hésite encore, écrire « 23:59 » en petit au-dessus de « minuit ».",
+  "Allonge de « Toi » (épaule ≈ y 1119) : rien au-dessus de y ≈ 860 n’est touché ; ses gestes visent le bout de la barre (640, 905), la rallonge (jusqu’à 880, 905), le champ (620-630, 1080), le bas du téléphone (560, 905), le point d’appel (590, 960) et le bouton de fin (690, 965). Vérifier par fig.place_for ; au besoin P2 à 740 et la barre descendue à y 920.",
+  "Pause : le pictogramme « pause » peut se lire « lecture vidéo » ; il est posé SUR le bout de la barre, au contact du stylo, et la fonte s’arrête visiblement : si le test muet hésite, ajouter un anneau deep autour du point touché et tenir 0,6 s.",
+  "Rallonge rétractée (S10) : la cause doit être l’interlocuteur ; son inclinaison et la rétraction démarrent sur la même image ; si on lit « Toi a lâché », garder le stylo de « Toi » au bout jusqu’au retour du rouge et le faire reculer avec la barre.",
+  "Rallonge → champ de recherche (S11) : la métamorphose doit se voir : la rallonge garde son cyan pendant tout le trajet et le champ garde un fond cyan pâle avec une loupe ; repli : laisser « Quelques jours » écrit en petit sous le champ jusqu’à la fin de S11.",
+  "Registre (S13) : BOOK.png doit se lire « registre officiel » ; les titres « REGAFI » / « ORIAS » au-dessus et la liste de noms dessinée sur la page le confirment (leçon 29) ; la place vide ne se remplit jamais (leçon 2).",
+  "Liste noire (S14) : la bande d’en-tête encre est la seule grande masse noire du film ; si elle pèse trop, la réduire à 56 px de haut ; le nom trouvé en rouge doit être exactement « Invest Minuit », comme sur la pilule de l’interlocuteur.",
+  "Nom de banque usurpé (S17) : l’étiquette « Banque Nationale » doit se lire collée PAR-DESSUS le nom (chute visible, léger décalage) et la pilule « Invest Minuit » de l’interlocuteur bat au même moment ; en S18, le vrai nom réapparaît en rouge sous la façade.",
+  "Étoiles : dessinées en shape poly (pas de glyphe ★, absent de Inter) ; 15 petites formes : si la densité gêne, deux bulles d’avis au lieu de trois.",
+  "Cartes d’alerte (S18-S19) : 330 px de large jusqu’à x 935, à 5 px de la colonne réservée ; si la QA de zone proteste, cartes 320 px centrées en 765.",
+  "Densité S14 : six temps forts en 5,7 s, dont « non » et « autorisés » à 174 ms d’écart ; si le spectateur ne suit pas, déplacer le passage au rouge de la ligne sur « acteurs » (56,877 s).",
+  "Façade arrachée (S18) : « Toi » ne peut pas atteindre le haut de l’écran (allonge) ; il tire le bas de l’écran vers le bas (560, 900 → 960) et toute la couche du site suit sa pointe : vérifier par fig.place_for et garder le geste et la chute dans la même seconde.",
+  "Crochet du téléphone (S16-S18) : la pastille ne bouge que de 20 px pour rester à 10 px du téléphone (x 590) ; si l’air manque, garder la pastille en place et ne faire que tendre le fil (sag 0) avec un tremblement de la pastille.",
+  "Bloquer (S21) : la barre rouge qui glisse devant le champ doit se lire comme un geste de l’offre (même image que le choc) ; le trait deep de « Toi » sur la barre est un refus, pas une validation : il tombe avec l’offre.",
+  "Sceau « AMF » sur la bouée (S20) : Assurance Banque Épargne Info Service est le service commun de la Banque de France, de l’ACPR et de l’AMF ; on ne montre que le sceau déjà vu (« AMF ») et aucun numéro, car la voix n’en donne pas."
+ ],
+ "excerpt": {
+  "t_start": 28.944,
+  "t_end": 42.492,
+  "why": "Piège 1 complet et passage au piège 2 (S08-S11) : le geste central du film (la barre rouge « Dans la journée » allongée en cyan « Quelques jours », rétractée par l’escroc, reprise par « Toi » et changée en champ de recherche) ; 13,5 s sur des débuts de phrase."
+ },
+ "revisions": [
+  {
+   "version": "v1 · révisé après le test sans son",
+   "scenes": [
+    "S01",
+    "S02",
+    "S04",
+    "S05",
+    "S06",
+    "S07",
+    "S08",
+    "S09",
+    "S10",
+    "S11",
+    "S13",
+    "S14",
+    "S15",
+    "S16",
+    "S17",
+    "S18",
+    "S20",
+    "S21"
+   ],
+   "pourquoi": "Test du spectateur muet, tour 1 : causes rendues visibles, refus et absence nommés en rouge, objets concrets à la place des signes ambigus, conséquence visible du piège 3 (voir « Test sans son »)."
+  }
+ ]
+}
