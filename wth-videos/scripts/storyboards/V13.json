@@ -1,7 +1,7 @@
 {
- "version": "v1",
- "angle": "Parti pris « le puzzle de ton patrimoine » : on part du seul chiffre que « Toi » regarde, la pilule cyan « 3 200 € » de son solde, et on montre qu’elle n’est qu’une case sur neuf d’une grille dont les huit autres cases sont des « ? ». La même grille devient « ce que tu possèdes » dans l’équation « grille − carte grise de la banque = Patrimoine net », se remplit case par case au point 1, prête sa case « Immobilier » (un jeton-maison de verre) au point 2, où la barre de valeur de l’appartement perd sa part grise (180 000 €) pour ne garder que ≈ 70 000 € nets, puis fournit au point 3 les pastilles qui montrent ce que le chiffre mélange. Dans la chute, « Toi » ne regarde plus son solde mais le Patrimoine net. Les trois angles combinés : objets persistants (la pilule « 3 200 € » de la première image au bouton ; la grille née dans l’accroche et présente jusqu’à la fin ; la carte grise « Ce que tu dois » qui se range dans le disque 2 du repère, en ressort en part grise de la barre, y retourne, puis revient dans l’équation finale ; la pilule « Patrimoine net » rangée dans le disque 3, qui en ressort au point 3 et devient le résultat de la chute ; l’en-tête « Ce que tu possèdes » devenu la légende 1 du repère ; les pastilles qui sortent des cases ; le point « repère » qui tombe de la pilule et commence la courbe) ; grammaire de la référence (cartes, pilules, une barre, des points et une courbe ; tenir puis éclater ; 1 à 3 éléments actifs par temps fort ; deux PNG seulement, un à la fois) ; lisibilité sans le son (verbes francs : regarder, remplir, barrer, poser, recouvrir, détacher, retirer, compter, sortir, relier, tracer). Procédés repris de V01-V12 : pilule du solde qui devient le bouton (V04, V12), trait de regard en tirets de « Toi » (V12), repère légendé avec étapes cochées et légendes à l’encre (V02-V03, doneStyle « kept »), valeur barrée qui tombe (V01), relais par morph, fin standard sans curseur de souris (V12).\nRéponse aux 7 points :\n1) Fil conducteur : la pilule « 3 200 € » de ton solde, regardée seule par « Toi » (S01), réduite à une case sur neuf (S02), première case de « ce que tu possèdes » (S04-S09), toujours dans sa case pendant le calcul (S10-S19), regardée en rouge puis délaissée pour le Patrimoine net (S20-S21), devenue le bouton « S’abonner » (S22).\n2) État initial / action / résultat : chaque scène part du résultat de la précédente et finit sur un changement visible : la grille de « ? » se remplit (S08-S09), « Prix d’achat » est barré et remplacé (S10), la barre de 250 000 € perd sa part grise et il reste ≈ 70 000 € nets (S11-S15), le chiffre se décompose en pastilles (S17), une courbe naît d’un point (S18-S19), le regard de « Toi » change de cible (S20-S21).\n3) Le sens complet : « ne dit presque rien » = une case connue sur neuf ; « pas à toi en entier » = la carte de la banque recouvre 72 % de la barre ; « pas les mensualités, mais le montant restant » = une petite tranche rouge barrée, puis toute la part grise sous une accolade ; « pas 250 000 € mais environ 70 000 € nets » = la barre entière cernée de rouge, puis la part grise retirée et le reste chiffré ; « mélange » = six pastilles opposées deux à deux ; « son évolution qui compte » = 8 points, 2 par an, et une courbe qui monte.\n4) L’IA ≠ « Toi » : pas d’IA dans ce film (AI.png non utilisé, aucun pointillé d’IA) ; « Toi », figurine encre nommée par sa pilule dès la première image, bras baissé au repos, est le seul à tenir le stylo : il écrit le Patrimoine net, barre « Prix d’achat » et « Mensualité », retire la part grise, déclenche les points de la courbe, barre son propre regard vers le solde.\n5) Les mêmes éléments évoluent : carte « Solde » → case « Comptes » ; cases « ? » → cases nommées ; en-tête → légende 1 du repère ; carte grise « Ce que tu dois » → disque 2 → part grise « Capital restant dû · 180 000 € » → disque 2 → carte de l’équation finale ; pilule « Patrimoine net » → disque 3 → « ce chiffre » du point 3 → résultat de la chute ; jeton-maison : case « Immobilier » → objet de l’exemple → retour dans sa case ; pastilles nées des cases ; point « repère » né de la pilule → premier point de la courbe.\n6) PNG au service de la scène : TOKEN.png est l’appartement (dans sa case, puis sujet de l’exemple, il reçoit l’étiquette, la barre et ses montants dessinés en code) ; TARGET.png reçoit la flèche « point de départ » (S05). Tout processus est en code : remplissage, barre, retrait, compteurs, pastilles, courbe. Aucun zoom sur un PNG.\n7) Simplicité : ivoire quadrillé, encre, un seul accent cyan (pilule du solde, part « à toi » de la barre, disque actif, points de la courbe), gris seulement pour la part de la banque, rouge seulement pour quatre erreurs suivies de leur parade ; Inter, libellés clés en 34 px et plus ; 1 à 3 éléments actifs par temps fort.",
- "thread": "On suit la pilule cyan « 3 200 € », le solde de « Toi », sur sa carte « Solde » : c’est le seul chiffre qu’il regarde (S01). Elle se réduit à une case d’une grille de neuf dont les huit autres sont des « ? » (S02) ; la grille devient « ce que tu possèdes » dans l’équation grille − « Ce que tu dois » = « Patrimoine net » (S03-S05), puis se remplit case par case au point 1 : comptes, livrets, assurance-vie, PEA, épargne salariale, PER, immobilier, véhicule, parts de société, chacun à sa valeur actuelle (S06-S10). Au point 2, le jeton-maison de la case « Immobilier » sort ; sa barre de valeur est recouverte aux trois quarts par la carte grise de la banque, « Toi » retire ce capital restant dû (pas une mensualité) et il reste ≈ 70 000 € nets sur 250 000 € (S11-S15). Au point 3, la pilule « Patrimoine net » revient avec un signe d’attention : six pastilles nées des cases montrent ce qu’elle mélange, deux restent à côté d’elle (liquidité, risques) et un point « repère » tombé d’elle commence une courbe qui monte à raison de 1 ou 2 mesures par an (S16-S19). Dans la chute, le regard de « Toi » vers son solde vire au rouge et il le barre ; il regarde désormais le Patrimoine net de l’équation complète, légendée « Possèdes », « Dois », « Limites », et la pilule du solde, restée dans sa case, devient le bouton « S’abonner » (S20-S22).",
+ "version": "v1 · révisé après le test sans son",
+ "angle": "Parti pris « le puzzle de ton patrimoine » : on part du seul chiffre que « Toi » regarde, la pilule cyan « 3 200 € » de son solde, et on montre qu’elle n’est qu’une case sur neuf d’une grille dont les huit autres cases sont des « ? ». La même grille devient « ce que tu possèdes » dans l’équation « grille − carte grise de la banque = Patrimoine net », se remplit case par case au point 1, prête sa case « Immobilier » (un jeton-maison de verre) au point 2, où la barre de valeur de l’appartement perd sa part grise (180 000 €) pour ne garder que ≈ 70 000 € nets, puis fournit au point 3 les pastilles qui montrent ce que le chiffre mélange. Dans la chute, « Toi » ne regarde plus son solde mais le Patrimoine net. Les trois angles combinés : objets persistants (la pilule « 3 200 € » de la première image au bouton ; la grille née dans l’accroche et présente jusqu’à la fin ; la carte grise « Ce que tu dois » qui se range dans le disque 2 du repère, en ressort en part grise de la barre, y retourne, puis revient dans l’équation finale ; la pilule « Patrimoine net », effacée au point 1, qui ressort de la grille au point 3 et devient le résultat de la chute ; l’en-tête « Ce que tu possèdes » devenu la légende 1 du repère ; les pastilles qui sortent des cases ; le point « repère » qui tombe de la pilule et commence la courbe) ; grammaire de la référence (cartes, pilules, une barre, des points et une courbe ; tenir puis éclater ; 1 à 3 éléments actifs par temps fort ; deux PNG seulement, un à la fois) ; lisibilité sans le son (verbes francs : regarder, remplir, barrer, poser, recouvrir, détacher, retirer, compter, sortir, relier, tracer). Procédés repris de V01-V12 : pilule du solde qui devient le bouton (V04, V12), trait de regard en tirets de « Toi » (V12), repère légendé avec étapes cochées et légendes à l’encre (V02-V03, doneStyle « kept »), valeur barrée qui tombe (V01), relais par morph, fin standard sans curseur de souris (V12).\nRéponse aux 7 points :\n1) Fil conducteur : la pilule « 3 200 € » de ton solde, regardée seule par « Toi » (S01), réduite à une case sur neuf (S02), première case de « ce que tu possèdes » (S04-S09), toujours dans sa case pendant le calcul (S10-S19), regardée en rouge puis délaissée pour le Patrimoine net (S20-S21), devenue le bouton « S’abonner » (S22).\n2) État initial / action / résultat : chaque scène part du résultat de la précédente et finit sur un changement visible : la grille de « ? » se remplit (S08-S09), « Prix d’achat » est barré et remplacé (S10), la barre de 250 000 € perd sa part grise et il reste ≈ 70 000 € nets (S11-S15), le chiffre se décompose en pastilles (S17), une courbe naît d’un point (S18-S19), le regard de « Toi » change de cible (S20-S21).\n3) Le sens complet : « ne dit presque rien » = une case connue sur neuf ; « pas à toi en entier » = la carte de la banque recouvre 72 % de la barre ; « pas les mensualités, mais le montant restant » = un mince bord cerné de rouge, barré et effacé, la part grise restant entière sous une accolade ; « pas 250 000 € mais environ 70 000 € nets » = « 250 000 € » rouge posé sous la barre, barré par « Toi » et tombé, puis la part grise retirée et le reste chiffré ; « mélange » = six pastilles opposées deux à deux ; « son évolution qui compte » = 8 points, 2 par an, une courbe qui monte avec deux creux et l’écart mesuré entre la première et la dernière mesure.\n4) L’IA ≠ « Toi » : pas d’IA dans ce film (AI.png non utilisé, aucun pointillé d’IA) ; « Toi », figurine encre nommée par sa pilule dès la première image, bras baissé au repos, est le seul à tenir le stylo : il écrit le Patrimoine net, barre « Prix d’achat » et « Mensualité », retire la part grise, déclenche les points de la courbe, barre son propre regard vers le solde.\n5) Les mêmes éléments évoluent : carte « Solde » → case « Comptes » ; cases « ? » → cases nommées ; en-tête → légende 1 du repère ; carte grise « Ce que tu dois » → disque 2 → part grise « Capital restant dû · 180 000 € » → disque 2 → carte de l’équation finale ; pilule « Patrimoine net » → effacée au point 1 → ressortie de la grille, « ce chiffre » du point 3 → résultat de la chute ; jeton-maison : case « Immobilier » → objet de l’exemple → retour dans sa case ; pastilles nées des cases ; point « repère » né de la pilule → premier point de la courbe.\n6) PNG au service de la scène : TOKEN.png est l’appartement (dans sa case, puis sujet de l’exemple, il reçoit l’étiquette, la barre et ses montants dessinés en code) ; TARGET.png reçoit la flèche « point de départ » et le libellé « Ta stratégie » (S05). Tout processus est en code : remplissage, barre, retrait, compteurs, pastilles, courbe. Aucun zoom sur un PNG.\n7) Simplicité : ivoire quadrillé, encre, un seul accent cyan (pilule du solde, part « à toi » de la barre, disque actif, points de la courbe), gris seulement pour la part de la banque, rouge seulement pour quatre erreurs suivies de leur parade ; Inter, libellés clés en 34 px et plus ; 1 à 3 éléments actifs par temps fort.",
+ "thread": "On suit la pilule cyan « 3 200 € », le solde de « Toi », sur sa carte « Solde » : c’est le seul chiffre qu’il regarde (S01). Elle se réduit à une case d’une grille de neuf dont les huit autres sont des « ? » (S02) ; la grille devient « ce que tu possèdes » dans l’équation grille − « Ce que tu dois » = « Patrimoine net » (S03-S05), puis se remplit case par case au point 1 : comptes, livrets, assurance-vie, PEA, épargne salariale, PER, immobilier, véhicule, parts de société, chacun à sa valeur actuelle (S06-S10). Au point 2, le jeton-maison de la case « Immobilier » sort ; sa barre de valeur est recouverte aux trois quarts par la carte grise de la banque, « Toi » retire ce capital restant dû (pas une mensualité) et il reste ≈ 70 000 € nets sur 250 000 € (S11-S15). Au point 3, la pilule « Patrimoine net » revient avec un signe d’attention : six pastilles nées des cases montrent ce qu’elle mélange, deux restent à côté d’elle (liquidité, risques) et un point « repère » tombé d’elle commence une courbe de 1 ou 2 mesures par an, qui monte avec des creux : c’est l’écart entre la première et la dernière mesure qui compte (S16-S19). Dans la chute, le regard de « Toi » vers son solde vire au rouge et il le barre ; il regarde désormais le Patrimoine net de l’équation complète, légendée « Possèdes », « Dois », « Limites », et la pilule du solde, restée dans sa case, devient le bouton « S’abonner » (S20-S22).",
  "objet_fil": {
   "id": "solde",
   "description": "La pilule cyan « 3 200 € » (320×100 en S01, contour encre 4 px, ombre dure, Inter ExtraBold 60) : le solde bancaire de « Toi ». Posée sur la carte « Solde » dès l’image 0, regardée par « Toi » (S01) ; réduite avec sa carte en première case d’une grille de neuf, dont les huit autres sont des « ? » (S02) ; elle bat sur « solde » (S07) et sa carte devient la case « Comptes » (S08) ; elle reste dans cette case, à l’échelle de la grille, pendant tout le calcul (S03-S19), donne naissance aux pastilles « disponible » et « réel » (S17) ; dans la chute elle sort de sa case vers « Toi », son regard vire au rouge et il le barre, puis elle rentre dans sa case (S20-S21) ; elle ne change jamais de chiffre et devient le bouton « S’abonner » de la carte de fin (S22)."
@@ -29,7 +29,7 @@
    "look": "Figurine pleine encre #1E1416 (tête ronde, buste trapèze, bras à longueur fixe, stylo), ombre dure +6/+6, échelle 1, pied sur y 1230 ; pilule light « Toi » (100×56, Inter Bold 34 encre, contour encre 3, ombre +4) qui le suit : au-dessus de sa tête en P1 (850, 995), à droite de sa tête en P2 et P3 (x + 100, 1060). Places : P1 (850, 1135) au repos, bras baissé ; P2 (700, 1135) ; P3 (560, 1135). Atteinte du stylo vérifiée par fig.place_for (rien de ce qu’il touche au-dessus de y ≈ 850).",
    "source": "code",
    "entite": "figure ink (Figure) : walk, unstow/stow, reach, tap, trace, strike, rest, piste lean ; pill « Toi »",
-   "evolution": "S01 : nommé, regarde son solde ; un « ? » sort de sa tête. S03 : marche en P2 et écrit « Patrimoine net », le souligne. S04 : revient en P1. S08 : lève le stylo et lance la liste. S09-S10 : marche en P3, barre « Prix d’achat ». S11 : revient en P1, se penche vers la barre. S12 : touche la part grise. S13 : marche en P2, barre « Mensualité ». S14 : revient en P1. S15 : touche, puis retire la part grise. S19 : touche l’axe du temps, les points naissent. S20-S21 : regarde son solde (rouge), barre ce regard, regarde le Patrimoine net. S22 : sort."
+   "evolution": "S01 : nommé, regarde son solde ; un « ? » sort de sa tête. S03 : marche en P2 et écrit « Patrimoine net », le souligne. S04 : revient en P1. S05 : se tourne vers l’équation (sa situation). S08 : lève le stylo et lance la liste. S09-S10 : marche en P3, barre « Prix d’achat ». S11 : revient en P1, se penche vers la barre. S12 : touche la part grise. S13 : marche en P2, barre « Mensualité ». S14 : revient en P1. S15 : barre « 250 000 € » rouge, touche puis retire la part grise. S19 : touche l’axe du temps, les points naissent. S20-S21 : regarde son solde (rouge), barre ce regard, regarde le Patrimoine net. S22 : sort."
   },
   {
    "id": "regard",
@@ -50,10 +50,10 @@
   {
    "id": "cases",
    "name_fr": "Les huit cases « ? » devenues cases nommées",
-   "look": "Grille 3×3 de cases 250×180 (pas 266 × 196) : centres x 195, 461, 727 et y 510, 706, 902 (grille pleine x 70-852, y 420-992) ; à l’échelle 0,6 : 150×108, centres x 135, 295, 455 et y 474, 592, 710 (x 60-530, y 420-764). Case « ? » : rectangle arrondi sans fond ni ombre, contour encre 3 px en tirets [12, 9], « ? » Inter ExtraBold 80 encre au centre. Case nommée : papier, rayon 16, contour encre 4, ombre +6/+6, disque light r 32 avec pictogramme encre en (cx, cy − 30), libellé Inter Bold 34 encre en (cx, cy + 52) (deux lignes de 30 px pour « Épargne / salariale » et « Parts de / société »). Ordre de lecture : Comptes (case de la carte « Solde »), Livrets (coin), Assurance-vie (shield, 32 px), PEA (bars), Épargne salariale (person), PER (hourglass), Immobilier (TOKEN.png 120 px au lieu du disque), Véhicule (car, nouveau pictogramme), Parts de société (building).",
+   "look": "Grille 3×3 de cases 250×180 (pas 266 × 196) : centres x 195, 461, 727 et y 510, 706, 902 (grille pleine x 70-852, y 420-992) ; à l’échelle 0,6 : 150×108, centres x 135, 295, 455 et y 474, 592, 710 (x 60-530, y 420-764). Case « ? » : rectangle arrondi sans fond ni ombre, contour encre 3 px en tirets [12, 9], « ? » Inter ExtraBold 80 encre au centre. Case nommée : papier, rayon 16, contour encre 4, ombre +6/+6, disque light r 32 avec pictogramme encre en (cx, cy − 30), libellé Inter Bold 34 encre en (cx, cy + 52) (deux lignes de 30 px pour « Épargne / salariale » et « Parts de / société »). Ordre de lecture : Comptes (case de la carte « Solde »), Livrets (coin), Assurance-vie (shield, 32 px), PEA (bars), Épargne salariale (person), PER (hourglass), Immobilier (TOKEN.png 120 px au lieu du disque), Véhicule (car, nouveau pictogramme), Parts de société (building, avec un petit disque light r 14 à pictogramme percent à son coin bas droit : une part d’entreprise).",
    "source": "code (+ TOKEN.png pour « Immobilier »)",
    "entite": "shape round (dash) + text « ? » ; shape round + icon (disc) + text (piste chars) ; relais kit.morph à la même place ; kit.move (échelle) pour réduire ou agrandir la grille",
-   "evolution": "S02 : les huit cases « ? » se tracent autour de la case du solde. S03-S05 : grille réduite = « ce que tu possèdes ». S06 : la grille revient à pleine taille. S07 : les « ? » battent, restent vides. S08-S09 : chaque « ? » devient sa case nommée sur son mot. S11 : la grille se réduit en haut à gauche ; la case « Immobilier » garde son libellé et un cercle en tirets à la place du jeton parti. S16 : le jeton revient. S17 : six pastilles sortent de cinq cases. S20-S21 : terme « Possèdes » de l’équation. S22 : se réduit."
+   "evolution": "S02 : les huit cases « ? » sortent de derrière la case du solde et glissent à leurs places : même famille que le solde. S03-S05 : grille réduite = « ce que tu possèdes ». S06 : la grille revient à pleine taille. S07 : les « ? » battent, restent vides. S08-S09 : chaque « ? » devient sa case nommée sur son mot. S11 : la grille se réduit en haut à gauche ; la case « Immobilier » garde son libellé et un cercle en tirets à la place du jeton parti. S16 : le jeton revient. S17 : six pastilles sortent de cinq cases. S20-S21 : terme « Possèdes » de l’équation. S22 : se réduit."
   },
   {
    "id": "entete",
@@ -74,26 +74,26 @@
   {
    "id": "signes",
    "name_fr": "Signes « − » et « = »",
-   "look": "« − » (signe moins U+2212) et « = » Inter ExtraBold 90 encre : « − » en (590, 592), « = » en (250, 900) dans l’équation (S03-S05) ; « = » en (250, 930) dans la chute.",
+   "look": "« − » (signe moins U+2212) et « = » Inter ExtraBold 90 encre : « − » en (590, 592), « = » en (250, 900) dans l’équation (S04-S05) ; « = » en (250, 930) dans la chute.",
    "source": "code",
    "entite": "text ; kit.pop, kit.pulse, kit.vanish",
-   "evolution": "S03 : « = » naît devant « Patrimoine net ». S04 : « − » naît sur « moins ». S06 : sortent. S20 : reviennent dans l’équation de la chute ; S21 : « − » bat sur « moins »."
+   "evolution": "S04 : « − » naît sur « moins », puis « = » seulement quand la carte « Ce que tu dois » est posée (sur « dois »). S06 : sortent. S20 : reviennent dans l’équation de la chute ; S21 : « − » bat sur « moins »."
   },
   {
    "id": "dettes",
    "name_fr": "Ce que tu dois (part de la banque)",
-   "look": "Carte grise #DDD5C6 250×150, rayon 16, contour encre 4, ombre +6/+6, centre (765, 592) (x 640-890, y 517-667) : pictogramme bank encre 44 px en (690, 560), « Ce que » / « tu dois » Inter Bold 34 encre (anchor start, 725, 565 et 607). Devenue part grise de la barre : 461×110 en (550, 940) (x 319-780, y 885-995), pictogramme bank 40 px en (355, 940), « Capital restant dû » Bold 34 encre en (565, 922), puis compteur « 180 000 € » ExtraBold 40 encre en (565, 970) ; contour deep 6 px pendant S13-S14.",
+   "look": "Carte grise #DDD5C6 250×150, rayon 16, contour encre 4, ombre +6/+6, centre (765, 592) (x 640-890, y 517-667) : pictogramme bank encre 44 px en (690, 560), « Ce que » / « tu dois » Inter Bold 34 encre (anchor start, 725, 565 et 607). Devenue part grise de la barre : 461×110 en (550, 940) (x 319-780, y 885-995), pictogramme bank 40 px en (355, 940), « Ce que tu dois » Bold 34 centré (565, 940) puis « Capital restant dû » Bold 34 encre en (565, 922), puis compteur « 180 000 € » ExtraBold 40 encre en (565, 970) ; contour deep 6 px pendant S13-S14.",
    "source": "code",
    "entite": "shape round (pistes w, h, stroke, sw) + icon bank + text (pistes text, chars) + counter ; kit.drop, kit.vanish into disque 2, kit.pop from_pt disque 2, kit.morph, kit.move, kit.shake",
-   "evolution": "S04 : tombe à droite du « − » sur « dois ». S06 : se range dans le disque 2 du repère. S11 : en ressort sur « entier » et recouvre 72 % de la barre de l’appartement : la part de la banque. S12 : « Toi » la touche, elle se détache d’un liseré, « Capital restant dû » s’écrit. S13 : une tranche « Mensualité » en sort et est barrée ; toute la part passe sous l’accolade. S14 : « 180 000 € » se compte. S15 : « Toi » la retire ; elle remonte dans le disque 2. S20 : en ressort en carte « Ce que tu dois » dans l’équation finale. S21 : légendée « Dois »."
+   "evolution": "S04 : tombe à droite du « − » sur « dois ». S06 : se range dans le disque 2 du repère. S11 : en ressort sur « entier », garde « Ce que tu dois » et recouvre 72 % de la barre de l’appartement : la part de la banque. S12 : « Toi » la touche, elle se détache d’un liseré, « Capital restant dû » remplace « Ce que tu dois ». S13 : son bord gauche est désigné « Mensualité » en rouge, barré, effacé ; elle reste entière et passe toute sous l’accolade. S14 : « 180 000 € » se compte. S15 : bat sous la pilule rouge « 250 000 € », puis « Toi » la retire ; elle remonte dans le disque 2. S20 : en ressort en carte « Ce que tu dois » dans l’équation finale. S21 : légendée « Dois »."
   },
   {
    "id": "net",
    "name_fr": "Pilule « Patrimoine net »",
    "look": "Pilule light #D3F0F6 400×96, contour encre 4, ombre +6/+6, texte encre Inter ExtraBold 40 « Patrimoine net » ; (540, 900) dans l’équation (S03-S05), ×1,15 après « situation » ; 340×86 (corps 34) en (735, 500) au point 3 ; (540, 930) puis ×1,2 dans la chute. Soulignement deep 5 px tracé par le stylo (S03).",
    "source": "code",
-   "entite": "pill (pistes scale, under via text) ; kit.pop from_pt pointe du stylo, kit.pulse, kit.vanish into disque 3, kit.pop from_pt disque 3, kit.move",
-   "evolution": "S03 : naît sous le stylo de « Toi », qui la souligne. S04 : bat. S05 : reçoit deux fils (la grille et la carte grise) et grandit ; une flèche en part vers la cible. S06 : se range dans le disque 3 du repère. S16 : en ressort sur « moindre » : « ce chiffre » ; signe d’attention. S17 : un fil la relie à la grille, six pastilles montrent ce qu’elle mélange. S18 : un point « repère » tombe d’elle et commence la courbe. S20 : redevient le résultat de l’équation. S21 : « Toi » la regarde, elle grandit, légende « Limites » dessous. S22 : se réduit."
+   "entite": "pill (pistes scale, under via text) ; kit.pop from_pt pointe du stylo, kit.pulse, kit.vanish (sur place), kit.pop from_pt grille, kit.move",
+   "evolution": "S03 : naît sous le stylo de « Toi », qui la souligne ; elle bat après la pilule du solde (deux chiffres différents). S04 : le « = » se pose devant elle quand la carte « Ce que tu dois » est là. S05 : reçoit deux fils (la grille et la carte grise) et grandit ; une flèche en part vers la cible « Ta stratégie ». S06 : s’efface sur place (elle n’entre dans aucun disque). S16 : ressort du bord droit de la grille réduite sur « moindre » : « ce chiffre », total de la grille ; signe d’attention. S17 : un fil la relie à la grille, six pastilles montrent ce qu’elle mélange. S18 : un point « repère » tombe d’elle et commence la courbe. S20 : redevient le résultat de l’équation. S21 : « Toi » la regarde, elle grandit, légende « Limites » dessous. S22 : se réduit."
   },
   {
    "id": "fils",
@@ -106,18 +106,10 @@
   {
    "id": "cible",
    "name_fr": "Cible de la stratégie",
-   "look": "TARGET.png (cible de verre et sa flèche), 180 px de large, centre (190, 1110), alpha strict, ombre de contact ; flèche pleine deep 6 px avec pointe (icon arrow 34 px orientée) du bas gauche de « Patrimoine net » (380, 955) au bord de la cible (255, 1035).",
+   "look": "TARGET.png (cible de verre et sa flèche), 180 px de large, centre (190, 1110), alpha strict, ombre de contact ; flèche pleine deep 6 px avec pointe (icon arrow 34 px orientée) du bas gauche de « Patrimoine net » (380, 955) au bord de la cible (255, 1035). Point de départ cyan r 12 (contour encre 3) au bas gauche de « Patrimoine net » (380, 955) ; « Ta stratégie » Bold 34 deep centré (190, 1232) sous la cible.",
    "source": "TARGET.png + code",
-   "entite": "png ; wire + icon arrow ; kit.drop, kit.draw, kit.pulse, kit.vanish",
-   "evolution": "S05 : tombe sur « point » ; la flèche part du Patrimoine net sur « départ » ; la cible bat sur « stratégie ». S06 : se réduit et sort (un seul PNG sort)."
-  },
-  {
-   "id": "reflet",
-   "name_fr": "Reflet « photo »",
-   "look": "Reflet blanc qui balaie l’équation en diagonale, zone x 48-900, y 360-960 (sheen, under).",
-   "source": "code",
-   "entite": "sheen (piste p 0 → 1, 400 ms)",
-   "evolution": "S05 seulement, sur « photo »."
+   "entite": "png ; wire + icon arrow ; kit.drop, kit.draw, kit.pulse, kit.vanish ; text (chars) + kit.type pour « Ta stratégie »",
+   "evolution": "S05 : tombe sur « point » ; un point de départ naît au bord de « Patrimoine net » et la flèche en part sur « départ » ; la cible bat sur « stratégie » ; « Ta stratégie » s’écrit dessous sur « patrimoniale ». S06 : se réduit et sort avec son libellé (un seul PNG sort)."
   },
   {
    "id": "marqueur",
@@ -125,7 +117,7 @@
    "look": "kit.steps_marker([« Possèdes », « Dois », « Limites »], y=300, cx=540, gap=180) : disques r 20 en x 360, 540, 720, légendes Inter 34 (labelSize 34) toutes à l’encre (doneStyle « kept » : Bold pour l’étape active ou faite, SemiBold sinon), disque actif cyan agrandi, coche deep dans le disque d’une étape faite (done0-2) ; piste on à 0 à la naissance.",
    "source": "code",
    "entite": "marker via kit.steps_marker (pistes on, active, done0-2) + kit.step",
-   "evolution": "S06 : naît sur « Pourquoi » (l’en-tête devient la légende 1), reçoit la carte grise dans le disque 2 et la pilule « Patrimoine net » dans le disque 3, s’allume sur l’étape 1. S12 : étape 2 (« Ensuite »), étape 1 cochée. S16 : étape 3 (« Dernier »), étape 2 cochée. S21 : étape 3 cochée. S22 : se réduit."
+   "evolution": "S06 : naît sur « Pourquoi » (l’en-tête devient la légende 1), reçoit la carte grise dans le disque 2, s’allume sur l’étape 1. S12 : étape 2 (« Ensuite »), étape 1 cochée. S16 : étape 3 (« Dernier »), étape 2 cochée ; la légende « Limites » bat avec le signe d’attention (« limites »). S21 : étape 3 cochée. S22 : se réduit."
   },
   {
    "id": "jeton",
@@ -141,23 +133,23 @@
    "look": "Étiquette dessinée en code : pentagone papier 340×150 pointe à gauche, rayon 10, contour encre 4, ombre +6/+6, œillet (cercle encre r 9) près de la pointe, ficelle deep 3 px ; texte ligne 1 Inter Bold 34 : « Prix d’achat » en rouge #C8102E (S10) puis « Valeur actuelle » en deep ; ligne 2 (S14) compteur ExtraBold 44 encre « 250 000 € ». Centre (300, 1110) sous la case « Immobilier » en S10 (x 130-470, y 1035-1185, ficelle du bas de la case (195, 992) à l’œillet (150, 1110)) ; (735, 725) sous le jeton au point 2 (x 565-905, y 650-800, ficelle du bas du jeton (735, 600) à l’œillet (585, 725)).",
    "source": "code",
    "entite": "shape poly + shape circle + wire (ficelle) + text (pistes chars, color) + counter ; kit.drop, fig.strike, kit.drop(out=True) pour le texte barré, kit.type, kit.move",
-   "evolution": "S10 : tombe, pendue sous la case « Immobilier », avec « Prix d’achat » en rouge ; « Toi » le barre, il tombe, « Valeur actuelle » s’écrit à sa place. S11 : suit le jeton à droite. S14 : bat sur « estimé », « 250 000 € » s’y compte. S16 : rentre dans le jeton."
+   "evolution": "S10 : tombe, pendue sous la case « Immobilier », avec « Prix d’achat » en rouge ; « Toi » le barre, il tombe, « Valeur actuelle » s’écrit à sa place. S11 : suit le jeton à droite. S14 : bat sur « estimé », « 250 000 € » s’y compte. S15 : une copie rouge de « 250 000 € » s’en détache. S16 : rentre dans le jeton."
   },
   {
    "id": "barre",
    "name_fr": "Barre de valeur de l’appartement",
-   "look": "Rectangle cyan #19B3C7 640×110, rayon 14, contour encre 5, ombre +6/+6, centre (460, 940) (x 140-780, y 885-995) ; après le retrait : 179×110 (x 140-319), même contour. Contour rouge #C8102E 5 px autour de la barre entière (parts cyan et grise) pendant S15 de « 250 000 € » à « mais ».",
+   "look": "Rectangle cyan #19B3C7 640×110, rayon 14, contour encre 5, ombre +6/+6, centre (460, 940) (x 140-780, y 885-995) ; après le retrait : 179×110 (x 140-319), même contour. Jamais de contour rouge.",
    "source": "code",
-   "entite": "shape rect (pistes w, x, stroke) ; kit.pop from_pt jeton + STRETCH, kit.pulse, kit.shake",
-   "evolution": "S11 : sort du jeton et s’étire, entièrement cyan (« à toi ? »), puis la part grise la recouvre à 72 %. S15 : cernée de rouge, puis, la part grise retirée, se raccourcit au cyan restant, contour encre. S16 : rentre dans le jeton."
+   "entite": "shape rect (pistes w, x, stroke) ; kit.pop from_pt jeton + STRETCH, kit.pulse",
+   "evolution": "S11 : sort du jeton et s’étire, entièrement cyan (« à toi ? »), puis la part grise « Ce que tu dois » la recouvre à 72 %. S15 : la part grise retirée, se raccourcit au cyan restant ; « ≈ 70 000 € nets » sort d’elle. S16 : rentre dans le jeton."
   },
   {
    "id": "mensualite",
-   "name_fr": "Tranche « Mensualité »",
-   "look": "Petit rectangle gris #DDD5C6 40×110, contour rouge #C8102E 4 px, ombre +4, en (340, 1060) ; libellé « Mensualité » Inter Bold 34 rouge (anchor start, 380, 1072) ; trait encre 7 px qui barre le libellé.",
+   "name_fr": "Bord « Mensualité »",
+   "look": "Contour rouge #C8102E 4 px sans fond, 40×110, sur le bord gauche de la part grise (x 319-359, y 885-995) ; libellé « Mensualité » Inter Bold 34 rouge juste dessous (anchor start, 320, 1040) ; trait encre 7 px qui barre le libellé. La part grise ne bouge pas.",
    "source": "code",
-   "entite": "shape rect + text ; kit.pop from_pt part grise, fig.strike, kit.drop(out=True)",
-   "evolution": "S13 : sort du bord gauche de la part grise sur « mensualités », « Toi » la barre sur « mais », elle tombe et disparaît sur « montant »."
+   "entite": "shape rect (stroke seul, draw) + text ; kit.draw, kit.type, fig.strike, FADE",
+   "evolution": "S13 : se trace sur le bord de la part grise sur « mensualités », « Toi » barre le libellé sur « mais », contour et libellé s’effacent sur place sur « montant » ; la part grise reste entière."
   },
   {
    "id": "accolade",
@@ -168,12 +160,20 @@
    "evolution": "S13 : se trace sur « montant », son libellé s’écrit sur « restant ». S14 : se réduit et sort sur « Imagine »."
   },
   {
+   "id": "brut",
+   "name_fr": "« 250 000 € » rouge (la valeur brute prise pour du patrimoine)",
+   "look": "Pilule papier 300×80, contour rouge #C8102E 5 px, ombre +4, texte ExtraBold 44 rouge « 250 000 € », en (600, 1060) (x 450-750), sous la part grise ; trait encre 7 px qui la barre.",
+   "source": "code",
+   "entite": "pill ; kit.move (arc) depuis l’étiquette, kit.shake, fig.strike, kit.drop(out=True)",
+   "evolution": "S15 : se détache de l’étiquette sur « représente » et descend sous la part grise, tremble sur « 250 000 € », « Toi » la barre sur « patrimoine », elle tombe et s’efface sur « mais » ; « ≈ 70 000 € nets » prend le relais en cyan."
+  },
+  {
    "id": "resultat",
    "name_fr": "Résultat de l’exemple",
    "look": "Pilule light « ≈ 70 000 € nets » (380×80, Inter ExtraBold 44 encre, contour encre 4, ombre +6/+6) en (330, 1060) (x 140-520) ; ligne de calcul Inter Bold 36 encre « 250 000 € − 180 000 € = 70 000 € » (vrai signe moins U+2212, « 70 000 € » en deep), anchor start (140, 1170), x 140-740.",
    "source": "code",
    "entite": "pill ; text (piste chars) ; kit.pop from_pt barre, kit.type, kit.vanish into jeton",
-   "evolution": "S15 : la pilule sort de la part cyan restante sur « 70 000 € », le calcul s’écrit sur « nets ». S16 : rentrent dans le jeton."
+   "evolution": "S15 : la pilule sort de la part cyan restante sur « 70 000 € », à côté de la place où « 250 000 € » rouge est tombé, le calcul s’écrit sur « nets ». S16 : rentrent dans le jeton."
   },
   {
    "id": "alerte",
@@ -194,10 +194,10 @@
   {
    "id": "graphe",
    "name_fr": "Courbe du patrimoine net",
-   "look": "Axes encre 4 px en L avec flèches : x de (120, 1180) à (760, 1180), y de (120, 1180) à (120, 830) ; légendes Inter Bold 30 encre « Patrimoine net » (anchor start, 140, 835), « aujourd’hui » (160, 1222), graduations encre 14 px en x 320, 480, 640 légendées « 1 an », « 2 ans », « 3 ans » (y 1222). Points cyan r 14, contour encre 3 : repère (160, 1080) puis (240, 1066), (320, 1040), (400, 1050), (480, 1010), (560, 985), (640, 960), (720, 930) (deux par an). Courbe deep 6 px par ces points (curve, smooth, sans aire ni axes propres). Pilule light « 1 ou 2 fois / an » (pictogramme cal, Inter Bold 34, 330×64, contour encre 4, ombre +4) en (440, 860). Flèche deep ↑ 48 px (icon arrow, rot −90) en (720, 875).",
+   "look": "Axes encre 4 px en L avec flèches : x de (120, 1180) à (760, 1180), y de (120, 1180) à (120, 830) ; légendes Inter Bold 30 encre « Patrimoine net » (anchor start, 140, 835), « aujourd’hui » (160, 1222), graduations encre 14 px en x 320, 480, 640 légendées « 1 an », « 2 ans », « 3 ans » (y 1222). Points cyan r 14, contour encre 3 : repère (160, 1080) puis (240, 1062), (320, 1074), (400, 1046), (480, 1058), (560, 1020), (640, 1032), (720, 1000) (deux par an, deux creux). Courbe deep 6 px par ces points (curve, smooth, sans aire ni axes propres). Pilule light « 1 ou 2 fois / an » (pictogramme cal, Inter Bold 34, 330×64, contour encre 4, ombre +4) en (440, 860). Écart : trait fin deep 3 px du point repère à l’horizontale jusqu’en x 755, double flèche deep 4 px en x 755 de y 1080 à y 1000.",
    "source": "code",
-   "entite": "shape poly ouvertes + text ; icon (disc) ou shape circle ×8 ; curve (draw) ; pill ; icon arrow ; kit.draw, kit.pop from_pt, kit.stagger, kit.pulse",
-   "evolution": "S18 : les axes se tracent, le point « repère » tombe de la pilule « Patrimoine net ». S19 : « 1 ou 2 fois / an » naît, sept points naissent sous le toucher de « Toi », la courbe se trace et monte, une flèche ↑ la confirme. S20 : rentre dans la pilule."
+   "entite": "shape poly ouvertes + text ; icon (disc) ou shape circle ×8 ; curve (draw) ; pill ; shape poly (trait) + icon arrow ×2 (double flèche) ; kit.draw, kit.pop from_pt, kit.stagger, kit.pulse",
+   "evolution": "S18 : les axes se tracent, le point « repère » tombe de la pilule « Patrimoine net ». S19 : « 1 ou 2 fois / an » naît, sept points naissent sous le toucher de « Toi », la courbe se trace (elle monte avec deux creux), le premier et le dernier point battent et l’écart entre eux se mesure. S20 : rentre dans la pilule."
   },
   {
    "id": "legendes",
@@ -216,7 +216,7 @@
    "evolution": "S22 : la carte grandit pendant que tout se réduit ; la pilule du solde quitte sa case, « 3 200 € » s’efface, « S’abonner » s’inscrit, elle devient le bouton ; toucher ; immobile jusqu’à 92,272 s."
   }
  ],
- "style": "Conforme à style.md. Fond ivoire #F6F0E4, quadrillage fixe de 36 px (#ECE4D4, 2 px), sans caméra ni zoom global. Encre #1E1416 pour les contours de 4 à 5 px, les textes, « Toi », les signes « − » et « = », les ombres dures +6/+6. Un seul accent, le cyan : #19B3C7 en aplat pour la pilule du solde (objet du fil), la part « à toi » de la barre de l’appartement, le disque actif du repère et les points de la courbe ; deep #0A7487 pour les traits fins et les gestes de « Toi » (cadre de la grille, fils vers le résultat, flèche vers la cible, soulignements, accolade, regard plein de la chute, courbe, coches du repère, « Valeur actuelle ») ; light #D3F0F6 pour les disques des pictogrammes des cases, la pilule « Patrimoine net », la pilule « Toi », « ≈ 70 000 € nets » et « 1 ou 2 fois / an ». Papier #FFFDF8 pour la carte « Solde », les cases, l’étiquette, les pastilles et la carte de fin. Gris #DDD5C6 pour une seule chose : ce que tu dois, c’est-à-dire la part de la banque (carte « Ce que tu dois », part grise « Capital restant dû », tranche « Mensualité ») ; jamais pour mettre en retrait. Rouge #C8102E pour quatre erreurs seulement, chacune suivie de sa parade en deep ou cyan : « Prix d’achat » (S10, parade « Valeur actuelle »), la tranche « Mensualité » (S13, parade : toute la part grise sous l’accolade), le contour de la barre entière lue comme 250 000 € de patrimoine (S15, parade : ≈ 70 000 € nets), le regard de « Toi » vers son solde (S20-S21, parade : regard plein deep vers le Patrimoine net). Ni la banque, ni les dettes, ni « bloqué » ou « risqué » ne sont rouges. Pas d’IA dans ce film : AI.png non utilisé, aucun pointillé d’IA. Grammaire de trait : tirets encre = ce qui n’est pas encore là ou pas encore vu (cases « ? », regard de « Toi » vers le solde) ; trait plein = geste ou lien réel de « Toi ». PNG retenus : TOKEN.png (l’appartement, S09-S16 puis dans sa case jusqu’en S21) et TARGET.png (S05 seulement) ; un seul entre ou sort à la fois ; tout le reste est dessiné en code, dont l’étiquette de prix (forme d’étiquette à œillet et ficelle, plus lisible que TAG.png pour des libellés de 34 px). Places fixes : repère 1-2-3 en haut (y 300, x 360, 540, 720, légendes « Possèdes », « Dois », « Limites » en 34 px) dès S06 ; grille à pleine taille (x 70-852, y 420-992) au point 1, à l’échelle 0,6 en haut à gauche (x 60-530, y 420-764) partout ailleurs ; objet étudié à droite (x 565-905) ; « Toi » en bas à droite, P1 (850, 1135), pied sur y 1230, nommé par la pilule « Toi » au-dessus de sa tête ; P2 (700, 1135) et P3 (560, 1135) quand il doit atteindre un objet. Tout élément reste à x ≤ 930, ombre comprise.",
+ "style": "Conforme à style.md. Fond ivoire #F6F0E4, quadrillage fixe de 36 px (#ECE4D4, 2 px), sans caméra ni zoom global. Encre #1E1416 pour les contours de 4 à 5 px, les textes, « Toi », les signes « − » et « = », les ombres dures +6/+6. Un seul accent, le cyan : #19B3C7 en aplat pour la pilule du solde (objet du fil), la part « à toi » de la barre de l’appartement, le disque actif du repère et les points de la courbe ; deep #0A7487 pour les traits fins et les gestes de « Toi » (cadre de la grille, fils vers le résultat, flèche vers la cible, soulignements, accolade, regard plein de la chute, courbe, coches du repère, « Valeur actuelle ») ; light #D3F0F6 pour les disques des pictogrammes des cases, la pilule « Patrimoine net », la pilule « Toi », « ≈ 70 000 € nets » et « 1 ou 2 fois / an ». Papier #FFFDF8 pour la carte « Solde », les cases, l’étiquette, les pastilles et la carte de fin. Gris #DDD5C6 pour une seule chose : ce que tu dois, c’est-à-dire la part de la banque (carte « Ce que tu dois », part grise « Ce que tu dois » puis « Capital restant dû ») ; jamais pour mettre en retrait. Rouge #C8102E pour quatre erreurs seulement, chacune suivie de sa parade en deep ou cyan : « Prix d’achat » (S10, parade « Valeur actuelle »), le bord « Mensualité » cerné de rouge (S13, parade : toute la part grise, entière, sous l’accolade), la pilule « 250 000 € » posée comme si c’était le patrimoine (S15, parade : ≈ 70 000 € nets), le regard de « Toi » vers son solde (S20-S21, parade : regard plein deep vers le Patrimoine net). Ni la banque, ni les dettes, ni « bloqué » ou « risqué » ne sont rouges. Une seule chose rouge à la fois. Pas d’IA dans ce film : AI.png non utilisé, aucun pointillé d’IA. Grammaire de trait : tirets encre = ce qui n’est pas encore là ou pas encore vu (cases « ? », regard de « Toi » vers le solde) ; trait plein = geste ou lien réel de « Toi ». PNG retenus : TOKEN.png (l’appartement, S09-S16 puis dans sa case jusqu’en S21) et TARGET.png (S05 seulement) ; un seul entre ou sort à la fois ; tout le reste est dessiné en code, dont l’étiquette de prix (forme d’étiquette à œillet et ficelle, plus lisible que TAG.png pour des libellés de 34 px). Places fixes : repère 1-2-3 en haut (y 300, x 360, 540, 720, légendes « Possèdes », « Dois », « Limites » en 34 px) dès S06 ; grille à pleine taille (x 70-852, y 420-992) au point 1, à l’échelle 0,6 en haut à gauche (x 60-530, y 420-764) partout ailleurs ; objet étudié à droite (x 565-905) ; « Toi » en bas à droite, P1 (850, 1135), pied sur y 1230, nommé par la pilule « Toi » au-dessus de sa tête ; P2 (700, 1135) et P3 (560, 1135) quand il doit atteindre un objet. Tout élément reste à x ≤ 930, ombre comprise.",
  "scenes": [
   {
    "id": "S01",
@@ -256,8 +256,8 @@
    "texte": "Ce chiffre ne dit presque rien.",
    "elements": "compte, solde, cases, toi, regard, question",
    "etat_initial": "Résultat de S01 : carte « Solde » et pilule « 3 200 € » au centre (540, 640), regard tendu, « ? » en (735, 975), « Toi » en P1.",
-   "action": "La carte se réduit en une petite case en haut à gauche, la pilule dessus ; le regard la suit. Huit cases vides en tirets, chacune marquée « ? », se tracent autour d’elle : la grille 3×3 de tout ce qu’on pourrait avoir. Les « ? » battent sans se remplir.",
-   "resultat": "Le solde n’occupe plus qu’une case sur neuf ; les huit autres sont des « ? ».",
+   "action": "La carte se réduit en une petite case en haut à gauche, la pilule dessus ; le regard la suit. Huit cases en tirets, chacune marquée « ? », sortent l’une après l’autre de derrière la case du solde et glissent à leurs places autour d’elle : la grille 3×3 de tout ce qu’on a à côté de ce solde. Les « ? » battent sans se remplir.",
+   "resultat": "Le solde n’occupe plus qu’une case sur neuf ; les huit autres, sorties de lui, sont des « ? ».",
    "transition": "Sur « Dans » (S03), la grille entière se réduit (×0,6) vers le haut à gauche et le regard se rétracte.",
    "beats": [
     {
@@ -273,7 +273,7 @@
     {
      "t": 3.669,
      "mot": "presque",
-     "evenement": "Tracer : huit cases « ? » (250×180, contour encre 3 px en tirets [12, 9], sans fond ni ombre, « ? » ExtraBold 80 encre au centre) se tracent aux huit autres places de la grille, centres x 195, 461, 727 et y 510, 706, 902, dans l’ordre de lecture (kit.stagger 2 images, kit.draw 300 ms + kit.pop du « ? »)."
+     "evenement": "Sortir : huit cases « ? » (250×180, contour encre 3 px en tirets [12, 9], sans fond ni ombre, « ? » ExtraBold 80 encre au centre) sortent l’une après l’autre de derrière la case du solde (195, 510) et glissent à leurs places, centres x 195, 461, 727 et y 510, 706, 902, dans l’ordre de lecture (kit.pop from_pt case du solde + kit.move 300 ms, kit.stagger 2 images) : elles naissent du solde, ce sont d’autres choses du même genre."
     },
     {
      "t": 4.029,
@@ -281,7 +281,7 @@
      "evenement": "Battre : les huit contours en tirets grossissent à ×1,05 et reviennent, une fois, ensemble (kit.pulse, 4 images) ; les cases restent vides, le « ? » ne bouge pas."
     }
    ],
-   "lecture_sans_son": "Le solde n’est qu’une case d’un tableau de neuf ; tout le reste est inconnu."
+   "lecture_sans_son": "Le solde n’est qu’une case d’un tableau de neuf cases de la même famille, sorties de lui ; tout le reste est encore inconnu."
   },
   {
    "id": "S03",
@@ -289,10 +289,10 @@
    "t_start": 4.656,
    "t_end": 10.054,
    "texte": "Dans cette vidéo, on va voir comment calculer ton patrimoine net. Et comment bien lire ce chiffre.",
-   "elements": "cases, compte, solde, toi, regard, net, signes",
+   "elements": "cases, compte, solde, toi, regard, net",
    "etat_initial": "Résultat de S02 : grille pleine (x 70-852, y 420-992), case du solde en haut à gauche, huit cases « ? » ; regard tendu ; « Toi » en P1.",
-   "action": "La grille se réduit en haut à gauche ; le regard se rétracte. « Toi » s’avance, lève son stylo et écrit sous la grille une pilule « Patrimoine net », précédée d’un « = » ; il la souligne d’un trait : c’est le chiffre qu’on va calculer et lire.",
-   "resultat": "Sous la grille réduite, « = Patrimoine net », soulignée par « Toi » (P2, 700, 1135).",
+   "action": "La grille se réduit en haut à gauche ; le regard se rétracte. « Toi » s’avance, lève son stylo et écrit sous la grille une pilule « Patrimoine net », seule, sans signe ; il la souligne d’un trait. La pilule du solde, dans la grille, bat, puis « Patrimoine net » : ce sont deux chiffres différents, et c’est le second qu’on va calculer et lire.",
+   "resultat": "Sous la grille réduite, « Patrimoine net » seule, soulignée par « Toi » (P2, 700, 1135) ; aucun signe encore entre la grille et elle.",
    "transition": "Sur « Ton » (S04), « Toi » revient en P1, stylo baissé.",
    "beats": [
     {
@@ -318,7 +318,7 @@
     {
      "t": 7.628,
      "mot": "net.",
-     "evenement": "Poser : « = » ExtraBold 90 encre apparaît devant la pilule, en (250, 900) (kit.pop 300 ms)."
+     "evenement": "Battre : la pilule « Patrimoine net » grossit à ×1,08 et revient (kit.pulse, 5 images) ; aucun « = » n’est posé : le calcul n’est pas encore écrit."
     },
     {
      "t": 9.009,
@@ -328,10 +328,10 @@
     {
      "t": 9.358,
      "mot": "chiffre.",
-     "evenement": "Battre : la pilule « Patrimoine net » grossit à ×1,08 et revient (kit.pulse, 5 images) ; « Toi » baisse le stylo."
+     "evenement": "Comparer : la pilule « 3 200 € » de la grille grossit à ×1,15 et revient (kit.pulse, 5 images), puis, 6 images plus tard, « Patrimoine net » à son tour (×1,08) : deux chiffres différents ; « Toi » baisse le stylo."
     }
    ],
-   "lecture_sans_son": "On va calculer un autre chiffre que le solde : le Patrimoine net, que la personne écrit et souligne."
+   "lecture_sans_son": "On va calculer un autre chiffre que le solde : le Patrimoine net, que la personne écrit et souligne ; le solde et lui battent tour à tour, ce sont deux chiffres différents."
   },
   {
    "id": "S04",
@@ -340,10 +340,10 @@
    "t_end": 14.257,
    "texte": "Ton patrimoine net, c’est tout ce que tu possèdes, moins tout ce que tu dois.",
    "elements": "cases, compte, solde, cadre, entete, signes, dettes, net, toi",
-   "etat_initial": "Résultat de S03 : grille réduite (x 60-530, y 420-764), « = » (250, 900), « Patrimoine net » soulignée (540, 900) ; « Toi » en P2, stylo baissé.",
-   "action": "« Toi » revient à sa place. Un cadre deep entoure toute la grille et l’en-tête « Ce que tu possèdes » s’écrit au-dessus ; un « − » apparaît à droite de la grille, puis une carte grise à pictogramme de banque, « Ce que tu dois », tombe à côté. L’équation est posée : grille − carte grise = Patrimoine net.",
+   "etat_initial": "Résultat de S03 : grille réduite (x 60-530, y 420-764), « Patrimoine net » soulignée (540, 900), sans signe ; « Toi » en P2, stylo baissé.",
+   "action": "« Toi » revient à sa place. Un cadre deep entoure toute la grille et l’en-tête « Ce que tu possèdes » s’écrit au-dessus ; un « − » apparaît à droite de la grille, puis une carte grise à pictogramme de banque, « Ce que tu dois », tombe à côté. Alors seulement le « = » se pose devant « Patrimoine net » : grille − carte grise = Patrimoine net.",
    "resultat": "« Ce que tu possèdes » (la grille) − « Ce que tu dois » (carte grise) = « Patrimoine net ».",
-   "transition": "Sur « photo » (S05), un reflet balaie l’équation.",
+   "transition": "Sur « photo » (S05), deux fils relient la grille et la carte grise à « Patrimoine net ».",
    "beats": [
     {
      "t": 10.054,
@@ -368,10 +368,10 @@
     {
      "t": 13.734,
      "mot": "dois.",
-     "evenement": "Tomber : la carte grise « Ce que tu dois » (250×150, pictogramme bank 44 px, Bold 34 sur deux lignes) tombe d’en haut en (765, 592) (kit.drop 370 ms, ease-out, sans rebond)."
+     "evenement": "Tomber : la carte grise « Ce que tu dois » (250×150, pictogramme bank 44 px, Bold 34 sur deux lignes) tombe d’en haut en (765, 592) (kit.drop 370 ms, ease-out, sans rebond) ; dès qu’elle est posée, « = » ExtraBold 90 encre apparaît devant « Patrimoine net », en (250, 900) (kit.pop 300 ms, 11 images plus tard) : l’équation se ferme maintenant."
     }
    ],
-   "lecture_sans_son": "Le patrimoine net, c’est la grille de ce qu’on possède moins la carte grise de ce qu’on doit à la banque."
+   "lecture_sans_son": "Le patrimoine net, c’est la grille de ce qu’on possède moins la carte grise de ce qu’on doit à la banque ; le « = » n’arrive qu’une fois la soustraction posée."
   },
   {
    "id": "S05",
@@ -379,26 +379,26 @@
    "t_start": 14.257,
    "t_end": 20.074,
    "texte": "C’est la photo la plus honnête de ta situation. Et c’est le point de départ de toute stratégie patrimoniale.",
-   "elements": "cases, compte, solde, cadre, entete, signes, dettes, net, fils, reflet, cible, toi",
+   "elements": "cases, compte, solde, cadre, entete, signes, dettes, net, fils, cible, toi",
    "etat_initial": "Résultat de S04 : équation complète (grille encadrée et titrée, « − », carte grise (765, 592), « = », « Patrimoine net » (540, 900)) ; « Toi » en P1.",
-   "action": "Un reflet balaie l’équation comme un flash ; deux fils deep relient la grille et la carte grise à « Patrimoine net », qui grandit : c’est elle qui dit la situation. Puis une cible tombe en bas à gauche et une flèche part de « Patrimoine net » jusqu’à elle.",
-   "resultat": "« Patrimoine net », reliée à ce qu’on possède et à ce qu’on doit, est le départ d’une flèche vers une cible.",
-   "transition": "Sur « Pourquoi » (S06), la cible, la flèche, les fils, le cadre et les signes se réduisent ; le repère 1-2-3 naît en haut.",
+   "action": "Deux fils deep relient la grille et la carte grise à « Patrimoine net », qui grandit ; « Toi » se tourne vers elle : tout ce qu’il a et tout ce qu’il doit, en un seul chiffre. Puis une cible tombe en bas à gauche ; un point cyan marque le départ au bord de « Patrimoine net », une flèche en part jusqu’à la cible, et « Ta stratégie » s’écrit sous la cible.",
+   "resultat": "« Patrimoine net », reliée à ce qu’on possède et à ce qu’on doit, est le point de départ d’une flèche vers la cible « Ta stratégie ».",
+   "transition": "Sur « Pourquoi » (S06), la cible et « Ta stratégie », la flèche, les fils, le cadre et les signes se réduisent ; le repère 1-2-3 naît en haut.",
    "beats": [
     {
      "t": 14.594,
      "mot": "photo",
-     "evenement": "Flasher : un reflet blanc balaie toute l’équation en diagonale, x 48-900, y 360-960 (sheen, piste p 0 → 1, 400 ms)."
+     "evenement": "Relier : deux fils pleins deep 5 px se tracent vers « Patrimoine net » : du bas du cadre (295, 776) à (430, 852), et du bas de la carte grise (765, 667) à (650, 852) (kit.draw 300 ms, décalés de 3 images) : tout est dans ce chiffre."
     },
     {
      "t": 15.221,
      "mot": "honnête",
-     "evenement": "Relier : deux fils pleins deep 5 px se tracent vers « Patrimoine net » : du bas du cadre (295, 776) à (430, 852), et du bas de la carte grise (765, 667) à (650, 852) (kit.draw 300 ms, décalés de 3 images)."
+     "evenement": "Grandir : « Patrimoine net » passe à ×1,15 (460×110) et y reste (SCALE 330 ms, ease-out)."
     },
     {
      "t": 15.731,
      "mot": "situation.",
-     "evenement": "Grandir : « Patrimoine net » passe à ×1,15 (460×110) et y reste (SCALE 330 ms, ease-out)."
+     "evenement": "Se tourner : « Toi » s’incline de 6° vers l’équation (piste lean, TILT 450 ms) et sa pilule « Toi » bat (×1,1, 5 images) : c’est sa situation ; il se redresse 12 images plus tard."
     },
     {
      "t": 17.217,
@@ -408,15 +408,20 @@
     {
      "t": 17.612,
      "mot": "départ",
-     "evenement": "Tracer : une flèche pleine deep 6 px part du bas gauche de « Patrimoine net » (380, 955) et va jusqu’au bord de la cible (255, 1035), pointe au bout (kit.draw 450 ms, ease-out)."
+     "evenement": "Tracer : un point cyan r 12 (contour encre 3) naît au bas gauche de « Patrimoine net » (380, 955), le départ, puis une flèche pleine deep 6 px en part et va jusqu’au bord de la cible (255, 1035), pointe au bout (kit.pop 200 ms puis kit.draw 450 ms, ease-out)."
     },
     {
      "t": 18.355,
      "mot": "stratégie",
      "evenement": "Atteindre : la cible bat (×1,08, 5 images) et un anneau d’impact deep part de son centre (piste ring, 18 images) ; puis tenue."
+    },
+    {
+     "t": 18.947,
+     "mot": "patrimoniale.",
+     "evenement": "Écrire : « Ta stratégie » (Bold 34 deep) s’écrit sous la cible, centré (190, 1232) (kit.type) ; puis tenue."
     }
    ],
-   "lecture_sans_son": "Ce chiffre rassemble ce qu’on a et ce qu’on doit ; c’est de lui que part la flèche vers un objectif."
+   "lecture_sans_son": "Ce chiffre rassemble ce qu’on a et ce qu’on doit : c’est la situation de « Toi » ; c’est de lui que part la flèche vers sa stratégie."
   },
   {
    "id": "S06",
@@ -426,19 +431,19 @@
    "texte": "Pourquoi commencer par ce que tu possèdes ?",
    "elements": "marqueur, entete, cases, compte, solde, dettes, net, toi",
    "etat_initial": "Résultat de S05 : équation, fils, flèche et cible en (190, 1110) ; « Patrimoine net » ×1,15 ; « Toi » en P1.",
-   "action": "Le repère 1-2-3 naît en haut : l’en-tête « Ce que tu possèdes » devient sa légende 1 « Possèdes ». La carte grise se range dans le disque 2, la pilule « Patrimoine net » dans le disque 3. La grille revient à pleine taille et l’étape 1 s’allume.",
+   "action": "Le repère 1-2-3 naît en haut : l’en-tête « Ce que tu possèdes » devient sa légende 1 « Possèdes ». La carte grise se range dans le disque 2 « Dois » ; la pilule « Patrimoine net » s’efface sur place (elle ressortira de la grille à l’étape 3). La grille revient à pleine taille et l’étape 1 s’allume.",
    "resultat": "Repère « Possèdes · Dois · Limites » en haut, étape 1 cyan ; la grille pleine (solde + huit « ? ») au centre ; « Toi » en P1.",
    "transition": "Sur « solde » (S07), la pilule du solde bat.",
    "beats": [
     {
      "t": 20.074,
      "mot": "Pourquoi",
-     "evenement": "Relais (morph 350 ms) : la cible (un seul PNG sort), la flèche, les fils, le cadre, « − » et « = » se réduisent vers leur centre ; le repère naît en haut (kit.steps_marker, y 300, disques x 360, 540, 720, légendes 34 px « Possèdes », « Dois », « Limites », piste on à 0) ; l’en-tête « Ce que tu possèdes » glisse et se réduit sur la légende 1, qui prend sa place (relais à la même place)."
+     "evenement": "Relais (morph 350 ms) : la cible et « Ta stratégie » (un seul PNG sort), la flèche et son point de départ, les fils, le cadre, « − » et « = » se réduisent vers leur centre ; le repère naît en haut (kit.steps_marker, y 300, disques x 360, 540, 720, légendes 34 px « Possèdes », « Dois », « Limites », piste on à 0) ; l’en-tête « Ce que tu possèdes » glisse et se réduit sur la légende 1, qui prend sa place (relais à la même place)."
     },
     {
      "t": 20.538,
      "mot": "commencer",
-     "evenement": "Ranger : la carte grise se réduit et entre dans le disque 2 (540, 300), puis la pilule « Patrimoine net » dans le disque 3 (720, 300) (kit.vanish into, 350 ms, décalés de 3 images)."
+     "evenement": "Ranger : la carte grise se réduit et entre dans le disque 2 (540, 300) (kit.vanish into, 350 ms) ; 3 images plus tard, la pilule « Patrimoine net » se réduit sur place et s’efface (kit.vanish 300 ms) : elle ne va dans aucun disque."
     },
     {
      "t": 21.629,
@@ -446,7 +451,7 @@
      "evenement": "Allumer : le disque 1 grandit en disque cyan (piste on 0 → 1, POP 300 ms) ; la grille revient à pleine taille (x 70-852, y 420-992 ; kit.move 550 ms, ease-in-out)."
     }
    ],
-   "lecture_sans_son": "Le plan a trois étapes ; on commence par la première : ce qu’on possède."
+   "lecture_sans_son": "Le plan a trois étapes : ce qu’on possède, ce qu’on doit (la carte de la banque y entre), les limites ; on commence par la première : ce qu’on possède."
   },
   {
    "id": "S07",
@@ -558,7 +563,7 @@
     {
      "t": 35.341,
      "mot": "parts",
-     "evenement": "Remplir : relais en (727, 902) : « Parts de société » (pictogramme building, libellé sur deux lignes de 30 px)."
+     "evenement": "Remplir : relais en (727, 902) : « Parts de société » (pictogramme building sur disque light, avec à son coin bas droit un petit disque light r 14 à pictogramme percent : une part d’entreprise, pas un logement ; libellé sur deux lignes de 30 px)."
     },
     {
      "t": 35.678,
@@ -611,8 +616,8 @@
    "texte": "Ça ne suffit pas : posséder un bien ne veut pas dire qu’il est à toi en entier.",
    "elements": "marqueur, cases, compte, solde, jeton, etiquette, barre, dettes, toi",
    "etat_initial": "Résultat de S10 : grille complète, étiquette « Valeur actuelle » sous la case « Immobilier » ; « Toi » en P3.",
-   "action": "La grille se réduit en haut à gauche ; le jeton-maison sort de sa case et grandit à droite, l’étiquette pendue dessous ; « Toi » revient à sa place. Une barre cyan sort du jeton et s’étire sous lui : c’est la valeur de l’appartement. « Toi » se penche vers elle. Puis la carte grise de la banque sort du disque 2 et recouvre presque les trois quarts de la barre.",
-   "resultat": "Barre de 640 px : 179 px cyan à gauche, 461 px gris (la banque) à droite ; jeton et étiquette au-dessus à droite.",
+   "action": "La grille se réduit en haut à gauche ; le jeton-maison sort de sa case et grandit à droite, l’étiquette pendue dessous ; « Toi » revient à sa place. Une barre cyan sort du jeton et s’étire sous lui : c’est la valeur de l’appartement. « Toi » se penche vers elle. Puis la carte grise « Ce que tu dois » sort du disque 2, garde son libellé et son pictogramme de banque, et recouvre presque les trois quarts de la barre.",
+   "resultat": "Barre de 640 px : 179 px cyan à gauche, 461 px gris « Ce que tu dois » (la banque) à droite ; jeton et étiquette au-dessus à droite.",
    "transition": "Sur « Ensuite » (S12), le repère passe à l’étape 2.",
    "beats": [
     {
@@ -638,10 +643,10 @@
     {
      "t": 43.108,
      "mot": "entier.",
-     "evenement": "Recouvrir : la carte grise sort du disque 2 (540, 300), descend et s’élargit en part grise 461×110 sur la droite de la barre, x 319-780 (kit.pop from_pt disque 2 puis kit.move 550 ms avec pistes w, h ; pictogramme bank 40 px en (355, 940)) ; « Toi » se redresse."
+     "evenement": "Recouvrir : la carte grise sort du disque 2 (540, 300), descend et s’élargit en part grise 461×110 sur la droite de la barre, x 319-780 (kit.pop from_pt disque 2 puis kit.move 550 ms avec pistes w, h) ; elle garde son pictogramme bank (40 px, en (355, 940)) et « Ce que tu dois » (Bold 34 encre, centré (565, 940)) : c’est la même carte ; « Toi » se redresse."
     }
    ],
-   "lecture_sans_son": "L’appartement vaut une longue barre, mais la banque en possède la plus grande partie, en gris."
+   "lecture_sans_son": "L’appartement vaut une longue barre, mais la carte « Ce que tu dois » de la banque en recouvre la plus grande partie : c’est le crédit, pas une baisse de valeur."
   },
   {
    "id": "S12",
@@ -651,9 +656,9 @@
    "texte": "Ensuite, retire le capital restant dû sur tes crédits.",
    "elements": "marqueur, cases, compte, solde, jeton, etiquette, barre, dettes, toi",
    "etat_initial": "Résultat de S11 : barre cyan 179 px + part grise 461 px (x 140-780, y 885-995), jeton (735, 500), étiquette (735, 725) ; repère étape 1 ; « Toi » en P1.",
-   "action": "Le repère passe à l’étape 2 « Dois ». « Toi » touche la part grise : elle tremble et se détache d’un liseré ivoire, prête à partir. « Capital restant dû » s’y écrit ; son pictogramme de banque bat.",
+   "action": "Le repère passe à l’étape 2 « Dois ». « Toi » touche la part grise : elle tremble et se détache d’un liseré ivoire, prête à partir. « Capital restant dû » remplace « Ce que tu dois » ; son pictogramme de banque bat.",
    "resultat": "La part grise « Capital restant dû », détachée de 12 px de la part cyan.",
-   "transition": "Sur « mensualités » (S13), une petite tranche sort de la part grise.",
+   "transition": "Sur « mensualités » (S13), un mince bord de la part grise se cerne de rouge.",
    "beats": [
     {
      "t": 43.874,
@@ -668,7 +673,7 @@
     {
      "t": 45.105,
      "mot": "capital",
-     "evenement": "Écrire : « Capital restant dû » (Bold 34 encre) s’écrit dans la part grise, centré (565, 922) (kit.type)."
+     "evenement": "Écrire : « Ce que tu dois » s’efface (fondu 100 ms) et « Capital restant dû » (Bold 34 encre) s’écrit à sa place dans la part grise, centré (565, 922) (kit.type)."
     },
     {
      "t": 46.73,
@@ -686,8 +691,8 @@
    "texte": "Pas les mensualités, mais le montant restant à rembourser.",
    "elements": "marqueur, cases, compte, solde, jeton, etiquette, barre, dettes, mensualite, accolade, toi",
    "etat_initial": "Résultat de S12 : part grise « Capital restant dû » détachée ; « Toi » en P1.",
-   "action": "« Toi » s’avance. Une petite tranche grise cernée de rouge, « Mensualité », sort de la part grise : « Toi » la barre et elle tombe. Une accolade deep couvre alors toute la part grise, « restant à rembourser », et la part grise se cerne de deep.",
-   "resultat": "Toute la part grise, sous l’accolade « restant à rembourser », est ce qu’on retire ; la mensualité a disparu.",
+   "action": "« Toi » s’avance. Un mince bord de la part grise se cerne de rouge, « Mensualité » s’écrit en rouge dessous : « Toi » le barre, et le contour rouge et le mot s’effacent ; la part grise, elle, n’a pas bougé, entière. Une accolade deep la couvre alors tout entière, « restant à rembourser », et son contour passe au deep.",
+   "resultat": "Toute la part grise, entière, sous l’accolade « restant à rembourser », est ce qu’on retire ; la mensualité, barrée, s’est effacée sans rien emporter.",
    "transition": "Sur « Imagine » (S14), l’accolade se réduit et « Toi » revient en P1.",
    "beats": [
     {
@@ -698,17 +703,17 @@
     {
      "t": 47.81,
      "mot": "mensualités,",
-     "evenement": "Sortir : une tranche grise 40×110 cernée de rouge sort du bord gauche de la part grise et descend en (340, 1060) ; « Mensualité » s’écrit en rouge Bold 34 à sa droite (anchor start 380, 1072) (kit.pop from_pt part grise 300 ms, puis kit.type)."
+     "evenement": "Désigner : un contour rouge #C8102E 4 px, sans fond, se trace sur le bord gauche de la part grise, 40×110, x 319-359 (kit.draw 250 ms) ; la part grise ne bouge pas et ne perd rien ; « Mensualité » s’écrit en rouge Bold 34 juste dessous, anchor start (320, 1040) (kit.type)."
     },
     {
      "t": 48.704,
      "mot": "mais",
-     "evenement": "Barrer : « Toi » barre « Mensualité » d’un trait encre 7 px, de droite à gauche (Figure.strike 300 ms)."
+     "evenement": "Barrer : « Toi » barre « Mensualité » d’un trait encre 7 px, de (530, 1035) à (310, 1035) (Figure.strike 300 ms)."
     },
     {
      "t": 49.145,
      "mot": "montant",
-     "evenement": "Tomber : la tranche et son libellé barré tombent vers le sol en s’effaçant (kit.drop out=True, 370 ms) ; l’accolade deep se trace au-dessus de toute la part grise, de (319, 868) à (780, 868) (kit.draw 300 ms)."
+     "evenement": "Effacer : le contour rouge et « Mensualité » barrée s’effacent sur place (FADE 200 ms) : rien ne tombe, la part grise reste entière ; l’accolade deep se trace au-dessus de toute la part grise, de (319, 868) à (780, 868) (kit.draw 300 ms)."
     },
     {
      "t": 49.517,
@@ -721,7 +726,7 @@
      "evenement": "Cerner : le contour de la part grise passe à deep 6 px et bat une fois (×1,04, 5 images) ; « Toi » baisse le stylo."
     }
    ],
-   "lecture_sans_son": "Il ne s’agit pas d’une petite mensualité (barrée en rouge) mais de tout ce qui reste à rembourser."
+   "lecture_sans_son": "Il ne s’agit pas d’une mensualité (un mince bord, barré en rouge) : la part grise reste entière, et c’est tout ce qui reste à rembourser, sous l’accolade, qu’on retire."
   },
   {
    "id": "S14",
@@ -733,7 +738,7 @@
    "etat_initial": "Résultat de S13 : part grise cernée de deep sous l’accolade « restant à rembourser » ; « Toi » en P2.",
    "action": "L’accolade sort ; « Toi » revient à sa place. Le jeton bat ; l’étiquette bat et « 250 000 € » s’y compte ; « 180 000 € » se compte dans la part grise, dont le pictogramme de banque bat.",
    "resultat": "L’appartement vaut 250 000 € (étiquette) ; la part grise de la banque fait 180 000 €.",
-   "transition": "Sur « représente » (S15), « Toi » tend le stylo vers la part grise.",
+   "transition": "Sur « représente » (S15), une copie de « 250 000 € » se détache de l’étiquette.",
    "beats": [
     {
      "t": 50.968,
@@ -774,36 +779,41 @@
    "t_start": 57.76,
    "t_end": 63.878,
    "texte": "Il ne représente pas 250 000 € de patrimoine, mais environ 70 000 € nets.",
-   "elements": "marqueur, cases, compte, solde, jeton, etiquette, barre, dettes, resultat, toi",
+   "elements": "marqueur, cases, compte, solde, jeton, etiquette, barre, dettes, brut, resultat, toi",
    "etat_initial": "Résultat de S14 : étiquette « Valeur actuelle · 250 000 € », barre cyan 179 px + part grise « Capital restant dû · 180 000 € » ; « Toi » en P1.",
-   "action": "« Toi » touche la part grise : toute la barre (cyan et grise) se cerne de rouge et tremble : compter 250 000 € comme patrimoine est faux. « Toi » retire la part grise, qui remonte dans le disque 2 « Dois » ; le contour rouge disparaît et il ne reste que la courte barre cyan. « ≈ 70 000 € nets » en sort, et le calcul s’écrit dessous.",
-   "resultat": "Courte barre cyan (x 140-319), « ≈ 70 000 € nets » et « 250 000 € − 180 000 € = 70 000 € » ; la part grise est dans le disque 2.",
+   "action": "Une copie de « 250 000 € » se détache de l’étiquette et descend sous la part grise, en rouge : la valeur entière posée comme si c’était le patrimoine. Elle tremble pendant que la part grise bat. « Toi » la barre, elle tombe ; il touche la part grise et la retire : elle remonte dans le disque 2 « Dois ». Il ne reste que la courte barre cyan ; « ≈ 70 000 € nets » en sort, et le calcul s’écrit dessous.",
+   "resultat": "Courte barre cyan (x 140-319), « ≈ 70 000 € nets » et « 250 000 € − 180 000 € = 70 000 € » ; « 250 000 € » rouge, barré, est tombé ; la part grise est dans le disque 2.",
    "transition": "Sur « Dernier » (S16), le repère passe à l’étape 3.",
    "beats": [
     {
      "t": 58.062,
      "mot": "représente",
-     "evenement": "Toucher : « Toi » tend le stylo et touche la part grise en (760, 960) (Figure.tap)."
+     "evenement": "Détacher : une copie de « 250 000 € » se détache de l’étiquette (735, 755) et descend en arc sous la part grise, dans une pilule papier 300×80 à contour rouge #C8102E 5 px, texte ExtraBold 44 rouge, en (600, 1060), x 450-750 (kit.move 550 ms, arc) : la valeur entière posée comme si c’était ton patrimoine."
     },
     {
      "t": 58.956,
      "mot": "250 000 €",
-     "evenement": "Cerner : un contour rouge 5 px entoure toute la barre, part cyan et part grise (x 140-780, y 885-995) (kit.draw 250 ms) et la barre tremble (kit.shake, 6 px) : 250 000 € entiers, ce n’est pas ton patrimoine."
+     "evenement": "Trembler : la pilule rouge « 250 000 € » tremble (kit.shake, 6 px) et la part grise juste au-dessus bat (×1,04, 5 images) : une grande part de ces 250 000 € est à la banque."
     },
     {
      "t": 60.616,
      "mot": "patrimoine,",
-     "evenement": "Tenue : rien ne bouge (contour rouge tenu)."
+     "evenement": "Barrer : « Toi » lève le stylo et barre « 250 000 € » rouge d’un trait encre 7 px, de (720, 1060) à (480, 1060) (Figure.strike 300 ms)."
     },
     {
      "t": 61.394,
      "mot": "mais",
-     "evenement": "Retirer : la pointe du stylo tire la part grise vers la droite ; elle part en arc, se réduit et rentre dans le disque 2 (540, 300) (kit.move 550 ms, arc, puis kit.vanish into) ; le contour rouge s’efface et la barre cyan reste seule, x 140-319, contour encre (FADE 200 ms) ; « Toi » baisse le stylo."
+     "evenement": "Tomber : la pilule barrée tombe vers le sol en s’effaçant (kit.drop out=True, 370 ms) ; « Toi » touche la part grise en (760, 960) (Figure.tap)."
+    },
+    {
+     "t": 61.58,
+     "mot": "environ",
+     "evenement": "Retirer : la pointe du stylo tire la part grise vers la droite ; elle part en arc, se réduit et rentre dans le disque 2 (540, 300) (kit.move 550 ms, arc, puis kit.vanish into) ; la barre cyan reste seule, x 140-319, contour encre ; « Toi » baisse le stylo."
     },
     {
      "t": 62.09,
      "mot": "70 000 €",
-     "evenement": "Sortir : la pilule light « ≈ 70 000 € nets » (380×80, ExtraBold 44) sort de la barre cyan et se pose dessous en (330, 1060) (kit.pop from_pt barre, 300 ms)."
+     "evenement": "Sortir : la pilule light « ≈ 70 000 € nets » (380×80, ExtraBold 44) sort de la barre cyan et se pose dessous en (330, 1060) (kit.pop from_pt barre, 300 ms) : la parade, en cyan."
     },
     {
      "t": 63.193,
@@ -811,7 +821,7 @@
      "evenement": "Écrire : « 250 000 € − 180 000 € = 70 000 € » s’écrit en Bold 36 encre, « 70 000 € » en deep, anchor start (140, 1170) (kit.type, 1 caractère par image)."
     }
    ],
-   "lecture_sans_son": "Une fois la part de la banque retirée, il ne reste qu’environ 70 000 € à toi, pas 250 000 €."
+   "lecture_sans_son": "Le bien ne compte pas pour 250 000 € (barré en rouge) : la part de la banque retirée, il reste environ 70 000 € à toi."
   },
   {
    "id": "S16",
@@ -821,8 +831,8 @@
    "texte": "Dernier point, et pas le moindre : ce chiffre a ses limites.",
    "elements": "marqueur, cases, compte, solde, jeton, etiquette, barre, resultat, net, alerte, toi",
    "etat_initial": "Résultat de S15 : barre cyan courte, « ≈ 70 000 € nets », ligne de calcul, jeton et étiquette à droite ; repère étape 2 ; « Toi » en P1.",
-   "action": "Le repère passe à l’étape 3 « Limites ». La barre, le résultat, le calcul et l’étiquette rentrent dans le jeton, qui retourne dans sa case. La pilule « Patrimoine net » sort du disque 3 et se pose à droite : elle bat, et un signe d’attention apparaît à son coin.",
-   "resultat": "Grille réduite complète en haut à gauche ; « Patrimoine net » (735, 500) avec un signe d’attention ; repère étape 3.",
+   "action": "Le repère passe à l’étape 3 « Limites ». La barre, le résultat, le calcul et l’étiquette rentrent dans le jeton, qui retourne dans sa case. La pilule « Patrimoine net » sort du bord droit de la grille, dont elle est le total, et se pose à droite : elle bat, et un signe d’attention apparaît à son coin pendant que la légende « Limites » du repère bat.",
+   "resultat": "Grille réduite complète en haut à gauche ; « Patrimoine net » (735, 500) avec un signe d’attention, relié à l’étape 3 « Limites » ; repère étape 3.",
    "transition": "Sur « mélange » (S17), un fil relie la grille à la pilule.",
    "beats": [
     {
@@ -838,7 +848,7 @@
     {
      "t": 65.248,
      "mot": "moindre :",
-     "evenement": "Sortir : la pilule « Patrimoine net » sort du disque 3 (720, 300) et se pose en (735, 500), 340×86 (kit.pop from_pt disque 3, puis kit.move 550 ms)."
+     "evenement": "Sortir : la pilule « Patrimoine net » sort du bord droit de la grille réduite (530, 592), le total de toute la grille, et se pose en (735, 500), 340×86 (kit.pop from_pt grille, puis kit.move 550 ms)."
     },
     {
      "t": 66.142,
@@ -848,10 +858,10 @@
     {
      "t": 66.746,
      "mot": "limites.",
-     "evenement": "Signaler : un disque papier r 26 à pictogramme warning encre apparaît au coin haut droit de la pilule, (885, 455) (kit.pop 300 ms) ; il n’est pas rouge."
+     "evenement": "Signaler : un disque papier r 26 à pictogramme warning encre apparaît au coin haut droit de la pilule, (885, 455) (kit.pop 300 ms) ; il n’est pas rouge ; au même moment, la légende 3 « Limites » du repère bat (×1,1, 5 images) : l’attention porte sur les limites du chiffre."
     }
    ],
-   "lecture_sans_son": "Troisième étape : le chiffre du patrimoine net, avec un signe « attention »."
+   "lecture_sans_son": "Troisième étape « Limites » : le patrimoine net, tiré de toute la grille, porte un signe « attention » qui bat avec cette étape : ce chiffre a ses limites."
   },
   {
    "id": "S17",
@@ -951,9 +961,9 @@
    "texte": "Et calcule-le une ou deux fois par an : c’est son évolution qui compte.",
    "elements": "marqueur, cases, compte, solde, net, alerte, pastilles, graphe, toi",
    "etat_initial": "Résultat de S18 : axes légendés, point repère (160, 1080), « disponible » et « risqué » soulignés sous la pilule ; « Toi » en P1.",
-   "action": "« Toi » touche l’axe du temps. La pilule « 1 ou 2 fois / an » apparaît ; sept points naissent sous son toucher, deux par année, de plus en plus haut ; la courbe se trace par eux et monte ; une flèche ↑ la confirme.",
-   "resultat": "Une courbe qui monte sur trois ans et demi, huit points (deux par an), « 1 ou 2 fois / an ».",
-   "transition": "Sur « Retiens » (S20), le graphique, les pastilles et le signe d’attention rentrent dans la pilule « Patrimoine net ».",
+   "action": "« Toi » touche l’axe du temps. La pilule « 1 ou 2 fois / an » apparaît ; sept points naissent sous son toucher, deux par année, tantôt plus haut, tantôt un peu plus bas ; la courbe se trace par eux. Puis le premier et le dernier point battent ensemble et l’écart entre eux se mesure : c’est l’évolution qui compte.",
+   "resultat": "Une courbe sur trois ans et demi qui monte avec deux creux, huit points (deux par an), « 1 ou 2 fois / an », et l’écart mesuré entre aujourd’hui et la dernière mesure.",
+   "transition": "Sur « Retiens » (S20), le graphique (courbe et écart compris), les pastilles et le signe d’attention rentrent dans la pilule « Patrimoine net ».",
    "beats": [
     {
      "t": 77.3,
@@ -968,7 +978,7 @@
     {
      "t": 78.403,
      "mot": "fois",
-     "evenement": "Compter : sept points cyan naissent l’un après l’autre en (240, 1066), (320, 1040), (400, 1050), (480, 1010), (560, 985), (640, 960), (720, 930) (kit.stagger 3 images, kit.pop 300 ms) ; « Toi » baisse le stylo."
+     "evenement": "Compter : sept points cyan naissent l’un après l’autre en (240, 1062), (320, 1074), (400, 1046), (480, 1058), (560, 1020), (640, 1032), (720, 1000) (kit.stagger 3 images, kit.pop 300 ms) : deux creux, ce sont des mesures ; « Toi » baisse le stylo."
     },
     {
      "t": 79.819,
@@ -978,10 +988,10 @@
     {
      "t": 80.481,
      "mot": "compte.",
-     "evenement": "Confirmer : une flèche deep ↑ (48 px) apparaît au-dessus du dernier point, en (720, 875), et bat une fois (kit.pop 300 ms) : ça monte."
+     "evenement": "Comparer : le point repère et le dernier point grossissent ensemble à ×1,4 et reviennent (kit.pulse, 6 images) ; un trait fin deep 3 px part du point repère à l’horizontale jusqu’en x 755, puis une double flèche deep 4 px se trace en x 755 de y 1080 à y 1000 (kit.draw 300 ms) : l’écart entre aujourd’hui et la dernière mesure."
     }
    ],
-   "lecture_sans_son": "On recalcule ce chiffre une ou deux fois par an : on voit sa courbe monter, c’est l’évolution qui compte."
+   "lecture_sans_son": "On recalcule ce chiffre une ou deux fois par an ; la courbe monte et descend, c’est un suivi, pas une promesse : ce qui compte, c’est l’écart entre la première et la dernière mesure."
   },
   {
    "id": "S20",
@@ -990,7 +1000,7 @@
    "t_end": 84.208,
    "texte": "Retiens ça : ton patrimoine, ce n’est pas ton solde.",
    "elements": "marqueur, cases, compte, solde, net, dettes, signes, regard, toi",
-   "etat_initial": "Résultat de S19 : graphique et courbe, pilule « Patrimoine net » (735, 500) avec signe d’attention, « disponible » et « risqué » dessous ; repère étape 3 ; « Toi » en P1.",
+   "etat_initial": "Résultat de S19 : graphique, courbe et écart mesuré, pilule « Patrimoine net » (735, 500) avec signe d’attention, « disponible » et « risqué » dessous ; repère étape 3 ; « Toi » en P1.",
    "action": "Le graphique, les pastilles et le signe d’attention rentrent dans la pilule « Patrimoine net », qui descend sous la grille ; la carte grise ressort du disque 2 ; « − » et « = » reviennent : l’équation de départ, complète. La pilule « Patrimoine net » bat. Puis la pilule du solde sort de sa case vers « Toi », qui la regarde, comme au début ; son regard vire au rouge.",
    "resultat": "Équation complète (grille − carte grise = « Patrimoine net ») ; la pilule « 3 200 € » hors de sa case, regardée par « Toi » d’un trait rouge.",
    "transition": "Sur « C’est » (S21), « Toi » barre ce regard.",
@@ -998,7 +1008,7 @@
     {
      "t": 81.097,
      "mot": "Retiens",
-     "evenement": "Relais : le graphique (axes, légendes, points, courbe, « 1 ou 2 fois / an », flèche), « disponible », « risqué » et le signe d’attention se réduisent dans la pilule « Patrimoine net » (kit.vanish into, 300 ms) ; la pilule descend en (540, 930), 400×96 (kit.move 550 ms) ; la carte grise « Ce que tu dois » ressort du disque 2 et se pose en (765, 592) (kit.pop from_pt disque 2 + kit.move) ; « − » (590, 592) et « = » (250, 930) apparaissent (kit.pop, décalés de 3 images)."
+     "evenement": "Relais : le graphique (axes, légendes, points, courbe, « 1 ou 2 fois / an », trait et double flèche de l’écart), « disponible », « risqué » et le signe d’attention se réduisent dans la pilule « Patrimoine net » (kit.vanish into, 300 ms) ; la pilule descend en (540, 930), 400×96 (kit.move 550 ms) ; la carte grise « Ce que tu dois » ressort du disque 2 et se pose en (765, 592) (kit.pop from_pt disque 2 + kit.move) ; « − » (590, 592) et « = » (250, 930) apparaissent (kit.pop, décalés de 3 images)."
     },
     {
      "t": 82.072,
@@ -1191,19 +1201,145 @@
    "pourquoi": "« un véhicule » doit se reconnaître sans étiquette ; TRUCK.png est un camion de livraison (lu « déménagement » ou « livraison ») et aucun pictogramme existant ne dessine une voiture."
   }
  ],
+ "test_sans_son": {
+  "message_reconstruit": "Ton solde bancaire (3 200 €) ne dit pas où tu en es financièrement : il ne montre qu'une case parmi tout ce que tu possèdes. Le bon chiffre, c'est ton patrimoine net, c'est-à-dire ce que tu possèdes (comptes, livrets, assurance-vie, PEA, épargne salariale, PER, immobilier, véhicule, parts de société) moins ce que tu dois. Deux pièges : compter ton logement à sa valeur actuelle et non à son prix d'achat, et retirer tout le capital restant dû, pas la mensualité. Exemple : un appartement de 250 000 € avec 180 000 € de crédit ne représente qu'environ 70 000 € nets. Ce chiffre a cependant des limites, car il mélange du disponible et du bloqué, du sûr et du risqué, du réel et de l'estimé : regarde surtout la part disponible et la part risquée. Calcule-le une ou deux fois par an pour suivre ton évolution, plutôt que de fixer ton solde, et abonne-toi à WealthTech Horizon.",
+  "idees": [
+   {
+    "id": "a",
+    "score": "GOT",
+    "preuve": "S02 : « J'en déduis que le solde n'est qu'un morceau de ce qu'on a, et qu'il manque 8 choses inconnues » ; S07 : « Le solde ne montre qu'une petite partie de ce qu'on possède ». Réserve S02 : « je ne sais pas ce que sont ces 8 cases : d'autres comptes, des dépenses à venir ou des objectifs ? »"
+   },
+   {
+    "id": "b",
+    "score": "GOT",
+    "preuve": "S04 : « Patrimoine net = ce que tu possèdes − ce que tu dois » ; S05 : « c'est le chiffre qui résume la situation […] ce chiffre sert à viser un objectif, ou à se situer ». Réserves : S03 « je pourrais croire à tort que le patrimoine net est simplement la somme de la grille » (le « = » avant le « − ») ; S05 « Le sens de la cible reste flou : objectif financier, ou « le bon chiffre à regarder » ? » et le reflet pris pour « un effet décoratif »."
+   },
+   {
+    "id": "c",
+    "score": "GOT",
+    "preuve": "S08 : « les cases se nomment une à une : Comptes, Livrets, Assurance-vie, PEA, Épargne salariale, PER » ; S09 : « Il n'y a plus aucun « ? » : la liste de ce qu'on possède est complète ». Réserves : « les pictogrammes seuls ne me permettraient pas de distinguer PEA, PER et assurance-vie » ; « l'immeuble me ferait penser à un deuxième bien immobilier ou à un bureau, pas à des parts de société »."
+   },
+   {
+    "id": "d",
+    "score": "GOT",
+    "preuve": "S10 : « on compte son logement à ce qu'il vaut aujourd'hui, pas à ce qu'on l'a payé » ; « Le rouge me signale bien que la première version est une erreur ». Réserve : « Cette idée passe uniquement par les mots. »"
+   },
+   {
+    "id": "e",
+    "score": "GOT",
+    "preuve": "S11 : « la banque « possède » une grande partie de l'appartement à travers le crédit » ; S13 : « On ne retire donc pas la mensualité mais tout ce qui reste dû ». Réserves : S11 « je pourrais croire que la valeur baisse, ou que la barre est une jauge de progression » ; S13 « je pourrais croire qu'on rembourse une mensualité et que la dette diminue, donc une bonne nouvelle »."
+   },
+   {
+    "id": "f",
+    "score": "GOT",
+    "preuve": "S14 : « l'appartement vaut 250 000 € et la dette envers la banque est de 180 000 € » ; S15 : « compter 250 000 € comme si c'était à soi est faux […] Il reste une courte barre cyan : « ≈ 70 000 € nets » ». Réserve : « Le rouge sur toute la barre pourrait me faire croire que l'appartement entier est un problème. »"
+   },
+   {
+    "id": "g",
+    "score": "GOT",
+    "preuve": "S16 : « ce chiffre a ses limites, il faut s'en méfier un peu » ; S17 : « Le chiffre mélange des choses de natures très différentes » ; S18 : « il faut regarder la part disponible et la part risquée ». Réserves : S16 « Le signe d'attention seul pourrait vouloir dire « patrimoine négatif » ou « erreur de calcul » » ; S06 « Limites » lu comme « des plafonds (de livret ou de dépenses) »."
+   },
+   {
+    "id": "h",
+    "score": "GOT",
+    "preuve": "S19 : « Il faut recalculer son patrimoine net une ou deux fois par an pour suivre son évolution ». Réserve : « La courbe qui monte pourrait laisser croire que le patrimoine va forcément augmenter, ou que la vidéo promet une croissance. »"
+   },
+   {
+    "id": "i",
+    "score": "GOT",
+    "preuve": "S20 : « ne regarder que son solde, c'est l'erreur » ; S21 : « « Toi » regarde maintenant « Patrimoine net », qui grossit […] c'est la conclusion ». Réserve S20 : « On pourrait toutefois y lire de la colère ou une alerte de découvert plutôt qu'un « mauvais réflexe ». »"
+   }
+  ],
+  "bilan": "Message principal reconstitué en entier : le solde n’est qu’une case, le patrimoine net = ce que tu possèdes − ce que tu dois, valeur actuelle et capital restant dû (pas la mensualité), l’exemple 250 000 € − 180 000 € ≈ 70 000 € nets, les limites du chiffre (disponible / bloqué, sûr / risqué, réel / estimé), le calcul 1 ou 2 fois par an, et la chute (ne plus fixer son solde). Neuf idées sur neuf GOT, aucune PARTIAL ni MISSED. Un contresens à retirer : S03, le « = » posé avant le « − » faisait lire « patrimoine net = somme de la grille ». Quatre lectures fausses possibles : S13, la tranche « Mensualité » qui sortait de la part grise faisait croire que la dette diminue (« une bonne nouvelle ») ; S15, le contour rouge de toute la barre faisait de l’appartement entier « un problème » ; S19, la courbe toujours montante et la flèche ↑ se lisaient « croissance promise » ; S06, « Patrimoine net » rangée sous « Limites » paraissait « étrange » et « Limites » se lisait « plafonds ». Flous : S02, les cases « ? » sans lien visible avec le solde (comptes ? dépenses ? objectifs ?) ; S05, le reflet « photo » pris pour un effet décoratif et la cible hésitante entre « objectif » et « bon chiffre » ; S09, l’immeuble lu « deuxième bien immobilier » ; S11, la part grise lue « baisse de valeur » sans le souvenir de la carte ; S16, le signe d’attention lu « patrimoine négatif ». Acceptés tels quels : S08 et S10 (le sens passe par les libellés, que l’action confirme : relais case par case, rouge barré puis deep), S17-S18 (correspondances case → pastille devinées juste), S20 (le regard rouge fait écho à S01 ; lu « l’erreur »), S22 (clin d’œil du bouton).",
+  "changements": [
+   {
+    "id": "S02",
+    "lecture": "« Je ne sais pas ce que sont ces 8 cases : d'autres comptes, des dépenses à venir ou des objectifs ? »",
+    "changement": "Les huit cases « ? » ne se tracent plus autour du solde : elles sortent l’une après l’autre de derrière la case du solde et glissent à leurs places : elles naissent du solde, ce sont d’autres choses du même genre."
+   },
+   {
+    "id": "S03",
+    "lecture": "« Le « = » apparaît alors que rien n'est encore écrit à sa gauche hormis la grille […] je pourrais croire à tort que le patrimoine net est simplement la somme de la grille. »",
+    "changement": "Plus de « = » en S03 : « Patrimoine net » est écrite seule ; sur « chiffre », la pilule du solde puis « Patrimoine net » battent tour à tour (deux chiffres différents). Le « = » ne se pose qu’en S04, une fois la carte « Ce que tu dois » tombée après le « − »."
+   },
+   {
+    "id": "S05",
+    "lecture": "« Je ne suis pas sûr de comprendre le reflet comme une « photo » de la situation ; je pourrais n'y voir qu'un effet décoratif. Le sens de la cible reste flou : objectif financier, ou « le bon chiffre à regarder » ? »",
+    "changement": "Plus de reflet : sur « photo » les fils relient la grille et la carte grise au chiffre, sur « situation » « Toi » se tourne vers l’équation et sa pilule bat. Un point cyan marque le départ au bord de « Patrimoine net » avant la flèche, et « Ta stratégie » s’écrit sous la cible sur « patrimoniale »."
+   },
+   {
+    "id": "S06",
+    "lecture": "« « Limites » est énigmatique ici. Je pourrais croire à des plafonds […] Je trouve aussi un peu étrange que « Patrimoine net » soit rangé sous « Limites ». »",
+    "changement": "La carte grise se range toujours dans le disque 2 « Dois », mais « Patrimoine net » ne va plus dans le disque 3 : elle s’efface sur place et ressort de la grille en S16. Le sens de « Limites » est relié en S16 (voir ci-dessous)."
+   },
+   {
+    "id": "S09",
+    "lecture": "« Sans son nom, l'immeuble me ferait penser à un deuxième bien immobilier ou à un bureau, pas à des parts de société. »",
+    "changement": "La case « Parts de société » porte l’immeuble avec un petit disque « % » à son coin : une part d’entreprise, pas un logement."
+   },
+   {
+    "id": "S11",
+    "lecture": "« Je comprends que la partie grise est le crédit parce que la carte grise a déjà été présentée comme « Ce que tu dois ». Sinon, je pourrais croire que la valeur baisse, ou que la barre est une jauge de progression. »",
+    "changement": "La part grise garde « Ce que tu dois » et son pictogramme de banque en recouvrant la barre (c’est la même carte, sortie du disque 2) ; « Capital restant dû » ne remplace ce libellé qu’en S12."
+   },
+   {
+    "id": "S13",
+    "lecture": "« Sans eux, je pourrais croire qu'on rembourse une mensualité et que la dette diminue, donc une bonne nouvelle. »",
+    "changement": "La mensualité ne sort plus de la part grise : un mince bord de la part grise se cerne de rouge, « Mensualité » s’écrit dessous, « Toi » le barre, contour et mot s’effacent sur place ; la part grise ne bouge pas, entière, et passe toute sous l’accolade « restant à rembourser »."
+   },
+   {
+    "id": "S15",
+    "lecture": "« Le rouge sur toute la barre pourrait me faire croire que l'appartement entier est un problème. »",
+    "changement": "Plus de contour rouge sur la barre : une copie rouge de « 250 000 € » se détache de l’étiquette et se pose sous la part grise (la valeur entière prise pour du patrimoine), tremble pendant que la part grise bat ; « Toi » la barre, elle tombe, puis il retire la part grise et « ≈ 70 000 € nets » sort en cyan sous la barre restante."
+   },
+   {
+    "id": "S16",
+    "lecture": "« Le signe d'attention seul pourrait vouloir dire « patrimoine négatif » ou « erreur de calcul ». »",
+    "changement": "« Patrimoine net » ressort du bord droit de la grille (le total de toute la grille) ; quand le signe d’attention naît sur « limites », la légende 3 « Limites » du repère bat avec lui."
+   },
+   {
+    "id": "S19",
+    "lecture": "« La courbe qui monte pourrait laisser croire que le patrimoine va forcément augmenter, ou que la vidéo promet une croissance. »",
+    "changement": "Les points dessinent deux creux (des mesures, pas une promesse) ; la flèche ↑ « ça monte » est remplacée par la comparaison du premier et du dernier point : ils battent ensemble et l’écart entre eux se mesure (trait fin + double flèche)."
+   }
+  ]
+ },
  "risks": [
   "La grille pleine compte neuf cases avec pictogramme et libellé : à 360 px de large elle peut se lire « tableur ». Repli : libellés à 34 px (30 px sur deux lignes pour « Épargne salariale » et « Parts de société »), cases aérées (16 px), aucun autre élément actif pendant le remplissage ; si c’est encore dense, ne garder que le pictogramme et le libellé (pas d’ombre sur les cases « ? »).",
   "Les cases « ? » en tirets peuvent se lire « rien ici » (leçon 37) : elles sont toutes remplies en S08-S09, et le test sans son doit vérifier qu’en S02 on lit « inconnu », pas « vide ».",
   "Grille réduite à 0,6 (S11-S21) : libellés à ≈ 20 px, illisibles au téléphone ; elle n’est là que comme rappel (pictogrammes et pilule du solde reconnaissables). Repli : ne garder que les disques à pictogramme et la pilule.",
   "Deux pilules portent un nom proche : « 3 200 € » (cyan, le solde) et « Patrimoine net » (light). Le contraste de la chute repose sur le regard de « Toi » : vérifier sur image fixe que le trait rouge part bien de sa tête et finit sur la pilule du solde, et que le trait plein finit sur « Patrimoine net ».",
-  "S15 : le contour rouge de la barre entière doit se lire « 250 000 € n’est pas ton patrimoine » et non « la valeur est fausse » ; c’est pour cela que l’étiquette garde « Valeur actuelle · 250 000 € » en deep et que seul le contour de la barre rougit. Repli : petite pilule rouge « ≠ patrimoine » à côté de la barre pendant 1,5 s.",
-  "Portée du stylo : rien de ce que « Toi » touche n’est au-dessus de y ≈ 850 (étiquette en S10 sous la case « Immobilier », part grise en y 885-995, « Mensualité » en y 1060, axe du temps en y 1180, regards près de sa tête) ; vérifier par fig.place_for, marcher sinon.",
-  "Cadence : 22 scènes et ≈ 24 compositions (relais en S02, S03, S06, S11, S16, S18, S20, S22 et changements de grille), un peu sous la cible de 26 ; les 110 temps forts tiennent le rythme d’un par seconde, aucune tenue de plus de 2,5 s hors carte de fin.",
-  "« ≈ 70 000 € nets » est l’exemple d’un seul bien : la chute ne donne pas de total chiffré (le script n’en dit pas) ; le résultat final est écrit en mots (« Patrimoine net ») et le calcul chiffré reste celui de l’exemple. Si le contrôle sans son demande un chiffre final, rappeler « ≈ 70 000 € nets » sous le jeton dans sa case."
+  "S15 : la pilule rouge « 250 000 € » doit se lire « la valeur entière n’est pas ton patrimoine » et non « la valeur est fausse » : l’étiquette garde « Valeur actuelle · 250 000 € » en deep pendant que la copie rouge tremble sous la part grise, qui bat ; le relais par « ≈ 70 000 € nets » se fait sous la même barre. Portée : le trait qui la barre va de (720, 1060) à (480, 1060) depuis P1 ; si fig.place_for le refuse, « Toi » marche en P2 sur « représente » et revient en P1 sur « 70 000 € », avant que le calcul s’écrive (le calcul s’étend jusqu’à x 740).",
+  "Portée du stylo : rien de ce que « Toi » touche n’est au-dessus de y ≈ 850 (étiquette en S10 sous la case « Immobilier », part grise en y 885-995, « Mensualité » en y 1040, « 250 000 € » rouge en y 1060, axe du temps en y 1180, regards près de sa tête) ; vérifier par fig.place_for, marcher sinon.",
+  "Cadence : 22 scènes et ≈ 24 compositions (relais en S02, S03, S06, S11, S16, S18, S20, S22 et changements de grille), un peu sous la cible de 26 ; les 112 temps forts tiennent le rythme d’un par seconde, aucune tenue de plus de 2,5 s hors carte de fin.",
+  "« ≈ 70 000 € nets » est l’exemple d’un seul bien : la chute ne donne pas de total chiffré (le script n’en dit pas) ; le résultat final est écrit en mots (« Patrimoine net ») et le calcul chiffré reste celui de l’exemple. Si le contrôle sans son demande un chiffre final, rappeler « ≈ 70 000 € nets » sous le jeton dans sa case.",
+  "S06 : « Patrimoine net » s’efface au lieu de se ranger sous « Limites » (le spectateur muet trouvait étrange de la voir rangée sous ce mot) ; elle ressort de la grille en S16. Si la QA signale une disparition sans cause, la faire glisser et se réduire dans le cadre de la grille avant qu’il sorte.",
+  "S19 : la courbe garde deux creux pour ne pas se lire « croissance promise » ; l’écart final (trait fin + double flèche) ne porte pas de chiffre, le script n’en donne pas."
  ],
  "excerpt": {
   "t_start": 50.968,
   "t_end": 63.878,
-  "why": "S14-S15, 12,9 s : le cœur du point 2, l’exemple chiffré ; valide d’un coup le jeton, l’étiquette, la barre et sa part grise, les compteurs, le contour rouge, le retrait par « Toi » et le résultat ≈ 70 000 € nets."
- }
+  "why": "S14-S15, 12,9 s : le cœur du point 2, l’exemple chiffré ; valide d’un coup le jeton, l’étiquette, la barre et sa part grise, les compteurs, la pilule rouge « 250 000 € » barrée, le retrait par « Toi » et le résultat ≈ 70 000 € nets."
+ },
+ "revisions": [
+  {
+   "version": "v1 · révisé après le test sans son",
+   "scenes": [
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06",
+    "S09",
+    "S11",
+    "S12",
+    "S13",
+    "S15",
+    "S16",
+    "S19",
+    "S20"
+   ],
+   "pourquoi": "Test du spectateur muet, tour 1 : cases « ? » nées du solde, « = » posé après le « − », reflet remplacé par « Toi » qui se tourne vers sa situation et cible légendée « Ta stratégie », « Patrimoine net » qui ne se range plus sous « Limites », parts de société marquées « % », part grise qui garde « Ce que tu dois », mensualité désignée sans rien retirer à la dette, « 250 000 € » rouge barré au lieu de la barre cernée de rouge, signe d’attention relié à « Limites », courbe à creux et écart mesuré (voir « Test sans son »)."
+  }
+ ]
 }
