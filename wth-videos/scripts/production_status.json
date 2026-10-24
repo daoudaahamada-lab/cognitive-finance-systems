@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-24T19:32:03+00:00",
+  "updated_at": "2026-10-24T21:42:15+00:00",
   "checkpoints": {
     "v01_full_approved": {
       "state": "done",
@@ -653,29 +653,40 @@
           "updated_at": "2026-10-24T17:47:30+00:00"
         },
         "spec": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-24T21:42:14+00:00"
         },
         "render": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-24T21:42:14+00:00"
         },
         "review": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-24T21:42:14+00:00"
         },
         "mute_verify": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-24T21:42:15+00:00"
         },
         "qa": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-24T21:42:15+00:00"
         },
         "delivered": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-24T21:42:15+00:00"
         },
         "published": {
           "state": "pending"
         }
       },
       "open_issues": [],
-      "notes": []
+      "notes": [],
+      "livraison": {
+        "date": "2026-10-24",
+        "fichier": "output/WTH-V12.mp4",
+        "sans_son": "7/9 GOT, aucune idée principale manquée, critère oui (mode rapide)"
+      }
     },
     "V13": {
       "title": "Ton patrimoine net n’est pas ton solde",
