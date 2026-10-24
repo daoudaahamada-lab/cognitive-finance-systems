@@ -1,0 +1,108 @@
+{
+  "id": "V07",
+  "mode": "story",
+  "source": "WTH-014",
+  "file": "output/WTH-V07.mp4",
+  "checked_at": "2026-10-24T09:13:20+00:00",
+  "ok": false,
+  "checks": [
+    {
+      "check": "Durée",
+      "ok": true,
+      "value": "98.93 s",
+      "expected": "45 à 180 s",
+      "detail": ""
+    },
+    {
+      "check": "Format",
+      "ok": true,
+      "value": "h264 1080x1920 30/1 yuv420p + aac, profil High, tv/bt709, audio 48000 Hz, 190 kb/s",
+      "expected": "h264 1080x1920 30/1 yuv420p + aac, BT.709 plage tv",
+      "detail": ""
+    },
+    {
+      "check": "Rendu Story à jour",
+      "ok": true,
+      "value": "2968 images, empreintes identiques",
+      "expected": "2968 images (props), empreintes props + storyboard + mise en scène du rendu = fichiers actuels, version sans sous-titres du même rendu",
+      "detail": "props c799140dc9, storyboard d48cb570c4, mise en scène 4c6dce7726"
+    },
+    {
+      "check": "Mise en scène complète",
+      "ok": true,
+      "value": "22 scènes mises en scène, tous les temps forts posés",
+      "expected": "chaque scène du storyboard mise en scène, chaque temps fort avec son événement, pas de rendu partiel",
+      "detail": "mise en scène scripts/story/V07/__init__.py, storyboard scripts/storyboards/V07.json"
+    },
+    {
+      "check": "Synchro sous-titres",
+      "ok": true,
+      "value": "70 ms",
+      "expected": "< 150 ms",
+      "detail": "sous-titres (props Story)/alignement + image : 67 ms ; décalage audio MP4 : 3 ms ; alignement scribe vérifié sur 33 pauses mesurées, aucun conflit"
+    },
+    {
+      "check": "Aucun mot coupé",
+      "ok": true,
+      "value": "ok",
+      "expected": "tous les mots, entiers, dans la largeur",
+      "detail": "255 mots, groupe le plus large 670/760 px (Inter Bold 64 px, film Story)"
+    },
+    {
+      "check": "Accents et caractères",
+      "ok": true,
+      "value": "ok",
+      "expected": "UTF-8 NFC, glyphes présents, aucun mojibake",
+      "detail": "mots hors dictionnaire à relire : Tech"
+    },
+    {
+      "check": "Pas de saturation",
+      "ok": true,
+      "value": "true peak -2.3 dBTP, 0 échantillon(s) écrêté(s)",
+      "expected": "≤ -1.0 dBTP, 0 écrêtage",
+      "detail": ""
+    },
+    {
+      "check": "Loudness",
+      "ok": true,
+      "value": "-14.2 LUFS",
+      "expected": "-14 ± 1 LUFS",
+      "detail": ""
+    },
+    {
+      "check": "Surbrillance à l'image près",
+      "ok": true,
+      "value": "255/255 changements à l'image exacte",
+      "expected": "le mot surligné change à l'image du début du mot, pas avant ; toujours un mot surligné à l'écran",
+      "detail": "mesuré sur la ligne de sous-titres décodée"
+    },
+    {
+      "check": "Zones réservées dégagées",
+      "ok": false,
+      "value": "haut 0.00% (image 0); bas 0.00% (image 0); droite 0.36% (image 1966)",
+      "expected": "≤ 0.3% de pixels hors fond dans les 160 px du haut, les 380 px du bas et à droite de x = 940 (version sans sous-titres)",
+      "detail": "interface TikTok / Reels : rien d'important sous les bandeaux ni sous la colonne d'icônes"
+    },
+    {
+      "check": "Jamais d'image figée",
+      "ok": true,
+      "value": "tenue la plus longue 2.5 s (images 237-311)",
+      "expected": "aucune image figée plus de 3.5 s, hors carte de fin (dès l'image 2883)",
+      "detail": "36 tenues ≥ 0,5 s (au moins 12 px à mi-résolution qui changent de plus de 16 niveaux = mouvement)"
+    },
+    {
+      "check": "Version sans sous-titres conforme",
+      "ok": true,
+      "value": "PSNR 53.7 dB au pire (image 2897), 2968 / 2968 images",
+      "expected": "≥ 40 dB au-dessus de y = 1270, 2968 images dans les deux versions",
+      "detail": "médiane 99.0 dB"
+    },
+    {
+      "check": "Bande d'action jamais vide",
+      "ok": true,
+      "value": "4.3% au pire (image 2887)",
+      "expected": "≥ 1% de pixels hors fond entre y = 160 et 1270, à chaque image",
+      "detail": "médiane 9.0%"
+    }
+  ]
+}
