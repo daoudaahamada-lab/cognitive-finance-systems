@@ -226,8 +226,8 @@ ALERTE_TEL_LOCAL, ALERTE_TEL_R = (0, 10), 40    # warning sur disque rouge (mond
 PHONE_TAP, PHONE_PULL = (540, 895), (540, 960)  # S18 : « Toi » (P3) accroche le bas de l'écran et tire vers le bas
 
 # --- les quatre cartes d'alerte (S18-S20) ---
-ALERTE_C = [(778, 530), (778, 645), (778, 760), (778, 875)]   # x 628-928 (+ ombre 6 : 934 < 940) ; téléphone x <= 620
-ALERTE_W, ALERTE_H = 300, 100
+ALERTE_C = [(768, 530), (768, 645), (768, 760), (768, 875)]   # x 623-913 (battement 1,06 et ombre : < 930) ; téléphone x <= 620
+ALERTE_W, ALERTE_H = 290, 100
 ALERTE_ICO_LOCAL, ALERTE_ICO_R, ALERTE_TXT_X = (-112, 0), 34, -68   # pictogramme d'abord : disque 68 px anneau rouge
 
 # --- la bouée (S20) : appel par ondes (pas de fil), nom sous la bouée en 40 px, à droite des ondes ---

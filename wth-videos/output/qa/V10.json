@@ -3,7 +3,7 @@
   "mode": "story",
   "source": "WTH-064",
   "file": "output/WTH-V10.mp4",
-  "checked_at": "2026-10-24T16:17:35+00:00",
+  "checked_at": "2026-10-24T16:32:23+00:00",
   "ok": false,
   "checks": [
     {
@@ -25,7 +25,7 @@
       "ok": true,
       "value": "2849 images, empreintes identiques",
       "expected": "2849 images (props), empreintes props + storyboard + mise en scène du rendu = fichiers actuels, version sans sous-titres du même rendu",
-      "detail": "props f20dd677a5, storyboard 8dd401ae24, mise en scène 546f4e6705"
+      "detail": "props a649fc5097, storyboard 8dd401ae24, mise en scène b8f9b39704"
     },
     {
       "check": "Mise en scène complète",
@@ -79,7 +79,7 @@
     {
       "check": "Zones réservées dégagées",
       "ok": false,
-      "value": "haut 0.00% (image 0); bas 0.00% (image 0); droite 0.71% (image 2470)",
+      "value": "haut 0.00% (image 0); bas 0.00% (image 0); droite 0.36% (image 2470)",
       "expected": "≤ 0.3% de pixels hors fond dans les 160 px du haut, les 380 px du bas et à droite de x = 940 (version sans sous-titres)",
       "detail": "interface TikTok / Reels : rien d'important sous les bandeaux ni sous la colonne d'icônes"
     },
@@ -93,7 +93,7 @@
     {
       "check": "Version sans sous-titres conforme",
       "ok": true,
-      "value": "PSNR 63.0 dB au pire (image 2672), 2849 / 2849 images",
+      "value": "PSNR 54.9 dB au pire (image 2659), 2849 / 2849 images",
       "expected": "≥ 40 dB au-dessus de y = 1270, 2849 images dans les deux versions",
       "detail": "médiane 99.0 dB"
     },
