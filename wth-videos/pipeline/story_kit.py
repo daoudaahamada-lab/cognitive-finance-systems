@@ -29,6 +29,8 @@ WRIST = 0.35          # cible trop près de l'épaule : la prise reste à 35 % d
 REST_UP = 255         # stylo levé au repos (V01) : pointe en haut, un peu vers l'extérieur (bras à gauche)
 TAP = 8               # images d'un tapotement (approche + coup)
 STEP = 8              # images du pas fait avant un coup de tampon hors d'atteinte
+LOW_GRIP = (52, 40)   # bras baissé (facultatif, V06-V09) : prise du stylo à la hanche, repère de la figurine
+LOW_ROT = 58          # bras baissé : stylo vers le bas et vers l'extérieur (côté droit ; côté gauche : 180 - 58)
 _TRACKS0 = {"draw": 0, "chars": 0, "value": 0, "ring": 0, "press": 0, "mark": 0, "under": 0, "strike": 0, "pulse": 0,
             "flash": 0, "lean": 0, "btn": 0, "title": 0, "show": 0, "link": 0, "handle": 1, "active": 0}
 
@@ -459,7 +461,7 @@ class Kit:
 
     def outro(self, scene, mot=None, outs=(), press=16, title="WealthTech Horizon", labels=("Comprendre ton argent",),
               text="S’abonner", icon=None, pos=(540, 760), w=620, h=520, id="fin", z=40, clear=None, card_at=None,
-              btn_at=None, **card):
+              btn_at=None, grow_at=None, title_at=None, **card):
         """Fin standard des 15 films, sur le temps fort (scène, mot ; défaut : le 1er de la scène) : les `outs` se
         réduisent pendant que la carte de fin grandit (morph 350 ms) ; titre et lignes en fondu, le bouton surgit ;
         le pointeur entre en bas à droite, glisse sur le bas du bouton (jamais sur le libellé) et l'enfonce `press`
@@ -471,6 +473,8 @@ class Kit:
         exactement à sa place (la fiche du film) ; titre et lignes entrent à f + card_at + 4.
         btn_at (facultatif) : le bouton paraît d'un coup (btn 1) à f + btn_at, relais d'une pilule amenée à sa place
         (la pastille du fil), au lieu de surgir à f + 6.
+        grow_at, title_at (facultatifs, V09 ; défaut inchangé) : avec clear="fade", la carte grandit à f + grow_at (et
+        non à f), sous une composition qui se fond d'abord en bouton ; le titre et les lignes entrent à f + title_at.
         **card (facultatif) : paramètres de plus de la carte (labelSize, bsize…), passés tels quels à endcard.
         -> {"card": image, "press": image du clic}."""
         S = self.S
@@ -487,7 +491,7 @@ class Kit:
                 S.key(o, "opacity", f, 0, FADE, "linear")
                 S.key(o, "scale", f + FADE, 0)
             if card_at is None:
-                self.pop(id, f, d=MORPH)
+                self.pop(id, f + (grow_at or 0), d=MORPH)
         elif card_at is None:
             self.morph(list(outs), [id], f, pair=False)
         elif outs:
@@ -495,7 +499,7 @@ class Kit:
         if card_at is not None:                                  # relais : la carte paraît à pleine taille
             t0 = f + card_at
             S.key(id, "scale", t0, 1)
-        S.key(id, "title", t0 + 4, 1, FADE, "out")
+        S.key(id, "title", f + title_at if title_at is not None else t0 + 4, 1, FADE, "out")
         if btn_at is not None:
             S.key(id, "btn", f + btn_at, 1)
         else:
@@ -733,16 +737,25 @@ class Figure:
         S.key(self.id, "opacity", f + d, 0)
         return f + d
 
-    def walk(self, f, to, d=None, e="inOut"):
+    def walk(self, f, to, d=None, e="inOut", low=False):
         """Marche vers `to` (x, ou [x, y]) : glisse à petits sauts, penchée vers l'avant ; la main revient au repos et
-        suit le corps. d par défaut : distance / 7 px par image (8 images au moins). Renvoie f + d."""
+        suit le corps. d par défaut : distance / 7 px par image (8 images au moins). low=True (facultatif) : bras
+        BAISSÉ du début à la fin (voir lower). Renvoie f + d."""
         p0 = self.S.val(self.id, "pos", f - 1)
         to = [to, p0[1]] if isinstance(to, (int, float)) else list(to)
         if math.dist(p0, to) < 0.5:
             return f
         d = d or max(8, math.ceil(math.dist(p0, to) / WALK_SPEED))
         self._move_body(f, d, to, e)
-        if self.pen:
+        if self.pen and low:
+            k0 = min(6, d)
+            rel0, r0 = self._start(f)
+            for n, p in frames(f, k0, "out"):
+                A = self._shoulder(n)
+                G, rot = self.low_pose(n)
+                self._pose(n, lerp([A[0] + rel0[0], A[1] + rel0[1]], G, p), ang_lerp(r0, rot, p))
+            self.hold_low(f + k0, f + d)
+        elif self.pen:
             k0 = min(6, d)
             self._hand_rest(f, k0, "out")
             for n in range(f + k0, f + d):
@@ -868,6 +881,33 @@ class Figure:
         self._need_tool("rest")
         self._hand_rest(f, d, e)
         return f + d
+
+    # --- bras baissé (facultatif, repris de V06-V08 pour V09 ; aucune méthode existante ne change) ---
+    def low_pose(self, n):
+        """(prise monde, angle du stylo) du bras baissé à l'image n : prise à la hanche (`low_grip`, repère de la
+        figurine, x du côté du bras), stylo vers le bas et l'extérieur (`low_rot`). Les deux sont des attributs de
+        l'instance (défauts LOW_GRIP, LOW_ROT) : V09 relève la prise (`toi.low_grip = (52, 10)`)."""
+        grip, rot0 = getattr(self, "low_grip", LOW_GRIP), getattr(self, "low_rot", LOW_ROT)
+        G = self._body_pt([self.m * grip[0], grip[1]], n)
+        rot = (rot0 if self.m > 0 else 180 - rot0) + self.S.val(self.id, "lean", n, 0)
+        return G, rot
+
+    def lower(self, f, d=8, e="inOut"):
+        """Le bras redescend : stylo tenu bas, à la hanche, pointe vers le sol (low_pose). Renvoie f + d."""
+        self._need_tool("lower")
+        rel0, r0 = self._start(f)
+        for n, p in frames(f, d, e):
+            A = self._shoulder(n)
+            G, rot = self.low_pose(n)
+            self._pose(n, lerp([A[0] + rel0[0], A[1] + rel0[1]], G, p), ang_lerp(r0, rot, p))
+        return f + d
+
+    def hold_low(self, fa, fb):
+        """Images [fa, fb) : bras baissé, re-posé image par image (le corps peut bouger ou pencher)."""
+        if self.pen:
+            for n in range(fa, fb):
+                G, rot = self.low_pose(n)
+                self._pose(n, G, rot)
 
     # --- gestes facultatifs (ajoutés pour V01 ; aucune méthode existante ne change) ---
     def _follow_rest(self, fa, fb):

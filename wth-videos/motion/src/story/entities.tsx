@@ -978,7 +978,8 @@ const Burst: React.FC<EntityProps> = ({r}) => {
 // `labels` (optionnel) : légende sous chaque disque (ex. Limiter / Exiger / Relire), encre pour l'étape active, gris
 // (ai_tick) pour les autres, en fondu selon la piste `active` ; `labelDy` / `labelSize` : GEOM.MARKER par défaut.
 type MarkerP = {xs: number[]; y: number; labels?: string[]; labelDy?: number; labelSize?: number; moveBlank?: boolean;
-  doneStyle?: 'kept'; labelShow?: 'active'};
+  doneStyle?: 'kept'; labelShow?: 'active'; discR?: number; activeR?: number; digitSize?: number; activeDigitSize?: number;
+  doneMark?: 'asterisk'; icons?: string[]};
 const Marker: React.FC<EntityProps> = ({r}) => {
   const C = usePalette();
   const p = r.e.p as MarkerP;
@@ -993,6 +994,18 @@ const Marker: React.FC<EntityProps> = ({r}) => {
   const lit = on === 1 ? 1 : clamp01(on);
   const kept = p.doneStyle === 'kept';
   const lbl = clamp01(r.get('lbl', 1));
+  // opt-in sizes (V09; absent = GEOM.MARKER and today's digits, pixel for pixel): discR / activeR (disc radii),
+  // digitSize / activeDigitSize (digit sizes).
+  const R0 = p.discR ?? M.r;
+  const RA = p.activeR ?? M.activeR;
+  const dSz = p.digitSize ?? 22;
+  const aSz = p.activeDigitSize ?? 34;
+  // opt-in doneMark 'asterisk' (V09; absent = deep tick): a done step is « seen, under conditions » — its disc stays
+  // paper, keeps its digit (or pictogram) and gets a deep « * » at its upper right, never a validating tick.
+  const ast = p.doneMark === 'asterisk';
+  // opt-in icons (V09; absent = digits only): tracks icon0..iconN (0 -> 1) swap the digit for a pictogram (the
+  // promise stored in that disc), on the inactive disc and on the active one.
+  const iconK = (i: number) => (p.icons && p.icons[i] ? clamp01(r.get(`icon${i}`, 0)) : 0);
   return (
     <>
       <line x1={p.xs[0]} x2={p.xs[p.xs.length - 1]} y1={p.y} y2={p.y} stroke={C.ink} strokeWidth={4} />
@@ -1038,6 +1051,31 @@ const Marker: React.FC<EntityProps> = ({r}) => {
         // opt-in tracks done0..doneN (absent = 0 = today's disc): the step is DONE, its label stays ink and a deep
         // tick replaces the digit in the disc (drawn 0 -> 1).
         const dn = clamp01(r.get(`done${i}`, 0));
+        if (ast || p.icons) {
+          const ik = iconK(i);
+          const dk = ast ? 1 - ik : (1 - dn) * (1 - ik);
+          const tk = tickPath(26 * R0 / M.r);
+          return (
+            <g key={x}>
+              <circle cx={x} cy={p.y} r={R0} fill={kept && dn > 0 && !ast ? mixHex(C.paper, C.light, dn) : C.paper} stroke={C.ink} strokeWidth={4} />
+              {dk > 0 ? (
+                <g opacity={dk < 0.999 ? dk : undefined}>
+                  <Txt x={x} y={p.y} size={dSz} weight={800} anchor="middle">
+                    {String(i + 1)}
+                  </Txt>
+                </g>
+              ) : null}
+              {ik > 0 && p.icons ? (
+                <g transform={`translate(${x} ${p.y})`} opacity={ik < 0.999 ? ik : undefined}>
+                  <Icon name={p.icons[i]} s={R0 * 1.25} color={C.ink} />
+                </g>
+              ) : null}
+              {dn > 0 && !ast ? (
+                <path d={tk.d} transform={`translate(${x} ${p.y + 1})`} fill="none" stroke={C.deep} strokeWidth={6} strokeLinecap="round" strokeLinejoin="round" strokeDasharray={drawDash(tk.len, dn)} />
+              ) : null}
+            </g>
+          );
+        }
         const tk = tickPath(26);
         return (
           <g key={x}>
@@ -1056,19 +1094,45 @@ const Marker: React.FC<EntityProps> = ({r}) => {
         );
       })}
       {on === 1 ? (
-        <Hard off={6} render={(sh) => <circle cx={cx} cy={p.y} r={M.activeR} fill={sh ? C.ink : C.cyan} stroke={C.ink} strokeWidth={4} />} />
+        <Hard off={6} render={(sh) => <circle cx={cx} cy={p.y} r={RA} fill={sh ? C.ink : C.cyan} stroke={C.ink} strokeWidth={4} />} />
       ) : (
         <Hard
           off={6 * lit}
-          render={(sh) => <circle cx={cx} cy={p.y} r={M.r + (M.activeR - M.r) * Math.max(0, on)} fill={sh ? C.ink : mixHex(C.paper, C.cyan, lit)} stroke={C.ink} strokeWidth={4} />}
+          render={(sh) => <circle cx={cx} cy={p.y} r={R0 + (RA - R0) * Math.max(0, on)} fill={sh ? C.ink : mixHex(C.paper, C.cyan, lit)} stroke={C.ink} strokeWidth={4} />}
         />
       )}
       {/* opt-in moveBlank (absent = today's marker): the sliding disc carries no digit until it lands */}
-      {!p.moveBlank || Math.abs(a - Math.round(a)) < 0.02 ? (
-        <Txt x={cx} y={p.y} size={on === 1 ? 34 : 22 + 12 * Math.max(0, on)} weight={800} anchor="middle">
+      {(!p.moveBlank || Math.abs(a - Math.round(a)) < 0.02) && !p.icons ? (
+        <Txt x={cx} y={p.y} size={on === 1 ? aSz : dSz + (aSz - dSz) * Math.max(0, on)} weight={800} anchor="middle">
           {String(digit)}
         </Txt>
       ) : null}
+      {(!p.moveBlank || Math.abs(a - Math.round(a)) < 0.02) && p.icons && iconK(Math.round(a)) < 1 ? (
+        <g opacity={iconK(Math.round(a)) > 0 ? 1 - iconK(Math.round(a)) : undefined}>
+          <Txt x={cx} y={p.y} size={on === 1 ? aSz : dSz + (aSz - dSz) * Math.max(0, on)} weight={800} anchor="middle">
+            {String(digit)}
+          </Txt>
+        </g>
+      ) : null}
+      {p.icons && iconK(Math.round(a)) > 0 && (!p.moveBlank || Math.abs(a - Math.round(a)) < 0.02) ? (
+        <g transform={`translate(${cx} ${p.y})`} opacity={iconK(Math.round(a)) < 0.999 ? iconK(Math.round(a)) : undefined}>
+          <Icon name={p.icons[Math.round(a)]} s={RA * 1.25} color={C.ink} />
+        </g>
+      ) : null}
+      {ast
+        ? p.xs.map((x, i) => {
+            const dn = clamp01(r.get(`done${i}`, 0));
+            if (dn <= 0) return null;
+            const rr = Math.abs(cx - x) < 1 && on > 0 ? RA : R0;
+            return (
+              <g key={`a${i}`} opacity={dn < 0.999 ? dn : undefined}>
+                <Txt x={x + rr * 0.78} y={p.y - rr * 0.55} size={Math.round(R0 * 1.5)} weight={800} color={C.deep} anchor="middle">
+                  *
+                </Txt>
+              </g>
+            );
+          })
+        : null}
     </>
   );
 };
