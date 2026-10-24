@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-24T22:28:42+00:00",
+  "updated_at": "2026-10-24T22:42:48+00:00",
   "checkpoints": {
     "v01_full_approved": {
       "state": "done",
@@ -757,7 +757,8 @@
           "aligned": "223/223"
         },
         "storyboard": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-24T22:42:48+00:00"
         },
         "spec": {
           "state": "pending"
