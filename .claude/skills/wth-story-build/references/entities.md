@@ -123,6 +123,7 @@ Pictogramme seul, ou posé sur un disque.
   target (cible), sign (signature au stylo). Dessins : « Ajouts aux types existants ».
 - Ajoutés pour V13 : car (voiture de profil : un véhicule), eye (œil ouvert : « garder à l'œil »), unlock (cadenas
   ouvert : « disponible », l'opposé de lock). Dessins : « Ajouts aux types existants ».
+- Ajoutés pour V15 : repeat (deux flèches en cercle : paiement récurrent, abonnement), bolt (éclair plein : énergie).
 - Un nom inconnu ne dessine rien (pas d'erreur) : vérifie l'orthographe sur une image fixe.
 
 ### sector

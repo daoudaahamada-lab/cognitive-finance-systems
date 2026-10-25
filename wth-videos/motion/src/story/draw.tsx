@@ -142,12 +142,12 @@ export const roundRectLength = (w: number, h: number, r: number): number => {
 
 export type IconName = 'euro' | 'bars' | 'mail' | 'shield' | 'cal' | 'building' | 'check' | 'person' | 'rewind' | 'clock' |
   'house' | 'bank' | 'coin' | 'percent' | 'lock' | 'cart' | 'moon' | 'pause' | 'warning' | 'phone' | 'plus' | 'minus' |
-  'arrow' | 'hourglass' | 'clock9' | 'chat' | 'target' | 'sign' | 'car' | 'eye' | 'unlock' | 'none';
+  'arrow' | 'hourglass' | 'clock9' | 'chat' | 'target' | 'sign' | 'car' | 'eye' | 'unlock' | 'repeat' | 'bolt' | 'none';
 
 /** Pictogrammes disponibles (catalogue du kit, planches de contrôle). */
 export const ICON_NAMES: IconName[] = ['euro', 'bars', 'mail', 'shield', 'cal', 'building', 'check', 'person', 'rewind',
   'clock', 'house', 'bank', 'coin', 'percent', 'lock', 'cart', 'moon', 'pause', 'warning', 'phone', 'plus', 'minus', 'arrow',
-  'hourglass', 'clock9', 'chat', 'target', 'sign', 'car', 'eye', 'unlock'];
+  'hourglass', 'clock9', 'chat', 'target', 'sign', 'car', 'eye', 'unlock', 'repeat', 'bolt'];
 
 /** Pictogram in a box of side s centred on the origin, stroked/filled with `color`. */
 export const Icon: React.FC<{name: IconName | string; s: number; color?: string; sw?: number; fill?: string}> = ({name, s, color, sw, fill}) => {
@@ -393,6 +393,23 @@ export const Icon: React.FC<{name: IconName | string; s: number; color?: string;
           <path d="M6.2 0 V-7.6 A4.6 4.6 0 0 0 -3 -7.6 V-4.2" {...common} />
           <rect x={-8.5} y={0} width={17} height={11.5} rx={2.5} {...common} />
           <circle cx={0} cy={5.6} r={1.7} fill={col} />
+        </g>
+      );
+    case 'repeat':
+      // deux flèches en cercle (paiement récurrent, abonnement) : ajouté pour V15, nouveau nom (rien d'autre ne change)
+      return (
+        <g transform={`scale(${k})`}>
+          <path d="M-8.6 -1.2 A8.8 8.8 0 0 1 6.4 -6.2" {...common} />
+          <path d="M8.6 1.2 A8.8 8.8 0 0 1 -6.4 6.2" {...common} />
+          <path d="M2.4 -9.4 L7 -6 L3.2 -2" {...common} />
+          <path d="M-2.4 9.4 L-7 6 L-3.2 2" {...common} />
+        </g>
+      );
+    case 'bolt':
+      // éclair plein (énergie) : ajouté pour V15, nouveau nom (rien d'autre ne change)
+      return (
+        <g transform={`scale(${k})`}>
+          <path d="M2.6 -10.5 L-7 1.4 H-0.6 L-2.6 10.5 L7 -1.4 H0.6 Z" {...common} fill={col} />
         </g>
       );
     default:
