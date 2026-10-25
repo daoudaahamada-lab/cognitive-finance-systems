@@ -5,6 +5,7 @@ __pycache__/
 # Les MP4 et extraits de voix vivent sur Cloudinary / en local, pas dans git.
 output/*.mp4
 output/extraits/*.mp4
+output/shorts/*.mp4
 output/voices/*.mp3
 # Le cache audio (cache/tts) EST versionné : il garantit qu'une voix validée n'est jamais régénérée.
 # Illustrations en verre d'origine (~2 Mo chacune) : elles restent sur Google Drive, dossier

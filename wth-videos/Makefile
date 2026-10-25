@@ -16,6 +16,9 @@
 #                                        film incomplet : REVIEW="--src build/V07/story/film_partiel.mp4")
 #   make story-check                     parité Python / TypeScript (tests.story_parity) + tsc
 #   make films                           make story pour chaque vidéo de IDS dont la mise en scène est complète (les autres sont sautées)
+#   make shorts [SHORTS="S01 S03"]      vidéos courtes sans voix (shorts/shorts.json, composition Short) -> output/shorts/WTH-Sxx.mp4
+#                                        + contrôles (ffprobe, zones réservées) + planches build/shorts/Sxx_sheet.jpg
+#   make shorts-stills FRAMES="0 75 400" [SHORTS=…]   images fixes PNG -> build/shorts/stills/
 #   make clean-tmp [ID=V07]              dossiers temporaires de Remotion (sous le verrou de rendu) ; avec ID : images de revue
 #                                        de cette vidéo (garde les planches)
 
@@ -27,11 +30,12 @@ TO ?=
 FRAMES ?=
 ALLOW_PARTIAL ?=
 REVIEW ?=
+SHORTS ?=
 IDS ?= V01 V02 V03 V04 V05 V06 V07 V08 V09 V10 V11 V12 V13 V14 V15
 
 .NOTPARALLEL:
 
-.PHONY: help setup extract lint revue assets voices import video tts words subs render qa upload lock planning all publish check-id motion motion-setup motion-props motion-review story story-window voice storyboard-check story-props story-staging story-stills story-check review-sheets films clean-tmp
+.PHONY: help setup extract lint revue assets voices import video tts words subs render qa upload lock planning all publish check-id motion motion-setup motion-props motion-review story story-window voice storyboard-check story-props story-staging story-stills story-check review-sheets films clean-tmp shorts shorts-stills shorts-check
 
 help:
 	@sed -n '/^#/!q;p' Makefile
@@ -133,6 +137,17 @@ story-check:
 
 review-sheets: check-id
 	$(PY) -m pipeline.story_review $(ID) $(REVIEW)
+
+# ---------- Shorts (14 s, sans voix, piste AAC muette) ----------
+shorts:
+	$(PY) -m pipeline.shorts $(SHORTS)
+
+shorts-stills:
+	@test -n "$(strip $(FRAMES))" || (echo 'Précise les images : make shorts-stills FRAMES="0 75 400"' && exit 1)
+	$(PY) -m pipeline.shorts $(SHORTS) --stills "$(FRAMES)"
+
+shorts-check:
+	$(PY) -m pipeline.shorts $(SHORTS) --check
 
 # Une vidéo dont la mise en scène est incomplète ou en cours d'écriture (paquet scripts/story/Vxx/ sans toutes ses
 # parties) est sautée avec la raison, sans arrêter les suivantes ; un rendu ou une QA en échec arrête la série.

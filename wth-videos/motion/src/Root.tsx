@@ -3,6 +3,10 @@ import {Composition} from 'remotion';
 import {Explainer} from './explainer/Explainer';
 import {defaultExplainerProps} from './explainer/defaults';
 import type {ExplainerProps} from './explainer/types';
+import {defaultShortProps} from './shorts/defaults';
+import {Short} from './shorts/Short';
+import {TOTAL as SHORT_FRAMES} from './shorts/kit';
+import type {ShortProps} from './shorts/types';
 import {defaultStoryProps, Story} from './story/Story';
 import type {StoryProps} from './story/types';
 import {Test, type TestProps} from './Test';
@@ -52,6 +56,16 @@ export const RemotionRoot: React.FC = () => {
           width: props.width,
           height: props.height,
         })}
+      />
+      {/* Silent 14 s shorts (wth-videos/shorts/shorts.json, one short object as props; pipeline/shorts.py). */}
+      <Composition
+        id="Short"
+        component={Short}
+        width={1080}
+        height={1920}
+        fps={FPS}
+        durationInFrames={SHORT_FRAMES}
+        defaultProps={defaultShortProps satisfies ShortProps}
       />
       {/* Spike from the setup phase, kept as a smoke test (npm run render:test). */}
       <Composition
