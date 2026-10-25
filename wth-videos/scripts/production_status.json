@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-25T06:36:44+00:00",
+  "updated_at": "2026-10-25T06:37:12+00:00",
   "checkpoints": {
     "v01_full_approved": {
       "state": "done",
@@ -772,29 +772,40 @@
           "updated_at": "2026-10-24T22:42:48+00:00"
         },
         "spec": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-25T06:37:11+00:00"
         },
         "render": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-25T06:37:11+00:00"
         },
         "review": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-25T06:37:11+00:00"
         },
         "mute_verify": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-25T06:37:12+00:00"
         },
         "qa": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-25T06:37:12+00:00"
         },
         "delivered": {
-          "state": "pending"
+          "state": "done",
+          "updated_at": "2026-10-25T06:37:12+00:00"
         },
         "published": {
           "state": "pending"
         }
       },
       "open_issues": [],
-      "notes": []
+      "notes": [],
+      "livraison": {
+        "date": "2026-10-25",
+        "fichier": "output/WTH-V14.mp4",
+        "sans_son": "6/9 GOT, aucune idée principale manquée, critère oui (mode rapide)"
+      }
     },
     "V15": {
       "title": "Pas besoin de tout réorganiser ce soir",
