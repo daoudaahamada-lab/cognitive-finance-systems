@@ -1,0 +1,65 @@
+{
+  "id": "WTH-019",
+  "famille": "Tech & patrimoine",
+  "format": "Myth vs Fact",
+  "accroche": "« Capital garanti, rendement de 5 %, disponible à tout moment. »",
+  "sujet": "Un capital protégé, un rendement annoncé et une disponibilité immédiate sont trois choses différentes.",
+  "legende": "« Capital garanti, rendement de 5 %, disponible à tout moment. »\n\nTrois promesses, trois réalités différentes.\n\nTu as déjà vu une offre trop belle pour être vraie ? Raconte-la en commentaire.",
+  "hashtags": "#WealthTechHorizon #WealthTech #FinTech #Patrimoine",
+  "slides": [
+    {
+      "n": 1,
+      "fichier": "WTH-019-01.png",
+      "titre": "« Capital garanti, rendement de 5 %, disponible à tout moment. »",
+      "texte": "Trois promesses, trois réalités différentes."
+    },
+    {
+      "n": 2,
+      "fichier": "WTH-019-02.png",
+      "titre": "Pourquoi les séparer",
+      "texte": "Une offre peut être vraie sur un point et conditionnelle sur les autres. Le piège, c’est de croire que les trois vont toujours ensemble."
+    },
+    {
+      "n": 3,
+      "fichier": "WTH-019-03.png",
+      "titre": "« Capital garanti » : par qui ?",
+      "texte": "Un assureur, une banque, un émetteur. La garantie vaut ce que vaut celui qui la donne. Et elle s’entend parfois hors frais, ou seulement à une date précise."
+    },
+    {
+      "n": 4,
+      "fichier": "WTH-019-04.png",
+      "titre": "« Rendement annoncé » : sur quelle période ?",
+      "texte": "Un rendement passé ne prédit pas le futur. Un taux « boosté » peut ne valoir que quelques mois, et sous conditions."
+    },
+    {
+      "n": 5,
+      "fichier": "WTH-019-05.png",
+      "titre": "« Disponible » : vraiment tout de suite ?",
+      "texte": "Certains produits imposent une durée, des pénalités de sortie ou un délai. Disponible ne veut pas dire sans conditions."
+    },
+    {
+      "n": 6,
+      "fichier": "WTH-019-06.png",
+      "titre": "Mythe : « Protégé = sans risque. »",
+      "texte": "Faux. Un produit peut protéger ton capital à l’échéance, mais te faire perdre si tu sors avant, ou ne rien rapporter du tout."
+    },
+    {
+      "n": 7,
+      "fichier": "WTH-019-07.png",
+      "titre": "Les 4 questions à poser",
+      "texte": "Qu’est-ce qui est garanti ? Par qui ? Jusqu’à quand ? Sous quelles conditions ? Demande les réponses par écrit."
+    },
+    {
+      "n": 8,
+      "fichier": "WTH-019-08.png",
+      "titre": "À retenir",
+      "texte": "Quand une promesse paraît simple, ce sont les conditions qui la rendent vraie. Lis-les avant de signer."
+    },
+    {
+      "n": 9,
+      "fichier": "WTH-019-09.png",
+      "titre": "Tu as déjà vu une offre trop belle pour être vraie ?",
+      "texte": "Raconte-la en commentaire."
+    }
+  ]
+}

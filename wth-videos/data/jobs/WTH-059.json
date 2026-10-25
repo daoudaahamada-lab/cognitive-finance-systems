@@ -1,0 +1,173 @@
+{
+  "carrousel": "WTH-059",
+  "date": "2026-11-08",
+  "heure": "13:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1I9okWD6IVzY8v_rmLIKszLgZPyhcAx4E",
+        "public_id": "WTH-V2-Pro-059-01",
+        "asset_folder": "WTH-V2/WTH-059",
+        "display_name": "WTH-V2-Pro-059-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-059"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1IoWwnVnmyJOcbMlgru0rinhxk1DlRTt-",
+        "public_id": "WTH-V2-Pro-059-02",
+        "asset_folder": "WTH-V2/WTH-059",
+        "display_name": "WTH-V2-Pro-059-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-059"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1gNo680fF4QIwBog-245NxRicKMzWjx4Z",
+        "public_id": "WTH-V2-Pro-059-03",
+        "asset_folder": "WTH-V2/WTH-059",
+        "display_name": "WTH-V2-Pro-059-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-059"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1tzlqO4ke1yUeJqizJv9qhEbmaX49LvMY",
+        "public_id": "WTH-V2-Pro-059-04",
+        "asset_folder": "WTH-V2/WTH-059",
+        "display_name": "WTH-V2-Pro-059-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-059"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1XSK__d17CKQl_Pngoc-Wdl5kPE92iama",
+        "public_id": "WTH-V2-Pro-059-05",
+        "asset_folder": "WTH-V2/WTH-059",
+        "display_name": "WTH-V2-Pro-059-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-059"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1Vobgd4VwVW163SX4_shTEqPsVTi-J5Ro",
+        "public_id": "WTH-V2-Pro-059-06",
+        "asset_folder": "WTH-V2/WTH-059",
+        "display_name": "WTH-V2-Pro-059-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-059"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=17jKZJN2aB-uitcqzvBHFMqJVOXpu0k0v",
+        "public_id": "WTH-V2-Pro-059-07",
+        "asset_folder": "WTH-V2/WTH-059",
+        "display_name": "WTH-V2-Pro-059-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-059"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1Um-Ydp2in9JMYsVF6xInciPcBfo70WIl",
+        "public_id": "WTH-V2-Pro-059-08",
+        "asset_folder": "WTH-V2/WTH-059",
+        "display_name": "WTH-V2-Pro-059-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-059"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1DY16Ij64Ur6rorFmQh0a_gnMvcdW8T2V",
+        "public_id": "WTH-V2-Pro-059-09",
+        "asset_folder": "WTH-V2/WTH-059",
+        "display_name": "WTH-V2-Pro-059-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-059"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-08T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-11-08T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Plus ton app connaît ton argent, plus sa sécurité compte\\n\\n5 réflexes de cybersécurité financière.\\n\\nLa double authentification est activée sur tes comptes financiers ? Tous, certains, aucun ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-059-01.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-059-02.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-059-03.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-059-04.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-059-05.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-059-06.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-059-07.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-059-08.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-059-09.jpg\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Plus ton app connaît ton argent, plus sa sécurité compte\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-08T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-08T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Plus ton app connaît ton argent, plus sa sécurité compte\\n\\n5 réflexes de cybersécurité financière.\\n\\nLa double authentification est activée sur tes comptes financiers ? Tous, certains, aucun ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-08T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-08T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Plus ton app connaît ton argent, plus sa sécurité compte\\n\\n5 réflexes de cybersécurité financière.\\n\\nLa double authentification est activée sur tes comptes financiers ? Tous, certains, aucun ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-059-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

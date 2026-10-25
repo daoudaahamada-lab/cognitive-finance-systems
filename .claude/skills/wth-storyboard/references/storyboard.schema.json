@@ -1,0 +1,159 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "wth-storyboard/storyboard.schema.json",
+  "title": "Storyboard Story d'une vidéo WealthTech Horizon (scripts/storyboards/Vxx.json)",
+  "description": "Les champs requis ici couvrent ceux que refuse « python3 -m pipeline.story Vxx --check » (version, thread, cast, style, scenes, idees_cles ; champs de scène et de temps fort) et ceux qu'il signale (objet_fil, test_sans_son). Le contrôle vérifie aussi ce qu'un schéma ne peut pas vérifier : scènes contiguës de 0 à la fin du dernier mot, début de scène et temps forts sur un début de mot de words.json (± 30 ms), textes des scènes = texte du script, scènes des idées-clés existantes. Détail : storyboard-schema.md.",
+  "type": "object",
+  "required": ["version", "thread", "objet_fil", "cast", "style", "scenes", "idees_cles"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Ex. « v1 · 2026-10-21 · révisé après le test sans son »."
+    },
+    "angle": {
+      "type": "string",
+      "description": "Parti pris, et réponse explicite aux 7 règles de l'utilisateur (une ligne par règle)."
+    },
+    "thread": {
+      "type": "string",
+      "minLength": 40,
+      "description": "Le fil conducteur en 3 à 6 phrases, en français."
+    },
+    "objet_fil": {
+      "type": "object",
+      "required": ["id", "description"],
+      "properties": {
+        "id": {"type": "string", "description": "id de l'élément de la distribution qui porte le fil (souvent la pastille cyan)."},
+        "description": {"type": "string", "description": "Ce qu'il est, où il se pose, ce qu'il devient (jusqu'au bouton « S’abonner »)."}
+      }
+    },
+    "cast": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["id", "name_fr", "look", "source", "evolution"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+          "name_fr": {"type": "string"},
+          "look": {"type": "string", "description": "Aspect exact : forme, taille en px à 1080, couleurs (jetons de style.md), contour, ombre, texte affiché."},
+          "source": {"type": "string", "description": "« code », un PNG autorisé (« WTH-003-01.png », « AI.png »), ou « PNG + code »."},
+          "entite": {"type": "string", "description": "Type(s) d'entité Story et macro(s) du kit qui le réalisent (entities.md, kit.md), ou « NOUVEAU : … » (voir entites_nouvelles)."},
+          "evolution": {"type": "string", "description": "Comment il se transforme de scène en scène (ids de scène)."}
+        }
+      }
+    },
+    "style": {
+      "type": "string",
+      "description": "Fond, couleurs et leur emploi, familles de formes, typographie, mise en page, mouvement. Reprend style.md et ne précise que ce qui est propre au film (rouge réservé à quoi, places fixes)."
+    },
+    "scenes": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "object",
+        "required": ["id", "t_start", "t_end", "texte", "elements", "etat_initial", "action", "resultat", "transition", "beats", "lecture_sans_son"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^S[0-9]{2}$"},
+          "segment": {"type": "string", "enum": ["accroche", "contexte", "point1", "point2", "point3", "chute", "cta"]},
+          "t_start": {"type": "number", "minimum": 0, "description": "Début du premier mot de la scène (words.json), 0 pour S01."},
+          "t_end": {"type": "number", "exclusiveMinimum": 0, "description": "= t_start de la scène suivante ; pour la dernière, la durée de build/Vxx/audio.wav."},
+          "texte": {"type": "string", "minLength": 1, "description": "Les mots dits, exactement comme dans scripts.json."},
+          "elements": {"type": "string", "description": "ids de la distribution visibles pendant la scène."},
+          "etat_initial": {"type": "string"},
+          "action": {"type": "string"},
+          "resultat": {"type": "string"},
+          "transition": {"type": "string"},
+          "beats": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["t", "mot", "evenement"],
+              "properties": {
+                "t": {"type": "number", "minimum": 0, "description": "Début exact du mot dans words.json (± 30 ms)."},
+                "mot": {"type": "string", "minLength": 1, "description": "Le mot tel que dans words.json (ponctuation et espaces insécables tolérées)."},
+                "evenement": {"type": "string", "minLength": 1, "description": "Ce qui bouge : verbe visuel, élément(s), position, durée, assouplissement ; « Tenue : rien ne bouge » pour une tenue."}
+              }
+            }
+          },
+          "lecture_sans_son": {"type": "string", "description": "Ce qu'un spectateur sans le son comprend de la scène."}
+        }
+      }
+    },
+    "idees_cles": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": ["id", "idee", "scenes"],
+        "properties": {
+          "id": {"type": "string", "description": "Lettre ou code court : « a », « b »… ou « 0 » pour une amorce."},
+          "idee": {"type": "string", "description": "Ce qu'un spectateur muet doit comprendre, en une phrase, en français."},
+          "scenes": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^S[0-9]{2}$"}},
+          "principale": {"type": "boolean", "description": "Vrai pour les idées des 3 points et de la chute : le contrôle sans son refuse une idée principale MISSED."}
+        }
+      }
+    },
+    "entites_nouvelles": {
+      "type": "array",
+      "maxItems": 3,
+      "description": "Entités à créer avant la mise en scène (au plus 3, simples). Vide si le catalogue suffit.",
+      "items": {
+        "type": "object",
+        "required": ["nom", "description", "pourquoi"],
+        "properties": {
+          "nom": {"type": "string"},
+          "description": {"type": "string", "description": "Forme, paramètres, pistes animées."},
+          "pourquoi": {"type": "string", "description": "Pourquoi aucune entité existante ne suffit."}
+        }
+      }
+    },
+    "test_sans_son": {
+      "type": "object",
+      "required": ["message_reconstruit", "bilan", "changements"],
+      "properties": {
+        "message_reconstruit": {"type": "string"},
+        "idees": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "score"],
+            "properties": {
+              "id": {"type": "string"},
+              "score": {"type": "string", "enum": ["GOT", "PARTIAL", "MISSED"]},
+              "preuve": {"type": "string"}
+            }
+          }
+        },
+        "bilan": {"type": "string"},
+        "changements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "lecture", "changement"],
+            "properties": {
+              "id": {"type": "string"},
+              "lecture": {"type": "string"},
+              "changement": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    "excerpt": {
+      "type": "object",
+      "required": ["t_start", "t_end", "why"],
+      "properties": {"t_start": {"type": "number"}, "t_end": {"type": "number"}, "why": {"type": "string"}},
+      "description": "Facultatif : extrait de 10 à 15 s recommandé pour une validation rapide."
+    },
+    "risks": {"type": "array", "items": {"type": "string"}, "description": "Risques et replis."},
+    "revisions": {
+      "type": "array",
+      "description": "Journal des révisions ciblées (revise.wf.js).",
+      "items": {"type": "object", "properties": {"version": {"type": "string"}, "scenes": {"type": "array", "items": {"type": "string"}}, "pourquoi": {"type": "string"}}}
+    }
+  }
+}

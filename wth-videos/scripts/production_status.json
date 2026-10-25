@@ -1,0 +1,831 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-24T22:42:48+00:00",
+  "checkpoints": {
+    "v01_full_approved": {
+      "state": "done",
+      "label": "V01 complète validée par l'utilisateur (avant la série V02-V15)",
+      "updated_at": "2026-10-21T11:08:47+00:00",
+      "note": "« C'est très bien » (21/10) ; consignes : plus de limite à 60 s, scripts réécrits (problématique, annonce, contexte dans les transitions), V01 refaite aussi, 2 prises de voix, livrer seulement le lien de la vidéo"
+    },
+    "publication_dates_approved": {
+      "state": "pending",
+      "label": "dates de publication validées (avant toute programmation Metricool)",
+      "updated_at": "2026-10-20T19:24:49+00:00",
+      "note": "proposer une vidéo tous les 2 jours à 17:00, décalée par rapport au plan d'origine (config/videos.csv) ; rien n'est programmé sans accord"
+    },
+    "elevenlabs_credits": {
+      "state": "pending",
+      "label": "crédits ElevenLabs suffisants pour le prochain lot de voix",
+      "updated_at": "2026-10-20T19:24:48+00:00",
+      "note": "quota 40 000 crédits par période ; épuisé une fois le 20/10 (580 restants à V06), V06 générée ensuite ; ≈ 870-1 010 crédits par prise, 4 prises par vidéo (≈ 3 500-4 000) : faire confirmer le solde par l'utilisateur avant chaque lot"
+    },
+    "publication_questions": {
+      "state": "pending",
+      "label": "licence Remotion et déclaration « contenu IA » tranchées (avant publication)",
+      "updated_at": "2026-10-20T19:24:49+00:00",
+      "note": "licence Remotion (gratuite jusqu'à 3 personnes) et déclaration contenu IA (isAigc TikTok, isAiGenerated Instagram) à demander avant la première publication"
+    }
+  },
+  "notes": [
+    "Méthode Story (validée sur V01) ; skills wth-video, wth-storyboard, wth-story-build ; branche claude/wth-video-pipeline.",
+    "Ordre : V01 complète d'abord (point de validation), puis V02 à V15 dans l'ordre de publication."
+  ],
+  "videos": {
+    "V01": {
+      "title": "Préparer ton entretien client avec l’IA",
+      "source": "WTH-003",
+      "date_initiale": "2026-10-20",
+      "stages": {
+        "voice": {
+          "state": "done",
+          "updated_at": "2026-10-21T11:19:07+00:00",
+          "note": "Abdelatif ; pas encore verrouillée (make lock ID=V01 après l'accord sur le film)",
+          "take": "d3Rx5N2yKsrZIXBSsswV",
+          "duration_s": 92.63,
+          "cache_key": "c5a6f5bc301dd492259ae05a",
+          "aligned": "239/239"
+        },
+        "storyboard": {
+          "state": "done",
+          "updated_at": "2026-10-21T14:33:36+00:00",
+          "note": "à refaire : script réécrit le 21/10 (nouvelle voix)",
+          "version": "v3.2 · révision ciblée + 2e test sans son"
+        },
+        "spec": {
+          "state": "done",
+          "updated_at": "2026-10-23T13:04:33+00:00",
+          "note": "à refaire : script réécrit le 21/10 (nouvelle voix)"
+        },
+        "render": {
+          "state": "done",
+          "updated_at": "2026-10-23T13:04:33+00:00",
+          "note": "à refaire : script réécrit le 21/10 (nouvelle voix)"
+        },
+        "review": {
+          "state": "done",
+          "updated_at": "2026-10-23T13:04:19+00:00",
+          "note": "à refaire : script réécrit le 21/10 (nouvelle voix)"
+        },
+        "mute_verify": {
+          "state": "done",
+          "updated_at": "2026-10-23T13:04:19+00:00",
+          "note": "à refaire : script réécrit le 21/10 (nouvelle voix)",
+          "got": "6/10",
+          "critere": "oui"
+        },
+        "qa": {
+          "state": "done",
+          "updated_at": "2026-10-23T13:04:19+00:00",
+          "note": "à refaire : script réécrit le 21/10 (nouvelle voix)"
+        },
+        "delivered": {
+          "state": "done",
+          "updated_at": "2026-10-23T13:04:34+00:00"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": [],
+      "livraison": {
+        "date": "2026-10-23",
+        "fichier": "output/WTH-V01.mp4",
+        "sans_son": "5/10 GOT, aucune idée principale manquée, critère oui (mode rapide)"
+      }
+    },
+    "V02": {
+      "title": "Connecter ta banque : les erreurs à éviter",
+      "source": "WTH-002",
+      "date_initiale": "2026-10-22",
+      "stages": {
+        "voice": {
+          "state": "done",
+          "updated_at": "2026-10-21T11:22:52+00:00",
+          "take": "NUuQqgbfOjnsHJm67djn",
+          "duration_s": 88.69,
+          "cache_key": "e92d8defa0d6c2f43f76c809",
+          "aligned": "250/250",
+          "note": "voix du script réécrit (21/10), choisie parmi 2 prises"
+        },
+        "storyboard": {
+          "state": "done",
+          "updated_at": "2026-10-21T13:05:21+00:00",
+          "note": "7/9 GOT au test sans son",
+          "version": "v1 · révisé après le test sans son"
+        },
+        "spec": {
+          "state": "done",
+          "updated_at": "2026-10-23T13:20:43+00:00"
+        },
+        "render": {
+          "state": "done",
+          "updated_at": "2026-10-23T13:20:43+00:00"
+        },
+        "review": {
+          "state": "done",
+          "updated_at": "2026-10-23T13:20:43+00:00"
+        },
+        "mute_verify": {
+          "state": "done",
+          "updated_at": "2026-10-23T13:20:43+00:00"
+        },
+        "qa": {
+          "state": "done",
+          "updated_at": "2026-10-23T13:20:43+00:00"
+        },
+        "delivered": {
+          "state": "done",
+          "updated_at": "2026-10-23T13:20:43+00:00"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": [],
+      "livraison": {
+        "date": "2026-10-23",
+        "fichier": "output/WTH-V02.mp4",
+        "sans_son": "3/9 GOT, aucune idée principale manquée, critère oui (mode rapide, après 1 tour de correction)"
+      }
+    },
+    "V03": {
+      "title": "1 % de frais par an : ce que ça coûte",
+      "source": "WTH-016",
+      "date_initiale": "2026-10-24",
+      "stages": {
+        "voice": {
+          "state": "done",
+          "updated_at": "2026-10-21T11:22:52+00:00",
+          "note": "voix du script réécrit (21/10), choisie parmi 2 prises",
+          "take": "NKRRsAKyCsQmtYIWMtuN",
+          "duration_s": 96.97,
+          "cache_key": "c6deb91da07511dccf5f5419",
+          "aligned": "235/235"
+        },
+        "storyboard": {
+          "state": "done",
+          "updated_at": "2026-10-23T13:25:00+00:00"
+        },
+        "spec": {
+          "state": "done",
+          "updated_at": "2026-10-23T20:13:47+00:00"
+        },
+        "render": {
+          "state": "done",
+          "updated_at": "2026-10-23T20:13:47+00:00"
+        },
+        "review": {
+          "state": "done",
+          "updated_at": "2026-10-23T20:13:48+00:00"
+        },
+        "mute_verify": {
+          "state": "done",
+          "updated_at": "2026-10-23T20:13:48+00:00"
+        },
+        "qa": {
+          "state": "done",
+          "updated_at": "2026-10-23T20:13:48+00:00"
+        },
+        "delivered": {
+          "state": "done",
+          "updated_at": "2026-10-23T20:13:48+00:00"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": [],
+      "max_duration_s": 62.0,
+      "livraison": {
+        "date": "2026-10-23",
+        "fichier": "output/WTH-V03.mp4",
+        "sans_son": "6/10 GOT après correction de S19, aucune idée principale manquée, critère oui (mode rapide)"
+      }
+    },
+    "V04": {
+      "title": "Ton solde n’est pas ton budget",
+      "source": "WTH-006",
+      "date_initiale": "2026-10-26",
+      "stages": {
+        "voice": {
+          "state": "done",
+          "updated_at": "2026-10-21T11:24:42+00:00",
+          "take": "HG3poFzLM3M71wUWHMgI",
+          "duration_s": 88.42,
+          "cache_key": "670269a269e1aded76c02c88",
+          "aligned": "244/244",
+          "note": "voix du script réécrit (21/10), choisie parmi 2 prises"
+        },
+        "storyboard": {
+          "state": "done",
+          "updated_at": "2026-10-23T13:48:20+00:00"
+        },
+        "spec": {
+          "state": "done",
+          "updated_at": "2026-10-23T19:45:06+00:00"
+        },
+        "render": {
+          "state": "done",
+          "updated_at": "2026-10-23T19:45:06+00:00"
+        },
+        "review": {
+          "state": "done",
+          "updated_at": "2026-10-23T19:45:06+00:00"
+        },
+        "mute_verify": {
+          "state": "done",
+          "updated_at": "2026-10-23T19:45:06+00:00"
+        },
+        "qa": {
+          "state": "done",
+          "updated_at": "2026-10-23T19:45:06+00:00"
+        },
+        "delivered": {
+          "state": "done",
+          "updated_at": "2026-10-23T19:45:06+00:00"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": [],
+      "livraison": {
+        "date": "2026-10-23",
+        "fichier": "output/WTH-V04.mp4",
+        "sans_son": "4/9 GOT, aucune idée principale manquée, critère oui (mode rapide)"
+      }
+    },
+    "V05": {
+      "title": "Ton agent IA a inventé une info",
+      "source": "WTH-009",
+      "date_initiale": "2026-10-28",
+      "stages": {
+        "voice": {
+          "state": "done",
+          "updated_at": "2026-10-21T11:26:24+00:00",
+          "take": "9q96QNt3IfNepDmOtWIX",
+          "duration_s": 88.87,
+          "cache_key": "9639fd79f859d5ac5aefc878",
+          "aligned": "243/243",
+          "note": "voix du script réécrit (21/10), choisie parmi 2 prises"
+        },
+        "storyboard": {
+          "state": "done",
+          "updated_at": "2026-10-23T20:36:41+00:00"
+        },
+        "spec": {
+          "state": "done",
+          "updated_at": "2026-10-24T08:35:40+00:00"
+        },
+        "render": {
+          "state": "done",
+          "updated_at": "2026-10-24T08:35:40+00:00"
+        },
+        "review": {
+          "state": "done",
+          "updated_at": "2026-10-24T08:35:40+00:00"
+        },
+        "mute_verify": {
+          "state": "done",
+          "updated_at": "2026-10-24T08:35:41+00:00"
+        },
+        "qa": {
+          "state": "done",
+          "updated_at": "2026-10-24T08:35:40+00:00"
+        },
+        "delivered": {
+          "state": "done",
+          "updated_at": "2026-10-24T08:35:41+00:00"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": [],
+      "livraison": {
+        "date": "2026-10-24",
+        "fichier": "output/WTH-V05.mp4",
+        "sans_son": "5/8 GOT, aucune idée principale manquée, critère oui (mode rapide)"
+      }
+    },
+    "V06": {
+      "title": "Ton patrimoine est-il vraiment disponible ?",
+      "source": "WTH-025",
+      "date_initiale": "2026-10-30",
+      "stages": {
+        "voice": {
+          "state": "done",
+          "updated_at": "2026-10-21T11:27:59+00:00",
+          "note": "voix du script réécrit (21/10), choisie parmi 2 prises",
+          "take": "ZGQer05VAZFES3w94cGY",
+          "duration_s": 88.74,
+          "aligned": "234/234",
+          "cache_key": "a2827042f4129fc14363d619"
+        },
+        "storyboard": {
+          "state": "done",
+          "updated_at": "2026-10-23T20:36:02+00:00"
+        },
+        "spec": {
+          "state": "done",
+          "updated_at": "2026-10-24T07:35:42+00:00"
+        },
+        "render": {
+          "state": "done",
+          "updated_at": "2026-10-24T07:35:42+00:00"
+        },
+        "review": {
+          "state": "done",
+          "updated_at": "2026-10-24T07:35:42+00:00"
+        },
+        "mute_verify": {
+          "state": "done",
+          "updated_at": "2026-10-24T07:35:42+00:00"
+        },
+        "qa": {
+          "state": "done",
+          "updated_at": "2026-10-24T07:35:42+00:00"
+        },
+        "delivered": {
+          "state": "done",
+          "updated_at": "2026-10-24T07:35:42+00:00"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": [],
+      "livraison": {
+        "date": "2026-10-24",
+        "fichier": "output/WTH-V06.mp4",
+        "sans_son": "4/8 GOT, aucune idée principale manquée, critère oui (mode rapide)"
+      }
+    },
+    "V07": {
+      "title": "Ton ETF te rend vraiment diversifié ?",
+      "source": "WTH-014",
+      "date_initiale": "2026-11-01",
+      "stages": {
+        "voice": {
+          "state": "done",
+          "updated_at": "2026-10-21T11:29:49+00:00",
+          "note": "voix du script réécrit (21/10), choisie parmi 2 prises",
+          "take": "MO3YrDOzk0K2bgACpP8D",
+          "duration_s": 98.35,
+          "cache_key": "1bc9ff60060a62dcc0f079db",
+          "aligned": "255/255"
+        },
+        "storyboard": {
+          "state": "done",
+          "updated_at": "2026-10-24T08:20:07+00:00"
+        },
+        "spec": {
+          "state": "done",
+          "updated_at": "2026-10-24T11:32:27+00:00"
+        },
+        "render": {
+          "state": "done",
+          "updated_at": "2026-10-24T11:32:27+00:00"
+        },
+        "review": {
+          "state": "done",
+          "updated_at": "2026-10-24T11:32:27+00:00"
+        },
+        "mute_verify": {
+          "state": "done",
+          "updated_at": "2026-10-24T11:32:27+00:00"
+        },
+        "qa": {
+          "state": "done",
+          "updated_at": "2026-10-24T11:32:27+00:00"
+        },
+        "delivered": {
+          "state": "done",
+          "updated_at": "2026-10-24T11:32:27+00:00"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": [],
+      "max_duration_s": 64.0,
+      "livraison": {
+        "date": "2026-10-24",
+        "fichier": "output/WTH-V07.mp4",
+        "sans_son": "4/8 GOT, aucune idée principale manquée, critère oui (mode rapide)"
+      }
+    },
+    "V08": {
+      "title": "Ton vrai reste à vivre en 3 étapes",
+      "source": "WTH-004",
+      "date_initiale": "2026-11-03",
+      "stages": {
+        "voice": {
+          "state": "done",
+          "updated_at": "2026-10-21T11:31:29+00:00",
+          "note": "voix du script réécrit (21/10), choisie parmi 2 prises",
+          "take": "VbgH7F1nPUCBLTdAvOPs",
+          "duration_s": 95.14,
+          "cache_key": "b5eb77befe7591b12808dde5",
+          "aligned": "250/250"
+        },
+        "storyboard": {
+          "state": "done",
+          "updated_at": "2026-10-24T09:20:13+00:00"
+        },
+        "spec": {
+          "state": "done",
+          "updated_at": "2026-10-24T11:32:44+00:00"
+        },
+        "render": {
+          "state": "done",
+          "updated_at": "2026-10-24T11:32:44+00:00"
+        },
+        "review": {
+          "state": "done",
+          "updated_at": "2026-10-24T11:32:44+00:00"
+        },
+        "mute_verify": {
+          "state": "done",
+          "updated_at": "2026-10-24T11:32:44+00:00"
+        },
+        "qa": {
+          "state": "done",
+          "updated_at": "2026-10-24T11:32:44+00:00"
+        },
+        "delivered": {
+          "state": "done",
+          "updated_at": "2026-10-24T11:32:44+00:00"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [
+        "Surbrillance des montants (2 200 €, 1 350 €, 850 €) possiblement en avance : « euros » tombe dans le mot suivant ; vérifier au rendu (ACOUSTIC_SNAP)"
+      ],
+      "notes": [],
+      "max_duration_s": 62.5,
+      "livraison": {
+        "date": "2026-10-24",
+        "fichier": "output/WTH-V08.mp4",
+        "sans_son": "4/10 GOT, aucune idée principale manquée, critère oui (mode rapide)"
+      }
+    },
+    "V09": {
+      "title": "« Capital garanti, 5 %, disponible » ?",
+      "source": "WTH-019",
+      "date_initiale": "2026-11-05",
+      "stages": {
+        "voice": {
+          "state": "done",
+          "updated_at": "2026-10-21T11:33:10+00:00",
+          "note": "voix du script réécrit (21/10), choisie parmi 2 prises",
+          "take": "MnKwft6JHrM7oYdcXVsM",
+          "duration_s": 90.23,
+          "cache_key": "64b5d66b4e4cc906ba867be7",
+          "aligned": "246/246"
+        },
+        "storyboard": {
+          "state": "done",
+          "updated_at": "2026-10-24T12:24:10+00:00"
+        },
+        "spec": {
+          "state": "done",
+          "updated_at": "2026-10-24T16:24:41+00:00"
+        },
+        "render": {
+          "state": "done",
+          "updated_at": "2026-10-24T16:24:41+00:00"
+        },
+        "review": {
+          "state": "done",
+          "updated_at": "2026-10-24T16:24:41+00:00"
+        },
+        "mute_verify": {
+          "state": "done",
+          "updated_at": "2026-10-24T16:24:41+00:00"
+        },
+        "qa": {
+          "state": "done",
+          "updated_at": "2026-10-24T16:24:41+00:00"
+        },
+        "delivered": {
+          "state": "done",
+          "updated_at": "2026-10-24T16:24:42+00:00"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": [],
+      "livraison": {
+        "date": "2026-10-24",
+        "fichier": "output/WTH-V09.mp4",
+        "sans_son": "5/10 GOT, aucune idée principale manquée (b, secondaire, MISSED), critère oui (mode rapide)"
+      }
+    },
+    "V10": {
+      "title": "Offre urgente : le moment de ralentir",
+      "source": "WTH-064",
+      "date_initiale": "2026-11-07",
+      "stages": {
+        "voice": {
+          "state": "done",
+          "updated_at": "2026-10-21T11:34:52+00:00",
+          "note": "voix du script réécrit (21/10), choisie parmi 2 prises",
+          "take": "oprbYHQhe9tRgiKb4rSr",
+          "duration_s": 94.41,
+          "cache_key": "8cbb3933a0e1890c81b02978",
+          "aligned": "237/237"
+        },
+        "storyboard": {
+          "state": "done",
+          "updated_at": "2026-10-24T12:18:42+00:00"
+        },
+        "spec": {
+          "state": "done",
+          "updated_at": "2026-10-24T16:50:49+00:00"
+        },
+        "render": {
+          "state": "done",
+          "updated_at": "2026-10-24T16:50:49+00:00"
+        },
+        "review": {
+          "state": "done",
+          "updated_at": "2026-10-24T16:50:49+00:00"
+        },
+        "mute_verify": {
+          "state": "done",
+          "updated_at": "2026-10-24T16:50:49+00:00"
+        },
+        "qa": {
+          "state": "done",
+          "updated_at": "2026-10-24T16:50:49+00:00"
+        },
+        "delivered": {
+          "state": "done",
+          "updated_at": "2026-10-24T16:50:49+00:00"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": [],
+      "max_duration_s": 62.5,
+      "livraison": {
+        "date": "2026-10-24",
+        "fichier": "output/WTH-V10.mp4",
+        "sans_son": "5/10 GOT, aucune idée principale manquée (b, secondaire, MISSED), critère oui (mode rapide)"
+      }
+    },
+    "V11": {
+      "title": "La meilleure info n’est pas dans le dossier",
+      "source": "WTH-021",
+      "date_initiale": "2026-11-09",
+      "stages": {
+        "voice": {
+          "state": "done",
+          "updated_at": "2026-10-21T11:36:29+00:00",
+          "note": "voix du script réécrit (21/10), choisie parmi 2 prises",
+          "take": "2Ycpjt3PBezWjve4DstC",
+          "duration_s": 92.45,
+          "cache_key": "646387e99fd2b4241de24675",
+          "aligned": "241/241"
+        },
+        "storyboard": {
+          "state": "done",
+          "updated_at": "2026-10-24T16:55:32+00:00"
+        },
+        "spec": {
+          "state": "done",
+          "updated_at": "2026-10-24T22:12:35+00:00"
+        },
+        "render": {
+          "state": "done",
+          "updated_at": "2026-10-24T22:12:35+00:00"
+        },
+        "review": {
+          "state": "done",
+          "updated_at": "2026-10-24T22:12:35+00:00"
+        },
+        "mute_verify": {
+          "state": "done",
+          "updated_at": "2026-10-24T22:12:35+00:00"
+        },
+        "qa": {
+          "state": "done",
+          "updated_at": "2026-10-24T22:12:35+00:00"
+        },
+        "delivered": {
+          "state": "done",
+          "updated_at": "2026-10-24T22:12:35+00:00"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": [],
+      "max_duration_s": 62.5,
+      "livraison": {
+        "date": "2026-10-25",
+        "fichier": "output/WTH-V11.mp4",
+        "sans_son": "1/7 GOT après 1 tour de correction, aucune idée principale manquée, critère oui ; points faibles signalés à l’utilisateur"
+      }
+    },
+    "V12": {
+      "title": "L’inflation : la perte que tu ne vois pas",
+      "source": "WTH-049",
+      "date_initiale": "2026-11-11",
+      "stages": {
+        "voice": {
+          "state": "done",
+          "updated_at": "2026-10-24T19:32:03+00:00",
+          "note": "voix du script réécrit (21/10), choisie parmi 2 prises ; words.json refait le 24/10 par python3 -m pipeline.words V12 --trim-pauses (fins de « par » 16,38 -> 15,98 s et « un » 19,97 -> 19,67 s ramenées au début des pauses mesurées, QA « Synchro sous-titres » ; débuts et temps forts identiques). Refaire make voice ID=V12 SANS cette option rouvre le conflit.",
+          "take": "430um8cwu8xkQE6bOGOb",
+          "duration_s": 95.19,
+          "cache_key": "88579511c219abc49e1e71c2",
+          "aligned": "241/241",
+          "words_trim_pauses": true
+        },
+        "storyboard": {
+          "state": "done",
+          "updated_at": "2026-10-24T17:47:30+00:00"
+        },
+        "spec": {
+          "state": "done",
+          "updated_at": "2026-10-24T21:42:14+00:00"
+        },
+        "render": {
+          "state": "done",
+          "updated_at": "2026-10-24T21:42:14+00:00"
+        },
+        "review": {
+          "state": "done",
+          "updated_at": "2026-10-24T21:42:14+00:00"
+        },
+        "mute_verify": {
+          "state": "done",
+          "updated_at": "2026-10-24T21:42:15+00:00"
+        },
+        "qa": {
+          "state": "done",
+          "updated_at": "2026-10-24T21:42:15+00:00"
+        },
+        "delivered": {
+          "state": "done",
+          "updated_at": "2026-10-24T21:42:15+00:00"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": [],
+      "livraison": {
+        "date": "2026-10-24",
+        "fichier": "output/WTH-V12.mp4",
+        "sans_son": "7/9 GOT, aucune idée principale manquée, critère oui (mode rapide)"
+      }
+    },
+    "V13": {
+      "title": "Ton patrimoine net n’est pas ton solde",
+      "source": "WTH-058",
+      "date_initiale": "2026-11-13",
+      "stages": {
+        "voice": {
+          "state": "done",
+          "updated_at": "2026-10-21T11:39:46+00:00",
+          "note": "voix du script réécrit (21/10), choisie parmi 2 prises",
+          "take": "WsWi1g5ioD64XhHvIknh",
+          "duration_s": 91.72,
+          "cache_key": "36485d8d7e4a8f132dfb90a5",
+          "aligned": "245/245"
+        },
+        "storyboard": {
+          "state": "done",
+          "updated_at": "2026-10-24T22:28:42+00:00"
+        },
+        "spec": {
+          "state": "pending"
+        },
+        "render": {
+          "state": "pending"
+        },
+        "review": {
+          "state": "pending"
+        },
+        "mute_verify": {
+          "state": "pending"
+        },
+        "qa": {
+          "state": "pending"
+        },
+        "delivered": {
+          "state": "pending"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": []
+    },
+    "V14": {
+      "title": "Ton IA financière dit « je ne sais pas » ?",
+      "source": "WTH-086",
+      "date_initiale": "2026-11-15",
+      "stages": {
+        "voice": {
+          "state": "done",
+          "updated_at": "2026-10-21T11:41:23+00:00",
+          "note": "voix du script réécrit (21/10), choisie parmi 2 prises",
+          "take": "f2S7lllgIcP1s9Y63pFh",
+          "duration_s": 87.25,
+          "cache_key": "14eb0ee8a9cd4bc4f3c9c879",
+          "aligned": "223/223"
+        },
+        "storyboard": {
+          "state": "done",
+          "updated_at": "2026-10-24T22:42:48+00:00"
+        },
+        "spec": {
+          "state": "pending"
+        },
+        "render": {
+          "state": "pending"
+        },
+        "review": {
+          "state": "pending"
+        },
+        "mute_verify": {
+          "state": "pending"
+        },
+        "qa": {
+          "state": "pending"
+        },
+        "delivered": {
+          "state": "pending"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": []
+    },
+    "V15": {
+      "title": "Pas besoin de tout réorganiser ce soir",
+      "source": "WTH-090",
+      "date_initiale": "2026-11-17",
+      "stages": {
+        "voice": {
+          "state": "done",
+          "updated_at": "2026-10-21T11:43:02+00:00",
+          "note": "voix du script réécrit (21/10), choisie parmi 2 prises",
+          "take": "Px9Yl3c5B3o1EEBXIrN1",
+          "duration_s": 81.11,
+          "cache_key": "4cfb135c62d803177779cc59",
+          "aligned": "228/228"
+        },
+        "storyboard": {
+          "state": "pending"
+        },
+        "spec": {
+          "state": "pending"
+        },
+        "render": {
+          "state": "pending"
+        },
+        "review": {
+          "state": "pending"
+        },
+        "mute_verify": {
+          "state": "pending"
+        },
+        "qa": {
+          "state": "pending"
+        },
+        "delivered": {
+          "state": "pending"
+        },
+        "published": {
+          "state": "pending"
+        }
+      },
+      "open_issues": [],
+      "notes": []
+    }
+  }
+}

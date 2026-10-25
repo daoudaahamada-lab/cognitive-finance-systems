@@ -1,0 +1,65 @@
+{
+  "id": "WTH-090",
+  "famille": "Argent au quotidien",
+  "format": "Educational",
+  "accroche": "Tu n’as pas besoin de tout réorganiser ce soir",
+  "sujet": "Tout réorganiser en une soirée peut rendre le départ plus compliqué.",
+  "legende": "Tu n’as pas besoin de tout réorganiser ce soir\n\nUne seule décision suffit pour commencer. Explication en 7 points.\n\nQuelle est ta petite action de cette semaine ? Écris-la en commentaire. L’écrire, c’est déjà s’engager.",
+  "hashtags": "#WealthTechHorizon #Argent #Budget #Épargne",
+  "slides": [
+    {
+      "n": 1,
+      "fichier": "WTH-090-01.png",
+      "titre": "Tu n’as pas besoin de tout réorganiser ce soir",
+      "texte": "Une seule décision suffit pour commencer. Explication en 7 points."
+    },
+    {
+      "n": 2,
+      "fichier": "WTH-090-02.png",
+      "titre": "Le piège du grand plan",
+      "texte": "On décide de tout reprendre en main : budget, épargne, placements, papiers. Un week-end entier. Et le lundi, on abandonne, parce que c’était trop."
+    },
+    {
+      "n": 3,
+      "fichier": "WTH-090-03.png",
+      "titre": "Pourquoi ça bloque",
+      "texte": "Tout réorganiser d’un coup demande trop d’énergie et trop de décisions. Plus la marche est haute, plus on repousse le départ."
+    },
+    {
+      "n": 4,
+      "fichier": "WTH-090-04.png",
+      "titre": "La méthode inverse",
+      "texte": "Choisis une seule petite action. Fais-la. Puis note la suivante. L’élan vient de l’action, pas du plan."
+    },
+    {
+      "n": 5,
+      "fichier": "WTH-090-05.png",
+      "titre": "Exemples d’actions de 10 minutes",
+      "texte": "Résilier un abonnement inutile. Programmer un virement d’épargne. Dater un projet. Vérifier les frais d’un contrat."
+    },
+    {
+      "n": 6,
+      "fichier": "WTH-090-06.png",
+      "titre": "Pourquoi ça marche",
+      "texte": "Chaque petite action réussie rend la suivante plus facile. En quelques semaines, tu as avancé plus qu’avec un grand plan jamais commencé."
+    },
+    {
+      "n": 7,
+      "fichier": "WTH-090-07.png",
+      "titre": "La règle",
+      "texte": "Une décision par semaine. À la fin de l’année, ça fait 52 décisions financières."
+    },
+    {
+      "n": 8,
+      "fichier": "WTH-090-08.png",
+      "titre": "À retenir",
+      "texte": "Tu n’as pas besoin de tout maîtriser pour commencer à mieux comprendre ton argent."
+    },
+    {
+      "n": 9,
+      "fichier": "WTH-090-09.png",
+      "titre": "Quelle est ta petite action de cette semaine ?",
+      "texte": "Écris-la en commentaire. L’écrire, c’est déjà s’engager."
+    }
+  ]
+}

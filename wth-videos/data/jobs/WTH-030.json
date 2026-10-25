@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-030",
+  "date": "2026-10-29",
+  "heure": "19:30",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1NUpQn7OhnrbeSurPbFIuljjsMuk_SOfF",
+        "public_id": "WTH-V2-Pro-030-01",
+        "asset_folder": "WTH-V2/WTH-030",
+        "display_name": "WTH-V2-Pro-030-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-030"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1OSPw1DzkMBO_2tpIsjZui40OAvknmBiR",
+        "public_id": "WTH-V2-Pro-030-02",
+        "asset_folder": "WTH-V2/WTH-030",
+        "display_name": "WTH-V2-Pro-030-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-030"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1qZY3qdYR0Ze-Tw7Kh4xY3zuAeU7M891d",
+        "public_id": "WTH-V2-Pro-030-03",
+        "asset_folder": "WTH-V2/WTH-030",
+        "display_name": "WTH-V2-Pro-030-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-030"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1JumzgHdk4jDECIAM_saau8DVdw6SIfT0",
+        "public_id": "WTH-V2-Pro-030-04",
+        "asset_folder": "WTH-V2/WTH-030",
+        "display_name": "WTH-V2-Pro-030-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-030"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1nWXN_Wzb1Lmq7jhUkL9QNSGx8B32dRc5",
+        "public_id": "WTH-V2-Pro-030-05",
+        "asset_folder": "WTH-V2/WTH-030",
+        "display_name": "WTH-V2-Pro-030-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-030"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1bwBCc0NffBWMrRsGMm1BW1roSVve9sRw",
+        "public_id": "WTH-V2-Pro-030-06",
+        "asset_folder": "WTH-V2/WTH-030",
+        "display_name": "WTH-V2-Pro-030-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-030"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1u8k2LvRSYBmnyYdsJ5RHpMn1ZEsVpalQ",
+        "public_id": "WTH-V2-Pro-030-07",
+        "asset_folder": "WTH-V2/WTH-030",
+        "display_name": "WTH-V2-Pro-030-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-030"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=19n1D0rLYLt8ydo9jy3sPvljr_XhFb9fd",
+        "public_id": "WTH-V2-Pro-030-08",
+        "asset_folder": "WTH-V2/WTH-030",
+        "display_name": "WTH-V2-Pro-030-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-030"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1E1GPtlPl82Tnt-BKzSZj5BHfyWzj5zrH",
+        "public_id": "WTH-V2-Pro-030-09",
+        "asset_folder": "WTH-V2/WTH-030",
+        "display_name": "WTH-V2-Pro-030-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-030"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "L'argent en couple : 50/50, vraiment ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386578408",
+        "uuid": "7336716504737858488",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-29T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Petit prix. Mais quel coût par usage ?\\n\\nLa méthode simple pour comparer deux achats autrement que par l’étiquette.\\n\\nQuel achat t’a coûté le moins cher par usage ? Partage-le en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-030-01.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-030-02.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-030-03.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-030-04.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-030-05.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-030-06.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-030-07.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-030-08.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-030-09.jpg\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Petit prix. Mais quel coût par usage ?\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "L'argent en couple : 50/50, vraiment ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386578901",
+        "uuid": "5758860186015973809",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-29T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Petit prix. Mais quel coût par usage ?\\n\\nLa méthode simple pour comparer deux achats autrement que par l’étiquette.\\n\\nQuel achat t’a coûté le moins cher par usage ? Partage-le en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "L'argent en couple : 50/50, vraiment ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386578688",
+        "uuid": "5074549928129154785",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-29T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Petit prix. Mais quel coût par usage ?\\n\\nLa méthode simple pour comparer deux achats autrement que par l’étiquette.\\n\\nQuel achat t’a coûté le moins cher par usage ? Partage-le en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-030-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

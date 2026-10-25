@@ -1,0 +1,2186 @@
+[
+ {
+  "carrousel": "WTH-002",
+  "date": "2026-10-20",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386572084",
+  "uuid": "6493453645150833144",
+  "remplace": "Le vrai défi de l'open wealth."
+ },
+ {
+  "carrousel": "WTH-002",
+  "date": "2026-10-20",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "update",
+  "id": "386572591",
+  "uuid": "5546646689224738725",
+  "remplace": "Le vrai défi de l'open wealth."
+ },
+ {
+  "carrousel": "WTH-002",
+  "date": "2026-10-20",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "update",
+  "id": "386572203",
+  "uuid": "2568548779585979576",
+  "remplace": "Le vrai défi de l'open wealth."
+ },
+ {
+  "carrousel": "WTH-003",
+  "date": "2026-10-20",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386572137",
+  "uuid": "-3233974020237211653",
+  "remplace": "Le client devrait-il connaître l'usage de l'IA ?"
+ },
+ {
+  "carrousel": "WTH-003",
+  "date": "2026-10-20",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "update",
+  "id": "386572461",
+  "uuid": "6012427282450301542",
+  "remplace": "Le client devrait-il connaître l'usage de l'IA ?"
+ },
+ {
+  "carrousel": "WTH-003",
+  "date": "2026-10-20",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "update",
+  "id": "386572360",
+  "uuid": "-8128754797620147317",
+  "remplace": "Le client devrait-il connaître l'usage de l'IA ?"
+ },
+ {
+  "carrousel": "WTH-004",
+  "date": "2026-10-21",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386572632",
+  "uuid": "-1139356884516845115",
+  "remplace": "Ton patrimoine net n'est pas le solde de tes comptes."
+ },
+ {
+  "carrousel": "WTH-004",
+  "date": "2026-10-21",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "update",
+  "id": "386573067",
+  "uuid": "8039077046260353394",
+  "remplace": "Ton patrimoine net n'est pas le solde de tes comptes."
+ },
+ {
+  "carrousel": "WTH-004",
+  "date": "2026-10-21",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "update",
+  "id": "386572951",
+  "uuid": "8054226100342440134",
+  "remplace": "Ton patrimoine net n'est pas le solde de tes comptes."
+ },
+ {
+  "carrousel": "WTH-005",
+  "date": "2026-10-21",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386572675",
+  "uuid": "1552415955193512287",
+  "remplace": "Pourquoi la cybersécurité fait partie de la wealthtech ?"
+ },
+ {
+  "carrousel": "WTH-005",
+  "date": "2026-10-21",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "update",
+  "id": "386573122",
+  "uuid": "2055180393417231530",
+  "remplace": "Pourquoi la cybersécurité fait partie de la wealthtech ?"
+ },
+ {
+  "carrousel": "WTH-005",
+  "date": "2026-10-21",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "update",
+  "id": "386573007",
+  "uuid": "-7841854603417141136",
+  "remplace": "Pourquoi la cybersécurité fait partie de la wealthtech ?"
+ },
+ {
+  "carrousel": "WTH-006",
+  "date": "2026-10-21",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386572764",
+  "uuid": "4602483452084701352",
+  "remplace": "Le paiement fractionné reste une dépense."
+ },
+ {
+  "carrousel": "WTH-006",
+  "date": "2026-10-21",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "update",
+  "id": "386573206",
+  "uuid": "-1240635445508881869",
+  "remplace": "Le paiement fractionné reste une dépense."
+ },
+ {
+  "carrousel": "WTH-006",
+  "date": "2026-10-21",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "update",
+  "id": "386572867",
+  "uuid": "-8691024547214047254",
+  "remplace": "Le paiement fractionné reste une dépense."
+ },
+ {
+  "carrousel": "WTH-007",
+  "date": "2026-10-22",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386573289",
+  "uuid": "983753903927020505",
+  "remplace": "Le rendement passé n'est pas une promesse."
+ },
+ {
+  "carrousel": "WTH-007",
+  "date": "2026-10-22",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "update",
+  "id": "386573812",
+  "uuid": "608477623062839972",
+  "remplace": "Le rendement passé n'est pas une promesse."
+ },
+ {
+  "carrousel": "WTH-007",
+  "date": "2026-10-22",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "update",
+  "id": "386573728",
+  "uuid": "6833301804730896109",
+  "remplace": "Le rendement passé n'est pas une promesse."
+ },
+ {
+  "carrousel": "WTH-008",
+  "date": "2026-10-22",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386573470",
+  "uuid": "1419220126696820289",
+  "remplace": "Une fintech peut-elle remplacer un conseiller ?"
+ },
+ {
+  "carrousel": "WTH-008",
+  "date": "2026-10-22",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "update",
+  "id": "386573866",
+  "uuid": "8819135893349224101",
+  "remplace": "Une fintech peut-elle remplacer un conseiller ?"
+ },
+ {
+  "carrousel": "WTH-008",
+  "date": "2026-10-22",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "update",
+  "id": "386573587",
+  "uuid": "4319031778910487170",
+  "remplace": "Une fintech peut-elle remplacer un conseiller ?"
+ },
+ {
+  "carrousel": "WTH-009",
+  "date": "2026-10-22",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386573383",
+  "uuid": "8618674689927826717",
+  "remplace": "IA de conseil : à quel moment passe-t-on la main ?"
+ },
+ {
+  "carrousel": "WTH-009",
+  "date": "2026-10-22",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "update",
+  "id": "386573924",
+  "uuid": "3009699660357715187",
+  "remplace": "IA de conseil : à quel moment passe-t-on la main ?"
+ },
+ {
+  "carrousel": "WTH-009",
+  "date": "2026-10-22",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "update",
+  "id": "386573654",
+  "uuid": "-8273654551759467184",
+  "remplace": "IA de conseil : à quel moment passe-t-on la main ?"
+ },
+ {
+  "carrousel": "WTH-010",
+  "date": "2026-10-23",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386573986",
+  "uuid": "2667099969346030853",
+  "remplace": "Pourquoi les arnaques parlent-elles d'urgence ?"
+ },
+ {
+  "carrousel": "WTH-010",
+  "date": "2026-10-23",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "update",
+  "id": "386574469",
+  "uuid": "-8431451515781495616",
+  "remplace": "Pourquoi les arnaques parlent-elles d'urgence ?"
+ },
+ {
+  "carrousel": "WTH-010",
+  "date": "2026-10-23",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "update",
+  "id": "386574196",
+  "uuid": "-834113343427492757",
+  "remplace": "Pourquoi les arnaques parlent-elles d'urgence ?"
+ },
+ {
+  "carrousel": "WTH-011",
+  "date": "2026-10-23",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386574049",
+  "uuid": "-6443982401428962145",
+  "remplace": "Les données en temps réel ne rendent pas plus sage."
+ },
+ {
+  "carrousel": "WTH-011",
+  "date": "2026-10-23",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "update",
+  "id": "386574404",
+  "uuid": "7367974180356376625",
+  "remplace": "Les données en temps réel ne rendent pas plus sage."
+ },
+ {
+  "carrousel": "WTH-011",
+  "date": "2026-10-23",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "update",
+  "id": "386574262",
+  "uuid": "2752224876661000275",
+  "remplace": "Les données en temps réel ne rendent pas plus sage."
+ },
+ {
+  "carrousel": "WTH-012",
+  "date": "2026-10-23",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386574130",
+  "uuid": "-8976297854708791785",
+  "remplace": "Quand tu compares deux offres, compare la même chose."
+ },
+ {
+  "carrousel": "WTH-012",
+  "date": "2026-10-23",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "update",
+  "id": "386574531",
+  "uuid": "8993044548096771744",
+  "remplace": "Quand tu compares deux offres, compare la même chose."
+ },
+ {
+  "carrousel": "WTH-012",
+  "date": "2026-10-23",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "update",
+  "id": "386574338",
+  "uuid": "-3225064947335085497",
+  "remplace": "Quand tu compares deux offres, compare la même chose."
+ },
+ {
+  "carrousel": "WTH-013",
+  "date": "2026-10-24",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386574582",
+  "uuid": "-339254315764858779",
+  "remplace": "Tu peux comparer deux placements sans prédire l'avenir."
+ },
+ {
+  "carrousel": "WTH-013",
+  "date": "2026-10-24",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "update",
+  "id": "386575017",
+  "uuid": "-7450416085906077112",
+  "remplace": "Tu peux comparer deux placements sans prédire l'avenir."
+ },
+ {
+  "carrousel": "WTH-013",
+  "date": "2026-10-24",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "update",
+  "id": "386574817",
+  "uuid": "-2838824395632064110",
+  "remplace": "Tu peux comparer deux placements sans prédire l'avenir."
+ },
+ {
+  "carrousel": "WTH-014",
+  "date": "2026-10-24",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386574663",
+  "uuid": "2377327602627004199",
+  "remplace": "Ton app utilise tes données. Comment ?"
+ },
+ {
+  "carrousel": "WTH-014",
+  "date": "2026-10-24",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "update",
+  "id": "386575068",
+  "uuid": "2257891913341354368",
+  "remplace": "Ton app utilise tes données. Comment ?"
+ },
+ {
+  "carrousel": "WTH-014",
+  "date": "2026-10-24",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "update",
+  "id": "386574896",
+  "uuid": "8621853696402146100",
+  "remplace": "Ton app utilise tes données. Comment ?"
+ },
+ {
+  "carrousel": "WTH-015",
+  "date": "2026-10-24",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386574742",
+  "uuid": "2812829994317922367",
+  "remplace": "Un agent peut préparer un rendez-vous, puis quoi ?"
+ },
+ {
+  "carrousel": "WTH-015",
+  "date": "2026-10-24",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "update",
+  "id": "386575126",
+  "uuid": "2323480325031675535",
+  "remplace": "Un agent peut préparer un rendez-vous, puis quoi ?"
+ },
+ {
+  "carrousel": "WTH-015",
+  "date": "2026-10-24",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "update",
+  "id": "386574961",
+  "uuid": "-8030057351361248973",
+  "remplace": "Un agent peut préparer un rendez-vous, puis quoi ?"
+ },
+ {
+  "carrousel": "WTH-016",
+  "date": "2026-10-25",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386575220",
+  "uuid": "4114970465911590047",
+  "remplace": "Un compte commun ne remplace pas une conversation."
+ },
+ {
+  "carrousel": "WTH-016",
+  "date": "2026-10-25",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "update",
+  "id": "386575749",
+  "uuid": "-980046394012057407",
+  "remplace": "Un compte commun ne remplace pas une conversation."
+ },
+ {
+  "carrousel": "WTH-016",
+  "date": "2026-10-25",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "update",
+  "id": "386575505",
+  "uuid": "6556229169094347658",
+  "remplace": "Un compte commun ne remplace pas une conversation."
+ },
+ {
+  "carrousel": "WTH-017",
+  "date": "2026-10-25",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386575444",
+  "uuid": "5824902046954441930",
+  "remplace": "Pourquoi certaines apps montrent un patrimoine « estimé » ?"
+ },
+ {
+  "carrousel": "WTH-017",
+  "date": "2026-10-25",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "update",
+  "id": "386575830",
+  "uuid": "8134674113273219018",
+  "remplace": "Pourquoi certaines apps montrent un patrimoine « estimé » ?"
+ },
+ {
+  "carrousel": "WTH-017",
+  "date": "2026-10-25",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "update",
+  "id": "386575599",
+  "uuid": "496089634570060003",
+  "remplace": "Pourquoi certaines apps montrent un patrimoine « estimé » ?"
+ },
+ {
+  "carrousel": "WTH-018",
+  "date": "2026-10-25",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386575338",
+  "uuid": "6512434293055702990",
+  "remplace": "Ton budget vacances commence au retour."
+ },
+ {
+  "carrousel": "WTH-018",
+  "date": "2026-10-25",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "update",
+  "id": "386575910",
+  "uuid": "-8940554335445039200",
+  "remplace": "Ton budget vacances commence au retour."
+ },
+ {
+  "carrousel": "WTH-018",
+  "date": "2026-10-25",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "update",
+  "id": "386575656",
+  "uuid": "6893063526217238342",
+  "remplace": "Ton budget vacances commence au retour."
+ },
+ {
+  "carrousel": "WTH-019",
+  "date": "2026-10-26",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386575972",
+  "uuid": "2690907260038038032",
+  "remplace": "Combien te coûte l'absence de suivi ?"
+ },
+ {
+  "carrousel": "WTH-019",
+  "date": "2026-10-26",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "update",
+  "id": "386576497",
+  "uuid": "-1462484131150479068",
+  "remplace": "Combien te coûte l'absence de suivi ?"
+ },
+ {
+  "carrousel": "WTH-019",
+  "date": "2026-10-26",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "update",
+  "id": "386576211",
+  "uuid": "-2125197397767076066",
+  "remplace": "Combien te coûte l'absence de suivi ?"
+ },
+ {
+  "carrousel": "WTH-020",
+  "date": "2026-10-26",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386576055",
+  "uuid": "-7519365944129532459",
+  "remplace": "Un outil IA peut se tromper avec un air sûr de lui."
+ },
+ {
+  "carrousel": "WTH-020",
+  "date": "2026-10-26",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "update",
+  "id": "386576671",
+  "uuid": "5948648139285678211",
+  "remplace": "Un outil IA peut se tromper avec un air sûr de lui."
+ },
+ {
+  "carrousel": "WTH-020",
+  "date": "2026-10-26",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "update",
+  "id": "386576427",
+  "uuid": "6044918845932326738",
+  "remplace": "Un outil IA peut se tromper avec un air sûr de lui."
+ },
+ {
+  "carrousel": "WTH-021",
+  "date": "2026-10-26",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386576151",
+  "uuid": "-8561690418441008094",
+  "remplace": "Ton rendez-vous financier : prépare ces trois choses."
+ },
+ {
+  "carrousel": "WTH-021",
+  "date": "2026-10-26",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "update",
+  "id": "386576550",
+  "uuid": "7604684927963385454",
+  "remplace": "Ton rendez-vous financier : prépare ces trois choses."
+ },
+ {
+  "carrousel": "WTH-021",
+  "date": "2026-10-26",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "update",
+  "id": "386576349",
+  "uuid": "-7227743989400452133",
+  "remplace": "Ton rendez-vous financier : prépare ces trois choses."
+ },
+ {
+  "carrousel": "WTH-022",
+  "date": "2026-10-27",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386576762",
+  "uuid": "-6530611748214652122",
+  "remplace": "Un bon objectif d'épargne tient en une phrase."
+ },
+ {
+  "carrousel": "WTH-022",
+  "date": "2026-10-27",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "update",
+  "id": "386577250",
+  "uuid": "5486259868228601783",
+  "remplace": "Un bon objectif d'épargne tient en une phrase."
+ },
+ {
+  "carrousel": "WTH-022",
+  "date": "2026-10-27",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "update",
+  "id": "386577006",
+  "uuid": "6967404046114638002",
+  "remplace": "Un bon objectif d'épargne tient en une phrase."
+ },
+ {
+  "carrousel": "WTH-023",
+  "date": "2026-10-27",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386576827",
+  "uuid": "-839763955519634661",
+  "remplace": "Le meilleur produit wealthtech n'est pas forcément une app."
+ },
+ {
+  "carrousel": "WTH-023",
+  "date": "2026-10-27",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "update",
+  "id": "386577312",
+  "uuid": "-1871624162795369995",
+  "remplace": "Le meilleur produit wealthtech n'est pas forcément une app."
+ },
+ {
+  "carrousel": "WTH-023",
+  "date": "2026-10-27",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "update",
+  "id": "386577092",
+  "uuid": "-7311317413265325350",
+  "remplace": "Le meilleur produit wealthtech n'est pas forcément une app."
+ },
+ {
+  "carrousel": "WTH-024",
+  "date": "2026-10-27",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386576901",
+  "uuid": "-6975442773126199314",
+  "remplace": "Un budget serré n'est pas une faute personnelle."
+ },
+ {
+  "carrousel": "WTH-024",
+  "date": "2026-10-27",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "update",
+  "id": "386577374",
+  "uuid": "-7093320872972366034",
+  "remplace": "Un budget serré n'est pas une faute personnelle."
+ },
+ {
+  "carrousel": "WTH-024",
+  "date": "2026-10-27",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "update",
+  "id": "386577147",
+  "uuid": "-9112196772911559705",
+  "remplace": "Un budget serré n'est pas une faute personnelle."
+ },
+ {
+  "carrousel": "WTH-025",
+  "date": "2026-10-28",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386577459",
+  "uuid": "-8407738948873207085",
+  "remplace": "Ton argent travaille-t-il pour le mauvais projet ?"
+ },
+ {
+  "carrousel": "WTH-025",
+  "date": "2026-10-28",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "update",
+  "id": "386578085",
+  "uuid": "3828271209989423708",
+  "remplace": "Ton argent travaille-t-il pour le mauvais projet ?"
+ },
+ {
+  "carrousel": "WTH-025",
+  "date": "2026-10-28",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "update",
+  "id": "386577732",
+  "uuid": "-7043332526394293208",
+  "remplace": "Ton argent travaille-t-il pour le mauvais projet ?"
+ },
+ {
+  "carrousel": "WTH-026",
+  "date": "2026-10-28",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386577550",
+  "uuid": "-2265900451672800566",
+  "remplace": "La portabilité de tes données est un vrai critère."
+ },
+ {
+  "carrousel": "WTH-026",
+  "date": "2026-10-28",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "update",
+  "id": "386578008",
+  "uuid": "1508771624906345522",
+  "remplace": "La portabilité de tes données est un vrai critère."
+ },
+ {
+  "carrousel": "WTH-026",
+  "date": "2026-10-28",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "update",
+  "id": "386577841",
+  "uuid": "8112106044174385748",
+  "remplace": "La portabilité de tes données est un vrai critère."
+ },
+ {
+  "carrousel": "WTH-027",
+  "date": "2026-10-28",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386577617",
+  "uuid": "933393845088175089",
+  "remplace": "Le client veut un service. Pas un jargon IA."
+ },
+ {
+  "carrousel": "WTH-027",
+  "date": "2026-10-28",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "update",
+  "id": "386578174",
+  "uuid": "-7884901283219485334",
+  "remplace": "Le client veut un service. Pas un jargon IA."
+ },
+ {
+  "carrousel": "WTH-027",
+  "date": "2026-10-28",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "update",
+  "id": "386577912",
+  "uuid": "-6486052239963960263",
+  "remplace": "Le client veut un service. Pas un jargon IA."
+ },
+ {
+  "carrousel": "WTH-028",
+  "date": "2026-10-29",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386578263",
+  "uuid": "-2567719630228469129",
+  "remplace": "Pourquoi tenir un dossier financier personnel ?"
+ },
+ {
+  "carrousel": "WTH-028",
+  "date": "2026-10-29",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "update",
+  "id": "386578831",
+  "uuid": "-6104688468208041561",
+  "remplace": "Pourquoi tenir un dossier financier personnel ?"
+ },
+ {
+  "carrousel": "WTH-028",
+  "date": "2026-10-29",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "update",
+  "id": "386578491",
+  "uuid": "5166633902225835160",
+  "remplace": "Pourquoi tenir un dossier financier personnel ?"
+ },
+ {
+  "carrousel": "WTH-029",
+  "date": "2026-10-29",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386578330",
+  "uuid": "-1333694062383511874",
+  "remplace": "Une comparaison d'apps sans cas d'usage n'aide pas."
+ },
+ {
+  "carrousel": "WTH-029",
+  "date": "2026-10-29",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "update",
+  "id": "386579000",
+  "uuid": "-6875452922611282047",
+  "remplace": "Une comparaison d'apps sans cas d'usage n'aide pas."
+ },
+ {
+  "carrousel": "WTH-029",
+  "date": "2026-10-29",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "update",
+  "id": "386578577",
+  "uuid": "-8657029985678898333",
+  "remplace": "Une comparaison d'apps sans cas d'usage n'aide pas."
+ },
+ {
+  "carrousel": "WTH-030",
+  "date": "2026-10-29",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386578408",
+  "uuid": "7336716504737858488",
+  "remplace": "L'argent en couple : 50/50, vraiment ?"
+ },
+ {
+  "carrousel": "WTH-030",
+  "date": "2026-10-29",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "update",
+  "id": "386578901",
+  "uuid": "5758860186015973809",
+  "remplace": "L'argent en couple : 50/50, vraiment ?"
+ },
+ {
+  "carrousel": "WTH-030",
+  "date": "2026-10-29",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "update",
+  "id": "386578688",
+  "uuid": "5074549928129154785",
+  "remplace": "L'argent en couple : 50/50, vraiment ?"
+ },
+ {
+  "carrousel": "WTH-031",
+  "date": "2026-10-30",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386579056",
+  "uuid": "7412750934159476052",
+  "remplace": "La comparaison sociale peut coûter cher."
+ },
+ {
+  "carrousel": "WTH-031",
+  "date": "2026-10-30",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "update",
+  "id": "386579539",
+  "uuid": "6126638537871674183",
+  "remplace": "La comparaison sociale peut coûter cher."
+ },
+ {
+  "carrousel": "WTH-031",
+  "date": "2026-10-30",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "update",
+  "id": "386579304",
+  "uuid": "599358710360002152",
+  "remplace": "La comparaison sociale peut coûter cher."
+ },
+ {
+  "carrousel": "WTH-032",
+  "date": "2026-10-30",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386579142",
+  "uuid": "-2196560663484743135",
+  "remplace": "L'IA financière devrait pouvoir dire « je ne sais pas »."
+ },
+ {
+  "carrousel": "WTH-032",
+  "date": "2026-10-30",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "update",
+  "id": "386579634",
+  "uuid": "7110419009407893928",
+  "remplace": "L'IA financière devrait pouvoir dire « je ne sais pas »."
+ },
+ {
+  "carrousel": "WTH-032",
+  "date": "2026-10-30",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "update",
+  "id": "386579369",
+  "uuid": "-7586191361712240400",
+  "remplace": "L'IA financière devrait pouvoir dire « je ne sais pas »."
+ },
+ {
+  "carrousel": "WTH-033",
+  "date": "2026-10-30",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386579220",
+  "uuid": "-3735257087570456786",
+  "remplace": "Et si on jugeait l'IA par le client ?"
+ },
+ {
+  "carrousel": "WTH-033",
+  "date": "2026-10-30",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "update",
+  "id": "386579718",
+  "uuid": "-3362062002390546043",
+  "remplace": "Et si on jugeait l'IA par le client ?"
+ },
+ {
+  "carrousel": "WTH-033",
+  "date": "2026-10-30",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "update",
+  "id": "386579467",
+  "uuid": "3626260159348622201",
+  "remplace": "Et si on jugeait l'IA par le client ?"
+ },
+ {
+  "carrousel": "WTH-034",
+  "date": "2026-10-31",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386579826",
+  "uuid": "-6075926647955503861",
+  "remplace": "Fais un bilan de 20 minutes, pas une promesse de janvier."
+ },
+ {
+  "carrousel": "WTH-034",
+  "date": "2026-10-31",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "update",
+  "id": "386580493",
+  "uuid": "-5106126085053592228",
+  "remplace": "Fais un bilan de 20 minutes, pas une promesse de janvier."
+ },
+ {
+  "carrousel": "WTH-034",
+  "date": "2026-10-31",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "update",
+  "id": "386580071",
+  "uuid": "-2644142151460565466",
+  "remplace": "Fais un bilan de 20 minutes, pas une promesse de janvier."
+ },
+ {
+  "carrousel": "WTH-035",
+  "date": "2026-10-31",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386579921",
+  "uuid": "1037029862292603692",
+  "remplace": "Que manque-t-il encore à la wealthtech ?"
+ },
+ {
+  "carrousel": "WTH-035",
+  "date": "2026-10-31",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "update",
+  "id": "386580561",
+  "uuid": "2327971335849329970",
+  "remplace": "Que manque-t-il encore à la wealthtech ?"
+ },
+ {
+  "carrousel": "WTH-035",
+  "date": "2026-10-31",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "update",
+  "id": "386580162",
+  "uuid": "-7818841319136606650",
+  "remplace": "Que manque-t-il encore à la wealthtech ?"
+ },
+ {
+  "carrousel": "WTH-036",
+  "date": "2026-10-31",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "update",
+  "id": "386579997",
+  "uuid": "-5879680036237457052",
+  "remplace": "Tu peux commencer par une seule décision."
+ },
+ {
+  "carrousel": "WTH-036",
+  "date": "2026-10-31",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "update",
+  "id": "386580628",
+  "uuid": "-686136844384713839",
+  "remplace": "Tu peux commencer par une seule décision."
+ },
+ {
+  "carrousel": "WTH-036",
+  "date": "2026-10-31",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "update",
+  "id": "386580301",
+  "uuid": "-2920764097680684770",
+  "remplace": "Tu peux commencer par une seule décision."
+ },
+ {
+  "carrousel": "WTH-037",
+  "date": "2026-11-01",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-037",
+  "date": "2026-11-01",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-037",
+  "date": "2026-11-01",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-038",
+  "date": "2026-11-01",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-038",
+  "date": "2026-11-01",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-038",
+  "date": "2026-11-01",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-039",
+  "date": "2026-11-01",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-039",
+  "date": "2026-11-01",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-039",
+  "date": "2026-11-01",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-040",
+  "date": "2026-11-02",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-040",
+  "date": "2026-11-02",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-040",
+  "date": "2026-11-02",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-041",
+  "date": "2026-11-02",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-041",
+  "date": "2026-11-02",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-041",
+  "date": "2026-11-02",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-042",
+  "date": "2026-11-02",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-042",
+  "date": "2026-11-02",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-042",
+  "date": "2026-11-02",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-043",
+  "date": "2026-11-03",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-043",
+  "date": "2026-11-03",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-043",
+  "date": "2026-11-03",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-044",
+  "date": "2026-11-03",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-044",
+  "date": "2026-11-03",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-044",
+  "date": "2026-11-03",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-045",
+  "date": "2026-11-03",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-045",
+  "date": "2026-11-03",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-045",
+  "date": "2026-11-03",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-046",
+  "date": "2026-11-04",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-046",
+  "date": "2026-11-04",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-046",
+  "date": "2026-11-04",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-047",
+  "date": "2026-11-04",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-047",
+  "date": "2026-11-04",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-047",
+  "date": "2026-11-04",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-048",
+  "date": "2026-11-04",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-048",
+  "date": "2026-11-04",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-048",
+  "date": "2026-11-04",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-049",
+  "date": "2026-11-05",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-049",
+  "date": "2026-11-05",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-049",
+  "date": "2026-11-05",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-050",
+  "date": "2026-11-05",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-050",
+  "date": "2026-11-05",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-050",
+  "date": "2026-11-05",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-051",
+  "date": "2026-11-05",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-051",
+  "date": "2026-11-05",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-051",
+  "date": "2026-11-05",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-052",
+  "date": "2026-11-06",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-052",
+  "date": "2026-11-06",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-052",
+  "date": "2026-11-06",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-053",
+  "date": "2026-11-06",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-053",
+  "date": "2026-11-06",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-053",
+  "date": "2026-11-06",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-054",
+  "date": "2026-11-06",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-054",
+  "date": "2026-11-06",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-054",
+  "date": "2026-11-06",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-055",
+  "date": "2026-11-07",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-055",
+  "date": "2026-11-07",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-055",
+  "date": "2026-11-07",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-056",
+  "date": "2026-11-07",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-056",
+  "date": "2026-11-07",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-056",
+  "date": "2026-11-07",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-057",
+  "date": "2026-11-07",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-057",
+  "date": "2026-11-07",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-057",
+  "date": "2026-11-07",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-058",
+  "date": "2026-11-08",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-058",
+  "date": "2026-11-08",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-058",
+  "date": "2026-11-08",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-059",
+  "date": "2026-11-08",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-059",
+  "date": "2026-11-08",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-059",
+  "date": "2026-11-08",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-060",
+  "date": "2026-11-08",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-060",
+  "date": "2026-11-08",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-060",
+  "date": "2026-11-08",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-061",
+  "date": "2026-11-09",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-061",
+  "date": "2026-11-09",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-061",
+  "date": "2026-11-09",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-062",
+  "date": "2026-11-09",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-062",
+  "date": "2026-11-09",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-062",
+  "date": "2026-11-09",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-063",
+  "date": "2026-11-09",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-063",
+  "date": "2026-11-09",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-063",
+  "date": "2026-11-09",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-064",
+  "date": "2026-11-10",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-064",
+  "date": "2026-11-10",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-064",
+  "date": "2026-11-10",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-065",
+  "date": "2026-11-10",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-065",
+  "date": "2026-11-10",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-065",
+  "date": "2026-11-10",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-066",
+  "date": "2026-11-10",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-066",
+  "date": "2026-11-10",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-066",
+  "date": "2026-11-10",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-067",
+  "date": "2026-11-11",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-067",
+  "date": "2026-11-11",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-067",
+  "date": "2026-11-11",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-068",
+  "date": "2026-11-11",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-068",
+  "date": "2026-11-11",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-068",
+  "date": "2026-11-11",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-069",
+  "date": "2026-11-11",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-069",
+  "date": "2026-11-11",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-069",
+  "date": "2026-11-11",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-070",
+  "date": "2026-11-12",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-070",
+  "date": "2026-11-12",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-070",
+  "date": "2026-11-12",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-071",
+  "date": "2026-11-12",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-071",
+  "date": "2026-11-12",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-071",
+  "date": "2026-11-12",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-072",
+  "date": "2026-11-12",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-072",
+  "date": "2026-11-12",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-072",
+  "date": "2026-11-12",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-073",
+  "date": "2026-11-13",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-073",
+  "date": "2026-11-13",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-073",
+  "date": "2026-11-13",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-074",
+  "date": "2026-11-13",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-074",
+  "date": "2026-11-13",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-074",
+  "date": "2026-11-13",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-075",
+  "date": "2026-11-13",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-075",
+  "date": "2026-11-13",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-075",
+  "date": "2026-11-13",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-076",
+  "date": "2026-11-14",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-076",
+  "date": "2026-11-14",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-076",
+  "date": "2026-11-14",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-077",
+  "date": "2026-11-14",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-077",
+  "date": "2026-11-14",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-077",
+  "date": "2026-11-14",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-078",
+  "date": "2026-11-14",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-078",
+  "date": "2026-11-14",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-078",
+  "date": "2026-11-14",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-079",
+  "date": "2026-11-15",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-079",
+  "date": "2026-11-15",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-079",
+  "date": "2026-11-15",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-080",
+  "date": "2026-11-15",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-080",
+  "date": "2026-11-15",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-080",
+  "date": "2026-11-15",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-081",
+  "date": "2026-11-15",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-081",
+  "date": "2026-11-15",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-081",
+  "date": "2026-11-15",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-082",
+  "date": "2026-11-16",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-082",
+  "date": "2026-11-16",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-082",
+  "date": "2026-11-16",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-083",
+  "date": "2026-11-16",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-083",
+  "date": "2026-11-16",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-083",
+  "date": "2026-11-16",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-084",
+  "date": "2026-11-16",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-084",
+  "date": "2026-11-16",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-084",
+  "date": "2026-11-16",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-085",
+  "date": "2026-11-17",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-085",
+  "date": "2026-11-17",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-085",
+  "date": "2026-11-17",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-086",
+  "date": "2026-11-17",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-086",
+  "date": "2026-11-17",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-086",
+  "date": "2026-11-17",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-087",
+  "date": "2026-11-17",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-087",
+  "date": "2026-11-17",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-087",
+  "date": "2026-11-17",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-088",
+  "date": "2026-11-18",
+  "heure": "08:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-088",
+  "date": "2026-11-18",
+  "heure": "08:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-088",
+  "date": "2026-11-18",
+  "heure": "08:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-089",
+  "date": "2026-11-18",
+  "heure": "13:00",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-089",
+  "date": "2026-11-18",
+  "heure": "13:00",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-089",
+  "date": "2026-11-18",
+  "heure": "13:00",
+  "network": "facebook",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-090",
+  "date": "2026-11-18",
+  "heure": "19:30",
+  "network": "tiktok",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-090",
+  "date": "2026-11-18",
+  "heure": "19:30",
+  "network": "instagram",
+  "op": "create"
+ },
+ {
+  "carrousel": "WTH-090",
+  "date": "2026-11-18",
+  "heure": "19:30",
+  "network": "facebook",
+  "op": "create"
+ }
+]

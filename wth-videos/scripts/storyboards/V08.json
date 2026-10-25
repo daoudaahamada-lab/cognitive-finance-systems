@@ -1,0 +1,1360 @@
+{
+  "version": "v1 · révisé après le test sans son",
+  "angle": "Parti pris « la colonne du mois » : tout l’argent du mois est une seule colonne de billets posée au sol ; les charges sont des blocs qui tombent dessus et la couvrent par le bas ; ce qui reste découvert en haut, en cyan, c’est le reste à vivre, et la pastille du fil est le chiffre qu’on lui cherche. Le même geste (des blocs qui couvrent le bas de la colonne) dit « réservé » dans le contexte, « soustraire » à l’étape 3 et « une fois la mensualité payée » dans la chute : un spectateur muet le reconnaît chaque fois. Les trois angles combinés : objets persistants (la colonne de S01 est la même jusqu’à S22 ; les charges sortent de la maison, se rangent, reviennent, accouchent des relevés qui y rentrent ; le « bon mois » devient la prime ; la bulle « Un crédit ? » devient la mensualité ; la pastille porte « Salaire », « ? € », « 850 € / mois », « ≈ 28 € / jour », « ? € / jour », « S’abonner ») ; grammaire de la référence (colonnes, blocs, disques, traits ; tenir puis éclater ; 1 à 3 éléments actifs par temps fort ; un seul lieu PNG à la fois) ; lisibilité sans le son (verbes francs : tomber, couvrir, verrouiller, remplir, empiler, écarter, cocher, compter, égaliser, pousser, découper, regarder). Procédés repris de V01-V07 : pastille-protagoniste qui devient le bouton, repère légendé, « Toi » qui coche (V01), pièces qui partent seules (V04), bulle de « Toi », barre égalisée, fin standard sans curseur.\nRéponse aux 7 points :\n1) Fil conducteur : la pastille du reste à vivre et la colonne d’argent, de l’enveloppe (S01) au bouton « S’abonner » (S22) : « Salaire » → « ? € » → « = » partie cyan (S06) → « 850 € / mois » (S17) → « ≈ 28 € / jour » (S18) → « ? € / jour » quand la mensualité tombe (S20) → bouton (S22).\n2) État initial / action / résultat : chaque scène part du résultat de la précédente et finit sur un état visible (colonne tombée ; bas couvert et verrouillé ; haut cyan nommé ; colonne « Revenus » 740 px ; prime au sol ; charges cochées ; trois barres égalisées ; colonnes face à face ; « 850 € / mois » ; quatre usages ; cyan rétréci par la mensualité) ; 94 temps forts, tous sur des débuts de mots.\n3) Sens complet : « trompe un peu » = « ≠ » rouge puis bas déjà couvert ; « combien peux-tu dépenser » = un panier de courses au bout du stylo, arrêté devant l’argent ; « avant même que tu y penses » = le bas est déjà verrouillé et le stylo de « Toi » bute sur le cadenas, et en S10 les pièces partent seules, bras baissé, avant que son panier ressorte ; « incontournables » = « Toi » pousse le loyer, qui bute et revient en place ; « une base fiable, pas un bon mois » = socle encre et « chaque mois » contre un bloc en tirets qui tombe du sommet ; « laisse-les de côté : elles ne reviennent pas chaque mois » = « Toi » écarte la prime, un seul calendrier sur trois est cyan ; « un seul mois peut tromper » = trois barres inégales, trois pièges rouges, puis égalisées sur la « moyenne sur 3 mois » écrite ; « face à face » puis « soustraction » = les charges glissent sur les revenus ; « pour tout le reste » = quatre objets sortent de « ≈ 28 € / jour » ; « une fois la mensualité payée » = la bulle « Un crédit ? » tombe en bloc sur le cyan, qui rétrécit, et la pastille perd son « ≈ 28 € ».\n4) L’IA ≠ « Toi » : pas d’IA dans ce film ; « Toi », figurine encre nommée dès l’image 0, est seule à tenir le stylo et à décider (elle touche, écarte, coche, pousse, demande) ; la banque est une figurine papier sans outil, face à elle, la colonne entre elles, qui ne fait que regarder.\n5) Les mêmes éléments évoluent : salaire → revenus (on y empile) ; charges → relevés → moyenne → charges ; « bon mois » → « Prime » ; partie cyan → « 850 € / mois » → 30 jours → « ≈ 28 € / jour » → « ? € / jour » ; panier de courses (S02 → S10) ; bulle « Un crédit ? » → bloc « Mensualité » ; pastille → bouton.\n6) PNG au service de la scène : l’enveloppe émet la colonne (S01), la maison émet les blocs de charges (S04), le panier, la valise et la bouée sortent de la pastille pour nommer les usages, l’épargne étant une pile de pièces en code (S18) ; tous les processus (couvrir, empiler, égaliser, soustraire, découper en jours sur une page de calendrier) sont animés en code.\n7) Simplicité : ivoire, encre, un seul accent cyan (et le rouge réservé à trois erreurs aussitôt corrigées), Inter 34-36 pour les mots clés, ExtraBold pour les chiffres, 1 à 3 éléments actifs par temps fort, ce qui a fini d’agir se range en petit ou sort.",
+  "thread": "On suit la pastille cyan du reste à vivre, posée sur l’argent du mois de « Toi ». Elle sort de l’enveloppe de paie « Salaire », sur une colonne de billets, puis devient « ? € » quand « Toi » tend son panier de courses : combien peux-tu vraiment dépenser ? Le contexte fait tomber dans le bas de la colonne le loyer, les factures et les crédits : seul le haut reste libre, cyan, et un « ≠ » rouge devient « = » : le reste à vivre, c’est cette partie. Étape 1 : « Toi » empile ses revenus réguliers (salaire net, allocations, autres revenus) et écarte la prime. Étape 2 : il coche ses charges, du loyer aux abonnements, et les règle sur la moyenne de 3 relevés, dont chacun, seul, trompe en rouge. Étape 3 : les deux colonnes face à face, les charges glissent sur les revenus ; 2 200 € − 1 350 € : la pastille devient « 850 € / mois », puis « ≈ 28 € / jour » pour courses, loisirs, imprévus, épargne. Dans la chute, la banque regarde le taux d’endettement puis ce qui reste une fois la mensualité posée : le cyan rétrécit, la pastille perd son « ≈ 28 € » et redevient « ? € / jour », celle de toi, et finit en bouton « S’abonner ».",
+  "objet_fil": {
+    "id": "pastille",
+    "description": "La pastille cyan (pill 260×84, Inter ExtraBold 44, contour encre, ombre dure) : le chiffre cherché, ton reste à vivre. Elle dépasse de l’enveloppe de paie « Salaire » à l’image 0 et descend sur la colonne d’argent (S01), devient « ? € » en laissant le mot « Salaire » sur la colonne (S02), reçoit sa légende « reste à vivre » (S03), fait face au haut de la colonne derrière un « ≠ » rouge qui devient « = » quand le haut cyan apparaît (S04-S06), attend en haut à droite pendant les étapes 1 et 2 (S07-S16), descend sous la soustraction et devient « 850 € / mois », reliée à la partie cyan (S17), se découpe en 30 jours et devient « ≈ 28 € / jour », d’où sortent les quatre usages (S18), se pose au-dessus de la colonne pendant que la banque regarde (S19), rétrécit avec le cyan quand la mensualité tombe et perd son « ≈ 28 € » : « ? € / jour » (S20), bat avec le nom « Toi » (S21) et finit en bouton « S’abonner » de la carte de fin (S22)."
+  },
+  "cast": [
+    {
+      "id": "pastille",
+      "name_fr": "La pastille du reste à vivre (objet du fil)",
+      "look": "Pilule cyan #19B3C7 260×84 (340 pour « 850 € / mois », 380 pour « ≈ 28 € / jour », 300 pour « ? € / jour » après la mensualité), contour encre 4 px, ombre dure +6/+6, texte encre Inter ExtraBold 44. Textes successifs : « Salaire » → « ? € » → « 850 € » → « 850 € / mois » → « ≈ 28 € / jour » → « ? € / jour » → « S’abonner ». Échelle 0,85 quand elle attend en haut à droite (780, 410).",
+      "source": "code",
+      "entite": "pill (pistes text, textOp, w, scale) ; kit.pulse, kit.shake, kit.move ; kit.outro (btn_at : devient le bouton de la carte de fin)",
+      "evolution": "S01 : dépasse de l’enveloppe, « Salaire », et descend sur la colonne d’argent. S02 : remonte et devient « ? € » (combien dépenser ?), en laissant le mot « Salaire » sur la colonne. S03 : reçoit sa légende « reste à vivre ». S04-S05 : en face du haut de la colonne, séparée d’elle par un « ≠ » rouge. S06 : le « ≠ » devient « = » : la partie cyan est ce « ? € ». S07-S16 : attend en haut à droite (échelle 0,85). S17 : descend sous la soustraction et devient « 850 € », puis « 850 € / mois », reliée à la partie cyan. S18 : se découpe en 30 jours ; une case revient en elle : « ≈ 28 € / jour » ; les quatre usages sortent d’elle. S19-S20 : posée au-dessus de la colonne pendant que la banque regarde ; quand la mensualité tombe, elle rétrécit avec le cyan et son « ≈ 28 € » tombe : « ? € / jour ». S21 : bat avec le nom « Toi » : c’est le tien. S22 : devient le bouton « S’abonner »."
+    },
+    {
+      "id": "toi",
+      "name_fr": "« Toi » (le spectateur qui gère son budget du mois)",
+      "look": "Figurine pleine encre #1E1416 : tête ronde, buste trapèze, bras à longueur fixe, stylo ; ombre dure +6/+6 ; échelle 1, pied sur y 1230, côté « left » (agit vers la gauche). Places : P1 (860-870, 1135), P2 (790, 1135), P3 (740, 1135). Bras baissé au repos.",
+      "source": "code",
+      "entite": "figure ink (Figure) + walk, reach, tap, trace, rest ; places vérifiées par fig.place_for",
+      "evolution": "S01 : reçoit son salaire, nommé dès l’image 0. S02 : tend le stylo vers la colonne, un panier de courses à sa pointe, et s’arrête (combien dépenser ?). S03 : baisse le bras, le panier rentre. S04 : lève le stylo vers le bas réservé et bute sur le cadenas (subi). S05 : pousse le loyer, qui bute et revient en place. S07 : s’approche de la colonne (P2). S08 : touche la colonne, « Revenus » s’écrit. S09 : écarte la prime d’un coup de stylo. S10 : garde le bras baissé pendant que les pièces partent, puis lève son panier, après elles. S11 : relit et coche ses charges (P3). S12 : recule (P2). S14 : touche la pile, « Charges » s’écrit. S15 : s’écarte (P1), fait jaillir le « − ». S16 : pousse les charges sur les revenus. S19 : demande « Un crédit ? ». S21 : un « ? » au-dessus de lui. S22 : touche le bouton « S’abonner »."
+    },
+    {
+      "id": "nom_toi",
+      "name_fr": "Le nom « Toi »",
+      "look": "Pilule light #D3F0F6 96×54, contour encre 4, ombre 3, « Toi » Inter Bold 34 encre ; enfant de la figurine, au-dessus de la tête (x de « Toi », y 1000).",
+      "source": "code",
+      "entite": "pill (parent toi)",
+      "evolution": "S01-S21 : suit « Toi » partout (leçon 36 : nommé dès sa première image). S22 : s’efface avec la fin standard."
+    },
+    {
+      "id": "enveloppe",
+      "name_fr": "L’enveloppe de paie",
+      "look": "WTH-004-01 (enveloppe ouverte, liasse de verre cyan, pince argent), largeur 340, centre (420, 420), ombre de contact.",
+      "source": "WTH-004-01.png",
+      "entite": "png (contact) ; kit.vanish",
+      "evolution": "S01 : la pastille « Salaire » en dépasse ; la colonne d’argent en sort et tombe. S02 : se réduit et sort sur « Mais »."
+    },
+    {
+      "id": "revenus",
+      "name_fr": "La colonne d’argent (ton salaire, puis tes revenus)",
+      "look": "Colonne light #D3F0F6 300 px de large, contour encre 4, ombre +6/+6, filets encre tous les 80 px (une liasse). Bloc « Salaire » 300×560 (mot « Salaire » puis « Salaire net », Inter Bold 36, en 420/480, 652), puis blocs « Allocations » 300×100 et « Autres revenus » 300×80 (Inter Bold 34) : 740 px en tout (y 440-1180). Socle encre 340×22 dessous ; « Revenus » Inter Bold 36 au pied (y 1228).",
+      "source": "code",
+      "entite": "gauge verticale (dir up, segPx 80) + shape round ×2 + text ; socle shape round fill encre ; kit.pop, kit.drop, kit.move, kit.pulse",
+      "evolution": "S01 : tombe de l’enveloppe (salaire, 560 px). S02 : reçoit le mot « Salaire ». S04 : son bas est couvert par les charges. S05-S06 : son haut devient cyan, « reste à vivre ». S07 : seule au centre, sur un socle, « chaque mois » écrit dans son bas. S08 : « Salaire net » (« net » souligné) + Allocations + Autres revenus : 740 px, « Revenus » au pied. S09 : la prime n’y entre pas. S10-S14 : rangée en petit à gauche (0,4) ; trois pièces en partent vers les charges. S15 : face à face avec les charges. S16 : les charges glissent sur son bas. S17 : son haut cyan = 850 € / mois. S18 : rangée en petit. S19-S21 : revient au centre ; la mensualité couvre une part du cyan. S22 : s’efface."
+    },
+    {
+      "id": "charges",
+      "name_fr": "Les blocs des charges fixes",
+      "look": "Blocs papier #FFFDF8 300 px de large, contour encre 4, ombre +6/+6, pictogramme sur disque light + mot Inter Bold 34 : « Loyer » (house, 190 px), « Factures » (mail, 104 px), « Crédits » (bank, 100 px), « Abonnements » (phone, 60 px, Inter Bold 32) : 454 px en tout ; « Mensualité » (bank, 90 px) en S20. « Charges » Inter Bold 36 au pied (y 1228).",
+      "source": "code",
+      "entite": "shape round + icon (disc) + text par bloc, groupés sous un parent « pile » ; kit.pop from_pt, kit.drop, kit.move, kit.shake, kit.pulse",
+      "evolution": "S04 : Loyer, Factures, Crédits sortent de la maison et tombent dans le bas de la colonne. S05 : verrouillés ; « Toi » pousse le loyer, qui bute et revient (incontournables). S07 : se soulèvent et se rangent en petit à gauche. S10 : reviennent au centre, reçoivent les pièces et battent. S11 : cochés par « Toi » ; « Abonnements » tombe en haut. S12 : la pile se réduit, les relevés en sortent. S14 : les relevés y rentrent, la pile reprend sa taille, « Charges » au pied. S15 : face à face. S16 : glissent sur le bas des revenus. S19 : « Crédits » regardé par la banque. S20 : « Mensualité » tombe dessus. S22 : s’effacent."
+    },
+    {
+      "id": "maison",
+      "name_fr": "La maison des charges",
+      "look": "WTH-004-05 (maison, ampoule, box, téléphone, prise, bouclier, voiture, carte de transport), largeur 300, centre (200, 470), ombre de contact.",
+      "source": "WTH-004-05.png",
+      "entite": "png (contact) ; kit.pop, kit.vanish",
+      "evolution": "S04 : paraît en haut à gauche ; les blocs Loyer, Factures, Crédits en sortent. S05 : se réduit et sort."
+    },
+    {
+      "id": "egal",
+      "name_fr": "Le « ≠ » rouge qui devient « = »",
+      "look": "Text Inter ExtraBold 72 en (615, 700) : « ≠ » rouge #C8102E, puis « = » deep #0A7487.",
+      "source": "code",
+      "entite": "text (pistes text, color en hex) ; kit.pop, kit.pulse, kit.vanish",
+      "evolution": "S04 : « ≠ » rouge entre le salaire et la pastille « ? € » (l’erreur). S06 : devient « = » deep entre la partie cyan et la pastille (la parade). S07 : se réduit."
+    },
+    {
+      "id": "ligne_partie",
+      "name_fr": "Le trait « une partie »",
+      "look": "Trait encre en tirets [14, 10], 4 px, en travers de la colonne à y 786 (x 260-580).",
+      "source": "code",
+      "entite": "shape poly ouverte (dash) ; kit.draw",
+      "evolution": "S04 : se trace sur « partie », puis disparaît sous les blocs qui tombent. S07 : sort avec la composition."
+    },
+    {
+      "id": "cadenas",
+      "name_fr": "Le cadenas des charges",
+      "look": "Icon lock sur disque papier r 30, contour encre, en (580, 983).",
+      "source": "code",
+      "entite": "icon (lock, disc) ; kit.pop, kit.pulse, kit.vanish",
+      "evolution": "S04 : se pose sur « réservée » ; le stylo de « Toi » bute dessus. S05 : bat quand le loyer poussé par « Toi » bute. S07 : se réduit."
+    },
+    {
+      "id": "reste",
+      "name_fr": "La partie cyan (ce qui reste)",
+      "look": "Shape rect cyan #19B3C7 300 px de large, contour encre 4, posée sur le haut de la colonne, au-dessus des blocs et de leurs mots : 166 px (S05-S06), 286 px (S17-S20), 196 px après la mensualité (S20-S21).",
+      "source": "code",
+      "entite": "shape (piste sy depuis le bas, h) ; kit.pulse",
+      "evolution": "S05 : se remplit au-dessus des charges. S06 : nommée « reste à vivre ». S07 : se réduit (on refait le calcul). S17 : se remplit au-dessus des charges poussées : 850 € / mois. S18 : rangée avec la colonne. S19-S20 : regardée par la banque ; rétrécit sous la mensualité. S22 : s’efface."
+    },
+    {
+      "id": "legende_reste",
+      "name_fr": "La légende « reste à vivre »",
+      "look": "Text Inter Bold 36 : deep sous la pastille (S03-S05), encre sur la partie cyan (S06, S17-S21).",
+      "source": "code",
+      "entite": "text (piste chars, color) ; kit.type, kit.move, kit.pop",
+      "evolution": "S03 : s’écrit sous la pastille « ? € ». S04 : la suit. S06 : se pose sur la partie cyan. S07 : se réduit avec elle. S17 : renaît sur le cyan. S20 : remonte quand le cyan rétrécit. S22 : s’efface."
+    },
+    {
+      "id": "accolades",
+      "name_fr": "Les accolades « revenus » et « − charges »",
+      "look": "Shape poly ouvertes deep #0A7487, 5 px (x 252, y 620-1180 ; x 590, y 786-1180) + text Inter Bold 34 « revenus » (deep, 150, 900) et « − charges » (encre, 705, 930).",
+      "source": "code",
+      "entite": "shape poly ouverte ×2 (kit.draw) + text ×2 (kit.pop)",
+      "evolution": "S05 : se tracent sur « revenus » puis « moins ». S07 : se réduisent."
+    },
+    {
+      "id": "socle",
+      "name_fr": "Le socle (une base fiable)",
+      "look": "Shape round 340×22, fill encre, ombre 6, sous la colonne de revenus.",
+      "source": "code",
+      "entite": "shape ; STRETCH (piste sx 0 → 1)",
+      "evolution": "S07 : s’étire sous la colonne sur « base », avec « chaque mois ». S08-S22 : suit la colonne de revenus (rangée, face à face, chute)."
+    },
+    {
+      "id": "chaque_mois",
+      "name_fr": "Le mot « chaque mois » (la base fiable)",
+      "look": "Text Inter Bold 34 deep #0A7487, écrit dans le bas de la colonne de revenus (480, 1140), au-dessus du socle.",
+      "source": "code",
+      "entite": "text (enfant de la colonne) ; kit.type, kit.vanish",
+      "evolution": "S07 : s’écrit sur « base », pendant que le « bon mois » ne tient pas au sommet. S08-S09 : reste au bas de la colonne, face à la prime qui ne vient qu’un mois sur trois. S10 : se réduit avec la prime."
+    },
+    {
+      "id": "bon_mois",
+      "name_fr": "Le bloc en tirets « bon mois » → « Prime »",
+      "look": "Bloc 300×80 fond light, contour encre en tirets [14, 10] (rouge #C8102E en S09 pendant l’erreur), Inter Bold 34 « bon mois » puis « Prime » ; échelle 0,65 en attente et au sol.",
+      "source": "code",
+      "entite": "shape round (dash, stroke en hex) + text (piste text) ; kit.pop, rot, kit.move, kit.vanish",
+      "evolution": "S07 : surgit au sommet de la colonne, vacille et tombe le long d’elle jusqu’à une place d’attente à droite (« pas un bon mois »). S08 : attend à droite ; un « + » prend sa place au sommet. S09 : devient « Prime », veut se coller à la colonne en rouge ; « Toi » l’écarte au sol à gauche. S10 : sort. S13 : son double en petit, barré de rouge, tombe du relevé du mois 2 (« sans prime »)."
+    },
+    {
+      "id": "plus",
+      "name_fr": "Le « + » de l’addition",
+      "look": "Text Inter ExtraBold 72 deep, au-dessus de la colonne (480, 585 puis 485).",
+      "source": "code",
+      "entite": "text ; kit.pop, kit.move, kit.vanish into",
+      "evolution": "S08 : surgit sur « additionne », à la place du « bon mois » tombé, monte quand les allocations se posent, se réduit dans la colonne quand les autres revenus arrivent."
+    },
+    {
+      "id": "calendriers",
+      "name_fr": "Les trois calendriers de la prime",
+      "look": "Icon cal sur disque r 30, fond papier, contour encre, en (105, 1050), (175, 1050), (245, 1050) ; le premier passe au cyan.",
+      "source": "code",
+      "entite": "icon (cal, disc, piste fill en hex) ×3 ; kit.stagger kit.pop",
+      "evolution": "S09 : surgissent au-dessus de la prime ; un seul passe au cyan. S10 : sortent avec elle."
+    },
+    {
+      "id": "pieces",
+      "name_fr": "Les trois pièces qui partent",
+      "look": "Icon euro sur disque light r 22, contour encre.",
+      "source": "code",
+      "entite": "icon (euro, disc) ×3 ; kit.pop from_pt, S.fly (arc), kit.vanish into",
+      "evolution": "S10 : sortent des revenus rangés et volent seules dans les blocs de charges."
+    },
+    {
+      "id": "panier",
+      "name_fr": "Le petit panier de courses au bout du stylo",
+      "look": "Icon cart sur disque papier r 26, contour encre, à la pointe du stylo de « Toi ».",
+      "source": "code",
+      "entite": "icon (cart, disc) ; kit.pop, kit.vanish into",
+      "evolution": "S02 : surgit au bout du stylo sur « dépenser », tendu vers l’argent sans y puiser. S03 : rentre dans le stylo. S10 : ressort, après le départ des pièces (trop tard). S11 : rentre dans le stylo."
+    },
+    {
+      "id": "coches",
+      "name_fr": "Les coches de « Toi »",
+      "look": "Tick plein deep #0A7487, taille 40, à droite de chaque bloc (660, 1085 ; 660, 940 ; 660, 862).",
+      "source": "code",
+      "entite": "tick (draw) sous Toi.trace",
+      "evolution": "S11 : se tracent sous la pointe du stylo. S12-S14 : suivent la pile (enfants). S15 : suivent les charges ; S16 : s’effacent quand les charges glissent sur les revenus."
+    },
+    {
+      "id": "releves",
+      "name_fr": "Les trois relevés bancaires",
+      "look": "Doc papier fw 180, fh 240, coin plié, contour encre 4, ombre ; titre « Relevé » Inter SemiBold 28 ; « mois 1 », « mois 2 », « mois 3 » deep 28 ; centres (250, 620), (460, 620), (670, 620).",
+      "source": "code",
+      "entite": "doc (fw, fh, fts) ×3 ; kit.pop from_pt pile, kit.stagger, kit.pulse, kit.vanish into",
+      "evolution": "S12 : sortent de la pile des charges en éventail, comptés « 3 ». S13 : chacun montre sa barre et son piège. S14 : leurs barres s’égalisent, puis ils rentrent dans la pile."
+    },
+    {
+      "id": "barres_mois",
+      "name_fr": "Les barres de dépenses de chaque mois",
+      "look": "Shape rect papier, contour encre 4, 60 px de large, posée à y 720 dans chaque relevé : 140, 90, 60 px, puis 110 px toutes.",
+      "source": "code",
+      "entite": "shape (piste h, origine en bas) ×3, enfants des relevés",
+      "evolution": "S13 : montent à trois hauteurs différentes. S14 : s’égalisent sur la moyenne puis glissent dans la pile."
+    },
+    {
+      "id": "anomalies",
+      "name_fr": "Les trois pièges rouges",
+      "look": "Mois 1 : 50 px du haut de la barre en rouge #C8102E ; mois 2 : petit bloc « Prime » 100×44 (fond light, contour encre en tirets, Inter Bold 26, le double de la prime de S09) barré d’un trait rouge #C8102E de 5 px ; mois 3 : rectangle vide en tirets rouges 60×40 sur le haut de la barre. Légendes Inter Bold 32 rouge, 2 lignes, sous chaque relevé (y 790) : « facture / annuelle », « sans / prime », « dépense / oubliée ».",
+      "source": "code",
+      "entite": "shape (fill/stroke en hex, dash) + shape rect (strike) + text ×3 ; kit.pop, kit.draw, kit.drop out, kit.vanish",
+      "evolution": "S13 : surgissent une par une sur leur mot ; le petit bloc « Prime » barré tombe hors du relevé. S14 : le rouge du mois 1 tombe, le vide du mois 3 se remplit, les légendes se réduisent."
+    },
+    {
+      "id": "trois",
+      "name_fr": "Le grand « 3 »",
+      "look": "Text Inter ExtraBold 140, deep, en (460, 420).",
+      "source": "code",
+      "entite": "text ; kit.pop, kit.vanish",
+      "evolution": "S12 : surgit sur « 3 ? ». S13 : se réduit."
+    },
+    {
+      "id": "ligne_moyenne",
+      "name_fr": "Le trait et le titre de la moyenne",
+      "look": "Trait deep 6 px, y 610, x 160-760, à travers les trois relevés ; titre « moyenne sur 3 mois » Inter Bold 36 deep en (460, 440), au-dessus des relevés.",
+      "source": "code",
+      "entite": "shape rect (draw) + text ; kit.draw, kit.pop, kit.vanish into",
+      "evolution": "S14 : le trait se trace sur « moyenne » et le titre surgit ; les barres s’égalisent sur le trait ; puis tous deux rentrent dans la pile avec les relevés."
+    },
+    {
+      "id": "ligne_niveau",
+      "name_fr": "Le trait de niveau du face-à-face",
+      "look": "Trait encre en tirets [14, 10], 4 px, à y 726, de x 770 à 140.",
+      "source": "code",
+      "entite": "shape poly ouverte (dash) ; kit.draw",
+      "evolution": "S15 : part du haut des charges et traverse les revenus. S16 : devient la limite où les charges se posent ; S18 : sort."
+    },
+    {
+      "id": "moins",
+      "name_fr": "Le « − » de la soustraction",
+      "look": "Text Inter ExtraBold 72, encre, vrai signe moins U+2212.",
+      "source": "code",
+      "entite": "text ; kit.pop from_pt, kit.move",
+      "evolution": "S15 : jaillit du stylo de « Toi » et se pose au pied : « Revenus − Charges ». S16 : monte devant « 1 350 € ». S18 : se réduit."
+    },
+    {
+      "id": "calcul",
+      "name_fr": "La soustraction écrite",
+      "look": "Counter Inter ExtraBold 64 encre, ancrés à droite sur x 860 : « 2 200 € » (y 500), « 1 350 € » (y 590) après le « − » ; trait de total encre 6 px (x 520-860, y 645) ; fil deep 5 px de la partie cyan à la pastille.",
+      "source": "code",
+      "entite": "counter ×2 (value, suffix « € ») + shape rect (STRETCH) + wire plein deep ; kit.pop from_pt, kit.move, kit.draw",
+      "evolution": "S16 : les deux nombres sortent de leurs colonnes en comptant ; le trait de total s’étire. S17 : la pastille « 850 € » se pose dessous, un fil la relie au cyan. S18 : tout se réduit."
+    },
+    {
+      "id": "jours",
+      "name_fr": "Les 30 jours du mois (page de calendrier)",
+      "look": "Page de calendrier papier 440×400 (x 320-760, y 490-890), contour encre 4, bandeau encre de 40 px en haut avec deux anneaux ; dedans, 30 shape round cyan 56×56, r 10, contour encre 3, ombre 3, en grille 6 × 5 centrée (540, 710) (x 347-733, y 550-870). Aucun nombre.",
+      "source": "code",
+      "entite": "shape ×2 (page, bandeau) + shape ×30 ; kit.pop, kit.stagger kit.pop from_pt pastille, kit.vanish into",
+      "evolution": "S18 : la page surgit sous la pastille « 850 € / mois » ; les cases en sortent et s’y rangent ; la première rentre dans la pastille (« ≈ 28 € / jour ») ; les autres puis la page s’effacent."
+    },
+    {
+      "id": "usages",
+      "name_fr": "Les quatre usages du reste",
+      "look": "Panier WTH-004-03 (largeur 200, 330, 650), valise SUITCASE.png (150, 720, 650), bouée BUOY.png (200, 330, 920), ombre de contact ; pile de trois pièces (icon coin sur disque light r 26, contour encre) en (720, 890-950) ; mots Inter Bold 34 encre dessous : « courses », « loisirs », « imprévus », « épargne ».",
+      "source": "WTH-004-03.png, SUITCASE.png, BUOY.png + code",
+      "entite": "png ×3 (contact) + icon coin ×3 (disc) + text ×4 ; kit.pop from_pt pastille, kit.drop, kit.vanish into",
+      "evolution": "S18 : sortent un à un de la pastille « ≈ 28 € / jour », sur leur mot ; les trois pièces s’empilent. S19 : y rentrent un à un."
+    },
+    {
+      "id": "bulle_credit",
+      "name_fr": "La bulle « Un crédit ? »",
+      "look": "Shape round papier 240×80, r 18, contour encre 4, ombre +6/+6, queue (shape poly) vers la tête de « Toi » ; « Un crédit ? » Inter Bold 34 ; en (770, 880).",
+      "source": "code",
+      "entite": "shape round + shape poly + text ; kit.pop, kit.morph vers le bloc « Mensualité »",
+      "evolution": "S19 : sort de la tête de « Toi » sur « crédit ». S20 : se change en bloc « Mensualité » qui tombe sur la colonne."
+    },
+    {
+      "id": "mensualite",
+      "name_fr": "Le bloc « Mensualité »",
+      "look": "Bloc papier 300×90, contour encre 4, pictogramme bank sur disque light, « Mensualité » Inter Bold 34.",
+      "source": "code",
+      "entite": "shape round + icon + text ; kit.morph, kit.drop",
+      "evolution": "S20 : naît de la bulle « Un crédit ? » et tombe sur les charges, sur le bas du cyan. S21 : reste. S22 : s’efface."
+    },
+    {
+      "id": "banque",
+      "name_fr": "La banque",
+      "look": "Figurine papier (Figure paper, tool False : contour encre, intérieur blanc, ni visage ni bras) en (190, 1135), tournée vers « Toi » ; pilule light « Banque » avec un grand pictogramme bank sur disque r 30 (Inter Bold 34) au-dessus (190, 990).",
+      "source": "code",
+      "entite": "figure paper (Figure, tool False) + pill ; enter, lean_to, exit",
+      "evolution": "S19 : arrive sur « banque », face à « Toi », la colonne entre eux. S19-S20 : se penche vers les crédits, puis vers le reste. S21 : sort sur « Alors » (7 s à l’écran)."
+    },
+    {
+      "id": "regard",
+      "name_fr": "Le regard de la banque",
+      "look": "Wire plein encre 3 px, de la tête de la banque (215, 1065) à ce qu’elle regarde.",
+      "source": "code",
+      "entite": "wire (pa / pb, draw) ; kit.draw, piste pb",
+      "evolution": "S19 : se tend vers « Crédits » pendant que la banque se penche. S20 : monte vers la partie cyan, puis suit le cyan restant. S21 : se réduit."
+    },
+    {
+      "id": "legende_taux",
+      "name_fr": "La légende « taux d’endettement »",
+      "look": "Text Inter Bold 34 encre, 2 lignes « taux / d’endettement », en (170, 770).",
+      "source": "code",
+      "entite": "text ; kit.pop, kit.vanish",
+      "evolution": "S19 : surgit sur « taux ». S21 : se réduit."
+    },
+    {
+      "id": "question",
+      "name_fr": "Le « ? » de « Toi »",
+      "look": "qmark encre, corps 110, au-dessus de la tête de « Toi » (870, 900).",
+      "source": "code",
+      "entite": "qmark ; kit.pop",
+      "evolution": "S21 : surgit sur « connais ». S22 : s’efface."
+    },
+    {
+      "id": "marqueur",
+      "name_fr": "Le repère 1-2-3 légendé",
+      "look": "kit.steps_marker([« Revenus », « Charges », « Soustraire »], y 280, labelSize 32) : disques papier r 20 numérotés, disque actif cyan, coche deep sur l’étape faite (done0, done1).",
+      "source": "code",
+      "entite": "marker via kit.steps_marker (piste on, active, done0, done1) ; kit.step",
+      "evolution": "S03 : paraît, disque par disque, puis sa légende. S08 : « 1 » actif sur « Première ». S11 : « 2 » sur « Deuxième ». S15 : « 3 » sur « Troisième ». S19 : se réduit sur « Pour »."
+    },
+    {
+      "id": "fin",
+      "name_fr": "La carte de fin",
+      "look": "Carte papier 620×520 centrée (540, 760), titre « WealthTech Horizon », ligne « Comprendre ton argent » (deep), bouton cyan « S’abonner » (la pastille du fil, ≈ 380×112). Aucun pointeur de souris : le clic est le toucher du stylo de « Toi ».",
+      "source": "code",
+      "entite": "endcard via kit.outro (clear « fade », btn_at) ; Toi.tap + piste press ; ondes d’impact",
+      "evolution": "S22 : surgit pendant que tout s’efface ; la pastille devient son bouton ; « Toi » le touche, puis plus rien ne bouge."
+    }
+  ],
+  "style": "Conforme à style.md. Fond ivoire #F6F0E4, quadrillage fixe de 36 px (#ECE4D4, 2 px), sans caméra ni zoom global. Encre #1E1416 pour les contours de 4 à 5 px, les textes, « Toi », le socle, les signes « − » et « ? » et les ombres dures +6/+6. Un seul accent, le cyan : #19B3C7 en aplat pour la pastille du fil, la partie « reste à vivre » de la colonne, les 30 jours, le disque actif du repère et le bouton de fin ; deep #0A7487 pour les traits fins et mots de méthode (accolades, « = », « + », « chaque mois », trait et titre de la moyenne, fil cyan → pastille, coches de « Toi », légende « reste à vivre » sous la pastille, grand « 3 ») ; light #D3F0F6 pour l’argent des revenus (la colonne de billets, Allocations, Autres revenus), le bloc « bon mois / Prime », les pièces et les pilules « Toi » / « Banque ». Papier #FFFDF8 pour les charges, les relevés, la bulle « Un crédit ? », la banque et la carte de fin. Rouge #C8102E pour trois erreurs seulement, toujours suivies de leur parade : le « ≠ » salaire / dépensable (S04-S05, corrigé en « = » deep en S06), la prime qu’on voudrait compter (S09, écartée par « Toi »), les trois pièges des relevés, dont le petit « Prime » barré (S13, effacés par la moyenne en S14). Aucun gris à 50 %. Places fixes : « Toi » à droite (P1 860-870, P2 790, P3 740 ; pied y 1230), son nom « Toi » au-dessus de sa tête tout le film ; la colonne d’argent au sol (bas y 1180), au centre ou à gauche ; la pastille au-dessus ou en haut à droite (780, 410) ; le repère 1-2-3 en haut (y 280) de S03 à S18 ; la banque à gauche en chute, face à « Toi », la colonne entre eux. Pas d’IA dans ce film : seule « Toi » tient un outil et décide. PNG retenus (5) : WTH-004-01 (enveloppe, S01-S02), WTH-004-05 (maison des charges, S04-S05), WTH-004-03 (panier, S18), SUITCASE, BUOY (S18) ; l’épargne est une pile de pièces en code ; un seul entre ou sort à la fois, jamais déformés ni zoomés pour raconter. Composition de y ≈ 280 à y ≈ 1240 (mots du pied à y 1228), centre vers y 800, x 40-940. Textes clés en Inter Bold 34-36, chiffres-clés en ExtraBold 64-140.",
+  "scenes": [
+    {
+      "id": "S01",
+      "segment": "accroche",
+      "t_start": 0.0,
+      "t_end": 1.788,
+      "texte": "Ton salaire vient de tomber.",
+      "elements": "toi, nom_toi, enveloppe, pastille, revenus",
+      "etat_initial": "Image 0, déjà lisible et sobre : ivoire quadrillé ; en haut au centre, l’enveloppe de paie ouverte (WTH-004-01, largeur 340, centre 420, 420 ; y 305-535) ; la pastille cyan « Salaire » (260×84) dépasse de sa bouche, centre (420, 400), devant l’enveloppe. « Toi » en P1 (860, 1135), pied sur y 1230, bras baissé, stylo au repos ; au-dessus de sa tête, son nom : pilule light « Toi » (860, 1000). Rien d’autre.",
+      "action": "La pastille « Salaire » bat une fois dans l’enveloppe ; puis le salaire tombe : une grande colonne d’argent light (la liasse, 300×560, séparée en 7 billets par des filets encre) sort de l’enveloppe et tombe jusqu’au sol, la pastille posée sur son sommet.",
+      "resultat": "Une colonne d’argent haute de 560 px (x 270-570, y 620-1180) est arrivée au sol, la pastille « Salaire » posée dessus (420, 575) ; l’enveloppe, vide, reste en haut ; « Toi » la regarde à droite.",
+      "transition": "Sur « Mais » (S02), l’enveloppe se réduit vers son centre et sort ; colonne, pastille et « Toi » restent.",
+      "beats": [
+        {
+          "t": 0.255,
+          "mot": "salaire",
+          "evenement": "La pastille « Salaire » bat une fois (kit.pulse, échelle ×1,12, 2 × 3 images) dans la bouche de l’enveloppe."
+        },
+        {
+          "t": 0.998,
+          "mot": "tomber.",
+          "evenement": "Tomber : la colonne « revenus » (gauge verticale light #D3F0F6 300×560, contour encre 4, ombre +6/+6, filets encre tous les 80 px) naît à l’échelle 0 dans la bouche de l’enveloppe (420, 470) et tombe jusqu’au sol (centre 420, 900 ; bas sur y 1180) en grandissant (kit.pop from_pt enveloppe + kit.drop 370 ms ease-out, sans rebond). La pastille descend avec elle et se pose sur son sommet (420, 575), même durée."
+        }
+      ],
+      "lecture_sans_son": "L’argent du salaire arrive : une grosse colonne de billets sort de l’enveloppe et tombe devant « Toi »."
+    },
+    {
+      "id": "S02",
+      "segment": "accroche",
+      "t_start": 1.788,
+      "t_end": 4.458,
+      "texte": "Mais combien peux-tu vraiment dépenser ce mois-ci ?",
+      "elements": "toi, nom_toi, enveloppe, pastille, revenus, panier",
+      "etat_initial": "Résultat de S01 : colonne d’argent (x 270-570, y 620-1180), pastille « Salaire » sur son sommet (420, 575), enveloppe vide en haut (420, 420), « Toi » en P1 (860, 1135).",
+      "action": "L’enveloppe sort. La pastille remonte au-dessus de la colonne et devient « ? € » ; le mot « Salaire » reste écrit sur le haut de la colonne. « Toi » tend son stylo vers l’argent ; sur « dépenser », un petit panier de courses paraît au bout du stylo, à 30 px de la colonne, et s’arrête sans y puiser : combien de cet argent peut-il dépenser ? La pastille « ? € » tremble.",
+      "resultat": "Une colonne « Salaire » ; au-dessus, la pastille « ? € » ; « Toi », un panier de courses au bout du stylo tendu, arrêté devant l’argent.",
+      "transition": "Sur « Dans » (S03), le panier rentre dans le stylo et le bras de « Toi » revient au repos ; tout le reste tient.",
+      "beats": [
+        {
+          "t": 1.788,
+          "mot": "Mais",
+          "evenement": "Sortir : l’enveloppe se réduit vers son centre (kit.vanish 300 ms ease-out). Un seul PNG à l’écran : aucun."
+        },
+        {
+          "t": 1.985,
+          "mot": "combien",
+          "evenement": "La pastille monte de 105 px au-dessus de la colonne (kit.move vers 420, 470 ; 550 ms ease-in-out) ; pendant la montée son texte passe de « Salaire » à « ? € » (textOp 0 en 4 images, bascule, retour en 200 ms). Le mot « Salaire » (text Inter Bold 36, encre) tombe d’elle sur le haut de la colonne (kit.pop from_pt pastille, se pose en 420, 652)."
+        },
+        {
+          "t": 2.647,
+          "mot": "vraiment",
+          "evenement": "Tendre : « Toi » avance la pointe de son stylo vers le bord droit de la colonne (Toi.reach vers 600, 1010 ; 550 ms) et s’arrête à 30 px de la colonne, sans la toucher."
+        },
+        {
+          "t": 3.053,
+          "mot": "dépenser",
+          "evenement": "Dépenser : un petit panier de courses (icon cart sur disque papier r 26, contour encre) surgit à la pointe du stylo (605, 1010 ; pop 300 ms), tendu vers l’argent, sans le toucher ; la pastille « ? € » bat une fois (×1,1) sur la même image : combien peut-il en prendre pour ses courses ?"
+        },
+        {
+          "t": 3.634,
+          "mot": "mois-ci ?",
+          "evenement": "La pastille « ? € » tremble (kit.shake x, amplitude 6 px) : la question reste ouverte."
+        }
+      ],
+      "lecture_sans_son": "La personne a reçu son salaire et voudrait y puiser pour ses courses, mais ne sait pas combien elle peut vraiment en dépenser : un « ? € » flotte au-dessus de l’argent."
+    },
+    {
+      "id": "S03",
+      "segment": "accroche",
+      "t_start": 4.458,
+      "t_end": 9.555,
+      "texte": "Dans cette vidéo, on va calculer ton vrai reste à vivre, en 3 étapes simples.",
+      "elements": "toi, nom_toi, pastille, revenus, legende_reste, marqueur, panier",
+      "etat_initial": "Résultat de S02 : colonne « Salaire » (x 270-570, y 620-1180), pastille « ? € » au-dessus (420, 470), « Toi » en P1, stylo tendu, le panier de courses à sa pointe.",
+      "action": "« Toi » baisse le bras ; le panier rentre dans son stylo. Sous la pastille « ? € » s’écrit son nom, « reste à vivre » : c’est ce chiffre qu’on va calculer. En haut, le repère 1-2-3 apparaît, disque par disque, puis sa légende : « Revenus », « Charges », « Soustraire ».",
+      "resultat": "La pastille « ? € » porte la légende « reste à vivre » ; le repère 1-2-3 légendé attend en haut (y 280), aucune étape encore active.",
+      "transition": "Sur « Ton » (S04), la pastille et sa légende glissent à droite, en face du haut de la colonne.",
+      "beats": [
+        {
+          "t": 4.458,
+          "mot": "Dans",
+          "evenement": "« Toi » ramène la main au repos (Toi.rest, 8 images) : bras baissé ; le panier rentre dans la pointe du stylo (kit.vanish into, 300 ms)."
+        },
+        {
+          "t": 6.989,
+          "mot": "reste",
+          "evenement": "Écrire : sous la pastille, « reste à vivre » (text Inter Bold 36, deep #0A7487, centre 420, 552) s’écrit à la machine (kit.type, 3,5 caractères par image)."
+        },
+        {
+          "t": 8.197,
+          "mot": "3",
+          "evenement": "Compter : le repère d’étapes paraît en haut (kit.steps_marker([« Revenus », « Charges », « Soustraire »], y 280, labelSize 32, on 0) ; disques papier r 20 à x ≈ 352, 540, 728) : les trois disques « 1 », « 2 », « 3 » surgissent l’un après l’autre (kit.stagger 3 images, pop 300 ms)."
+        },
+        {
+          "t": 8.498,
+          "mot": "étapes",
+          "evenement": "Les trois légendes « Revenus », « Charges », « Soustraire » entrent en fondu sous leurs disques (200 ms), en gris de légende inactive."
+        }
+      ],
+      "lecture_sans_son": "On va calculer ce « ? € », le reste à vivre, en trois étapes nommées : revenus, charges, soustraire."
+    },
+    {
+      "id": "S04",
+      "segment": "contexte",
+      "t_start": 9.555,
+      "t_end": 16.649,
+      "texte": "Ton salaire trompe un peu. Une partie est déjà réservée avant même que tu y penses : loyer, factures, crédits.",
+      "elements": "toi, nom_toi, pastille, legende_reste, revenus, egal, maison, ligne_partie, cadenas, charges, marqueur",
+      "etat_initial": "Résultat de S03 : colonne « Salaire » (x 270-570, y 620-1180), pastille « ? € » (420, 470) et sa légende (420, 552) ; repère en haut ; « Toi » en P1 bras baissé.",
+      "action": "La pastille et sa légende glissent à droite, en face du haut de la colonne ; entre elles, un « ≠ » rouge : le salaire n’est pas ce qu’on peut dépenser. La maison des charges (WTH-004-05) paraît en haut à gauche. Un trait en tirets coupe la colonne à mi-hauteur : la partie basse est prise, un cadenas s’y pose. Seulement alors « Toi » lève son stylo vers cette partie : la pointe bute sur le cadenas et son bras retombe ; elle n’est déjà plus à lui. Puis, sur chaque mot, un bloc papier sort de la maison et tombe dans le bas de la colonne : « Loyer », « Factures », « Crédits ».",
+      "resultat": "Le bas de la colonne (y 786-1180) est couvert par trois blocs papier empilés (Loyer, Factures, Crédits), cadenas au bord ; seul le haut (y 620-786) reste en argent libre ; la pastille « ? € » attend en face, séparée par le « ≠ » rouge ; « Toi », bras retombé, n’a rien pu toucher.",
+      "transition": "Sur « Le » (S05), la maison se réduit vers son centre et sort.",
+      "beats": [
+        {
+          "t": 9.555,
+          "mot": "Ton",
+          "evenement": "Glisser : la pastille « ? € » et sa légende vont en face du haut de la colonne (pastille 780, 700 ; légende 780, 790 ; kit.move 550 ms ease-in-out)."
+        },
+        {
+          "t": 10.217,
+          "mot": "trompe",
+          "evenement": "Tromper : un « ≠ » rouge #C8102E (text Inter ExtraBold 72) surgit entre le haut de la colonne et la pastille (615, 700 ; pop 300 ms) : le salaire ≠ ce que tu peux dépenser."
+        },
+        {
+          "t": 11.285,
+          "mot": "Une",
+          "evenement": "Entrer : la maison des charges (WTH-004-05, largeur 300, contact) surgit en haut à gauche (200, 470 ; y ≈ 385-555 ; pop 300 ms)."
+        },
+        {
+          "t": 11.494,
+          "mot": "partie",
+          "evenement": "Couper : un trait encre en tirets [14, 10], 4 px, se trace en travers de la colonne à y 786, de x 260 à 580 (kit.draw 300 ms) : une partie, en bas."
+        },
+        {
+          "t": 12.365,
+          "mot": "réservée",
+          "evenement": "Réserver : un cadenas (icon lock, disque r 30, fond papier) surgit sur le bord droit de la partie basse (580, 983 ; pop 300 ms)."
+        },
+        {
+          "t": 13.921,
+          "mot": "penses :",
+          "evenement": "Buter (subi) : « Toi » lève enfin le stylo vers le bas de la colonne (Toi.reach vers 612, 983 ; 250 ms) : la pointe bute sur le cadenas, qui tressaille (kit.shake x, 6 px), et le bras retombe au repos (250 ms ease-out) : cette partie était réservée avant qu’il y pense."
+        },
+        {
+          "t": 14.513,
+          "mot": "loyer,",
+          "evenement": "Extraire puis tomber : le bloc « Loyer » (papier 300×190, contour encre 4, pictogramme house sur disque r 26 + « Loyer » Inter Bold 34) sort de la maison (kit.pop from_pt 200, 520) et tombe au pied de la colonne (420, 1085 ; y 990-1180 ; kit.drop 370 ms ease-out), devant l’argent qu’il cache."
+        },
+        {
+          "t": 15.163,
+          "mot": "factures,",
+          "evenement": "Le bloc « Factures » (300×104, pictogramme mail) sort de la maison et tombe sur le loyer (420, 938 ; y 886-990), même geste."
+        },
+        {
+          "t": 15.813,
+          "mot": "crédits.",
+          "evenement": "Le bloc « Crédits » (300×100, pictogramme bank) sort de la maison et tombe sur les factures (420, 836 ; y 786-886), juste sous le trait en tirets."
+        }
+      ],
+      "lecture_sans_son": "Le salaire semble tout entier à toi, mais le bas est déjà réservé et verrouillé : quand la personne veut y toucher, son stylo bute sur le cadenas ; loyer, factures et crédits tombent dedans."
+    },
+    {
+      "id": "S05",
+      "segment": "contexte",
+      "t_start": 16.649,
+      "t_end": 22.558,
+      "texte": "Le chiffre utile, c’est ce qui reste après. Tes revenus du mois, moins tes charges incontournables.",
+      "elements": "toi, nom_toi, pastille, legende_reste, revenus, charges, cadenas, egal, reste, accolades, maison, marqueur",
+      "etat_initial": "Résultat de S04 : colonne x 270-570 ; blocs Loyer / Factures / Crédits sur y 786-1180, cadenas (580, 983) ; argent libre en haut (y 620-786) avec « Salaire » (420, 652) ; « ≠ » rouge (615, 700) ; pastille « ? € » (780, 700) et légende (780, 790) ; maison en haut à gauche ; « Toi » en P1.",
+      "action": "La maison sort. La pastille « ? € » bat : c’est le chiffre utile. La partie libre du haut se remplit de cyan : voilà ce qui reste. Puis la formule se lit sur la colonne : une accolade deep embrasse toute la colonne à gauche et le mot « revenus » sort de la colonne pour s’y poser : toute la colonne, ce sont tes revenus ; une seconde accolade, à droite, n’embrasse que les blocs, « − charges ». Sur « incontournables », « Toi » pousse du stylo le bloc « Loyer » : il bute, le cadenas bat, et le bloc revient exactement en place : on ne peut pas l’enlever.",
+      "resultat": "Colonne : haut cyan (ce qui reste), bas couvert de charges verrouillées ; « revenus » à gauche sur toute la hauteur, « − charges » à droite sur le bas ; la pastille « ? € » toujours séparée par le « ≠ » rouge ; « Toi » bras baissé.",
+      "transition": "Sur « C’est » (S06), le « ≠ » rouge devient « = ».",
+      "beats": [
+        {
+          "t": 16.649,
+          "mot": "Le",
+          "evenement": "Sortir : la maison se réduit vers son centre (kit.vanish 300 ms) ; la pastille « ? € » bat une fois (kit.pulse ×1,12) : le chiffre utile."
+        },
+        {
+          "t": 18.147,
+          "mot": "reste",
+          "evenement": "Remplir : la partie libre du haut (shape reste, cyan #19B3C7, 300×166, centre 420, 703, au-dessus de la colonne et de son mot « Salaire ») se remplit de bas en haut (piste sy 0 → 1, origine en bas, 330 ms ease-out) : ce qui reste, en cyan."
+        },
+        {
+          "t": 19.377,
+          "mot": "revenus",
+          "evenement": "Embrasser : une accolade deep #0A7487 (shape poly ouverte, 5 px) se trace le long du bord gauche de toute la colonne (x 252, y 620 → 1180 ; kit.draw 300 ms) ; le mot « revenus » (Inter Bold 34, deep) sort du milieu de la colonne (kit.pop from_pt 420, 900) et se pose à sa gauche (150, 900) : la colonne entière, ce sont les revenus."
+        },
+        {
+          "t": 20.411,
+          "mot": "moins",
+          "evenement": "Moins : une seconde accolade deep se trace le long du bord droit des seuls blocs (x 590, y 786 → 1180 ; 300 ms) ; « − charges » (Inter Bold 34, encre, vrai signe moins) surgit à sa droite (705, 930)."
+        },
+        {
+          "t": 21.316,
+          "mot": "incontournables.",
+          "evenement": "Bloquer : « Toi » pousse du stylo le bord droit du bloc « Loyer » (Toi.tap 575, 1085) ; au contact, le bloc avance de 8 px, bute (kit.shake x, 6 px) et revient exactement en place ; le cadenas bat (kit.pulse ×1,3) ; le bras revient au repos : impossible de l’enlever."
+        }
+      ],
+      "lecture_sans_son": "Ce qui compte, c’est le haut cyan : toute la colonne de revenus, moins les charges verrouillées en bas, que « Toi » ne peut pas enlever."
+    },
+    {
+      "id": "S06",
+      "segment": "contexte",
+      "t_start": 22.558,
+      "t_end": 24.602,
+      "texte": "C’est ça, ton reste à vivre.",
+      "elements": "toi, nom_toi, pastille, legende_reste, revenus, charges, cadenas, egal, reste, accolades, marqueur",
+      "etat_initial": "Résultat de S05 : colonne avec haut cyan (y 620-786), blocs verrouillés en bas, accolades « revenus » et « − charges » ; « ≠ » rouge (615, 700) entre le haut cyan et la pastille « ? € » (780, 700) ; légende « reste à vivre » (780, 790).",
+      "action": "Le « ≠ » rouge devient un « = » deep : la partie cyan, c’est le « ? € » que l’on cherche. La légende « reste à vivre » quitte la pastille et se pose sur la partie cyan, qui bat une fois.",
+      "resultat": "La partie cyan porte son nom, « reste à vivre », et un « = » la relie à la pastille « ? € » : l’erreur rouge du début est corrigée.",
+      "transition": "Sur « Pourquoi » (S07), charges et salaire se séparent ; accolades, « = », partie cyan et sa légende se réduisent et sortent.",
+      "beats": [
+        {
+          "t": 22.558,
+          "mot": "C’est",
+          "evenement": "Corriger : le « ≠ » rouge devient « = » deep (bascule de texte + couleur rouge → deep en fondu 300 ms ; kit.pulse ×1,15)."
+        },
+        {
+          "t": 23.418,
+          "mot": "reste",
+          "evenement": "Nommer : la légende « reste à vivre » glisse de sous la pastille (780, 790) jusque sur la partie cyan (420, 703) (kit.move 550 ms ease-in-out), texte encre sur cyan ; à l’arrivée, la partie cyan bat une fois (×1,05)."
+        }
+      ],
+      "lecture_sans_son": "Le reste à vivre, c’est la partie cyan : ce qui reste du salaire une fois les charges posées."
+    },
+    {
+      "id": "S07",
+      "segment": "point1",
+      "t_start": 24.602,
+      "t_end": 29.583,
+      "texte": "Pourquoi commencer par les revenus ? Parce qu’il te faut une base fiable, pas un bon mois.",
+      "elements": "toi, nom_toi, pastille, revenus, socle, chaque_mois, bon_mois, charges, marqueur",
+      "etat_initial": "Résultat de S06 : colonne x 270-570 avec haut cyan nommé, blocs verrouillés en bas, accolades et « = » ; pastille « ? € » (780, 700) ; « Toi » en P1 (860, 1135).",
+      "action": "Les deux parties se séparent : la pile des trois charges se soulève et se range en petit à gauche ; la colonne de salaire, de nouveau toute en argent, glisse au centre ; tout le reste (accolades, « = », partie cyan, cadenas) se réduit. La pastille « ? € » monte attendre en haut à droite. « Toi » s’approche de la colonne. Sous elle s’étire un socle encre, et « chaque mois » s’écrit au bas de la colonne : une base qui revient chaque mois. Puis un bloc en tirets « bon mois » se pose sur son sommet, vacille et tombe le long de la colonne jusqu’à une place à part, à droite : on ne bâtit pas sur lui.",
+      "resultat": "Colonne de salaire seule au centre (x 330-630, y 620-1180) sur un socle encre, « chaque mois » écrit dans son bas ; le bloc « bon mois », tombé du sommet, attend à part à droite (745, 880, échelle 0,65) ; charges rangées en petit à gauche ; pastille « ? € » en attente en haut à droite ; « Toi » en P2.",
+      "transition": "Sur « Première » (S08), le repère passe à l’étape 1.",
+      "beats": [
+        {
+          "t": 24.602,
+          "mot": "Pourquoi",
+          "evenement": "Séparer (morph 350 ms) : la pile Loyer / Factures / Crédits se soulève d’un bloc et se range à gauche à l’échelle 0,5 (175, 880 ; kit.move 550 ms) ; la colonne de salaire glisse au centre (480, 900 ; x 330-630, bas sur 1180) ; partie cyan, « reste à vivre », accolades, mots « revenus » / « − charges », « = » et cadenas se réduisent vers leur centre ; la pastille « ? € » monte en haut à droite (780, 410, échelle 0,85)."
+        },
+        {
+          "t": 25.821,
+          "mot": "revenus ?",
+          "evenement": "Marcher : « Toi » va en P2 (790, 1135) à petits sauts (Toi.walk), à côté de la colonne ; son nom le suit."
+        },
+        {
+          "t": 27.47,
+          "mot": "base",
+          "evenement": "Poser la base : un socle encre (shape round 340×22, fill encre, ombre 6) s’étire sous la colonne (480, 1192 ; STRETCH 200 ms) ; à f + 6, « chaque mois » (text Inter Bold 34, deep) s’écrit à la machine dans le bas de la colonne (480, 1140 ; kit.type)."
+        },
+        {
+          "t": 28.7,
+          "mot": "bon",
+          "evenement": "Un bloc en tirets « bon mois » (300×80, fond light, contour encre en tirets [14, 10], Inter Bold 34) surgit sur le sommet de la colonne (480, 580 ; pop 300 ms)."
+        },
+        {
+          "t": 28.863,
+          "mot": "mois.",
+          "evenement": "Tomber : le bloc « bon mois » oscille (rot ±6°, 2 battements, 300 ms), glisse du sommet et tombe le long du flanc droit de la colonne jusqu’à sa place d’attente (745, 880, échelle 0,65 ; kit.move 400 ms ease-in) : il ne tient pas, on ne compte pas dessus."
+        }
+      ],
+      "lecture_sans_son": "On repart des revenus : la colonne d’argent est posée sur une base solide, « chaque mois » ; un « bon mois » posé en haut ne tient pas et tombe à côté."
+    },
+    {
+      "id": "S08",
+      "segment": "point1",
+      "t_start": 29.583,
+      "t_end": 34.993,
+      "texte": "Première étape : additionne ton salaire net, tes allocations et tes autres revenus fixes.",
+      "elements": "toi, nom_toi, pastille, revenus, socle, chaque_mois, bon_mois, plus, charges, marqueur",
+      "etat_initial": "Résultat de S07 : colonne de salaire (x 330-630, y 620-1180) sur son socle, « chaque mois » dans son bas ; bloc « bon mois » en tirets en attente à droite (745, 880, échelle 0,65) ; charges rangées à gauche ; pastille « ? € » (780, 410) ; « Toi » en P2 (790, 1135).",
+      "action": "Le repère passe à l’étape 1 « Revenus ». Un « + » surgit au sommet de la colonne, là où le « bon mois » n’a pas tenu. Le salaire devient « Salaire net », le mot « net » souligné. Les allocations arrivent par la droite et se posent sur la colonne, puis les autres revenus : la colonne grandit à 740 px. « Toi » touche la colonne : sous son pied s’écrit « Revenus ».",
+      "resultat": "Une seule colonne de revenus de 740 px (x 330-630, y 440-1180) : Salaire net, Allocations, Autres revenus empilés, sur le socle, avec « chaque mois » dans son bas et « Revenus » écrit au pied ; le bloc « bon mois » attend à part, à droite.",
+      "transition": "Sur « primes » (S09), le bloc en attente devient « Prime ».",
+      "beats": [
+        {
+          "t": 29.583,
+          "mot": "Première",
+          "evenement": "Étape 1 : le disque « 1 » grandit en disque cyan (piste on 0 → 1, 300 ms) ; la légende « Revenus » passe à l’encre."
+        },
+        {
+          "t": 30.662,
+          "mot": "additionne",
+          "evenement": "Additionner : un « + » deep (Inter ExtraBold 72) surgit au-dessus de la colonne (480, 585 ; pop 300 ms), à la place qu’occupait le « bon mois »."
+        },
+        {
+          "t": 31.8,
+          "mot": "net,",
+          "evenement": "Net : « net » s’écrit après « Salaire » (kit.type, Inter ExtraBold 36, deep ; 480, 652) puis se souligne d’un trait deep de 5 px (piste under, 250 ms) : on compte le salaire net."
+        },
+        {
+          "t": 32.416,
+          "mot": "allocations",
+          "evenement": "Empiler : le bloc « Allocations » (light 300×100, contour encre 4, Inter Bold 34) entre par la droite (depuis 940, 570) et se pose sur la colonne (480, 570 ; y 520-620 ; kit.move 550 ms) ; le « + » remonte au-dessus (480, 485)."
+        },
+        {
+          "t": 33.495,
+          "mot": "autres",
+          "evenement": "Le bloc « Autres revenus » (light 300×80, Inter Bold 34) entre par la droite et se pose sur les allocations (480, 480 ; y 440-520) ; le « + » se réduit dans la colonne (kit.vanish into)."
+        },
+        {
+          "t": 34.145,
+          "mot": "fixes.",
+          "evenement": "Toucher : « Toi » touche du stylo le bord droit de la colonne (Toi.tap 632, 1060) ; au contact, « Revenus » (Inter Bold 36, encre) surgit sous le socle (480, 1228)."
+        }
+      ],
+      "lecture_sans_son": "Étape 1 : on additionne le salaire net (souligné), les allocations et les autres revenus fixes en une seule colonne « Revenus »."
+    },
+    {
+      "id": "S09",
+      "segment": "point1",
+      "t_start": 34.993,
+      "t_end": 40.543,
+      "texte": "Les primes et les rentrées exceptionnelles ? Laisse-les de côté : elles ne reviennent pas chaque mois.",
+      "elements": "toi, nom_toi, pastille, revenus, socle, chaque_mois, bon_mois (Prime), calendriers, charges, marqueur",
+      "etat_initial": "Résultat de S08 : colonne « Revenus » 740 px (x 330-630, y 440-1180), « chaque mois » dans son bas ; bloc « bon mois » en tirets en attente (745, 880, échelle 0,65) ; charges rangées à gauche (175, 880, échelle 0,5) ; « Toi » en P2.",
+      "action": "Le bloc en attente devient « Prime », puis glisse vers la colonne pour s’y ajouter, et son contour vire au rouge : c’est l’erreur. « Toi » le touche du stylo : il est écarté et se pose au sol à gauche, contour redevenu encre. Au-dessus de lui, trois calendriers ; un seul passe au cyan : la prime n’est venue qu’un mois sur trois.",
+      "resultat": "La colonne « Revenus » ne contient que les revenus réguliers, « chaque mois » ; la « Prime » est posée à part, au sol à gauche, sous trois calendriers dont un seul est cyan.",
+      "transition": "Sur « Ensuite » (S10), la prime, ses calendriers et « chaque mois » sortent ; colonne de revenus et charges échangent leurs places.",
+      "beats": [
+        {
+          "t": 35.19,
+          "mot": "primes",
+          "evenement": "Le bloc en attente change de texte : « bon mois » → « Prime » (bascule en fondu 200 ms) et bat une fois (×1,12)."
+        },
+        {
+          "t": 36.409,
+          "mot": "exceptionnelles ?",
+          "evenement": "Erreur : le bloc « Prime » glisse vers le flanc de la colonne pour s’y coller (jusqu’à 700, 880 ; kit.move 450 ms) et son contour en tirets passe au rouge #C8102E (300 ms)."
+        },
+        {
+          "t": 37.35,
+          "mot": "Laisse-les",
+          "evenement": "Écarter : « Toi » touche le bloc du stylo (Toi.tap 700, 890) ; au contact il part en arc, passe devant le pied de la colonne et se pose au sol à gauche (175, 1140, échelle 0,65 ; kit.move 550 ms) ; son contour redevient encre."
+        },
+        {
+          "t": 39.022,
+          "mot": "reviennent",
+          "evenement": "Trois calendriers (icon cal, disque r 30, fond papier) surgissent en rang au-dessus de la prime (105, 1050 ; 175, 1050 ; 245, 1050 ; kit.stagger 3 images)."
+        },
+        {
+          "t": 39.625,
+          "mot": "chaque",
+          "evenement": "Un seul calendrier, le premier, passe au cyan (fill papier → cyan, 300 ms) ; les deux autres restent papier : la prime ne revient pas chaque mois."
+        }
+      ],
+      "lecture_sans_son": "Une prime voudrait gonfler la colonne : « Toi » la met de côté, elle ne vient qu’un mois sur trois."
+    },
+    {
+      "id": "S10",
+      "segment": "point2",
+      "t_start": 40.543,
+      "t_end": 44.153,
+      "texte": "Ensuite, il faut voir ce qui part avant même que tu dépenses.",
+      "elements": "toi, nom_toi, pastille, revenus, charges, pieces, panier, marqueur",
+      "etat_initial": "Résultat de S09 : colonne « Revenus » au centre (x 330-630, y 440-1180) ; prime et calendriers au sol à gauche ; charges rangées à gauche (175, 880, échelle 0,5) ; « Toi » en P2 (790, 1135), bras baissé, le panier rangé dans son stylo.",
+      "action": "Les deux colonnes échangent leurs places : les revenus se rangent en petit à gauche, la pile des charges revient au centre en grand ; la prime, ses calendriers et « chaque mois » sortent. Bras de « Toi » baissé, trois pièces quittent d’elles-mêmes les revenus et volent dans les charges : loyer, factures et crédits se servent, chacun bat en recevant sa pièce. Seulement après, « Toi » lève son stylo et le panier de courses de l’accroche ressort à sa pointe : l’argent des charges est déjà parti.",
+      "resultat": "Pile des charges au centre (x 330-630, y 786-1180), revenus rangés à gauche (échelle 0,4) ; les pièces sont entrées dans les charges ; « Toi », arrivé après elles, tient le panier au bout du stylo.",
+      "transition": "Sur « Deuxième » (S11), le repère passe à l’étape 2 et le panier rentre dans le stylo.",
+      "beats": [
+        {
+          "t": 40.543,
+          "mot": "Ensuite,",
+          "evenement": "Échanger (morph 350 ms) : la prime, ses calendriers et « chaque mois » se réduisent vers leur centre ; la colonne « Revenus » (socle et mot compris) se range à gauche à l’échelle 0,4 (110, 1032 ; y 884-1180 ; kit.move 550 ms) ; la pile Loyer / Factures / Crédits grandit à l’échelle 1 et vient au centre (480, 983 ; y 786-1180)."
+        },
+        {
+          "t": 42.284,
+          "mot": "part",
+          "evenement": "Partir tout seul : « Toi » garde le bras baissé ; trois pièces (icon euro, disque r 22, fond light) sortent du haut des revenus rangés (110, 900) et volent en arc dans les trois blocs (480, 1085 ; 480, 938 ; 480, 836), l’une après l’autre (kit.stagger 3 images, S.fly 450 ms), et s’y réduisent (kit.vanish into) ; chaque bloc bat (×1,06) à l’arrivée de sa pièce."
+        },
+        {
+          "t": 43.306,
+          "mot": "dépenses.",
+          "evenement": "Après seulement : « Toi » lève le stylo vers la gauche (Toi.reach 690, 960) et le panier de courses de S02 ressort à sa pointe (kit.pop from_pt stylo, 300 ms), tendu vers les revenus : les pièces sont déjà dans les charges."
+        }
+      ],
+      "lecture_sans_son": "Les charges se servent d’elles-mêmes dans l’argent ; « Toi » n’arrive avec son panier de courses qu’après : on ne dépense que ce qui reste."
+    },
+    {
+      "id": "S11",
+      "segment": "point2",
+      "t_start": 44.153,
+      "t_end": 48.252,
+      "texte": "Deuxième étape : liste tes charges fixes, du loyer aux abonnements.",
+      "elements": "toi, nom_toi, pastille, revenus, charges, coches, marqueur",
+      "etat_initial": "Résultat de S10 : pile des charges au centre (x 330-630, y 786-1180) ; revenus rangés à gauche ; « Toi » en P2, panier au bout du stylo.",
+      "action": "Le repère passe à l’étape 2 « Charges ». « Toi » range le panier, s’approche de la pile et la relit de bas en haut : une coche deep se trace à côté de chaque bloc, du loyer aux crédits. Sur « abonnements », un dernier bloc « Abonnements » tombe sur le haut de la pile.",
+      "resultat": "La liste des charges fixes est complète et cochée par « Toi » : Loyer, Factures, Crédits, puis Abonnements en haut (y 726-1180, 454 px).",
+      "transition": "Sur « Ouvre » (S12), la pile se réduit et trois relevés en sortent.",
+      "beats": [
+        {
+          "t": 44.153,
+          "mot": "Deuxième",
+          "evenement": "Étape 2 : le disque actif glisse sur « 2 » (kit.step, 550 ms) ; « 1 » garde une coche (done0) ; la légende « Charges » passe à l’encre. Le panier rentre dans la pointe du stylo (kit.vanish into) et la main revient au repos."
+        },
+        {
+          "t": 45.198,
+          "mot": "liste",
+          "evenement": "Marcher : « Toi » va en P3 (740, 1135), contre la pile (Toi.walk)."
+        },
+        {
+          "t": 46.777,
+          "mot": "loyer",
+          "evenement": "Relire : la pointe du stylo remonte le bord droit des blocs (Toi.trace 645, 1085 → 645, 940 → 645, 862 ; vitesse constante) ; à chaque passage une coche pleine deep (taille 40) se trace à droite du bloc (660, 1085 ; 660, 940 ; 660, 862)."
+        },
+        {
+          "t": 47.323,
+          "mot": "abonnements.",
+          "evenement": "Tomber : le bloc « Abonnements » (papier 300×60, pictogramme phone sur disque r 20, Inter Bold 32) arrive d’en haut et se pose sur les crédits (480, 756 ; y 726-786 ; kit.drop 370 ms, sans rebond)."
+        }
+      ],
+      "lecture_sans_son": "Étape 2 : « Toi » coche une à une ses charges fixes, du loyer aux abonnements."
+    },
+    {
+      "id": "S12",
+      "segment": "point2",
+      "t_start": 48.252,
+      "t_end": 51.236,
+      "texte": "Ouvre tes 3 derniers relevés. Pourquoi 3 ?",
+      "elements": "toi, nom_toi, pastille, revenus, charges, releves, trois, marqueur",
+      "etat_initial": "Résultat de S11 : pile des charges cochée au centre (x 330-630, y 726-1180) ; revenus rangés à gauche ; « Toi » en P3 (740, 1135).",
+      "action": "La pile se réduit en bas au centre et trois relevés bancaires en sortent, en éventail : « Relevé », « mois 1 », « mois 2 », « mois 3 ». « Toi » recule d’un pas. Sur « Pourquoi 3 ? », un grand « 3 » surgit au-dessus et les trois relevés sautent l’un après l’autre : un, deux, trois.",
+      "resultat": "Trois relevés en rang (centres 250, 460, 670 ; y 500-740) sous un grand « 3 » deep ; la pile des charges, petite, en bas au centre.",
+      "transition": "Sur « tromper » (S13), une barre de dépenses grandit dans chaque relevé.",
+      "beats": [
+        {
+          "t": 48.252,
+          "mot": "Ouvre",
+          "evenement": "Ouvrir : la pile des charges se réduit à l’échelle 0,5 en bas au centre (480, 1067 ; y 953-1180 ; kit.move 550 ms) ; trois relevés (doc papier fw 180, fh 240, titre « Relevé » Inter SemiBold 28 + « mois 1 » / « mois 2 » / « mois 3 » en deep 28) sortent de la pile et s’ouvrent en éventail vers (250, 620), (460, 620), (670, 620) (kit.pop from_pt pile, kit.stagger 3 images). « Toi » recule en P2 (790, 1135)."
+        },
+        {
+          "t": 50.574,
+          "mot": "3 ?",
+          "evenement": "Compter : un grand « 3 » (Inter ExtraBold 140, deep) surgit au-dessus des relevés (460, 420 ; pop 300 ms) ; les trois relevés sautent l’un après l’autre de 16 px (kit.stagger 4 images, kit.pulse ×1,08)."
+        }
+      ],
+      "lecture_sans_son": "On sort les trois derniers relevés de banque : trois, pas un."
+    },
+    {
+      "id": "S13",
+      "segment": "point2",
+      "t_start": 51.236,
+      "t_end": 57.122,
+      "texte": "Parce qu’un seul mois peut tromper : une facture annuelle, un mois sans prime, une dépense oubliée.",
+      "elements": "toi, nom_toi, pastille, revenus, charges, releves, barres_mois, anomalies, trois, marqueur",
+      "etat_initial": "Résultat de S12 : trois relevés en rang (250, 460, 670 ; y 500-740), grand « 3 » au-dessus ; pile des charges petite en bas au centre ; « Toi » en P2.",
+      "action": "Le « 3 » se réduit. Dans chaque relevé, une barre de dépenses du mois grandit : les trois n’ont pas la même hauteur. Puis chaque mois montre son piège, en rouge, sur son mot : dans le mois 1, le haut de la barre rougit (« facture annuelle ») ; dans le mois 2, un petit bloc « Prime » en tirets (celui de l’étape 1) est barré de rouge et tombe hors du relevé (« sans prime ») ; dans le mois 3, un morceau manque en haut, en tirets rouges (« dépense oubliée »).",
+      "resultat": "Trois relevés, trois barres de hauteurs différentes, chacune marquée d’un piège rouge légendé dessous : un seul mois, pris seul, trompe.",
+      "transition": "Sur « moyenne » (S14), un trait deep se trace en travers des trois barres.",
+      "beats": [
+        {
+          "t": 52.338,
+          "mot": "tromper :",
+          "evenement": "Le « 3 » se réduit (kit.vanish 300 ms). Dans chaque relevé, une barre (papier, contour encre 4, 60 px de large, posée sur la bande du bas à y 720) monte depuis 0 : mois 1 jusqu’à 140 px, mois 2 jusqu’à 90 px, mois 3 jusqu’à 60 px (piste h, 330 ms ease-out, kit.stagger 3 images) : trois mois, trois hauteurs."
+        },
+        {
+          "t": 53.197,
+          "mot": "facture",
+          "evenement": "Facture annuelle : dans le mois 1, les 50 px du haut de la barre passent au rouge #C8102E (fondu 300 ms) ; sous le relevé, « facture / annuelle » (Inter Bold 32, rouge, 2 lignes, 250, 790) surgit."
+        },
+        {
+          "t": 54.8,
+          "mot": "sans",
+          "evenement": "Sans prime : dans le mois 2, à côté de la barre, un petit bloc « Prime » (le même que la prime de S09 : 100×44, fond light, contour encre en tirets, Inter Bold 26) surgit, un trait rouge #C8102E de 5 px le barre (kit.draw 200 ms) et il tombe hors du relevé (kit.drop out) : ce mois-là, pas de prime ; « sans / prime » (rouge, 460, 790) surgit dessous."
+        },
+        {
+          "t": 55.728,
+          "mot": "dépense",
+          "evenement": "Dépense oubliée : dans le mois 3, un rectangle vide en tirets rouges (60×40) surgit sur le haut de la barre : il manque ; « dépense / oubliée » (rouge, 670, 790) surgit dessous."
+        }
+      ],
+      "lecture_sans_son": "Chaque mois pris seul est faussé : une grosse facture, une prime qui manque, une dépense oubliée."
+    },
+    {
+      "id": "S14",
+      "segment": "point2",
+      "t_start": 57.122,
+      "t_end": 60.21,
+      "texte": "La moyenne sur 3 mois donne une base plus honnête.",
+      "elements": "toi, nom_toi, pastille, revenus, charges, releves, barres_mois, anomalies, ligne_moyenne, marqueur",
+      "etat_initial": "Résultat de S13 : trois relevés (250, 460, 670), barres de 140 / 90 / 60 (+40 en tirets) px, pièges rouges légendés dessous (le bloc « Prime » barré est tombé) ; pile des charges petite en bas au centre (480, 1067) ; « Toi » en P2.",
+      "action": "Un trait deep se trace en travers des trois barres, à leur hauteur moyenne, et « moyenne sur 3 mois » s’écrit au-dessus des relevés. Les trois barres s’égalisent sur ce trait : la plus haute descend (le rouge tombe), les autres montent ; les pièges rouges s’effacent. Puis les trois relevés se replient dans la pile des charges, qui reprend sa taille au centre. « Toi » la touche : « Charges » s’écrit à son pied.",
+      "resultat": "La pile des charges, fondée sur la moyenne de 3 mois, est de nouveau grande au centre (x 330-630, y 726-1180), « Charges » écrit au pied ; plus aucun rouge.",
+      "transition": "Sur « Il » (S15), « Toi » s’écarte à droite.",
+      "beats": [
+        {
+          "t": 57.284,
+          "mot": "moyenne",
+          "evenement": "Moyenne : un trait deep #0A7487 (6 px) se trace de gauche à droite en travers des trois relevés à la hauteur moyenne des barres (y 610, x 160 → 760 ; kit.draw 300 ms) ; au-dessus des relevés, « moyenne sur 3 mois » (Inter Bold 36, deep, 460, 440) surgit (pop 300 ms)."
+        },
+        {
+          "t": 57.9,
+          "mot": "3",
+          "evenement": "Égaliser : les trois barres prennent la hauteur du trait (110 px ; piste h, kit.move 550 ms ease-in-out) : celle du mois 1 descend et son morceau rouge tombe hors du relevé (kit.drop out) ; celles des mois 2 et 3 montent, le rectangle en tirets du mois 3 se remplit de papier ; les trois légendes rouges se réduisent."
+        },
+        {
+          "t": 58.886,
+          "mot": "base",
+          "evenement": "Base : « moyenne sur 3 mois » et les trois relevés se replient en glissant dans la pile des charges (kit.vanish into pile, stagger 3 images), qui reprend l’échelle 1 au centre (480, 953 ; y 726-1180 ; kit.move 550 ms)."
+        },
+        {
+          "t": 59.409,
+          "mot": "honnête.",
+          "evenement": "Toucher : « Toi » touche le bord droit de la pile (Toi.tap 632, 1100) ; au contact, « Charges » (Inter Bold 36, encre) surgit sous la pile (480, 1228)."
+        }
+      ],
+      "lecture_sans_son": "On fait la moyenne des trois relevés, écrite en clair : les pièges s’annulent et la colonne des charges devient une base honnête."
+    },
+    {
+      "id": "S15",
+      "segment": "point3",
+      "t_start": 60.21,
+      "t_end": 65.887,
+      "texte": "Il ne reste plus qu’à mettre les deux face à face. Troisième étape : fais la soustraction.",
+      "elements": "toi, nom_toi, pastille, revenus, socle, charges, ligne_niveau, moins, marqueur",
+      "etat_initial": "Résultat de S14 : pile « Charges » au centre (x 330-630, y 726-1180) ; colonne « Revenus » rangée à gauche (110, 1032, échelle 0,4) ; pastille « ? € » en haut à droite (780, 410) ; « Toi » en P2 (790, 1135).",
+      "action": "« Toi » s’écarte à droite. Les deux colonnes se mettent face à face au sol : « Revenus » grandit à gauche, « Charges » glisse à droite. Un trait en tirets part du haut des charges et traverse la colonne des revenus : on voit de combien elle dépasse. Le repère passe à l’étape 3 « Soustraire ». « Toi » touche les charges : un grand « − » en sort et se pose entre les deux mots du pied : « Revenus − Charges ».",
+      "resultat": "Face à face : « Revenus » (x 140-440, y 440-1180) et « Charges » (x 470-770, y 726-1180), un trait de niveau à y 726, et au pied « Revenus − Charges ».",
+      "transition": "Sur « 2 200 € » (S16), un nombre sort du haut des revenus.",
+      "beats": [
+        {
+          "t": 60.21,
+          "mot": "Il",
+          "evenement": "Marcher : « Toi » va en P1 (870, 1135) (Toi.walk), libérant la place à droite."
+        },
+        {
+          "t": 61.22,
+          "mot": "mettre",
+          "evenement": "Face à face (morph 350 ms puis MOVE 550 ms) : la colonne « Revenus » (socle, mot du pied compris) grandit de 0,4 à 1 et se pose à gauche (290, 810 ; x 140-440, y 440-1180) ; la pile « Charges » glisse à droite (620, 953 ; x 470-770) ; leurs mots du pied suivent (290, 1228) et (620, 1228)."
+        },
+        {
+          "t": 62.102,
+          "mot": "face",
+          "evenement": "Niveler : un trait encre en tirets [14, 10] part du haut des charges (770, 726) et se trace vers la gauche à travers la colonne des revenus jusqu’à x 140 (kit.draw 300 ms) : la partie des revenus au-dessus du trait dépasse."
+        },
+        {
+          "t": 63.356,
+          "mot": "Troisième",
+          "evenement": "Étape 3 : le disque actif glisse sur « 3 » (kit.step 550 ms) ; « 2 » garde sa coche (done1) ; la légende « Soustraire » passe à l’encre."
+        },
+        {
+          "t": 64.935,
+          "mot": "soustraction.",
+          "evenement": "Soustraire : « Toi » touche le bord droit des charges (Toi.tap 772, 1100) ; un grand « − » (Inter ExtraBold 72, encre, vrai signe moins) sort du point touché (kit.pop from_pt) et se pose entre les deux mots du pied (455, 1228) : « Revenus − Charges »."
+        }
+      ],
+      "lecture_sans_son": "Étape 3 : on met revenus et charges côte à côte ; les revenus dépassent, et on retire les charges."
+    },
+    {
+      "id": "S16",
+      "segment": "point3",
+      "t_start": 65.887,
+      "t_end": 71.75,
+      "texte": "Exemple : 2 200 € de revenus, moins 1 350 € de charges fixes.",
+      "elements": "toi, nom_toi, pastille, revenus, socle, charges, ligne_niveau, moins, calcul, marqueur",
+      "etat_initial": "Résultat de S15 : « Revenus » (x 140-440, y 440-1180) et « Charges » (x 470-770, y 726-1180) face à face, trait de niveau à y 726, « Revenus − Charges » au pied ; pastille « ? € » (780, 410) ; « Toi » en P1 (870, 1135).",
+      "action": "« 2 200 € » sort du haut des revenus et va s’écrire à droite en comptant. Le « − » du pied monte devant la ligne suivante, et « 1 350 € » sort du haut des charges en comptant. « Toi » pousse les charges : elles glissent sur le bas de la colonne des revenus et le couvrent, comme dans le contexte ; seule la partie au-dessus du trait reste découverte. Un trait de total se tire sous la soustraction écrite.",
+      "resultat": "À gauche, une seule colonne : revenus couverts en bas par les charges (y 726-1180), haut découvert (y 440-726). À droite, la soustraction posée : « 2 200 € », « − 1 350 € », trait de total, résultat encore vide.",
+      "transition": "Sur « reste » (S17), la partie découverte se remplit de cyan.",
+      "beats": [
+        {
+          "t": 66.839,
+          "mot": "2 200 €",
+          "evenement": "Extraire et compter : un compteur « 2 200 € » (counter Inter ExtraBold 64, encre, suffix « € », ancré à droite) sort du haut des revenus (290, 440) et glisse à droite (bord droit x 860, y 500 ; kit.move 550 ms) en comptant de 0 à 2 200 (piste value, 450 ms)."
+        },
+        {
+          "t": 68.732,
+          "mot": "moins",
+          "evenement": "Moins : le « − » quitte le pied et monte devant la ligne suivante (545, 590 ; kit.move 550 ms, en arc)."
+        },
+        {
+          "t": 69.068,
+          "mot": "1 350 €",
+          "evenement": "Un compteur « 1 350 € » sort du haut des charges (620, 726) et glisse à côté du « − » (bord droit x 860, y 590), en comptant de 0 à 1 350 : on lit « − 1 350 € »."
+        },
+        {
+          "t": 70.67,
+          "mot": "charges",
+          "evenement": "Pousser : « Toi » touche le bord droit des charges (Toi.tap 772, 1100) ; au contact, la pile glisse à gauche et se pose sur le bas de la colonne des revenus (290, 953 ; x 140-440, y 726-1180 ; kit.move 550 ms), le mot « Charges » du pied se réduit ; il ne reste que la partie haute des revenus à découvert."
+        },
+        {
+          "t": 71.007,
+          "mot": "fixes.",
+          "evenement": "Total : un trait encre (6 px) s’étire sous « − 1 350 € », de x 520 à 860 (y 645 ; STRETCH 200 ms)."
+        }
+      ],
+      "lecture_sans_son": "Exemple : 2 200 € de revenus moins 1 350 € de charges ; les charges couvrent le bas de la colonne, le haut reste libre."
+    },
+    {
+      "id": "S17",
+      "segment": "point3",
+      "t_start": 71.75,
+      "t_end": 74.513,
+      "texte": "Il te reste 850 € par mois.",
+      "elements": "toi, nom_toi, pastille, revenus, socle, charges, reste, legende_reste, calcul, marqueur",
+      "etat_initial": "Résultat de S16 : colonne de revenus couverte en bas par les charges (x 140-440 ; charges y 726-1180, haut libre y 440-726) ; à droite, « 2 200 € » / « − 1 350 € » / trait de total ; pastille « ? € » (780, 410) ; « Toi » en P1.",
+      "action": "La partie libre se remplit de cyan et reprend son nom, « reste à vivre ». La pastille « ? € » descend sous le trait de total et devient « 850 € », puis « 850 € / mois » ; un fil deep la relie à la partie cyan : ce chiffre, c’est elle.",
+      "resultat": "Le calcul est complet : 2 200 € − 1 350 € = « 850 € / mois », relié à la partie cyan « reste à vivre » de la colonne.",
+      "transition": "Sur « Soit » (S18), la colonne se range en petit à gauche et la soustraction s’efface.",
+      "beats": [
+        {
+          "t": 72.075,
+          "mot": "reste",
+          "evenement": "Remplir : la partie libre du haut des revenus (shape reste, cyan, 300×286, centre 290, 583, au-dessus des blocs et de leurs mots) se remplit de bas en haut (piste sy, 330 ms) ; « reste à vivre » (Inter Bold 36, encre) surgit dessus (290, 583)."
+        },
+        {
+          "t": 72.435,
+          "mot": "850 €",
+          "evenement": "Résultat : la pastille descend de son attente (780, 410) sous le trait de total (690, 720 ; échelle 0,85 → 1 ; kit.move 550 ms) et son texte passe de « ? € » à « 850 € » à l’arrivée."
+        },
+        {
+          "t": 72.83,
+          "mot": "par",
+          "evenement": "Le texte de la pastille devient « 850 € / mois » ; elle s’allonge de 260 à 340 px (piste w, 200 ms)."
+        },
+        {
+          "t": 73.794,
+          "mot": "mois.",
+          "evenement": "Relier : un fil deep plein (5 px) se trace du bord droit de la partie cyan (440, 583) au bout gauche de la pastille (520, 720) (kit.draw 300 ms)."
+        }
+      ],
+      "lecture_sans_son": "Il reste 850 € par mois : c’est la partie cyan de la colonne."
+    },
+    {
+      "id": "S18",
+      "segment": "point3",
+      "t_start": 74.513,
+      "t_end": 81.2,
+      "texte": "Soit environ 28 € par jour, pour tout le reste : courses, loisirs, imprévus, épargne.",
+      "elements": "toi, nom_toi, pastille, revenus, charges, reste, jours, usages, marqueur",
+      "etat_initial": "Résultat de S17 : colonne (revenus, charges en bas, haut cyan « reste à vivre ») à gauche (x 140-440) ; soustraction à droite ; pastille « 850 € / mois » (690, 720) reliée au cyan ; « Toi » en P1 (870, 1135).",
+      "action": "La soustraction s’efface, la colonne se range en petit en bas à gauche et la pastille monte au centre. Une page de calendrier paraît sous elle, et d’elle sortent 30 cases cyan qui s’y rangent : les jours du mois. Une case remonte dans la pastille, qui devient « ≈ 28 € / jour ». Les autres cases et la page s’effacent. Puis, sur chaque mot, un objet sort de la pastille : panier de courses, valise, bouée, puis trois pièces qui s’empilent, chacun nommé dessous.",
+      "resultat": "La pastille « ≈ 28 € / jour » au centre en haut (540, 430) ; sous elle, en 2 × 2, panier « courses », valise « loisirs », bouée « imprévus », pile de pièces « épargne » ; colonne rangée en petit en bas à gauche.",
+      "transition": "Sur « Pour » (S19), les quatre objets rentrent dans la pastille, le repère sort et la colonne revient au centre.",
+      "beats": [
+        {
+          "t": 74.513,
+          "mot": "Soit",
+          "evenement": "Ranger (morph 350 ms) : compteurs, « − », trait de total et fil se réduisent vers leur centre ; la colonne (cyan, charges, socle) se range en bas à gauche à l’échelle 0,4 (110, 1032 ; y 884-1180) ; la pastille monte au centre (540, 430 ; kit.move 550 ms)."
+        },
+        {
+          "t": 74.792,
+          "mot": "environ",
+          "evenement": "Découper : une page de calendrier papier (440×400, contour encre 4, bandeau encre de 40 px en haut avec deux anneaux) surgit sous la pastille (540, 690 ; x 320-760, y 490-890 ; pop 300 ms) ; 30 cases cyan (shape round 56×56, r 10, contour encre 3, ombre 3) sortent de la pastille l’une après l’autre (kit.pop from_pt pastille, kit.stagger 1 image) et se rangent dans la page en grille de 6 × 5 (centre 540, 710 ; x 347-733, y 550-870) : les jours du mois."
+        },
+        {
+          "t": 75.303,
+          "mot": "28 €",
+          "evenement": "Un jour : la première case remonte dans la pastille (kit.vanish into pastille, 300 ms) ; au contact, la pastille devient « ≈ 28 € / jour » (bascule de texte, piste w 340 → 380) ; la place de la case reste vide."
+        },
+        {
+          "t": 78.02,
+          "mot": "courses,",
+          "evenement": "Courses : les 29 autres cases puis la page de calendrier se réduisent vers leur centre (kit.stagger 1 image) pendant que le panier de courses (WTH-004-03, largeur 200) sort de la pastille (kit.pop from_pt pastille) et se pose à gauche (330, 650) ; « courses » (Inter Bold 34, encre) surgit dessous (330, 760)."
+        },
+        {
+          "t": 78.693,
+          "mot": "loisirs,",
+          "evenement": "Loisirs : la valise (SUITCASE.png, largeur 150) sort de la pastille et se pose à droite (720, 650) ; « loisirs » dessous (720, 760)."
+        },
+        {
+          "t": 79.343,
+          "mot": "imprévus,",
+          "evenement": "Imprévus : la bouée (BUOY.png, largeur 200) sort de la pastille et se pose en bas à gauche (330, 920) ; « imprévus » dessous (330, 1040)."
+        },
+        {
+          "t": 80.225,
+          "mot": "épargne.",
+          "evenement": "Épargne : trois pièces (icon coin sur disque light r 26, contour encre) sortent de la pastille l’une après l’autre et s’empilent en bas à droite (720, 950 → 890 ; kit.drop 370 ms, kit.stagger 3 images) : de l’argent mis de côté ; « épargne » dessous (720, 1040)."
+        }
+      ],
+      "lecture_sans_son": "850 € par mois, découpés sur les jours du calendrier, c’est environ 28 € par jour, et ces 28 € doivent tout payer : courses, loisirs, imprévus, épargne."
+    },
+    {
+      "id": "S19",
+      "segment": "chute",
+      "t_start": 81.2,
+      "t_end": 84.451,
+      "texte": "Pour un crédit, ta banque regarde ton taux d’endettement.",
+      "elements": "toi, nom_toi, pastille, revenus, charges, reste, legende_reste, bulle_credit, banque, regard, legende_taux",
+      "etat_initial": "Résultat de S18 : pastille « ≈ 28 € / jour » (540, 430) et quatre objets légendés en 2 × 2 ; colonne rangée en bas à gauche (échelle 0,4) ; repère en haut ; « Toi » en P1 (870, 1135).",
+      "action": "Les quatre objets rentrent dans la pastille ; le repère sort ; la colonne revient au centre, en grand, haut cyan « reste à vivre » ; la pastille se pose au-dessus d’elle. Une bulle part de « Toi » : « Un crédit ? ». La banque arrive à gauche, face à « Toi », la colonne entre eux. Elle se penche vers le bloc « Crédits » et un trait part de sa tête jusqu’à lui : « taux d’endettement » ; le bloc puis toute la colonne battent : la part des crédits dans l’argent du mois.",
+      "resultat": "La banque (figurine papier « Banque ») à gauche, « Toi » à droite et sa bulle « Un crédit ? », la colonne entre eux ; la banque, penchée, regarde le bloc « Crédits », légendé « taux d’endettement ».",
+      "transition": "Sur « regarde » (S20), le trait de la banque monte vers la partie cyan.",
+      "beats": [
+        {
+          "t": 81.2,
+          "mot": "Pour",
+          "evenement": "Rentrer (morph 350 ms) : panier, valise, bouée et pièces rentrent dans la pastille l’un après l’autre avec leurs mots (kit.vanish into pastille, stagger 3 images) ; le repère se réduit vers son centre ; la colonne revient au centre à l’échelle 1 (480, 810 ; x 330-630, y 440-1180 : haut cyan « reste à vivre » y 440-726, Abonnements / Crédits / Factures / Loyer dessous) ; la pastille se pose au-dessus (480, 390)."
+        },
+        {
+          "t": 81.583,
+          "mot": "crédit,",
+          "evenement": "Demander : une bulle (shape round papier 240×80, contour encre 4, queue tournée vers la tête de « Toi » ; « Un crédit ? » Inter Bold 34) sort de la tête de « Toi » et se pose en (770, 880) (pop 300 ms)."
+        },
+        {
+          "t": 82.489,
+          "mot": "banque",
+          "evenement": "La banque arrive : figurine papier sans outil (Figure paper, tool False) entre à gauche (190, 1135 ; pop 300 ms), tournée vers « Toi » ; au-dessus d’elle, la pilule light « Banque » avec un grand pictogramme bank sur disque r 30 (Inter Bold 34, 190, 990)."
+        },
+        {
+          "t": 83.313,
+          "mot": "taux",
+          "evenement": "Regarder : la banque se penche vers la colonne (lean_to, 300 ms) et un trait encre plein de 3 px part de sa tête (215, 1065) jusqu’au bloc « Crédits » (330, 836) (kit.draw 300 ms) ; le contour du bloc passe au deep et bat (×1,05), puis, 4 images plus tard, le contour de toute la colonne bat (×1,03) : la part des crédits dans tes revenus ; « taux / d’endettement » (Inter Bold 34, encre, 2 lignes) surgit à gauche de la colonne (170, 770)."
+        }
+      ],
+      "lecture_sans_son": "Pour un crédit, la banque se penche sur la part de tes revenus déjà prise par des crédits : le taux d’endettement."
+    },
+    {
+      "id": "S20",
+      "segment": "chute",
+      "t_start": 84.451,
+      "t_end": 89.641,
+      "texte": "Mais elle regarde aussi ce qu’il te reste pour vivre, une fois la mensualité payée.",
+      "elements": "toi, nom_toi, pastille, revenus, charges, reste, legende_reste, bulle_credit, mensualite, banque, regard, legende_taux",
+      "etat_initial": "Résultat de S19 : colonne au centre (x 330-630 ; cyan y 440-726 ; charges y 726-1180) ; pastille « ≈ 28 € / jour » au-dessus (480, 390) ; banque à gauche (190, 1135) reliée au bloc « Crédits » ; « taux d’endettement » ; bulle « Un crédit ? » (770, 880) ; « Toi » en P1.",
+      "action": "La banque se penche vers la partie cyan, que son trait rejoint : elle regarde aussi ce qui reste. Puis la bulle « Un crédit ? » se change en bloc « Mensualité » qui tombe sur les charges : il couvre le bas de la partie cyan, qui rétrécit. Le trait de la banque suit le cyan restant ; la pastille rétrécit avec lui et son « ≈ 28 € » se détache et tombe : il reste moins, à recalculer : « ? € / jour ».",
+      "resultat": "La colonne porte un bloc de plus, « Mensualité » (y 636-726) ; la partie cyan « reste à vivre » a rétréci (y 440-636) ; la pastille, plus courte (300 px), ne dit plus « ≈ 28 € » mais « ? € / jour » ; la banque regarde le cyan restant.",
+      "transition": "Sur « Alors » (S21), la banque sort.",
+      "beats": [
+        {
+          "t": 84.869,
+          "mot": "regarde",
+          "evenement": "Regarder aussi : la banque se penche vers le haut de la colonne (lean_to, 300 ms) et le bout de son trait glisse du bloc « Crédits » jusqu’à la partie cyan (330, 583 ; piste pb, kit.move 550 ms)."
+        },
+        {
+          "t": 86.251,
+          "mot": "reste",
+          "evenement": "La partie cyan bat une fois (kit.pulse ×1,05) avec sa légende « reste à vivre »."
+        },
+        {
+          "t": 88.236,
+          "mot": "mensualité",
+          "evenement": "Mensualité : la bulle « Un crédit ? » se change en bloc papier « Mensualité » (300×90, pictogramme bank, Inter Bold 34 ; morph 350 ms), qui tombe sur les charges (480, 681 ; y 636-726 ; kit.drop 370 ms) et couvre le bas de la partie cyan, qui rétrécit à y 440-636 ; « reste à vivre » remonte (480, 538)."
+        },
+        {
+          "t": 88.863,
+          "mot": "payée.",
+          "evenement": "Le bout du trait de la banque suit le cyan restant (330, 538 ; 300 ms) ; sur la même image, la pastille rétrécit avec le cyan (piste w 380 → 300, 300 ms) et son « ≈ 28 € » se détache et tombe hors d’elle (text encre, kit.drop out) : il lui reste « ? € / jour » ; une fois la mensualité payée, il reste moins, et le chiffre est à refaire."
+        }
+      ],
+      "lecture_sans_son": "La banque regarde aussi ce qu’il te reste une fois la mensualité du crédit payée : la part cyan rétrécit et les 28 € par jour ne tiennent plus."
+    },
+    {
+      "id": "S21",
+      "segment": "chute",
+      "t_start": 89.641,
+      "t_end": 92.996,
+      "texte": "Alors, ton reste à vivre par jour, tu le connais ?",
+      "elements": "toi, nom_toi, pastille, revenus, charges, mensualite, reste, legende_reste, question, banque, regard, legende_taux",
+      "etat_initial": "Résultat de S20 : colonne au centre avec « Mensualité », cyan réduit (y 440-636) ; pastille « ? € / jour » (300 px) au-dessus (480, 390) ; banque à gauche reliée au cyan ; « Toi » en P1 (870, 1135).",
+      "action": "La banque sort avec son trait et sa légende. La pastille « ? € / jour » et le nom « Toi » battent ensemble : ce chiffre est le sien. Un grand « ? » paraît au-dessus de « Toi ».",
+      "resultat": "Colonne au centre, pastille « ? € / jour » au-dessus ; un « ? » au-dessus de « Toi » : à lui de faire son calcul.",
+      "transition": "Sur « Abonne-toi » (S22), la pastille devient le bouton « S’abonner ».",
+      "beats": [
+        {
+          "t": 89.641,
+          "mot": "Alors,",
+          "evenement": "Sortir : la banque se réduit vers son centre avec sa pilule « Banque » (300 ms) ; le trait et « taux d’endettement » se réduisent."
+        },
+        {
+          "t": 91.475,
+          "mot": "jour,",
+          "evenement": "La pastille « ? € / jour » et la pilule « Toi » battent sur la même image (kit.pulse ×1,12, 2 × 3 images) : ce chiffre, c’est le tien."
+        },
+        {
+          "t": 92.241,
+          "mot": "connais ?",
+          "evenement": "Un grand « ? » (qmark encre, corps 110) surgit au-dessus de la tête de « Toi » (870, 900 ; pop 300 ms)."
+        }
+      ],
+      "lecture_sans_son": "Et toi, ton reste à vivre par jour, celui de ta propre colonne : le connais-tu ?"
+    },
+    {
+      "id": "S22",
+      "segment": "cta",
+      "t_start": 92.996,
+      "t_end": 95.709,
+      "texte": "Abonne-toi pour comprendre ton argent.",
+      "elements": "pastille → fin, toi, nom_toi, revenus, charges, mensualite, reste, question, fin",
+      "etat_initial": "Résultat de S21 : colonne au centre, pastille « ? € / jour » au-dessus (480, 390), « ? » au-dessus de « Toi » en P1 (870, 1135).",
+      "action": "Fin standard : la pastille change son texte en « S’abonner » ; tout le reste s’efface pendant que la carte de fin surgit au centre ; la pastille descend au bas de la carte et devient son bouton. « Toi » touche le bouton du stylo : il s’enfonce, un anneau d’impact part du point touché. Plus rien ne bouge.",
+      "resultat": "La pastille qui cherchait le reste à vivre est devenue le bouton « S’abonner » de la carte « WealthTech Horizon », touché par « Toi » ; image immobile jusqu’à 95,709 s.",
+      "transition": "Image finale tenue jusqu’à 95,709 s.",
+      "beats": [
+        {
+          "t": 92.996,
+          "mot": "Abonne-toi",
+          "evenement": "Fin standard (kit.outro, clear « fade », outs : colonne et ses blocs, partie cyan et sa légende, « ? », pilule « Toi ») : la pastille passe à « S’abonner » (fondu 200 ms) ; la carte papier 620×520 surgit en (540, 760) ; « WealthTech Horizon » et « Comprendre ton argent » entrent en fondu à f + 4 ; la pastille descend au bas de la carte et grandit en bouton (≈ 380×112, centre ≈ 540, 930 ; btn_at). « Toi » reste en P1, sous et à droite de la carte."
+        },
+        {
+          "t": 94.482,
+          "mot": "argent.",
+          "evenement": "Toucher : Toi.tap sur le coin bas droit du bouton (690, 965), contact sur le mot ; le bouton s’enfonce de 8 px dans son ombre (piste press, 5 images) et deux ondes deep partent du point touché (18 images) ; aucun pointeur de souris. Puis plus rien ne bouge jusqu’à 95,709 s."
+        }
+      ],
+      "lecture_sans_son": "La pastille du reste à vivre devient le bouton « S’abonner » de WealthTech Horizon, et la personne appuie dessus."
+    }
+  ],
+  "idees_cles": [
+    {
+      "id": "a",
+      "idee": "Le salaire tombe de l’enveloppe en une grosse colonne d’argent, mais la personne ne sait pas combien elle peut dépenser (« ? € », panier arrêté) ; le bas de la colonne est déjà pris et verrouillé (son stylo bute sur le cadenas), puis loyer, factures et crédits y tombent.",
+      "scenes": [
+        "S01",
+        "S02",
+        "S04"
+      ],
+      "principale": false
+    },
+    {
+      "id": "b",
+      "idee": "Ce qu’on peut dépenser n’est pas tout le salaire (≠ rouge) mais la partie cyan qui reste au-dessus des charges : c’est le reste à vivre (« = »).",
+      "scenes": [
+        "S05",
+        "S06"
+      ],
+      "principale": false
+    },
+    {
+      "id": "c",
+      "idee": "Étape 1 : on part des revenus réguliers, posés sur une base solide (« chaque mois ») : salaire net, allocations et autres revenus s’empilent en une seule colonne « Revenus ».",
+      "scenes": [
+        "S07",
+        "S08"
+      ],
+      "principale": true
+    },
+    {
+      "id": "d",
+      "idee": "Le « bon mois » ne tient pas au sommet, et la prime ne rentre pas dans la colonne : « Toi » l’écarte, elle ne vient qu’un mois sur trois.",
+      "scenes": [
+        "S07",
+        "S09"
+      ],
+      "principale": true
+    },
+    {
+      "id": "e",
+      "idee": "Étape 2 : les charges se servent d’elles-mêmes avant qu’on dépense ; « Toi » les coche une à une, du loyer aux abonnements.",
+      "scenes": [
+        "S10",
+        "S11"
+      ],
+      "principale": true
+    },
+    {
+      "id": "f",
+      "idee": "Un seul relevé trompe (grosse facture, prime barrée qui manque, dépense oubliée, en rouge) ; la « moyenne sur 3 mois » égalise les barres et donne la colonne des charges.",
+      "scenes": [
+        "S12",
+        "S13",
+        "S14"
+      ],
+      "principale": true
+    },
+    {
+      "id": "g",
+      "idee": "Étape 3 : revenus et charges face à face ; les charges glissent sur les revenus : 2 200 € − 1 350 €, il reste la partie cyan, 850 € par mois.",
+      "scenes": [
+        "S15",
+        "S16",
+        "S17"
+      ],
+      "principale": true
+    },
+    {
+      "id": "h",
+      "idee": "850 € par mois se découpent en jours : environ 28 € par jour, qui doivent payer courses, loisirs, imprévus et épargne.",
+      "scenes": [
+        "S18"
+      ],
+      "principale": true
+    },
+    {
+      "id": "i",
+      "idee": "Pour un crédit, la banque regarde la part des crédits (taux d’endettement) mais aussi ce qui reste une fois la mensualité posée sur la colonne : la partie cyan rétrécit et les ≈ 28 € par jour ne tiennent plus.",
+      "scenes": [
+        "S19",
+        "S20"
+      ],
+      "principale": true
+    },
+    {
+      "id": "j",
+      "idee": "Et toi, ton reste à vivre par jour ? La pastille « ? € / jour » bat avec « Toi », puis devient le bouton « S’abonner ».",
+      "scenes": [
+        "S21",
+        "S22"
+      ],
+      "principale": false
+    }
+  ],
+  "entites_nouvelles": [],
+  "test_sans_son": {
+    "message_reconstruit": "« Ton salaire n’est pas ce que tu peux dépenser : une partie est déjà prise par le loyer, les factures, les crédits et les abonnements, prélevés avant même que tu fasses tes achats. Ce qui reste s’appelle le “reste à vivre”, et il se calcule en trois étapes : additionner tes revenus réguliers en net (salaire, allocations, autres revenus, mais pas une prime qui ne tombe pas tous les mois), lister tes charges fixes en faisant la moyenne de tes trois derniers relevés (un seul mois trompe : facture annuelle, dépense oubliée), puis soustraire. Exemple : 2 200 € − 1 350 € = 850 € par mois, soit environ 28 € par jour pour les courses, les loisirs, les imprévus et l’épargne. Avant d’accorder un crédit, la banque regarde ton taux d’endettement mais aussi ce reste à vivre, car une nouvelle mensualité le réduit. Calcule le tien, et abonne-toi à WealthTech Horizon. Points faibles sans le son : le socle et le “bon mois” (S07), les pièces qui partent seules (S10), le “sans prime” dans une barre de dépenses (S13), la moyenne jamais écrite (S14) et les “28 € / jour” qui ne baissent pas après la mensualité (S20). »",
+    "idees": [
+      {
+        "id": "a",
+        "score": "GOT",
+        "preuve": "Message : « Ton salaire n’est pas ce que tu peux dépenser : une partie est déjà prise par le loyer, les factures, les crédits » ; S04 : « une grosse partie du salaire est déjà prise par les dépenses obligatoires ». Réserves : S02 « avec ? € seul, je lirais plutôt combien je gagne ? ou combien vaut cette pile ? » ; S04 « le cadenas pourrait être pris pour de l’épargne bloquée » et « je ne perçois pas que Toi n’a rien fait »."
+      },
+      {
+        "id": "b",
+        "score": "GOT",
+        "preuve": "S06 : « le reste à vivre, c’est ce qui reste du revenu une fois les charges payées. L’erreur du début est corrigée » (« le moment le plus lisible de la vidéo »). Réserves : S05 « la pile s’appelait Salaire et l’accolade dit revenus : je suppose que c’est pareil, sans en être sûr » ; « le tremblement est un simple effet d’insistance »."
+      },
+      {
+        "id": "c",
+        "score": "GOT",
+        "preuve": "Message : « additionner tes revenus réguliers en net (salaire, allocations, autres revenus) » ; S08 : « additionne tous tes revenus réguliers, en net ». Réserves : S07 « le socle n’a pas de nom : je ne sais pas qu’il représente une base fiable » ; S08 « le passage de Salaire à Salaire net est un détail que je pourrais ne pas remarquer »."
+      },
+      {
+        "id": "d",
+        "score": "GOT",
+        "preuve": "Message : « mais pas une prime qui ne tombe pas tous les mois » ; S09 : « la prime ne tombe pas tous les mois, donc ne la compte pas dans tes revenus ». Réserves : S07 « le bloc en pointillés bon mois pourrait passer pour un objectif ou un bonus à atteindre ; le vacillement peut se rater » ; lien avec S07 fait « après coup »."
+      },
+      {
+        "id": "e",
+        "score": "PARTIAL",
+        "preuve": "Message : « prélevés avant même que tu fasses tes achats » ; S11 : « liste toutes tes charges fixes et n’oublie pas les abonnements » (clair). Mais S10 : « très subtil sans la voix. Je pourrais croire que Toi fait ses courses avec ces pièces, ou que le panier représente les courses comptées dans les charges. L’idée trop tard, c’est déjà parti ne passe que par l’ordre des actions »."
+      },
+      {
+        "id": "f",
+        "score": "PARTIAL",
+        "preuve": "Message : « en faisant la moyenne de tes trois derniers relevés (un seul mois trompe : facture annuelle, dépense oubliée) » : le « sans prime » a disparu. S13 : « Sans prime me perd : la prime est un revenu, alors pourquoi un vide dans une barre de dépenses ? » ; S14 : « le mot moyenne n’est pas écrit : je le déduis de l’alignement ; on pourrait comprendre dépense la même somme chaque mois »."
+      },
+      {
+        "id": "g",
+        "score": "GOT",
+        "preuve": "S17 : « Le calcul est bouclé : 2 200 − 1 350 = 850 € de reste à vivre par mois » ; S15-S16 « c’est clair »."
+      },
+      {
+        "id": "h",
+        "score": "GOT",
+        "preuve": "S18 : « Les 850 € se découpent en 30 cases (les jours du mois), d’où ≈ 28 € / jour […] avec ce reste, tu dois payer courses et loisirs, faire face aux imprévus et épargner ». Réserves : « l’arbre comme écologie ou croissance » ; « les 30 cases ne sont lisibles comme des jours que parce que / jour apparaît »."
+      },
+      {
+        "id": "i",
+        "score": "PARTIAL",
+        "preuve": "Message : « la banque regarde ton taux d’endettement mais aussi ce reste à vivre, car une nouvelle mensualité le réduit ». Contresens : S20 « le cyan rétrécit, mais l’étiquette affiche toujours ≈ 28 € / jour : je croirais que le chiffre ne change pas ». Flous : S19 « je reconnais la banque seulement grâce au mot Banque ; le trait pourrait passer pour un lien ou une flèche ; taux d’endettement n’est pas défini à l’écran »."
+      },
+      {
+        "id": "j",
+        "score": "GOT",
+        "preuve": "S21 : « à toi de calculer ton propre reste à vivre » ; S22 : « l’appel à s’abonner à la chaîne ». Réserve : le lien pastille → bouton « je ne le remarquerai pas forcément »."
+      }
+    ],
+    "bilan": "Message principal reconstitué en entier, des trois étapes à la chute. 7 idées GOT, 3 PARTIAL (e, f, i), aucune MISSED. Un contresens installé, retiré : en S20, le cyan rétrécit sous la mensualité mais la pastille garde « ≈ 28 € / jour », ce qui se lit « le chiffre ne change pas » (leçon 35, chiffre immobile). Lectures fausses possibles, retirées : « ? € » lu « combien je gagne / combien vaut la pile » plutôt que « combien dépenser » (S02) ; le cadenas lu « épargne bloquée » et « Toi » qui ne fait rien non perçu (S04) ; le tremblement des blocs lu comme simple insistance, pas « impossible à enlever » (S05) ; le socle sans nom et le « bon mois » lu « objectif ou bonus », son vacillement manqué (S07) ; « Toi » qui ferait ses courses avec les pièces, ou des courses comptées dans les charges (S10) ; un rond vide « sans prime » dans une barre de dépenses, incompréhensible (S13, métaphore indirecte, leçon 33) ; la moyenne lue « dépense la même somme chaque mois » (S14) ; l’arbre lu « écologie » (S18) ; le trait de la banque lu « lien ou flèche » (S19). Flous : « Salaire » contre « revenus » (S05) ; « Salaire net » qui passe inaperçu (S08) ; les 30 cases lisibles comme jours seulement par « / jour » (S18) ; « taux d’endettement » non défini (S19). Révision : panier de courses au bout du stylo sur « dépenser » (S02), repris en S10 ; le stylo de « Toi » bute sur le cadenas sur « penses » (S04, subi) ; « revenus » sort de la colonne et « Toi » pousse le loyer, qui revient en place (S05) ; « chaque mois » écrit sur la base et le « bon mois » qui tombe du sommet (S07) ; « net » souligné (S08) ; pièces qui partent bras baissé, blocs qui battent, panier qui ne ressort qu’après (S10) ; petit bloc « Prime » barré qui tombe du relevé (S13) ; « moyenne sur 3 mois » écrit (S14) ; page de calendrier et pile de pièces au lieu de l’arbre (S18) ; la banque se penche, et la colonne bat après le bloc « Crédits » (S19) ; la pastille rétrécit et perd son « ≈ 28 € » (S20), puis bat avec « Toi » (S21). Mêmes 22 scènes, 94 temps forts (deux ajoutés, sur « dépenser » et « penses »), tous sur des débuts de mots. S06, S11, S12, S15, S16, S17 et S22, bien lues, ne changent pas.",
+    "changements": [
+      {
+        "id": "S02",
+        "lecture": "« Avec ? € seul, je lirais plutôt combien je gagne ? ou combien vaut cette pile ? L’idée combien je peux dépenser ? ne vient pas de l’image seule. L’hésitation tient à un petit geste arrêté, que je pourrais rater. »",
+        "changement": "Nouveau temps fort sur « dépenser » : un panier de courses surgit à la pointe du stylo tendu, à 30 px de l’argent, et s’arrête ; la pastille « ? € » bat sur la même image : combien en prendre pour ses courses ? Le panier rentre dans le stylo en S03 et ressort en S10."
+      },
+      {
+        "id": "S04",
+        "lecture": "« Le cadenas pourrait être pris pour de l’épargne bloquée. Je ne perçois pas que Toi n’a rien fait : je vois juste des blocs qui tombent. »",
+        "changement": "Nouveau temps fort sur « penses » : « Toi » lève enfin son stylo vers le bas de la colonne, la pointe bute sur le cadenas, qui tressaille, et le bras retombe (subi, leçon 34) : la partie était réservée avant qu’il y pense ; les blocs tombent ensuite."
+      },
+      {
+        "id": "S05",
+        "lecture": "« La pile s’appelait Salaire et l’accolade dit revenus : je suppose que c’est pareil, sans en être sûr. Le tremblement est un simple effet d’insistance : je ne comprends pas incontournables. »",
+        "changement": "Le mot « revenus » sort du milieu de la colonne pour se poser contre l’accolade. Sur « incontournables », « Toi » pousse le bloc « Loyer » : il bute, le cadenas bat, le bloc revient exactement en place : impossible de l’enlever."
+      },
+      {
+        "id": "S07",
+        "lecture": "« Le socle n’a pas de nom. Le bloc en pointillés bon mois pourrait passer pour un objectif ou un bonus à atteindre. Le vacillement peut se rater. »",
+        "changement": "Sur « base », « chaque mois » s’écrit en deep dans le bas de la colonne, au-dessus du socle ; sur « mois », le « bon mois » vacille puis tombe le long de la colonne jusqu’à sa place d’attente : il ne tient pas. En S08, le « + » prend sa place au sommet."
+      },
+      {
+        "id": "S08",
+        "lecture": "« Le passage de Salaire à Salaire net est un détail que je pourrais ne pas remarquer, alors que c’est un conseil important. »",
+        "changement": "« net » s’écrit en ExtraBold deep après « Salaire » et se souligne d’un trait deep (piste under)."
+      },
+      {
+        "id": "S10",
+        "lecture": "« C’est très subtil sans la voix. Je pourrais croire que Toi fait ses courses avec ces pièces, ou que le panier représente les courses comptées dans les charges. »",
+        "changement": "Les pièces partent pendant que « Toi » garde le bras baissé ; chaque bloc bat en recevant la sienne. Seulement après, le panier de courses de l’accroche ressort au bout du stylo, tendu vers les revenus : il arrive après les charges."
+      },
+      {
+        "id": "S13",
+        "lecture": "« Sans prime me perd : la prime est un revenu, alors pourquoi un vide dans une barre de dépenses ? »",
+        "changement": "Le rond vide en tirets rouges (métaphore indirecte) est remplacé par le petit bloc « Prime » de l’étape 1, barré d’un trait rouge, qui tombe hors du relevé du mois 2 : ce mois-là, la prime manque."
+      },
+      {
+        "id": "S14",
+        "lecture": "« Le mot moyenne n’est pas écrit : je le déduis de l’alignement. Un spectateur pourrait comprendre dépense la même somme chaque mois. »",
+        "changement": "Sur « moyenne », le titre « moyenne sur 3 mois » (Inter Bold 36, deep) surgit au-dessus des relevés avec le trait ; il rentre dans la pile avec eux."
+      },
+      {
+        "id": "S18",
+        "lecture": "« Sans les légendes, je lirais […] l’arbre comme écologie ou croissance. Les 30 cases ne sont lisibles comme des jours que parce que / jour apparaît. »",
+        "changement": "Les 30 cases se rangent dans une page de calendrier papier à bandeau encre et anneaux ; l’arbre (TREE.png) est remplacé par trois pièces qui s’empilent pour « épargne » (5 PNG au lieu de 6)."
+      },
+      {
+        "id": "S19",
+        "lecture": "« Je reconnais la banque seulement grâce au mot Banque. Le trait qui part d’elle n’est pas forcément lu comme un regard. Taux d’endettement n’est pas défini à l’écran. »",
+        "changement": "La banque se penche (lean_to) vers ce qu’elle regarde ; pictogramme bank agrandi sur sa pilule ; sur « taux », le bloc « Crédits » puis toute la colonne battent : la part des crédits dans les revenus."
+      },
+      {
+        "id": "S20",
+        "lecture": "« Le cyan rétrécit, mais l’étiquette affiche toujours ≈ 28 € / jour : ça me paraît incohérent, je croirais que le chiffre ne change pas. »",
+        "changement": "Sur « payée », la pastille rétrécit avec le cyan (380 → 300 px) et son « ≈ 28 € » se détache et tombe : elle dit « ? € / jour », moins qu’avant, à recalculer ; la banque se penche vers le cyan sur « regarde »."
+      },
+      {
+        "id": "S21",
+        "lecture": "« C’est clair. »",
+        "changement": "Cohérence avec S20 : la pastille dit déjà « ? € / jour » ; sur « jour », elle bat avec la pilule « Toi » sur la même image : ce chiffre est le sien."
+      }
+    ]
+  },
+  "risks": [
+    "Colonne d’argent : elle doit se lire « billets » et non « bâtiment » ou « jauge de progrès » : light avec filets encre tous les 80 px (liasse), née de l’enveloppe de paie ; repli : pictogramme euro (disc r 26) dans le bloc « Salaire » sous son mot.",
+    "Blocs qui couvrent le bas de la colonne : la lecture « déjà pris » repose sur leur chute depuis la maison et le cadenas ; si un spectateur lit « empilés sur l’argent », assombrir d’un cran l’argent caché n’est pas permis (pas de gris) : garder le trait en tirets « une partie » visible 0,9 s avant la chute du loyer.",
+    "Allonge de « Toi » (épaule à y 1119) : rien au-dessus de y ≈ 860 n’est touché ; ses gestes visent le bas des colonnes (1060-1100), la prime en attente (700, 890) et le bouton de fin (690, 965). La relecture S11 vise 645, 862 pour « Crédits » (bloc y 786-886) ; vérifier par fig.place_for, au besoin P3 à 720. Nouveaux gestes à vérifier depuis P1 (860) : le stylo vers le cadenas (612, 983, S04) et la poussée du loyer (575, 1085, S05) ; s’ils dépassent l’allonge, « Toi » passe en P2 (790) sur « Une » (S04) et y reste jusqu’à S06.",
+    "Prime S09 : elle traverse devant le pied de la colonne en allant au sol à gauche ; si cela se lit « elle entre dans la colonne », la faire passer en arc au-dessus du socle (y 1150) en 450 ms.",
+    "Calendriers S09 (r 30) : petits à 360 px ; repli : disque r 34 et un seul calendrier cyan bien contrasté ; ne jamais les remplir de rouge (ce n’est pas une erreur).",
+    "Relevés S12-S14 : 180×240 à 360 px de large font 60 px ; barres de 60 px de large, pièges rouges d’au moins 40 px ; légendes rouges en 2 lignes de 32 px ; si la lecture « moyenne » échoue, laisser le trait deep visible 0,5 s avant l’égalisation.",
+    "« sans prime » (S13) est un piège côté revenus montré sur un relevé : on montre le petit bloc « Prime » de S09 barré de rouge qui tombe (jamais un rond vide, leçon 33) ; repli : le bloc reste barré à côté de la barre, sans tomber.",
+    "Nombres : seuls ceux du script s’affichent (« 2 200 € », « − 1 350 € », « 850 € / mois », « ≈ 28 € / jour ») ; jamais « 28,33 € », jamais « 35 % », aucun montant par bloc de charge ni pour la mensualité ; les 30 cases ne portent pas de « 30 » : c’est la page de calendrier qui dit « jours ».",
+    "Pastille « ≈ 28 € / jour » (380 px) au-dessus de la colonne (S19-S20) : déborde de 40 px de chaque côté de la colonne, voulu ; garder 12 px d’air sous le bord haut (y 348) : le repère est sorti en S19. Après la mensualité elle passe à 300 px (« ? € / jour ») : le « ≈ 28 € » qui tombe ne doit traverser ni « reste à vivre » ni le trait de la banque (le faire tomber à droite, x 600-700).",
+    "Chute : la banque reste 7 s, face à « Toi » à 680 px, la colonne entre eux ; son regard est un trait plein encre (pas de pointillés, réservés à l’IA dans la série).",
+    "Fin sans pointeur de souris (leçon 32) : si kit.outro impose son pointeur, le masquer et caler le clic sur le toucher du stylo de « Toi » ; la pilule « Toi » s’efface avec les outs pour ne pas chevaucher la carte (bord bas y 1020).",
+    "Panier de courses (S02, S10) : icon cart r 26 à la pointe du stylo ; il doit se lire « faire ses courses », pas « prendre l’argent pour l’emporter » : il s’arrête toujours à 30 px de l’argent ; repli : disque r 30.",
+    "« chaque mois » (S07) dans le bas de la colonne, 34 px deep : il doit rester lisible sur le light et ne pas toucher le mot « Revenus » écrit sous le socle en S08 (y 1228) : 50 px d’air.",
+    "94 temps forts (plafond 96) : une retouche qui en ajoute doit en retirer ailleurs."
+  ],
+  "excerpt": {
+    "t_start": 60.21,
+    "t_end": 74.513,
+    "why": "Étape 3 complète (face à face, soustraction, 850 € / mois) : le geste central du film (les charges couvrent les revenus, le haut cyan reste) et le passage de la pastille au résultat ; 14,3 s sur des débuts de phrase."
+  }
+}

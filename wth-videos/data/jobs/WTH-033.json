@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-033",
+  "date": "2026-10-30",
+  "heure": "19:30",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1fCOmXNofqbv_j6kpQS8-5NpNMv4h0GY9",
+        "public_id": "WTH-V2-Pro-033-01",
+        "asset_folder": "WTH-V2/WTH-033",
+        "display_name": "WTH-V2-Pro-033-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-033"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=11FeXhmHo3B9EtR_6LI_M98GLeqi2Y3mu",
+        "public_id": "WTH-V2-Pro-033-02",
+        "asset_folder": "WTH-V2/WTH-033",
+        "display_name": "WTH-V2-Pro-033-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-033"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1MkU0VSH37gdCfPH3oIoeDhz2qr8XXRRE",
+        "public_id": "WTH-V2-Pro-033-03",
+        "asset_folder": "WTH-V2/WTH-033",
+        "display_name": "WTH-V2-Pro-033-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-033"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1006S0CqPRgNS2jy3yP6CqXdQBsiwM-_c",
+        "public_id": "WTH-V2-Pro-033-04",
+        "asset_folder": "WTH-V2/WTH-033",
+        "display_name": "WTH-V2-Pro-033-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-033"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1dVKfQquG0Au1mzA0pQ_HmPR10-U65tRi",
+        "public_id": "WTH-V2-Pro-033-05",
+        "asset_folder": "WTH-V2/WTH-033",
+        "display_name": "WTH-V2-Pro-033-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-033"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=11nUrzUUbbSHFA_JHCwqCqOfMG-SUsCI5",
+        "public_id": "WTH-V2-Pro-033-06",
+        "asset_folder": "WTH-V2/WTH-033",
+        "display_name": "WTH-V2-Pro-033-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-033"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1ZMUUaZx-t6_EvAVwASm-nn5Q3hTSr8Gh",
+        "public_id": "WTH-V2-Pro-033-07",
+        "asset_folder": "WTH-V2/WTH-033",
+        "display_name": "WTH-V2-Pro-033-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-033"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1OClJ6W4m3-ix0pFUseIoewOzXneGXxVa",
+        "public_id": "WTH-V2-Pro-033-08",
+        "asset_folder": "WTH-V2/WTH-033",
+        "display_name": "WTH-V2-Pro-033-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-033"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1JeX05UWeyVGdwiqvKDG0gqIHg2ot7PCT",
+        "public_id": "WTH-V2-Pro-033-09",
+        "asset_folder": "WTH-V2/WTH-033",
+        "display_name": "WTH-V2-Pro-033-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-033"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "Et si on jugeait l'IA par le client ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386579220",
+        "uuid": "-3735257087570456786",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-30T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"La meilleure réponse de ton agent IA, c’est peut-être une question\\n\\nComment l’utiliser pour préparer les bonnes questions avant un RDV, en 4 étapes.\\n\\nCGP : quelle question poses-tu à chaque RDV ? Partage-la en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-033-01.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-033-02.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-033-03.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-033-04.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-033-05.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-033-06.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-033-07.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-033-08.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-033-09.jpg\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"La meilleure réponse de ton agent IA, c’est peut-être une question\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "Et si on jugeait l'IA par le client ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386579718",
+        "uuid": "-3362062002390546043",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-30T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"La meilleure réponse de ton agent IA, c’est peut-être une question\\n\\nComment l’utiliser pour préparer les bonnes questions avant un RDV, en 4 étapes.\\n\\nCGP : quelle question poses-tu à chaque RDV ? Partage-la en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "Et si on jugeait l'IA par le client ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386579467",
+        "uuid": "3626260159348622201",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-30T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"La meilleure réponse de ton agent IA, c’est peut-être une question\\n\\nComment l’utiliser pour préparer les bonnes questions avant un RDV, en 4 étapes.\\n\\nCGP : quelle question poses-tu à chaque RDV ? Partage-la en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-033-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

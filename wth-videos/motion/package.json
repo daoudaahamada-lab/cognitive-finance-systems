@@ -1,0 +1,24 @@
+{
+  "name": "wth-motion",
+  "version": "0.1.0",
+  "private": true,
+  "description": "WealthTech Horizon motion-design renderer (Remotion 4)",
+  "scripts": {
+    "studio": "remotion studio",
+    "typecheck": "tsc --noEmit",
+    "render:test": "remotion render Test ../build/motion_test/test.mp4 --props=props/test.json --codec=h264 --pixel-format=yuv420p --muted --concurrency=4"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.535",
+    "@remotion/cli": "4.0.535",
+    "@remotion/renderer": "4.0.535",
+    "react": "19.2.9",
+    "react-dom": "19.2.9",
+    "remotion": "4.0.535"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.3",
+    "typescript": "5.9.3"
+  }
+}
