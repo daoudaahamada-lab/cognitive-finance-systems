@@ -18,7 +18,7 @@ combinaison qui fait l'affaire : un type de plus est du code à maintenir en Pyt
   - **Liens et signes.** wire, qmark, bubble, bullet, burst, pill, window, marker, stamp ;
   - **Personnages et objets.** figure, limb, pen, png.
 - Ajouts aux types existants : tick `variant: 'ai'`, marker `labels` (et `labelShow`, V05), pictogrammes hourglass / clock9 / chat / target /
-  sign, window `bar` / `sealOn` / `sealDy` / `lockOn` / `lockDy`, doc `fw` / `fh` / `fts` / `fdate` / `read`,
+  sign, pictogramme car (V13), window `bar` / `sealOn` / `sealDy` / `lockOn` / `lockDy`, doc `fw` / `fh` / `fts` / `fdate` / `read`,
   stamp `sub` / `subOn`
 - geometry.json (GEOM)
 
@@ -121,6 +121,8 @@ Pictogramme seul, ou posé sur un disque.
   warning, phone, plus, minus, arrow (→ ; pour une autre direction, utiliser `rot`).
 - Ajoutés pour V01 v3 : hourglass (sablier : la retraite), clock9 (horloge sur 9 h), chat (bulle de dialogue),
   target (cible), sign (signature au stylo). Dessins : « Ajouts aux types existants ».
+- Ajoutés pour V13 : car (voiture de profil : un véhicule), eye (œil ouvert : « garder à l'œil »), unlock (cadenas
+  ouvert : « disponible », l'opposé de lock). Dessins : « Ajouts aux types existants ».
 - Un nom inconnu ne dessine rien (pas d'erreur) : vérifie l'orthographe sur une image fixe.
 
 ### sector
@@ -657,6 +659,39 @@ boîte 24 × 24, traits arrondis, `color` et `sw` comme les autres. Ils servent 
 Lisibles jusqu'à la pastille de 15 px d'un `label` ; `sign` est le plus chargé : à moins de 20 px, préfère-le sur
 une pilule avec son mot. Usages dans V01 : L3, `puce3` (hourglass) ; `source5` « à poser au RDV » (clock9) ;
 `jeton1-3` « Conseil », « Adéquation », « Responsabilité » (chat, target, sign).
+
+### Pictogramme car
+
+Un nom de plus dans le `switch` de `Icon` (`draw.tsx`, `IconName`, `ICON_NAMES`) ; ce n'est pas un type et il n'a
+aucune piste propre (celles de `icon` : `color`, `fill`, `ring`, restent les mêmes). Même boîte 24 × 24, traits
+arrondis, `s`, `color` et `sw` comme les autres ; il sert partout où un pictogramme se nomme (`icon`, `pill`,
+`bullet`, puce d'une `line`, disque d'un `label` ou d'un `doc`).
+
+| Nom | Dessin | Pour dire |
+|---|---|---|
+| `car` | voiture de profil tournée vers la droite : caisse basse au trait, coffre court à gauche, capot à droite, toit à deux vitres (ligne de ceinture + montant), deux roues pleines qui recouvrent le bas de caisse | un véhicule, un bien qui roule (le PNG TRUCK se lit « camion de livraison ») |
+
+- Lisible sur un disque de 32 px (case « Véhicule ») et seul à `s` ≥ 40 ; à 15 px (pastille d'un `label`), les
+  vitres se bouchent : il ne reste qu'une silhouette, garde-le pour des disques ≥ 25 px.
+- Toujours tournée vers la droite (sens de lecture) ; aucun paramètre ne la retourne.
+- Usage dans V13 : `case_vehicule_ico`, `kit.icon(..., "car", disc=32, fill=LIGHT, color=INK, shadow=3)`.
+
+```python
+kit.icon("case_vehicule_ico", [0, -30], "car", disc=32, fill=LIGHT, color=INK, shadow=3, parent="case_vehicule")
+```
+
+### Pictogrammes eye et unlock
+
+Deux noms de plus dans le `switch` de `Icon` (même boîte 24 × 24, traits arrondis, aucune piste propre), ajoutés au tour
+de revue 1 de V13. Aucun dessin existant ne change.
+
+| Nom | Dessin | Pour dire |
+|---|---|---|
+| `eye` | amande au trait, iris plein avec un petit reflet de la couleur `fill` (papier par défaut) | « Toi » garde quelque chose à l'œil (même vocabulaire que son regard en tirets) |
+| `unlock` | corps de `lock`, anse levée et décalée à droite, ouverte à gauche | disponible, libre : l'opposé graphique de `lock` (bloqué) |
+
+- Sur un disque, préférer `s` ≥ 36 (V13 : disque 26, `s=40`) : à 30 px, l'anse ouverte de `unlock` se lit mal.
+- Usage dans V13 : pastille « disponible » (`unlock`), yeux des pastilles gardées (`eye`, deep sur light).
 
 ### window, pistes `bar`, `sealOn`, `sealDy`, `lockOn`, `lockDy`, `lockK`
 

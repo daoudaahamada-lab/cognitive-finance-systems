@@ -142,12 +142,12 @@ export const roundRectLength = (w: number, h: number, r: number): number => {
 
 export type IconName = 'euro' | 'bars' | 'mail' | 'shield' | 'cal' | 'building' | 'check' | 'person' | 'rewind' | 'clock' |
   'house' | 'bank' | 'coin' | 'percent' | 'lock' | 'cart' | 'moon' | 'pause' | 'warning' | 'phone' | 'plus' | 'minus' |
-  'arrow' | 'hourglass' | 'clock9' | 'chat' | 'target' | 'sign' | 'none';
+  'arrow' | 'hourglass' | 'clock9' | 'chat' | 'target' | 'sign' | 'car' | 'eye' | 'unlock' | 'none';
 
 /** Pictogrammes disponibles (catalogue du kit, planches de contrôle). */
 export const ICON_NAMES: IconName[] = ['euro', 'bars', 'mail', 'shield', 'cal', 'building', 'check', 'person', 'rewind',
   'clock', 'house', 'bank', 'coin', 'percent', 'lock', 'cart', 'moon', 'pause', 'warning', 'phone', 'plus', 'minus', 'arrow',
-  'hourglass', 'clock9', 'chat', 'target', 'sign'];
+  'hourglass', 'clock9', 'chat', 'target', 'sign', 'car', 'eye', 'unlock'];
 
 /** Pictogram in a box of side s centred on the origin, stroked/filled with `color`. */
 export const Icon: React.FC<{name: IconName | string; s: number; color?: string; sw?: number; fill?: string}> = ({name, s, color, sw, fill}) => {
@@ -363,6 +363,36 @@ export const Icon: React.FC<{name: IconName | string; s: number; color?: string;
           <path d="M-10.6 8.6 H9.8" {...common} />
           <path d="M4.4 -2.4 L9.6 -9.4" {...common} strokeWidth={(w / k) * 1.9} />
           <path d="M0.8 2.6 L2.1 -3.2 L6 -0.4 Z" fill={col} stroke={col} strokeWidth={w / k / 2} strokeLinejoin="round" />
+        </g>
+      );
+    // ----- ajouté pour V13 (même boîte 24 x 24, traits arrondis) -----
+    case 'car':
+      // voiture de profil (vers la droite) : caisse basse, coffre court à gauche, capot long à droite, toit à deux
+      // vitres (ligne de ceinture + montant), deux roues pleines qui recouvrent le bas de caisse
+      return (
+        <g transform={`scale(${k})`}>
+          <path d="M-10.8 3.4 V-0.4 Q-10.8 -2 -9.2 -2.2 L-7 -2.5 L-4.4 -7.2 Q-3.9 -8 -3 -8 H2.6 Q3.6 -8 4.2 -7.2 L7.6 -2.6 L9.6 -2.1 Q10.8 -1.7 10.8 -0.2 V3.4 Z" {...common} />
+          <path d="M-7 -2.5 H7.6 M-0.2 -8 V-2.5" {...common} />
+          <circle cx={-5.8} cy={4.6} r={3.3} fill={col} stroke={col} strokeWidth={w / k / 2} />
+          <circle cx={5.8} cy={4.6} r={3.3} fill={col} stroke={col} strokeWidth={w / k / 2} />
+        </g>
+      );
+    case 'eye':
+      // œil ouvert (« garder à l'œil ») : amande au trait, iris plein avec un reflet papier
+      return (
+        <g transform={`scale(${k})`}>
+          <path d="M-11 0 Q0 -10.5 11 0 Q0 10.5 -11 0 Z" {...common} />
+          <circle cx={0} cy={0} r={4.2} fill={col} />
+          <circle cx={1.5} cy={-1.5} r={1.3} fill={fill ?? C.paper} />
+        </g>
+      );
+    case 'unlock':
+      // cadenas ouvert (« disponible ») : corps de lock, anse décalée à droite, levée, ouverte à gauche
+      return (
+        <g transform={`scale(${k})`}>
+          <path d="M6.2 0 V-7.6 A4.6 4.6 0 0 0 -3 -7.6 V-4.2" {...common} />
+          <rect x={-8.5} y={0} width={17} height={11.5} rx={2.5} {...common} />
+          <circle cx={0} cy={5.6} r={1.7} fill={col} />
         </g>
       );
     default:
