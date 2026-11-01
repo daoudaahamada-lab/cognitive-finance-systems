@@ -1,0 +1,65 @@
+{
+  "id": "WTH-002",
+  "famille": "Tech & patrimoine",
+  "format": "Mistakes",
+  "accroche": "5 erreurs quand tu connectes ta banque à une app",
+  "sujet": "L'open banking permet des accès encadrés aux données de comptes avec le consentement requis.",
+  "legende": "5 erreurs quand tu connectes ta banque à une app\n\n(et comment les éviter)\n\nApp de budget, agrégateur, app d’investissement : si tu as déjà cliqué sur « Connecter ma banque », ce post est pour toi.\n\nCombien d’apps lisent tes comptes en ce moment ? Réponds en commentaire, et enregistre ce post pour faire le tri ce week-end.",
+  "hashtags": "#WealthTechHorizon #WealthTech #FinTech #Patrimoine",
+  "slides": [
+    {
+      "n": 1,
+      "fichier": "WTH-002-01.png",
+      "titre": "5 erreurs quand tu connectes ta banque à une app",
+      "texte": "(et comment les éviter)\n\nApp de budget, agrégateur, app d’investissement : si tu as déjà cliqué sur « Connecter ma banque », ce post est pour toi."
+    },
+    {
+      "n": 2,
+      "fichier": "WTH-002-02.png",
+      "titre": "Ce qui se passe vraiment quand tu cliques",
+      "texte": "C’est l’open banking. Depuis la directive européenne DSP2, ta banque doit ouvrir l’accès à tes comptes à des services tiers autorisés, mais seulement avec ton accord. L’app ne pirate rien : elle passe par une porte officielle."
+    },
+    {
+      "n": 3,
+      "fichier": "WTH-002-03.png",
+      "titre": "Erreur 1 : croire que l’app connaît ton mot de passe",
+      "texte": "En principe, tu t’identifies chez ta banque, pas dans l’app. L’app reçoit ensuite un accès encadré à certaines données. Si une app te demande tes codes bancaires directement : méfiance."
+    },
+    {
+      "n": 4,
+      "fichier": "WTH-002-04.png",
+      "titre": "Erreur 2 : autoriser sans lire",
+      "texte": "Selon le service, tu partages tes soldes, ton historique d’opérations, parfois le libellé de chaque dépense. Ça en dit beaucoup sur ta vie. Avant de valider, regarde la liste de ce qui est partagé."
+    },
+    {
+      "n": 5,
+      "fichier": "WTH-002-05.png",
+      "titre": "Erreur 3 : confondre « lire » et « payer »",
+      "texte": "Un service qui consulte tes comptes ne peut pas, pour autant, déplacer ton argent. Initier un paiement est un autre service, avec une autre autorisation. Sache lequel tu donnes."
+    },
+    {
+      "n": 6,
+      "fichier": "WTH-002-06.png",
+      "titre": "Erreur 4 : ne pas vérifier qui est derrière l’app",
+      "texte": "En France, ces services doivent être enregistrés auprès de l’ACPR. Tu peux le vérifier gratuitement sur le registre REGAFI, en tapant le nom de la société."
+    },
+    {
+      "n": 7,
+      "fichier": "WTH-002-07.png",
+      "titre": "Erreur 5 : oublier les accès que tu n’utilises plus",
+      "texte": "Une app testée il y a 6 mois peut encore avoir un accès actif. Coupe-le dans les réglages de l’app et, si ta banque le propose, dans ton espace client (rubrique accès ou services tiers)."
+    },
+    {
+      "n": 8,
+      "fichier": "WTH-002-08.png",
+      "titre": "La checklist en 30 secondes",
+      "texte": "1. Je m’identifie chez ma banque.\n2. Je lis ce qui est partagé.\n3. Je sais si c’est lecture ou paiement.\n4. Je vérifie sur REGAFI.\n5. Je fais le tri tous les 6 mois."
+    },
+    {
+      "n": 9,
+      "fichier": "WTH-002-09.png",
+      "titre": "Combien d’apps lisent tes comptes en ce moment ?",
+      "texte": "Réponds en commentaire, et enregistre ce post pour faire le tri ce week-end."
+    }
+  ]
+}

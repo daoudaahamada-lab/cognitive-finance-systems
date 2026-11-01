@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-015",
+  "date": "2026-10-24",
+  "heure": "19:30",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=12X7iVMfpyugCZ8wzZ7gxYYyEd9Epwu3v",
+        "public_id": "WTH-V2-Pro-015-01",
+        "asset_folder": "WTH-V2/WTH-015",
+        "display_name": "WTH-V2-Pro-015-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-015"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1kEs7uTQWKouhZp4rSKNEwkifjv2OUUxZ",
+        "public_id": "WTH-V2-Pro-015-02",
+        "asset_folder": "WTH-V2/WTH-015",
+        "display_name": "WTH-V2-Pro-015-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-015"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1a96wwj7ZzOHYQpPi3o_355Lv1d-THg-M",
+        "public_id": "WTH-V2-Pro-015-03",
+        "asset_folder": "WTH-V2/WTH-015",
+        "display_name": "WTH-V2-Pro-015-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-015"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1sIXTw8iSwrN3bb4s7cDg5b65M68nPnaT",
+        "public_id": "WTH-V2-Pro-015-04",
+        "asset_folder": "WTH-V2/WTH-015",
+        "display_name": "WTH-V2-Pro-015-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-015"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1SfkbcXGqokPILPAbDSRMTeAyIYR3hYPY",
+        "public_id": "WTH-V2-Pro-015-05",
+        "asset_folder": "WTH-V2/WTH-015",
+        "display_name": "WTH-V2-Pro-015-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-015"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1bsZLPWHqtA95Vw0T9lgE5DE9GUznclVU",
+        "public_id": "WTH-V2-Pro-015-06",
+        "asset_folder": "WTH-V2/WTH-015",
+        "display_name": "WTH-V2-Pro-015-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-015"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1goLSSzg5zMbfoXCuCVD5bcKVhCb0vREz",
+        "public_id": "WTH-V2-Pro-015-07",
+        "asset_folder": "WTH-V2/WTH-015",
+        "display_name": "WTH-V2-Pro-015-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-015"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1DJ9Aa3sGG2uKjv7OJID0Jz9gP4tAtiIT",
+        "public_id": "WTH-V2-Pro-015-08",
+        "asset_folder": "WTH-V2/WTH-015",
+        "display_name": "WTH-V2-Pro-015-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-015"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1d-k2uZPtWjwWnGod6m6AXIaPK_MJ5-KU",
+        "public_id": "WTH-V2-Pro-015-09",
+        "asset_folder": "WTH-V2/WTH-015",
+        "display_name": "WTH-V2-Pro-015-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-015"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "Un agent peut préparer un rendez-vous, puis quoi ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386574742",
+        "uuid": "2812829994317922367",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-24T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"L’agent IA a préparé ton RDV\\n\\nComment valider son brief en 5 minutes avant d’entrer.\\n\\nCGP : tu vérifies quoi en premier avant un RDV ? Partage ta checklist en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-015-01.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-015-02.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-015-03.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-015-04.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-015-05.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-015-06.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-015-07.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-015-08.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-015-09.jpg\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"L’agent IA a préparé ton RDV\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "Un agent peut préparer un rendez-vous, puis quoi ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386575126",
+        "uuid": "2323480325031675535",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-24T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"L’agent IA a préparé ton RDV\\n\\nComment valider son brief en 5 minutes avant d’entrer.\\n\\nCGP : tu vérifies quoi en premier avant un RDV ? Partage ta checklist en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "Un agent peut préparer un rendez-vous, puis quoi ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386574961",
+        "uuid": "-8030057351361248973",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-24T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"L’agent IA a préparé ton RDV\\n\\nComment valider son brief en 5 minutes avant d’entrer.\\n\\nCGP : tu vérifies quoi en premier avant un RDV ? Partage ta checklist en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-015-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

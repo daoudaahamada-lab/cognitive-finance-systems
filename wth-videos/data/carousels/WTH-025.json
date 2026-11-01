@@ -1,0 +1,65 @@
+{
+  "id": "WTH-025",
+  "famille": "Tech & patrimoine",
+  "format": "Educational",
+  "accroche": "Tu peux avoir 200 000 € de patrimoine… et ne pas pouvoir payer une facture de 3 000 €",
+  "sujet": "Un actif peut avoir une valeur sur le papier et rester difficile a vendre vite.",
+  "legende": "Tu peux avoir 200 000 € de patrimoine… et ne pas pouvoir payer une facture de 3 000 €\n\nLa liquidité expliquée en 7 points.\n\nQuelle part de ton patrimoine est disponible en moins d’une semaine ? Réponds en commentaire, même approximativement.",
+  "hashtags": "#WealthTechHorizon #WealthTech #FinTech #Patrimoine",
+  "slides": [
+    {
+      "n": 1,
+      "fichier": "WTH-025-01.png",
+      "titre": "Tu peux avoir 200 000 € de patrimoine… et ne pas pouvoir payer une facture de 3 000 €",
+      "texte": "La liquidité expliquée en 7 points."
+    },
+    {
+      "n": 2,
+      "fichier": "WTH-025-02.png",
+      "titre": "La liquidité, c’est quoi ?",
+      "texte": "La facilité à transformer un actif en argent disponible, vite, sans perdre de valeur. Un livret est très liquide. Un appartement, beaucoup moins."
+    },
+    {
+      "n": 3,
+      "fichier": "WTH-025-03.png",
+      "titre": "Valeur sur le papier ≠ argent disponible",
+      "texte": "Ton appartement est estimé 200 000 €. Mais pour récupérer cet argent, il faut le vendre : plusieurs mois, des frais, et un prix qui n’est pas garanti."
+    },
+    {
+      "n": 4,
+      "fichier": "WTH-025-04.png",
+      "titre": "Les actifs disponibles vite",
+      "texte": "Comptes courants et livrets : en général sous quelques jours, sans perte."
+    },
+    {
+      "n": 5,
+      "fichier": "WTH-025-05.png",
+      "titre": "Les actifs disponibles avec délai",
+      "texte": "Assurance-vie : l’assureur doit te verser les fonds dans un délai maximal de deux mois. Actions et fonds : vendables vite, mais leur prix varie."
+    },
+    {
+      "n": 6,
+      "fichier": "WTH-025-06.png",
+      "titre": "Les actifs bloqués ou lents",
+      "texte": "Immobilier : plusieurs mois de vente. PER : bloqué jusqu’à la retraite, sauf cas de déblocage anticipé. Épargne salariale : souvent bloquée 5 ans, sauf exceptions."
+    },
+    {
+      "n": 7,
+      "fichier": "WTH-025-07.png",
+      "titre": "Repère tes délais",
+      "texte": "Pour chaque placement, note : en combien de temps je récupère l’argent ? Avec quels frais ? Avec quel risque de prix ?"
+    },
+    {
+      "n": 8,
+      "fichier": "WTH-025-08.png",
+      "titre": "À retenir",
+      "texte": "La question utile n’est pas « combien je possède ? », mais « si j’en ai besoin demain, comment je récupère l’argent ? »"
+    },
+    {
+      "n": 9,
+      "fichier": "WTH-025-09.png",
+      "titre": "Quelle part de ton patrimoine est disponible en moins d’une semaine ?",
+      "texte": "Réponds en commentaire, même approximativement."
+    }
+  ]
+}

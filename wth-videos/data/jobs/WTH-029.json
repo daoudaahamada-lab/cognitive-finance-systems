@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-029",
+  "date": "2026-10-29",
+  "heure": "13:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1q6I19_KAFq8pEaajSMt7iSlz-_mYfdxS",
+        "public_id": "WTH-V2-Pro-029-01",
+        "asset_folder": "WTH-V2/WTH-029",
+        "display_name": "WTH-V2-Pro-029-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-029"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1S0i7VueBBjkpmZ-9XtDX732U6PqbYA8V",
+        "public_id": "WTH-V2-Pro-029-02",
+        "asset_folder": "WTH-V2/WTH-029",
+        "display_name": "WTH-V2-Pro-029-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-029"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1gO7JcDM_Yp2Tf0ggaC8aYOtcHh0z_9Db",
+        "public_id": "WTH-V2-Pro-029-03",
+        "asset_folder": "WTH-V2/WTH-029",
+        "display_name": "WTH-V2-Pro-029-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-029"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1bvzpllDPSy7dja4LPn4RWswOxVu_EZtF",
+        "public_id": "WTH-V2-Pro-029-04",
+        "asset_folder": "WTH-V2/WTH-029",
+        "display_name": "WTH-V2-Pro-029-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-029"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1ogZXfAyOJrzrvqYtoGALsAbqP_w0hDlr",
+        "public_id": "WTH-V2-Pro-029-05",
+        "asset_folder": "WTH-V2/WTH-029",
+        "display_name": "WTH-V2-Pro-029-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-029"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1_Ydh1otu_Z7kCoLAvGyUzMaz2sBjRG5b",
+        "public_id": "WTH-V2-Pro-029-06",
+        "asset_folder": "WTH-V2/WTH-029",
+        "display_name": "WTH-V2-Pro-029-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-029"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=19tiRHNUrSIyY9Mm23orkeHIkYc7HstKB",
+        "public_id": "WTH-V2-Pro-029-07",
+        "asset_folder": "WTH-V2/WTH-029",
+        "display_name": "WTH-V2-Pro-029-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-029"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1MprOuDPMbOO92sgDwDnHYA41N-uTniBV",
+        "public_id": "WTH-V2-Pro-029-08",
+        "asset_folder": "WTH-V2/WTH-029",
+        "display_name": "WTH-V2-Pro-029-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-029"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1wxAxEIoMwClsat5_8yALZw7mF2o1_bXI",
+        "public_id": "WTH-V2-Pro-029-09",
+        "asset_folder": "WTH-V2/WTH-029",
+        "display_name": "WTH-V2-Pro-029-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-029"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "Une comparaison d'apps sans cas d'usage n'aide pas.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386578330",
+        "uuid": "-1333694062383511874",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-29T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« La tokenisation va rendre tous les actifs liquides et accessibles. »\\n\\nVrai ou faux ? 4 idées reçues sur les tokens.\\n\\nTu investirais dans un immeuble tokenisé ? Oui, non, pourquoi ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-029-01.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-029-02.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-029-03.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-029-04.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-029-05.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-029-06.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-029-07.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-029-08.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-029-09.jpg\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"« La tokenisation va rendre tous les actifs liquides et accessibles. »\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "Une comparaison d'apps sans cas d'usage n'aide pas.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386579000",
+        "uuid": "-6875452922611282047",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-29T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« La tokenisation va rendre tous les actifs liquides et accessibles. »\\n\\nVrai ou faux ? 4 idées reçues sur les tokens.\\n\\nTu investirais dans un immeuble tokenisé ? Oui, non, pourquoi ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "Une comparaison d'apps sans cas d'usage n'aide pas.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386578577",
+        "uuid": "-8657029985678898333",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-29T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« La tokenisation va rendre tous les actifs liquides et accessibles. »\\n\\nVrai ou faux ? 4 idées reçues sur les tokens.\\n\\nTu investirais dans un immeuble tokenisé ? Oui, non, pourquoi ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-029-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

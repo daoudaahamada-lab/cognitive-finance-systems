@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-017",
+  "date": "2026-10-25",
+  "heure": "13:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1bvFC_BhhW0Z2-qI4WM_qSUGO2R_e8_l5",
+        "public_id": "WTH-V2-Pro-017-01",
+        "asset_folder": "WTH-V2/WTH-017",
+        "display_name": "WTH-V2-Pro-017-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-017"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1fZvht9ZL9kFoRxZnn6DYOe2jC3DHENtw",
+        "public_id": "WTH-V2-Pro-017-02",
+        "asset_folder": "WTH-V2/WTH-017",
+        "display_name": "WTH-V2-Pro-017-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-017"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1_KdeJlLePcohyIfodmXFep58UyVQHWPn",
+        "public_id": "WTH-V2-Pro-017-03",
+        "asset_folder": "WTH-V2/WTH-017",
+        "display_name": "WTH-V2-Pro-017-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-017"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1RsQ2X5fAZP5-94KI15IbqBZMtLWc3WK-",
+        "public_id": "WTH-V2-Pro-017-04",
+        "asset_folder": "WTH-V2/WTH-017",
+        "display_name": "WTH-V2-Pro-017-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-017"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=12JYpCQz-SeaHej6Rj9TovdVi3tJvtu2U",
+        "public_id": "WTH-V2-Pro-017-05",
+        "asset_folder": "WTH-V2/WTH-017",
+        "display_name": "WTH-V2-Pro-017-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-017"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1Q2vARWlGpvyjShUm8cHdK60AstIsmw7D",
+        "public_id": "WTH-V2-Pro-017-06",
+        "asset_folder": "WTH-V2/WTH-017",
+        "display_name": "WTH-V2-Pro-017-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-017"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=11coRcsdqX7GEVnM2J7HqkUFWOgMCvR_v",
+        "public_id": "WTH-V2-Pro-017-07",
+        "asset_folder": "WTH-V2/WTH-017",
+        "display_name": "WTH-V2-Pro-017-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-017"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1o9284VdiTIWiWbaiLpwrGvN1U0uNIMJV",
+        "public_id": "WTH-V2-Pro-017-08",
+        "asset_folder": "WTH-V2/WTH-017",
+        "display_name": "WTH-V2-Pro-017-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-017"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1dg5SxrAwR-Exyzuuz86_tkFQaU2jmpMG",
+        "public_id": "WTH-V2-Pro-017-09",
+        "asset_folder": "WTH-V2/WTH-017",
+        "display_name": "WTH-V2-Pro-017-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-017"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "Pourquoi certaines apps montrent un patrimoine « estimé » ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386575444",
+        "uuid": "5824902046954441930",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-25T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Mon app d’investissement est gratuite. »\\n\\nAlors comment elle gagne de l’argent ? 5 sources de revenus à connaître.\\n\\nTu investis avec quelle app ? Tu sais comment elle se rémunère ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-017-01.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-017-02.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-017-03.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-017-04.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-017-05.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-017-06.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-017-07.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-017-08.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-017-09.jpg\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"« Mon app d’investissement est gratuite. »\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "Pourquoi certaines apps montrent un patrimoine « estimé » ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386575830",
+        "uuid": "8134674113273219018",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-25T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Mon app d’investissement est gratuite. »\\n\\nAlors comment elle gagne de l’argent ? 5 sources de revenus à connaître.\\n\\nTu investis avec quelle app ? Tu sais comment elle se rémunère ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "Pourquoi certaines apps montrent un patrimoine « estimé » ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386575599",
+        "uuid": "496089634570060003",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-25T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Mon app d’investissement est gratuite. »\\n\\nAlors comment elle gagne de l’argent ? 5 sources de revenus à connaître.\\n\\nTu investis avec quelle app ? Tu sais comment elle se rémunère ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-017-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

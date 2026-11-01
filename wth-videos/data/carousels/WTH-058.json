@@ -1,0 +1,65 @@
+{
+  "id": "WTH-058",
+  "famille": "Tech & patrimoine",
+  "format": "Educational",
+  "accroche": "Ton patrimoine net n’est pas le solde de tes comptes",
+  "sujet": "ll faut regarder ce que tu possèdes et ce que tu dois.",
+  "legende": "Ton patrimoine net n’est pas le solde de tes comptes\n\nComment le calculer en 7 points.\n\nTu as déjà calculé ton patrimoine net ? Oui, non, jamais pensé ? Dis-le en commentaire.",
+  "hashtags": "#WealthTechHorizon #WealthTech #FinTech #Patrimoine",
+  "slides": [
+    {
+      "n": 1,
+      "fichier": "WTH-058-01.png",
+      "titre": "Ton patrimoine net n’est pas le solde de tes comptes",
+      "texte": "Comment le calculer en 7 points."
+    },
+    {
+      "n": 2,
+      "fichier": "WTH-058-02.png",
+      "titre": "La définition",
+      "texte": "Patrimoine net = tout ce que tu possèdes − tout ce que tu dois. C’est la photo la plus honnête de ta situation."
+    },
+    {
+      "n": 3,
+      "fichier": "WTH-058-03.png",
+      "titre": "Ce que tu possèdes",
+      "texte": "Comptes, livrets, assurance-vie, PEA, épargne salariale, PER, immobilier, véhicule, parts de société. Note leur valeur actuelle, pas le prix d’achat."
+    },
+    {
+      "n": 4,
+      "fichier": "WTH-058-04.png",
+      "titre": "Ce que tu dois",
+      "texte": "Capital restant dû sur tes crédits : immobilier, auto, consommation, prêt étudiant. Pas les mensualités : le montant restant à rembourser."
+    },
+    {
+      "n": 5,
+      "fichier": "WTH-058-05.png",
+      "titre": "L’exemple",
+      "texte": "Un appartement estimé 250 000 € avec 180 000 € de crédit restant ne représente pas 250 000 € de patrimoine, mais environ 70 000 € nets."
+    },
+    {
+      "n": 6,
+      "fichier": "WTH-058-06.png",
+      "titre": "Les limites du chiffre",
+      "texte": "Il mélange des actifs disponibles et bloqués, sûrs et risqués, estimés et réels. Un chiffre utile, à condition de ne pas oublier liquidité et risques."
+    },
+    {
+      "n": 7,
+      "fichier": "WTH-058-07.png",
+      "titre": "Le bon rythme",
+      "texte": "Calcule-le une ou deux fois par an. Ce qui compte n’est pas le chiffre d’un jour, mais son évolution dans le temps."
+    },
+    {
+      "n": 8,
+      "fichier": "WTH-058-08.png",
+      "titre": "À retenir",
+      "texte": "Ce que tu possèdes moins ce que tu dois. C’est simple, et c’est le point de départ de toute stratégie patrimoniale."
+    },
+    {
+      "n": 9,
+      "fichier": "WTH-058-09.png",
+      "titre": "Tu as déjà calculé ton patrimoine net ?",
+      "texte": "Oui, non, jamais pensé ? Dis-le en commentaire."
+    }
+  ]
+}

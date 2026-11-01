@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-025",
+  "date": "2026-10-28",
+  "heure": "08:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1loyY3xmud5Gtp5sqHk2Qmh5T3dj1v4By",
+        "public_id": "WTH-V2-Pro-025-01",
+        "asset_folder": "WTH-V2/WTH-025",
+        "display_name": "WTH-V2-Pro-025-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-025"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1Kth-bhhwmnio3rQuTk07Hm8FLw93KSyd",
+        "public_id": "WTH-V2-Pro-025-02",
+        "asset_folder": "WTH-V2/WTH-025",
+        "display_name": "WTH-V2-Pro-025-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-025"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1a7d1B2O9A9Nf-fD2fiFnlryCQD0RwWzJ",
+        "public_id": "WTH-V2-Pro-025-03",
+        "asset_folder": "WTH-V2/WTH-025",
+        "display_name": "WTH-V2-Pro-025-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-025"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1wZJUGq1uZGb-3rnssFe7aV3dfSHn8K6k",
+        "public_id": "WTH-V2-Pro-025-04",
+        "asset_folder": "WTH-V2/WTH-025",
+        "display_name": "WTH-V2-Pro-025-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-025"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1nBw3vwsYNvkSGQqxA6WzOLJH-nb46KSI",
+        "public_id": "WTH-V2-Pro-025-05",
+        "asset_folder": "WTH-V2/WTH-025",
+        "display_name": "WTH-V2-Pro-025-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-025"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1dn8t9Ik8eYd78d-cNkxsTX8d2J7fEYaT",
+        "public_id": "WTH-V2-Pro-025-06",
+        "asset_folder": "WTH-V2/WTH-025",
+        "display_name": "WTH-V2-Pro-025-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-025"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1pR1UDvuTfoBFO1ZTn40C8kbY3MXrBbtf",
+        "public_id": "WTH-V2-Pro-025-07",
+        "asset_folder": "WTH-V2/WTH-025",
+        "display_name": "WTH-V2-Pro-025-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-025"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1_aUc986zYpY5EElPijrSEEVd5OmPieK5",
+        "public_id": "WTH-V2-Pro-025-08",
+        "asset_folder": "WTH-V2/WTH-025",
+        "display_name": "WTH-V2-Pro-025-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-025"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1wTYra1EMmu15v2mDp9WkONKRHQopJqer",
+        "public_id": "WTH-V2-Pro-025-09",
+        "asset_folder": "WTH-V2/WTH-025",
+        "display_name": "WTH-V2-Pro-025-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-025"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "Ton argent travaille-t-il pour le mauvais projet ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386577459",
+        "uuid": "-8407738948873207085",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-28T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Tu peux avoir 200 000 € de patrimoine… et ne pas pouvoir payer une facture de 3 000 €\\n\\nLa liquidité expliquée en 7 points.\\n\\nQuelle part de ton patrimoine est disponible en moins d’une semaine ? Réponds en commentaire, même approximativement.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-025-01.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-025-02.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-025-03.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-025-04.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-025-05.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-025-06.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-025-07.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-025-08.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-025-09.jpg\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Tu peux avoir 200 000 € de patrimoine… et ne pas pouvoir payer une facture de 3 000 €\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "Ton argent travaille-t-il pour le mauvais projet ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386578085",
+        "uuid": "3828271209989423708",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-28T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Tu peux avoir 200 000 € de patrimoine… et ne pas pouvoir payer une facture de 3 000 €\\n\\nLa liquidité expliquée en 7 points.\\n\\nQuelle part de ton patrimoine est disponible en moins d’une semaine ? Réponds en commentaire, même approximativement.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "Ton argent travaille-t-il pour le mauvais projet ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386577732",
+        "uuid": "-7043332526394293208",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-28T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Tu peux avoir 200 000 € de patrimoine… et ne pas pouvoir payer une facture de 3 000 €\\n\\nLa liquidité expliquée en 7 points.\\n\\nQuelle part de ton patrimoine est disponible en moins d’une semaine ? Réponds en commentaire, même approximativement.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-025-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

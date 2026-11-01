@@ -1,0 +1,173 @@
+{
+  "carrousel": "WTH-046",
+  "date": "2026-11-04",
+  "heure": "08:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1fQU7zokryhzPuAEDbwPlsRdNOs_c2K7c",
+        "public_id": "WTH-V2-Pro-046-01",
+        "asset_folder": "WTH-V2/WTH-046",
+        "display_name": "WTH-V2-Pro-046-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-046"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=14tc1CA9--mBN4w1cFlj_RK00_8ASitwO",
+        "public_id": "WTH-V2-Pro-046-02",
+        "asset_folder": "WTH-V2/WTH-046",
+        "display_name": "WTH-V2-Pro-046-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-046"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1ezTrD1V77Imfb_t29wKahxtnCfkfsdXB",
+        "public_id": "WTH-V2-Pro-046-03",
+        "asset_folder": "WTH-V2/WTH-046",
+        "display_name": "WTH-V2-Pro-046-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-046"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1bs7oSQADVSfo1mbDTGAU9NWoP4rRl4df",
+        "public_id": "WTH-V2-Pro-046-04",
+        "asset_folder": "WTH-V2/WTH-046",
+        "display_name": "WTH-V2-Pro-046-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-046"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1RcMdSsBwrDgRP_yu04jf8b1RshNfhL-x",
+        "public_id": "WTH-V2-Pro-046-05",
+        "asset_folder": "WTH-V2/WTH-046",
+        "display_name": "WTH-V2-Pro-046-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-046"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1QTifsqfR1eKrrb0DZO0zR-6Oa8ZBWLen",
+        "public_id": "WTH-V2-Pro-046-06",
+        "asset_folder": "WTH-V2/WTH-046",
+        "display_name": "WTH-V2-Pro-046-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-046"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1t_R7D-kB-KoLyWopGwMuQPioQ3G6Xn-K",
+        "public_id": "WTH-V2-Pro-046-07",
+        "asset_folder": "WTH-V2/WTH-046",
+        "display_name": "WTH-V2-Pro-046-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-046"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1KhdtB15-FEVb6cBmOt-1rzYHQmnfre3b",
+        "public_id": "WTH-V2-Pro-046-08",
+        "asset_folder": "WTH-V2/WTH-046",
+        "display_name": "WTH-V2-Pro-046-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-046"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1xMPii4VmapdQtZbl_lPxPbmMhTJhhmpG",
+        "public_id": "WTH-V2-Pro-046-09",
+        "asset_folder": "WTH-V2/WTH-046",
+        "display_name": "WTH-V2-Pro-046-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-046"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-04T08:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-11-04T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"−30 % peut te coûter 70 %\\n\\nPourquoi une promotion n’est pas toujours une économie, en 7 points.\\n\\nTon dernier achat en promo, tu l’utilises encore ? Réponds honnêtement en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-046-01.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-046-02.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-046-03.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-046-04.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-046-05.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-046-06.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-046-07.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-046-08.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-046-09.jpg\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"−30 % peut te coûter 70 %\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-04T08:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-04T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"−30 % peut te coûter 70 %\\n\\nPourquoi une promotion n’est pas toujours une économie, en 7 points.\\n\\nTon dernier achat en promo, tu l’utilises encore ? Réponds honnêtement en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-04T08:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-04T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"−30 % peut te coûter 70 %\\n\\nPourquoi une promotion n’est pas toujours une économie, en 7 points.\\n\\nTon dernier achat en promo, tu l’utilises encore ? Réponds honnêtement en commentaire.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-046-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

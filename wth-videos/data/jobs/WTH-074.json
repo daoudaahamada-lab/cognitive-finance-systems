@@ -1,0 +1,173 @@
+{
+  "carrousel": "WTH-074",
+  "date": "2026-11-13",
+  "heure": "13:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1hghE7wVMf9b57SlwgyVe7y-MHazy2Nq2",
+        "public_id": "WTH-V2-Pro-074-01",
+        "asset_folder": "WTH-V2/WTH-074",
+        "display_name": "WTH-V2-Pro-074-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-074"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1QfzNOYsgEFRtB73UIx5Dy9MaRfWCbvuA",
+        "public_id": "WTH-V2-Pro-074-02",
+        "asset_folder": "WTH-V2/WTH-074",
+        "display_name": "WTH-V2-Pro-074-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-074"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1i5uyffLpTsfnbGGWATxFV-sU1-DZ9ZC5",
+        "public_id": "WTH-V2-Pro-074-03",
+        "asset_folder": "WTH-V2/WTH-074",
+        "display_name": "WTH-V2-Pro-074-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-074"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1ZHEUfGaVGIRVNAInqj58rwa7mkUj1dv-",
+        "public_id": "WTH-V2-Pro-074-04",
+        "asset_folder": "WTH-V2/WTH-074",
+        "display_name": "WTH-V2-Pro-074-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-074"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1FZ3y-4ezaP5lOpJZ3OVh7hZE9EJEbPR-",
+        "public_id": "WTH-V2-Pro-074-05",
+        "asset_folder": "WTH-V2/WTH-074",
+        "display_name": "WTH-V2-Pro-074-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-074"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=14zW_SFC2Dv1_kfEyeeltltmNv0LQNCdw",
+        "public_id": "WTH-V2-Pro-074-06",
+        "asset_folder": "WTH-V2/WTH-074",
+        "display_name": "WTH-V2-Pro-074-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-074"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1uWgRfuLqWUZY_bBX1deQrrJzUOOZx62I",
+        "public_id": "WTH-V2-Pro-074-07",
+        "asset_folder": "WTH-V2/WTH-074",
+        "display_name": "WTH-V2-Pro-074-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-074"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1gFNogCbELRUtaVc35KIgxxtmFbbIG3_6",
+        "public_id": "WTH-V2-Pro-074-08",
+        "asset_folder": "WTH-V2/WTH-074",
+        "display_name": "WTH-V2-Pro-074-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-074"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1ZfVurEyPLcRhORDg-KHLeg5OnGwU5x1r",
+        "public_id": "WTH-V2-Pro-074-09",
+        "asset_folder": "WTH-V2/WTH-074",
+        "display_name": "WTH-V2-Pro-074-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-074"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-13T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-11-13T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"L’IA t’a répondu avec beaucoup d’assurance sur une règle fiscale\\n\\n4 erreurs à éviter avant d’agir sur sa réponse.\\n\\nTu as déjà reçu une réponse IA fausse sur un sujet d’argent ? Raconte en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-074-01.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-074-02.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-074-03.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-074-04.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-074-05.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-074-06.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-074-07.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-074-08.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-074-09.jpg\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"L’IA t’a répondu avec beaucoup d’assurance sur une règle fiscale\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-13T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-13T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"L’IA t’a répondu avec beaucoup d’assurance sur une règle fiscale\\n\\n4 erreurs à éviter avant d’agir sur sa réponse.\\n\\nTu as déjà reçu une réponse IA fausse sur un sujet d’argent ? Raconte en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-13T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-13T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"L’IA t’a répondu avec beaucoup d’assurance sur une règle fiscale\\n\\n4 erreurs à éviter avant d’agir sur sa réponse.\\n\\nTu as déjà reçu une réponse IA fausse sur un sujet d’argent ? Raconte en commentaire.\\n\\n#WealthTechHorizon #IA #CGP #GestionDePatrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-074-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

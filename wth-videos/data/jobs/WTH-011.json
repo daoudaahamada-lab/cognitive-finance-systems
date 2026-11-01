@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-011",
+  "date": "2026-10-23",
+  "heure": "13:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1onJBYTbDF3NSjF_YSBP0QEBVBb_qJMHt",
+        "public_id": "WTH-V2-Pro-011-01",
+        "asset_folder": "WTH-V2/WTH-011",
+        "display_name": "WTH-V2-Pro-011-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-011"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=12eRroMx3RYtJNea4G98Q7XnGVxim2PR8",
+        "public_id": "WTH-V2-Pro-011-02",
+        "asset_folder": "WTH-V2/WTH-011",
+        "display_name": "WTH-V2-Pro-011-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-011"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1mmO8FepPXcfM07Cz61ynku9yiYwfx6GR",
+        "public_id": "WTH-V2-Pro-011-03",
+        "asset_folder": "WTH-V2/WTH-011",
+        "display_name": "WTH-V2-Pro-011-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-011"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1e2JVhdknnamquPLyhRHYI65_lVySf40_",
+        "public_id": "WTH-V2-Pro-011-04",
+        "asset_folder": "WTH-V2/WTH-011",
+        "display_name": "WTH-V2-Pro-011-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-011"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1G0ABdW5zFlvKYPyE7GlN6g8J23FATSfs",
+        "public_id": "WTH-V2-Pro-011-05",
+        "asset_folder": "WTH-V2/WTH-011",
+        "display_name": "WTH-V2-Pro-011-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-011"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1oNnHqzuG7B8hL6y09c34yuam_04UmZJO",
+        "public_id": "WTH-V2-Pro-011-06",
+        "asset_folder": "WTH-V2/WTH-011",
+        "display_name": "WTH-V2-Pro-011-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-011"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1LQ-GqqmNZP7_ndDIA0nvssoS57fYd-QX",
+        "public_id": "WTH-V2-Pro-011-07",
+        "asset_folder": "WTH-V2/WTH-011",
+        "display_name": "WTH-V2-Pro-011-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-011"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1qLZRQZ_dFe0SENPUg0xl2ScjZahl8MBl",
+        "public_id": "WTH-V2-Pro-011-08",
+        "asset_folder": "WTH-V2/WTH-011",
+        "display_name": "WTH-V2-Pro-011-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-011"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1PW58MTaes3CftDSUIUNew6sDxAYOBDRc",
+        "public_id": "WTH-V2-Pro-011-09",
+        "asset_folder": "WTH-V2/WTH-011",
+        "display_name": "WTH-V2-Pro-011-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-011"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "Les données en temps réel ne rendent pas plus sage.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386574049",
+        "uuid": "-6443982401428962145",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-23T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Un robo-advisor, c’est un robot qui gère ton argent tout seul. »\\n\\nVrai ou faux ? 4 idées reçues.\\n\\nTu as déjà testé une gestion pilotée en ligne ? Ton avis en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-011-01.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-011-02.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-011-03.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-011-04.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-011-05.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-011-06.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-011-07.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-011-08.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-011-09.jpg\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"« Un robo-advisor, c’est un robot qui gère ton argent tout seul. »\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "Les données en temps réel ne rendent pas plus sage.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386574404",
+        "uuid": "7367974180356376625",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-23T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Un robo-advisor, c’est un robot qui gère ton argent tout seul. »\\n\\nVrai ou faux ? 4 idées reçues.\\n\\nTu as déjà testé une gestion pilotée en ligne ? Ton avis en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "Les données en temps réel ne rendent pas plus sage.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386574262",
+        "uuid": "2752224876661000275",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-23T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Un robo-advisor, c’est un robot qui gère ton argent tout seul. »\\n\\nVrai ou faux ? 4 idées reçues.\\n\\nTu as déjà testé une gestion pilotée en ligne ? Ton avis en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-011-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

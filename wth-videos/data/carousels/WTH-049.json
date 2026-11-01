@@ -1,0 +1,65 @@
+{
+  "id": "WTH-049",
+  "famille": "Argent au quotidien",
+  "format": "Educational",
+  "accroche": "Tes euros ne bougent pas. Leur pouvoir d’achat, si.",
+  "sujet": "Un montant stable en euros ne garantit pas un pouvoir d'achat stable.",
+  "legende": "Tes euros ne bougent pas. Leur pouvoir d’achat, si.\n\nL’inflation expliquée en 7 points.\n\nTu as de l’argent qui dort sans objectif ? Dis-le en commentaire, et enregistre ce post.",
+  "hashtags": "#WealthTechHorizon #Argent #Budget #Épargne",
+  "slides": [
+    {
+      "n": 1,
+      "fichier": "WTH-049-01.png",
+      "titre": "Tes euros ne bougent pas. Leur pouvoir d’achat, si.",
+      "texte": "L’inflation expliquée en 7 points."
+    },
+    {
+      "n": 2,
+      "fichier": "WTH-049-02.png",
+      "titre": "L’inflation, c’est quoi ?",
+      "texte": "La hausse générale des prix. Quand elle est de 2 % par an, ce qui coûtait 100 € coûte 102 € un an plus tard."
+    },
+    {
+      "n": 3,
+      "fichier": "WTH-049-03.png",
+      "titre": "Ce que ça fait à ton argent",
+      "texte": "10 000 € laissés sans intérêt pendant 10 ans avec 2 % d’inflation par an achètent l’équivalent d’environ 8 200 € d’aujourd’hui. Exemple illustratif."
+    },
+    {
+      "n": 4,
+      "fichier": "WTH-049-04.png",
+      "titre": "Mêmes euros, moins d’achats",
+      "texte": "Ton solde affiche toujours 10 000 €. Mais avec cette somme, tu peux acheter moins de choses qu’avant. C’est une perte invisible."
+    },
+    {
+      "n": 5,
+      "fichier": "WTH-049-05.png",
+      "titre": "Faut-il fuir le cash ?",
+      "texte": "Non. L’argent disponible a un rôle : faire face aux imprévus, financer un projet proche. Pour ça, la stabilité compte plus que le rendement."
+    },
+    {
+      "n": 6,
+      "fichier": "WTH-049-06.png",
+      "titre": "Là où l’inflation pèse",
+      "texte": "Sur l’argent dont tu n’as pas besoin avant longtemps et qui reste immobile. Sur 10 ou 20 ans, l’érosion devient importante."
+    },
+    {
+      "n": 7,
+      "fichier": "WTH-049-07.png",
+      "titre": "Sépare les horizons",
+      "texte": "Court terme : sécurité et disponibilité. Long terme : chercher à faire progresser l’argent au moins aussi vite que les prix, en acceptant un risque."
+    },
+    {
+      "n": 8,
+      "fichier": "WTH-049-08.png",
+      "titre": "À retenir",
+      "texte": "Garder du cash a une utilité. Son rôle et sa durée comptent. Le problème n’est pas le cash, c’est le cash sans mission."
+    },
+    {
+      "n": 9,
+      "fichier": "WTH-049-09.png",
+      "titre": "Tu as de l’argent qui dort sans objectif ?",
+      "texte": "Dis-le en commentaire, et enregistre ce post."
+    }
+  ]
+}

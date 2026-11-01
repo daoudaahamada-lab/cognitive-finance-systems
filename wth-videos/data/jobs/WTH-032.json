@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-032",
+  "date": "2026-10-30",
+  "heure": "13:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1NWdPL22-jYTNT8Rrk7sHKPyNK-igow8H",
+        "public_id": "WTH-V2-Pro-032-01",
+        "asset_folder": "WTH-V2/WTH-032",
+        "display_name": "WTH-V2-Pro-032-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-032"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1zgD3RYMUfOUE1vqsI1WgCsmFsbB4NwVj",
+        "public_id": "WTH-V2-Pro-032-02",
+        "asset_folder": "WTH-V2/WTH-032",
+        "display_name": "WTH-V2-Pro-032-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-032"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1E10mF3xoVGLaMkjqK4KB3S-wD-FQ85Ky",
+        "public_id": "WTH-V2-Pro-032-03",
+        "asset_folder": "WTH-V2/WTH-032",
+        "display_name": "WTH-V2-Pro-032-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-032"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=12fPmo1AgVmhnj5MA8Y-HwgDEHRoENbmA",
+        "public_id": "WTH-V2-Pro-032-04",
+        "asset_folder": "WTH-V2/WTH-032",
+        "display_name": "WTH-V2-Pro-032-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-032"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1mFC4HxFiGxoa0i53dKnbndAH-S4x_AhE",
+        "public_id": "WTH-V2-Pro-032-05",
+        "asset_folder": "WTH-V2/WTH-032",
+        "display_name": "WTH-V2-Pro-032-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-032"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1qcNrQiZT5D2p9yqXAtDY1AMDZl3ymIn9",
+        "public_id": "WTH-V2-Pro-032-06",
+        "asset_folder": "WTH-V2/WTH-032",
+        "display_name": "WTH-V2-Pro-032-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-032"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1jE2N4_0NcL0ZL7vzGBNeRsxoueQMPv0w",
+        "public_id": "WTH-V2-Pro-032-07",
+        "asset_folder": "WTH-V2/WTH-032",
+        "display_name": "WTH-V2-Pro-032-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-032"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1NnhxKJYJ_8wIh6GqwCd9p6GBXjWrWzTh",
+        "public_id": "WTH-V2-Pro-032-08",
+        "asset_folder": "WTH-V2/WTH-032",
+        "display_name": "WTH-V2-Pro-032-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-032"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1lHCcdyIf4NzBFoIzDEGO5LsXgiGKcPuJ",
+        "public_id": "WTH-V2-Pro-032-09",
+        "asset_folder": "WTH-V2/WTH-032",
+        "display_name": "WTH-V2-Pro-032-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-032"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "L'IA financière devrait pouvoir dire « je ne sais pas ».",
+      "args": {
+        "blogId": "6791889",
+        "id": "386579142",
+        "uuid": "-2196560663484743135",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-30T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Investis dans l’immobilier dès 100 €. »\\n\\n4 erreurs quand un investissement se dit « accessible ».\\n\\nTu as déjà investi avec un petit ticket ? Dans quoi ? Raconte en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-032-01.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-032-02.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-032-03.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-032-04.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-032-05.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-032-06.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-032-07.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-032-08.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-032-09.jpg\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"« Investis dans l’immobilier dès 100 €. »\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "L'IA financière devrait pouvoir dire « je ne sais pas ».",
+      "args": {
+        "blogId": "6791889",
+        "id": "386579634",
+        "uuid": "7110419009407893928",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-30T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Investis dans l’immobilier dès 100 €. »\\n\\n4 erreurs quand un investissement se dit « accessible ».\\n\\nTu as déjà investi avec un petit ticket ? Dans quoi ? Raconte en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "L'IA financière devrait pouvoir dire « je ne sais pas ».",
+      "args": {
+        "blogId": "6791889",
+        "id": "386579369",
+        "uuid": "-7586191361712240400",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-30T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Investis dans l’immobilier dès 100 €. »\\n\\n4 erreurs quand un investissement se dit « accessible ».\\n\\nTu as déjà investi avec un petit ticket ? Dans quoi ? Raconte en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-032-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-008",
+  "date": "2026-10-22",
+  "heure": "13:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1Gr3r2oT-kJftbNLmzWaTrmt9VVprQunb",
+        "public_id": "WTH-V2-Pro-008-01",
+        "asset_folder": "WTH-V2/WTH-008",
+        "display_name": "WTH-V2-Pro-008-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-008"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=14604fWdcFGAwmNcM-zX_aLm4OFBCo7Ib",
+        "public_id": "WTH-V2-Pro-008-02",
+        "asset_folder": "WTH-V2/WTH-008",
+        "display_name": "WTH-V2-Pro-008-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-008"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1SK4kb2G2kwVuYanZDXC_AqhaODhd2dwd",
+        "public_id": "WTH-V2-Pro-008-03",
+        "asset_folder": "WTH-V2/WTH-008",
+        "display_name": "WTH-V2-Pro-008-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-008"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1AYQ7_D1XQbk7kDXp90xOpifVuuUh-eUC",
+        "public_id": "WTH-V2-Pro-008-04",
+        "asset_folder": "WTH-V2/WTH-008",
+        "display_name": "WTH-V2-Pro-008-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-008"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1U-c0O5oO8giEeJ4bqK8fnaxMsorCw0j1",
+        "public_id": "WTH-V2-Pro-008-05",
+        "asset_folder": "WTH-V2/WTH-008",
+        "display_name": "WTH-V2-Pro-008-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-008"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1d5D0g7MfrEfFfYBEk2GzsMZVjEC4L3oF",
+        "public_id": "WTH-V2-Pro-008-06",
+        "asset_folder": "WTH-V2/WTH-008",
+        "display_name": "WTH-V2-Pro-008-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-008"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1TUmfyf5SJ7A9MZjGPuMSo9NzlO4cqQth",
+        "public_id": "WTH-V2-Pro-008-07",
+        "asset_folder": "WTH-V2/WTH-008",
+        "display_name": "WTH-V2-Pro-008-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-008"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1b2zb7E8urHMabCKSOYnKnGQhfxkssPCq",
+        "public_id": "WTH-V2-Pro-008-08",
+        "asset_folder": "WTH-V2/WTH-008",
+        "display_name": "WTH-V2-Pro-008-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-008"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1eKx1APlPImeAZN8u7mBPugRMgEgNBhLL",
+        "public_id": "WTH-V2-Pro-008-09",
+        "asset_folder": "WTH-V2/WTH-008",
+        "display_name": "WTH-V2-Pro-008-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-008"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "Une fintech peut-elle remplacer un conseiller ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386573470",
+        "uuid": "1419220126696820289",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-22T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Pourquoi ta banque ne voit qu’une partie de ton patrimoine\\n\\nEt pourquoi c’est un problème quand on te conseille.\\n\\nCombien d’établissements gèrent une partie de ton argent ? Réponds en commentaire. Le chiffre surprend souvent.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-008-01.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-008-02.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-008-03.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-008-04.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-008-05.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-008-06.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-008-07.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-008-08.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-008-09.jpg\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Pourquoi ta banque ne voit qu’une partie de ton patrimoine\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "Une fintech peut-elle remplacer un conseiller ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386573866",
+        "uuid": "8819135893349224101",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-22T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Pourquoi ta banque ne voit qu’une partie de ton patrimoine\\n\\nEt pourquoi c’est un problème quand on te conseille.\\n\\nCombien d’établissements gèrent une partie de ton argent ? Réponds en commentaire. Le chiffre surprend souvent.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "Une fintech peut-elle remplacer un conseiller ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386573587",
+        "uuid": "4319031778910487170",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-22T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Pourquoi ta banque ne voit qu’une partie de ton patrimoine\\n\\nEt pourquoi c’est un problème quand on te conseille.\\n\\nCombien d’établissements gèrent une partie de ton argent ? Réponds en commentaire. Le chiffre surprend souvent.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-008-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-012",
+  "date": "2026-10-23",
+  "heure": "19:30",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1F2YTohSV9v2Ba3spCo7FF75MQ7gNOfYl",
+        "public_id": "WTH-V2-Pro-012-01",
+        "asset_folder": "WTH-V2/WTH-012",
+        "display_name": "WTH-V2-Pro-012-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-012"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1fqy0Q0bB8RA2ydAUjgXlIvqtkZFjsRWZ",
+        "public_id": "WTH-V2-Pro-012-02",
+        "asset_folder": "WTH-V2/WTH-012",
+        "display_name": "WTH-V2-Pro-012-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-012"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1giEBTLSXSSKsRe_diHfNPaZ7nde1bkxL",
+        "public_id": "WTH-V2-Pro-012-03",
+        "asset_folder": "WTH-V2/WTH-012",
+        "display_name": "WTH-V2-Pro-012-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-012"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1uWJp0od8wcVs_7VEGCGd-cbVYUM7Cx0W",
+        "public_id": "WTH-V2-Pro-012-04",
+        "asset_folder": "WTH-V2/WTH-012",
+        "display_name": "WTH-V2-Pro-012-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-012"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1uY-3ufYHgNn-IOMbJU8NOPkFpF4sdE2p",
+        "public_id": "WTH-V2-Pro-012-05",
+        "asset_folder": "WTH-V2/WTH-012",
+        "display_name": "WTH-V2-Pro-012-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-012"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=19BybAADRTb4UTtz63O6BhRnlYe-ExXBx",
+        "public_id": "WTH-V2-Pro-012-06",
+        "asset_folder": "WTH-V2/WTH-012",
+        "display_name": "WTH-V2-Pro-012-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-012"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1GrpHsxviBQTY3_E1h2qjufPpwcj44Xus",
+        "public_id": "WTH-V2-Pro-012-07",
+        "asset_folder": "WTH-V2/WTH-012",
+        "display_name": "WTH-V2-Pro-012-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-012"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1CTVj4ep9FrzitkE1ssuafE_9QvABzE6s",
+        "public_id": "WTH-V2-Pro-012-08",
+        "asset_folder": "WTH-V2/WTH-012",
+        "display_name": "WTH-V2-Pro-012-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-012"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1kbXQowzTvzjIyndSzxGnZUxD5hZlh64J",
+        "public_id": "WTH-V2-Pro-012-09",
+        "asset_folder": "WTH-V2/WTH-012",
+        "display_name": "WTH-V2-Pro-012-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-012"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "Quand tu compares deux offres, compare la même chose.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386574130",
+        "uuid": "-8976297854708791785",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-23T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Ton meilleur mois n’est pas ton budget\\n\\n4 erreurs quand tes revenus varient.\\n\\nTes revenus sont fixes ou variables ? Dis-le en commentaire, et enregistre ce post pour appliquer la méthode.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-012-01.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-012-02.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-012-03.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-012-04.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-012-05.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-012-06.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-012-07.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-012-08.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-012-09.jpg\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Ton meilleur mois n’est pas ton budget\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "Quand tu compares deux offres, compare la même chose.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386574531",
+        "uuid": "8993044548096771744",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-23T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Ton meilleur mois n’est pas ton budget\\n\\n4 erreurs quand tes revenus varient.\\n\\nTes revenus sont fixes ou variables ? Dis-le en commentaire, et enregistre ce post pour appliquer la méthode.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "Quand tu compares deux offres, compare la même chose.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386574338",
+        "uuid": "-3225064947335085497",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-23T19:30:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Ton meilleur mois n’est pas ton budget\\n\\n4 erreurs quand tes revenus varient.\\n\\nTes revenus sont fixes ou variables ? Dis-le en commentaire, et enregistre ce post pour appliquer la méthode.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-012-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

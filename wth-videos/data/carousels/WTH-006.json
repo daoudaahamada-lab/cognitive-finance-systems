@@ -1,0 +1,65 @@
+{
+  "id": "WTH-006",
+  "famille": "Argent au quotidien",
+  "format": "Mistakes",
+  "accroche": "Ton solde n’est pas ton budget",
+  "sujet": "Le solde affiché ne tient pas toujours compte des dépenses qui arrivent.",
+  "legende": "Ton solde n’est pas ton budget\n\n4 erreurs qu’on fait tous en regardant son compte.\n\nTu regardes ton solde combien de fois par jour ? Enregistre ce post et fais le calcul ce soir.",
+  "hashtags": "#WealthTechHorizon #Argent #Budget #Épargne",
+  "slides": [
+    {
+      "n": 1,
+      "fichier": "WTH-006-01.png",
+      "titre": "Ton solde n’est pas ton budget",
+      "texte": "4 erreurs qu’on fait tous en regardant son compte."
+    },
+    {
+      "n": 2,
+      "fichier": "WTH-006-02.png",
+      "titre": "Le piège du chiffre à l’écran",
+      "texte": "Ton appli affiche 800 €. Tu te sens à l’aise. Mais ce chiffre ne dit rien de ce qui va sortir demain. Un solde, c’est une photo. Un budget, c’est un film."
+    },
+    {
+      "n": 3,
+      "fichier": "WTH-006-03.png",
+      "titre": "Erreur 1 : oublier les prélèvements à venir",
+      "texte": "Exemple : 800 € sur le compte, 600 € de prélèvements prévus d’ici la fin du mois. Ce que tu peux vraiment dépenser : 200 €."
+    },
+    {
+      "n": 4,
+      "fichier": "WTH-006-04.png",
+      "titre": "Erreur 2 : oublier les paiements différés",
+      "texte": "Carte à débit différé, paiement en plusieurs fois : l’achat est fait, mais l’argent n’est pas encore parti. Ton solde paraît plus haut qu’il ne l’est."
+    },
+    {
+      "n": 5,
+      "fichier": "WTH-006-05.png",
+      "titre": "Erreur 3 : compter un virement pas encore arrivé",
+      "texte": "Un remboursement « en cours » ou un salaire attendu n’est pas encore à toi. Tant qu’il n’est pas crédité, ne le dépense pas."
+    },
+    {
+      "n": 6,
+      "fichier": "WTH-006-06.png",
+      "titre": "Erreur 4 : regarder le solde un seul jour",
+      "texte": "Le 2 du mois et le 28, ce n’est pas le même compte. Regarde plutôt le point bas du mois : c’est lui qui décide si tu passes à découvert."
+    },
+    {
+      "n": 7,
+      "fichier": "WTH-006-07.png",
+      "titre": "La méthode simple",
+      "texte": "Solde actuel − prélèvements à venir − paiements différés = ce que tu peux vraiment utiliser. Deux minutes, une fois par semaine."
+    },
+    {
+      "n": 8,
+      "fichier": "WTH-006-08.png",
+      "titre": "À retenir",
+      "texte": "Ne décide jamais d’une dépense sur le chiffre affiché. Décide sur ce qui restera après les échéances."
+    },
+    {
+      "n": 9,
+      "fichier": "WTH-006-09.png",
+      "titre": "Tu regardes ton solde combien de fois par jour ?",
+      "texte": "Enregistre ce post et fais le calcul ce soir."
+    }
+  ]
+}

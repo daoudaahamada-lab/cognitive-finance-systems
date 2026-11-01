@@ -1,0 +1,91 @@
+{
+ "format": {
+  "w": 1080, "h": 1920, "fps": 30, "duree_s": 14,
+  "son": "aucune voix : texte à l'écran ; piste audio silencieuse, la musique est ajoutée sur TikTok / Instagram",
+  "decoupage": "accroche 0-2 s ; 5 éléments de 2 s (2-12 s) ; fin 12-14 s (rappel du titre + mention + S'abonner)",
+  "identite": "ivoire #F6F0E4 et grille 36 px, encre #1E1416, cyan #19B3C7 / #0A7487 / #D3F0F6, rouge #C8102E seulement pour l'alerte ; Inter ; zones réservées : haut 160, bas 380, droite x > 940",
+  "marques": "noms des applis en texte sur une tuile de couleur proche de la marque, initiale ou pictogramme générique ; pas de reproduction des logos"
+ },
+ "shorts": [
+  {
+   "id": "S01",
+   "titre": "Mes 5 applis pour commencer à investir",
+   "procede": "Le dossier « Finances » du téléphone (comme sur l'écran de l'utilisateur) s'ouvre d'un coup ; chaque appli en jaillit, grandit au centre, montre en un geste ce qu'elle fait, puis se range en bas en pile. Fin : le dossier se referme avec les 5.",
+   "accroche": "Mon dossier « Finances », ouvert.",
+   "elements": [
+    {"nom": "Trade Republic", "couleur": "#1E1416", "role": "Actions et ETF, même avec de petits montants", "geste": "une pièce tombe dans un panier de 3 mini-courbes"},
+    {"nom": "Bitstack", "couleur": "#2F4BFF", "role": "J'arrondis mes achats en bitcoin", "geste": "4,60 € → 5,00 € : les 0,40 € filent dans une pièce ₿"},
+    {"nom": "Exodus", "couleur": "#2A1B6E", "role": "Mon coffre crypto : mes clés, chez moi", "geste": "une clé entre dans un coffre qui se ferme"},
+    {"nom": "Trust Wallet", "couleur": "#0500FF", "role": "Un portefeuille, plusieurs blockchains", "geste": "un portefeuille relie 3 petits réseaux"},
+    {"nom": "LiveCoinWatch", "couleur": "#3CC7C0", "role": "Je suis les cours, sans rien acheter", "geste": "une courbe se dessine sous une loupe"}
+   ],
+   "fin": "Ce n'est pas un conseil en investissement. Crypto : risque de perte totale.",
+   "legende": "Mon dossier « Finances » : les 5 applis que j'utilise pour investir petit à petit.\n\nTu en utilises lesquelles ? Dis-le en commentaire.\n\nCe n'est pas un conseil en investissement. Les crypto-actifs peuvent faire perdre tout le capital investi. Aucun lien commercial avec ces applis.\n\nAbonne-toi pour comprendre ton argent.",
+   "hashtags": ["#WealthTechHorizon", "#Investir", "#ETF", "#Bitcoin", "#Applis"]
+  },
+  {
+   "id": "S02",
+   "titre": "Mes 5 IA pour voir clair sur mon patrimoine",
+   "procede": "Une pile de papiers en désordre (relevés, contrats, factures). Le dossier « Productivity » s'ouvre ; chaque IA braque un faisceau sur la pile et en tire un objet net (un total, une source, un tableau, un contrat retrouvé, un rappel). Claude ouvre la série. Fin : la pile est devenue une fiche propre d'une page.",
+   "accroche": "Ma pile de papiers → 1 fiche claire.",
+   "elements": [
+    {"nom": "Claude", "couleur": "#D97757", "role": "Il résume mes relevés et repère mes frais", "geste": "le faisceau sort 3 lignes « frais » surlignées"},
+    {"nom": "Perplexity", "couleur": "#1E1416", "role": "Je vérifie une règle, sources à l'appui", "geste": "une règle + un lien « source » qui se coche"},
+    {"nom": "ChatGPT", "couleur": "#10A37F", "role": "Je simule mon budget mois par mois", "geste": "un tableau de 3 mois se remplit"},
+    {"nom": "Gemini", "couleur": "#4285F4", "role": "Je retrouve un contrat dans mes mails", "geste": "un mail s'ouvre et un PDF « Contrat » en sort"},
+    {"nom": "Alexa", "couleur": "#00A8E1", "role": "Chaque dimanche : « point budget »", "geste": "une cloche sonne sur un calendrier, dimanche entouré"}
+   ],
+   "fin": "Données anonymisées. Tu vérifies, tu décides.",
+   "legende": "5 IA, 1 pile de papiers, 1 fiche claire sur mon patrimoine.\n\nLaquelle tu utilises le plus ? Réponds en commentaire.\n\nJe n'y mets jamais de données qui permettent de m'identifier, et je vérifie toujours la source.\n\nAbonne-toi pour comprendre ton argent.",
+   "hashtags": ["#WealthTechHorizon", "#IA", "#Claude", "#Patrimoine", "#Budget"]
+  },
+  {
+   "id": "S03",
+   "titre": "Comment je crée mes vidéos éducatives",
+   "procede": "Une chaîne de montage horizontale qui traverse l'écran : une ampoule « idée » entre à gauche ; à chaque poste, un outil la transforme (texte, ondes de voix, images animées, nuage, calendrier) ; à droite sort un téléphone vertical qui joue une vidéo WealthTech Horizon.",
+   "accroche": "1 idée → 1 vidéo. Mes 5 outils.",
+   "elements": [
+    {"nom": "Claude", "couleur": "#D97757", "role": "Script, storyboard et animation", "geste": "l'ampoule devient une page de script puis une planche de 6 cases"},
+    {"nom": "ElevenLabs", "couleur": "#1E1416", "role": "La voix", "geste": "des ondes sonores sortent de la page"},
+    {"nom": "Remotion", "couleur": "#0B84F3", "role": "Le montage, écrit en code", "geste": "des formes s'animent dans un cadre vertical"},
+    {"nom": "Cloudinary", "couleur": "#3448C5", "role": "L'hébergement des vidéos", "geste": "le cadre monte dans un nuage"},
+    {"nom": "Metricool", "couleur": "#FB4D3D", "role": "La programmation des posts", "geste": "le nuage dépose la vidéo sur un calendrier à 17:00"}
+   ],
+   "fin": "Ta question devient ma prochaine vidéo.",
+   "legende": "Derrière chaque vidéo WealthTech Horizon : 5 outils, de l'idée au post programmé.\n\nUn sujet que tu veux voir expliqué ? Écris-le en commentaire : il devient peut-être la prochaine vidéo.\n\nAbonne-toi pour comprendre ton argent.",
+   "hashtags": ["#WealthTechHorizon", "#IA", "#Claude", "#CréationDeContenu", "#Coulisses"]
+  },
+  {
+   "id": "S04",
+   "titre": "Avant d'installer une appli crypto : 5 vérifs",
+   "procede": "Une appli crypto inconnue arrive sur l'écran, enfermée derrière 5 cadenas. Chaque vérification ouvre un cadenas (cyan, avec coche) ; si une vérif échoue, le cadenas reste rouge. Les 5 ouverts : l'appli descend dans le dossier.",
+   "accroche": "Nouvelle appli crypto ? 5 cadenas d'abord.",
+   "elements": [
+    {"nom": "Liste blanche AMF", "role": "Agréée MiCA (registre AMF) ?", "geste": "une loupe passe sur une liste, la ligne se coche"},
+    {"nom": "Liste noire AMF", "role": "Absente de la liste noire ?", "geste": "une liste rouge défile, le nom n'y est pas"},
+    {"nom": "Double authentification", "role": "2FA activée", "geste": "un code à 6 chiffres s'affiche sur un téléphone"},
+    {"nom": "Phrase de récupération", "role": "Sur papier, jamais en photo", "geste": "un appareil photo barré, une feuille pliée rangée"},
+    {"nom": "Frais", "role": "Frais d'achat ET de retrait lus", "geste": "deux étiquettes « achat » et « retrait » se retournent"}
+   ],
+   "fin": "Crypto : tu peux tout perdre. N'investis que ce que tu acceptes de perdre.",
+   "legende": "Avant d'installer une appli crypto, 5 vérifs en 2 minutes.\n\nTu en fais combien ? Dis-le en commentaire.\n\nCe n'est pas un conseil en investissement. Les crypto-actifs peuvent faire perdre tout le capital investi.\n\nAbonne-toi pour comprendre ton argent.",
+   "hashtags": ["#WealthTechHorizon", "#Crypto", "#Sécurité", "#MiCA", "#AMF"]
+  },
+  {
+   "id": "S05",
+   "titre": "5 prompts Claude pour ton budget",
+   "procede": "Une conversation qui défile : chaque prompt se tape dans la bulle de saisie, part, et la réponse arrive sous forme d'un objet visuel (camembert à 3 parts, liste d'abonnements avec total annuel, soustraction revenus − charges, fiche DIC en 3 lignes, 3 questions numérotées). Un compteur 1/5 → 5/5 en haut.",
+   "accroche": "5 prompts à copier pour ton budget.",
+   "elements": [
+    {"nom": "Prompt 1", "role": "« Classe mes dépenses : fixes, variables, plaisir »", "geste": "un camembert à 3 parts"},
+    {"nom": "Prompt 2", "role": "« Liste mes abonnements et leur coût par an »", "geste": "4 lignes et un total « / an »"},
+    {"nom": "Prompt 3", "role": "« Calcule mon reste à vivre »", "geste": "revenus − charges = reste"},
+    {"nom": "Prompt 4", "role": "« Résume ce DIC : frais, risque, durée »", "geste": "une fiche de 3 lignes"},
+    {"nom": "Prompt 5", "role": "« Prépare 3 questions pour mon banquier »", "geste": "3 questions numérotées"}
+   ],
+   "fin": "Données anonymisées. Tu vérifies, tu décides.",
+   "legende": "5 prompts à copier dans Claude pour reprendre ton budget en main.\n\nEnregistre la vidéo et teste-les ce soir.\n\nJe n'y mets jamais de données qui permettent de m'identifier, et je vérifie chaque chiffre.\n\nAbonne-toi pour comprendre ton argent.",
+   "hashtags": ["#WealthTechHorizon", "#Claude", "#IA", "#Budget", "#Prompts"]
+  }
+ ]
+}

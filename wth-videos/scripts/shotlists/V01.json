@@ -1,0 +1,221 @@
+{
+  "video": "V01",
+  "direction": "A — Noir galerie (fond #0A0A0B, grille 36 px, verre + halo, accent rouge)",
+  "notes": [
+    "Adaptation au style A de build/V01/shotlist.json (recherche du 19/10), revue après les critiques n° 1 et n° 2 (20/10).",
+    "Chaque plan et chaque événement est calé sur le début d'un mot : « at » = mot cherché à partir du début du plan (ou index de mot). « delay » / « fill_delay » (images) seulement pour la suite d'un même geste (carte de fin, pastille qui se remplit).",
+    "Un héros arrive sur le mot qui le nomme (« problème », « outil », « l’adéquation »), pas sur le mot-outil qui ouvre le groupe.",
+    "scale = multiple du cadrage par défaut (boîte de contenu ajustée dans 720 x 600) ; center = position à l'écran (px) du centre de la boîte de contenu, ou focus = point de la boîte (fractions) posé sur l'ancre (540, 800).",
+    "L'objet opaque reste au-dessus de y = 1140 (bande de sous-titres) et hors de la colonne d'icônes (x > 940) : pipeline/motion.py le vérifie à chaque cadrage et réduit l'échelle sinon.",
+    "anchor (événement) = point de la boîte de contenu (fractions) : l'élément suit l'objet ; pos = coordonnées écran fixes (px).",
+    "Passage d'un héros au suivant : l'entrant 0,7 -> 1 en 11 images, opaque dès sa 1re image (on ne voit jamais le sortant à travers) ; le sortant 1 -> 0,8 et effacé en 4,5 images : pas de fondu enchaîné. enter_offset / exit_offset varient quelques passages (poussée latérale, montée, chute de l'ancre).",
+    "Les entrées « chapter » : le héros précédent rétrécit vers la place du protagoniste rouge pendant que la rangée des 3 étapes grandit au centre (« Numéro N » de la référence) ; au plan suivant, la rangée s'efface sur place derrière le héros et le rappel apparaît en haut.",
+    "Règle de série : chaque vidéo n'utilise que les illustrations de SON carrousel (ici WTH-003-*) et les génériques ; pipeline/motion.py refuse les autres.",
+    "Pour les 14 autres vidéos : au moins un élément qui persiste ou se transforme d'une composition à la suivante toutes les 3-4 transitions (étiquettes qui restent, « 1 PAGE » qui devient S’ABONNER, rangée d'étapes), et des décalages d'entrée qui ont un sens (chute = poids, poussée = suite)."
+  ],
+  "captions": {
+    "why": "Découpes imposées : expressions figées (« politique interne », « valent mieux ») ; la chute garde sa virgule : « Avant | tu arrives | en ayant cherché », « Après | tu arrives | en ayant compris », chaque coupe tombe sur le basculement AVANT / APRÈS.",
+    "groups": [
+      ["et ta politique interne", "s’appliquent"],
+      ["Dix minutes", "de relecture", "valent mieux", "qu’une erreur", "devant le client"],
+      ["Avant", "tu arrives", "en ayant cherché"],
+      ["Après", "tu arrives", "en ayant compris"]
+    ]
+  },
+  "shots": [
+    {
+      "id": "S01", "at": "Client", "asset": "WTH-003-01", "enter": "cut", "scale": 1.15, "center": [528, 770],
+      "exit_offset": [-180, 0],
+      "why": "Accroche, image 0 = vignette : l'horloge à 9 h et l'enjeu (RDV CLIENT). La poussée vers le cadran démarre dès l'image 0 ; « 9 » : grosse étiquette rouge 9 h ; puis l'image se tient jusqu'au passage sur « L’IA ».",
+      "events": [
+        {"at": "Client", "do": "pill", "anchor": [0.5, -0.1], "text": "RDV CLIENT", "size": 36, "pop": false},
+        {"at": "Client", "do": "move", "scale": 1.32, "center": [474, 744]},
+        {"at": "9", "do": "pill", "anchor": [0.14, 0.3], "text": "9 h", "size": 56, "style": "fill", "case": "keep"}
+      ]
+    },
+    {
+      "id": "S02", "at": "L’IA", "asset": "AI", "scale": 1.0, "center": [540, 800], "enter_offset": [180, 0],
+      "why": "« L’IA prépare » : la tête IA pousse l'horloge vers la gauche ; indicateur de saisie sur « prépare ».",
+      "events": [
+        {"at": "prépare", "do": "typing", "anchor": [0.86, 0.22]}
+      ]
+    },
+    {
+      "id": "S03", "at": "tu", "asset": "WTH-003-07", "scale": 1.75, "focus": [0.76, 0.52],
+      "why": "« tu décides » : gros plan sur le levier ; cercle rouge autour du pommeau sur « décides » (repris à l'étape 3).",
+      "events": [
+        {"at": "décides", "do": "ring", "anchor": [0.91, 0.372], "r": 108, "stroke": 8}
+      ]
+    },
+    {
+      "id": "S04", "at": "problème", "asset": "WTH-003-02", "scale": 1.25, "center": [490, 700],
+      "why": "« Le vrai problème » : le puzzle arrive sur « problème », plan serré qui remplit la scène de x 40 à 940 (rien sous les icônes), recul sur « rendez-vous » ; les 4 sources dispersées (CRM, mails, PDF, notes).",
+      "events": [
+        {"at": "rendez-vous", "do": "move", "scale": 1.0, "center": [540, 790]},
+        {"at": "temps", "do": "pill", "pos": [222, 498], "text": "CRM"},
+        {"at": "part", "do": "pill", "pos": [836, 498], "text": "MAILS"},
+        {"at": "dans", "do": "pill", "pos": [222, 1104], "text": "PDF"},
+        {"at": "recherche", "do": "pill", "pos": [836, 1104], "text": "NOTES"}
+      ]
+    },
+    {
+      "id": "S05", "at": "pas", "asset": "WTH-003-08", "scale": 1.1, "center": [540, 800],
+      "why": "« pas dans le conseil » : l'espace de rendez-vous s'éteint sur « conseil ».",
+      "events": [
+        {"at": "conseil", "do": "tone", "brightness": 0.42, "saturate": 0.35, "dur": 12}
+      ]
+    },
+    {
+      "id": "C1", "at": "Première", "chapter": 0,
+      "why": "Chapitre 1 : sur « Première », le salon éteint rétrécit vers la 1re place pendant que la rangée de 3 cercles grandit au centre et que le protagoniste rouge y apparaît."
+    },
+    {
+      "id": "S06", "at": "tu", "asset": "WTH-003-03", "scale": 1.0, "center": [540, 810],
+      "why": "Étape 1 : le coffre de dossiers ; cadre de limite qui se referme sur « limites », puis poussée (ancrée en bas, vers le haut) sur les dossiers et lecture.",
+      "events": [
+        {"at": "limites", "do": "brackets", "rect": [0.09, 0.07, 0.87, 0.41]},
+        {"at": "Elle", "do": "move", "scale": 1.32, "center": [490, 744]},
+        {"at": "lit", "do": "scan", "rect": [0.11, 0.09, 0.85, 0.39], "end": "dossier", "until": "client"}
+      ]
+    },
+    {
+      "id": "S07", "at": "outil", "asset": "WTH-003-09", "scale": 1.0, "center": [540, 820],
+      "why": "« un outil validé par ton cabinet » : la mallette ouverte à compartiments (la boîte à outils du cabinet, image du carrousel V01) ; pastille validée sur « validé », étiquette CABINET sur le couvercle sur « cabinet ».",
+      "events": [
+        {"at": "validé", "do": "badge", "anchor": [0.86, 0.06], "d": 96, "icon": "tick", "style": "fill"},
+        {"at": "cabinet", "do": "pill", "anchor": [0.5, 0.2], "text": "Cabinet", "size": 40}
+      ]
+    },
+    {
+      "id": "S08", "at": "Aucune", "asset": "GLOBE", "scale": 1.1, "center": [540, 800],
+      "why": "IA grand public = ouverte au monde entier : le globe ; croix rouge dès « Aucune », étiquette sur « IA », le globe s'assombrit sur « non ».",
+      "events": [
+        {"at": "Aucune", "do": "badge", "anchor": [0.86, 0.1], "d": 112, "icon": "cross", "style": "fill"},
+        {"at": "IA", "do": "pill", "pos": [540, 400], "text": "IA grand public", "size": 40},
+        {"at": "non", "do": "tone", "brightness": 0.6, "saturate": 0.5, "dur": 12}
+      ]
+    },
+    {
+      "id": "S09", "at": "Le", "asset": "FINGERPRINT", "scale": 1.0, "center": [540, 810],
+      "why": "Données personnelles = empreinte ; RGPD puis POLITIQUE INTERNE, qui se remplissent et se cochent sur « s’appliquent ».",
+      "events": [
+        {"at": "RGPD", "do": "pill", "anchor": [0.84, 0.07], "text": "RGPD", "size": 40, "fill_at": "s’appliquent"},
+        {"at": "politique", "do": "pill", "anchor": [0.72, 0.27], "text": "Politique interne", "size": 34, "fill_at": "s’appliquent"}
+      ]
+    },
+    {
+      "id": "C2", "at": "Ensuite", "chapter": 1,
+      "why": "Chapitre 2 : l'empreinte rétrécit vers la 2e place, la rangée grandit au centre, le protagoniste glisse de la 1re à la 2e place."
+    },
+    {
+      "id": "S10", "at": "brief", "asset": "WTH-003-04", "scale": 1.0, "center": [540, 810], "exit_offset": [0, -120],
+      "why": "Étape 2 : la feuille d'une page arrive sur « brief » ; une coche par rubrique sur « structuré » (elles suivent la pente de la reliure), « 1 PAGE » ; sur « Mais » la page s'éteint et les coches deviennent de simples contours (ça a l'air vérifié), l'IA écrit sur « IA ».",
+      "events": [
+        {"at": "structuré", "do": "dots", "anchors": [[0.2, 0.13], [0.245, 0.29], [0.29, 0.45], [0.335, 0.615], [0.38, 0.77]], "d": 40, "stagger": 3, "icon": "tick", "flip_at": "Mais"},
+        {"at": "page", "do": "pill", "anchor": [0.9, 0.06], "text": "1 page", "style": "fill"},
+        {"at": "Mais", "do": "tone", "brightness": 0.6, "saturate": 0.6, "dur": 12},
+        {"at": "IA", "do": "typing", "anchor": [0.92, 0.9]}
+      ]
+    },
+    {
+      "id": "S11", "at": "réponse", "asset": "WAVE", "scale": 1.08, "center": [540, 810], "enter_offset": [0, 120],
+      "why": "« une réponse fluide… et fausse » : la vague monte sur « réponse », coche qui a l'air juste sur « fluide », remplacée par une croix sur « fausse ».",
+      "events": [
+        {"at": "fluide…", "do": "badge", "anchor": [0.74, 0.34], "d": 96, "icon": "tick", "style": "outline", "flip_at": "fausse", "flip_icon": "cross", "flip_style": "fill"},
+        {"at": "fausse", "do": "tone", "brightness": 0.62, "saturate": 0.3, "dur": 12},
+        {"at": "fausse", "do": "tilt", "deg": -4}
+      ]
+    },
+    {
+      "id": "S12", "at": "Exige", "asset": "WTH-003-05", "scale": 1.25, "center": [490, 790], "enter_offset": [0, -150],
+      "why": "Chaque ligne ancrée à une source : l'ancre tombe en place sur « Exige » (poids), recul sur « renvoie » pendant qu'un trait rouge part de l'anneau de l'ancre vers le haut ; la source et la date se posent au bout du trait (ancré = sourcé).",
+      "events": [
+        {"at": "renvoie", "do": "move", "scale": 1.05, "center": [540, 820]},
+        {"at": "renvoie", "do": "leader", "anchor": [0.32, 0.05], "to": [520, 504], "draw": 12},
+        {"at": "document", "do": "pill", "pos": [736, 466], "text": "Source : bilan 2025", "glyph": "doc", "size": 34, "case": "keep"},
+        {"at": "date", "do": "pill", "pos": [736, 542], "text": "Date : 12/03/2026", "glyph": "cal", "size": 34, "case": "keep"}
+      ]
+    },
+    {
+      "id": "S13", "at": "sans", "asset": "WTH-003-06", "scale": 1.05, "center": [540, 810],
+      "why": "Une info sans source = une question : la loupe arrive sur « sans » (source et date restent lisibles 1,2 s), grand « ? » rouge sur « question », qui bascule nettement (20°) sur « client ».",
+      "events": [
+        {"at": "question", "do": "qmark", "anchor": [0.225, 0.37], "size": 190, "tilt_at": "client", "tilt": 20}
+      ]
+    },
+    {
+      "id": "C3", "at": "Dernière", "chapter": 2,
+      "why": "Chapitre 3 : la loupe rétrécit vers la 3e place, la rangée grandit au centre, le protagoniste glisse à la 3e place sur « Dernière »."
+    },
+    {
+      "id": "S14", "at": "relis", "asset": "WTH-003-07", "scale": 1.0, "center": [540, 790],
+      "why": "Étape 3 : stylo + levier (rappel de « tu décides ») ; RELIS, CORRIGE, DÉCIDE s'ajoutent en contour crème (liste qui se construit) ; cercle rouge sur la plume sur « corrige », puis sur le pommeau du levier sur « décide », comme à l'accroche.",
+      "events": [
+        {"at": "relis", "do": "chips", "pos": [540, 1100], "texts": ["Relis", "Corrige", "Décide"], "size": 36, "fill_at": ["relis", "corrige", "décide"]},
+        {"at": "corrige", "do": "ring", "anchor": [0.095, 0.7], "r": 58, "stroke": 7, "until": "décide"},
+        {"at": "décide", "do": "ring", "anchor": [0.91, 0.372], "r": 62, "stroke": 7}
+      ]
+    },
+    {
+      "id": "S15", "at": "L’IA", "asset": "AI", "scale": 1.35, "center": [520, 735],
+      "why": "« L’IA prépare. » : plus près de la tête, même indicateur de saisie qu'au début. « Toi » : l'IA recule et s'éteint, une étiquette rouge TOI s'avance ; CONSEIL s'ajoute sur « conseil ».",
+      "events": [
+        {"at": "prépare", "do": "typing", "anchor": [0.86, 0.22], "until": "Toi"},
+        {"at": "Toi", "do": "move", "scale": 1.0, "center": [540, 840]},
+        {"at": "Toi", "do": "tone", "brightness": 0.5, "saturate": 0.5, "dur": 12},
+        {"at": "Toi", "do": "pill", "pos": [540, 440], "text": "Toi", "size": 48, "style": "fill", "until": "l’adéquation"},
+        {"at": "conseil", "do": "pill", "pos": [540, 944], "text": "Conseil", "size": 36, "until": "Dix"}
+      ]
+    },
+    {
+      "id": "S16", "at": "l’adéquation", "asset": "TARGET", "scale": 1.0, "center": [540, 640],
+      "why": "Ce que tu gardes : la cible arrive sur « l’adéquation » (au profil du client), sous elle la liste CONSEIL / ADÉQUATION / RESPONSABILITÉ ; la dernière se remplit de rouge et se coche juste après le mot.",
+      "events": [
+        {"at": "l’adéquation", "do": "pill", "pos": [540, 1022], "text": "Adéquation", "size": 36, "until": "Dix"},
+        {"at": "responsabilité", "do": "pill", "pos": [540, 1100], "text": "Responsabilité", "size": 36, "fill_at": "responsabilité", "fill_delay": 4}
+      ]
+    },
+    {
+      "id": "S17", "at": "Dix", "asset": "WTH-003-01", "scale": 1.1, "center": [540, 800], "enter_offset": [0, -160],
+      "why": "Comparaison en deux côtés : 10 min sur « Dix », secteur rouge de 8 h 50 à 9 h sur « minutes » ; sur « valent » l'horloge glisse à gauche et « 10 min » se coche ; sur « erreur », une étiquette ERREUR barrée d'une croix apparaît à droite (jamais de croix sur l'horloge).",
+      "events": [
+        {"at": "Dix", "do": "pill", "anchor": [0.9, 0.04], "text": "10 min", "style": "fill", "case": "keep", "tick_at": "valent"},
+        {"at": "minutes", "do": "sector", "anchor": [0.5856, 0.388], "rx": 0.197, "ry": 0.232, "a0": -150, "a1": -90, "draw": 14},
+        {"at": "valent", "do": "move", "scale": 0.78, "center": [350, 800]},
+        {"at": "erreur", "do": "pill", "pos": [790, 800], "text": "Erreur", "glyph": "cross", "size": 40}
+      ]
+    },
+    {
+      "id": "S18", "at": "Avant", "asset": "WTH-003-08", "scale": 1.1, "center": [540, 800],
+      "tone": {"brightness": 0.42, "saturate": 0.35},
+      "why": "Chute, un seul objet qui change d'état : AVANT, le salon éteint et les 4 sources dispersées (rappel de « recherche ») ; APRÈS, elles se rassemblent en « 1 PAGE », le salon se rallume, coche sur « compris ». La rangée d'étapes sort sur « Avant ».",
+      "events": [
+        {"at": "Avant", "do": "pill", "pos": [540, 470], "text": "AVANT", "size": 40, "flip_at": "Après", "flip_text": "APRÈS", "flip_style": "fill"},
+        {"at": "cherché", "do": "pill", "pos": [250, 570], "text": "CRM", "go_at": "Après", "go_to": [540, 1080]},
+        {"at": "cherché", "do": "pill", "pos": [830, 570], "text": "MAILS", "delay": 2, "go_at": "Après", "go_to": [540, 1080]},
+        {"at": "cherché", "do": "pill", "pos": [250, 1040], "text": "PDF", "delay": 4, "go_at": "Après", "go_to": [540, 1080]},
+        {"at": "cherché", "do": "pill", "pos": [830, 1040], "text": "NOTES", "delay": 6, "go_at": "Après", "go_to": [540, 1080]},
+        {"at": "Après", "do": "tone", "brightness": 1, "saturate": 1, "dur": 12},
+        {"at": "Après", "do": "pill", "pos": [540, 1080], "text": "1 page", "style": "fill", "delay": 8},
+        {"at": "compris", "do": "badge", "anchor": [0.5, 0.12], "d": 88, "icon": "tick", "style": "fill"}
+      ]
+    },
+    {
+      "id": "S20", "at": "Abonne-toi", "asset": "BELL", "scale": 1.0, "center": [540, 770], "enter_offset": [0, -200],
+      "why": "Carte de fin : la sonnette tombe en place, le bouton rouge S’ABONNER, le curseur arrive et appuie sur la marge du bouton (la sonnette sonne), signature WealthTech Horizon ; la sonnette sonne encore sur « argent » ; le bouton reste rouge jusqu'à la dernière image.",
+      "events": [
+        {"at": "Abonne-toi", "do": "shake", "delay": 16, "deg": 6, "dur": 14},
+        {"at": "argent", "do": "shake", "deg": 6, "dur": 14}
+      ]
+    }
+  ],
+  "steps": {
+    "count": 3, "y": 250, "cy": 800,
+    "hide": "Avant"
+  },
+  "end_card": {
+    "button": {"at": "Abonne-toi", "text": "S’ABONNER", "pos": [540, 1112], "press_at": "Abonne-toi", "press_delay": 16},
+    "cursor": {"at": "Abonne-toi", "delay": 6, "start": [880, 1190], "to": [688, 1138], "glide": 10},
+    "wordmark": {"at": "comprendre", "text": "WealthTech Horizon", "pos": [540, 430], "size": 46}
+  }
+}

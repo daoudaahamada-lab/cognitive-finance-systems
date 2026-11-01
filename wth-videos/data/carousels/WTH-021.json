@@ -1,0 +1,65 @@
+{
+  "id": "WTH-021",
+  "famille": "IA & conseil",
+  "format": "List",
+  "accroche": "La meilleure info du dossier client n’est pas dans le dossier",
+  "sujet": "Une fiche client figée manque parfois les faits qui changent les priorités.",
+  "legende": "La meilleure info du dossier client n’est pas dans le dossier\n\n5 changements de vie qui doivent tout faire revoir.\n\nCGP : quel changement de vie tes clients oublient de te signaler ? Réponds en commentaire.",
+  "hashtags": "#WealthTechHorizon #IA #CGP #GestionDePatrimoine",
+  "slides": [
+    {
+      "n": 1,
+      "fichier": "WTH-021-01.png",
+      "titre": "La meilleure info du dossier client n’est pas dans le dossier",
+      "texte": "5 changements de vie qui doivent tout faire revoir."
+    },
+    {
+      "n": 2,
+      "fichier": "WTH-021-02.png",
+      "titre": "Le problème de la fiche figée",
+      "texte": "Un dossier client est une photo prise à une date. La vie, elle, continue. Un conseil fondé sur une situation dépassée peut devenir inadapté."
+    },
+    {
+      "n": 3,
+      "fichier": "WTH-021-03.png",
+      "titre": "1. Mariage, PACS, séparation",
+      "texte": "Régime matrimonial, clause bénéficiaire, donation, transmission : tout peut être à revoir."
+    },
+    {
+      "n": 4,
+      "fichier": "WTH-021-04.png",
+      "titre": "2. Une naissance",
+      "texte": "Nouvel objectif d’épargne, protection du foyer, prévoyance, clause bénéficiaire à mettre à jour."
+    },
+    {
+      "n": 5,
+      "fichier": "WTH-021-05.png",
+      "titre": "3. Un changement professionnel",
+      "texte": "Création d’entreprise, perte d’emploi, promotion, départ à la retraite : revenus, fiscalité et besoin de liquidités changent."
+    },
+    {
+      "n": 6,
+      "fichier": "WTH-021-06.png",
+      "titre": "4. Un achat ou une vente immobilière",
+      "texte": "Le patrimoine se recompose, l’endettement évolue, de nouvelles liquidités peuvent apparaître."
+    },
+    {
+      "n": 7,
+      "fichier": "WTH-021-07.png",
+      "titre": "5. Un déménagement, surtout à l’étranger",
+      "texte": "Fiscalité, résidence, produits accessibles : un départ hors de France change beaucoup de choses."
+    },
+    {
+      "n": 8,
+      "fichier": "WTH-021-08.png",
+      "titre": "La question à poser à chaque RDV",
+      "texte": "« Qu’est-ce qui a changé depuis notre dernier échange ? » Simple, ouverte, et souvent la plus utile de l’entretien."
+    },
+    {
+      "n": 9,
+      "fichier": "WTH-021-09.png",
+      "titre": "CGP : quel changement de vie tes clients oublient de te signaler ?",
+      "texte": "Réponds en commentaire."
+    }
+  ]
+}

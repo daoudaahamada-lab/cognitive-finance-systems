@@ -1,0 +1,65 @@
+{
+  "id": "WTH-009",
+  "famille": "IA & conseil",
+  "format": "Mistakes",
+  "accroche": "Ton agent IA a préparé le brief. Il est fluide, complet… et une info est inventée.",
+  "sujet": "Un fait absent d'un dossier doit rester une question, pas devenir une réponse.",
+  "legende": "Ton agent IA a préparé le brief. Il est fluide, complet… et une info est inventée.\n\n4 erreurs à éviter avant ton RDV client.\n\nCGP : tu as déjà repéré une erreur dans un texte généré par IA ? Raconte en commentaire.",
+  "hashtags": "#WealthTechHorizon #IA #CGP #GestionDePatrimoine",
+  "slides": [
+    {
+      "n": 1,
+      "fichier": "WTH-009-01.png",
+      "titre": "Ton agent IA a préparé le brief. Il est fluide, complet… et une info est inventée.",
+      "texte": "4 erreurs à éviter avant ton RDV client."
+    },
+    {
+      "n": 2,
+      "fichier": "WTH-009-02.png",
+      "titre": "Le problème",
+      "texte": "Une IA générative est conçue pour produire une réponse plausible. Quand une donnée manque, elle peut la compléter avec aplomb. Dans un dossier patrimonial, c’est un risque."
+    },
+    {
+      "n": 3,
+      "fichier": "WTH-009-03.png",
+      "titre": "Erreur 1 : laisser l’IA combler les vides",
+      "texte": "Date de vente d’un bien, montant d’un contrat, intention du client : si l’info n’est pas dans le dossier, elle ne doit pas apparaître comme un fait."
+    },
+    {
+      "n": 4,
+      "fichier": "WTH-009-04.png",
+      "titre": "Erreur 2 : ne pas exiger de source",
+      "texte": "Chaque information doit renvoyer à un document : relevé, contrat, compte rendu, mail. Pas de source, pas de certitude."
+    },
+    {
+      "n": 5,
+      "fichier": "WTH-009-05.png",
+      "titre": "Erreur 3 : mélanger faits et hypothèses",
+      "texte": "« Le client prévoit de vendre » et « le client pourrait vendre », ce n’est pas la même chose. Le brief doit séparer ce qui est confirmé de ce qui est supposé."
+    },
+    {
+      "n": 6,
+      "fichier": "WTH-009-06.png",
+      "titre": "Erreur 4 : relire en diagonale",
+      "texte": "Un texte bien écrit inspire confiance. C’est justement là qu’il faut ralentir : chiffres, dates, noms, montants."
+    },
+    {
+      "n": 7,
+      "fichier": "WTH-009-07.png",
+      "titre": "La parade simple",
+      "texte": "Ajoute une rubrique fixe au brief : « Informations non confirmées ». Tout ce qui manque y va, sous forme de question à poser au client."
+    },
+    {
+      "n": 8,
+      "fichier": "WTH-009-08.png",
+      "titre": "À retenir",
+      "texte": "Une case vide vaut mieux qu’un fait fabriqué. Le client te pardonnera une question, pas une erreur sur sa situation."
+    },
+    {
+      "n": 9,
+      "fichier": "WTH-009-09.png",
+      "titre": "CGP : tu as déjà repéré une erreur dans un texte généré par IA ?",
+      "texte": "Raconte en commentaire."
+    }
+  ]
+}

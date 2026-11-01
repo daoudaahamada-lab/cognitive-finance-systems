@@ -1,0 +1,65 @@
+{
+  "id": "WTH-003",
+  "famille": "IA & conseil",
+  "format": "How-To",
+  "accroche": "Ton RDV client est à 9h. Comment le préparer avec l’IA en 5 étapes",
+  "sujet": "Il faut retrouver documents, décisions passées et points restés ouverts.",
+  "legende": "Ton RDV client est à 9h. Comment le préparer avec l’IA en 5 étapes\n\n(sans perdre le contrôle)\n\nTu prépares tes RDV comment aujourd’hui ? Dis-le en commentaire, et enregistre ce post pour ton prochain client.",
+  "hashtags": "#WealthTechHorizon #IA #CGP #GestionDePatrimoine",
+  "slides": [
+    {
+      "n": 1,
+      "fichier": "WTH-003-01.png",
+      "titre": "Ton RDV client est à 9h. Comment le préparer avec l’IA en 5 étapes",
+      "texte": "(sans perdre le contrôle)"
+    },
+    {
+      "n": 2,
+      "fichier": "WTH-003-02.png",
+      "titre": "Le vrai problème avant un RDV",
+      "texte": "Le temps ne part pas dans le conseil. Il part dans la recherche : dernier bilan, contrats, décisions prises, promesses faites, événements de vie. Tout est dispersé entre le CRM, les mails, les PDF et tes notes."
+    },
+    {
+      "n": 3,
+      "fichier": "WTH-003-03.png",
+      "titre": "Étape 1 : définis les sources autorisées",
+      "texte": "Uniquement les documents du dossier client, dans un outil validé par ton cabinet. Pas de données client dans une IA grand public non encadrée : le RGPD et ta politique interne s’appliquent."
+    },
+    {
+      "n": 4,
+      "fichier": "WTH-003-04.png",
+      "titre": "Étape 2 : demande un brief structuré d’une page",
+      "texte": "Cinq rubriques suffisent : situation actuelle, ce qui a changé depuis le dernier RDV, décisions et engagements passés, points restés ouverts, échéances à venir."
+    },
+    {
+      "n": 5,
+      "fichier": "WTH-003-05.png",
+      "titre": "Étape 3 : exige une source pour chaque info",
+      "texte": "Une IA peut produire une réponse fluide… et fausse. Chaque ligne du brief doit renvoyer à un document et une date. Une info sans source n’est pas une certitude : c’est une question à poser au client."
+    },
+    {
+      "n": 6,
+      "fichier": "WTH-003-06.png",
+      "titre": "Étape 4 : prépare les questions, pas les réponses",
+      "texte": "Demande à l’agent ce qui manque ou paraît incohérent. Exemple : la clause bénéficiaire a-t-elle été revue depuis le mariage ? C’est souvent là que le RDV prend de la valeur."
+    },
+    {
+      "n": 7,
+      "fichier": "WTH-003-07.png",
+      "titre": "Étape 5 : relis, corrige, décide",
+      "texte": "L’agent prépare. Le conseil, l’adéquation et la responsabilité restent les tiens. Dix minutes de relecture valent mieux qu’une erreur devant le client."
+    },
+    {
+      "n": 8,
+      "fichier": "WTH-003-08.png",
+      "titre": "Avant / après",
+      "texte": "Avant : tu arrives en ayant cherché. Après : tu arrives en ayant compris. Une page, des sources, des questions, et plus de temps pour écouter."
+    },
+    {
+      "n": 9,
+      "fichier": "WTH-003-09.png",
+      "titre": "Tu prépares tes RDV comment aujourd’hui ?",
+      "texte": "Dis-le en commentaire, et enregistre ce post pour ton prochain client."
+    }
+  ]
+}

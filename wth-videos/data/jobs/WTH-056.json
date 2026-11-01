@@ -1,0 +1,173 @@
+{
+  "carrousel": "WTH-056",
+  "date": "2026-11-07",
+  "heure": "13:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1wu3TPXVthHjVq2b0jiGWAQ6HNxqXX84I",
+        "public_id": "WTH-V2-Pro-056-01",
+        "asset_folder": "WTH-V2/WTH-056",
+        "display_name": "WTH-V2-Pro-056-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-056"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1gzPGnSnZjP7E-PrquGp29iF-7ullakNI",
+        "public_id": "WTH-V2-Pro-056-02",
+        "asset_folder": "WTH-V2/WTH-056",
+        "display_name": "WTH-V2-Pro-056-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-056"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1wpQkpfNtaXxqBtI_dVGFiQsWlxTW0e6F",
+        "public_id": "WTH-V2-Pro-056-03",
+        "asset_folder": "WTH-V2/WTH-056",
+        "display_name": "WTH-V2-Pro-056-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-056"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1enpIjAbSWEaLrliAg8G7e826x8dZ0Z5B",
+        "public_id": "WTH-V2-Pro-056-04",
+        "asset_folder": "WTH-V2/WTH-056",
+        "display_name": "WTH-V2-Pro-056-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-056"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1ycyb51x3aPjKtbETGgF385ZJva8SLrQ6",
+        "public_id": "WTH-V2-Pro-056-05",
+        "asset_folder": "WTH-V2/WTH-056",
+        "display_name": "WTH-V2-Pro-056-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-056"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1gSY8XwpCLQ6wDMx7QHs0G_1O95SPhUgB",
+        "public_id": "WTH-V2-Pro-056-06",
+        "asset_folder": "WTH-V2/WTH-056",
+        "display_name": "WTH-V2-Pro-056-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-056"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1BsKkWhlc8B6WTAUOEG4PH8dtcHVJ2Nnq",
+        "public_id": "WTH-V2-Pro-056-07",
+        "asset_folder": "WTH-V2/WTH-056",
+        "display_name": "WTH-V2-Pro-056-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-056"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1jg2CQaakfnYiio4ani2sqbPHlpf_DirW",
+        "public_id": "WTH-V2-Pro-056-08",
+        "asset_folder": "WTH-V2/WTH-056",
+        "display_name": "WTH-V2-Pro-056-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-056"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1dCkqM87LR1mD0ph2vW_Yxx55n6xyMS70",
+        "public_id": "WTH-V2-Pro-056-09",
+        "asset_folder": "WTH-V2/WTH-056",
+        "display_name": "WTH-V2-Pro-056-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-056"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-07T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-11-07T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Après l’open banking, l’open wealth ?\\n\\nPourquoi connecter tout ton patrimoine est si difficile, en 7 points.\\n\\nTu aimerais voir tout ton patrimoine dans une seule app ? Ou ça te fait peur ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-056-01.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-056-02.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-056-03.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-056-04.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-056-05.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-056-06.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-056-07.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-056-08.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-056-09.jpg\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Après l’open banking, l’open wealth ?\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-07T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-07T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Après l’open banking, l’open wealth ?\\n\\nPourquoi connecter tout ton patrimoine est si difficile, en 7 points.\\n\\nTu aimerais voir tout ton patrimoine dans une seule app ? Ou ça te fait peur ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-07T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-07T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Après l’open banking, l’open wealth ?\\n\\nPourquoi connecter tout ton patrimoine est si difficile, en 7 points.\\n\\nTu aimerais voir tout ton patrimoine dans une seule app ? Ou ça te fait peur ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-056-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

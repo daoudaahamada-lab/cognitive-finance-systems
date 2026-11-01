@@ -1,0 +1,65 @@
+{
+  "id": "WTH-016",
+  "famille": "Tech & patrimoine",
+  "format": "Educational",
+  "accroche": "1 % de frais par an, ça paraît rien",
+  "sujet": "Les frais réduisent ce qui reste à l'investisseur, même lorsque le marché",
+  "legende": "1 % de frais par an, ça paraît rien\n\nSur 20 ans, ça peut coûter plus de 4 600 € sur 10 000 € investis. Explication.\n\nTu connais le total des frais de ton assurance-vie ou de ton PEA ? Oui, non, à peu près ? Réponds en commentaire.",
+  "hashtags": "#WealthTechHorizon #WealthTech #FinTech #Patrimoine",
+  "slides": [
+    {
+      "n": 1,
+      "fichier": "WTH-016-01.png",
+      "titre": "1 % de frais par an, ça paraît rien",
+      "texte": "Sur 20 ans, ça peut coûter plus de 4 600 € sur 10 000 € investis. Explication."
+    },
+    {
+      "n": 2,
+      "fichier": "WTH-016-02.png",
+      "titre": "Pourquoi les frais comptent autant",
+      "texte": "Ils sont prélevés chaque année, que le marché monte ou baisse. Et l’argent prélevé ne travaille plus pour toi les années suivantes."
+    },
+    {
+      "n": 3,
+      "fichier": "WTH-016-03.png",
+      "titre": "Le calcul",
+      "texte": "10 000 € placés 20 ans à 5 % par an : environ 26 500 €. Avec 1 % de frais en plus, donc 4 % net : environ 21 900 €. Écart : plus de 4 600 €. Exemple théorique, rendement non garanti."
+    },
+    {
+      "n": 4,
+      "fichier": "WTH-016-04.png",
+      "titre": "Les frais d’entrée",
+      "texte": "Prélevés sur chaque versement. 3 % de frais d’entrée sur 1 000 €, c’est 970 € réellement investis."
+    },
+    {
+      "n": 5,
+      "fichier": "WTH-016-05.png",
+      "titre": "Les frais de gestion",
+      "texte": "Prélevés chaque année sur l’encours : frais du contrat ou du compte, plus les frais propres des fonds. Ce sont eux qui pèsent le plus sur la durée."
+    },
+    {
+      "n": 6,
+      "fichier": "WTH-016-06.png",
+      "titre": "Les autres frais",
+      "texte": "Arbitrage, sortie, transaction, change, droits de garde : selon le produit, ils peuvent s’ajouter."
+    },
+    {
+      "n": 7,
+      "fichier": "WTH-016-07.png",
+      "titre": "Comment les trouver",
+      "texte": "Demande le document d’informations clés et le détail des frais. Ton intermédiaire doit te communiquer les coûts et frais, en euros et en pourcentage."
+    },
+    {
+      "n": 8,
+      "fichier": "WTH-016-08.png",
+      "titre": "À retenir",
+      "texte": "Tu ne contrôles pas les marchés. Tu contrôles les frais. Un rendement affiché sans les frais n’est pas ton rendement."
+    },
+    {
+      "n": 9,
+      "fichier": "WTH-016-09.png",
+      "titre": "Tu connais le total des frais de ton assurance-vie ou de ton PEA ?",
+      "texte": "Oui, non, à peu près ? Réponds en commentaire."
+    }
+  ]
+}

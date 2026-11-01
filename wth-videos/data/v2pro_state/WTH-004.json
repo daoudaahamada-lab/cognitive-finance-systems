@@ -1,0 +1,80 @@
+{
+  "carrousel": "WTH-004",
+  "cloudinary": [
+    {
+      "public_id": "WTH-V2-Pro-004-01",
+      "secure_url": "https://res.cloudinary.com/byfnwwcw/image/upload/v1792443819/WTH-V2-Pro-004-01.png",
+      "existing": false
+    },
+    {
+      "public_id": "WTH-V2-Pro-004-02",
+      "secure_url": "https://res.cloudinary.com/byfnwwcw/image/upload/v1792443821/WTH-V2-Pro-004-02.png",
+      "existing": false
+    },
+    {
+      "public_id": "WTH-V2-Pro-004-03",
+      "secure_url": "https://res.cloudinary.com/byfnwwcw/image/upload/v1792443823/WTH-V2-Pro-004-03.png",
+      "existing": false
+    },
+    {
+      "public_id": "WTH-V2-Pro-004-04",
+      "secure_url": "https://res.cloudinary.com/byfnwwcw/image/upload/v1792443825/WTH-V2-Pro-004-04.png",
+      "existing": false
+    },
+    {
+      "public_id": "WTH-V2-Pro-004-05",
+      "secure_url": "https://res.cloudinary.com/byfnwwcw/image/upload/v1792443828/WTH-V2-Pro-004-05.png",
+      "existing": false
+    },
+    {
+      "public_id": "WTH-V2-Pro-004-06",
+      "secure_url": "https://res.cloudinary.com/byfnwwcw/image/upload/v1792443830/WTH-V2-Pro-004-06.png",
+      "existing": false
+    },
+    {
+      "public_id": "WTH-V2-Pro-004-07",
+      "secure_url": "https://res.cloudinary.com/byfnwwcw/image/upload/v1792443832/WTH-V2-Pro-004-07.png",
+      "existing": false
+    },
+    {
+      "public_id": "WTH-V2-Pro-004-08",
+      "secure_url": "https://res.cloudinary.com/byfnwwcw/image/upload/v1792443835/WTH-V2-Pro-004-08.png",
+      "existing": false
+    },
+    {
+      "public_id": "WTH-V2-Pro-004-09",
+      "secure_url": "https://res.cloudinary.com/byfnwwcw/image/upload/v1792443837/WTH-V2-Pro-004-09.png",
+      "existing": false
+    }
+  ],
+  "posts": {
+    "tiktok": {
+      "jpg": true,
+      "op": "jpgfix",
+      "id": "400974156",
+      "uuid": "-1139356884516845115",
+      "draft": false,
+      "autoPublish": true,
+      "media": 9,
+      "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=6791889&openWithPostUuid=-1139356884516845115"
+    },
+    "instagram": {
+      "op": "update",
+      "id": "400481856",
+      "uuid": "8039077046260353394",
+      "draft": false,
+      "autoPublish": true,
+      "media": 9,
+      "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=6791889&openWithPostUuid=8039077046260353394"
+    },
+    "facebook": {
+      "op": "update",
+      "id": "400481954",
+      "uuid": "8054226100342440134",
+      "draft": false,
+      "autoPublish": true,
+      "media": 9,
+      "plannerUrl": "https://app.metricool.com/planner/calendar?blogId=6791889&openWithPostUuid=8054226100342440134"
+    }
+  }
+}

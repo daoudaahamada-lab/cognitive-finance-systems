@@ -1,0 +1,65 @@
+{
+  "id": "WTH-004",
+  "famille": "Argent au quotidien",
+  "format": "Educational",
+  "accroche": "Ton salaire ne dit pas combien tu peux dépenser",
+  "sujet": "Le revenu seul ne dit pas ce qu'il te reste après les charges incontournables.",
+  "legende": "Ton salaire ne dit pas combien tu peux dépenser\n\nCalcule ton vrai reste à vivre en 3 étapes.\n\nTon reste à vivre par jour, tu le connais ? Fais le calcul et enregistre ce post pour le refaire chaque trimestre.",
+  "hashtags": "#WealthTechHorizon #Argent #Budget #Épargne",
+  "slides": [
+    {
+      "n": 1,
+      "fichier": "WTH-004-01.png",
+      "titre": "Ton salaire ne dit pas combien tu peux dépenser",
+      "texte": "Calcule ton vrai reste à vivre en 3 étapes."
+    },
+    {
+      "n": 2,
+      "fichier": "WTH-004-02.png",
+      "titre": "Pourquoi ton salaire trompe un peu",
+      "texte": "Ce qui arrive sur ton compte n’est pas ce que tu peux dépenser. Une partie est déjà réservée avant même que tu y penses : loyer, factures, crédits. Le chiffre utile, c’est ce qui reste après."
+    },
+    {
+      "n": 3,
+      "fichier": "WTH-004-03.png",
+      "titre": "Le reste à vivre, c’est quoi ?",
+      "texte": "Tes revenus du mois, moins tes charges incontournables : logement, énergie, assurances, transport, remboursements de crédit. Ce qui reste sert à vivre : courses, loisirs, imprévus, épargne."
+    },
+    {
+      "n": 4,
+      "fichier": "WTH-004-04.png",
+      "titre": "Étape 1 : additionne tes revenus réguliers",
+      "texte": "Salaire net, allocations, revenus fixes. Laisse de côté les primes et les rentrées exceptionnelles : elles ne reviennent pas chaque mois."
+    },
+    {
+      "n": 5,
+      "fichier": "WTH-004-05.png",
+      "titre": "Étape 2 : liste tes charges fixes",
+      "texte": "Ouvre tes 3 derniers relevés. Note tout ce qui revient chaque mois : loyer ou crédit, électricité, internet, téléphone, assurances, transport, abonnements."
+    },
+    {
+      "n": 6,
+      "fichier": "WTH-004-06.png",
+      "titre": "Étape 3 : fais la soustraction",
+      "texte": "Exemple : 2 200 € de revenus, 1 350 € de charges fixes. Reste à vivre : 850 € par mois, soit environ 28 € par jour pour tout le reste."
+    },
+    {
+      "n": 7,
+      "fichier": "WTH-004-07.png",
+      "titre": "Pourquoi 3 mois et pas 1",
+      "texte": "Un seul mois peut tromper : une facture annuelle, un mois sans prime, une dépense oubliée. La moyenne sur 3 mois donne une base plus honnête."
+    },
+    {
+      "n": 8,
+      "fichier": "WTH-004-08.png",
+      "titre": "Ce que les banques regardent aussi",
+      "texte": "Pour un crédit, ta banque regarde ton taux d’endettement, plafonné en général à 35 %, mais aussi ce qu’il te reste pour vivre une fois la mensualité payée."
+    },
+    {
+      "n": 9,
+      "fichier": "WTH-004-09.png",
+      "titre": "Ton reste à vivre par jour, tu le connais ?",
+      "texte": "Fais le calcul et enregistre ce post pour le refaire chaque trimestre."
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "carrousel": "WTH-077",
+  "date": "2026-11-14",
+  "heure": "13:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=10sDV_flJDigeVlU6G3iez-dE95n6wild",
+        "public_id": "WTH-V2-Pro-077-01",
+        "asset_folder": "WTH-V2/WTH-077",
+        "display_name": "WTH-V2-Pro-077-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-077"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1FfJ7zzapFyUwycvmL0gNF8lf4QNFS91J",
+        "public_id": "WTH-V2-Pro-077-02",
+        "asset_folder": "WTH-V2/WTH-077",
+        "display_name": "WTH-V2-Pro-077-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-077"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1By_GGbFdEXsbZqEy0MEUGx2MsL0eEtPe",
+        "public_id": "WTH-V2-Pro-077-03",
+        "asset_folder": "WTH-V2/WTH-077",
+        "display_name": "WTH-V2-Pro-077-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-077"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1ZkETCXuy1mS129YfVIFMNPBJtT_VpUVJ",
+        "public_id": "WTH-V2-Pro-077-04",
+        "asset_folder": "WTH-V2/WTH-077",
+        "display_name": "WTH-V2-Pro-077-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-077"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1SCVY07vupopXzTLblZsoKngz67rBpU7K",
+        "public_id": "WTH-V2-Pro-077-05",
+        "asset_folder": "WTH-V2/WTH-077",
+        "display_name": "WTH-V2-Pro-077-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-077"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1_W8nx3Bx3TXnXIYplYK3z6_zNUG-nzaZ",
+        "public_id": "WTH-V2-Pro-077-06",
+        "asset_folder": "WTH-V2/WTH-077",
+        "display_name": "WTH-V2-Pro-077-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-077"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1l7nAMDhji7JKaPGZFhUWc-Uh_qKbDJpd",
+        "public_id": "WTH-V2-Pro-077-07",
+        "asset_folder": "WTH-V2/WTH-077",
+        "display_name": "WTH-V2-Pro-077-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-077"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1MmSej2F0ePK9to9yCwPE2OQa3X8Ez8MH",
+        "public_id": "WTH-V2-Pro-077-08",
+        "asset_folder": "WTH-V2/WTH-077",
+        "display_name": "WTH-V2-Pro-077-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-077"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1tVzkzjrSmPDXEs7Jr1KD2bKwsTY-OPIW",
+        "public_id": "WTH-V2-Pro-077-09",
+        "asset_folder": "WTH-V2/WTH-077",
+        "display_name": "WTH-V2-Pro-077-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-077"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-14T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-11-14T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Le meilleur produit wealthtech, c’est une app. »\\n\\nMythe ou réalité ? Où se cache vraiment l’innovation utile.\\n\\nQuelle démarche financière est enfin devenue simple pour toi ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-077-01.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-077-02.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-077-03.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-077-04.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-077-05.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-077-06.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-077-07.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-077-08.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-077-09.jpg\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"« Le meilleur produit wealthtech, c’est une app. »\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-14T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-11-14T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Le meilleur produit wealthtech, c’est une app. »\\n\\nMythe ou réalité ? Où se cache vraiment l’innovation utile.\\n\\nQuelle démarche financière est enfin devenue simple pour toi ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "createScheduledPost",
+      "args": {
+        "blogId": "6791889",
+        "date": "2026-11-14T13:00:00+01:00",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-11-14T13:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Le meilleur produit wealthtech, c’est une app. »\\n\\nMythe ou réalité ? Où se cache vraiment l’innovation utile.\\n\\nQuelle démarche financière est enfin devenue simple pour toi ? Dis-le en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-077-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-019",
+  "date": "2026-10-26",
+  "heure": "08:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1pbvwAcNQEtYQ3rPT5mfdopKmmjuMeQ4a",
+        "public_id": "WTH-V2-Pro-019-01",
+        "asset_folder": "WTH-V2/WTH-019",
+        "display_name": "WTH-V2-Pro-019-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-019"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1YWgq4eN3uLfmOrsWIm-x_zuTxeCurAe7",
+        "public_id": "WTH-V2-Pro-019-02",
+        "asset_folder": "WTH-V2/WTH-019",
+        "display_name": "WTH-V2-Pro-019-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-019"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1LVBdrmrJaZkcnnT-ITliP8WC0FVmbmp5",
+        "public_id": "WTH-V2-Pro-019-03",
+        "asset_folder": "WTH-V2/WTH-019",
+        "display_name": "WTH-V2-Pro-019-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-019"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1V8DbUQp0ztKiuBHRRldOklRNSO-hgB-e",
+        "public_id": "WTH-V2-Pro-019-04",
+        "asset_folder": "WTH-V2/WTH-019",
+        "display_name": "WTH-V2-Pro-019-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-019"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1GrBkwUKQjyKY_1CJPACs-Xry8-PiXdau",
+        "public_id": "WTH-V2-Pro-019-05",
+        "asset_folder": "WTH-V2/WTH-019",
+        "display_name": "WTH-V2-Pro-019-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-019"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=12dGAUGD3cnzw-BLqHBfzDScwmPNxjgG7",
+        "public_id": "WTH-V2-Pro-019-06",
+        "asset_folder": "WTH-V2/WTH-019",
+        "display_name": "WTH-V2-Pro-019-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-019"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=14rtpEiKJiOG8Rm-18GM2j9RMMw0kpFkt",
+        "public_id": "WTH-V2-Pro-019-07",
+        "asset_folder": "WTH-V2/WTH-019",
+        "display_name": "WTH-V2-Pro-019-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-019"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1Ri0eB1qBB3aJPJDWplUS12sAI1lTTNI7",
+        "public_id": "WTH-V2-Pro-019-08",
+        "asset_folder": "WTH-V2/WTH-019",
+        "display_name": "WTH-V2-Pro-019-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-019"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1StHot92VEM8mSdrK291DpCZBe3-C5XSh",
+        "public_id": "WTH-V2-Pro-019-09",
+        "asset_folder": "WTH-V2/WTH-019",
+        "display_name": "WTH-V2-Pro-019-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-019"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "Combien te coûte l'absence de suivi ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386575972",
+        "uuid": "2690907260038038032",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-26T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Capital garanti, rendement de 5 %, disponible à tout moment. »\\n\\nTrois promesses, trois réalités différentes.\\n\\nTu as déjà vu une offre trop belle pour être vraie ? Raconte-la en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-019-01.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-019-02.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-019-03.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-019-04.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-019-05.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-019-06.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-019-07.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-019-08.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-019-09.jpg\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"« Capital garanti, rendement de 5 %, disponible à tout moment. »\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "Combien te coûte l'absence de suivi ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386576497",
+        "uuid": "-1462484131150479068",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-26T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Capital garanti, rendement de 5 %, disponible à tout moment. »\\n\\nTrois promesses, trois réalités différentes.\\n\\nTu as déjà vu une offre trop belle pour être vraie ? Raconte-la en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "Combien te coûte l'absence de suivi ?",
+      "args": {
+        "blogId": "6791889",
+        "id": "386576211",
+        "uuid": "-2125197397767076066",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-26T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"« Capital garanti, rendement de 5 %, disponible à tout moment. »\\n\\nTrois promesses, trois réalités différentes.\\n\\nTu as déjà vu une offre trop belle pour être vraie ? Raconte-la en commentaire.\\n\\n#WealthTechHorizon #WealthTech #FinTech #Patrimoine\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-019-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}

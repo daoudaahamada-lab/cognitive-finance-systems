@@ -1,0 +1,179 @@
+{
+  "carrousel": "WTH-004",
+  "date": "2026-10-21",
+  "heure": "08:00",
+  "uploads": [
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1WDUIlfzDphrAhQbUKrF6WRiz6KlNqG_Y",
+        "public_id": "WTH-V2-Pro-004-01",
+        "asset_folder": "WTH-V2/WTH-004",
+        "display_name": "WTH-V2-Pro-004-01",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-004"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1_wRe1J228aHlwQbwhVZqwd08G8CBdztA",
+        "public_id": "WTH-V2-Pro-004-02",
+        "asset_folder": "WTH-V2/WTH-004",
+        "display_name": "WTH-V2-Pro-004-02",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-004"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1H3ybBcuPmpyhf_25PwRDfhzvHfL13k0l",
+        "public_id": "WTH-V2-Pro-004-03",
+        "asset_folder": "WTH-V2/WTH-004",
+        "display_name": "WTH-V2-Pro-004-03",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-004"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1AWDKfQPVp2GGCYTvGcYd16tz-0vaG4k5",
+        "public_id": "WTH-V2-Pro-004-04",
+        "asset_folder": "WTH-V2/WTH-004",
+        "display_name": "WTH-V2-Pro-004-04",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-004"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1p0GTq1OOqBUvmCgTujry7SJ2uunTURb_",
+        "public_id": "WTH-V2-Pro-004-05",
+        "asset_folder": "WTH-V2/WTH-004",
+        "display_name": "WTH-V2-Pro-004-05",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-004"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1GIRjnbKVrySIiSlz3mAHesucrcPiRivi",
+        "public_id": "WTH-V2-Pro-004-06",
+        "asset_folder": "WTH-V2/WTH-004",
+        "display_name": "WTH-V2-Pro-004-06",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-004"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1G2Vft5UmU-34iwfrjxRpHb_YuPsvo05C",
+        "public_id": "WTH-V2-Pro-004-07",
+        "asset_folder": "WTH-V2/WTH-004",
+        "display_name": "WTH-V2-Pro-004-07",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-004"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1qgfo9PSp5GZFXG0vcVyF7LR-W60Ux7s2",
+        "public_id": "WTH-V2-Pro-004-08",
+        "asset_folder": "WTH-V2/WTH-004",
+        "display_name": "WTH-V2-Pro-004-08",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-004"
+        ]
+      }
+    },
+    {
+      "resource_type": "image",
+      "upload_request": {
+        "file": "https://drive.google.com/uc?export=download&id=1-MByYLMh8CSUh79MBqjLOYOAdVC0eYV_",
+        "public_id": "WTH-V2-Pro-004-09",
+        "asset_folder": "WTH-V2/WTH-004",
+        "display_name": "WTH-V2-Pro-004-09",
+        "overwrite": false,
+        "tags": [
+          "WTH-V2-Pro",
+          "WTH-004"
+        ]
+      }
+    }
+  ],
+  "media": [
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-01.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-02.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-03.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-04.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-05.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-06.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-07.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-08.png",
+    "https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-09.png"
+  ],
+  "posts": [
+    {
+      "network": "tiktok",
+      "tool": "updateScheduledPost",
+      "remplace": "Ton patrimoine net n'est pas le solde de tes comptes.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386572632",
+        "uuid": "-1139356884516845115",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"tiktok\"}], \"publicationDate\": {\"dateTime\": \"2026-10-21T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Ton salaire ne dit pas combien tu peux dépenser\\n\\nCalcule ton vrai reste à vivre en 3 étapes.\\n\\nTon reste à vivre par jour, tu le connais ? Fais le calcul et enregistre ce post pour le refaire chaque trimestre.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-004-01.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-004-02.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-004-03.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-004-04.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-004-05.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-004-06.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-004-07.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-004-08.jpg\", \"https://res.cloudinary.com/byfnwwcw/image/upload/q_92/WTH-V2-Pro-004-09.jpg\"], \"mediaAltText\": [], \"tiktokData\": {\"privacyOption\": \"PUBLIC_TO_EVERYONE\", \"title\": \"Ton salaire ne dit pas combien tu peux dépenser\", \"autoAddMusic\": true, \"photoCoverIndex\": 0}}"
+      }
+    },
+    {
+      "network": "instagram",
+      "tool": "updateScheduledPost",
+      "remplace": "Ton patrimoine net n'est pas le solde de tes comptes.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386573067",
+        "uuid": "8039077046260353394",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"instagram\"}], \"publicationDate\": {\"dateTime\": \"2026-10-21T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Ton salaire ne dit pas combien tu peux dépenser\\n\\nCalcule ton vrai reste à vivre en 3 étapes.\\n\\nTon reste à vivre par jour, tu le connais ? Fais le calcul et enregistre ce post pour le refaire chaque trimestre.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-09.png\"], \"mediaAltText\": [], \"instagramData\": {\"type\": \"POST\", \"showReelOnFeed\": true, \"isAiGenerated\": false}}"
+      }
+    },
+    {
+      "network": "facebook",
+      "tool": "updateScheduledPost",
+      "remplace": "Ton patrimoine net n'est pas le solde de tes comptes.",
+      "args": {
+        "blogId": "6791889",
+        "id": "386572951",
+        "uuid": "8054226100342440134",
+        "info": "{\"autoPublish\": true, \"draft\": false, \"descendants\": [], \"firstCommentText\": \"\", \"hasNotReadNotes\": false, \"providers\": [{\"network\": \"facebook\"}], \"publicationDate\": {\"dateTime\": \"2026-10-21T08:00:00\", \"timezone\": \"Europe/Paris\"}, \"shortener\": false, \"smartLinkData\": {\"ids\": []}, \"text\": \"Ton salaire ne dit pas combien tu peux dépenser\\n\\nCalcule ton vrai reste à vivre en 3 étapes.\\n\\nTon reste à vivre par jour, tu le connais ? Fais le calcul et enregistre ce post pour le refaire chaque trimestre.\\n\\n#WealthTechHorizon #Argent #Budget #Épargne\", \"media\": [\"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-01.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-02.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-03.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-04.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-05.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-06.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-07.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-08.png\", \"https://res.cloudinary.com/byfnwwcw/image/upload/WTH-V2-Pro-004-09.png\"], \"mediaAltText\": [], \"facebookData\": {\"type\": \"POST\"}}"
+      }
+    }
+  ]
+}
