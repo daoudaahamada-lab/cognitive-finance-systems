@@ -1,0 +1,242 @@
+{
+  "id": 1,
+  "title": "La Forge des Prompts",
+  "theme": "Modèles, prompting et contexte",
+  "intro": "Tout commence par la façon dont on parle à Claude : des instructions claires et motivées, des exemples bien choisis, des documents bien structurés et un contexte maîtrisé. À l'examen, ce domaine revient sous forme de diagnostics : la sortie est mauvaise, et il faut trouver le levier de prompting ou de contexte qui corrige la cause, pas le symptôme.",
+  "boss": {
+    "name": "L'Ambigu",
+    "epithet": "Seigneur des instructions floues",
+    "taunt": "« Fais-le bien, mais ne compte pas sur moi pour te dire comment… »",
+    "defeat": "Mes consignes floues se dissipent… Tu parles enfin le langage de Claude.",
+    "victory": "Encore un prompt vague, encore une réponse au hasard. Retourne à la forge !"
+  },
+  "cards": [
+    {
+      "term": "Clear, direct and contextual instructions",
+      "fr": "Claude se comporte comme un nouvel employé brillant qui ne connaît pas vos usages : plus la consigne est précise (format, contraintes, étapes numérotées), meilleur est le résultat. Expliquer pourquoi une règle existe aide Claude à généraliser à des cas que la règle ne cite pas. Pour le format, dire ce qu'il faut faire (« écris en paragraphes de prose ») marche mieux que dire ce qu'il ne faut pas faire. Le test clé : un collègue sans contexte comprendrait-il la consigne ?",
+      "trap": "Empiler des « NEVER » en majuscules pour corriger chaque nouvel écart. La bonne réponse donne le contexte (le pourquoi) et décrit positivement la sortie attendue.",
+      "source": { "title": "Prompting best practices", "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices" }
+    },
+    {
+      "term": "Multishot prompting (few-shot examples)",
+      "fr": "Les exemples sont l'un des moyens les plus fiables d'orienter le format, le ton et la structure. La documentation recommande 3 à 5 exemples pertinents (proches du vrai cas d'usage), diversifiés (cas limites, catégories variées) et balisés dans des tags <example> regroupés dans <examples>, pour que Claude les distingue des instructions.",
+      "trap": "Des exemples trop semblables : Claude en copie les tics et sur-représente leur catégorie. Le remède est la diversité, pas la suppression des exemples ni leur multiplication à l'identique.",
+      "source": { "title": "Prompting best practices", "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices" }
+    },
+    {
+      "term": "XML tags and long-context layout",
+      "fr": "Les balises XML (<instructions>, <context>, <input>…) évitent les confusions quand un prompt mélange instructions, documents et exemples. Pour les longs documents (20k tokens et plus), placer les documents en haut et la question à la fin améliore la qualité (jusqu'à 30 % selon les tests d'Anthropic). Chaque document va dans un tag <document> avec <source> et <document_content>.",
+      "trap": "Mettre la question en premier et coller les documents à la suite sans séparateur, puis conclure qu'il faut une fenêtre de contexte plus grande.",
+      "source": { "title": "Prompting best practices", "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices" }
+    },
+    {
+      "term": "Reducing hallucinations",
+      "fr": "Trois techniques de base : autoriser explicitement Claude à dire qu'il ne sait pas ; lui faire extraire des citations mot pour mot avant de répondre sur un long document ; exiger une citation pour chaque affirmation et retirer celles qui n'en ont pas. On peut aussi restreindre la réponse aux documents fournis. Ces techniques réduisent les hallucinations sans les éliminer : les décisions critiques restent vérifiées.",
+      "trap": "Croire qu'il suffit d'écrire « sois précis, c'est critique » ou qu'un fine-tuning est nécessaire. Le levier est de donner une porte de sortie et un ancrage dans les sources.",
+      "source": { "title": "Reduce hallucinations", "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations" }
+    },
+    {
+      "term": "Model selection and the effort parameter",
+      "fr": "Deux démarches : efficiency-first (commencer avec un modèle rapide et économique comme Haiku pour les tâches simples à fort volume, puis monter en gamme seulement si les évaluations révèlent un manque) ou capability-first (partir du plus capable pour le raisonnement complexe, puis optimiser). Le paramètre effort ajuste, au sein d'un même modèle, le compromis entre profondeur de réponse et coût/latence : c'est souvent un meilleur levier que changer de modèle.",
+      "trap": "Choisir le modèle le plus puissant par réflexe, ou changer de modèle sans jeu d'évaluation. Si la qualité est bonne mais le coût trop élevé, on essaie d'abord un effort plus bas.",
+      "source": { "title": "Choosing the right model", "url": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model" }
+    },
+    {
+      "term": "Context rot, compaction and context editing",
+      "fr": "Plus de contexte n'est pas automatiquement mieux : quand le nombre de tokens augmente, la précision et le rappel se dégradent (context rot). Il faut donc curer le contexte. La compaction côté serveur remplace les anciens tours par un résumé ; le context editing efface par exemple les vieux résultats d'outils devenus inutiles. Par ailleurs, sur les modèles récents, pré-remplir la réponse de l'assistant (prefill) n'est plus supporté : pour imposer un format, on utilise les structured outputs.",
+      "trap": "Répondre « prendre une fenêtre de contexte plus grande » alors que la limite n'est pas atteinte et que le problème vient du bruit accumulé dans le contexte.",
+      "source": { "title": "Context windows", "url": "https://platform.claude.com/docs/en/build-with-claude/context-windows" }
+    }
+  ],
+  "warmup": [
+    {
+      "statement": "For prompts with long documents, placing the documents at the top and the question at the end generally improves response quality.",
+      "answer": true,
+      "fr": "Vrai. La documentation recommande de mettre les longs documents en haut, au-dessus de la question et des instructions : les tests d'Anthropic montrent jusqu'à 30 % de gain, surtout avec plusieurs documents."
+    },
+    {
+      "statement": "Telling Claude what NOT to do is the most effective way to control the format of its responses.",
+      "answer": false,
+      "fr": "Faux. Il est plus efficace de décrire ce qu'il faut faire (« compose des paragraphes de prose fluides ») que d'interdire (« n'utilise pas de markdown »)."
+    },
+    {
+      "statement": "Because current Claude models have very large context windows, adding as much context as possible never hurts accuracy.",
+      "answer": false,
+      "fr": "Faux. Plus le contexte grossit, plus la précision et le rappel se dégradent (context rot). Curer ce qu'on met dans le contexte compte autant que la place disponible."
+    },
+    {
+      "statement": "Explicitly allowing Claude to say it does not know can significantly reduce hallucinations.",
+      "answer": true,
+      "fr": "Vrai. C'est la première technique de la page « Reduce hallucinations » : donner à Claude la permission d'admettre l'incertitude réduit fortement les fausses informations."
+    },
+    {
+      "statement": "On current Claude models, prefilling the assistant turn with an opening brace is the recommended way to force JSON output.",
+      "answer": false,
+      "fr": "Faux. Le prefill du dernier tour assistant n'est plus supporté sur les modèles récents (erreur 400). Pour garantir un format JSON, on utilise les structured outputs avec un schéma."
+    }
+  ],
+  "questions": [
+    {
+      "id": "L01-Q01",
+      "domain": "D2",
+      "type": "single",
+      "stem": "A regional transit authority deploys a Claude-powered assistant on its phone line; every reply is converted to audio by a text-to-speech (TTS) engine. The system prompt contains a growing list of rules such as ‘NEVER use ellipses’, ‘NEVER use bullet points’ and ‘NEVER write symbols’. Callers still hear awkward output, for example ‘&’, ‘%’ and web addresses read character by character, because each new rule only covers the last failure observed. What is the MOST effective change to the system prompt?",
+      "options": [
+        { "text": "Add the newly observed symbols to the list and repeat the whole rule block at the end of the prompt to reinforce it.", "why": "On traite les symptômes un par un : la liste ne sera jamais complète et chaque nouveau cas réapparaîtra." },
+        { "text": "Rewrite every rule in capital letters with ‘CRITICAL’ markers so the model gives them higher priority.", "why": "Insister plus fort n'apporte aucune information nouvelle : Claude ne sait toujours pas pourquoi ces règles existent ni comment traiter les cas non listés." },
+        { "text": "Explain that every reply will be read aloud by a TTS engine to callers, and describe the desired output positively: plain spoken sentences, with numbers, symbols and links written the way they should be pronounced.", "why": "Bonne réponse. Donner le contexte permet à Claude de généraliser à tous les cas, et décrire positivement le format attendu est plus efficace qu'une liste d'interdits." },
+        { "text": "Post-process each reply with a regular-expression filter that deletes every non-alphabetic character before speech synthesis.", "why": "Supprimer les caractères détruit le sens (« 50 % » devient « 50 ») : c'est au mieux un filet de sécurité, pas une correction de la cause." }
+      ],
+      "answer": [2],
+      "explanation": "La documentation d'Anthropic utilise justement l'exemple du TTS : expliquer pourquoi une consigne existe donne à Claude de quoi généraliser au-delà des règles écrites. Combiné à une description positive du format voulu, cela couvre aussi les cas qu'aucune règle n'avait prévus.",
+      "tip": "Quand une liste de « NEVER » s'allonge, cherche l'option qui donne le contexte et décrit la sortie attendue.",
+      "source": { "title": "Prompting best practices", "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices" }
+    },
+    {
+      "id": "L01-Q02",
+      "domain": "D2",
+      "type": "single",
+      "stem": "A law firm uses Claude to answer partners' questions about data-room bundles: typically 15 to 30 contracts totalling around 300,000 tokens per request. The current prompt starts with detailed instructions and the partner's question, followed by the contracts pasted one after another with no separators. Answers often attribute a clause to the wrong contract, and quality drops on the largest bundles. Which prompt restructuring is MOST likely to improve accuracy?",
+      "options": [
+        { "text": "Place the contracts at the top of the prompt, each wrapped in its own <document> tag with <source> and <document_content> subtags, and put the instructions and the question at the end.", "why": "Bonne réponse. Documents en haut, question à la fin, et métadonnées de source balisées : c'est exactement la recommandation pour les longs contextes multi-documents." },
+        { "text": "Keep the instructions first, but repeat the partner's question between every contract so the model never loses sight of it.", "why": "On ajoute du bruit et des tokens sans résoudre le problème d'attribution : rien n'identifie toujours clairement chaque contrat." },
+        { "text": "Summarize each contract in a separate call first and send only the summaries, so that the final request stays under 50,000 tokens.", "why": "Les résumés perdent le détail des clauses dont les juristes ont besoin, alors que les 300 000 tokens tiennent déjà dans le contexte." },
+        { "text": "Switch to a model with a larger context window, since the errors show that the model is running out of space.", "why": "La requête tient déjà dans la fenêtre : le problème vient de la structure du prompt, pas de sa capacité." }
+      ],
+      "answer": [0],
+      "explanation": "Pour des entrées de plus de 20 000 tokens, Anthropic recommande de placer les documents au-dessus de la question (gain mesuré jusqu'à 30 %) et d'encadrer chaque document avec des balises <document>, <source> et <document_content>. Les erreurs d'attribution viennent ici de l'absence de frontières claires entre contrats.",
+      "tip": "Long contexte qui déraille : pense « documents en haut, balises par document, question à la fin » avant d'agrandir la fenêtre.",
+      "source": { "title": "Prompting best practices", "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices" }
+    },
+    {
+      "id": "L01-Q03",
+      "domain": "D2",
+      "type": "multi",
+      "stem": "An investment bank's due-diligence assistant summarizes target-company documents for analysts. Reviewers found that roughly one summary in twenty states figures or risks that appear nowhere in the source documents, especially when the documents are incomplete. The team must sharply reduce these unsupported claims before a wider rollout, without retraining any model. Which TWO prompt changes are MOST effective? (Select TWO.)",
+      "options": [
+        { "text": "Raise max_tokens so the model has enough room to write complete, detailed summaries.", "why": "La longueur maximale n'est pas la cause : un plafond plus haut n'empêche pas d'inventer des chiffres." },
+        { "text": "Explicitly allow Claude to state that the documents do not contain enough information, instead of requiring a complete summary every time.", "why": "Bonne réponse. Quand les documents sont incomplets, Claude a besoin d'une porte de sortie légitime plutôt que de combler les trous." },
+        { "text": "Add a sentence stating that accuracy is critical and that the bank will be fined for any error.", "why": "La pression ne donne ni ancrage dans les sources ni permission de dire « je ne sais pas » : elle ne traite pas la cause." },
+        { "text": "Ask Claude to first extract word-for-word quotes that support each point, write the summary only from those quotes, and drop any claim it cannot back with a quote.", "why": "Bonne réponse. L'ancrage par citations et la vérification affirmation par affirmation font partie des techniques recommandées." },
+        { "text": "Add example summaries from other deals so the model learns the bank's typical risk categories.", "why": "Des exemples de risques « typiques » peuvent au contraire pousser Claude à mentionner des risques absents du dossier." }
+      ],
+      "answer": [1, 3],
+      "explanation": "La page « Reduce hallucinations » cite trois techniques de base : autoriser l'incertitude, ancrer la réponse dans des citations mot pour mot, et vérifier chaque affirmation par une citation en retirant celles qui n'en ont pas. Aucune ne demande de réentraîner un modèle.",
+      "tip": "Hallucinations sur documents : cherche « permission de ne pas savoir » et « citations d'abord ».",
+      "source": { "title": "Reduce hallucinations", "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations" }
+    },
+    {
+      "id": "L01-Q04",
+      "domain": "D2",
+      "type": "single",
+      "stem": "A logistics company extracts shipment data from carrier emails. Its integration, built two years ago, prefilled the assistant turn with an opening brace ‘{’ to force JSON output and then parsed the returned text. After upgrading to a current Claude model, every request fails with a 400 error. The downstream system requires JSON that always matches a fixed schema with 14 fields. What should the architect recommend?",
+      "options": [
+        { "text": "Move the opening brace into the system prompt and instruct Claude to continue from it as if it were the start of its own output.", "why": "C'est un contournement fragile qui ne garantit pas le respect du schéma à 14 champs." },
+        { "text": "Pin the integration to the older model version indefinitely so that the prefill technique keeps working.", "why": "Les anciens modèles finissent dépréciés puis retirés : on crée une dette technique sans résoudre le besoin de schéma garanti." },
+        { "text": "Keep free-text output and add a regular-expression parser that repairs malformed JSON before loading it.", "why": "Un parseur de réparation est fragile et ne garantit pas que les 14 champs soient présents et bien typés." },
+        { "text": "Remove the prefill and use structured outputs with a JSON schema describing the 14 fields, so that responses are constrained to that schema.", "why": "Bonne réponse. Les structured outputs sont conçus pour contraindre la réponse à un schéma donné et remplacent le prefill pour le contrôle du format." }
+      ],
+      "answer": [3],
+      "explanation": "Sur les modèles récents, le prefill du dernier tour assistant renvoie une erreur 400. La documentation de migration indique que les structured outputs sont la fonctionnalité prévue pour imposer un format JSON conforme à un schéma, ce qui répond aussi à l'exigence d'un schéma fixe.",
+      "tip": "Format JSON obligatoire et schéma fixe : la réponse est structured outputs (ou un outil avec schéma), pas un prefill ni un parseur maison.",
+      "source": { "title": "Prompting best practices", "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices" }
+    },
+    {
+      "id": "L01-Q05",
+      "domain": "D2",
+      "type": "single",
+      "stem": "A telecom operator classifies customer complaints into 12 categories, each with a one-line justification. The prompt contains a single example, a billing complaint, repeated in three slightly different wordings. In production, Claude labels many network-outage and roaming complaints as billing issues and copies the example's justification phrasing almost word for word. What is the BEST improvement to the prompt?",
+      "options": [
+        { "text": "Remove all examples so Claude is not biased by them, and rely on the category descriptions alone.", "why": "Les exemples sont l'un des leviers les plus fiables : le problème est leur manque de diversité, pas leur présence." },
+        { "text": "Replace them with three to five relevant, diverse examples covering several categories and edge cases, each wrapped in <example> tags inside an <examples> block.", "why": "Bonne réponse. Des exemples pertinents, variés et balisés réduisent la sur-représentation d'une catégorie et la copie des formulations." },
+        { "text": "Add twenty more billing examples so the model better understands the expected justification format.", "why": "On aggrave le biais vers la catégorie facturation et la copie mot pour mot." },
+        { "text": "Instruct Claude in capital letters not to overuse the billing category.", "why": "Une interdiction en majuscules n'apprend pas à Claude à reconnaître les autres catégories." }
+      ],
+      "answer": [1],
+      "explanation": "La documentation recommande 3 à 5 exemples pertinents et diversifiés, couvrant les cas limites, pour que Claude n'en retienne pas des motifs involontaires. Les balises <example> l'aident à séparer exemples et entrée réelle.",
+      "tip": "Sortie qui imite trop un exemple : diversifier les exemples, pas les supprimer.",
+      "source": { "title": "Prompting best practices", "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices" }
+    },
+    {
+      "id": "L01-Q06",
+      "domain": "D2",
+      "type": "single",
+      "stem": "A retailer wants to tag 3 million short product reviews per day with sentiment, product aspect and language. Every result is checked by an automated validator, and the business needs a low cost per review and sub-second latency for a live dashboard. No model has been chosen yet. Which approach BEST follows Anthropic's model-selection guidance?",
+      "options": [
+        { "text": "Start with the most capable model at maximum effort, because quality problems are harder to fix later than cost problems.", "why": "L'approche capability-first vise le raisonnement complexe ; ici la tâche est simple, massive et sensible à la latence." },
+        { "text": "Fine-tune a model on historical tags before running any test with off-the-shelf models.", "why": "Investissement prématuré : on n'a même pas mesuré ce que donnent les modèles existants." },
+        { "text": "Start with a smaller, faster model such as Haiku, build an evaluation set from real reviews, and move up a tier only for the capability gaps the evaluation reveals.", "why": "Bonne réponse. C'est l'approche efficiency-first recommandée pour les tâches simples à fort volume, avec une décision guidée par les évaluations." },
+        { "text": "Pick the model with the lowest price per million tokens and skip evaluation, since sentiment tagging is a solved problem.", "why": "Sans évaluation, on ne sait pas si la qualité est suffisante ; et le bon critère est le coût par tâche réussie, pas le prix au token." }
+      ],
+      "answer": [2],
+      "explanation": "Le guide « Choosing a model » propose deux démarches. L'approche efficiency-first, qui commence par un modèle rapide et économique, est indiquée pour les tâches à fort volume, simples et sensibles à la latence ou au coût. On ne change de gamme que si les tests révèlent un manque précis.",
+      "tip": "Volume élevé, tâche simple, latence serrée : petit modèle d'abord, évaluation, montée en gamme seulement si nécessaire.",
+      "source": { "title": "Choosing the right model", "url": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model" }
+    },
+    {
+      "id": "L01-Q07",
+      "domain": "D2",
+      "type": "single",
+      "stem": "An insurer's claims-summary service runs on a capable Claude model. Monthly evaluations show quality comfortably above target, but finance reports that cost and latency per summary are 40% over budget. The product owner proposes switching immediately to the cheapest model tier in production. As the architect, what should you try FIRST?",
+      "options": [
+        { "text": "Lower the effort level on the current model and re-run the evaluation suite to confirm that quality stays above target.", "why": "Bonne réponse. L'effort ajuste le compromis coût/latence au sein du même modèle et c'est souvent un meilleur levier que changer de modèle ; l'évaluation valide le changement." },
+        { "text": "Switch to the cheapest tier in production and monitor complaints from claims adjusters for a month.", "why": "On change de modèle sans mesure préalable et on fait des utilisateurs le système de test." },
+        { "text": "Halve max_tokens so that every summary is forced to be shorter.", "why": "Un plafond trop bas tronque les réponses (stop_reason max_tokens) au lieu de rendre le modèle plus efficace." },
+        { "text": "Remove the few-shot examples from the prompt to cut input tokens, since quality is already high.", "why": "Ces exemples contribuent peut-être à la qualité actuelle ; les retirer sans mesurer est un pari." }
+      ],
+      "answer": [0],
+      "explanation": "Le paramètre effort permet d'échanger profondeur de réponse contre coût et latence sur un même modèle. Quand la qualité est bonne mais le coût trop élevé, la documentation recommande d'essayer d'abord un effort plus bas, puis de vérifier avec les évaluations.",
+      "tip": "Qualité OK, coût trop haut : baisser l'effort et mesurer avant de changer de modèle.",
+      "source": { "title": "Effort", "url": "https://platform.claude.com/docs/en/build-with-claude/effort" }
+    },
+    {
+      "id": "L01-Q08",
+      "domain": "D2",
+      "type": "single",
+      "stem": "A procurement agent reviews supplier contracts in sessions of more than 150 tool calls, each returning large document excerpts. Late in a session it starts ignoring instructions given at the start and confusing one supplier with another, even though total usage remains well below the model's context window limit. Which approach BEST addresses the root cause?",
+      "options": [
+        { "text": "Repeat the full system prompt in every user turn so that the original instructions always stay recent.", "why": "On ajoute encore des tokens à un contexte déjà surchargé, ce qui aggrave le problème." },
+        { "text": "Move to a model with a larger context window so that nothing ever has to be removed.", "why": "La limite n'est pas atteinte : la dégradation vient de l'accumulation de contenu inutile, pas du manque de place." },
+        { "text": "Restart the session from scratch every 30 tool calls, discarding the history to keep the context small.", "why": "On perd l'état et le travail accompli : l'agent refait des étapes ou oublie des décisions." },
+        { "text": "Curate the context actively: clear stale tool results with context editing and use compaction to replace older turns with a summary, keeping what later steps need.", "why": "Bonne réponse. Le contexte est une ressource finie à rendements décroissants : il faut retirer les vieux résultats d'outils et résumer l'historique." }
+      ],
+      "answer": [3],
+      "explanation": "Quand le nombre de tokens augmente, la précision et le rappel se dégradent (context rot), bien avant la limite de la fenêtre. La compaction côté serveur et le context editing (effacement des anciens résultats d'outils) permettent de garder un contexte actif petit et pertinent.",
+      "tip": "Agent qui se dégrade en fin de session sans atteindre la limite : context rot, donc curation du contexte.",
+      "source": { "title": "Context windows", "url": "https://platform.claude.com/docs/en/build-with-claude/context-windows" }
+    },
+    {
+      "id": "L01-Q09",
+      "domain": "D2",
+      "type": "multi",
+      "stem": "A private bank generates monthly portfolio commentaries that a document pipeline inserts into a PDF template. The template expects flowing prose paragraphs, but Claude's responses contain markdown headings, bold text and short bullet lists. The current system prompt is itself written as a heavily formatted markdown document and ends with the line ‘Do not use markdown.’ Which TWO changes are MOST likely to fix the formatting? (Select TWO.)",
+      "options": [
+        { "text": "State what to do instead of what not to do, for example that the commentary must be composed of smoothly flowing prose paragraphs.", "why": "Bonne réponse. Une consigne positive sur le format attendu est plus efficace qu'une interdiction." },
+        { "text": "Repeat ‘DO NOT USE MARKDOWN’ three times in capital letters at the top and at the bottom of the prompt.", "why": "Répéter une interdiction ne décrit toujours pas la sortie attendue et ne corrige pas l'influence du style du prompt." },
+        { "text": "Switch to the most capable model, since formatting errors indicate a capability gap.", "why": "Ce n'est pas un problème de capacité mais de pilotage du format." },
+        { "text": "Increase the temperature so that the model departs from its default formatting habits.", "why": "La température joue sur la variabilité, pas sur le respect d'un format précis : le résultat serait moins prévisible." },
+        { "text": "Rewrite the system prompt itself in plain prose, because the formatting style of the prompt influences the style of the response.", "why": "Bonne réponse. La documentation indique que retirer le markdown du prompt réduit le markdown dans la sortie." }
+      ],
+      "answer": [0, 4],
+      "explanation": "Parmi les techniques de contrôle du format, la documentation cite : dire ce qu'il faut faire plutôt que ce qu'il faut éviter, et aligner le style du prompt sur le style de sortie voulu. Un prompt très formaté en markdown pousse Claude à répondre en markdown.",
+      "tip": "Format non respecté : consigne positive et prompt écrit dans le style de la sortie attendue.",
+      "source": { "title": "Prompting best practices", "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices" }
+    },
+    {
+      "id": "L01-Q10",
+      "domain": "D1",
+      "type": "single",
+      "stem": "An asset manager uses one large prompt that reads a company's annual report, extracts 40 financial metrics, assesses five risk categories and drafts an investment memo in a single call. Errors are frequent and hard to diagnose: when a memo is wrong, nobody can tell whether extraction or analysis failed. Compliance also requires that extracted figures be checked against the source before any memo is drafted. Which design BEST meets these requirements?",
+      "options": [
+        { "text": "Build a fully autonomous multi-agent system in which agents negotiate among themselves how to divide the work.", "why": "Complexité et coût injustifiés pour des sous-tâches fixes et connues à l'avance ; le comportement devient moins prévisible." },
+        { "text": "Split the work into a prompt chain (extract the metrics, validate them with a programmatic check, assess risks, then draft the memo), passing outputs between steps in XML tags so each step can be logged and evaluated.", "why": "Bonne réponse. Le prompt chaining décompose une tâche en étapes fixes, permet d'insérer un contrôle (gate) avant la rédaction et rend chaque étape mesurable." },
+        { "text": "Keep the single prompt but add more detailed instructions and examples for each of the four tasks.", "why": "L'appel reste opaque : impossible d'isoler l'étape fautive ou d'insérer la vérification exigée avant la rédaction." },
+        { "text": "Keep one call, but ask Claude to append its intermediate results to the end of the memo for auditing.", "why": "La vérification arrive après la rédaction, alors que la conformité exige un contrôle avant." }
+      ],
+      "answer": [1],
+      "explanation": "Le prompt chaining convient quand une tâche se décompose proprement en sous-tâches fixes : chaque appel devient plus simple, on échange un peu de latence contre de la précision, et des contrôles programmatiques peuvent être insérés entre les étapes. On peut aussi inspecter et évaluer chaque sortie intermédiaire.",
+      "tip": "Étapes fixes, besoin de contrôle intermédiaire et de traçabilité : prompt chaining avec gates, pas un agent autonome.",
+      "source": { "title": "Building effective agents", "url": "https://www.anthropic.com/engineering/building-effective-agents" }
+    }
+  ]
+}

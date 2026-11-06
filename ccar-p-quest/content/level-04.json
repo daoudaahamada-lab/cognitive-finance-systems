@@ -1,0 +1,242 @@
+{
+  "id": 4,
+  "title": "Le Réseau des Connecteurs",
+  "theme": "Intégration II : MCP, RAG, données d'entreprise, clouds",
+  "intro": "Ce niveau relie Claude aux systèmes de l'entreprise : serveurs MCP et MCP connector, maîtrise de la surface d'outils, pipelines RAG, citations, plateformes cloud et résidence des données. L'examen teste ta capacité à connecter le bon contexte, et seulement le bon contexte, avec des accès minimaux et des sources vérifiables.",
+  "boss": {
+    "name": "L'Hydre des Connecteurs",
+    "epithet": "Mille outils, zéro discernement",
+    "taunt": "Branche-moi tous tes serveurs MCP, donne-moi tous les outils, charge-moi tous les chunks. Plus j'ai de têtes, plus je me trompe.",
+    "defeat": "Allowlist, tool search, retrieval contextuel… tu m'as coupé toutes les têtes inutiles.",
+    "victory": "Top-200 chunks et 140 outils chargés d'office : ton agent se noie, et moi je repousse."
+  },
+  "cards": [
+    {
+      "term": "Model Context Protocol (MCP)",
+      "fr": "MCP est un protocole ouvert qui standardise la façon dont une application hôte (client MCP) se connecte à des serveurs exposant des tools, des resources et des prompts. Deux familles de transport : stdio pour un serveur lancé en processus local, et HTTP (Streamable HTTP) pour un serveur distant. Le transport SSE est déprécié au profit de HTTP.",
+      "trap": "Confondre « serveur MCP local en stdio » et « serveur distant accessible par le réseau » : seul le second peut être appelé par un service hébergé.",
+      "source": { "title": "Connect Claude Code to tools via MCP", "url": "https://code.claude.com/docs/en/mcp" }
+    },
+    {
+      "term": "MCP connector (Messages API)",
+      "fr": "Le MCP connector permet d'appeler des serveurs MCP distants directement depuis la Messages API, sans écrire de client MCP : on déclare le serveur dans mcp_servers (URL, authorization_token OAuth) et on configure un mcp_toolset dans tools (allowlist, denylist, configuration par outil). Limites : seuls les tool calls sont supportés, et le serveur doit être exposé publiquement en HTTP. Un serveur stdio local ne peut pas être connecté directement.",
+      "trap": "Proposer de pointer le MCP connector vers un serveur stdio ou localhost. Pour un serveur en réseau privé, il faut une autre approche (ton propre client MCP, ou les MCP tunnels encore en research preview).",
+      "source": { "title": "MCP connector", "url": "https://platform.claude.com/docs/en/agents-and-tools/mcp-connector" }
+    },
+    {
+      "term": "Tool search & capability bloat",
+      "fr": "Chaque définition d'outil consomme du contexte, et la précision de sélection se dégrade au-delà de 30 à 50 outils disponibles. Le tool search tool garde les définitions hors contexte (defer_loading: true) et laisse Claude charger à la demande les 3 à 5 outils utiles. La doc cite une réduction typique de plus de 85 % des tokens de définitions.",
+      "trap": "Répondre « fenêtre de contexte plus grande » face à un agent noyé sous les outils : le problème est la précision de sélection autant que la place.",
+      "source": { "title": "Tool search tool", "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool" }
+    },
+    {
+      "term": "Contextual Retrieval",
+      "fr": "Technique RAG d'Anthropic : avant l'indexation, Claude génère pour chaque chunk un court contexte propre au document (entreprise, période, section) qu'on préfixe au chunk, à la fois pour les embeddings (Contextual Embeddings) et pour l'index lexical (Contextual BM25). Anthropic rapporte -49 % d'échecs de récupération, -67 % avec un reranking. Si la base est assez petite pour tenir dans le prompt, on peut s'en passer et utiliser le prompt caching.",
+      "trap": "Anthropic ne fournit pas de modèle d'embeddings maison : la doc oriente vers des fournisseurs comme Voyage AI. Et « plus de chunks » n'est pas une stratégie de récupération.",
+      "source": { "title": "Contextual Retrieval", "url": "https://www.anthropic.com/engineering/contextual-retrieval" }
+    },
+    {
+      "term": "Citations & search_result blocks",
+      "fr": "Avec citations.enabled sur des documents (texte, PDF, custom content), l'API renvoie des citations structurées qui pointent vers les passages fournis. Pour le RAG, un outil de recherche peut renvoyer des blocs search_result (source, title, content) que Claude cite comme des résultats web. Le cited_text ne compte pas dans les tokens de sortie.",
+      "trap": "Les citations sont incompatibles avec les structured outputs : activer les deux renvoie une erreur 400. Il faut choisir selon le besoin (sources vérifiables ou JSON strict).",
+      "source": { "title": "Citations", "url": "https://platform.claude.com/docs/en/build-with-claude/citations" }
+    },
+    {
+      "term": "Cloud platforms & data residency",
+      "fr": "Claude est disponible via la Claude API et via des plateformes cloud (Amazon Bedrock, Google Cloud, Microsoft Foundry), avec facturation, IAM et quotas propres à chaque plateforme. Toutes les fonctionnalités ne sont pas disponibles partout, ni au même moment : on vérifie le Features overview. Sur la Claude API, inference_geo contrôle où tourne l'inférence et le workspace geo où les données sont stockées au repos.",
+      "trap": "Supposer la parité des fonctionnalités entre plateformes, ou croire qu'une instruction dans le prompt ou un VPN contrôle l'endroit où tourne l'inférence.",
+      "source": { "title": "Data residency", "url": "https://platform.claude.com/docs/en/manage-claude/data-residency" }
+    }
+  ],
+  "warmup": [
+    {
+      "statement": "The Messages API MCP connector can connect directly to a local stdio MCP server running on a developer's laptop.",
+      "answer": false,
+      "fr": "Faux. Le MCP connector exige un serveur exposé publiquement en HTTP (Streamable HTTP ou SSE). Les serveurs stdio locaux ne peuvent pas être connectés directement."
+    },
+    {
+      "statement": "Contextual Retrieval prepends chunk-specific explanatory context to each chunk before embedding it and before building the BM25 index.",
+      "answer": true,
+      "fr": "Vrai. C'est exactement la définition : Contextual Embeddings et Contextual BM25 utilisent le chunk enrichi de son contexte."
+    },
+    {
+      "statement": "Anthropic offers its own first-party embedding model for building RAG pipelines.",
+      "answer": false,
+      "fr": "Faux. La doc indique qu'Anthropic ne propose pas son propre modèle d'embeddings et cite Voyage AI comme fournisseur possible, en invitant à comparer plusieurs offres."
+    },
+    {
+      "statement": "Placing long documents near the top of the prompt, with the question at the end, tends to improve response quality on long multi-document inputs.",
+      "answer": true,
+      "fr": "Vrai. Les bonnes pratiques de prompting recommandent les données longues en haut et la question à la fin, avec des gains mesurés allant jusqu'à 30 % sur des entrées complexes."
+    },
+    {
+      "statement": "Every feature available on the Claude API is guaranteed to be available on every cloud platform at the same time.",
+      "answer": false,
+      "fr": "Faux. La disponibilité varie selon la plateforme (certaines fonctionnalités arrivent plus tard ou pas du tout). Il faut vérifier le Features overview avant de concevoir."
+    }
+  ],
+  "questions": [
+    {
+      "id": "L04-Q01",
+      "domain": "D3",
+      "type": "single",
+      "stem": "An energy company built an MCP server that queries its asset-maintenance database. Engineers run it as a local stdio process on their laptops with Claude Code. The company now wants a customer-facing service, built on the Messages API and hosted in its cloud account, to use the same tools through the MCP connector. A developer proposes putting the stdio launch command in the mcp_servers URL field. What should the architect recommend?",
+      "options": [
+        { "text": "Keep the stdio server and set the MCP connector URL to http://localhost so that each service instance reaches its own local copy.", "why": "Faux. Le MCP connector est appelé depuis l'infrastructure d'Anthropic : il exige un serveur exposé publiquement en HTTP, pas un localhost." },
+        { "text": "Deploy the server as a remote MCP server over Streamable HTTP with OAuth-based authorization, then reference it in mcp_servers with a matching mcp_toolset.", "why": "Juste. La doc limite le MCP connector aux serveurs distants exposés en HTTP (Streamable HTTP ou SSE). Déployer le serveur en HTTP avec authentification, puis le déclarer dans mcp_servers et tools, est la voie prévue." },
+        { "text": "Switch the local server to the SSE transport, because the MCP connector accepts SSE servers regardless of where they run.", "why": "Faux. Changer de transport ne rend pas le serveur joignable : il reste sur un poste local. Et SSE est déprécié au profit de HTTP." },
+        { "text": "Convert the server's tools into MCP resources, because the connector only reads resources from local servers.", "why": "Faux. C'est l'inverse : le MCP connector ne supporte que les tool calls, et jamais les serveurs locaux." }
+      ],
+      "answer": [1],
+      "explanation": "Un serveur stdio est un processus local, adapté à un poste de développement. Un service hébergé qui passe par le MCP connector a besoin d'un serveur distant joignable en HTTP, avec authentification. Pour un serveur qui doit rester en réseau privé, il faut ton propre client MCP ou les MCP tunnels (en research preview).",
+      "tip": "MCP connector → serveur distant, HTTP, authentifié. stdio = local uniquement.",
+      "source": { "title": "MCP connector", "url": "https://platform.claude.com/docs/en/agents-and-tools/mcp-connector" }
+    },
+    {
+      "id": "L04-Q02",
+      "domain": "D3",
+      "type": "single",
+      "stem": "A consulting firm connected nine MCP servers (CRM, ticketing, wiki, finance, HR and others) to its internal research agent, exposing about 140 tools. Before the agent does any work, tool definitions consume a large share of the context window, and traces show a rising rate of wrong-tool calls. Most requests need only three to five tools. Which change MOST effectively addresses both the context cost and the selection errors?",
+      "options": [
+        { "text": "Move to the model with the largest available context window so that all 140 definitions fit with room to spare.", "why": "Faux. Plus de place ne règle pas la précision de sélection, qui se dégrade au-delà de 30 à 50 outils, ni le coût des tokens de définitions." },
+        { "text": "Merge all tools into a single do_anything tool that takes a free-form instruction string and routes it internally.", "why": "Faux. Un outil fourre-tout avec une entrée libre déplace l'ambiguïté dans ton code, perd la validation des paramètres et rend le comportement opaque." },
+        { "text": "Paste the list of all tool names and one-line summaries into the system prompt so that Claude can find the right tool faster.", "why": "Faux. Cela ajoute encore du contexte et ne retire aucune définition. La sélection reste noyée dans 140 options." },
+        { "text": "Mark most tools with defer_loading and add the tool search tool, keeping only the few most frequently used tools loaded up front.", "why": "Juste. Le tool search garde les définitions hors contexte et charge à la demande les 3 à 5 outils utiles, ce qui réduit fortement les tokens et maintient une bonne précision de sélection." }
+      ],
+      "answer": [3],
+      "explanation": "Le « capability bloat » (trop d'outils exposés) dégrade à la fois le coût et la qualité. La doc recommande le tool search avec defer_loading dès qu'on dépasse une dizaine d'outils, en gardant chargés les quelques outils les plus utilisés. On le combine avec des noms préfixés par service pour aider la recherche.",
+      "tip": "Beaucoup d'outils, peu utilisés à chaque requête → tool search + defer_loading.",
+      "source": { "title": "Tool search tool", "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool" }
+    },
+    {
+      "id": "L04-Q03",
+      "domain": "D3",
+      "type": "multi",
+      "stem": "A bank connects a third-party CRM's MCP server to its relationship-manager assistant through the MCP connector. The server exposes 40 tools, including delete_account, bulk_export_contacts and update_credit_limit. The approved use case only requires reading client notes and creating follow-up tasks. Which TWO measures BEST reduce risk while preserving the use case? (Select TWO.)",
+      "options": [
+        { "text": "Configure the mcp_toolset as an allowlist: disable all tools by default and enable only the note-reading and task-creation tools.", "why": "Juste. Le MCP connector permet d'activer uniquement certains outils (default_config enabled: false, puis configs par outil). Les outils dangereux ne sont jamais proposés à Claude." },
+        { "text": "Add a system prompt instruction telling Claude never to call deletion, export or credit-limit tools.", "why": "Faux. Une consigne dans le prompt n'est pas un contrôle d'accès : l'outil reste disponible et peut être appelé par erreur ou via une injection." },
+        { "text": "Use an OAuth authorization token scoped to the minimum CRM permissions needed to read notes and create tasks.", "why": "Juste. Le moindre privilège côté serveur limite l'impact même si un outil était appelé à tort. C'est une défense en profondeur avec l'allowlist." },
+        { "text": "Enable all 40 tools but set defer_loading: true so that the destructive tools are not loaded into context up front.", "why": "Faux. defer_loading optimise le contexte, il ne restreint rien : les outils restent découvrables et appelables via le tool search." },
+        { "text": "Reuse one administrator token across all of the bank's MCP servers so that credentials are rotated in a single place.", "why": "Faux. Un jeton admin partagé maximise l'impact d'une fuite et contredit le moindre privilège." }
+      ],
+      "answer": [0, 2],
+      "explanation": "On réduit la surface d'attaque à deux niveaux : côté Claude, en n'exposant que les outils nécessaires (allowlist du mcp_toolset), et côté système, en limitant les droits du jeton. Les consignes de prompt et les optimisations de contexte ne sont pas des contrôles de sécurité.",
+      "tip": "Outils dangereux exposés → allowlist + jeton à privilèges minimaux, jamais « dire au modèle de ne pas le faire ».",
+      "source": { "title": "MCP connector", "url": "https://platform.claude.com/docs/en/agents-and-tools/mcp-connector" }
+    },
+    {
+      "id": "L04-Q04",
+      "domain": "D3",
+      "type": "single",
+      "stem": "An asset manager runs RAG over 50,000 quarterly filings from hundreds of companies. Chunks are about 300 tokens. Evaluation shows many failed retrievals: a chunk such as ‘Revenue grew 3% over the previous quarter’ is retrieved for the wrong company or period, because the chunk itself never names them. Generation quality is good whenever the right chunks are retrieved. What should the architect recommend?",
+      "options": [
+        { "text": "Upgrade the generation step to the most capable model so that it can reason past irrelevant chunks.", "why": "Faux. L'évaluation montre que la génération est bonne : le problème est la récupération. Un meilleur générateur ne retrouve pas un chunk mal indexé." },
+        { "text": "Raise top-k from 20 to 200 so that the correct chunk is more likely to be somewhere in the context.", "why": "Faux. Cela augmente coût et latence et dilue le contexte (context rot), sans résoudre l'ambiguïté des chunks." },
+        { "text": "Apply Contextual Retrieval: have Claude generate a short document-specific context for each chunk, prepend it before embedding and BM25 indexing, and add a reranking step.", "why": "Juste. C'est le cas d'usage exact de Contextual Retrieval : préfixer à chaque chunk le contexte qui lui manque (entreprise, période). Anthropic rapporte -49 % d'échecs de récupération, -67 % avec reranking. Le prompt caching rend la génération de ces contextes peu coûteuse." },
+        { "text": "Index entire filings as single chunks so that company and period information is always included in the retrieved text.", "why": "Faux. Des chunks géants réduisent la précision de la recherche et consomment énormément de contexte à chaque requête." }
+      ],
+      "answer": [2],
+      "explanation": "Quand les chunks perdent leur contexte (qui, quand, quelle section), la recherche échoue même avec de bons embeddings. Contextual Retrieval répare l'indexation en préfixant un contexte généré à chaque chunk, pour la recherche sémantique comme pour BM25. Le reranking améliore encore la précision.",
+      "tip": "Bonne génération mais mauvais chunks → corriger la récupération (Contextual Retrieval, hybride BM25, reranking), pas le modèle.",
+      "source": { "title": "Contextual Retrieval", "url": "https://www.anthropic.com/engineering/contextual-retrieval" }
+    },
+    {
+      "id": "L04-Q05",
+      "domain": "D3",
+      "type": "single",
+      "stem": "A pharmaceutical regulatory-affairs team uses an assistant that answers questions from internal SOPs returned by a custom search tool. Auditors require that each claim in an answer link to the exact SOP passage that supports it. Today the prompt asks Claude to ‘cite sources in square brackets’, and spot checks find occasional citations that point to the wrong SOP. Which approach BEST satisfies the auditors?",
+      "options": [
+        { "text": "Have the search tool return search_result blocks with a source, title and content for each passage, so that the API returns structured citations to the content provided.", "why": "Juste. Les blocs search_result sont prévus pour le RAG : Claude cite tes documents comme des résultats web, et les citations pointent de façon vérifiable vers le contenu fourni." },
+        { "text": "Enable structured outputs with a sources array in the schema, and enable citations on the same requests for extra assurance.", "why": "Faux. Citations et structured outputs sont incompatibles : la combinaison renvoie une erreur 400. Un tableau sources rempli par le modèle reste une affirmation non vérifiée." },
+        { "text": "Keep bracket citations and add a post-processing step that string-matches each bracketed ID against the SOP index.", "why": "Faux. Cela détecte certains identifiants invalides, mais pas une citation qui pointe vers un SOP existant qui ne soutient pas l'affirmation." },
+        { "text": "Fine-tune a model on past answers that auditors approved so that it learns the correct citation style.", "why": "Faux. Le style de citation n'est pas le problème : il faut un lien structurel et vérifiable entre l'affirmation et le passage source." }
+      ],
+      "answer": [0],
+      "explanation": "Pour une attribution auditable, on utilise les mécanismes natifs : citations sur les documents, ou blocs search_result renvoyés par l'outil de recherche. L'API produit alors des citations structurées qui pointent vers le contenu fourni. Attention à l'incompatibilité avec les structured outputs.",
+      "tip": "Sources vérifiables exigées → citations / search_result blocks. Et jamais en même temps que les structured outputs.",
+      "source": { "title": "Search results", "url": "https://platform.claude.com/docs/en/build-with-claude/search-results" }
+    },
+    {
+      "id": "L04-Q06",
+      "domain": "D3",
+      "type": "single",
+      "stem": "A retailer has standardized on AWS and wants to consume Claude through Amazon Bedrock to reuse its IAM roles, billing commitments and network controls. The solution design produced during a proof of concept on the Claude API depends on the MCP connector and the Message Batches API. The program must go live in six weeks. What should the architect do FIRST?",
+      "options": [
+        { "text": "Proceed with the migration as designed, because every Claude feature has the same availability on each cloud platform.", "why": "Faux. La doc indique clairement que la disponibilité des fonctionnalités varie selon la plateforme. Supposer la parité est le piège classique." },
+        { "text": "Abandon the AWS requirement and keep the Claude API, since cloud platforms cannot meet enterprise integration needs.", "why": "Faux. C'est une réaction excessive : l'exigence AWS est légitime, et Bedrock couvre de nombreuses fonctionnalités. Il faut adapter le design, pas l'abandonner." },
+        { "text": "Ask Claude in the system prompt to emulate the MCP connector by describing the external tools it needs to call.", "why": "Faux. Une consigne ne remplace pas une fonctionnalité de plateforme. Les appels d'outils doivent être réellement exécutés par ton application." },
+        { "text": "Check each feature the design relies on against the target platform's documented feature support, and plan alternatives where needed, such as running an MCP client in the application.", "why": "Juste. Il faut confronter le design à la matrice de fonctionnalités de la plateforme cible (Features overview), puis prévoir des alternatives : un client MCP dans l'application, ou un traitement par lots propre à la plateforme." }
+      ],
+      "answer": [3],
+      "explanation": "Le choix d'une plateforme cloud est souvent dicté par l'IAM, la facturation et la conformité, mais la disponibilité des fonctionnalités n'est pas identique partout. Un architecte valide les dépendances fonctionnelles du design contre la doc de la plateforme avant de s'engager sur un planning.",
+      "tip": "Changement de plateforme (Bedrock, Google Cloud, Foundry) → vérifier la matrice de fonctionnalités avant tout.",
+      "source": { "title": "Claude in Amazon Bedrock", "url": "https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock" }
+    },
+    {
+      "id": "L04-Q07",
+      "domain": "D3",
+      "type": "single",
+      "stem": "A US government contractor uses the Claude API directly. Its contract requires that model inference for a case-management workload run only on US-based infrastructure, and that data stored at rest for that workload also remain in the US. The engineering team proposes routing all API traffic through a US VPN egress point and adding a system prompt line that states the data is US-only. What should the architect recommend instead?",
+      "options": [
+        { "text": "Enable Zero Data Retention on the organization, which keeps both inference and stored data within the US.", "why": "Faux. La ZDR concerne la conservation des données, pas leur localisation. Elle ne fixe ni où tourne l'inférence ni où sont stockées les données." },
+        { "text": "Set inference_geo to ‘us’ for the workload, per request or as the workspace default, and configure the workspace geo so that data at rest stays in the US.", "why": "Juste. La doc distingue deux réglages indépendants : inference_geo (où tourne l'inférence) et workspace geo (stockage au repos et traitements côté endpoint)." },
+        { "text": "Keep the VPN egress, because the location of the calling client determines where inference runs.", "why": "Faux. Le point de sortie réseau du client ne contrôle pas l'infrastructure qui exécute l'inférence." },
+        { "text": "Keep the system prompt statement, because Claude routes requests according to residency instructions in the prompt.", "why": "Faux. Un prompt n'a aucun effet sur l'infrastructure. La résidence des données est un réglage de plateforme." }
+      ],
+      "answer": [1],
+      "explanation": "La résidence des données se configure avec des contrôles de plateforme, pas avec du réseau côté client ni des consignes. Sur la Claude API, inference_geo fixe l'endroit où tourne l'inférence et le workspace geo celui où les données sont stockées au repos. Sur une plateforme cloud, on passe par des endpoints régionaux.",
+      "tip": "Exigence de localisation → inference_geo + workspace geo (ou endpoint régional cloud). ZDR ≠ résidence.",
+      "source": { "title": "Data residency", "url": "https://platform.claude.com/docs/en/manage-claude/data-residency" }
+    },
+    {
+      "id": "L04-Q08",
+      "domain": "D2",
+      "type": "single",
+      "stem": "A legal due-diligence assistant sends one prompt per question. The prompt starts with detailed instructions, then the user's question, then about 120 pages of contracts pasted at the end. Reviewers report that answers often miss relevant clauses buried in the middle of the documents. Token budget is not a concern. Which restructuring is MOST likely to improve answer quality?",
+      "options": [
+        { "text": "Repeat the instructions three times throughout the prompt so that Claude does not forget them while reading.", "why": "Faux. Répéter les consignes ajoute du bruit sans aider Claude à trouver les clauses pertinentes." },
+        { "text": "Split the contracts into 120 single-page requests and concatenate the 120 partial answers.", "why": "Faux. On perd le raisonnement entre documents et on multiplie coût et latence. Les réponses partielles peuvent aussi se contredire." },
+        { "text": "Place the contracts at the top in XML tags with document metadata, put the question and instructions at the end, and ask Claude to first extract relevant quotes before answering.", "why": "Juste. La doc recommande les données longues en haut et la question à la fin (gains jusqu'à 30 % sur les entrées complexes), le balisage XML des documents, et l'extraction de citations avant la tâche." },
+        { "text": "Raise the temperature so that Claude explores more parts of the documents before answering.", "why": "Faux. La température agit sur la variabilité du texte généré, pas sur la façon dont le modèle exploite un long contexte." }
+      ],
+      "answer": [2],
+      "explanation": "En contexte long, la structure du prompt compte : documents en haut, balisés et accompagnés de métadonnées, question à la fin, et une étape d'extraction de citations qui force Claude à repérer les passages utiles avant de répondre.",
+      "tip": "Long contexte → documents en haut, question en bas, citations d'abord.",
+      "source": { "title": "Prompting best practices", "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices" }
+    },
+    {
+      "id": "L04-Q09",
+      "domain": "D2",
+      "type": "single",
+      "stem": "A telecom support copilot retrieves the top 50 knowledge-base chunks for every question ‘to be safe’ and passes them all to Claude. As the knowledge base has grown, answer accuracy on the team's evaluation set has dropped, latency has increased, and cost per conversation has nearly doubled. Most answers rely on two or three chunks. What should the architect recommend?",
+      "options": [
+        { "text": "Retrieve a smaller set of higher-relevance chunks using reranking and deduplication, and validate the new configuration against the evaluation set.", "why": "Juste. Plus de contexte n'est pas automatiquement mieux : la précision et le rappel se dégradent quand le nombre de tokens augmente (context rot). Curer le contexte puis mesurer est la bonne démarche." },
+        { "text": "Increase retrieval to the top 200 chunks and switch to a model with a larger context window.", "why": "Faux. Cela aggrave la dilution du contexte, la latence et le coût, à l'opposé du constat de l'évaluation." },
+        { "text": "Add a preliminary call that summarizes all 50 chunks into one paragraph before answering.", "why": "Faux. Un appel de plus ajoute latence et coût, et le résumé peut supprimer justement les détails dont la réponse a besoin." },
+        { "text": "Remove retrieval and rely on the model's general knowledge of telecom support procedures.", "why": "Faux. Les procédures internes ne sont pas dans les données d'entraînement : supprimer la récupération augmente les hallucinations." }
+      ],
+      "answer": [0],
+      "explanation": "Le contexte se cure, il ne s'empile pas. Quand les réponses n'utilisent que quelques chunks, en envoyer 50 dilue l'information pertinente, coûte cher et ralentit. On améliore la précision de la récupération (reranking, déduplication, top-k plus petit) et on valide l'effet sur l'eval set.",
+      "tip": "Qualité qui baisse quand on ajoute du contexte → context rot : réduire et curer, puis mesurer.",
+      "source": { "title": "Context windows", "url": "https://platform.claude.com/docs/en/build-with-claude/context-windows" }
+    },
+    {
+      "id": "L04-Q10",
+      "domain": "D2",
+      "type": "multi",
+      "stem": "An HR department wants an assistant that answers employee questions about company policies. The entire policy corpus is about 150 pages, fits comfortably within the model's context window, and is updated once a month. The project team plans a vector database, an embedding pipeline and top-k retrieval before launch. Which TWO recommendations should the architect make? (Select TWO.)",
+      "options": [
+        { "text": "Fine-tune a model on the policy documents every month so that it memorizes the latest version.", "why": "Faux. Le fine-tuning est coûteux, lent à mettre à jour et ne garantit pas une restitution fidèle des politiques." },
+        { "text": "Include the full policy corpus directly in the prompt and skip the vector retrieval pipeline for now.", "why": "Juste. Anthropic rappelle que pour une base qui tient dans le prompt, la solution la plus simple est de l'inclure entièrement, sans RAG." },
+        { "text": "Build the vector database with top-50 retrieval to minimize the number of tokens per request.", "why": "Faux. Cela ajoute de la complexité et des risques d'échec de récupération sans besoin réel à ce volume." },
+        { "text": "Ask employees to paste the relevant policy section into each question to keep prompts short.", "why": "Faux. Cela reporte la récupération sur l'utilisateur, qui ne sait pas forcément quelle section s'applique." },
+        { "text": "Use prompt caching on the stable policy prefix so that repeated questions are faster and cheaper.", "why": "Juste. Le corpus change une fois par mois : c'est un préfixe stable idéal pour le prompt caching, qui réduit fortement coût et latence des requêtes suivantes." }
+      ],
+      "answer": [1, 4],
+      "explanation": "Choisir la solution la plus simple qui marche : si le corpus tient dans le contexte, on l'inclut entièrement et on le met en cache. Le RAG devient pertinent quand la base dépasse ce qui tient raisonnablement dans le prompt, ou quand le coût par requête l'impose.",
+      "tip": "Petite base stable → tout dans le prompt + prompt caching. Le RAG n'est pas un réflexe par défaut.",
+      "source": { "title": "Contextual Retrieval", "url": "https://www.anthropic.com/engineering/contextual-retrieval" }
+    }
+  ]
+}

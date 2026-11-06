@@ -1,0 +1,864 @@
+<title>Tour de l’Architecte</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Big+Shoulders+Display:wght@600;800&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root {
+  /* Layout: a tower at night. Ten floors stacked bottom-up beside a pinned exam file; fights take the whole stage. */
+  --night: #0c111e;
+  --slab: #141b2d;
+  --slab-2: #1c2541;
+  --line: #2b3657;
+  --ink: #e8ecf6;
+  --muted: #9aa5c3;
+  --lamp: #f3b841;
+  --lamp-ink: #1b1405;
+  --lamp-soft: rgba(243, 184, 65, 0.15);
+  --ok: #57c48f;
+  --ok-soft: rgba(87, 196, 143, 0.13);
+  --bad: #ef6b5c;
+  --bad-soft: rgba(239, 107, 92, 0.13);
+  --font-display: "Big Shoulders Display", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --t-xs: 12px; --t-sm: 14px; --t-md: 16px; --t-lg: 18px; --t-xl: 24px; --t-2xl: 34px; --t-3xl: 48px;
+  --r: 6px;
+  color-scheme: dark;
+}
+html, body { background-color: var(--night); color: var(--ink); }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.55;
+  min-height: 100vh;
+  background-image: radial-gradient(120% 55% at 50% 115%, var(--slab-2) 0%, transparent 70%);
+  background-attachment: fixed;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 40; background: var(--night); }
+[hidden] { display: none !important; }
+* { box-sizing: border-box; }
+img, svg { max-width: 100%; }
+a { color: var(--lamp); }
+code { font-family: var(--font-mono); font-size: 0.86em; background: var(--slab-2); border: 1px solid var(--line); padding: 0 5px; border-radius: 3px; }
+:focus-visible { outline: 2px solid var(--lamp); outline-offset: 2px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+p { margin: 0; }
+
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.mono { font-family: var(--font-mono); }
+.eyebrow { font-family: var(--font-mono); font-size: var(--t-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
+/* Top bar */
+.topbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: var(--night); border-bottom: 1px solid var(--line); }
+.topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; min-width: 0; }
+.brand-mark { width: 22px; height: 28px; flex: none; }
+.brand-name { font-family: var(--font-display); font-weight: 800; font-size: 22px; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; }
+.tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; padding: 2px 7px; border: 1px solid var(--line); border-radius: 3px; color: var(--muted); white-space: nowrap; }
+.topnav { display: flex; align-items: center; gap: 14px; font-size: var(--t-sm); }
+.topnav a { color: var(--ink); text-decoration: none; white-space: nowrap; }
+.topnav a:hover { color: var(--lamp); }
+.count { display: inline-block; min-width: 22px; text-align: center; font-family: var(--font-mono); font-size: 12px; padding: 1px 6px; border-radius: 10px; background: var(--slab-2); border: 1px solid var(--line); margin-left: 4px; }
+.count.has { background: var(--lamp); color: var(--lamp-ink); border-color: var(--lamp); }
+@media (max-width: 520px) { .brand-name { font-size: 18px; } .topnav .hide-sm { display: none; } }
+
+/* Buttons */
+.btn { font: 700 15px/1.2 var(--font-body); padding: 12px 18px; border-radius: var(--r); border: 1px solid var(--line); background: var(--slab-2); color: var(--ink); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.btn:hover:not(:disabled) { border-color: var(--muted); }
+.btn-primary { background: var(--lamp); color: var(--lamp-ink); border-color: var(--lamp); }
+.btn-primary:hover:not(:disabled) { border-color: var(--ink); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.link-btn { background: none; border: 0; padding: 0; color: var(--muted); font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.link-btn:hover { color: var(--ink); }
+
+/* Home */
+.home { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 40px; padding-block: 40px 72px; align-items: start; }
+@media (max-width: 900px) { .home { grid-template-columns: minmax(0, 1fr); gap: 32px; } }
+.hero { display: grid; gap: 12px; margin-bottom: 28px; }
+.hero h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(36px, 6vw, 58px); line-height: 0.98; text-transform: uppercase; letter-spacing: 0.01em; }
+.hero h1 em { font-style: normal; color: var(--lamp); }
+.lede { color: var(--muted); max-width: 60ch; font-size: var(--t-lg); }
+
+.spire { display: flex; justify-content: center; height: 54px; }
+.spire svg { height: 54px; width: 80px; }
+.spire .mast { stroke: var(--line); stroke-width: 2; }
+.spire .beacon { fill: var(--slab-2); stroke: var(--line); }
+.spire.lit .beacon { fill: var(--lamp); stroke: var(--lamp); filter: drop-shadow(0 0 6px var(--lamp)); }
+.tower { list-style: none; margin: 0; padding: 0 0 0; display: flex; flex-direction: column; gap: 6px; border-left: 2px solid var(--line); border-right: 2px solid var(--line); padding-inline: 8px; }
+.ground { border-top: 3px solid var(--line); margin-top: 0; padding-top: 8px; text-align: center; }
+.floor { display: grid; grid-template-columns: 68px minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 14px 16px; background: var(--slab); border: 1px solid var(--line); border-radius: var(--r); color: inherit; text-decoration: none; }
+a.floor:hover { border-color: var(--muted); }
+.floor.is-locked { opacity: 0.48; }
+.floor.is-current { border-color: var(--lamp); box-shadow: inset 0 0 0 1px var(--lamp), 0 0 28px var(--lamp-soft); }
+.floor-num { display: grid; gap: 2px; }
+.floor-num b { font-family: var(--font-display); font-weight: 800; font-size: 38px; line-height: 0.9; color: var(--ink); font-variant-numeric: tabular-nums; }
+.floor.is-locked .floor-num b { color: var(--muted); }
+.floor-body { display: grid; gap: 4px; min-width: 0; }
+.floor-body h3 { font-family: var(--font-display); font-weight: 600; font-size: 23px; line-height: 1.05; letter-spacing: 0.02em; }
+.floor-meta { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; font-size: var(--t-sm); color: var(--muted); }
+.floor-side { display: grid; justify-items: end; gap: 8px; }
+.windows { display: grid; grid-template-columns: repeat(5, 9px); gap: 4px; }
+.win { width: 9px; height: 13px; background: var(--slab-2); border: 1px solid var(--line); border-radius: 1px; }
+.win.lit { background: var(--lamp); border-color: var(--lamp); box-shadow: 0 0 6px var(--lamp-soft); }
+.pill { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.pill.ready { color: var(--lamp); border-color: var(--lamp); }
+.pill.train { color: var(--ink); }
+.stars { font-size: 16px; letter-spacing: 2px; color: var(--line); white-space: nowrap; }
+.stars .on { color: var(--lamp); }
+@media (max-width: 560px) {
+  .floor { grid-template-columns: 46px minmax(0, 1fr); gap: 12px; padding: 12px; }
+  .floor-num b { font-size: 30px; }
+  .floor-side { grid-column: 2; justify-items: start; grid-auto-flow: column; align-items: center; justify-content: start; gap: 12px; }
+}
+
+.dossier { display: grid; gap: 20px; background: var(--slab); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; }
+.dossier h2 { font-family: var(--font-display); font-weight: 800; font-size: var(--t-xl); text-transform: uppercase; letter-spacing: 0.03em; }
+.kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.kpi { display: grid; gap: 2px; }
+.kpi b { font-family: var(--font-display); font-weight: 800; font-size: 32px; line-height: 1; font-variant-numeric: tabular-nums; }
+.kpi span { font-size: var(--t-xs); color: var(--muted); }
+.domains { display: grid; gap: 12px; }
+.dom { display: grid; gap: 5px; }
+.dom-top { display: flex; justify-content: space-between; gap: 12px; font-size: var(--t-sm); }
+.dom-top span:first-child { min-width: 0; }
+.dom-top .mono { color: var(--muted); font-size: 12px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.bar { position: relative; height: 8px; background: var(--slab-2); border-radius: 4px; overflow: visible; }
+.bar i { position: absolute; inset: 0 auto 0 0; border-radius: 4px; background: var(--muted); }
+.bar i.good { background: var(--ok); }
+.bar i.mid { background: var(--lamp); }
+.bar i.low { background: var(--bad); }
+.bar .pass { position: absolute; left: 72%; top: -3px; bottom: -3px; width: 2px; background: var(--ink); opacity: 0.55; }
+.facts { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px 14px; margin: 0; font-size: var(--t-sm); }
+.facts dt { font-family: var(--font-mono); color: var(--lamp); font-variant-numeric: tabular-nums; }
+.facts dd { margin: 0; color: var(--muted); }
+.note { font-size: var(--t-xs); color: var(--muted); line-height: 1.5; }
+
+/* Level page */
+.level { padding-block: 32px 72px; display: grid; gap: 28px; }
+.back { font-size: var(--t-sm); color: var(--muted); text-decoration: none; }
+.back:hover { color: var(--ink); }
+.level-head { display: grid; grid-template-columns: 116px minmax(0, 1fr); gap: 24px; align-items: center; }
+.level-head h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(34px, 5vw, var(--t-3xl)); line-height: 1; text-transform: uppercase; }
+.level-head .lede { margin-top: 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.chip { font-family: var(--font-mono); font-size: 11px; padding: 3px 8px; border-radius: 3px; background: var(--slab-2); border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+@media (max-width: 560px) { .level-head { grid-template-columns: 72px minmax(0, 1fr); gap: 16px; } }
+
+.steps { display: flex; gap: 4px; border-bottom: 1px solid var(--line); overflow-x: auto; }
+.step { flex: none; background: none; border: 0; border-bottom: 3px solid transparent; color: var(--muted); font: 700 15px var(--font-body); padding: 10px 14px 12px; cursor: pointer; display: inline-flex; gap: 8px; align-items: baseline; }
+.step .mono { font-size: 12px; }
+.step[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--lamp); }
+.step:disabled { cursor: not-allowed; opacity: 0.5; }
+
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 980px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .cards { grid-template-columns: minmax(0, 1fr); } }
+.card { background: var(--slab); border: 1px solid var(--line); border-radius: var(--r); padding: 20px; display: grid; gap: 12px; align-content: start; }
+.card h3 { font-family: var(--font-display); font-weight: 600; font-size: 24px; line-height: 1.05; letter-spacing: 0.01em; }
+.card p { font-size: 15px; }
+.trap { border-top: 1px dashed var(--line); padding-top: 12px; display: grid; gap: 4px; font-size: 15px; }
+.trap b { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lamp); font-weight: 600; }
+.src { font-size: 13px; color: var(--muted); }
+.src a { color: var(--muted); text-underline-offset: 3px; }
+.src a:hover { color: var(--lamp); }
+.tab-foot { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; margin-top: 8px; }
+
+.drill { max-width: 760px; display: grid; gap: 18px; }
+.dots { display: flex; gap: 6px; }
+.dots i { width: 28px; height: 4px; border-radius: 2px; background: var(--slab-2); }
+.dots i.done-ok { background: var(--ok); }
+.dots i.done-bad { background: var(--bad); }
+.dots i.now { background: var(--lamp); }
+.statement { font-size: var(--t-xl); line-height: 1.35; background: var(--slab); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; }
+.tf { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.tf .btn { justify-content: center; font-size: var(--t-lg); padding: 16px; }
+.tf .btn.picked-ok { background: var(--ok-soft); border-color: var(--ok); }
+.tf .btn.picked-bad { background: var(--bad-soft); border-color: var(--bad); }
+
+.boss-card { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 28px; align-items: start; background: var(--slab); border: 1px solid var(--line); border-radius: var(--r); padding: 26px; }
+@media (max-width: 640px) { .boss-card { grid-template-columns: minmax(0, 1fr); } .boss-card .boss-svg { width: 120px; } }
+.boss-card h2 { font-family: var(--font-display); font-weight: 800; font-size: 40px; line-height: 1; text-transform: uppercase; }
+.boss-quote { font-style: italic; color: var(--muted); font-size: var(--t-lg); margin-top: 10px; }
+.rules { list-style: none; margin: 18px 0; padding: 0; display: grid; gap: 8px; font-size: 15px; }
+.rules li { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 8px; }
+.rules li span:first-child { font-family: var(--font-mono); color: var(--lamp); }
+
+/* Boss emblem */
+.boss-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.b-outer { fill: var(--slab-2); stroke: var(--muted); stroke-width: 1.5; }
+.b-inner { fill: none; stroke: var(--line); stroke-width: 1.2; }
+.b-spike { stroke: var(--muted); stroke-width: 1.5; }
+.b-eye { fill: var(--bad); filter: drop-shadow(0 0 3px var(--bad)); }
+.b-mouth { fill: none; stroke: var(--bad); stroke-width: 1.8; stroke-linejoin: round; }
+.boss-svg.is-down { opacity: 0.55; }
+.boss-svg.is-down .b-eye { fill: var(--muted); filter: none; }
+.boss-svg.is-down .b-mouth { stroke: var(--muted); }
+
+/* Fight */
+.arena { max-width: 880px; margin: 0 auto; padding-block: 24px 72px; display: grid; gap: 18px; }
+.arena-top { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 16px; align-items: center; background: var(--slab); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; }
+.hp-label { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 6px; align-items: baseline; }
+.hp-label .boss-name { font-family: var(--font-display); font-weight: 800; font-size: 22px; text-transform: uppercase; letter-spacing: 0.02em; }
+.hp-label .mono { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.hp { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 3px; }
+.hp i { height: 10px; background: var(--bad); border-radius: 1px; transition: background 0.3s; }
+.hp i.gone { background: var(--slab-2); }
+.hearts { display: flex; gap: 6px; }
+.heart { width: 24px; height: 22px; }
+.heart path { fill: var(--bad); stroke: var(--bad); stroke-width: 1.5; }
+.heart.lost path { fill: none; stroke: var(--line); }
+.arena-meta { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; font-size: 12px; color: var(--muted); }
+.arena-meta .spacer { flex: 1; }
+@media (max-width: 560px) { .arena-top { grid-template-columns: 48px minmax(0, 1fr); } .hearts { grid-column: 1 / -1; justify-content: flex-end; } }
+
+.qcard { background: var(--slab); border: 1px solid var(--line); border-radius: var(--r); padding: 24px; display: grid; gap: 18px; }
+@media (max-width: 560px) { .qcard { padding: 18px; } }
+.stem { font-size: var(--t-lg); line-height: 1.6; max-width: 72ch; }
+.select-two { color: var(--lamp); font-weight: 700; white-space: nowrap; }
+.opts { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.opt { width: 100%; text-align: left; display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 12px; align-items: start; padding: 14px; border-radius: var(--r); border: 1px solid var(--line); background: var(--night); color: var(--ink); font: 400 var(--t-md)/1.5 var(--font-body); cursor: pointer; }
+.opt:hover:not(:disabled) { border-color: var(--muted); }
+.opt:disabled { cursor: default; color: var(--ink); }
+.opt-key { font-family: var(--font-mono); font-weight: 600; font-size: 13px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 4px; border: 1px solid var(--line); color: var(--muted); }
+.opt-body { display: grid; gap: 8px; min-width: 0; }
+.opt-why { font-size: 15px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 8px; }
+.opt-why b { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; margin-right: 6px; }
+.opt.is-selected { border-color: var(--lamp); background: var(--lamp-soft); }
+.opt.is-selected .opt-key { background: var(--lamp); color: var(--lamp-ink); border-color: var(--lamp); }
+.opt.is-correct { border-color: var(--ok); background: var(--ok-soft); }
+.opt.is-correct .opt-key { background: var(--ok); color: var(--night); border-color: var(--ok); }
+.opt.is-missed { border-color: var(--ok); border-style: dashed; }
+.opt.is-missed .opt-key { color: var(--ok); border-color: var(--ok); }
+.opt.is-wrong { border-color: var(--bad); background: var(--bad-soft); }
+.opt.is-wrong .opt-key { background: var(--bad); color: var(--night); border-color: var(--bad); }
+.opt.is-dim { opacity: 0.78; }
+.why-ok b { color: var(--ok); }
+.why-bad b { color: var(--bad); }
+.q-foot { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; }
+.q-hint { font-size: var(--t-sm); color: var(--muted); }
+.feedback { display: grid; gap: 12px; border-top: 1px solid var(--line); padding-top: 18px; }
+.feedback h3 { font-family: var(--font-display); font-weight: 800; font-size: 26px; text-transform: uppercase; letter-spacing: 0.02em; }
+.feedback.ok h3 { color: var(--ok); }
+.feedback.bad h3 { color: var(--bad); }
+.tip { background: var(--night); border: 1px solid var(--line); border-radius: var(--r); padding: 12px 14px; font-size: 15px; display: grid; gap: 4px; }
+.tip b { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lamp); }
+
+.end-head { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 28px; align-items: center; }
+.end-head h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(34px, 5vw, var(--t-3xl)); line-height: 1; text-transform: uppercase; margin-top: 6px; }
+@media (max-width: 560px) { .end-head { grid-template-columns: 90px minmax(0, 1fr); gap: 16px; } }
+.big-stars { font-size: 30px; letter-spacing: 6px; color: var(--line); margin-top: 12px; }
+.big-stars .on { color: var(--lamp); }
+.end-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0; }
+.end-stats div { background: var(--slab); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; }
+.end-stats dt { font-size: var(--t-xs); color: var(--muted); }
+.end-stats dd { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: 34px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.misslist { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.misslist li { background: var(--slab); border: 1px solid var(--line); border-radius: var(--r); padding: 12px 14px; display: grid; gap: 6px; font-size: 15px; }
+.misslist .mono { font-size: 11px; color: var(--muted); }
+.section-title { font-family: var(--font-display); font-weight: 800; font-size: var(--t-xl); text-transform: uppercase; letter-spacing: 0.03em; }
+
+.page { padding-block: 32px 72px; display: grid; gap: 22px; max-width: 880px; }
+.page h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(34px, 5vw, var(--t-3xl)); line-height: 1; text-transform: uppercase; }
+.empty { background: var(--slab); border: 1px dashed var(--line); border-radius: var(--r); padding: 28px; display: grid; gap: 12px; justify-items: start; }
+
+/* Footer */
+.foot { border-top: 1px solid var(--line); }
+.foot .wrap { padding-block: 22px 32px; display: grid; gap: 12px; }
+.foot-row { display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center; font-size: var(--t-sm); color: var(--muted); }
+.sync-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--muted); margin-right: 6px; }
+.sync-dot.cloud { background: var(--ok); }
+.confirm { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; background: var(--slab); border: 1px solid var(--bad); border-radius: var(--r); padding: 12px 14px; font-size: var(--t-sm); }
+
+/* Motion */
+@keyframes hit { 0%, 100% { transform: translateX(0) } 20% { transform: translateX(-6px) rotate(-4deg) } 45% { transform: translateX(5px) rotate(3deg) } 70% { transform: translateX(-3px) } }
+@keyframes hurt { 0% { box-shadow: inset 0 0 0 2px var(--bad), 0 0 30px var(--bad-soft) } 100% { box-shadow: none } }
+@keyframes rise { from { opacity: 0.4; transform: translateY(6px) } to { opacity: 1; transform: none } }
+.arena-boss.hit .boss-svg { animation: hit 0.5s ease-out; }
+.arena-top.hurt { animation: hurt 0.8s ease-out; }
+.feedback { animation: rise 0.25s ease-out; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#tour" aria-label="Tour de l’Architecte, accueil">
+      <svg class="brand-mark" viewBox="0 0 22 28" aria-hidden="true"><path d="M11 0 L11 5" stroke="#f3b841" stroke-width="2"/><rect x="3" y="5" width="16" height="23" fill="none" stroke="#9aa5c3" stroke-width="1.5"/><rect x="6.5" y="9" width="3" height="3" fill="#f3b841"/><rect x="12.5" y="9" width="3" height="3" fill="#2b3657"/><rect x="6.5" y="15" width="3" height="3" fill="#f3b841"/><rect x="12.5" y="15" width="3" height="3" fill="#f3b841"/><rect x="8.5" y="21" width="5" height="7" fill="#2b3657"/></svg>
+      <span class="brand-name">Tour de l’Architecte</span>
+      <span class="tag hide-sm">CCAR-P</span>
+    </a>
+    <nav class="topnav" aria-label="Navigation">
+      <span class="mono hide-sm" id="nav-progress"></span>
+      <a href="#revisions">Révisions<span class="count" id="nav-review">0</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="view"></main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-row">
+      <span id="sync-status"><span class="sync-dot"></span>Progression enregistrée dans ce navigateur</span>
+      <button class="link-btn" type="button" data-action="ask-unlock" id="unlock-btn">Débloquer tous les étages</button>
+      <button class="link-btn" type="button" data-action="ask-reset">Réinitialiser la progression</button>
+    </div>
+    <div id="confirm-slot"></div>
+    <p class="note">Questions originales rédigées à partir de la documentation officielle d’Anthropic (platform.claude.com, code.claude.com, anthropic.com). Elles reprennent le format et le niveau de l’examen Claude Certified Architect – Professional, mais ce ne sont pas les questions réelles de l’examen. La répartition par domaine suit le blueprint publié pour le CCAR-P.</p>
+  </div>
+</footer>
+
+<script>window.__LEVELS__ = /*__CONTENT__*/null;</script>
+<script>
+(function () {
+  "use strict";
+
+  /* ---------- Data ---------- */
+  var LEVELS = (window.__LEVELS__ || []).slice().sort(function (a, b) { return a.id - b.id; });
+  var DOMAINS = {
+    D1: { name: "Solution Design & Architecture", short: "Design", weight: 17 },
+    D2: { name: "Claude Models, Prompting & Context Engineering", short: "Models & Prompting", weight: 13 },
+    D3: { name: "Integration", short: "Integration", weight: 19 },
+    D4: { name: "Evaluation, Testing & Optimization", short: "Evaluation", weight: 16 },
+    D5: { name: "Governance, Safety & Risk Management", short: "Governance", weight: 14 },
+    D6: { name: "Stakeholder Communication & Lifecycle Management", short: "Stakeholders", weight: 14 },
+    D7: { name: "Developer Productivity & Operational Enablement", short: "Dev Productivity", weight: 7 }
+  };
+  var HEARTS = 3;
+  var PASS = 0.72;
+  var SECONDS_PER_Q = Math.round(120 * 60 / 63); // rythme de l'examen : 63 questions en 120 min
+  var STORE_KEY = "ccarp-quest-v1";
+  var LETTERS = "ABCDE";
+  var QINDEX = {};
+  LEVELS.forEach(function (l) { l.questions.forEach(function (q) { QINDEX[q.id] = { q: q, level: l }; }); });
+
+  /* ---------- State & storage ---------- */
+  function blankState() { return { v: 1, updatedAt: 0, levels: {}, domains: {}, review: {}, unlockAll: false }; }
+  function normalize(s) {
+    var b = blankState();
+    if (!s || typeof s !== "object") return b;
+    b.updatedAt = Number(s.updatedAt) || 0;
+    b.levels = s.levels && typeof s.levels === "object" ? s.levels : {};
+    b.domains = s.domains && typeof s.domains === "object" ? s.domains : {};
+    b.review = s.review && typeof s.review === "object" ? s.review : {};
+    b.unlockAll = !!s.unlockAll;
+    return b;
+  }
+  function readLocal() { try { var raw = localStorage.getItem(STORE_KEY); return raw ? normalize(JSON.parse(raw)) : null; } catch (e) { return null; } }
+  function writeLocal(s) { try { localStorage.setItem(STORE_KEY, JSON.stringify(s)); } catch (e) { /* stockage indisponible */ } }
+
+  var state = readLocal() || blankState();
+  var sync = { ref: null, writing: false, pending: false, timer: null, mode: "local" };
+
+  function save() { state.updatedAt = Date.now(); writeLocal(state); queueRemote(); renderNav(); }
+  function queueRemote() { if (!sync.ref) return; clearTimeout(sync.timer); sync.timer = setTimeout(flushRemote, 1200); }
+  function flushRemote() {
+    if (!sync.ref) return;
+    if (sync.writing) { sync.pending = true; return; }
+    sync.writing = true;
+    sync.ref.set({ state: JSON.stringify(state), updatedAt: state.updatedAt })
+      .then(function () { setSync("cloud"); })
+      .catch(function () { sync.ref = null; setSync("local"); })
+      .then(function () { sync.writing = false; if (sync.pending) { sync.pending = false; flushRemote(); } });
+  }
+  function setSync(mode) {
+    sync.mode = mode;
+    var el = document.getElementById("sync-status");
+    if (!el) return;
+    el.innerHTML = mode === "cloud"
+      ? '<span class="sync-dot cloud"></span>Progression synchronisée avec ton compte Claude'
+      : '<span class="sync-dot"></span>Progression enregistrée dans ce navigateur';
+  }
+  function initRemote() {
+    var c = window.claude;
+    if (!c || typeof c.use !== "function") return;
+    Promise.all([c.use("db"), c.use("user")]).then(function (caps) {
+      var db = caps[0], user = caps[1];
+      if (!db || !user) return null;
+      return user.id().then(function (id) {
+        if (!id) return null;
+        var ref = db.doc("data/users/" + id + "/progress");
+        var timeout = new Promise(function (_, reject) { setTimeout(function () { reject(new Error("timeout")); }, 10000); });
+        return Promise.race([ref.get(), timeout]).then(function (snap) {
+          sync.ref = ref;
+          var remote = null;
+          if (snap.exists) { try { remote = normalize(JSON.parse(snap.data().state)); } catch (e) { remote = null; } }
+          if (remote && remote.updatedAt > state.updatedAt) {
+            state = remote; writeLocal(state); setSync("cloud"); render();
+          } else if (state.updatedAt > 0 && (!remote || remote.updatedAt < state.updatedAt)) {
+            flushRemote();
+          } else { setSync("cloud"); }
+        });
+      });
+    }).catch(function () { /* reste en local */ });
+  }
+
+  function L(n) { return state.levels[n] || {}; }
+  function lv(n) { return state.levels[n] || (state.levels[n] = {}); }
+  function byId(n) { for (var i = 0; i < LEVELS.length; i++) if (LEVELS[i].id === n) return LEVELS[i]; return null; }
+  function isUnlocked(n) { return state.unlockAll || n === 1 || !!L(n - 1).won; }
+  function bossReady(n) { return isUnlocked(n) && (state.unlockAll || !!L(n).warmupDone); }
+  function currentFloor() { for (var i = 0; i < LEVELS.length; i++) { var n = LEVELS[i].id; if (isUnlocked(n) && !L(n).won) return n; } return null; }
+  function reviewIds() { return Object.keys(state.review).filter(function (id) { return QINDEX[id]; }); }
+
+  function recordAnswer(q, ok) {
+    var d = state.domains[q.domain] || (state.domains[q.domain] = { seen: 0, ok: 0 });
+    d.seen++; if (ok) d.ok++;
+    if (!ok) { var r = state.review[q.id] || (state.review[q.id] = { misses: 0 }); r.misses++; r.at = Date.now(); }
+  }
+
+  /* ---------- Session state (memory, survives hot reload) ---------- */
+  var fight = null;     // combat de boss en cours
+  var practice = null;  // révision ou mode libre
+  var ui = { tab: {}, warm: {}, confirm: null };
+
+  /* ---------- Helpers ---------- */
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function fmt(s) { return esc(s).replace(/`([^`]+)`/g, "<code>$1</code>"); }
+  function stemHTML(s) { return fmt(s).replace(/\(Select TWO\.\)\s*$/, '<span class="select-two">(Select TWO.)</span>'); }
+  function unquote(s) { return String(s || "").replace(/^[\s«"“]+|[\s»"”]+$/g, ""); }
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function sameSet(a, b) { if (a.length !== b.length) return false; for (var i = 0; i < a.length; i++) if (b.indexOf(a[i]) < 0) return false; return true; }
+  function fmtTime(ms) { var s = Math.max(0, Math.round(ms / 1000)); return pad(Math.floor(s / 60)) + ":" + pad(s % 60); }
+  function go(hash) { if (location.hash === "#" + hash) render(); else location.hash = hash; }
+  function starsHTML(n, cls) { var h = '<span class="' + (cls || "stars") + '" aria-label="' + n + ' étoile' + (n > 1 ? "s" : "") + ' sur 3">'; for (var i = 0; i < 3; i++) h += '<span class="' + (i < n ? "on" : "") + '">★</span>'; return h + "</span>"; }
+  function domainMix(level) {
+    var c = {}; level.questions.forEach(function (q) { c[q.domain] = (c[q.domain] || 0) + 1; });
+    return Object.keys(c).sort().map(function (d) { return '<span class="chip" title="' + esc(DOMAINS[d].name) + '">' + d + " " + esc(DOMAINS[d].short) + " ×" + c[d] + "</span>"; }).join("");
+  }
+  function sourceHTML(src) { if (!src || !src.url) return ""; return '<p class="src">Doc officielle : <a href="' + esc(src.url) + '" target="_blank" rel="noopener">' + esc(src.title || src.url) + " ↗</a></p>"; }
+
+  var SHAPES = [5, 6, 7, 8, 4, 9, 6, 10, 7, 12];
+  function bossSVG(n, cls) {
+    var k = SHAPES[(n - 1) % SHAPES.length], rot = -Math.PI / 2;
+    function pts(r, off) { var p = []; for (var i = 0; i < k; i++) { var a = rot + off + i * 2 * Math.PI / k; p.push((50 + r * Math.cos(a)).toFixed(1) + "," + (50 + r * Math.sin(a)).toFixed(1)); } return p.join(" "); }
+    var spikes = "";
+    for (var i = 0; i < k; i++) { var a = rot + i * 2 * Math.PI / k; spikes += '<line class="b-spike" x1="' + (50 + 44 * Math.cos(a)).toFixed(1) + '" y1="' + (50 + 44 * Math.sin(a)).toFixed(1) + '" x2="' + (50 + 50 * Math.cos(a)).toFixed(1) + '" y2="' + (50 + 50 * Math.sin(a)).toFixed(1) + '"/>'; }
+    var tilt = 6 + (n * 7) % 14, teeth = 3 + (n % 4), w = 26, x0 = 50 - w / 2, d = "M" + x0 + " 64";
+    for (var t = 1; t <= teeth * 2; t++) d += " L" + (x0 + t * w / (teeth * 2)).toFixed(1) + " " + (t % 2 ? 59 : 64);
+    return '<svg class="boss-svg ' + (cls || "") + '" viewBox="0 0 100 100" aria-hidden="true">' + spikes +
+      '<polygon class="b-outer" points="' + pts(44, 0) + '"/><polygon class="b-inner" points="' + pts(31, Math.PI / k) + '"/>' +
+      '<rect class="b-eye" x="31" y="42" width="13" height="5" rx="1" transform="rotate(' + tilt + ' 37.5 44.5)"/>' +
+      '<rect class="b-eye" x="56" y="42" width="13" height="5" rx="1" transform="rotate(' + (-tilt) + ' 62.5 44.5)"/>' +
+      '<path class="b-mouth" d="' + d + '"/></svg>';
+  }
+  function heartSVG(lost) { return '<svg class="heart' + (lost ? " lost" : "") + '" viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.5 L3.2 11.7 A5.2 5.2 0 0 1 12 4.4 A5.2 5.2 0 0 1 20.8 11.7 Z"/></svg>'; }
+
+  var view = document.getElementById("view");
+
+  /* ---------- Nav ---------- */
+  function renderNav() {
+    var won = LEVELS.filter(function (l) { return L(l.id).won; }).length;
+    var p = document.getElementById("nav-progress"); if (p) p.textContent = won + " / " + LEVELS.length + " étages";
+    var r = document.getElementById("nav-review"); if (r) { var n = reviewIds().length; r.textContent = n; r.className = "count" + (n ? " has" : ""); }
+    var u = document.getElementById("unlock-btn"); if (u) u.textContent = state.unlockAll ? "Revenir à la progression étage par étage" : "Débloquer tous les étages";
+  }
+  function renderConfirm() {
+    var slot = document.getElementById("confirm-slot"); if (!slot) return;
+    if (ui.confirm === "reset") slot.innerHTML = '<div class="confirm"><span>Effacer toute ta progression (étages, statistiques, révisions) ?</span><button class="btn" data-action="do-reset">Oui, tout effacer</button><button class="link-btn" data-action="cancel-confirm">Annuler</button></div>';
+    else if (ui.confirm === "unlock") slot.innerHTML = '<div class="confirm"><span>Débloquer tous les étages et tous les boss, sans passer par l’échauffement ?</span><button class="btn" data-action="do-unlock">Débloquer</button><button class="link-btn" data-action="cancel-confirm">Annuler</button></div>';
+    else slot.innerHTML = "";
+  }
+
+  /* ---------- Home ---------- */
+  function renderHome() {
+    if (!LEVELS.length) { view.innerHTML = '<section class="page wrap"><h1>Contenu manquant</h1><p class="lede">Aucun niveau n’a été chargé. Lance <code>node scripts/build.mjs</code> pour générer la page.</p></section>'; return; }
+    var cur = currentFloor();
+    var allWon = LEVELS.every(function (l) { return L(l.id).won; });
+    var floors = LEVELS.slice().reverse().map(function (l) {
+      var s = L(l.id), open = isUnlocked(l.id), best = s.best || 0;
+      var status;
+      if (!open) status = '<span class="pill">Verrouillé</span>';
+      else if (s.won) status = starsHTML(s.stars || 1);
+      else if (bossReady(l.id)) status = '<span class="pill ready">Boss prêt</span>';
+      else status = '<span class="pill train">Entraînement</span>';
+      var win = ""; for (var i = 0; i < 10; i++) win += '<i class="win' + (i < best ? " lit" : "") + '"></i>';
+      var cls = "floor" + (!open ? " is-locked" : "") + (l.id === cur ? " is-current" : "");
+      var inner = '<div class="floor-num"><span class="eyebrow">Étage</span><b>' + pad(l.id) + '</b></div>' +
+        '<div class="floor-body"><h3>' + esc(l.title) + '</h3><div class="floor-meta"><span>' + esc(l.theme) + '</span><span>Boss : ' + esc(l.boss.name) + '</span></div></div>' +
+        '<div class="floor-side">' + status + '<div class="windows" title="Meilleur score : ' + best + '/10">' + win + '</div></div>';
+      return "<li>" + (open ? '<a class="' + cls + '" href="#etage-' + l.id + '">' + inner + "</a>" : '<div class="' + cls + '" aria-disabled="true">' + inner + "</div>") + "</li>";
+    }).join("");
+
+    var answered = 0, correct = 0;
+    var domRows = Object.keys(DOMAINS).map(function (k) {
+      var d = DOMAINS[k], s = state.domains[k] || { seen: 0, ok: 0 };
+      answered += s.seen; correct += s.ok;
+      var pct = s.seen ? s.ok / s.seen : null;
+      var cls = pct == null ? "" : pct >= PASS ? "good" : pct >= 0.5 ? "mid" : "low";
+      var label = pct == null ? "pas encore vu" : s.ok + "/" + s.seen + " · " + Math.round(pct * 100) + " %";
+      return '<div class="dom"><div class="dom-top"><span title="' + esc(d.name) + '">' + k + " " + esc(d.short) + ' <span class="mono">' + d.weight + ' %</span></span><span class="mono">' + label + '</span></div>' +
+        '<div class="bar"><i class="' + cls + '" style="width:' + (pct == null ? 0 : Math.round(pct * 100)) + '%"></i><span class="pass" title="Seuil de réussite 72 %"></span></div></div>';
+    }).join("");
+    var won = LEVELS.filter(function (l) { return L(l.id).won; }).length;
+    var rate = answered ? Math.round(correct / answered * 100) + " %" : "—";
+
+    view.innerHTML =
+      '<section class="home wrap">' +
+        '<div class="home-main">' +
+          '<div class="hero"><p class="eyebrow">Claude Certified Architect – Professional · CCAR-P</p>' +
+          '<h1>Dix étages,<br>dix boss,<br><em>un examen.</em></h1>' +
+          '<p class="lede">Chaque étage couvre une partie du programme. Lis les fiches, fais l’échauffement, puis affronte le boss : 10 questions au format de l’examen, 3 vies. Bats-le pour monter d’un étage.</p></div>' +
+          '<div class="spire' + (allWon ? " lit" : "") + '" aria-hidden="true"><svg viewBox="0 0 80 54"><line class="mast" x1="40" y1="10" x2="40" y2="54"/><line class="mast" x1="28" y1="54" x2="40" y2="30"/><line class="mast" x1="52" y1="54" x2="40" y2="30"/><circle class="beacon" cx="40" cy="8" r="5"/></svg></div>' +
+          '<ol class="tower" aria-label="Les 10 étages, du plus haut au plus bas">' + floors + "</ol>" +
+          '<div class="ground"><span class="eyebrow">Rez-de-chaussée · départ</span></div>' +
+        "</div>" +
+        '<aside class="dossier" aria-label="Dossier d’examen">' +
+          "<h2>Dossier d’examen</h2>" +
+          '<div class="kpis"><div class="kpi"><b>' + won + '<small style="font-size:18px">/' + LEVELS.length + '</small></b><span>boss vaincus</span></div><div class="kpi"><b>' + answered + '</b><span>réponses données</span></div><div class="kpi"><b>' + rate + '</b><span>de réussite</span></div></div>' +
+          '<div class="domains"><p class="eyebrow">Maîtrise par domaine · poids à l’examen</p>' + domRows + '<p class="note">Le trait blanc marque 72 %, l’équivalent du score de réussite (720/1000).</p></div>' +
+          '<div><p class="eyebrow" style="margin-bottom:10px">L’examen réel</p><dl class="facts">' +
+            "<dt>63</dt><dd>questions indépendantes, réponse unique ou multiple</dd>" +
+            "<dt>120 min</dt><dd>soit environ 1 min 54 s par question</dd>" +
+            "<dt>720</dt><dd>sur 1000 pour réussir</dd>" +
+            "<dt>7</dt><dd>domaines, de 7 % à 19 % chacun</dd>" +
+          "</dl></div>" +
+          '<p class="note">Il faut 8 bonnes réponses sur 10 pour battre un boss, un peu plus que le seuil de l’examen, pour garder de la marge le jour J.</p>' +
+        "</aside>" +
+      "</section>";
+  }
+
+  /* ---------- Level ---------- */
+  function renderLevel(n) {
+    var level = byId(n);
+    if (!level) { go("tour"); return; }
+    if (!isUnlocked(n)) {
+      view.innerHTML = '<section class="page wrap"><a class="back" href="#tour">← La tour</a><h1>Étage ' + pad(n) + ' verrouillé</h1><p class="lede">Bats d’abord le boss de l’étage ' + pad(n - 1) + '.</p><div class="btn-row"><a class="btn btn-primary" href="#etage-' + (n - 1) + '">Aller à l’étage ' + pad(n - 1) + "</a></div></section>";
+      return;
+    }
+    var s = L(n);
+    var tab = ui.tab[n] || (bossReady(n) ? "boss" : "cards");
+    if (tab === "boss" && !bossReady(n)) tab = "warmup";
+    ui.tab[n] = tab;
+    if (tab === "cards" && !s.cardsSeen) { lv(n).cardsSeen = true; save(); }
+
+    var body = tab === "cards" ? cardsHTML(level) : tab === "warmup" ? warmHTML(level) : bossTabHTML(level);
+    view.innerHTML =
+      '<section class="level wrap">' +
+        '<a class="back" href="#tour">← La tour</a>' +
+        '<div class="level-head">' + bossSVG(n, s.won ? "is-down" : "") +
+          '<div><p class="eyebrow">Étage ' + pad(n) + " · " + esc(level.theme) + "</p><h1>" + esc(level.title) + '</h1><p class="lede">' + fmt(level.intro) + '</p><div class="chips">' + domainMix(level) + "</div></div></div>" +
+        '<div class="steps" role="tablist" aria-label="Étapes de l’étage">' +
+          stepBtn(n, "cards", "1", "Fiches", level.cards.length + " notions", false) +
+          stepBtn(n, "warmup", "2", "Échauffement", s.warmupDone ? "fait · " + (s.warmupBest || 0) + "/5" : level.warmup.length + " vrai/faux", false) +
+          stepBtn(n, "boss", "3", "Boss", bossReady(n) ? (s.won ? "vaincu" : "10 questions") : "après l’échauffement", !bossReady(n)) +
+        "</div>" +
+        '<div role="tabpanel">' + body + "</div>" +
+      "</section>";
+  }
+  function stepBtn(n, key, num, label, sub, disabled) {
+    return '<button class="step" role="tab" type="button" data-action="tab" data-n="' + n + '" data-tab="' + key + '" aria-selected="' + (ui.tab[n] === key) + '"' + (disabled ? " disabled" : "") + '><span class="mono">' + num + "</span>" + label + ' <span class="mono">' + sub + "</span></button>";
+  }
+  function cardsHTML(level) {
+    return '<div class="cards">' + level.cards.map(function (c) {
+      return '<article class="card"><h3>' + fmt(c.term) + "</h3><p>" + fmt(c.fr) + '</p><div class="trap"><b>Piège d’examen</b><span>' + fmt(c.trap) + "</span></div>" + sourceHTML(c.source) + "</article>";
+    }).join("") + '</div><div class="tab-foot"><span class="note">Les questions du boss sont en anglais, comme à l’examen. Les termes clés restent en anglais ici.</span><button class="btn btn-primary" data-action="tab" data-n="' + level.id + '" data-tab="warmup">Passer à l’échauffement →</button></div>';
+  }
+  function warmState(n) { return ui.warm[n] || (ui.warm[n] = { i: 0, picks: [] }); }
+  function warmHTML(level) {
+    var w = warmState(level.id), items = level.warmup;
+    var dots = items.map(function (x, i) { var p = w.picks[i]; return '<i class="' + (p == null ? (i === w.i ? "now" : "") : (p === x.answer ? "done-ok" : "done-bad")) + '"></i>'; }).join("");
+    if (w.i >= items.length) {
+      var score = items.filter(function (x, i) { return w.picks[i] === x.answer; }).length;
+      return '<div class="drill"><div class="dots">' + dots + '</div><h2 class="section-title">Échauffement terminé : ' + score + "/5</h2>" +
+        '<p class="lede">' + (score >= 4 ? "Bonne base. Le boss t’attend." : "Relis les fiches sur les points ratés avant d’affronter le boss.") + "</p>" +
+        '<div class="btn-row"><button class="btn btn-primary" data-action="tab" data-n="' + level.id + '" data-tab="boss">Affronter le boss →</button><button class="btn" data-action="warm-restart" data-n="' + level.id + '">Recommencer</button><button class="btn" data-action="tab" data-n="' + level.id + '" data-tab="cards">Revoir les fiches</button></div></div>';
+    }
+    var x = items[w.i], picked = w.picks[w.i], revealed = picked != null;
+    var btn = function (val, label) {
+      var cls = "btn"; if (revealed && picked === val) cls += picked === x.answer ? " picked-ok" : " picked-bad";
+      return '<button class="' + cls + '" data-action="warm-answer" data-n="' + level.id + '" data-v="' + val + '"' + (revealed ? " disabled" : "") + ">" + label + "</button>";
+    };
+    var fb = "";
+    if (revealed) {
+      var ok = picked === x.answer;
+      fb = '<div class="feedback ' + (ok ? "ok" : "bad") + '"><h3>' + (ok ? "Exact" : "Raté") + ' <span class="mono" style="font-size:14px;color:var(--muted)">· c’était ' + (x.answer ? "vrai" : "faux") + "</span></h3><p>" + fmt(x.fr) + '</p><div class="btn-row"><button class="btn btn-primary" data-action="warm-next" data-n="' + level.id + '" id="primary-action">' + (w.i === items.length - 1 ? "Voir le bilan" : "Affirmation suivante") + " →</button></div></div>";
+    }
+    return '<div class="drill"><div class="dots">' + dots + '</div><p class="eyebrow">Affirmation ' + (w.i + 1) + " / " + items.length + ' · vrai ou faux ?</p><p class="statement">' + fmt(x.statement) + '</p><div class="tf">' + btn(true, "Vrai") + btn(false, "Faux") + "</div>" + fb + '<p class="note">Raccourcis : V pour vrai, F pour faux, Entrée pour continuer.</p></div>';
+  }
+  function bossTabHTML(level) {
+    var s = L(level.id), n = level.id;
+    var running = fight && fight.n === n && !fight.end;
+    return '<div class="boss-card">' + bossSVG(n, s.won ? "is-down" : "") +
+      '<div><p class="eyebrow">Boss de l’étage ' + pad(n) + "</p><h2>" + esc(level.boss.name) + '</h2><p class="lede" style="margin-top:6px">' + esc(level.boss.epithet) + '</p><p class="boss-quote">« ' + esc(unquote(level.boss.taunt)) + " »</p>" +
+      '<ul class="rules"><li><span>10</span><span>questions au format de l’examen, en anglais, dans un ordre aléatoire.</span></li><li><span>♥ 3</span><span>vies. Chaque erreur en coûte une. À la troisième, le boss gagne.</span></li><li><span>8/10</span><span>minimum pour le vaincre. 10/10 donne trois étoiles.</span></li><li><span>2</span><span>bonnes réponses à cocher quand la question dit « Select TWO ». Tout ou rien, comme à l’examen.</span></li></ul>' +
+      (s.attempts ? '<p class="note" style="margin-bottom:14px">Meilleur score : ' + (s.best || 0) + "/10 · " + s.attempts + " tentative" + (s.attempts > 1 ? "s" : "") + (s.won ? " · " + (s.stars || 1) + " étoile" + ((s.stars || 1) > 1 ? "s" : "") : "") + "</p>" : "") +
+      '<div class="btn-row">' + (running ? '<a class="btn btn-primary" href="#combat-' + n + '">Reprendre le combat →</a>' : '<button class="btn btn-primary" data-action="start-fight" data-n="' + n + '">Lancer le combat →</button>') +
+      (s.won ? '<button class="btn" data-action="start-free" data-n="' + n + '">Rejouer en mode libre, sans vies</button>' : "") + "</div></div></div>";
+  }
+
+  /* ---------- Question card (fight + practice) ---------- */
+  function ensurePerm(ctx, q) { if (!ctx.perm[q.id]) ctx.perm[q.id] = shuffle(q.options.map(function (_, i) { return i; })); return ctx.perm[q.id]; }
+  function qcardHTML(q, ctx, nextLabel, verdict) {
+    var perm = ensurePerm(ctx, q), need = q.answer.length;
+    var opts = perm.map(function (oi, pos) {
+      var o = q.options[oi], sel = ctx.sel.indexOf(oi) >= 0, good = q.answer.indexOf(oi) >= 0, cls = "opt";
+      if (ctx.revealed) cls += good && sel ? " is-correct" : good ? " is-missed" : sel ? " is-wrong" : " is-dim";
+      else if (sel) cls += " is-selected";
+      var why = ctx.revealed ? '<span class="opt-why ' + (good ? "why-ok" : "why-bad") + '"><b>' + (good ? "Juste" : "Faux") + "</b>" + fmt(o.why) + "</span>" : "";
+      return '<li><button type="button" class="' + cls + '" data-action="opt" data-i="' + oi + '" aria-pressed="' + sel + '"' + (ctx.revealed ? " disabled" : "") + '><span class="opt-key">' + LETTERS[pos] + '</span><span class="opt-body"><span>' + fmt(o.text) + "</span>" + why + "</span></button></li>";
+    }).join("");
+    var foot;
+    if (!ctx.revealed) {
+      foot = '<div class="q-foot"><span class="q-hint">' + (need > 1 ? "Coche 2 réponses (" + ctx.sel.length + "/2)." : "Une seule réponse.") + " Touches A à " + LETTERS[q.options.length - 1] + ', puis Entrée.</span><button class="btn btn-primary" data-action="validate" id="primary-action"' + (ctx.sel.length === need ? "" : " disabled") + ">Valider</button></div>";
+    } else {
+      var ok = ctx.lastOk;
+      foot = '<div class="feedback ' + (ok ? "ok" : "bad") + '" id="feedback"><h3>' + verdict(ok) + "</h3><p>" + fmt(q.explanation) + '</p><div class="tip"><b>Réflexe examen</b><span>' + fmt(q.tip) + "</span></div>" + sourceHTML(q.source) +
+        '<div class="btn-row"><button class="btn btn-primary" data-action="next" id="primary-action">' + nextLabel + " →</button></div></div>";
+    }
+    return '<article class="qcard"><p class="stem" lang="en">' + stemHTML(q.stem) + '</p><ol class="opts" lang="en">' + opts + "</ol>" + foot + "</article>";
+  }
+  function toggleOpt(ctx, q, oi) {
+    if (ctx.revealed) return;
+    var need = q.answer.length, k = ctx.sel.indexOf(oi);
+    if (need === 1) ctx.sel = [oi];
+    else if (k >= 0) ctx.sel.splice(k, 1);
+    else if (ctx.sel.length < need) ctx.sel.push(oi);
+    else { ctx.sel.shift(); ctx.sel.push(oi); }
+  }
+
+  /* ---------- Fight ---------- */
+  function startFight(n) {
+    var level = byId(n); if (!level || !bossReady(n)) return;
+    fight = { n: n, order: shuffle(level.questions.map(function (_, i) { return i; })), i: 0, hearts: HEARTS, hits: 0, results: [], perm: {}, sel: [], revealed: false, lastOk: null, end: null, t0: Date.now(), t1: null };
+    lv(n).attempts = (L(n).attempts || 0) + 1; save();
+    go("combat-" + n);
+  }
+  function fightQ() { return byId(fight.n).questions[fight.order[fight.i]]; }
+  function renderFight(n, fx) {
+    if (!fight || fight.n !== n) { ui.tab[n] = "boss"; go("etage-" + n); return; }
+    var level = byId(n);
+    if (fight.end) { renderFightEnd(level); return; }
+    var q = fightQ();
+    var hp = ""; for (var i = 0; i < 10; i++) hp += '<i class="' + (i < 10 - fight.hits ? "" : "gone") + '"></i>';
+    var hearts = ""; for (var h = 0; h < HEARTS; h++) hearts += heartSVG(h >= fight.hearts);
+    var nextLabel = fight.hearts <= 0 || fight.i === level.questions.length - 1 ? "Voir le résultat" : "Question suivante";
+    view.innerHTML =
+      '<section class="arena wrap">' +
+        '<div class="arena-top"><div class="arena-boss">' + bossSVG(n) + '</div><div><div class="hp-label"><span class="boss-name">' + esc(level.boss.name) + '</span><span class="mono">PV ' + (10 - fight.hits) + '/10</span></div><div class="hp" role="img" aria-label="Points de vie du boss : ' + (10 - fight.hits) + ' sur 10">' + hp + '</div></div><div class="hearts" role="img" aria-label="' + fight.hearts + ' vie(s) restante(s)">' + hearts + "</div></div>" +
+        '<div class="arena-meta mono"><span>Étage ' + pad(n) + "</span><span>Question " + pad(fight.i + 1) + " / " + level.questions.length + '</span><span class="chip" title="' + esc(DOMAINS[q.domain].name) + '">' + q.domain + " " + esc(DOMAINS[q.domain].short) + '</span><span id="timer"></span><span class="spacer"></span><button class="link-btn" data-action="ask-abandon">Abandonner</button></div>' +
+        '<div id="abandon-slot"></div>' +
+        qcardHTML(q, fight, nextLabel, function (ok) { return ok ? "Touché. Le boss vacille." : (fight.hearts <= 0 ? "Le boss t’a eu." : "Raté. Le boss riposte : −1 vie."); }) +
+      "</section>";
+    tick();
+    if (fx === "hit") { var b = view.querySelector(".arena-boss"); if (b) b.classList.add("hit"); }
+    if (fx === "hurt") { var t = view.querySelector(".arena-top"); if (t) t.classList.add("hurt"); }
+  }
+  function tick() {
+    var el = document.getElementById("timer");
+    if (!el || !fight || fight.end) return;
+    el.textContent = "Temps " + fmtTime(Date.now() - fight.t0) + " · cible " + fmtTime(SECONDS_PER_Q * 10 * 1000);
+  }
+  setInterval(tick, 1000);
+  function fightValidate() {
+    var q = fightQ();
+    if (fight.revealed || fight.sel.length !== q.answer.length) return;
+    var ok = sameSet(fight.sel, q.answer);
+    fight.revealed = true; fight.lastOk = ok;
+    fight.results.push({ id: q.id, ok: ok });
+    if (ok) fight.hits++; else fight.hearts--;
+    recordAnswer(q, ok); save();
+    renderFight(fight.n, ok ? "hit" : "hurt");
+    revealScroll();
+  }
+  function fightNext() {
+    var total = byId(fight.n).questions.length;
+    if (fight.hearts <= 0) return finishFight("lose");
+    if (fight.i >= total - 1) return finishFight("win");
+    fight.i++; fight.sel = []; fight.revealed = false; fight.lastOk = null;
+    renderFight(fight.n); window.scrollTo(0, 0);
+  }
+  function finishFight(result) {
+    fight.end = result; fight.t1 = Date.now();
+    var s = lv(fight.n);
+    s.best = Math.max(s.best || 0, fight.hits);
+    if (result === "win") { s.won = true; s.stars = Math.max(s.stars || 0, fight.hearts); s.bestTime = s.bestTime ? Math.min(s.bestTime, fight.t1 - fight.t0) : fight.t1 - fight.t0; }
+    save(); renderFight(fight.n); window.scrollTo(0, 0);
+  }
+  function renderFightEnd(level) {
+    var win = fight.end === "win", n = level.id;
+    var misses = fight.results.filter(function (r) { return !r.ok; });
+    var list = misses.length ? '<h2 class="section-title">Questions ratées</h2><ul class="misslist">' + misses.map(function (r) {
+      var q = QINDEX[r.id].q; return '<li><span class="mono">' + q.id + " · " + q.domain + " " + esc(DOMAINS[q.domain].short) + "</span><span lang=\"en\">" + fmt(q.stem.length > 220 ? q.stem.slice(0, 220) + "…" : q.stem) + "</span></li>";
+    }).join("") + '</ul><p class="note">Elles sont ajoutées à ta pile de révision.</p>' : "";
+    var last = n === LEVELS[LEVELS.length - 1].id;
+    var actions = win
+      ? (last ? '<a class="btn btn-primary" href="#tour">Contempler la tour</a>' : '<button class="btn btn-primary" data-action="open-level" data-n="' + (n + 1) + '">Monter à l’étage ' + pad(n + 1) + " →</button>") + '<button class="btn" data-action="start-fight" data-n="' + n + '">Rejouer le combat</button>'
+      : '<button class="btn btn-primary" data-action="start-fight" data-n="' + n + '">Réessayer</button><button class="btn" data-action="open-tab" data-n="' + n + '" data-tab="cards">Revoir les fiches</button>';
+    if (misses.length) actions += '<a class="btn" href="#revisions">Réviser mes erreurs</a>';
+    var title = win ? (last ? "La tour est à toi" : esc(level.boss.name) + " est vaincu") : esc(level.boss.name) + " garde l’étage";
+    view.innerHTML =
+      '<section class="arena wrap">' +
+        '<div class="end-head">' + bossSVG(n, win ? "is-down" : "") + '<div><p class="eyebrow">Étage ' + pad(n) + " · " + (win ? "Victoire" : "Défaite") + "</p><h1>" + title + '</h1><p class="boss-quote">« ' + esc(unquote(win ? level.boss.defeat : level.boss.victory)) + " »</p>" + (win ? starsHTML(fight.hearts, "big-stars") : "") + "</div></div>" +
+        '<dl class="end-stats"><div><dt>Score</dt><dd>' + fight.hits + "/" + fight.results.length + "</dd></div><div><dt>Temps</dt><dd>" + fmtTime(fight.t1 - fight.t0) + "</dd></div><div><dt>Rythme examen</dt><dd>" + fmtTime((fight.t1 - fight.t0) / Math.max(1, fight.results.length)) + "</dd></div></dl>" +
+        (win && last ? '<p class="lede">Tu as battu les dix boss. Pour consolider, vide ta pile de révision et rejoue les étages où tu n’as pas trois étoiles.</p>' : "") +
+        (!win && fight.results.length < level.questions.length ? '<p class="lede">Le combat s’est arrêté à la question ' + fight.results.length + '. Les questions restantes reviendront à la prochaine tentative, dans un nouvel ordre.</p>' : "") +
+        '<div class="btn-row">' + actions + "</div>" + list +
+      "</section>";
+  }
+
+  /* ---------- Practice (review + free mode) ---------- */
+  function startPractice(kind, n) {
+    var queue;
+    if (kind === "review") queue = reviewIds().sort(function (a, b) { return (state.review[b].misses || 0) - (state.review[a].misses || 0); });
+    else queue = shuffle(byId(n).questions.map(function (q) { return q.id; }));
+    if (!queue.length) return;
+    practice = { kind: kind, n: n || null, queue: queue, i: 0, perm: {}, sel: [], revealed: false, lastOk: null, okCount: 0, done: false };
+    go("pratique");
+  }
+  function practiceQ() { return QINDEX[practice.queue[practice.i]].q; }
+  function renderPractice() {
+    if (!practice) { go("revisions"); return; }
+    var title = practice.kind === "review" ? "Révision" : "Mode libre · étage " + pad(practice.n);
+    if (practice.done) {
+      var left = reviewIds().length;
+      view.innerHTML = '<section class="page wrap"><a class="back" href="#tour">← La tour</a><p class="eyebrow">' + title + '</p><h1>Session terminée : ' + practice.okCount + "/" + practice.queue.length + '</h1><p class="lede">' +
+        (practice.kind === "review" ? (left ? "Il reste " + left + " question" + (left > 1 ? "s" : "") + " dans ta pile. Chaque bonne réponse en révision retire la question de la pile." : "Ta pile de révision est vide.") : "Les erreurs de ce mode libre rejoignent aussi ta pile de révision.") + '</p><div class="btn-row">' +
+        (practice.kind === "review" && left ? '<button class="btn btn-primary" data-action="start-review">Relancer une révision</button>' : "") + '<a class="btn" href="#tour">Retour à la tour</a></div></section>';
+      return;
+    }
+    var q = practiceQ(), info = QINDEX[q.id];
+    var last = practice.i === practice.queue.length - 1;
+    view.innerHTML = '<section class="arena wrap"><a class="back" href="#' + (practice.kind === "review" ? "revisions" : "etage-" + practice.n) + '">← ' + (practice.kind === "review" ? "Salle de révision" : "Étage " + pad(practice.n)) + "</a>" +
+      '<div class="arena-meta mono"><span>' + title + "</span><span>Question " + (practice.i + 1) + " / " + practice.queue.length + '</span><span>Étage ' + pad(info.level.id) + '</span><span class="chip" title="' + esc(DOMAINS[q.domain].name) + '">' + q.domain + " " + esc(DOMAINS[q.domain].short) + "</span>" +
+      (practice.kind === "review" && state.review[q.id] ? "<span>ratée " + state.review[q.id].misses + " fois</span>" : "") + "</div>" +
+      qcardHTML(q, practice, last ? "Terminer" : "Question suivante", function (ok) { return ok ? (practice.kind === "review" ? "Juste. Retirée de la pile." : "Juste.") : "Pas encore. Elle reste dans la pile."; }) + "</section>";
+  }
+  function practiceValidate() {
+    var q = practiceQ();
+    if (practice.revealed || practice.sel.length !== q.answer.length) return;
+    var ok = sameSet(practice.sel, q.answer);
+    practice.revealed = true; practice.lastOk = ok;
+    if (ok) practice.okCount++;
+    recordAnswer(q, ok);
+    if (ok && practice.kind === "review") delete state.review[q.id];
+    save(); renderPractice(); revealScroll();
+  }
+  function practiceNext() {
+    if (practice.i >= practice.queue.length - 1) { practice.done = true; renderPractice(); window.scrollTo(0, 0); return; }
+    practice.i++; practice.sel = []; practice.revealed = false; practice.lastOk = null;
+    renderPractice(); window.scrollTo(0, 0);
+  }
+  function renderReview() {
+    var ids = reviewIds().sort(function (a, b) { return (state.review[b].misses || 0) - (state.review[a].misses || 0); });
+    var resume = practice && !practice.done && practice.kind === "review";
+    var body;
+    if (!ids.length) {
+      body = '<div class="empty"><h2 class="section-title">Aucune erreur en attente</h2><p class="lede">Chaque question ratée face à un boss arrive ici. Tu la retravailles jusqu’à la réussir, puis elle quitte la pile.</p><a class="btn" href="#tour">Retour à la tour</a></div>';
+    } else {
+      body = '<div class="btn-row">' + (resume ? '<a class="btn btn-primary" href="#pratique">Reprendre la révision</a>' : "") + '<button class="btn' + (resume ? "" : " btn-primary") + '" data-action="start-review">' + (resume ? "Recommencer" : "Commencer la révision") + " (" + ids.length + ")</button></div>" +
+        '<ul class="misslist">' + ids.map(function (id) { var q = QINDEX[id].q; return '<li><span class="mono">Étage ' + pad(QINDEX[id].level.id) + " · " + q.domain + " " + esc(DOMAINS[q.domain].short) + " · ratée " + state.review[id].misses + ' fois</span><span lang="en">' + fmt(q.stem.length > 200 ? q.stem.slice(0, 200) + "…" : q.stem) + "</span></li>"; }).join("") + "</ul>";
+    }
+    view.innerHTML = '<section class="page wrap"><a class="back" href="#tour">← La tour</a><p class="eyebrow">Salle de révision</p><h1>Tes erreurs à retravailler</h1>' + body + "</section>";
+  }
+
+  function revealScroll() {
+    var fb = document.getElementById("feedback");
+    if (fb && fb.getBoundingClientRect().top > window.innerHeight * 0.75) {
+      var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      fb.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    }
+    var p = document.getElementById("primary-action"); if (p) p.focus({ preventScroll: true });
+  }
+
+  /* ---------- Router ---------- */
+  function route() {
+    var h = location.hash.replace(/^#/, ""), m;
+    if ((m = h.match(/^etage-(\d+)$/))) return { view: "level", n: +m[1] };
+    if ((m = h.match(/^combat-(\d+)$/))) return { view: "fight", n: +m[1] };
+    if (h === "revisions") return { view: "review" };
+    if (h === "pratique") return { view: "practice" };
+    return { view: "home" };
+  }
+  function render() {
+    var r = route();
+    if (r.view === "level") renderLevel(r.n);
+    else if (r.view === "fight") renderFight(r.n);
+    else if (r.view === "review") renderReview();
+    else if (r.view === "practice") renderPractice();
+    else renderHome();
+    renderNav(); renderConfirm();
+  }
+  window.addEventListener("hashchange", function () { render(); window.scrollTo(0, 0); });
+
+  /* ---------- Actions ---------- */
+  var actions = {
+    tab: function (d) { var n = +d.n; if (d.tab === "boss" && !bossReady(n)) return; ui.tab[n] = d.tab; renderLevel(n); },
+    "open-level": function (d) { go("etage-" + d.n); },
+    "open-tab": function (d) { ui.tab[+d.n] = d.tab; go("etage-" + d.n); },
+    "warm-answer": function (d) { var n = +d.n, w = warmState(n); if (w.picks[w.i] != null) return; w.picks[w.i] = d.v === "true"; renderLevel(n); var p = document.getElementById("primary-action"); if (p) p.focus({ preventScroll: true }); },
+    "warm-next": function (d) {
+      var n = +d.n, w = warmState(n), level = byId(n);
+      w.i++;
+      if (w.i >= level.warmup.length) {
+        var score = level.warmup.filter(function (x, i) { return w.picks[i] === x.answer; }).length;
+        var s = lv(n); s.warmupDone = true; s.warmupBest = Math.max(s.warmupBest || 0, score); save();
+      }
+      renderLevel(n);
+    },
+    "warm-restart": function (d) { ui.warm[+d.n] = { i: 0, picks: [] }; renderLevel(+d.n); },
+    "start-fight": function (d) { startFight(+d.n); },
+    "start-free": function (d) { startPractice("free", +d.n); },
+    "start-review": function () { startPractice("review"); },
+    opt: function (d) {
+      var r = route(), oi = +d.i;
+      if (r.view === "fight" && fight && !fight.end) { toggleOpt(fight, fightQ(), oi); renderFight(fight.n); }
+      else if (r.view === "practice" && practice && !practice.done) { toggleOpt(practice, practiceQ(), oi); renderPractice(); }
+    },
+    validate: function () { var r = route(); if (r.view === "fight" && fight) fightValidate(); else if (r.view === "practice" && practice) practiceValidate(); },
+    next: function () { var r = route(); if (r.view === "fight" && fight) fightNext(); else if (r.view === "practice" && practice) practiceNext(); },
+    "ask-abandon": function () {
+      var slot = document.getElementById("abandon-slot"); if (!slot) return;
+      slot.innerHTML = '<div class="confirm"><span>Abandonner ce combat ? La tentative compte, ta progression est gardée.</span><button class="btn" data-action="do-abandon">Abandonner</button><button class="link-btn" data-action="cancel-abandon">Continuer le combat</button></div>';
+    },
+    "cancel-abandon": function () { var slot = document.getElementById("abandon-slot"); if (slot) slot.innerHTML = ""; },
+    "do-abandon": function () { var n = fight ? fight.n : 1; fight = null; ui.tab[n] = "boss"; go("etage-" + n); },
+    "ask-reset": function () { ui.confirm = "reset"; renderConfirm(); },
+    "ask-unlock": function () { if (state.unlockAll) { state.unlockAll = false; save(); render(); } else { ui.confirm = "unlock"; renderConfirm(); } },
+    "cancel-confirm": function () { ui.confirm = null; renderConfirm(); },
+    "do-reset": function () { state = blankState(); state.updatedAt = Date.now(); fight = null; practice = null; ui = { tab: {}, warm: {}, confirm: null }; writeLocal(state); queueRemote(); go("tour"); },
+    "do-unlock": function () { state.unlockAll = true; ui.confirm = null; save(); render(); }
+  };
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest("[data-action]");
+    if (!t || t.disabled) return;
+    var fn = actions[t.getAttribute("data-action")];
+    if (fn) { e.preventDefault(); fn(t.dataset); }
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var tag = (e.target && e.target.tagName) || "";
+    if (tag === "INPUT" || tag === "TEXTAREA") return;
+    var r = route(), key = e.key.toLowerCase();
+    if (r.view === "fight" || r.view === "practice") {
+      var ctx = r.view === "fight" ? fight : practice;
+      if (!ctx || ctx.end || ctx.done) return;
+      var q = r.view === "fight" ? fightQ() : practiceQ();
+      var pos = "abcde".indexOf(key); if (pos < 0 && /^[1-5]$/.test(key)) pos = +key - 1;
+      if (pos >= 0 && pos < q.options.length && !ctx.revealed) { e.preventDefault(); toggleOpt(ctx, q, ensurePerm(ctx, q)[pos]); if (r.view === "fight") renderFight(fight.n); else renderPractice(); return; }
+      if (key === "enter") { e.preventDefault(); if (ctx.revealed) actions.next(); else actions.validate(); }
+    } else if (r.view === "level" && ui.tab[r.n] === "warmup") {
+      var w = warmState(r.n), level = byId(r.n);
+      if (!level || w.i >= level.warmup.length) return;
+      if ((key === "v" || key === "f") && w.picks[w.i] == null) { e.preventDefault(); actions["warm-answer"]({ n: r.n, v: key === "v" ? "true" : "false" }); }
+      else if (key === "enter" && w.picks[w.i] != null) { e.preventDefault(); actions["warm-next"]({ n: r.n }); }
+    }
+  });
+
+  /* ---------- Boot ---------- */
+  try { if (window.claude && window.claude.hot && window.claude.hot.snapshot) window.claude.hot.snapshot(function () { return { fight: fight, practice: practice, ui: ui }; }); } catch (e) { /* hors visionneuse */ }
+  function start(data) {
+    data = data || {};
+    if (data.fight) fight = data.fight;
+    if (data.practice) practice = data.practice;
+    if (data.ui) { ui.tab = data.ui.tab || {}; ui.warm = data.ui.warm || {}; }
+    render();
+    initRemote();
+  }
+  var hot = window.claude && window.claude.hot;
+  if (hot && hot.ready) hot.ready(start); else start((hot && hot.data) || {});
+})();
+</script>

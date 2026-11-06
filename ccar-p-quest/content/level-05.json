@@ -1,0 +1,242 @@
+{
+  "id": 5,
+  "title": "Le Banc d'Essai",
+  "theme": "Évaluation et tests",
+  "intro": "Ce niveau couvre la discipline qui sépare un prototype d'une solution d'entreprise : définir des critères de succès mesurables, construire un eval set représentatif, choisir la bonne méthode de notation et empêcher les régressions. À l'examen, la bonne réponse consiste presque toujours à mesurer avant de changer quoi que ce soit.",
+  "boss": {
+    "name": "Le Vibe-Checker",
+    "epithet": "Juge suprême du « ça a l'air bien »",
+    "taunt": "Des métriques ? Inutile. Je lis trois réponses et je sens si c'est bon.",
+    "defeat": "Impossible… tes critères étaient spécifiques, mesurables… et automatisés.",
+    "victory": "Tu vois ? Sans eval set, tout le monde a raison. Surtout moi."
+  },
+  "cards": [
+    {
+      "term": "Success criteria",
+      "fr": "Avant d'écrire ou d'optimiser un prompt, on définit ce que « réussir » veut dire. La doc officielle demande des critères spécifiques (quoi exactement), mesurables (un chiffre ou une échelle bien définie), atteignables (fondés sur une référence ou un baseline) et pertinents (alignés sur le besoin métier). La plupart des cas d'usage combinent plusieurs dimensions : exactitude, cohérence, ton, confidentialité, latence, coût.",
+      "trap": "« Le modèle doit bien classer les tickets » n'est pas un critère. À l'examen, la réponse qui propose de commencer par des critères chiffrés sur un jeu de test réservé (held-out) bat celle qui commence par un prompt ou un modèle.",
+      "source": { "title": "Define success criteria and build evaluations", "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests" }
+    },
+    {
+      "term": "Eval set design",
+      "fr": "Un bon eval set reflète la distribution réelle des entrées de production, y compris les cas limites : données absentes ou hors sujet, entrées très longues, utilisateurs malveillants, cas ambigus où même des humains hésiteraient. La doc recommande d'automatiser la notation et de privilégier le volume : beaucoup de cas notés automatiquement valent mieux que quelques cas notés à la main.",
+      "trap": "Un eval set de 200 documents propres qui affiche 98 % ne prouve rien si la production reçoit des scans flous. Grossir un jeu non représentatif ne corrige pas le biais.",
+      "source": { "title": "Define success criteria and build evaluations", "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests" }
+    },
+    {
+      "term": "Code-based vs LLM-based vs human grading",
+      "fr": "On choisit la méthode la plus rapide, fiable et scalable qui suffit. Code-based grading (exact match, string match, validation de schéma) : le plus rapide et le plus fiable, mais sans nuance. LLM-based grading : rapide et flexible, adapté au jugement complexe, à condition d'en vérifier la fiabilité avant de passer à l'échelle. Human grading : le plus nuancé, mais lent et coûteux, à éviter quand c'est possible.",
+      "trap": "Proposer une revue humaine de milliers de sorties pour une tâche dont la réponse est une étiquette fermée est un distracteur classique : un exact match suffit.",
+      "source": { "title": "Define success criteria and build evaluations", "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests" }
+    },
+    {
+      "term": "LLM-as-a-judge rubric",
+      "fr": "Un grader LLM fiable reçoit une rubrique détaillée et explicite, produit une sortie empirique (« correct »/« incorrect » ou une échelle de 1 à 5) et raisonne avant de donner sa note, par exemple avec le thinking activé. On calibre ensuite ses verdicts sur un sous-ensemble étiqueté par des experts avant de l'utiliser à grande échelle.",
+      "trap": "Demander au juge « Is this answer good? » avec une réponse libre donne des scores instables et impossibles à agréger. Moyenner plusieurs exécutions d'une rubrique floue ne la rend pas plus juste.",
+      "source": { "title": "Define success criteria and build evaluations", "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests" }
+    },
+    {
+      "term": "Regression testing",
+      "fr": "Chaque changement de prompt, de modèle, de paramètre (effort, outils) ou de pipeline de récupération peut casser un comportement qui marchait. On versionne les prompts et on rejoue automatiquement toute la suite d'évaluation, y compris les anciens échecs corrigés, comme condition de déploiement. En production, on peut faire tourner un candidat en shadow sur une tranche de trafic avant de basculer.",
+      "trap": "Ajouter « ne change rien d'autre » dans le prompt ou faire relire le diff par deux personnes ne détecte pas une régression comportementale. Seule une suite rejouée systématiquement le fait.",
+      "source": { "title": "Optimizing for cost and intelligence", "url": "https://platform.claude.com/docs/en/about-claude/models/optimizing-for-cost-and-intelligence" }
+    },
+    {
+      "term": "Hallucination & consistency checks",
+      "fr": "Pour réduire et détecter les hallucinations : autoriser Claude à dire qu'il ne sait pas, lui faire extraire des citations exactes avant de répondre sur un long document, exiger une source pour chaque affirmation et retirer celles qui n'en ont pas, comparer plusieurs réponses au même prompt (best-of-N). Pour la cohérence : format de sortie imposé, exemples, ancrage sur une base de connaissances fixe via la récupération.",
+      "trap": "Un score ROUGE élevé mesure le recouvrement avec une référence, pas le fait que chaque affirmation est soutenue par la source. Ce n'est pas une métrique d'hallucination.",
+      "source": { "title": "Reduce hallucinations", "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations" }
+    }
+  ],
+  "warmup": [
+    {
+      "statement": "Anthropic's guidance favors a larger number of automatically graded test cases over a small number of hand-graded ones.",
+      "answer": true,
+      "fr": "Vrai. Le principe « prioritize volume over quality » : plus de cas avec une notation automatique un peu moins fine valent mieux que peu de cas notés à la main."
+    },
+    {
+      "statement": "Human grading is the recommended default because it is the most scalable grading method.",
+      "answer": false,
+      "fr": "Faux. La notation humaine est la plus flexible et la plus nuancée, mais elle est lente et coûteuse. La doc conseille de l'éviter quand c'est possible et de préférer le code, puis un grader LLM vérifié."
+    },
+    {
+      "statement": "‘The model should classify customer sentiment well’ is a specific, measurable success criterion.",
+      "answer": false,
+      "fr": "Faux. Il manque la métrique, le seuil et le jeu de test. Un bon critère ressemble à « F1 ≥ 0,85 sur un jeu réservé de 10 000 messages représentatifs »."
+    },
+    {
+      "statement": "Asking an LLM grader to reason before it outputs a score generally improves grading on tasks that need complex judgment.",
+      "answer": true,
+      "fr": "Vrai. La doc recommande d'utiliser un grader avec le thinking activé pour qu'il raisonne avant de noter, ce qui améliore la qualité de l'évaluation sur les jugements complexes."
+    },
+    {
+      "statement": "An eval set made only of clean, typical inputs is sufficient as long as it contains thousands of cases.",
+      "answer": false,
+      "fr": "Faux. La taille ne compense pas un biais de distribution. L'eval set doit refléter le trafic réel et inclure les cas limites : entrées vides, trop longues, hors sujet, ambiguës ou malveillantes."
+    }
+  ],
+  "questions": [
+    {
+      "id": "L05-Q01",
+      "domain": "D4",
+      "type": "single",
+      "stem": "A European insurer wants Claude to summarize incoming property-damage claims for adjusters. In the kickoff meeting, the claims director says the project succeeds if ‘the summaries are good and save time.’ The engineering team is ready to start writing prompts and wants to begin with the most capable model. No test data has been assembled yet. What should the architect do FIRST?",
+      "options": [
+        { "text": "Start with the most capable model and iterate on the prompt with the claims director until the summaries look right to her.", "why": "Faux. C'est de l'évaluation « au feeling » : aucun critère mesurable, aucun jeu de test, et le résultat dépend de quelques exemples choisis au hasard." },
+        { "text": "Fine-tune a model on several years of summaries written by senior adjusters so the output matches the house style.", "why": "Faux. On n'a pas encore défini ce qu'est un bon résumé ni mesuré le prompting de base. Le fine-tuning est une option tardive, pas un point de départ." },
+        { "text": "Turn the goal into specific, measurable criteria, such as required fields captured, zero invented amounts, and adjuster handling time, and build a held-out set of real claims to test against.", "why": "Juste. La doc officielle place la définition de critères spécifiques et mesurables, et d'un moyen de les tester empiriquement, avant tout travail de prompt engineering." },
+        { "text": "Launch a pilot with ten adjusters and use the share of thumbs-up ratings as the success metric for the first release.", "why": "Faux. Les retours utilisateurs sont utiles en complément, mais ils arrivent tard, sont biaisés et ne mesurent ni les montants inventés ni les champs manquants." }
+      ],
+      "answer": [2],
+      "explanation": "Un objectif comme « de bons résumés » doit être traduit en critères spécifiques, mesurables, atteignables et pertinents, puis testé sur un jeu réservé représentatif. Sans ce socle, on ne peut ni comparer deux prompts, ni choisir un modèle, ni prouver la valeur métier.",
+      "tip": "Quand une question demande ce qu'il faut faire EN PREMIER sur un nouveau projet, cherche l'option qui définit des critères mesurables et un eval set.",
+      "source": { "title": "Prompt engineering overview", "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview" }
+    },
+    {
+      "id": "L05-Q02",
+      "domain": "D4",
+      "type": "single",
+      "stem": "A retail bank built a KYC document-extraction pipeline with Claude. The team's eval set contains 200 clean, digitally generated PDFs, and the pipeline scores 98% field-level accuracy on it. After launch, operations report frequent errors on customer uploads: phone photos of IDs, multi-page scans in two languages, and documents that are not KYC documents at all. Which change to the evaluation approach MOST improves its usefulness?",
+      "options": [
+        { "text": "Rebuild the eval set from a stratified sample of real production uploads, including low-quality scans, multilingual documents, missing fields, and irrelevant files, each with a labeled expected output.", "why": "Juste. Un eval set doit refléter la distribution réelle des entrées et inclure les cas limites. C'est la seule façon de mesurer ce que vivent réellement les utilisateurs." },
+        { "text": "Expand the existing eval set to 2,000 clean PDFs generated from the same templates to get a more statistically robust score.", "why": "Faux. Plus de cas du même type ne corrigent pas le biais : le score restera excellent tout en ignorant les entrées qui échouent en production." },
+        { "text": "Raise the release threshold from 98% to 99.5% field-level accuracy on the current eval set before the next deployment.", "why": "Faux. Relever le seuil sur un jeu non représentatif ne mesure toujours pas les cas qui posent problème." },
+        { "text": "Replace automated grading with a weekly manual review of the 200 existing documents by the compliance team.", "why": "Faux. La notation humaine est plus lente et plus chère, et elle porte toujours sur les mêmes documents propres." }
+      ],
+      "answer": [0],
+      "explanation": "La doc demande des evals spécifiques à la tâche qui reproduisent la distribution réelle, sans oublier les cas limites : entrées hors sujet ou inexistantes, entrées trop longues, cas ambigus. Le problème ici n'est pas la taille ni le seuil, mais la représentativité.",
+      "tip": "Un score excellent en test et mauvais en production signale presque toujours un eval set qui ne ressemble pas au trafic réel.",
+      "source": { "title": "Define success criteria and build evaluations", "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests" }
+    },
+    {
+      "id": "L05-Q03",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "An e-commerce company is evaluating a Claude-based support assistant that does two things: it assigns each incoming ticket to one of 12 fixed routing categories, and it drafts a reply that must follow the brand's tone-of-voice guidelines. The eval set has 5,000 labeled tickets. The team wants grading that is reliable and can run on every prompt change. Which TWO grading approaches are MOST appropriate? (Select TWO.)",
+      "options": [
+        { "text": "Have support agents manually grade both the category and the reply for all 5,000 tickets after each prompt change.", "why": "Faux. La notation humaine est la plus lente et la plus chère. Sur 5 000 cas rejoués à chaque changement, ce n'est pas tenable, et c'est inutile pour une étiquette fermée." },
+        { "text": "Grade the routing category with an exact-match check against the labeled category.", "why": "Juste. Une sortie fermée parmi 12 catégories se note parfaitement par du code : c'est la méthode la plus rapide, la plus fiable et la plus scalable." },
+        { "text": "Score tone with ROUGE-L overlap against one reference reply per ticket written by a senior agent.", "why": "Faux. ROUGE mesure le recouvrement de mots avec une référence. Deux réponses au ton parfait peuvent avoir des formulations très différentes." },
+        { "text": "Grade tone with an LLM grader that applies a detailed rubric on a defined scale, after checking its verdicts against a human-labeled sample.", "why": "Juste. Le ton demande du jugement : un grader LLM avec une rubrique explicite et une échelle définie convient, à condition d'avoir vérifié sa fiabilité avant de passer à l'échelle." },
+        { "text": "Ask an LLM grader ‘Is this a good reply?’ and store its free-text comments as the tone score.", "why": "Faux. Une question vague et une sortie libre donnent des notes instables et impossibles à agréger. La doc demande une rubrique claire et une sortie empirique." }
+      ],
+      "answer": [1, 3],
+      "explanation": "On choisit la méthode la plus simple qui suffit pour chaque critère : du code pour ce qui est vérifiable de façon déterministe, un grader LLM avec rubrique pour ce qui demande du jugement, et l'humain surtout pour calibrer le grader LLM.",
+      "tip": "Sortie fermée = code-based grading. Jugement qualitatif = LLM grader avec rubrique explicite et calibré sur des étiquettes humaines.",
+      "source": { "title": "Define success criteria and build evaluations", "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests" }
+    },
+    {
+      "id": "L05-Q04",
+      "domain": "D4",
+      "type": "single",
+      "stem": "A hospital network uses an LLM grader to check whether its patient-facing chatbot leaks protected health information. The grader prompt asks, ‘Does this response respect patient privacy? Explain.’ Scores swing between runs on the same transcripts, and clinicians disagree with roughly a third of the verdicts. The team wants to keep automated grading. What should the architect do FIRST?",
+      "options": [
+        { "text": "Run the current grader three times per transcript and keep the majority verdict to smooth out the variance.", "why": "Faux. Le vote majoritaire réduit un peu le bruit mais ne corrige pas une rubrique floue. Le juge resterait en désaccord avec les cliniciens." },
+        { "text": "Use the same model and system prompt as the chatbot for grading, so the grader shares the chatbot's understanding of privacy.", "why": "Faux. Reprendre le contexte du système évalué rend le juge complaisant envers ses propres erreurs et ne règle pas l'absence de critères explicites." },
+        { "text": "Drop the LLM grader and have clinicians review every transcript before each release.", "why": "Faux. La notation humaine est lente et coûteuse. Le problème vient de la rubrique, pas du principe du grader LLM." },
+        { "text": "Rewrite the grader with an explicit rubric of what counts as a leak, require a binary verdict after step-by-step reasoning, and validate it against a clinician-labeled subset before scaling.", "why": "Juste. Ce sont les trois bonnes pratiques de la doc : rubrique détaillée, sortie empirique (binaire ou échelle) et raisonnement avant la note. On vérifie la fiabilité avant de passer à l'échelle." }
+      ],
+      "answer": [3],
+      "explanation": "Un grader LLM est fiable quand il applique une rubrique précise, produit une sortie facile à agréger et raisonne avant de trancher. Il faut ensuite mesurer son accord avec des experts humains sur un échantillon avant de lui confier toute la suite.",
+      "tip": "Un juge LLM instable se corrige par une rubrique explicite, une sortie contrainte et une calibration humaine, pas par plus d'exécutions.",
+      "source": { "title": "Define success criteria and build evaluations", "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests" }
+    },
+    {
+      "id": "L05-Q05",
+      "domain": "D4",
+      "type": "single",
+      "stem": "A law firm's contract-review assistant flags risky clauses. A prompt engineer edits the system prompt to fix a complaint about indemnity clauses and deploys the change the same day. Two weeks later, partners notice that limitation-of-liability clauses are no longer flagged reliably. The firm has an eval suite, but it is run only before major releases. Which practice would MOST reliably have prevented this?",
+      "options": [
+        { "text": "Require two senior engineers to review and approve every prompt diff before it is deployed.", "why": "Faux. La relecture humaine d'un diff ne permet pas de prévoir l'effet d'une modification de prompt sur d'autres types de clauses. Le problème est comportemental." },
+        { "text": "Version every prompt and run the full automated eval suite, including cases for previously fixed failures, as a required gate before any prompt or model change is deployed.", "why": "Juste. Une suite de régression rejouée à chaque changement détecte qu'une correction locale a cassé un autre comportement, avant que les utilisateurs ne le voient." },
+        { "text": "Add an instruction to the system prompt telling Claude not to change how it handles clause types other than indemnity.", "why": "Faux. Une consigne dans le prompt n'est pas un test. Rien ne garantit son effet, et rien ne mesure la régression." },
+        { "text": "Freeze the system prompt permanently once it passes the release eval suite, and handle new complaints manually.", "why": "Faux. Interdire toute amélioration n'est pas viable et ne protège pas contre les changements de modèle ou de données." }
+      ],
+      "answer": [1],
+      "explanation": "Toute modification de prompt, de modèle ou de configuration est un changement de code et doit passer par un test de régression automatisé. Les cas qui ont déjà échoué une fois doivent rester dans la suite pour qu'ils ne reviennent pas.",
+      "tip": "« Une correction a cassé autre chose » appelle une suite de régression automatisée en porte d'entrée du déploiement.",
+      "source": { "title": "Define success criteria and build evaluations", "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests" }
+    },
+    {
+      "id": "L05-Q06",
+      "domain": "D4",
+      "type": "single",
+      "stem": "A logistics company runs a Claude agent that reconciles shipping invoices. Finance proposes moving the whole workload to a smaller, cheaper model tier next month to cut spend. The agent currently has no automated evaluation; quality is tracked only through monthly dispute counts. Leadership asks the architect how to make the switch safely. What should the architect recommend?",
+      "options": [
+        { "text": "Switch all traffic to the smaller model on the first of the month and roll back if dispute counts rise in the following monthly report.", "why": "Faux. Le signal arrive un mois trop tard, après que les erreurs ont déjà coûté cher. On ne bascule pas sans mesure préalable." },
+        { "text": "Rely on the vendor's published benchmark scores for both models, since they cover reasoning tasks similar to invoice reconciliation.", "why": "Faux. Les benchmarks publics ne remplacent pas un test sur vos propres prompts, données et cas limites. La doc insiste sur l'eval set spécifique au cas d'usage." },
+        { "text": "Build outcome checks from a production-weighted sample of invoices, compare both models on score and cost per task, then run the candidate in shadow on a traffic slice before cutover.", "why": "Juste. C'est la méthode décrite dans la doc officielle : des contrôles de résultat sur des tâches réelles, une comparaison score/coût, puis un passage en shadow avant la bascule, avec la suite qui continue de tourner." },
+        { "text": "Keep the current model and add instructions telling it to use fewer tokens, which avoids the risk of changing models.", "why": "Faux. Réduire la verbosité peut aider, mais cela contourne la décision sans la mesurer. On ignore toujours l'impact sur la qualité." }
+      ],
+      "answer": [2],
+      "explanation": "Avant d'optimiser le coût, on construit la mesure : un eval set tiré de la production avec des contrôles de résultat, le coût par tâche à côté du score, puis un shadow test sur une tranche de trafic. Optimiser sans mesurer, c'est échanger un coût visible contre un coût caché.",
+      "tip": "Changement de modèle pour réduire les coûts : eval set d'abord, comparaison coût/qualité ensuite, shadow avant bascule.",
+      "source": { "title": "Optimizing for cost and intelligence", "url": "https://platform.claude.com/docs/en/about-claude/models/optimizing-for-cost-and-intelligence" }
+    },
+    {
+      "id": "L05-Q07",
+      "domain": "D4",
+      "type": "single",
+      "stem": "A multinational's HR assistant answers employee questions using retrieval over 4,000 policy documents. An evaluation on 500 labeled questions shows that 28% of answers are wrong, often citing an outdated or unrelated policy. The team suggests moving to the most capable model. What should the architect do FIRST to diagnose the failures?",
+      "options": [
+        { "text": "For the failing cases, check whether the correct policy passage was in the retrieved context, separating retrieval failures from generation failures before choosing a fix.", "why": "Juste. Une réponse fausse dans un système RAG peut venir de la récupération (le bon passage n'est jamais arrivé) ou de la génération (le passage était là mais mal utilisé). Le correctif est très différent selon le cas." },
+        { "text": "Switch to the most capable model and rerun the evaluation to see how much the error rate drops.", "why": "Faux. Si le bon document n'est pas récupéré, un modèle plus puissant ne peut pas l'inventer. On paye plus sans traiter la cause." },
+        { "text": "Increase max_tokens so Claude has more room to reason through the retrieved documents.", "why": "Faux. max_tokens plafonne la longueur de la réponse. Il n'améliore ni la pertinence des documents récupérés ni leur utilisation." },
+        { "text": "Add ‘Only use the most recent and relevant policy’ to the system prompt and redeploy.", "why": "Faux. Une consigne générique ne règle pas un défaut de récupération, et on ne sait toujours pas où se situe le problème." }
+      ],
+      "answer": [0],
+      "explanation": "Diagnostiquer, c'est isoler l'étape qui échoue. Dans un pipeline RAG, on évalue séparément la qualité de la récupération et celle de la génération, puis on corrige l'étape fautive : indexation, chunking, métadonnées de date, reranking, ou prompt.",
+      "tip": "Face à un système en plusieurs étapes qui se trompe, la première action est de localiser l'étape fautive, pas de changer de modèle.",
+      "source": { "title": "Reduce hallucinations", "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations" }
+    },
+    {
+      "id": "L05-Q08",
+      "domain": "D4",
+      "type": "multi",
+      "stem": "A pharmaceutical company uses Claude to summarize long clinical study reports for its medical affairs team. Reviewers found summaries that state efficacy figures not present in the source report. The company needs both to reduce these unsupported claims and to measure them on every release. Which TWO actions BEST meet these goals? (Select TWO.)",
+      "options": [
+        { "text": "Have Claude extract word-for-word quotes from the report first, base the summary only on those quotes, and cite a quote for each claim, removing any claim it cannot support.", "why": "Juste. C'est la combinaison décrite dans la doc : extraction de citations exactes sur les longs documents, puis vérification de chaque affirmation par une citation, avec retrait si aucune n'est trouvée." },
+        { "text": "Use ROUGE-L overlap with summaries written by medical writers as the release metric for hallucinations.", "why": "Faux. ROUGE mesure le recouvrement lexical avec une référence. Un résumé peut avoir un bon score tout en inventant un chiffre, ou un mauvais score en étant parfaitement fidèle." },
+        { "text": "Fine-tune a model on past summaries approved by medical affairs so it learns which figures to include.", "why": "Faux. Le fine-tuning ne garantit pas la fidélité à un nouveau rapport et n'apporte aucune mesure des affirmations non soutenues." },
+        { "text": "Track hallucinations through the number of reviewer complaints logged each quarter.", "why": "Faux. C'est un indicateur tardif et incomplet : il ne capte que les erreurs remarquées, et bien après la mise en production." },
+        { "text": "Add an eval step in which a calibrated LLM grader checks each claim against the source report and labels it supported or unsupported, and track the unsupported-claim rate.", "why": "Juste. On transforme le risque en métrique automatisée et rejouable à chaque release, avec une sortie binaire facile à agréger, après calibration sur des étiquettes d'experts." }
+      ],
+      "answer": [0, 4],
+      "explanation": "Il faut agir à deux niveaux : dans le prompt, ancrer la réponse sur des citations exactes et exiger une source par affirmation ; dans l'évaluation, mesurer automatiquement le taux d'affirmations non soutenues avec un grader calibré.",
+      "tip": "« Réduire ET mesurer » appelle deux réponses complémentaires : une technique d'ancrage (citations) et une métrique automatisée.",
+      "source": { "title": "Reduce hallucinations", "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations" }
+    },
+    {
+      "id": "L05-Q09",
+      "domain": "D4",
+      "type": "single",
+      "stem": "A telecom operator's FAQ assistant is criticized because customers who ask the same question in different words sometimes get contradictory answers about roaming fees. Before changing the prompt, the architect wants a metric that quantifies this problem and can be tracked across releases. Which evaluation design is MOST appropriate?",
+      "options": [
+        { "text": "Require exact string equality between answers to different phrasings of the same question and report the match rate.", "why": "Faux. Deux réponses correctes et cohérentes peuvent être formulées différemment. L'égalité stricte de chaînes sous-estime fortement la cohérence." },
+        { "text": "Ask two customer-service managers to spot-check 20 random conversations each month and rate consistency from 1 to 10.", "why": "Faux. C'est trop petit, trop lent et trop subjectif pour suivre une métrique d'une release à l'autre." },
+        { "text": "Count the average number of output tokens per answer, since contradictory answers tend to be longer.", "why": "Faux. La longueur n'a pas de lien fiable avec la cohérence. C'est une métrique de substitution sans valeur ici." },
+        { "text": "Build clusters of paraphrased questions, measure semantic similarity between the answers within each cluster, and check each answer against a golden answer.", "why": "Juste. La doc illustre la cohérence d'un bot FAQ par une similarité cosinus entre réponses à des questions paraphrasées. On ajoute un contrôle d'exactitude pour éviter d'être cohérent dans l'erreur." }
+      ],
+      "answer": [3],
+      "explanation": "La cohérence se mesure en posant la même question sous plusieurs formes et en comparant le sens des réponses (similarité d'embeddings), pas leur forme exacte. Pour corriger ensuite, la doc recommande notamment d'ancrer les réponses sur une base de connaissances fixe via la récupération et d'imposer un format.",
+      "tip": "Cohérence = paraphrases + similarité sémantique. Exactitude = comparaison à une réponse de référence. Les deux se mesurent ensemble.",
+      "source": { "title": "Increase output consistency", "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/increase-consistency" }
+    },
+    {
+      "id": "L05-Q10",
+      "domain": "D4",
+      "type": "single",
+      "stem": "A B2B software vendor uses Claude to draft follow-up emails for its sales team. Two prompt variants have both passed the offline eval suite with similar quality scores. The VP of Sales wants to know which one actually produces more customer replies, and asks the architect to run an experiment on live traffic. Which experiment design is MOST sound?",
+      "options": [
+        { "text": "Use variant A for the first two weeks and variant B for the next two weeks, then compare the reply rates of the two periods.", "why": "Faux. Les deux périodes diffèrent (saisonnalité, campagnes, fins de trimestre). La différence observée peut venir du calendrier, pas du prompt." },
+        { "text": "Randomly assign each email to variant A or B in the same period, define the primary metric and guardrail metrics in advance, and run until the sample is large enough to detect the expected difference.", "why": "Juste. Un A/B test valide repose sur une assignation aléatoire simultanée, une métrique principale fixée à l'avance (taux de réponse), des métriques garde-fous (plaintes, désinscriptions) et une taille d'échantillon suffisante." },
+        { "text": "Let each salesperson choose the variant they prefer and compare the reply rates of the two groups at the end of the month.", "why": "Faux. L'auto-sélection introduit un biais : les meilleurs vendeurs peuvent tous choisir la même variante." },
+        { "text": "Ask an LLM grader to predict which variant would get more replies and deploy the winner without a live test.", "why": "Faux. Le grader évalue la qualité perçue, pas le comportement réel des clients. La question du VP porte sur un résultat métier mesurable en production." }
+      ],
+      "answer": [1],
+      "explanation": "Les evals hors ligne disent si une sortie respecte les critères. Un A/B test en ligne dit laquelle produit le meilleur résultat métier. Il faut une assignation aléatoire, une métrique décidée avant l'expérience, des garde-fous et un échantillon suffisant.",
+      "tip": "A/B test fiable : aléatoire, simultané, métrique principale fixée d'avance, garde-fous, taille d'échantillon suffisante.",
+      "source": { "title": "Define success criteria and build evaluations", "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests" }
+    }
+  ]
+}

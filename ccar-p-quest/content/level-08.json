@@ -1,0 +1,242 @@
+{
+  "id": 8,
+  "title": "Le Conseil des Parties Prenantes",
+  "theme": "Parties prenantes et cycle de vie",
+  "intro": "Ce niveau couvre le travail de l'architecte face aux décideurs : transformer des résultats d'évaluation en engagements tenables, choisir des indicateurs liés au métier, déployer du pilote à la production, gérer les versions de prompts et de modèles, et préparer les migrations. À l'examen, la bonne réponse s'appuie toujours sur des mesures, jamais sur une promesse.",
+  "boss": {
+    "name": "La Promesse à 99,9 %",
+    "epithet": "Vendeuse de certitudes",
+    "taunt": "Signe ce SLA à 99,9 %. Tes évaluations disent 96 % ? Personne ne lira l'annexe.",
+    "defeat": "Des engagements mesurés, une migration testée... Je n'ai plus rien à vendre.",
+    "victory": "Tu as promis sans mesurer. Le client relira le contrat, lui."
+  },
+  "cards": [
+    {
+      "term": "Success criteria (specific, measurable, achievable, relevant)",
+      "fr": "Un bon critère de succès est précis, mesurable, atteignable et pertinent. « Classer correctement le sentiment » ne suffit pas ; « F1 ≥ 0,85 sur un jeu de test de 10 000 messages variés, soit +5 % par rapport à l'existant » est exploitable. Atteignable veut dire fondé sur des benchmarks, des expériences ou l'avis d'experts, pas sur un souhait.",
+      "trap": "Accepter un objectif fixé par le client sans le confronter aux mesures sur ses propres données.",
+      "source": { "title": "Define success criteria and build evaluations", "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests" }
+    },
+    {
+      "term": "Business impact metrics",
+      "fr": "Au-delà de la qualité des réponses, on mesure l'effet métier. Pour un assistant de support, la doc cite le deflection rate (demandes résolues sans humain), le CSAT, l'average handle time, l'escalation accuracy (escalades correctes contre escalades manquées) et le maintien du sentiment client. La plupart des projets demandent une évaluation sur plusieurs dimensions à la fois.",
+      "trap": "Présenter des métriques d'activité (tokens, nombre de conversations) comme des preuves de succès.",
+      "source": { "title": "Customer support agent", "url": "https://platform.claude.com/docs/en/about-claude/use-case-guides/customer-support-chat" }
+    },
+    {
+      "term": "Model lifecycle: active, legacy, deprecated, retired",
+      "fr": "Active : pleinement supporté. Legacy : plus de mises à jour, dépréciation possible. Deprecated : fonctionne encore, n'est plus recommandé, a un remplaçant et une date de retrait. Retired : les requêtes échouent. Anthropic prévient les clients concernés par e-mail et dans la documentation.",
+      "trap": "Croire qu'un modèle déprécié continue de répondre indéfiniment. Après la date de retrait, les requêtes échouent.",
+      "source": { "title": "Model deprecations", "url": "https://platform.claude.com/docs/en/about-claude/model-deprecations" }
+    },
+    {
+      "term": "Pinned model IDs vs aliases",
+      "fr": "Un model ID désigne une version figée : le modèle sous-jacent ne change pas pendant toute la vie de cet ID. Cette garantie ne couvre pas les alias de commodité acceptés pour certains anciens modèles. En production, on fige l'ID et on change de modèle volontairement, après évaluation.",
+      "trap": "Utiliser un alias en production puis s'étonner que le comportement change sans aucun déploiement.",
+      "source": { "title": "Model IDs and versioning", "url": "https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions" }
+    },
+    {
+      "term": "Migration testing & usage audit",
+      "fr": "Quand un modèle est déprécié, on migre tout l'usage avant la date de retrait. La doc conseille de tester le remplaçant sur ses propres tâches bien avant cette date. Pour trouver qui utilise encore l'ancien modèle, l'export de la page Usage de la Console détaille l'usage par clé API et par modèle.",
+      "trap": "Basculer le jour J sans suite de régression, ou attendre la dernière semaine pour inventorier les usages.",
+      "source": { "title": "Model deprecations", "url": "https://platform.claude.com/docs/en/about-claude/model-deprecations" }
+    },
+    {
+      "term": "Workspaces for environment separation",
+      "fr": "Les workspaces séparent projets, équipes ou environnements (développement, recette, production) dans une même organisation, avec leurs membres, leurs clés API, leurs limites et leur suivi de coûts, tout en gardant une facturation centralisée. Une clé peut être limitée à un seul workspace.",
+      "trap": "Faire tourner pilote et production avec la même clé, sans limites séparées ni suivi de coût par environnement.",
+      "source": { "title": "Workspaces", "url": "https://platform.claude.com/docs/en/manage-claude/workspaces" }
+    }
+  ],
+  "warmup": [
+    {
+      "statement": "A deprecated model keeps working until its retirement date, after which requests to it fail.",
+      "answer": true,
+      "fr": "Vrai. C'est toute la différence entre deprecated (encore fonctionnel, avec un remplaçant et une date) et retired (les requêtes échouent)."
+    },
+    {
+      "statement": "‘The model should classify sentiment well’ is a well-formed success criterion for a production launch.",
+      "answer": false,
+      "fr": "Faux. Ce critère n'est ni précis ni mesurable. Il faut une métrique, un seuil, un jeu de test représentatif et une référence de comparaison."
+    },
+    {
+      "statement": "A specific Claude model ID, as opposed to an alias, keeps pointing to the same underlying model for the lifetime of that ID.",
+      "answer": true,
+      "fr": "Vrai. C'est la garantie de versionnement de la doc. Elle ne s'applique pas aux alias de commodité."
+    },
+    {
+      "statement": "Human grading should be the default for large evaluation suites because it is the most scalable grading method.",
+      "answer": false,
+      "fr": "Faux. La notation humaine est la plus souple mais lente et coûteuse. La doc recommande la méthode la plus rapide et la plus fiable : code, puis LLM-as-judge validé."
+    },
+    {
+      "statement": "Workspaces can separate development, staging and production usage with their own API keys and limits within one organization.",
+      "answer": true,
+      "fr": "Vrai. La séparation des environnements est un cas d'usage cité par la doc des workspaces."
+    }
+  ],
+  "questions": [
+    {
+      "id": "L08-Q01",
+      "domain": "D6",
+      "type": "single",
+      "stem": "An insurer's procurement team wants a contractual SLA of 99.9% field-level accuracy for a Claude-based claims document extraction service. On a representative evaluation set of 1,200 documents, the current system reaches 96.4%, and most errors occur on handwritten forms, which are 15% of volume. The account executive wants to sign this week. What should the architect recommend?",
+      "options": [
+        { "text": "Accept the 99.9% target, since the next model generation is expected to close the gap before go-live.", "why": "Faux. On engagerait l'entreprise sur une capacité non démontrée, en pariant sur une feuille de route." },
+        { "text": "Share the measured results broken down by document type, propose commitments the evidence supports, such as a per-type accuracy target with human review of low-confidence and handwritten fields, and agree on a plan and date to re-measure.", "why": "Juste. L'architecte traduit les évaluations en engagement tenable : transparence sur la mesure, segmentation, mitigation par revue humaine là où le système est faible, et trajectoire mesurable." },
+        { "text": "Decline to commit to any accuracy figure, because model outputs are probabilistic.", "why": "Faux. Le caractère probabiliste n'empêche pas de prendre des engagements mesurés. Refuser tout chiffre bloque la relation sans raison." },
+        { "text": "Commit to 99.9% and switch to the most capable model, which will make the difference.", "why": "Faux. Rien ne prouve que le plus gros modèle atteint 99,9 %. Sans mesure, c'est encore une promesse." }
+      ],
+      "answer": [1],
+      "explanation": "Un critère de succès doit être atteignable, c'est-à-dire fondé sur des mesures. Face à une demande irréaliste, l'architecte présente les chiffres, explique où se trouvent les erreurs, propose un engagement assorti de mitigations (revue humaine ciblée) et un plan pour s'améliorer, plutôt que de signer ou de refuser en bloc.",
+      "tip": "SLA demandé > SLA mesuré : présente les données, segmente, propose une mitigation et une trajectoire. Ne promets jamais au-delà de tes évaluations.",
+      "source": { "title": "Define success criteria and build evaluations", "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests" }
+    },
+    {
+      "id": "L08-Q02",
+      "domain": "D6",
+      "type": "single",
+      "stem": "During a steering committee for an M&A due-diligence assistant, the CFO asks the architect directly: ‘Can you guarantee it will never make things up?’ The assistant summarizes long data-room documents for deal teams. Evaluations show a low but non-zero rate of unsupported statements. Which response BEST serves the CFO?",
+      "options": [
+        { "text": "Yes. Because the assistant uses retrieval over the data room, hallucinations are eliminated.", "why": "Faux. La récupération réduit le risque mais ne l'élimine pas. Promettre zéro détruit la confiance au premier incident." },
+        { "text": "Avoid the technical detail and show a live demo on a well-understood document to build confidence.", "why": "Faux. Une démo choisie ne répond pas à la question du risque et peut donner une fausse assurance." },
+        { "text": "Explain that it is no different from any software bug, and that the team will fix issues as users report them.", "why": "Faux. Cela minimise un risque spécifique et ne présente aucune mesure ni mitigation." },
+        { "text": "No system can guarantee zero errors; share the measured rate, explain the mitigations (quotes and citations from source documents, permission to say ‘I don't know’, analyst review before outputs reach a deal memo) and how the rate will be monitored.", "why": "Juste. Réponse honnête, chiffrée et actionnable : risque résiduel mesuré, mitigations documentées, contrôle humain sur les usages critiques, surveillance continue." }
+      ],
+      "answer": [3],
+      "explanation": "Avec les dirigeants, l'architecte est honnête sur le risque résiduel et le rend gérable : chiffres d'évaluation, mitigations reconnues (autoriser « je ne sais pas », ancrer les réponses dans des citations directes, vérifier par citations), revue humaine pour les sorties à fort enjeu, et suivi dans le temps.",
+      "tip": "Question « pouvez-vous garantir… » : la bonne réponse refuse l'absolu, chiffre le risque et présente les mitigations.",
+      "source": { "title": "Reduce hallucinations", "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations" }
+    },
+    {
+      "id": "L08-Q03",
+      "domain": "D6",
+      "type": "multi",
+      "stem": "A telecom operator is ending a three-month pilot of a Claude support assistant for billing questions. The executive sponsor will decide on a full rollout based on a one-page scorecard and asks the architect which metrics best show business value while protecting customers. Which TWO metrics should anchor the scorecard? (Select TWO.)",
+      "options": [
+        { "text": "Total tokens processed per week, showing how heavily the assistant is used.", "why": "Faux. C'est un indicateur de volume et de coût, utile au pilotage, mais il ne prouve ni valeur ni qualité." },
+        { "text": "Deflection rate: the share of in-scope inquiries resolved without a human agent.", "why": "Juste. Indicateur métier direct de la valeur : la charge retirée aux équipes humaines." },
+        { "text": "The number of system prompt revisions made during the pilot.", "why": "Faux. C'est une mesure d'effort de l'équipe, sans lien avec la valeur pour le client ou l'entreprise." },
+        { "text": "Average response length in words, as a proxy for helpfulness.", "why": "Faux. Une réponse longue n'est pas une réponse utile ; cet indicateur peut même pousser dans le mauvais sens." },
+        { "text": "Escalation accuracy: correctly escalated conversations compared with those that should have been escalated but were not.", "why": "Juste. Il protège le client : un fort taux de résolution ne vaut rien si les cas qui exigent un humain ne lui parviennent pas." }
+      ],
+      "answer": [1, 4],
+      "explanation": "Un tableau de bord pour décideur combine valeur et risque. Le deflection rate mesure la valeur, l'escalation accuracy mesure la capacité à passer la main quand il le faut. La doc cite aussi le CSAT et le temps de traitement. Les métriques d'activité ou d'effort ne prouvent rien seules.",
+      "tip": "Choisis une métrique de valeur métier et une métrique qui protège l'utilisateur. Écarte les métriques de volume ou d'effort.",
+      "source": { "title": "Customer support agent", "url": "https://platform.claude.com/docs/en/about-claude/use-case-guides/customer-support-chat" }
+    },
+    {
+      "id": "L08-Q04",
+      "domain": "D6",
+      "type": "single",
+      "stem": "A retailer's internal knowledge assistant succeeded in a pilot with 50 head-office employees in one country. Leadership now wants it available to 8,000 store and warehouse staff across 12 countries next month. The pilot evaluation set contains only English questions from head-office roles. What should the architect propose?",
+      "options": [
+        { "text": "Launch to all 8,000 users at once, since the pilot already met its targets.", "why": "Faux. Le pilote n'a pas mesuré les nouvelles langues ni les nouveaux métiers : ses résultats ne valent pas pour cette population." },
+        { "text": "Extend the pilot indefinitely until the assistant reaches 100% accuracy on every question.", "why": "Faux. Objectif inatteignable, qui bloque la valeur sans plan de sortie." },
+        { "text": "Extend the evaluation set with questions in each language and from store and warehouse roles, then roll out in phased cohorts with production monitoring, a user feedback channel and a separate production workspace with its own limits.", "why": "Juste. On rend l'évaluation représentative de la nouvelle population, on réduit le risque par vagues, et on se donne les moyens d'observer et de corriger." },
+        { "text": "Launch to everyone and ask users to email the project team when an answer looks wrong.", "why": "Faux. Les retours spontanés sont rares et biaisés : aucune mesure systématique avant ni pendant le déploiement." }
+      ],
+      "answer": [2],
+      "explanation": "Une évaluation doit refléter la distribution réelle des tâches, cas limites compris. Changer de population (langues, métiers) invalide en partie les résultats du pilote. Le passage à l'échelle se fait par vagues, avec un jeu d'évaluation élargi, une surveillance en production et un environnement de production séparé.",
+      "tip": "Du pilote à la production : nouvelle population = nouvelle évaluation, puis déploiement progressif mesuré.",
+      "source": { "title": "Define success criteria and build evaluations", "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests" }
+    },
+    {
+      "id": "L08-Q05",
+      "domain": "D6",
+      "type": "single",
+      "stem": "A pharmaceutical company receives a notice that the Claude model behind its regulatory-document summarization service has been deprecated, with a retirement date several months away and a recommended replacement. A Console usage export shows three internal services still call the deprecated model. What should the architect do FIRST?",
+      "options": [
+        { "text": "Run the existing evaluation suite for each service against the recommended replacement, compare results with the current baseline, and adjust prompts where regressions appear before scheduling the switch.", "why": "Juste. La doc recommande de tester le remplaçant sur ses propres tâches bien avant la date de retrait. L'inventaire étant fait, l'étape suivante est la mesure." },
+        { "text": "Keep using the deprecated model, since deprecated models remain available indefinitely for existing customers.", "why": "Faux. Après la date de retrait, les requêtes échouent." },
+        { "text": "Change the model ID to the replacement in production for all three services right away, and roll back if users complain.", "why": "Faux. Basculer sans évaluation transforme les utilisateurs en testeurs, sur un usage réglementaire." },
+        { "text": "Ask Anthropic for a retirement extension and postpone any work until the response arrives.", "why": "Faux. Un plan qui repose sur une exception hypothétique laisse filer le temps de test." }
+      ],
+      "answer": [0],
+      "explanation": "Le processus de migration recommandé : inventorier les usages (export Usage par clé et par modèle), tester le remplaçant sur ses tâches réelles bien avant le retrait, comparer à la référence, ajuster, puis basculer de façon planifiée.",
+      "tip": "Dépréciation : inventaire → évaluation de régression sur le remplaçant → ajustements → bascule planifiée avant la date de retrait.",
+      "source": { "title": "Model deprecations", "url": "https://platform.claude.com/docs/en/about-claude/model-deprecations" }
+    },
+    {
+      "id": "L08-Q06",
+      "domain": "D6",
+      "type": "single",
+      "stem": "A logistics company notices that the tone and formatting of its Claude-generated shipment-exception notices changed overnight, and a downstream parser started failing. No code or prompt was deployed. Investigation shows the service references the model through a convenience alias rather than a specific model ID. What should the architect recommend to prevent a repeat?",
+      "options": [
+        { "text": "Set temperature to 0 so that outputs no longer vary between calls.", "why": "Faux. La température réduit la variabilité d'un même modèle ; elle ne protège pas d'un changement de modèle derrière un alias." },
+        { "text": "Add stronger formatting instructions to the system prompt so any model produces the same output.", "why": "Faux. Utile, mais ne règle pas la cause : la version du modèle change sans contrôle." },
+        { "text": "Move the parser to a more lenient regular expression that accepts any format.", "why": "Faux. On masque le symptôme et on accepte des sorties non validées." },
+        { "text": "Pin a specific model ID in production configuration and treat each model upgrade as a release that passes the regression evaluation suite first.", "why": "Juste. Un model ID figé garantit le même modèle pendant toute la vie de l'ID ; les changements deviennent volontaires et testés." }
+      ],
+      "answer": [3],
+      "explanation": "La doc garantit qu'un model ID spécifique désigne toujours le même modèle, ce qui n'est pas le cas des alias de commodité. En production, on fige l'ID et on gère chaque changement de modèle comme une mise en production, derrière une suite d'évaluation de régression.",
+      "tip": "Comportement qui change « tout seul » : vérifie si le modèle est référencé par un alias. La réponse est de figer la version.",
+      "source": { "title": "Model IDs and versioning", "url": "https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions" }
+    },
+    {
+      "id": "L08-Q07",
+      "domain": "D6",
+      "type": "multi",
+      "stem": "At a wealth-management firm, three teams edit the production system prompt of a client-letter assistant directly in a shared configuration store. Last week, an edit removed a mandatory regulatory disclaimer and the issue was only found by a compliance officer five days later. Which TWO practices should the architect introduce? (Select TWO.)",
+      "options": [
+        { "text": "Store prompts in version control with code review, a changelog and releases tied to application deployments.", "why": "Juste. Le prompt est traité comme du code : historique, relecture, possibilité de revenir en arrière, lien clair entre version et comportement." },
+        { "text": "Restrict prompt editing to the most senior engineer so fewer mistakes are made.", "why": "Faux. On crée un goulot d'étranglement sans mécanisme de détection : un expert peut aussi supprimer un avertissement." },
+        { "text": "Freeze the current prompt permanently so that no further regression can occur.", "why": "Faux. Le produit doit évoluer ; geler le prompt empêche toute amélioration sans résoudre le problème de contrôle." },
+        { "text": "Gate every prompt change on an automated evaluation suite that includes a check for the mandatory disclaimer, run before deployment.", "why": "Juste. Une évaluation automatisée, ici une simple vérification par code, aurait bloqué le changement avant la production plutôt que cinq jours après." },
+        { "text": "Ask Claude at runtime to verify that its own system prompt still contains every required element.", "why": "Faux. Le contrôle arrive trop tard, en production, et dépend du modèle au lieu d'un contrôle déterministe." }
+      ],
+      "answer": [0, 3],
+      "explanation": "La gestion du cycle de vie d'un prompt suit celle du logiciel : versionnement, relecture, déploiement lié aux versions, et tests de non-régression automatisés avant production. Les critères stricts (présence d'un avertissement) se vérifient par du code, la méthode la plus rapide et la plus fiable.",
+      "tip": "Régression causée par une modification de prompt : versionnement + suite d'évaluation automatisée en barrière de déploiement.",
+      "source": { "title": "Define success criteria and build evaluations", "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests" }
+    },
+    {
+      "id": "L08-Q08",
+      "domain": "D6",
+      "type": "single",
+      "stem": "Six weeks after launching a contract-review assistant, the general counsel reports that quality ‘feels worse’. Nothing has been deployed since launch, and the model ID is pinned. The pre-launch evaluation set was built from the legal team's standard vendor agreements. What is the BEST next step for the architect?",
+      "options": [
+        { "text": "Immediately switch to a larger model to restore the legal team's confidence.", "why": "Faux. Changer de modèle sans diagnostic peut coûter plus cher sans corriger la cause." },
+        { "text": "Sample recent production contracts, compare their mix and the assistant's results against the evaluation baseline, add failing real-world cases to the evaluation set, and set up ongoing sampled grading of production outputs.", "why": "Juste. Le modèle et le prompt n'ont pas changé : la cause probable est une dérive des entrées (nouveaux types de contrats). On le vérifie avec des données, on enrichit l'évaluation et on installe une surveillance continue." },
+        { "text": "Fine-tune a model on the legal team's corrections from the last six weeks.", "why": "Faux. Solution lourde lancée avant tout diagnostic, sur un petit volume de corrections." },
+        { "text": "Explain that the system is unchanged, so the perceived drop must come from user expectations.", "why": "Faux. On écarte un signal d'utilisateur sans le mesurer. Les entrées peuvent avoir changé même si le système n'a pas bougé." }
+      ],
+      "answer": [1],
+      "explanation": "Une évaluation doit refléter la distribution réelle des tâches. Quand la production s'en éloigne (nouveaux types de documents, nouveaux usages), la qualité perçue baisse sans changement de système. La réponse est de mesurer sur des échantillons récents, d'enrichir le jeu d'évaluation avec les vrais cas qui échouent, et d'installer une surveillance continue.",
+      "tip": "« Ça marche moins bien » sans déploiement : soupçonne une dérive des entrées et mesure avant d'agir.",
+      "source": { "title": "Define success criteria and build evaluations", "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests" }
+    },
+    {
+      "id": "L08-Q09",
+      "domain": "D6",
+      "type": "single",
+      "stem": "A private bank rolled out a Claude research assistant to 600 relationship managers. After two months, only 15% use it weekly. A survey shows two blockers: managers do not trust answers they cannot check, and they are unsure which tasks the tool is good at. Which action plan should the architect recommend to the sponsor?",
+      "options": [
+        { "text": "Make weekly usage a performance objective for every relationship manager.", "why": "Faux. Imposer l'usage ne crée ni confiance ni compétence, et fausse les indicateurs d'adoption." },
+        { "text": "Add a dozen new features to make the assistant more attractive.", "why": "Faux. Les deux freins identifiés ne sont pas un manque de fonctionnalités." },
+        { "text": "Show source citations in every answer so users can verify claims, publish role-specific playbooks of proven use cases with short training sessions, recruit champions in each team, and track adoption alongside outcome metrics.", "why": "Juste. Chaque mesure répond à un frein mesuré : les citations traitent la confiance, les guides et la formation traitent l'incertitude d'usage, et le suivi relie adoption et résultats." },
+        { "text": "Switch to the most capable model, since better answers will naturally drive adoption.", "why": "Faux. Le problème exprimé est la vérifiabilité et la clarté d'usage, pas la qualité brute du modèle." }
+      ],
+      "answer": [2],
+      "explanation": "La conduite du changement part des freins mesurés. La fonctionnalité Citations permet à Claude de renvoyer les passages précis des documents sources qui appuient sa réponse, ce qui rend les réponses vérifiables. Des guides par métier, une formation courte et des relais internes lèvent l'incertitude d'usage. L'adoption se mesure avec les résultats métier.",
+      "tip": "Adoption faible : relie chaque action à un frein identifié (confiance, savoir-faire), pas à la technologie.",
+      "source": { "title": "Citations", "url": "https://platform.claude.com/docs/en/build-with-claude/citations" }
+    },
+    {
+      "id": "L08-Q10",
+      "domain": "D6",
+      "type": "single",
+      "stem": "A product owner insists on using the most capable Claude model for a high-volume email classification service with a 300 ms latency requirement and a tight budget. The architect's evaluation shows that a smaller, faster model meets the accuracy target on the representative test set, while the largest model adds little accuracy at several times the cost and misses the latency target. How should the architect handle the decision?",
+      "options": [
+        { "text": "Present accuracy, latency and cost for both models against the agreed success criteria, recommend the smaller model, and propose routing the rare ambiguous emails to a larger model.", "why": "Juste. La décision repose sur des critères multidimensionnels partagés. La recommandation est argumentée, et le routage des cas difficiles répond à l'inquiétude du product owner sur la qualité." },
+        { "text": "Use the largest model, because the product owner owns the decision and asked for it.", "why": "Faux. L'architecte doit éclairer la décision : ce choix viole la contrainte de latence et le budget, sans gain mesuré." },
+        { "text": "Use the cheapest model available without discussing the evaluation results, since cost is the main constraint.", "why": "Faux. Le modèle le moins cher n'est pas forcément celui qui a été évalué, et décider sans montrer les résultats prive le product owner des éléments et de l'adhésion." },
+        { "text": "Postpone the decision until the next model release, when the trade-off may be different.", "why": "Faux. On retarde la valeur alors que les données permettent déjà de décider." }
+      ],
+      "answer": [0],
+      "explanation": "Le choix d'un modèle équilibre capacités, vitesse et coût. La doc recommande souvent de partir d'un modèle rapide et économique, de tester, et de ne monter en gamme que pour combler un écart mesuré. Face à une partie prenante, l'architecte présente les compromis chiffrés sur les critères convenus et propose une architecture qui traite ses inquiétudes.",
+      "tip": "Désaccord avec une partie prenante : reviens aux critères de succès partagés et aux mesures, puis propose un compromis d'architecture.",
+      "source": { "title": "Choosing the right model", "url": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model" }
+    }
+  ]
+}

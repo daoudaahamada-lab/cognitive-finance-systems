@@ -1,0 +1,242 @@
+{
+  "id": 9,
+  "title": "La Salle des Machines",
+  "theme": "Productivité des développeurs et opérations",
+  "intro": "Ce niveau couvre le déploiement de Claude Code pour des équipes : paramètres partagés et politiques gérées, permissions, hooks, skills, subagents, plugins, serveurs MCP, exécution en CI et observabilité. Le domaine ne pèse que 7 % de l'examen, mais ses réflexes (contrôle déterministe plutôt qu'instruction, configuration centralisée, moindre privilège) reviennent dans les questions de gouvernance et de cycle de vie.",
+  "boss": {
+    "name": "Le Chaos Ops",
+    "epithet": "Maître des configurations qui divergent",
+    "taunt": "Chaque poste a ses propres réglages, chaque dépôt ses propres secrets. Bonne chance pour remettre de l'ordre.",
+    "defeat": "Politiques gérées, hooks, sandbox… Mes configurations sauvages sont domptées.",
+    "victory": "Tes équipes copient encore leurs réglages depuis un wiki. Le chaos continue."
+  },
+  "cards": [
+    {
+      "term": "Settings scopes and precedence",
+      "fr": "Claude Code lit ses réglages à plusieurs niveaux : managed (politique de l'organisation), ligne de commande (--settings), project local (.claude/settings.local.json, personnel et hors git), shared project (.claude/settings.json, commité pour l'équipe) et user (~/.claude/settings.json). Le niveau le plus haut gagne pour une même clé, mais les listes comme permissions.allow ou permissions.deny se cumulent entre fichiers.",
+      "trap": "Croire qu'un développeur peut retirer une règle gérée en redéfinissant la liste dans son fichier local. Les listes fusionnent : on peut ajouter des entrées, pas en supprimer une qui vient du niveau managed.",
+      "source": { "title": "Settings files and precedence", "url": "https://code.claude.com/docs/en/settings" }
+    },
+    {
+      "term": "CLAUDE.md is context, not enforcement",
+      "fr": "CLAUDE.md (projet, utilisateur, local ou politique gérée) est chargé au début de chaque session comme contexte. Claude le suit d'autant mieux qu'il est court (moins de 200 lignes par fichier), précis et sans contradiction. Les consignes propres à une partie du code vont dans .claude/rules/ avec un champ paths, les procédures longues dans des skills.",
+      "trap": "Utiliser CLAUDE.md pour « interdire » une action. Pour bloquer quoi que ce soit de façon garantie, il faut une règle de permission deny, un hook PreToolUse ou le sandbox. Et les imports @path organisent un fichier sans réduire son coût en contexte.",
+      "source": { "title": "How Claude remembers your project", "url": "https://code.claude.com/docs/en/memory" }
+    },
+    {
+      "term": "Hooks (deterministic control)",
+      "fr": "Les hooks sont des commandes exécutées à des moments précis du cycle de vie (PreToolUse, PostToolUse, SessionStart, Stop…). Ils garantissent qu'une action a toujours lieu, sans dépendre du choix du modèle : formater après chaque édition, bloquer une commande avant son exécution (code de sortie 2 et message renvoyé à Claude), réinjecter du contexte après une compaction.",
+      "trap": "Penser qu'un hook PreToolUse qui renvoie « allow » contourne une règle deny. Les règles deny et ask s'appliquent quoi que renvoie le hook.",
+      "source": { "title": "Automate actions with hooks", "url": "https://code.claude.com/docs/en/hooks-guide" }
+    },
+    {
+      "term": "Permission rules and the sandbox",
+      "fr": "Les règles de permission sont évaluées dans l'ordre deny, puis ask, puis allow : la première correspondance décide, quelle que soit la spécificité de la règle. Le sandbox Bash ajoute une frontière imposée par le système d'exploitation sur les fichiers et les domaines réseau accessibles aux commandes shell et à leurs sous-processus.",
+      "trap": "Interdire l'outil WebFetch en laissant Bash ouvert : curl et wget peuvent toujours joindre n'importe quelle URL. Une règle Bash ne couvre que la forme de commande écrite ; pour une garantie réelle, on combine règles et sandbox.",
+      "source": { "title": "Configure permissions", "url": "https://code.claude.com/docs/en/permissions" }
+    },
+    {
+      "term": "Headless mode and --bare in CI",
+      "fr": "claude -p lance Claude Code sans interface, pour les scripts et la CI, avec --allowedTools pour pré-approuver des outils et --output-format json pour un résultat exploitable (coût inclus). L'option --bare saute la découverte automatique des hooks, skills, plugins, serveurs MCP et CLAUDE.md : chaque machine obtient le même comportement.",
+      "trap": "Oublier qu'une session -p n'affiche ni la boîte de dialogue de confiance ni l'approbation des serveurs .mcp.json : sans --bare, elle exécute les hooks et serveurs définis par le dépôt, même s'il n'est pas de confiance.",
+      "source": { "title": "Run Claude Code programmatically", "url": "https://code.claude.com/docs/en/headless" }
+    },
+    {
+      "term": "Analytics dashboard and OpenTelemetry",
+      "fr": "Le tableau de bord Analytics (plans Team et Enterprise, ou Console pour l'API) montre l'adoption et la contribution : utilisateurs actifs, lignes acceptées, PR assistées. Pour des métriques détaillées dans votre propre outil d'observabilité (tokens, coût, décisions de permission, par équipe ou par modèle), on active l'export OpenTelemetry avec CLAUDE_CODE_ENABLE_TELEMETRY=1.",
+      "trap": "Activer la journalisation du contenu des prompts pour « mesurer les coûts ». Le texte des prompts est masqué par défaut et n'est pas nécessaire pour attribuer les coûts ; l'activer crée un risque de confidentialité.",
+      "source": { "title": "Monitoring", "url": "https://code.claude.com/docs/en/monitoring-usage" }
+    }
+  ],
+  "warmup": [
+    {
+      "statement": "In Claude Code, a matching deny rule blocks a tool call even when a more specific allow rule also matches it.",
+      "answer": true,
+      "fr": "Vrai. Les règles sont évaluées dans l'ordre deny, ask, allow, et la première correspondance l'emporte. Une règle allow ne peut pas créer d'exception à une règle deny."
+    },
+    {
+      "statement": "Instructions written in CLAUDE.md are enforced by Claude Code in the same way as permission deny rules.",
+      "answer": false,
+      "fr": "Faux. CLAUDE.md est du contexte que Claude lit, pas une configuration appliquée par le client. Pour bloquer une action, il faut une règle deny, un hook PreToolUse ou le sandbox."
+    },
+    {
+      "statement": "A developer can remove an entry from a managed permissions.deny list by redefining permissions.deny in their own .claude/settings.local.json.",
+      "answer": false,
+      "fr": "Faux. Les listes de permissions fusionnent entre les niveaux : un développeur peut ajouter des entrées, mais pas retirer celles qui viennent des réglages gérés."
+    },
+    {
+      "statement": "The full body of a Claude Code skill is loaded into context only when the skill is used, not at the start of every session.",
+      "answer": true,
+      "fr": "Vrai. C'est la différence avec CLAUDE.md, chargé à chaque session : le contenu d'une skill ne coûte presque rien tant qu'elle n'est pas utilisée."
+    },
+    {
+      "statement": "Running claude -p in a repository shows the workspace trust dialog before any project hooks are executed.",
+      "answer": false,
+      "fr": "Faux. Une session -p n'affiche ni la boîte de dialogue de confiance ni l'approbation des serveurs MCP du projet. Sans --bare, elle exécute les hooks de .claude/settings.json et connecte les serveurs de .mcp.json."
+    }
+  ],
+  "questions": [
+    {
+      "id": "L09-Q01",
+      "domain": "D7",
+      "type": "single",
+      "stem": "A fintech company with 40 developers has adopted Claude Code. Each developer configured it differently: some auto-approve test commands, others block them, and only a few run the team's formatting step after edits. The engineering manager wants every developer working in the payments repository to get the same permission rules and post-edit hooks automatically, while still letting individuals keep personal preferences for that project without affecting teammates. Which configuration BEST meets these requirements?",
+      "options": [
+        { "text": "Publish the recommended permission rules and hooks on the internal wiki and ask each developer to copy them into ~/.claude/settings.json.", "why": "Faux : les réglages utilisateur restent propres à chaque poste. Rien ne garantit que tout le monde les copie ni qu'ils restent à jour, et ils s'appliquent à tous les projets du développeur, pas seulement au dépôt payments." },
+        { "text": "Commit the team's permission rules and hooks in .claude/settings.json in the repository, and let developers put personal overrides in .claude/settings.local.json, which stays out of version control.", "why": "Juste : le fichier de projet partagé est commité et s'applique à toute personne qui clone le dépôt. Le fichier local, exclu de git, permet des ajustements personnels sans commit ni impact sur les collègues." },
+        { "text": "Add a section to the repository's CLAUDE.md that lists which commands to auto-approve and reminds Claude to run the formatter after every edit.", "why": "Faux : CLAUDE.md est du contexte, pas de la configuration. Il ne peut pas pré-approuver des commandes, et rien ne garantit que le formateur sera lancé à chaque édition ; c'est le rôle d'un hook PostToolUse." },
+        { "text": "Deploy every setting, including personal display preferences, through organization-wide managed settings so that no developer can diverge.", "why": "Faux : les réglages gérés servent aux politiques de sécurité et de conformité. Y mettre les préférences personnelles retire toute flexibilité, et la demande porte sur un seul dépôt, pas sur toute l'organisation." }
+      ],
+      "answer": [1],
+      "explanation": "Claude Code distingue clairement les portées : le fichier .claude/settings.json commité porte les règles d'équipe d'un dépôt, et .claude/settings.local.json porte les exceptions personnelles. Les réglages gérés sont réservés à ce que l'organisation doit imposer, et CLAUDE.md ne remplace jamais une configuration.",
+      "tip": "« Toute l'équipe sur ce dépôt, avec exceptions personnelles » = .claude/settings.json commité + .claude/settings.local.json.",
+      "source": { "title": "Settings files and precedence", "url": "https://code.claude.com/docs/en/settings" }
+    },
+    {
+      "id": "L09-Q02",
+      "domain": "D7",
+      "type": "single",
+      "stem": "A bank is rolling out Claude Code to 600 engineers on a Claude Enterprise plan. The CISO requires two guarantees on every machine: no developer can start a session that skips permission checks, and only permission rules defined by the security team apply, regardless of what developers or repositories configure. Developers have local administrator rights on their laptops but cannot modify MDM-managed system policies. What should the architect recommend?",
+      "options": [
+        { "text": "Commit a .claude/settings.json with strict deny rules to every repository and add a CI check that fails if the file is modified.", "why": "Faux : cela ne couvre que les dépôts existants, ne désactive pas le mode qui contourne les permissions et n'empêche pas les règles allow ajoutées par les développeurs dans leurs propres fichiers." },
+        { "text": "Deploy an organization-wide managed CLAUDE.md stating that sessions must never bypass permissions and that only security-approved commands may run.", "why": "Faux : un CLAUDE.md géré donne des consignes de comportement, il n'impose rien techniquement. La documentation distingue les réglages gérés (application technique) et le CLAUDE.md géré (orientation)." },
+        { "text": "Deliver managed settings through the admin console or MDM that set permissions.disableBypassPermissionsMode and allowManagedPermissionRulesOnly, together with the security team's permission rules.", "why": "Juste : les réglages gérés ont la priorité la plus haute. disableBypassPermissionsMode interdit le mode qui saute les vérifications, et allowManagedPermissionRulesOnly fait des réglages gérés la seule source de règles de permission." },
+        { "text": "Ask each engineer to add the required rules to ~/.claude/settings.json and run a quarterly audit of a sample of laptops.", "why": "Faux : les réglages utilisateur sont modifiables par le développeur et ont la priorité la plus basse. Un audit trimestriel par échantillon ne constitue pas une garantie." }
+      ],
+      "answer": [2],
+      "explanation": "Quand une exigence doit tenir quelle que soit la configuration locale, on passe par les réglages gérés (console d'administration, MDM ou fichier système). Les clés de verrouillage comme disableBypassPermissionsMode et allowManagedPermissionRulesOnly existent précisément pour cela.",
+      "tip": "« Garanti sur toutes les machines, quoi que fasse le développeur » = managed settings avec les clés de verrouillage.",
+      "source": { "title": "Set up Claude Code for your organization", "url": "https://code.claude.com/docs/en/admin-setup" }
+    },
+    {
+      "id": "L09-Q03",
+      "domain": "D7",
+      "type": "multi",
+      "stem": "A platform team notices that Claude Code keeps modifying generated client code under src/gen/ and occasionally edits the .env file, even though CLAUDE.md says in bold that both are off-limits. Regenerating the code and reviewing every diff is wasting hours each week. The team wants these edits prevented reliably for everyone working in the repository, and when an edit is blocked, Claude should receive an explanation so it can adjust its approach. Which TWO actions should the team take? (Select TWO.)",
+      "options": [
+        { "text": "Rewrite the CLAUDE.md warning in capital letters, move it to the top of the file and repeat it in each nested CLAUDE.md.", "why": "Faux : renforcer la formulation ne change pas la nature de CLAUDE.md, qui reste du contexte. Le problème vient justement de l'absence de contrôle déterministe." },
+        { "text": "Add a PreToolUse hook on Edit and Write in the shared project settings that checks the target path and exits with code 2 and an explanatory message for protected paths.", "why": "Juste : un hook PreToolUse bloque l'action avant son exécution, et le message d'erreur est renvoyé à Claude comme retour, ce qui lui permet de changer d'approche." },
+        { "text": "Switch the team to the most capable model available, since a smarter model will follow CLAUDE.md instructions more consistently.", "why": "Faux : un meilleur modèle peut mieux suivre les consignes, mais n'apporte aucune garantie. L'exigence est une prévention fiable, donc un contrôle hors du modèle." },
+        { "text": "Add Edit deny rules for src/gen/** and .env to the permissions in the committed .claude/settings.json.", "why": "Juste : une règle deny est évaluée avant toute règle allow et bloque l'édition pour toute personne utilisant le dépôt. Elle complète bien le hook." },
+        { "text": "Move the off-limits instructions into a skill so that they are loaded only when Claude edits files.", "why": "Faux : une skill reste un ensemble d'instructions pour le modèle. Elle n'empêche rien et peut même ne pas être chargée au bon moment." }
+      ],
+      "answer": [1, 3],
+      "explanation": "La documentation est explicite : CLAUDE.md est traité comme du contexte, et pour bloquer une action quoi que décide Claude, il faut un hook PreToolUse ou une règle de permission. Le hook a l'avantage d'expliquer le blocage à Claude ; la règle deny est simple et prioritaire.",
+      "tip": "Si l'énoncé dit « malgré la consigne dans CLAUDE.md », la réponse est un contrôle déterministe : hook ou règle deny.",
+      "source": { "title": "Automate actions with hooks", "url": "https://code.claude.com/docs/en/hooks-guide" }
+    },
+    {
+      "id": "L09-Q04",
+      "domain": "D7",
+      "type": "single",
+      "stem": "A retailer runs a nightly CI job that uses Claude Code non-interactively to triage failing tests across 120 repositories and posts a JSON summary to an engineering dashboard. Results differ between runners: some runners pick up hooks from a former developer's ~/.claude directory, and several repositories contain .mcp.json files that connect extra servers. The team needs identical, reproducible behavior on every runner, with only the tools the job requires. Which invocation BEST fits?",
+      "options": [
+        { "text": "claude --bare -p with the triage prompt, --allowedTools limited to the tools the job needs, and --output-format json.", "why": "Juste : --bare saute la découverte automatique des hooks, skills, plugins, serveurs MCP et CLAUDE.md, ce qui rend l'exécution identique partout. --allowedTools limite les outils et --output-format json fournit un résultat exploitable." },
+        { "text": "claude -p with the triage prompt plus a sentence asking Claude to ignore any local hooks or MCP servers it discovers.", "why": "Faux : les hooks et serveurs sont chargés par le client avant que le modèle intervienne. Une consigne dans le prompt ne les désactive pas." },
+        { "text": "An interactive claude session started inside tmux on each runner, with output captured from the terminal log.", "why": "Faux : une session interactive n'est pas faite pour la CI, attend des validations et produit une sortie difficile à analyser. Elle ne règle pas non plus la variabilité de configuration." },
+        { "text": "claude -p in bypassPermissions mode so that no permission prompt can stall the job on any runner.", "why": "Faux : supprimer toutes les vérifications ne résout pas la variabilité (les hooks et serveurs sont toujours chargés) et augmente fortement le risque. Ce mode est réservé aux conteneurs ou VM isolés." }
+      ],
+      "answer": [0],
+      "explanation": "Pour les scripts et la CI, la documentation recommande --bare : seule la configuration passée explicitement est utilisée, ce qui garantit le même résultat sur chaque machine. On y ajoute la liste minimale d'outils autorisés et une sortie structurée.",
+      "tip": "CI + « même comportement partout » = claude --bare -p, outils explicites, sortie JSON.",
+      "source": { "title": "Run Claude Code programmatically", "url": "https://code.claude.com/docs/en/headless" }
+    },
+    {
+      "id": "L09-Q05",
+      "domain": "D7",
+      "type": "single",
+      "stem": "In a large monorepo, the root CLAUDE.md has grown to about 900 lines covering frontend conventions, backend API rules, infrastructure runbooks and a 40-step release procedure. Developers report that Claude increasingly ignores instructions, and sessions start with a large share of the context already used. The tech lead wants better adherence without losing any guidance. Which change should the architect recommend?",
+      "options": [
+        { "text": "Split the file into several documents and reference them from CLAUDE.md with @path imports so that each topic lives in its own file.", "why": "Faux : les imports organisent le contenu, mais les fichiers importés sont chargés avec le CLAUDE.md qui les référence. Le coût en contexte et la dilution des consignes restent les mêmes." },
+        { "text": "Move the whole file to the organization's managed policy CLAUDE.md so that it takes priority over other instruction files.", "why": "Faux : le CLAUDE.md géré sert aux consignes de toute l'organisation, pas aux conventions d'un dépôt. Le contenu serait toujours chargé en entier, et sur toutes les machines." },
+        { "text": "Move to a model with a larger context window so that the full file fits comfortably alongside the code.", "why": "Faux : plus de contexte disponible ne corrige pas la baisse d'adhérence liée à un fichier long et touffu. La documentation recommande au contraire de raccourcir." },
+        { "text": "Keep a concise root CLAUDE.md with project-wide facts, move area-specific guidance into path-scoped files under .claude/rules/, and turn the release procedure into a skill.", "why": "Juste : la documentation recommande moins de 200 lignes par CLAUDE.md. Les règles avec un champ paths ne se chargent que pour les fichiers concernés, et une skill ne charge son contenu que lorsqu'on l'utilise." }
+      ],
+      "answer": [3],
+      "explanation": "Un CLAUDE.md long consomme du contexte et réduit l'adhérence. On garde à la racine les faits valables partout, on scope le reste par chemin dans .claude/rules/, et on transforme les procédures en skills, chargées à la demande.",
+      "tip": "Les imports @path ne réduisent pas le contexte. Pour alléger : rules scopées par chemin et skills.",
+      "source": { "title": "How Claude remembers your project", "url": "https://code.claude.com/docs/en/memory" }
+    },
+    {
+      "id": "L09-Q06",
+      "domain": "D7",
+      "type": "single",
+      "stem": "An engineering director at an insurer needs to explain a sudden rise in Claude Code spend. They want per-team token usage, cost and permission-decision metrics in the company's existing observability platform, with alerts when a team's daily cost exceeds a threshold. The privacy office insists that the content of developers' prompts must not leave the developer machines. What should the architect set up?",
+      "options": [
+        { "text": "Ask each developer to run /usage every Friday and paste the figures into a shared spreadsheet that managers review.", "why": "Faux : c'est manuel, incomplet et sans alerte. Cela ne répond ni au besoin de suivi par équipe ni à l'alerte quotidienne." },
+        { "text": "Enable OpenTelemetry export with CLAUDE_CODE_ENABLE_TELEMETRY=1 and an OTLP exporter delivered through managed settings, adding team attributes and leaving prompt content logging disabled.", "why": "Juste : l'export OpenTelemetry fournit des métriques de tokens, de coût et de décisions d'outils exploitables dans l'outil d'observabilité existant, avec des alertes. Le texte des prompts est masqué par défaut." },
+        { "text": "Enable OpenTelemetry with OTEL_LOG_USER_PROMPTS and OTEL_LOG_TOOL_DETAILS on every machine so the full prompts can be used to attribute costs.", "why": "Faux : le contenu des prompts n'est pas nécessaire pour attribuer les coûts, et l'activer contredit directement l'exigence du service de protection des données." },
+        { "text": "Take weekly screenshots of the Claude Code analytics dashboard and forward them to the observability team for manual entry.", "why": "Faux : le tableau de bord sert à suivre l'adoption, mais des captures d'écran ne permettent ni le découpage par équipe dans l'outil existant ni des alertes automatiques." }
+      ],
+      "answer": [1],
+      "explanation": "Pour intégrer Claude Code à une plateforme d'observabilité, on active l'export OpenTelemetry, distribué de façon centralisée. Les métriques de coût et de tokens suffisent à l'attribution ; les options qui journalisent le contenu restent désactivées quand la confidentialité l'exige.",
+      "tip": "Métriques dans votre propre outil + alertes = OpenTelemetry. Le contenu des prompts reste masqué sauf besoin justifié.",
+      "source": { "title": "Monitoring", "url": "https://code.claude.com/docs/en/monitoring-usage" }
+    },
+    {
+      "id": "L09-Q07",
+      "domain": "D6",
+      "type": "single",
+      "stem": "The CIO of a logistics company wants to roll out Claude Code to all 1,200 engineers within one week and has proposed a single success metric for the board: total lines of code generated with Claude Code, displayed on a public leaderboard. Engineering managers worry about quality and about teams with unusual tech stacks. How should the architect advise the CIO?",
+      "options": [
+        { "text": "Proceed with the one-week rollout and the leaderboard, because lines of code is the clearest signal of productivity for a board audience.", "why": "Faux : le volume de code récompense la quantité, pas la valeur, et peut même inciter à produire du code inutile. Un déploiement massif sans pilote ignore aussi les risques signalés par les managers." },
+        { "text": "Postpone any rollout until every repository has a complete, reviewed CLAUDE.md and a full set of custom skills.", "why": "Faux : exiger une préparation parfaite de tous les dépôts bloque la valeur. Un pilote permet justement d'apprendre ce qui est utile avant de généraliser." },
+        { "text": "Run a phased rollout starting with pilot teams and a shared configuration baseline, provide enablement, and measure adoption together with outcome and quality metrics against a pre-rollout baseline.", "why": "Juste : un déploiement par vagues réduit le risque et produit des retours. Combiner adoption (utilisateurs actifs, sessions) et résultats (PR livrées, délai de cycle, qualité) mesurés par rapport à une référence donne une image honnête au conseil." },
+        { "text": "Let each team configure and adopt Claude Code on its own schedule, and measure success through an annual satisfaction survey.", "why": "Faux : sans base commune ni métriques objectives, la direction ne peut ni piloter ni démontrer la valeur, et les configurations divergent." }
+      ],
+      "answer": [2],
+      "explanation": "Un architecte aide les parties prenantes à définir des indicateurs qui reflètent la valeur réelle. Les tableaux de bord Analytics et les métriques de contribution servent à suivre l'adoption et l'impact, mais ils doivent être comparés à une référence et accompagnés d'indicateurs de qualité.",
+      "tip": "Méfie-toi des indicateurs de volume seul (lignes de code, nombre de prompts). Préfère pilote + adoption + résultats mesurés.",
+      "source": { "title": "Track team usage with analytics", "url": "https://code.claude.com/docs/en/analytics" }
+    },
+    {
+      "id": "L09-Q08",
+      "domain": "D6",
+      "type": "single",
+      "stem": "Fifteen product teams at a media group each maintain their own copies of the same Claude Code skills, review subagents, formatting hooks and MCP server definitions, copied from a wiki page. Versions drift, a fix to a shared hook takes weeks to reach every team, and nobody knows which teams run outdated components. The platform team owns these components. What is the MOST effective way to manage their lifecycle?",
+      "options": [
+        { "text": "Package the shared skills, subagents, hooks and MCP definitions as a versioned plugin published through an internal marketplace, and restrict allowed marketplaces with managed settings.", "why": "Juste : un plugin regroupe skills, agents, hooks et serveurs MCP en une unité installable et versionnée. Une marketplace interne centralise la distribution, et les réglages gérés limitent les sources autorisées." },
+        { "text": "Merge every component's instructions into one long shared CLAUDE.md that all teams import from a common repository.", "why": "Faux : CLAUDE.md ne transporte ni hooks ni serveurs MCP, et un fichier géant dégrade l'adhérence. Le problème de versionnement reste entier." },
+        { "text": "Email an updated archive of the components to team leads each month and ask them to confirm installation.", "why": "Faux : la distribution manuelle reproduit exactement le problème actuel de dérive des versions, avec un délai encore plus long." },
+        { "text": "Require every team to move its code into a single monorepo so that one .claude directory serves everyone.", "why": "Faux : réorganiser tout le code pour partager une configuration est disproportionné et ne règle pas la gestion des versions des composants eux-mêmes." }
+      ],
+      "answer": [0],
+      "explanation": "Les plugins sont le mécanisme prévu pour partager des extensions entre projets : une seule unité versionnée contenant skills, agents, hooks et serveurs MCP. Associés à une marketplace interne et à des restrictions gérées, ils donnent un cycle de vie maîtrisé.",
+      "tip": "« Mêmes extensions dans plusieurs équipes, versions qui dérivent » = plugin + marketplace interne.",
+      "source": { "title": "Plugins overview", "url": "https://code.claude.com/docs/en/plugins/overview" }
+    },
+    {
+      "id": "L09-Q09",
+      "domain": "D5",
+      "type": "multi",
+      "stem": "At an investment bank, developers run Claude Code on laptops that hold cloud credentials, and some repositories still contain .env files. A red-team exercise showed that a malicious web page could steer the agent into running a shell command that sends data to an external host. Security has already denied the WebFetch tool, but Bash remains allowed. Which TWO measures BEST reduce the exfiltration and credential risk? (Select TWO.)",
+      "options": [
+        { "text": "Enable the Bash sandbox with a network domain allowlist and filesystem restrictions, enforced by the operating system for shell commands and their subprocesses.", "why": "Juste : le sandbox impose une frontière au niveau du système d'exploitation. Il bloque curl, wget ou un script qui tenterait de joindre un hôte non autorisé, ce qu'une règle sur WebFetch ne fait pas." },
+        { "text": "Keep the current setup, because denying WebFetch already prevents Claude from reaching external hosts.", "why": "Faux : avec Bash autorisé, curl et wget peuvent joindre n'importe quelle URL. La documentation cite précisément cet écart." },
+        { "text": "Replace static API keys stored in settings env blocks with an apiKeyHelper that fetches short-lived credentials from the bank's vault, and add Read deny rules for .env files.", "why": "Juste : les valeurs du bloc env sont en clair et transmises à chaque sous-processus. Un apiKeyHelper fournit des identifiants temporaires, et les règles Read deny empêchent les outils de fichiers de lire les .env." },
+        { "text": "Add a policy statement to CLAUDE.md telling Claude never to read credentials or contact unknown hosts.", "why": "Faux : une consigne en contexte peut être contournée par une injection de prompt. Elle ne constitue pas un contrôle." },
+        { "text": "Switch developers to bypassPermissions mode so that they see fewer prompts and pay more attention to the remaining ones.", "why": "Faux : ce mode autorise tout sans vérification. Il est réservé aux conteneurs ou VM isolés et aggraverait le risque." }
+      ],
+      "answer": [0, 2],
+      "explanation": "Les règles de permission et le sandbox protègent des couches différentes. Contre l'exfiltration, il faut une frontière réseau appliquée par le système d'exploitation. Contre le vol d'identifiants, on réduit ce qui est exposé : identifiants courts via apiKeyHelper et règles deny sur les fichiers sensibles.",
+      "tip": "« WebFetch interdit mais Bash autorisé » est un piège classique : la réponse passe par le sandbox réseau.",
+      "source": { "title": "Set up Claude Code for your organization", "url": "https://code.claude.com/docs/en/admin-setup" }
+    },
+    {
+      "id": "L09-Q10",
+      "domain": "D5",
+      "type": "single",
+      "stem": "An open-source foundation wants a GitHub workflow that runs Claude Code non-interactively on every pull request, including pull requests from external forks, to summarize changes and label them. The workflow runs with a token that can write labels and comments. A security reviewer points out that a contributor could add a .claude/settings.json with hooks or a .mcp.json file to their pull request. What should the architect recommend?",
+      "options": [
+        { "text": "Rely on the workspace trust dialog, which asks for confirmation before running hooks defined in a repository that has not been trusted.", "why": "Faux : une session -p n'affiche jamais la boîte de dialogue de confiance ni l'approbation des serveurs .mcp.json. Ce garde-fou n'existe pas en CI." },
+        { "text": "Add a CLAUDE.md instruction telling Claude to ignore any hooks or MCP servers that appear in a pull request.", "why": "Faux : les hooks et serveurs sont chargés et exécutés par le client, pas choisis par le modèle. Une instruction n'a aucun effet sur eux." },
+        { "text": "Allow it as configured, since hooks defined in a pull request only run on the contributor's own machine.", "why": "Faux : la CI exécute Claude Code dans le dépôt contenant les fichiers de la pull request. Sans précaution, les hooks qu'elle définit s'exécutent sur le runner." },
+        { "text": "Run Claude Code with --bare so repository hooks and .mcp.json servers are never loaded, pass only the tools and configuration the job needs, and give the workflow token the minimum permissions.", "why": "Juste : --bare n'utilise que la configuration passée explicitement, ce qui neutralise les hooks et serveurs apportés par un contributeur. Le moindre privilège sur le jeton limite l'impact d'un éventuel abus." }
+      ],
+      "answer": [3],
+      "explanation": "Une session non interactive charge par défaut ce que le dépôt définit, même dans un dossier jamais approuvé. Pour du code non fiable, on désactive cette découverte automatique et on applique le moindre privilège aux identifiants de la CI.",
+      "tip": "Code non fiable + claude -p : pense --bare (ou exclusion des sources de réglages du projet) et jeton au minimum.",
+      "source": { "title": "Run Claude Code programmatically", "url": "https://code.claude.com/docs/en/headless" }
+    }
+  ]
+}
