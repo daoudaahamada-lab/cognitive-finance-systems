@@ -15,37 +15,55 @@
       "term": "Augmented LLM and ‘start simple’",
       "fr": "La brique de base est un LLM enrichi : récupération d'information (retrieval), outils et mémoire. Anthropic recommande de chercher la solution la plus simple possible et de n'ajouter de la complexité que si elle améliore les résultats de façon démontrée. Pour beaucoup d'applications, un appel unique bien conçu avec retrieval et exemples suffit.",
       "trap": "Proposer d'emblée une architecture multi-agents ou un agent autonome alors qu'un appel enrichi, mesuré par des évaluations, n'a même pas été essayé.",
-      "source": { "title": "Building effective agents", "url": "https://www.anthropic.com/engineering/building-effective-agents" }
+      "source": {
+        "title": "Building effective agents",
+        "url": "https://www.anthropic.com/engineering/building-effective-agents"
+      }
     },
     {
       "term": "Workflows vs agents",
       "fr": "Un workflow orchestre Claude et des outils selon des chemins de code prédéfinis : il apporte prévisibilité et cohérence pour des tâches bien définies. Un agent décide lui-même de ses étapes et de ses outils : il convient aux problèmes ouverts dont on ne peut pas prévoir le nombre d'étapes. L'autonomie coûte plus cher et les erreurs peuvent s'enchaîner, d'où des tests en sandbox, des conditions d'arrêt (nombre maximal d'itérations) et des points de contrôle humains.",
       "trap": "Choisir un agent pour un processus stable et auditable (facturation, conformité), ou lancer un agent sans condition d'arrêt ni point de validation humaine.",
-      "source": { "title": "Building effective agents", "url": "https://www.anthropic.com/engineering/building-effective-agents" }
+      "source": {
+        "title": "Building effective agents",
+        "url": "https://www.anthropic.com/engineering/building-effective-agents"
+      }
     },
     {
       "term": "Prompt chaining, routing and parallelization",
       "fr": "Prompt chaining : une suite d'étapes fixes, avec des contrôles programmatiques entre elles. Routing : classer l'entrée puis l'envoyer vers un traitement spécialisé, par exemple les demandes simples vers un petit modèle et les cas difficiles vers un modèle plus capable. Parallelization : découper en sous-tâches indépendantes (sectioning) ou lancer plusieurs fois la même tâche pour voter (voting).",
       "trap": "Un seul prompt qui fait tout (garde-fou et réponse, cas simples et complexes) : la documentation indique que séparer ces préoccupations donne de meilleurs résultats.",
-      "source": { "title": "Building effective agents", "url": "https://www.anthropic.com/engineering/building-effective-agents" }
+      "source": {
+        "title": "Building effective agents",
+        "url": "https://www.anthropic.com/engineering/building-effective-agents"
+      }
     },
     {
       "term": "Orchestrator-workers and evaluator-optimizer",
       "fr": "Orchestrator-workers : un modèle central découpe dynamiquement la tâche, délègue à des workers et synthétise. Il convient quand on ne peut pas prévoir les sous-tâches. Evaluator-optimizer : un appel produit, un autre évalue et renvoie un retour, en boucle. Il convient quand les critères d'évaluation sont clairs et que l'itération améliore le résultat de façon mesurable.",
       "trap": "Confondre orchestrator-workers et parallelization : dans la seconde, les sous-tâches sont définies à l'avance ; dans le premier, c'est l'orchestrateur qui les décide selon l'entrée.",
-      "source": { "title": "Building effective agents", "url": "https://www.anthropic.com/engineering/building-effective-agents" }
+      "source": {
+        "title": "Building effective agents",
+        "url": "https://www.anthropic.com/engineering/building-effective-agents"
+      }
     },
     {
       "term": "When multi-agent systems pay off",
       "fr": "D'après Anthropic, les agents consomment environ 4 fois plus de tokens qu'un chat, et les systèmes multi-agents environ 15 fois plus. Ils se justifient pour des tâches à forte valeur, très parallélisables, dont l'information dépasse une seule fenêtre de contexte ou qui utilisent de nombreux outils complexes. Ils conviennent mal aux tâches où tous les agents doivent partager le même contexte ou dépendent fortement les uns des autres.",
       "trap": "Penser que plus d'agents donne toujours un meilleur résultat, ou qu'un système multi-agents coûte à peu près comme un chat.",
-      "source": { "title": "How we built our multi-agent research system", "url": "https://www.anthropic.com/engineering/multi-agent-research-system" }
+      "source": {
+        "title": "How we built our multi-agent research system",
+        "url": "https://www.anthropic.com/engineering/multi-agent-research-system"
+      }
     },
     {
       "term": "Success criteria and business value",
       "fr": "Une solution commence par des critères de succès spécifiques et mesurables (par exemple un taux de précision, un temps de traitement, un taux d'escalade) avant le choix du modèle ou de l'architecture. Pour comparer des options, on raisonne en coût par tâche réussie plutôt qu'en prix par token, et on valide chaque choix sur un jeu d'évaluation issu de données réelles.",
       "trap": "Démarrer par le choix du modèle le plus puissant ou par une plateforme générique, avant d'avoir défini le résultat métier attendu et la façon de le mesurer.",
-      "source": { "title": "Define success and build evaluations", "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests" }
+      "source": {
+        "title": "Define success and build evaluations",
+        "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+      }
     }
   ],
   "warmup": [
@@ -82,15 +100,32 @@
       "type": "single",
       "stem": "A manufacturing group processes 40,000 supplier invoices per month. Every invoice follows the same path: extract the header and line items, match them against the purchase order in the ERP, flag mismatches above 2%, and post approved invoices. Auditors require the process to be predictable and every step to be traceable. A vendor proposes an autonomous agent that decides its own steps for each invoice. What should the architect recommend?",
       "options": [
-        { "text": "Adopt the autonomous agent, because model-driven decisions will adapt better to unusual invoices.", "why": "L'autonomie sacrifie la prévisibilité et la traçabilité exigées par les auditeurs, pour un processus dont les étapes sont connues." },
-        { "text": "Implement a workflow with predefined steps (prompt chaining with programmatic checks between steps), using Claude for extraction and for explaining mismatches.", "why": "Bonne réponse. Les étapes sont fixes et connues : un workflow apporte prévisibilité, cohérence et points de contrôle auditables." },
-        { "text": "Use a multi-agent system with one agent per step, letting the agents negotiate the handoffs between them.", "why": "Complexité et coût en tokens injustifiés, et des passages de relais moins prévisibles que du code." },
-        { "text": "Send the whole month's invoice batch to Claude in a single long prompt at month end.", "why": "Un appel géant est difficile à tracer, propage les erreurs et retarde tout le traitement d'un mois." }
+        {
+          "text": "Adopt the autonomous agent, because letting the model choose its own steps will handle unusual invoice layouts and exceptions better than fixed code paths.",
+          "why": "L'autonomie sacrifie la prévisibilité et la traçabilité exigées par les auditeurs, pour un processus dont les étapes sont connues."
+        },
+        {
+          "text": "Build a workflow of predefined steps (prompt chaining with programmatic checks), using Claude for extraction and for explaining mismatches.",
+          "why": "Bonne réponse. Les étapes sont fixes et connues : un workflow apporte prévisibilité, cohérence et points de contrôle auditables."
+        },
+        {
+          "text": "Use one agent per step (extraction, matching, posting) and let the agents negotiate handoffs, so that each one can specialize in a single responsibility.",
+          "why": "Complexité et coût en tokens injustifiés, et des passages de relais moins prévisibles que du code."
+        },
+        {
+          "text": "Batch the month's invoices into a single long-context request at month end, so Claude can cross-check all invoices against each other in one pass.",
+          "why": "Un appel géant est difficile à tracer, propage les erreurs et retarde tout le traitement d'un mois."
+        }
       ],
-      "answer": [1],
+      "answer": [
+        1
+      ],
       "explanation": "Anthropic distingue les workflows, qui suivent des chemins de code prédéfinis et offrent prévisibilité et cohérence pour des tâches bien définies, des agents, utiles quand la flexibilité et les décisions du modèle sont nécessaires. Un processus de facturation stable et audité relève du workflow.",
       "tip": "Étapes connues + exigence d'audit : workflow. Étapes imprévisibles : agent.",
-      "source": { "title": "Building effective agents", "url": "https://www.anthropic.com/engineering/building-effective-agents" }
+      "source": {
+        "title": "Building effective agents",
+        "url": "https://www.anthropic.com/engineering/building-effective-agents"
+      }
     },
     {
       "id": "L02-Q02",
@@ -98,15 +133,32 @@
       "type": "single",
       "stem": "An HR department wants an assistant that answers employees' questions about leave, benefits and expense policies. All answers can be found in about 300 pages of internal policy documents that change a few times per year. The internal IT team has sketched a design with a planner agent, a retrieval agent, a writer agent and a reviewer agent. What should the architect recommend as the starting point?",
       "options": [
-        { "text": "Build the four-agent design, since separating responsibilities across agents always improves answer quality.", "why": "Plus d'agents n'améliore pas automatiquement la qualité, et le coût en tokens et la complexité augmentent fortement." },
-        { "text": "Fine-tune a model on the policy documents so that it memorizes them.", "why": "Les politiques changent plusieurs fois par an, et un modèle affiné ne peut pas citer la version en vigueur : la récupération d'information est plus adaptée." },
-        { "text": "Give an autonomous agent broad access to the HR systems so it can find answers on its own.", "why": "Des accès larges et de l'autonomie ne sont pas nécessaires pour répondre à partir d'un corpus documentaire connu." },
-        { "text": "Start with a single, well-prompted Claude call augmented with retrieval over the policy documents and a few examples, measure it against an evaluation set, and add components only if results fall short.", "why": "Bonne réponse. Un LLM enrichi par la récupération d'information et des exemples suffit souvent ; on n'ajoute de la complexité que si les mesures le justifient." }
+        {
+          "text": "Build the four-agent design, because separating planning, retrieval, writing and review across agents makes each component easier to improve on its own.",
+          "why": "Plus d'agents n'améliore pas automatiquement la qualité, alors que le coût en tokens et la complexité augmentent fortement."
+        },
+        {
+          "text": "Fine-tune a model on the 300 pages of policy documents so it memorizes them, and retrain it each time HR publishes a policy update.",
+          "why": "Réentraîner à chaque mise à jour est lourd, et un modèle affiné ne peut pas citer la version en vigueur : la récupération d'information est plus adaptée."
+        },
+        {
+          "text": "Give an autonomous agent broad read access to the HR systems and the document share, so it can find any answer without a predefined retrieval layer.",
+          "why": "Des accès larges et de l'autonomie ne sont pas nécessaires pour répondre à partir d'un corpus documentaire connu."
+        },
+        {
+          "text": "Start with one well-prompted Claude call using retrieval over the policies and a few examples, measure it on an eval set, and add parts only if needed.",
+          "why": "Bonne réponse. Un LLM enrichi par la récupération d'information et des exemples suffit souvent ; on n'ajoute de la complexité que si les mesures le justifient."
+        }
       ],
-      "answer": [3],
+      "answer": [
+        3
+      ],
       "explanation": "Anthropic recommande de commencer par la solution la plus simple : pour beaucoup d'applications, optimiser un appel unique avec retrieval et exemples en contexte suffit. Les systèmes agentiques échangent latence et coût contre de la performance, ce qui ne se justifie que si une mesure le démontre.",
       "tip": "Corpus documentaire connu et questions-réponses : LLM enrichi par retrieval d'abord, multi-agents seulement si les évaluations l'exigent.",
-      "source": { "title": "Building effective agents", "url": "https://www.anthropic.com/engineering/building-effective-agents" }
+      "source": {
+        "title": "Building effective agents",
+        "url": "https://www.anthropic.com/engineering/building-effective-agents"
+      }
     },
     {
       "id": "L02-Q03",
@@ -114,15 +166,32 @@
       "type": "single",
       "stem": "A telecom operator handles 25,000 support conversations per day. About 70% are simple questions (opening hours, invoice copies, plan details), while the rest are technical or contractual disputes that need deeper reasoning and different tools. A single prompt tuned for the complex cases is too slow and costly for simple ones, and tuning it for simple cases degrades the complex answers. Which architecture BEST addresses this?",
       "options": [
-        { "text": "A routing workflow that classifies each request first, then sends simple ones to a specialized prompt on a smaller, faster model and complex ones to a specialized prompt on a more capable model.", "why": "Bonne réponse. Le routing sépare les préoccupations, permet des prompts spécialisés et optimise coût et latence selon la difficulté." },
-        { "text": "An evaluator-optimizer loop that refines every response until a reviewer model approves it.", "why": "On ajoute de la latence et du coût à toutes les demandes, y compris les 70 % de questions simples." },
-        { "text": "A single prompt containing every instruction for both kinds of requests, running on the most capable model.", "why": "C'est précisément la situation qui pose problème : optimiser pour un type d'entrée dégrade l'autre, et le coût reste élevé pour les cas simples." },
-        { "text": "Parallel voting, in which three model instances answer each request and the majority answer is returned.", "why": "Le coût est multiplié par trois sans résoudre la différence de traitement entre cas simples et complexes." }
+        {
+          "text": "Route requests: classify each one, then send simple ones to a specialized prompt on a smaller model and complex ones to a capable model.",
+          "why": "Bonne réponse. Le routing sépare les préoccupations, permet des prompts spécialisés et optimise coût et latence selon la difficulté."
+        },
+        {
+          "text": "Add an evaluator-optimizer loop that refines every response until a reviewer model approves it, so that both simple and complex answers meet the bar.",
+          "why": "On ajoute de la latence et du coût à toutes les demandes, y compris les 70 % de questions simples."
+        },
+        {
+          "text": "Keep one prompt with instructions for both request types, but run it on the most capable model so it can handle the simple cases as well as the hard ones.",
+          "why": "C'est la situation qui pose problème : optimiser pour un type d'entrée dégrade l'autre, et le coût reste élevé pour les cas simples."
+        },
+        {
+          "text": "Use parallel voting: three model instances answer each request and the majority answer is returned, which raises confidence on the hard disputes.",
+          "why": "Le coût est multiplié par trois sans traiter différemment cas simples et cas complexes."
+        }
       ],
-      "answer": [0],
+      "answer": [
+        0
+      ],
       "explanation": "Le routing classe une entrée et la dirige vers un traitement spécialisé. Il convient quand des catégories distinctes gagnent à être traitées séparément et que la classification est fiable. Anthropic cite l'exemple des questions simples envoyées à un petit modèle économique et des cas difficiles à un modèle plus capable.",
       "tip": "Entrées hétérogènes où optimiser pour l'une dégrade l'autre : routing.",
-      "source": { "title": "Building effective agents", "url": "https://www.anthropic.com/engineering/building-effective-agents" }
+      "source": {
+        "title": "Building effective agents",
+        "url": "https://www.anthropic.com/engineering/building-effective-agents"
+      }
     },
     {
       "id": "L02-Q04",
@@ -130,15 +199,32 @@
       "type": "single",
       "stem": "A public broadcaster is launching a chatbot that answers audience questions about its programs. Policy requires that every request be screened for abusive or out-of-scope content. In testing, a single prompt that both screens the request and writes the answer sometimes lets inappropriate requests through when they are buried inside long, legitimate-looking questions. Latency must stay low. Which design BEST improves reliability?",
       "options": [
-        { "text": "Add a longer list of forbidden topics to the existing combined prompt.", "why": "Le même appel continue de gérer deux préoccupations à la fois : c'est cette combinaison qui laisse passer des requêtes." },
-        { "text": "Generate the answer first, then ask the same call to review its own answer before returning it.", "why": "Le filtrage reste mélangé à la génération, et il arrive après coup au lieu de porter sur la requête." },
-        { "text": "Use parallelization (sectioning): one model instance screens the request while another drafts the answer in parallel, and the answer is released only if the screen passes.", "why": "Bonne réponse. Séparer le garde-fou de la réponse principale donne de meilleurs résultats, et l'exécution en parallèle préserve la latence." },
-        { "text": "Route every request to a human moderator before the chatbot is allowed to answer.", "why": "Incompatible avec l'exigence de faible latence et impossible à tenir à grande échelle." }
+        {
+          "text": "Add a longer, categorized list of forbidden topics to the existing combined prompt, with examples of abusive requests hidden inside long questions.",
+          "why": "Le même appel continue de gérer deux préoccupations à la fois : c'est cette combinaison qui laisse passer des requêtes."
+        },
+        {
+          "text": "Generate the answer first, then have the same call review its own answer against the content policy before returning it to the user.",
+          "why": "Le filtrage reste mélangé à la génération et porte sur la réponse après coup, pas sur la requête."
+        },
+        {
+          "text": "Run two calls in parallel: one screens the request, the other drafts the answer, and the answer is released only if the screen passes.",
+          "why": "Bonne réponse. Séparer le garde-fou de la réponse principale donne de meilleurs résultats, et l'exécution en parallèle préserve la latence."
+        },
+        {
+          "text": "Send every request to a human moderator queue before the chatbot answers, so that no inappropriate request can reach the model unreviewed.",
+          "why": "Incompatible avec l'exigence de faible latence et impossible à tenir à grande échelle."
+        }
       ],
-      "answer": [2],
+      "answer": [
+        2
+      ],
       "explanation": "Parmi les exemples de parallelization (sectioning), Anthropic cite les garde-fous : une instance traite la requête pendant qu'une autre la filtre. Cela fonctionne mieux qu'un seul appel chargé à la fois du garde-fou et de la réponse, car chaque appel se concentre sur un seul aspect.",
       "tip": "Garde-fou + réponse dans le même appel qui fuit : séparer en deux appels parallèles.",
-      "source": { "title": "Building effective agents", "url": "https://www.anthropic.com/engineering/building-effective-agents" }
+      "source": {
+        "title": "Building effective agents",
+        "url": "https://www.anthropic.com/engineering/building-effective-agents"
+      }
     },
     {
       "id": "L02-Q05",
@@ -146,15 +232,32 @@
       "type": "single",
       "stem": "A pharmaceutical company wants a system that answers questions such as ‘What do the last five years of published trials say about drug X in elderly patients?’. Depending on the question, the relevant evidence may come from two sources or from thirty, and the sub-questions worth investigating cannot be known in advance. Which pattern is the BEST fit?",
       "options": [
-        { "text": "Prompt chaining with a fixed sequence of five steps defined at design time.", "why": "Une chaîne fixe suppose que les sous-tâches sont connues à l'avance, ce qui n'est pas le cas ici." },
-        { "text": "A routing workflow that sends each question to one of several fixed, specialized prompts.", "why": "Le routing choisit un traitement parmi des options prévues ; il ne découpe pas une question en sous-questions variables." },
-        { "text": "Parallel sectioning with a predefined set of subtasks, one per database.", "why": "Les sous-tâches restent prédéfinies, alors que leur nombre et leur nature dépendent de chaque question." },
-        { "text": "An orchestrator-workers workflow, in which a central model breaks the question into sub-tasks based on the input, delegates them to worker calls and synthesizes their findings.", "why": "Bonne réponse. Ce pattern est conçu pour les tâches complexes dont on ne peut pas prévoir les sous-tâches." }
+        {
+          "text": "Use prompt chaining with a fixed sequence of five steps (search, filter, extract, compare, summarize) defined at design time for every question.",
+          "why": "Une chaîne fixe suppose que les sous-tâches sont connues à l'avance, ce qui n'est pas le cas ici."
+        },
+        {
+          "text": "Use routing to send each question to one of several specialized prompts (efficacy, safety, dosing, populations), each tuned by a domain expert.",
+          "why": "Le routing choisit un traitement parmi des options prévues ; il ne découpe pas une question en sous-questions variables."
+        },
+        {
+          "text": "Use parallel sectioning with one predefined subtask per database, running all of them on every question and merging the results at the end.",
+          "why": "Les sous-tâches restent prédéfinies, alors que leur nombre et leur nature dépendent de chaque question."
+        },
+        {
+          "text": "Use orchestrator-workers: a central model splits each question into sub-tasks based on the input, delegates them, and synthesizes the findings.",
+          "why": "Bonne réponse. Ce pattern est conçu pour les tâches complexes dont on ne peut pas prévoir les sous-tâches."
+        }
       ],
-      "answer": [3],
+      "answer": [
+        3
+      ],
       "explanation": "Dans le pattern orchestrator-workers, un modèle central décompose dynamiquement la tâche, délègue et synthétise. La différence avec la parallelization est la flexibilité : les sous-tâches ne sont pas prédéfinies, elles dépendent de l'entrée. Anthropic cite les recherches multi-sources comme exemple typique.",
       "tip": "Sous-tâches imprévisibles qui dépendent de l'entrée : orchestrator-workers.",
-      "source": { "title": "Building effective agents", "url": "https://www.anthropic.com/engineering/building-effective-agents" }
+      "source": {
+        "title": "Building effective agents",
+        "url": "https://www.anthropic.com/engineering/building-effective-agents"
+      }
     },
     {
       "id": "L02-Q06",
@@ -162,15 +265,32 @@
       "type": "single",
       "stem": "A luxury brand translates product storytelling copy into eight languages. Its brand reviewers maintain a written style guide with precise, checkable criteria (tone, banned words, length limits, cultural references to avoid), and their feedback on first drafts reliably improves the result. The brand wants fewer human review rounds without lowering quality. Which pattern BEST fits this need?",
       "options": [
-        { "text": "Routing, which sends each language to its own prompt with no review step.", "why": "On supprime justement l'étape de critique qui améliore les traductions." },
-        { "text": "An evaluator-optimizer loop: one call produces the translation, another evaluates it against the style guide and returns feedback, and the loop repeats until the criteria are met or an iteration limit is reached.", "why": "Bonne réponse. Les critères sont clairs et les retours améliorent le résultat : ce sont les deux signes d'un bon cas pour ce pattern." },
-        { "text": "A fully autonomous agent with web access that researches cultural references freely for each product.", "why": "L'autonomie et l'accès web n'apportent rien ici ; le besoin est une boucle de critique selon un guide connu." },
-        { "text": "Voting, in which five translations are generated and the most common wording is kept.", "why": "La formulation la plus fréquente n'est pas forcément celle qui respecte le guide de style." }
+        {
+          "text": "Route each language to its own specialized prompt containing the style guide, and remove the review step to cut turnaround time per product.",
+          "why": "On supprime justement l'étape de critique qui améliore les traductions."
+        },
+        {
+          "text": "Use an evaluator-optimizer loop: one call translates, another checks it against the style guide and gives feedback, until it passes or hits a limit.",
+          "why": "Bonne réponse. Les critères sont clairs et les retours améliorent le résultat : ce sont les deux signes d'un bon cas pour ce pattern."
+        },
+        {
+          "text": "Deploy an autonomous agent with web access that researches cultural references for each market before translating, so nuances are not missed.",
+          "why": "L'autonomie et l'accès web n'apportent rien ici ; le besoin est une boucle de critique selon un guide connu."
+        },
+        {
+          "text": "Generate five translations per language and keep the wording that appears most often, since agreement across samples signals the safest phrasing.",
+          "why": "La formulation la plus fréquente n'est pas forcément celle qui respecte le guide de style."
+        }
       ],
-      "answer": [1],
+      "answer": [
+        1
+      ],
       "explanation": "L'evaluator-optimizer est efficace quand il existe des critères d'évaluation clairs et que l'itération apporte une valeur mesurable : les réponses s'améliorent quand on formule un retour, et un modèle peut produire ce retour. Anthropic cite la traduction littéraire comme exemple. La limite d'itérations garde le coût sous contrôle.",
       "tip": "Critères explicites + retours qui améliorent le résultat : evaluator-optimizer.",
-      "source": { "title": "Building effective agents", "url": "https://www.anthropic.com/engineering/building-effective-agents" }
+      "source": {
+        "title": "Building effective agents",
+        "url": "https://www.anthropic.com/engineering/building-effective-agents"
+      }
     },
     {
       "id": "L02-Q07",
@@ -178,16 +298,37 @@
       "type": "multi",
       "stem": "A software company is building an agent that diagnoses and fixes failing tests across a large monorepo. The number of files and steps varies widely from one task to the next, so a fixed workflow is not feasible. Leadership is worried about runaway costs and about the agent making changes that nobody has reviewed. Which TWO design decisions BEST address these concerns? (Select TWO.)",
       "options": [
-        { "text": "Give the agent write access to the main branch so it can merge fixes quickly without waiting for review.", "why": "C'est exactement le risque redouté : des changements non relus en production." },
-        { "text": "Remove the tool documentation from the context to save tokens, since the agent can infer how the tools work.", "why": "Des outils bien documentés sont essentiels à la fiabilité d'un agent ; les retirer augmente les erreurs et donc le coût." },
-        { "text": "Define stopping conditions, such as a maximum number of iterations or a token budget per task, after which the agent stops and reports its progress.", "why": "Bonne réponse. Les conditions d'arrêt sont le contrôle recommandé pour garder la maîtrise d'un agent et de son coût." },
-        { "text": "Rely on a system prompt asking the agent to be careful and economical with its actions.", "why": "Une consigne n'est pas un contrôle : rien ne garantit son respect sur des centaines d'itérations." },
-        { "text": "Run the agent in a sandboxed environment and require a human review checkpoint, such as a pull request, before any change reaches the main branch.", "why": "Bonne réponse. Tests en sandbox et points de contrôle humains limitent l'impact des erreurs qui s'enchaînent." }
+        {
+          "text": "Give the agent write access to the main branch so fixes merge as soon as tests pass, since the test suite already acts as an automated reviewer.",
+          "why": "C'est exactement le risque redouté : des changements jamais relus par un humain atteignent la branche principale."
+        },
+        {
+          "text": "Trim the tool documentation from the context to save tokens on every turn, since the agent can infer tool behavior from the tool names.",
+          "why": "Des outils bien documentés sont essentiels à la fiabilité d'un agent ; les retirer augmente les erreurs et donc le coût."
+        },
+        {
+          "text": "Set stopping conditions, such as a maximum iteration count or a token budget per task, after which the agent stops and reports progress.",
+          "why": "Bonne réponse. Les conditions d'arrêt sont le contrôle recommandé pour garder la maîtrise d'un agent et de son coût."
+        },
+        {
+          "text": "Add a system prompt section asking the agent to minimize tool calls and to avoid risky edits, with examples of economical behavior.",
+          "why": "Une consigne n'est pas un contrôle : rien ne garantit son respect sur des centaines d'itérations."
+        },
+        {
+          "text": "Run the agent in a sandbox and require a human review checkpoint, such as a pull request, before any change reaches the main branch.",
+          "why": "Bonne réponse. Tests en sandbox et points de contrôle humains limitent l'impact des erreurs qui s'enchaînent."
+        }
       ],
-      "answer": [2, 4],
+      "answer": [
+        2,
+        4
+      ],
       "explanation": "Les agents ont un coût plus élevé et des erreurs qui peuvent se cumuler. Anthropic recommande des tests poussés en environnement isolé avec des garde-fous adaptés, des conditions d'arrêt comme un nombre maximal d'itérations, et des pauses pour un retour humain aux points de contrôle.",
       "tip": "Agent autonome : chercher conditions d'arrêt, sandbox et point de validation humain ; rejeter les réponses « consigne dans le prompt ».",
-      "source": { "title": "Building effective agents", "url": "https://www.anthropic.com/engineering/building-effective-agents" }
+      "source": {
+        "title": "Building effective agents",
+        "url": "https://www.anthropic.com/engineering/building-effective-agents"
+      }
     },
     {
       "id": "L02-Q08",
@@ -195,15 +336,32 @@
       "type": "single",
       "stem": "The COO of a European insurer asks your team to ‘use Claude to improve claims handling’. Several stakeholders have already proposed solutions: a chatbot for policyholders, an agent that approves small claims automatically, and automated fraud scoring. Budget has been approved for one initial use case. What should the architect do FIRST?",
       "options": [
-        { "text": "Work with the business to define the target outcome and specific, measurable success criteria for each candidate, for example cutting the handling time of a given claim type by a target percentage, then prioritize the use case with the best value-to-risk ratio.", "why": "Bonne réponse. Des critères de succès spécifiques et mesurables permettent de comparer les options et de prouver la valeur du premier cas d'usage." },
-        { "text": "Choose the most capable Claude model and run proofs of concept for all three proposals in parallel to see which one looks best.", "why": "Sans critères définis, « looks best » reste subjectif, et le budget prévu pour un seul cas d'usage est dispersé." },
-        { "text": "Start with the agent that approves small claims, because automating decisions delivers the largest savings.", "why": "C'est l'option la plus risquée (décisions automatiques sur des sinistres), choisie sans aucune mesure de valeur ni de risque." },
-        { "text": "Build a general-purpose agent platform first, so that any future use case can be plugged in later.", "why": "On construit une infrastructure avant d'avoir prouvé la valeur d'un seul cas d'usage." }
+        {
+          "text": "Define the target outcome and measurable success criteria for each candidate with the business, then prioritize the best value-to-risk use case.",
+          "why": "Bonne réponse. Des critères de succès spécifiques et mesurables permettent de comparer les options et de prouver la valeur du premier cas d'usage."
+        },
+        {
+          "text": "Run proofs of concept for all three proposals in parallel on the most capable model, then let stakeholders vote for the one that demos best.",
+          "why": "Sans critères définis, le vote reste subjectif, et le budget prévu pour un seul cas d'usage est dispersé."
+        },
+        {
+          "text": "Start with the agent that approves small claims automatically, since automating decisions removes the most manual work and shows savings fastest.",
+          "why": "C'est l'option la plus risquée (décisions automatiques sur des sinistres), choisie sans mesure de valeur ni de risque."
+        },
+        {
+          "text": "Build a general-purpose agent platform with shared connectors and logging first, so that every future claims use case can be plugged in quickly.",
+          "why": "On construit une infrastructure avant d'avoir prouvé la valeur d'un seul cas d'usage."
+        }
       ],
-      "answer": [0],
+      "answer": [
+        0
+      ],
       "explanation": "Toute application basée sur un LLM commence par la définition de critères de succès spécifiques, mesurables, atteignables et pertinents, puis par des évaluations qui les mesurent. C'est ce qui relie la solution à la valeur métier et permet de choisir le premier cas d'usage de manière défendable.",
       "tip": "Demande métier vague : la première étape est de définir le résultat attendu et sa mesure, pas de choisir un modèle ou une plateforme.",
-      "source": { "title": "Define success and build evaluations", "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests" }
+      "source": {
+        "title": "Define success and build evaluations",
+        "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+      }
     },
     {
       "id": "L02-Q09",
@@ -211,15 +369,32 @@
       "type": "single",
       "stem": "Two teams at a consulting firm request multi-agent architectures. Team A wants agents to research market data across hundreds of independent public sources for high-value strategy reports. Team B wants several agents to co-edit the same tightly coupled codebase of an internal billing tool, where each change frequently depends on the others. Leadership asks which request justifies the extra cost of a multi-agent system. What is the BEST answer?",
       "options": [
-        { "text": "Both requests, because multi-agent systems consistently outperform a single agent.", "why": "Les systèmes multi-agents ne sont pas toujours meilleurs : ils coûtent beaucoup plus et conviennent mal aux tâches fortement couplées." },
-        { "text": "Team B only, because coding tasks need more agents than research tasks.", "why": "C'est l'inverse : la plupart des tâches de code contiennent moins de sous-tâches vraiment parallélisables que la recherche." },
-        { "text": "Team A only: broad, parallelizable research over many independent sources for high-value work suits a multi-agent system, whereas tightly coupled work with shared context and many dependencies does not.", "why": "Bonne réponse. C'est le profil de tâche pour lequel Anthropic constate que les systèmes multi-agents excellent." },
-        { "text": "Neither request, because multi-agent systems cost about the same as a single chat interaction but are harder to debug.", "why": "Ils coûtent au contraire beaucoup plus (environ 15 fois les tokens d'un chat selon Anthropic) ; ils restent justifiés pour certaines tâches." }
+        {
+          "text": "Both, because splitting work across specialized agents improves quality on research and coding alike, and the token cost is offset by faster delivery.",
+          "why": "Les systèmes multi-agents ne sont pas toujours meilleurs : ils coûtent beaucoup plus et conviennent mal aux tâches fortement couplées."
+        },
+        {
+          "text": "Team B only, because a shared codebase benefits from several agents editing different modules at once, whereas research can be done by one agent.",
+          "why": "C'est l'inverse : la plupart des tâches de code contiennent moins de sous-tâches vraiment parallélisables que la recherche, et le contexte partagé gêne la coordination."
+        },
+        {
+          "text": "Team A only: high-value research across many independent sources parallelizes well, while tightly coupled code with shared context does not.",
+          "why": "Bonne réponse. C'est le profil de tâche pour lequel Anthropic constate que les systèmes multi-agents excellent."
+        },
+        {
+          "text": "Neither, because multi-agent systems use about as many tokens as a single chat but are much harder to debug and to evaluate reliably.",
+          "why": "Ils coûtent au contraire beaucoup plus (environ 15 fois les tokens d'un chat selon Anthropic) ; ils restent justifiés pour certaines tâches."
+        }
       ],
-      "answer": [2],
+      "answer": [
+        2
+      ],
       "explanation": "Anthropic observe que les systèmes multi-agents excellent sur les tâches de forte valeur très parallélisables, dont l'information dépasse une fenêtre de contexte. En revanche, les domaines où tous les agents doivent partager le même contexte ou dépendent beaucoup les uns des autres s'y prêtent mal aujourd'hui. Le surcoût en tokens impose que la valeur de la tâche le justifie.",
       "tip": "Multi-agents justifié : tâche parallélisable, à forte valeur, peu de dépendances entre sous-tâches.",
-      "source": { "title": "How we built our multi-agent research system", "url": "https://www.anthropic.com/engineering/multi-agent-research-system" }
+      "source": {
+        "title": "How we built our multi-agent research system",
+        "url": "https://www.anthropic.com/engineering/multi-agent-research-system"
+      }
     },
     {
       "id": "L02-Q10",
@@ -227,16 +402,37 @@
       "type": "multi",
       "stem": "A logistics firm will process 500,000 shipping documents per month. Most are standard bills of lading, but about 5% are complex customs declarations with ambiguous handwriting and unusual clauses. The CFO wants the lowest cost per correctly processed document, while the operations lead needs high accuracy on the complex cases. Which TWO design decisions BEST balance these goals? (Select TWO.)",
       "options": [
-        { "text": "Process the bulk of standard documents with a smaller, lower-cost model and escalate complex or low-confidence cases to a more capable model.", "why": "Bonne réponse. Une stratégie multi-modèles facture la majorité des tokens au tarif bas tout en réservant le modèle le plus capable aux cas difficiles." },
-        { "text": "Process every document with the most capable model at maximum effort, so that accuracy is identical across document types.", "why": "On paie le tarif le plus élevé sur les 95 % de documents simples, ce qui va à l'encontre de l'objectif du directeur financier." },
-        { "text": "Fine-tune a custom model on historical documents before building any prototype with off-the-shelf models.", "why": "Investissement prématuré, sans savoir si les modèles existants suffisent." },
-        { "text": "Build an evaluation set from real documents of both types and compare model tiers on cost per correctly processed document rather than on price per token.", "why": "Bonne réponse. La documentation recommande de comparer les modèles sur le coût par tâche réussie, mesuré sur ses propres données." },
-        { "text": "Let one autonomous agent choose its own processing steps for each document, with no predefined pipeline and no evaluation.", "why": "Moins prévisible, plus coûteux et impossible à piloter sans mesure." }
+        {
+          "text": "Handle standard documents with a smaller, lower-cost model and escalate complex or low-confidence cases to a more capable model.",
+          "why": "Bonne réponse. Une stratégie multi-modèles facture la majorité des tokens au tarif bas et réserve le modèle le plus capable aux cas difficiles."
+        },
+        {
+          "text": "Process every document with the most capable model at maximum effort, so accuracy is uniform and no complex declaration is misrouted.",
+          "why": "On paie le tarif le plus élevé sur les 95 % de documents simples, à l'encontre de l'objectif du directeur financier."
+        },
+        {
+          "text": "Fine-tune a custom model on historical documents before prototyping, so it learns the firm's document formats and handwriting styles.",
+          "why": "Investissement prématuré, sans savoir si les modèles existants suffisent."
+        },
+        {
+          "text": "Build an eval set from real documents of both types and compare model tiers on cost per correctly processed document, not price per token.",
+          "why": "Bonne réponse. La documentation recommande de comparer les modèles sur le coût par tâche réussie, mesuré sur ses propres données."
+        },
+        {
+          "text": "Let one autonomous agent choose its own processing steps per document, so it can adapt to each layout without a predefined pipeline.",
+          "why": "Moins prévisible, plus coûteux et impossible à piloter sans pipeline ni mesure."
+        }
       ],
-      "answer": [0, 3],
+      "answer": [
+        0,
+        3
+      ],
       "explanation": "Pour équilibrer coût et intelligence, Anthropic recommande de combiner les modèles (un modèle économique pour le gros du volume, un modèle plus capable pour les décisions difficiles) et de comparer les options sur le coût par tâche réussie plutôt que sur le prix au token, à partir de mesures sur sa propre charge.",
       "tip": "Volume massif avec une minorité de cas difficiles : petit modèle + escalade, validé par une évaluation en coût par tâche réussie.",
-      "source": { "title": "Optimizing for cost and intelligence", "url": "https://platform.claude.com/docs/en/about-claude/models/optimizing-for-cost-and-intelligence" }
+      "source": {
+        "title": "Optimizing for cost and intelligence",
+        "url": "https://platform.claude.com/docs/en/about-claude/models/optimizing-for-cost-and-intelligence"
+      }
     }
   ]
 }

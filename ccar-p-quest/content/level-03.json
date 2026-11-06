@@ -15,37 +15,55 @@
       "term": "Tool use contract & agentic loop",
       "fr": "Claude n'exécute jamais un outil client lui-même : il renvoie un bloc tool_use (nom + arguments JSON) avec stop_reason « tool_use ». Ton application exécute l'opération, renvoie un bloc tool_result dans le message user suivant, et boucle tant que stop_reason vaut « tool_use ». Les server tools (web search, code execution…) tournent eux chez Anthropic, sans tool_result de ta part.",
       "trap": "Croire que la plateforme exécute tes outils métier, ou oublier de reboucler : un agent qui s'arrête au premier tool_use n'a jamais rien fait.",
-      "source": { "title": "How tool use works", "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works" }
+      "source": {
+        "title": "How tool use works",
+        "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works"
+      }
     },
     {
       "term": "Tool descriptions & tool design",
       "fr": "La description détaillée est de loin le facteur n°1 de performance d'un outil : ce qu'il fait, quand l'utiliser (et quand ne pas l'utiliser), le sens de chaque paramètre, les limites. On regroupe les opérations voisines en moins d'outils (paramètre action), on préfixe par service (github_list_prs) et on ajoute des input_examples pour les entrées complexes.",
       "trap": "Répondre « modèle plus gros » ou « fine-tuning » quand Claude choisit le mauvais outil : la cause est presque toujours une description floue ou des outils qui se chevauchent.",
-      "source": { "title": "Define tools", "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools" }
+      "source": {
+        "title": "Define tools",
+        "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools"
+      }
     },
     {
       "term": "Structured outputs & strict tool use",
       "fr": "Les structured outputs (output_config.format avec un JSON Schema) et le strict tool use (strict: true sur un outil) contraignent l'échantillonnage des tokens (grammar-constrained sampling) : la sortie ou les arguments respectent le schéma. Deux exceptions à gérer : stop_reason « refusal » (le refus prime sur le schéma) et « max_tokens » (sortie tronquée).",
       "trap": "Penser qu'une consigne « Respond only in valid JSON » ou une température à 0 donne la même garantie. Elles réduisent les erreurs, elles ne les éliminent pas.",
-      "source": { "title": "Structured outputs", "url": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs" }
+      "source": {
+        "title": "Structured outputs",
+        "url": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs"
+      }
     },
     {
       "term": "Stop reasons",
       "fr": "stop_reason fait partie d'une réponse réussie (HTTP 200) et dit pourquoi la génération s'est arrêtée : end_turn (fin naturelle), max_tokens (limite atteinte : augmenter ou continuer), stop_sequence, tool_use (exécuter l'outil), pause_turn (boucle server tool à relancer), refusal, model_context_window_exceeded (traiter comme tronqué).",
       "trap": "Confondre stop reason et erreur HTTP : une réponse « max_tokens » n'est pas une panne à réessayer telle quelle, c'est un signal à traiter dans ton code.",
-      "source": { "title": "Stop reasons and fallback", "url": "https://platform.claude.com/docs/en/build-with-claude/handling-stop-reasons" }
+      "source": {
+        "title": "Stop reasons and fallback",
+        "url": "https://platform.claude.com/docs/en/build-with-claude/handling-stop-reasons"
+      }
     },
     {
       "term": "API errors, retries & rate limits",
       "fr": "429 rate_limit_error : attendre la durée du header retry-after quand il est présent. 529 overloaded_error : API temporairement surchargée pour tout le monde, à réessayer avec backoff exponentiel. 500 : backoff puis support avec le request-id. 400/401/403 : corriger la requête ou les droits, ne pas réessayer à l'identique. Les SDK officiels réessaient déjà les erreurs transitoires. Les limites (RPM, ITPM, OTPM) sont fixées au niveau de l'organisation, avec un token bucket qui se recharge en continu.",
       "trap": "Proposer de multiplier les clés API pour contourner un 429 : les limites sont par organisation. Lisser le trafic et respecter retry-after est la bonne réponse.",
-      "source": { "title": "Errors", "url": "https://platform.claude.com/docs/en/api/errors" }
+      "source": {
+        "title": "Errors",
+        "url": "https://platform.claude.com/docs/en/api/errors"
+      }
     },
     {
       "term": "Client SDK vs Agent SDK vs Managed Agents",
       "fr": "Client SDK : accès direct à la Messages API, tu écris la boucle d'outils. Agent SDK : le harnais de Claude Code (outils intégrés, permissions, sessions, hooks) comme bibliothèque Python/TypeScript, dans un processus que tu opères. Claude Managed Agents : harnais préconstruit qui tourne sur une infrastructure gérée par Anthropic, adapté aux tâches longues et asynchrones.",
       "trap": "Construire sa propre boucle, son sandbox et sa gestion de contexte quand l'énoncé demande explicitement une infrastructure gérée pour des tâches longues : c'est le cas d'usage de Managed Agents.",
-      "source": { "title": "Claude Managed Agents overview", "url": "https://platform.claude.com/docs/en/managed-agents/overview" }
+      "source": {
+        "title": "Claude Managed Agents overview",
+        "url": "https://platform.claude.com/docs/en/managed-agents/overview"
+      }
     }
   ],
   "warmup": [
@@ -82,15 +100,32 @@
       "type": "single",
       "stem": "An insurer's claims-intake agent exposes 22 tools to Claude through the Messages API. Several tools overlap (get_policy, fetch_policy_details, lookup_coverage), and most descriptions are a single line such as ‘Gets policy data’. Traces show Claude frequently calls the wrong tool or omits required parameters, which adds two to three extra round trips per claim. The team wants the fastest improvement in tool-selection accuracy without changing models. What should the architect recommend FIRST?",
       "options": [
-        { "text": "Fine-tune a model on a dataset of correct tool selections collected from the last quarter of production traces.", "why": "Faux. Le fine-tuning est lent, coûteux et ne corrige pas la cause : des outils mal décrits et redondants. La doc indique que la qualité des descriptions est le premier levier." },
-        { "text": "Rewrite each tool description to explain what it does, when to use it and when not to, and what each parameter means, and consolidate the overlapping policy tools into one namespaced tool.", "why": "Juste. La doc Define tools désigne les descriptions très détaillées comme le facteur le plus important, et recommande de regrouper les opérations voisines et de préfixer les noms pour lever l'ambiguïté de sélection." },
-        { "text": "Add a system prompt section that lists all 22 tool names in order of preference and asks Claude to try them in that order.", "why": "Faux. Une liste de priorité ne dit pas à Claude ce que fait chaque outil ni quand l'utiliser, et elle encourage des appels séquentiels inutiles au lieu d'un bon choix initial." },
-        { "text": "Set tool_choice to ‘any’ on every request so that Claude is always forced to call one of the tools.", "why": "Faux. Forcer un appel d'outil n'aide pas à choisir le bon outil. Cela empêche même Claude de répondre directement quand aucun outil n'est nécessaire." }
+        {
+          "text": "Fine-tune a model on the last quarter of correct tool selections, because production traces already contain the routing patterns Claude should learn.",
+          "why": "Faux. Le fine-tuning est lent, coûteux et ne corrige pas la cause : des outils mal décrits et redondants. La doc indique que la qualité des descriptions est le premier levier."
+        },
+        {
+          "text": "Rewrite descriptions to cover purpose, when not to use each tool and every parameter, and merge the overlapping policy tools.",
+          "why": "Juste. La doc Define tools désigne les descriptions très détaillées comme le facteur le plus important, et recommande de regrouper les opérations voisines (avec un nom préfixé par service) pour lever l'ambiguïté de sélection."
+        },
+        {
+          "text": "Add a system prompt section ranking all 22 tools by preference, so that Claude tries the most common tools first and falls back to the rest.",
+          "why": "Faux. Un classement ne dit pas à Claude ce que fait chaque outil ni quand l'utiliser, et il encourage des appels séquentiels inutiles au lieu d'un bon choix initial."
+        },
+        {
+          "text": "Set tool_choice to ‘any’ on every request so that Claude must always commit to a tool instead of answering directly.",
+          "why": "Faux. Forcer un appel d'outil n'aide pas à choisir le bon outil. Cela empêche même Claude de répondre directement quand aucun outil n'est nécessaire."
+        }
       ],
-      "answer": [1],
+      "answer": [
+        1
+      ],
       "explanation": "Quand Claude choisit mal ses outils, le premier suspect est la définition des outils, pas le modèle. Des descriptions riches (rôle, cas d'usage, contre-indications, paramètres) et une surface d'outils consolidée et bien nommée sont la correction la plus rapide et la moins chère.",
       "tip": "Mauvais choix d'outil → descriptions et consolidation avant tout changement de modèle ou de stratégie d'appel.",
-      "source": { "title": "Define tools", "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools" }
+      "source": {
+        "title": "Define tools",
+        "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools"
+      }
     },
     {
       "id": "L03-Q02",
@@ -98,15 +133,32 @@
       "type": "single",
       "stem": "A logistics company extracts shipment data from carrier emails and posts it as JSON to its ERP. The prompt says ‘Respond only with valid JSON matching this schema’, and a regex step repairs malformed output. About 2% of responses still fail parsing or omit required fields, and each failure creates a manual ticket. The ERP integration team asks for a guarantee that every successful response matches the schema. Which approach BEST meets this requirement?",
       "options": [
-        { "text": "Add five more few-shot examples of correct JSON to the prompt and automatically retry any response that fails parsing.", "why": "Faux. Les exemples et les retries réduisent le taux d'échec mais ne donnent aucune garantie, et chaque retry ajoute latence et coût." },
-        { "text": "Set temperature to 0 so that the model always produces the same well-formed structure for similar emails.", "why": "Faux. Une température basse rend les sorties plus stables, pas conformes à un schéma. Un champ requis peut toujours manquer." },
-        { "text": "Send each response to a second, smaller model whose only job is to repair the JSON before it reaches the ERP.", "why": "Faux. Un second appel ajoute latence, coût et un nouveau point de défaillance, sans garantie de conformité." },
-        { "text": "Pass the JSON Schema through structured outputs (output_config.format), and handle the refusal and max_tokens stop reasons explicitly in code.", "why": "Juste. Les structured outputs contraignent le décodage au schéma. Les seuls cas où la sortie peut ne pas correspondre (refus, troncature max_tokens) sont signalés par stop_reason et doivent être traités dans le code." }
+        {
+          "text": "Add five more few-shot examples of valid JSON and automatically retry any response that fails parsing, since retries absorb the remaining 2%.",
+          "why": "Faux. Les exemples et les retries réduisent le taux d'échec mais ne donnent aucune garantie, et chaque retry ajoute latence et coût."
+        },
+        {
+          "text": "Set temperature to 0 so that the model produces the same well-formed structure for similar emails, removing sampling variance.",
+          "why": "Faux. Une température basse rend les sorties plus stables, pas conformes à un schéma. Un champ requis peut toujours manquer."
+        },
+        {
+          "text": "Route each response through a second, smaller model that repairs the JSON against the schema before it reaches the ERP.",
+          "why": "Faux. Un second appel ajoute latence, coût et un nouveau point de défaillance, sans garantie de conformité."
+        },
+        {
+          "text": "Pass the JSON Schema via structured outputs (output_config.format) and handle the refusal and max_tokens stop reasons in code.",
+          "why": "Juste. Les structured outputs contraignent le décodage au schéma. Les seuls cas où la sortie peut ne pas correspondre (refus, troncature max_tokens) sont signalés par stop_reason et doivent être traités dans le code."
+        }
       ],
-      "answer": [3],
+      "answer": [
+        3
+      ],
       "explanation": "Une consigne dans le prompt encourage un format. Les structured outputs l'imposent par grammar-constrained sampling. À l'examen, dès qu'on demande une garantie de format, la réponse est un mécanisme déterministe, accompagné de la gestion des cas limites documentés.",
       "tip": "« Garantie » de format → structured outputs ou strict tool use, jamais « mieux prompter » ou « réessayer ».",
-      "source": { "title": "Structured outputs", "url": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs" }
+      "source": {
+        "title": "Structured outputs",
+        "url": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs"
+      }
     },
     {
       "id": "L03-Q03",
@@ -114,16 +166,37 @@
       "type": "multi",
       "stem": "A law firm's contract-extraction service uses structured outputs with a JSON Schema for every request. Monitoring shows that a small number of responses, roughly one in a thousand, still fail downstream schema validation even though the schema itself is valid and unchanged. The architect inspects the failing responses. Which TWO conditions can legitimately produce output that does not match the schema? (Select TWO.)",
       "options": [
-        { "text": "The response stopped with stop_reason ‘max_tokens’, so the JSON was cut off before it was complete.", "why": "Juste. La doc précise qu'une sortie tronquée par max_tokens peut être incomplète et ne pas respecter le schéma. Il faut relancer avec un max_tokens plus élevé." },
-        { "text": "The temperature was set too high, which lets the model sample tokens outside the schema's grammar.", "why": "Faux. Le décodage contraint s'applique quelle que soit la température : elle change le choix entre tokens valides, pas la validité." },
-        { "text": "The response stopped with stop_reason ‘refusal’, and the refusal message took precedence over the schema constraints.", "why": "Juste. En cas de refus pour raison de sécurité, la réponse est un 200 avec stop_reason « refusal », et le message de refus prime sur le schéma." },
-        { "text": "The schema cache expired after 24 hours, so those requests were processed without the schema.", "why": "Faux. La mise en cache du schéma est un détail d'implémentation (rétention). Elle ne désactive pas la contrainte quand le schéma est envoyé dans la requête." },
-        { "text": "tool_choice was left at ‘auto’, which makes output_config.format optional for the model.", "why": "Faux. tool_choice concerne l'appel d'outils. Il ne rend pas facultatif le format de sortie défini dans output_config.format." }
+        {
+          "text": "The response stopped with stop_reason ‘max_tokens’, so the JSON was cut off before it was complete.",
+          "why": "Juste. La doc précise qu'une sortie tronquée par max_tokens peut être incomplète et ne pas respecter le schéma. Il faut relancer avec un max_tokens plus élevé."
+        },
+        {
+          "text": "The temperature was set too high, which lets the model occasionally sample tokens that fall outside the schema's grammar.",
+          "why": "Faux. Le décodage contraint s'applique quelle que soit la température : elle change le choix entre tokens valides, pas la validité."
+        },
+        {
+          "text": "The response stopped with stop_reason ‘refusal’, and the refusal message took precedence over the schema constraints.",
+          "why": "Juste. En cas de refus pour raison de sécurité, la réponse est un 200 avec stop_reason « refusal », et le message de refus prime sur le schéma."
+        },
+        {
+          "text": "The cached schema expired after 24 hours of inactivity, so those requests were silently processed without any schema constraint.",
+          "why": "Faux. La mise en cache du schéma (jusqu'à 24 h) est un détail d'implémentation lié à la rétention. Elle ne désactive pas la contrainte quand le schéma est envoyé dans la requête."
+        },
+        {
+          "text": "tool_choice was left at ‘auto’, which makes output_config.format optional whenever the model decides no tool is needed.",
+          "why": "Faux. tool_choice concerne l'appel d'outils. Il ne rend pas facultatif le format de sortie défini dans output_config.format."
+        }
       ],
-      "answer": [0, 2],
+      "answer": [
+        0,
+        2
+      ],
       "explanation": "Les structured outputs garantissent la conformité au schéma, sauf dans deux cas documentés : un refus (stop_reason « refusal ») et une troncature (stop_reason « max_tokens »). Un pipeline robuste vérifie stop_reason avant de parser, et traite ces deux cas à part.",
       "tip": "Sortie non conforme malgré structured outputs → regarde stop_reason : refusal ou max_tokens.",
-      "source": { "title": "Structured outputs", "url": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs" }
+      "source": {
+        "title": "Structured outputs",
+        "url": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs"
+      }
     },
     {
       "id": "L03-Q04",
@@ -131,15 +204,32 @@
       "type": "single",
       "stem": "A retail bank's internal assistant lets Claude call get_account, list_transactions and get_fx_rates in parallel. The developer's loop sends each tool_result back in its own user message, with a short text note placed before each result. Since the change, the team sees invalid-request errors on some turns, and on others Claude stops issuing parallel calls, which raises average latency. What is the BEST fix?",
       "options": [
-        { "text": "Set disable_parallel_tool_use: true in tool_choice so that Claude only ever calls one tool per response.", "why": "Faux. Cela supprime le symptôme en sacrifiant le gain de latence du parallélisme. Le problème vient du format de la réponse, pas du parallélisme lui-même." },
-        { "text": "Return the results as assistant messages so that they appear to come from Claude rather than from the user.", "why": "Faux. Les tool_result doivent être dans un message user. Les placer dans un message assistant viole le format de la conversation." },
-        { "text": "Return all tool_result blocks together in a single user message, with the tool_result blocks first and any text after them.", "why": "Juste. La doc pose deux règles : tous les résultats d'un tour parallèle dans un seul message user, et aucun texte avant les tool_result. Les respecter corrige les erreurs et préserve le parallélisme." },
-        { "text": "Add a system prompt instruction telling Claude to wait for each tool result before deciding whether to call the next tool.", "why": "Faux. C'est une consigne qui force le séquentiel, augmente la latence et ne corrige pas les messages mal formés." }
+        {
+          "text": "Set disable_parallel_tool_use: true in tool_choice, so that Claude calls one tool per response and each result maps to one message.",
+          "why": "Faux. Cela supprime le symptôme en sacrifiant le gain de latence du parallélisme. Le problème vient du format des résultats renvoyés, pas du parallélisme lui-même."
+        },
+        {
+          "text": "Return the results as assistant messages so that they appear to come from Claude rather than from the user.",
+          "why": "Faux. Les tool_result doivent être dans un message user. Les placer dans un message assistant viole le format de la conversation."
+        },
+        {
+          "text": "Return all tool_result blocks together in a single user message, with the tool_result blocks first and any text after them.",
+          "why": "Juste. La doc pose deux règles : tous les résultats d'un tour parallèle dans un seul message user, et aucun texte avant les tool_result. Les respecter corrige les erreurs et préserve le parallélisme."
+        },
+        {
+          "text": "Add a system prompt instruction telling Claude to wait for each tool result before deciding whether to call the next tool.",
+          "why": "Faux. C'est une consigne qui force le séquentiel, augmente la latence et ne corrige pas les messages mal formés."
+        }
       ],
-      "answer": [2],
+      "answer": [
+        2
+      ],
       "explanation": "Le parallel tool use exige un format précis côté application : un seul message user regroupant tous les tool_result, placés en tête. Envoyer les résultats dans des messages séparés ou les précéder de texte casse la requête ou « apprend » à Claude à ne plus paralléliser.",
       "tip": "Parallel tool use qui se dégrade → vérifie le format des tool_result avant de toucher au modèle ou au prompt.",
-      "source": { "title": "Parallel tool use", "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/parallel-tool-use" }
+      "source": {
+        "title": "Parallel tool use",
+        "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/parallel-tool-use"
+      }
     },
     {
       "id": "L03-Q05",
@@ -147,15 +237,32 @@
       "type": "single",
       "stem": "A grocery chain's order-support agent calls a check_inventory tool backed by a warehouse API that times out a few times per hour. Today the application throws an exception when the call fails, the agent loop aborts, and the customer sees a generic error page. The product owner wants the agent to recover gracefully, explain the situation, or try another approach, without hiding failures. What should the architect implement?",
       "options": [
-        { "text": "Return a tool_result with is_error set to true and an instructive message that states what failed and what Claude could try next, such as retrying later or checking a nearby store.", "why": "Juste. La doc recommande de renvoyer l'erreur dans le tool_result avec is_error: true et un message instructif. Claude peut alors s'adapter ou expliquer la situation à l'utilisateur." },
-        { "text": "Return an empty tool_result with no content so that Claude automatically retries the same tool call.", "why": "Faux. Un résultat vide ne dit rien à Claude : il peut l'interpréter comme « aucun stock » et donner une réponse fausse." },
-        { "text": "Return the last cached inventory value as if it were fresh, so that the conversation is never interrupted.", "why": "Faux. Présenter une donnée périmée comme fraîche cache la panne et peut mener à des promesses de stock erronées." },
-        { "text": "Remove check_inventory from the tools array for the rest of the session after the first failure.", "why": "Faux. Retirer l'outil prive l'agent d'une capacité clé pour une panne passagère, et invalide au passage le cache du prompt." }
+        {
+          "text": "Return a tool_result with is_error: true and a message stating what failed and what to try next, such as retrying later.",
+          "why": "Juste. La doc recommande de renvoyer l'erreur dans le tool_result avec is_error: true et un message instructif (cause, action suivante). Claude peut alors s'adapter ou expliquer la situation."
+        },
+        {
+          "text": "Return an empty tool_result with no content, so that Claude treats the call as inconclusive and issues the same call again.",
+          "why": "Faux. Un résultat vide ne dit rien à Claude : il peut l'interpréter comme « aucun stock » et donner une réponse fausse au lieu de réessayer."
+        },
+        {
+          "text": "Return the last cached inventory value in a normal tool_result, so that the conversation continues while the warehouse API recovers.",
+          "why": "Faux. Présenter une donnée périmée comme fraîche cache la panne et peut mener à des promesses de stock erronées."
+        },
+        {
+          "text": "Remove check_inventory from the tools array after the first failure, so that Claude stops calling a dependency known to be unhealthy.",
+          "why": "Faux. Retirer l'outil prive l'agent d'une capacité clé pour une panne passagère, et modifier la liste d'outils invalide au passage le cache du prompt."
+        }
       ],
-      "answer": [0],
+      "answer": [
+        0
+      ],
       "explanation": "Les erreurs d'exécution d'outil se renvoient au modèle via is_error: true, avec un message qui aide à récupérer (cause, action suivante, délai). C'est ce qui permet à un agent de rester utile et honnête face à une dépendance instable.",
       "tip": "Échec d'un outil → tool_result avec is_error et message actionnable, pas exception ni silence.",
-      "source": { "title": "Handle tool calls", "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls" }
+      "source": {
+        "title": "Handle tool calls",
+        "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls"
+      }
     },
     {
       "id": "L03-Q06",
@@ -163,15 +270,32 @@
       "type": "single",
       "stem": "A media company's scheduler fires about 5,000 summarization requests at the top of every hour. During the first two minutes, many requests fail with 429 rate_limit_error responses that include a retry-after header. Average utilization across the hour is well below the organization's limits. An engineer proposes creating ten additional API keys in the same organization and rotating between them. What should the architect recommend instead?",
       "options": [
-        { "text": "Move every request to the most capable model, because larger models are served from a separate capacity pool.", "why": "Faux. Changer de modèle ne règle pas un problème de pic de trafic, et augmente le coût par requête." },
-        { "text": "Queue the hourly job and release requests at a steady rate, and retry 429 responses after the retry-after delay with exponential backoff.", "why": "Juste. Les limites fonctionnent en token bucket qui se recharge en continu : un pic ponctuel déclenche des 429 alors que la moyenne est basse. Lisser le débit et respecter retry-after règle le problème (et évite les acceleration limits)." },
-        { "text": "Proceed with key rotation, because each API key receives its own independent rate-limit allowance.", "why": "Faux. Les rate limits sont définis au niveau de l'organisation. Multiplier les clés ne multiplie pas la capacité." },
-        { "text": "Disable the SDK's automatic retries so that failed requests surface immediately and can be resubmitted by the scheduler on the next hour.", "why": "Faux. Cela transforme des erreurs transitoires en échecs définitifs et décale le travail d'une heure, sans réduire le pic." }
+        {
+          "text": "Move every request to the most capable model, because larger models are served from a separate capacity pool.",
+          "why": "Faux. Changer de modèle ne règle pas un problème de pic de trafic, et augmente le coût par requête."
+        },
+        {
+          "text": "Queue the hourly job and release requests at a steady rate, and retry 429 responses after the retry-after delay with exponential backoff.",
+          "why": "Juste. Les limites fonctionnent en token bucket qui se recharge en continu : un pic ponctuel déclenche des 429 alors que la moyenne est basse. Lisser le débit et respecter retry-after règle le problème (et évite les acceleration limits)."
+        },
+        {
+          "text": "Proceed with key rotation, because each API key receives its own independent rate-limit allowance.",
+          "why": "Faux. Les rate limits sont définis au niveau de l'organisation. Multiplier les clés ne multiplie pas la capacité."
+        },
+        {
+          "text": "Disable the SDK's automatic retries so that failed requests surface immediately and can be resubmitted by the scheduler on the next hour.",
+          "why": "Faux. Cela transforme des erreurs transitoires en échecs définitifs et décale le travail d'une heure, sans réduire le pic."
+        }
       ],
-      "answer": [1],
+      "answer": [
+        1
+      ],
       "explanation": "Un 429 alors que l'usage moyen est faible signale un problème de forme du trafic, pas de quota. La bonne architecture lisse les rafales (file d'attente, montée progressive) et respecte retry-after. Pour du travail non urgent, la Message Batches API est aussi une option.",
       "tip": "429 en rafale avec une moyenne basse → lisser le trafic et respecter retry-after. Les limites sont par organisation, pas par clé.",
-      "source": { "title": "Rate limits", "url": "https://platform.claude.com/docs/en/api/rate-limits" }
+      "source": {
+        "title": "Rate limits",
+        "url": "https://platform.claude.com/docs/en/api/rate-limits"
+      }
     },
     {
       "id": "L03-Q07",
@@ -179,16 +303,37 @@
       "type": "multi",
       "stem": "A payments operations team is writing a shared client wrapper around the Messages API for all of its agents. The architect reviews the proposed error-handling table to make sure transient failures are retried and permanent ones are surfaced immediately. Which TWO rules in the table are correct? (Select TWO.)",
       "options": [
-        { "text": "Retry 400 invalid_request_error responses with the same payload, using exponential backoff up to five times.", "why": "Faux. Une 400 signale une requête mal formée : la renvoyer à l'identique échouera toujours. Il faut corriger la requête." },
-        { "text": "Retry 529 overloaded_error responses with exponential backoff, since they indicate temporary load on the API.", "why": "Juste. Le 529 indique une surcharge temporaire de l'API : c'est une erreur transitoire, à réessayer avec backoff." },
-        { "text": "Treat a response with stop_reason ‘max_tokens’ as a failed request and resend it unchanged.", "why": "Faux. C'est une réponse réussie (HTTP 200). Il faut augmenter max_tokens ou continuer la réponse, pas renvoyer la même requête." },
-        { "text": "Retry 401 authentication_error responses indefinitely, because keys are rotated automatically.", "why": "Faux. Une 401 signale une clé invalide, révoquée ou expirée. Réessayer en boucle ne la répare pas : il faut alerter et corriger les identifiants." },
-        { "text": "On a 429 rate_limit_error that includes a retry-after header, wait the indicated number of seconds before retrying.", "why": "Juste. La doc indique d'attendre la durée de retry-after avant de réessayer. Attention : un 429 de plafond de dépense mensuel n'a pas de retry-after et échoue jusqu'à la reprise." }
+        {
+          "text": "Retry 400 invalid_request_error responses with the same payload and exponential backoff, since gateway glitches sometimes surface as 400s.",
+          "why": "Faux. Une 400 signale une requête mal formée : la renvoyer à l'identique échouera toujours. Il faut corriger la requête."
+        },
+        {
+          "text": "Retry 529 overloaded_error responses with exponential backoff, since they indicate temporary load on the API.",
+          "why": "Juste. Le 529 indique une surcharge temporaire de l'API : c'est une erreur transitoire, à réessayer avec backoff."
+        },
+        {
+          "text": "Treat a response with stop_reason ‘max_tokens’ as a failed request and resend it unchanged, since the output is incomplete.",
+          "why": "Faux. C'est une réponse réussie (HTTP 200). Il faut augmenter max_tokens ou continuer la réponse, pas renvoyer la même requête."
+        },
+        {
+          "text": "Retry 401 authentication_error responses with backoff for up to an hour, because key rotation can take time to propagate.",
+          "why": "Faux. Une 401 signale une clé invalide, révoquée ou expirée : réessayer pendant une heure retarde l'alerte sans réparer les identifiants."
+        },
+        {
+          "text": "On a 429 rate_limit_error that includes a retry-after header, wait the indicated number of seconds before retrying.",
+          "why": "Juste. La doc indique d'attendre la durée de retry-after avant de réessayer. Attention : un 429 de plafond de dépense mensuel n'a pas de retry-after et échoue jusqu'à la reprise."
+        }
       ],
-      "answer": [1, 4],
+      "answer": [
+        1,
+        4
+      ],
       "explanation": "On ne réessaie que les erreurs transitoires (429 avec retry-after, 529, 500, problèmes réseau) et on corrige les erreurs permanentes (400, 401, 403). Les stop reasons ne sont pas des erreurs : ce sont des réponses réussies à traiter dans la logique applicative.",
       "tip": "Transitoire (429, 5xx, 529) → backoff. Permanente (400, 401, 403) → corriger. stop_reason → logique métier, pas retry.",
-      "source": { "title": "Errors", "url": "https://platform.claude.com/docs/en/api/errors" }
+      "source": {
+        "title": "Errors",
+        "url": "https://platform.claude.com/docs/en/api/errors"
+      }
     },
     {
       "id": "L03-Q08",
@@ -196,15 +341,32 @@
       "type": "single",
       "stem": "A legal-tech vendor generates 40-page first-draft due-diligence reports in one non-streaming Messages API call with a very large max_tokens value. Some requests fail after several minutes with network timeouts and no response body, even though the API shows no errors. The vendor's users wait in a web UI for the report. Which change BEST addresses the failures while preserving report quality?",
       "options": [
-        { "text": "Increase the SDK's max_retries setting so that timed-out requests are automatically resent.", "why": "Faux. Relancer une requête longue qui expire relance tout le travail (et le coût) sans supprimer la cause : une connexion inactive coupée par le réseau." },
-        { "text": "Cut max_tokens to a quarter of its value so that each response finishes faster.", "why": "Faux. Le rapport serait tronqué (stop_reason « max_tokens »). On dégrade la qualité au lieu de corriger le transport." },
-        { "text": "Switch to a smaller, faster model so that the generation completes before the network timeout.", "why": "Faux. Cela peut réduire la qualité du rapport et ne garantit rien : un long rapport reste une requête longue." },
-        { "text": "Use the streaming Messages API so that tokens arrive incrementally, and show progress in the UI as the report is written.", "why": "Juste. La doc recommande le streaming (ou la Message Batches API pour le non-interactif) pour les requêtes longues, car certains réseaux coupent les connexions inactives. Le streaming améliore aussi la latence perçue." }
+        {
+          "text": "Increase the SDK's max_retries setting so that requests that time out are automatically resent until one of them completes.",
+          "why": "Faux. Relancer une requête longue qui expire relance tout le travail (et le coût) sans supprimer la cause : une connexion inactive coupée par le réseau."
+        },
+        {
+          "text": "Cut max_tokens to a quarter of its current value so that each response finishes well before the network timeout.",
+          "why": "Faux. Le rapport serait tronqué (stop_reason « max_tokens »). On dégrade la qualité au lieu de corriger le transport."
+        },
+        {
+          "text": "Switch to a smaller, faster model so that the full 40-page generation completes before intermediate proxies drop the idle connection.",
+          "why": "Faux. Cela peut réduire la qualité du rapport et ne garantit rien : un long rapport reste une requête longue."
+        },
+        {
+          "text": "Use the streaming Messages API so tokens arrive incrementally, and display progress in the UI while the report is written.",
+          "why": "Juste. La doc recommande le streaming (ou la Message Batches API pour le non-interactif) pour les requêtes longues, car certains réseaux coupent les connexions inactives. Le streaming améliore aussi la latence perçue."
+        }
       ],
-      "answer": [3],
+      "answer": [
+        3
+      ],
       "explanation": "Les requêtes longues avec un grand max_tokens sans streaming risquent d'être coupées par le réseau avant toute réponse. Le streaming garde la connexion active et affiche la progression. Pour un traitement non interactif, la Message Batches API est l'autre option documentée.",
       "tip": "Longue génération + timeouts réseau → streaming (interactif) ou Message Batches (asynchrone).",
-      "source": { "title": "Errors", "url": "https://platform.claude.com/docs/en/api/errors" }
+      "source": {
+        "title": "Errors",
+        "url": "https://platform.claude.com/docs/en/api/errors"
+      }
     },
     {
       "id": "L03-Q09",
@@ -212,15 +374,32 @@
       "type": "single",
       "stem": "A pharmaceutical company wants an agent that runs multi-hour, asynchronous literature-review tasks: it must read uploaded files, run analysis code, browse public sources and write a report. The platform team has no capacity to build or operate an agent loop, sandboxed execution environment or context-management logic, and prefers infrastructure that Anthropic manages. Which option BEST fits these requirements?",
       "options": [
-        { "text": "The Messages API with a custom tool loop, a self-built code sandbox and a scheduler that resumes long tasks.", "why": "Faux. Techniquement possible, mais c'est exactement ce que l'équipe ne peut pas construire ni opérer." },
-        { "text": "The Agent SDK embedded in a service that the platform team deploys and operates on its own Kubernetes cluster.", "why": "Faux. L'Agent SDK apporte le harnais, mais il tourne dans un processus que l'équipe doit opérer, avec son propre environnement d'exécution." },
-        { "text": "Claude Managed Agents, which provides a pre-built agent harness that runs in managed infrastructure and suits long-running, asynchronous work.", "why": "Juste. La doc présente Managed Agents comme un harnais préconfiguré sur infrastructure gérée, adapté aux tâches longues et asynchrones (fichiers, commandes, web, code)." },
-        { "text": "The Message Batches API, submitting each literature review as a single batch request.", "why": "Faux. Les batches sont asynchrones mais ne fournissent ni boucle d'agent ni exécution d'outils : une requête batch est un simple appel Messages." }
+        {
+          "text": "The Messages API with a custom tool loop, a self-built code sandbox and a scheduler that checkpoints and resumes long tasks.",
+          "why": "Faux. Techniquement possible, mais c'est exactement ce que l'équipe ne peut pas construire ni opérer."
+        },
+        {
+          "text": "The Agent SDK embedded in a service deployed on the team's own Kubernetes cluster, since it ships Claude Code's built-in tools.",
+          "why": "Faux. L'Agent SDK apporte bien le harnais et les outils intégrés, mais il tourne dans un processus que l'équipe doit déployer et opérer, avec son propre environnement d'exécution."
+        },
+        {
+          "text": "Claude Managed Agents, a pre-built agent harness running in managed infrastructure, suited to long-running asynchronous work.",
+          "why": "Juste. La doc présente Managed Agents comme un harnais préconfiguré sur infrastructure gérée, adapté aux tâches longues et asynchrones (fichiers, commandes, web, code)."
+        },
+        {
+          "text": "The Message Batches API, submitting each literature review as one batch request, because batches are built for asynchronous jobs.",
+          "why": "Faux. Les batches sont asynchrones mais ne fournissent ni boucle d'agent ni exécution d'outils : une requête batch est un simple appel Messages."
+        }
       ],
-      "answer": [2],
+      "answer": [
+        2
+      ],
       "explanation": "Le choix d'intégration dépend de qui opère quoi. Client SDK : tu écris tout. Agent SDK : harnais prêt, mais tu opères le processus. Managed Agents : harnais et infrastructure gérés, pour le travail long et asynchrone. Les contraintes de l'énoncé (pas d'équipe pour opérer, infrastructure gérée) désignent Managed Agents.",
       "tip": "Lis « qui opère le runtime ? » dans l'énoncé : c'est ce qui départage Messages API, Agent SDK et Managed Agents.",
-      "source": { "title": "Claude Managed Agents overview", "url": "https://platform.claude.com/docs/en/managed-agents/overview" }
+      "source": {
+        "title": "Claude Managed Agents overview",
+        "url": "https://platform.claude.com/docs/en/managed-agents/overview"
+      }
     },
     {
       "id": "L03-Q10",
@@ -228,15 +407,32 @@
       "type": "single",
       "stem": "A fintech runs Claude-powered agents in GitHub Actions pipelines and on Kubernetes. Each environment uses a long-lived API key stored as a CI secret or a Kubernetes secret. A security review flags two issues: static secrets that never expire and could leak, and no reliable way to audit which workload made which call. The company already operates an OIDC-capable identity provider. What should the architect recommend?",
       "options": [
-        { "text": "Adopt Workload Identity Federation so that workloads exchange short-lived OIDC tokens from the existing identity provider for short-lived access tokens bound to dedicated service accounts.", "why": "Juste. La WIF remplace les clés statiques par des jetons qui expirent en minutes, liés à des service accounts : plus de secret à stocker ou faire tourner, et un audit par workload." },
-        { "text": "Keep the API keys but rotate them every month with a scheduled script that updates all CI and Kubernetes secrets.", "why": "Faux. La rotation réduit la fenêtre d'exposition mais garde des secrets statiques à stocker, et n'améliore pas l'attribution par workload." },
-        { "text": "Bake an encrypted API key into each container image so that it is never visible in CI configuration.", "why": "Faux. La clé reste un secret statique de longue durée, désormais diffusé dans chaque image : le risque de fuite augmente." },
-        { "text": "Replace the per-environment keys with one organization-wide key and restrict it with an IP allowlist.", "why": "Faux. Une clé unique aggrave le problème d'audit et élargit l'impact d'une fuite. L'allowlist IP est un complément, pas une identité de workload." }
+        {
+          "text": "Adopt Workload Identity Federation: workloads exchange short-lived OIDC tokens for access tokens bound to per-workload service accounts.",
+          "why": "Juste. La WIF remplace les clés statiques par des jetons qui expirent en minutes, liés à des service accounts : plus de secret à stocker ou faire tourner, et un audit par workload."
+        },
+        {
+          "text": "Keep the API keys but rotate them monthly with a scheduled job that updates every CI and Kubernetes secret, shrinking the exposure window.",
+          "why": "Faux. La rotation réduit la fenêtre d'exposition mais garde des secrets statiques à stocker, et n'améliore pas l'attribution par workload."
+        },
+        {
+          "text": "Bake an encrypted API key into each container image at build time, so that the key never appears in CI configuration or logs.",
+          "why": "Faux. La clé reste un secret statique de longue durée, désormais diffusé dans chaque image : le risque de fuite augmente."
+        },
+        {
+          "text": "Replace per-environment keys with one organization-wide key restricted by an IP allowlist, so that only corporate egress IPs can call.",
+          "why": "Faux. Une clé unique aggrave le problème d'audit et élargit l'impact d'une fuite. L'allowlist IP est un complément, pas une identité de workload."
+        }
       ],
-      "answer": [0],
+      "answer": [
+        0
+      ],
       "explanation": "Pour les workloads automatisés, la bonne pratique est l'identité fédérée : des jetons courts émis par ton fournisseur d'identité, échangés contre un accès lié à un service account. Cela supprime les secrets statiques et rend chaque appel attribuable. La doc rappelle de la combiner avec les contrôles de l'IdP (audit, accès conditionnel).",
       "tip": "Secrets statiques + besoin d'audit par workload → Workload Identity Federation et service accounts.",
-      "source": { "title": "Workload Identity Federation", "url": "https://platform.claude.com/docs/en/manage-claude/workload-identity-federation" }
+      "source": {
+        "title": "Workload Identity Federation",
+        "url": "https://platform.claude.com/docs/en/manage-claude/workload-identity-federation"
+      }
     }
   ]
 }
