@@ -36,6 +36,20 @@ Sur les 100 questions, chaque domaine pèse autant qu’à l’examen : D1 17, D
 
 Raccourcis clavier pendant un combat : `A` à `E` (ou `1` à `5`) pour choisir, `Entrée` pour valider puis continuer. À l’échauffement : `V` pour vrai, `F` pour faux.
 
+## Prototype V2 : le combat au lance-pierre
+
+`src/prototype-injecteur.html` est un prototype jouable du combat V2, sur l’étage 7 (L’Injecteur) :
+
+- tu charges ta réponse comme une pierre, tu tires vers l’arrière et tu relâches ; la trajectoire s’affiche pendant la visée ;
+- le cœur de verre du boss donne un coup critique ; l’adresse rapporte des points, jamais la bonne réponse ;
+- une mauvaise pierre se brise et le boss riposte ; sa barre d’attaque suit un rythme progressif (2 min 28 s par question à l’étage 7, 1 min 54 s au sommet, comme à l’examen) ;
+- L’Injecteur glisse parfois une pierre piégée « reçue d’un document externe » : la lancer le soigne, la mettre en quarantaine rapporte des points ;
+- phase 2 à mi-vie, combos, sons synthétisés, coup de grâce final.
+
+```bash
+node scripts/build-prototype.mjs   # produit dist/prototype-injecteur.html
+```
+
 ## D’où viennent les questions
 
 Les questions sont **originales**. Elles sont rédigées à partir de la documentation officielle d’Anthropic :
