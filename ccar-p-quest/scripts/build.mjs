@@ -1,9 +1,9 @@
-// Construit le jeu à partir de src/app.html et des niveaux content/level-XX.json.
+// Construit le jeu V2 à partir de src/v2/ et des niveaux content/level-XX.json.
 // Sorties :
 //   dist/index.html     page autonome (à ouvrir dans un navigateur ou à héberger)
 //   dist/artifact.html  même page sans squelette HTML, pour la publication en Artifact claude.ai
 // Usage : node scripts/build.mjs [--allow-partial]
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadLevels } from "./validate.mjs";
@@ -24,11 +24,18 @@ if (!allowPartial && levels.length !== 10) {
   process.exit(1);
 }
 
-const app = readFileSync(join(root, "src", "app.html"), "utf8");
-const marker = "/*__CONTENT__*/null";
-if (!app.includes(marker)) throw new Error("Marqueur de contenu introuvable dans src/app.html");
-const json = JSON.stringify(levels).replace(/</g, "\\u003c").split(String.fromCharCode(0x2028)).join("\\u2028").split(String.fromCharCode(0x2029)).join("\\u2029");
-const page = app.replace(marker, () => json);
+const src = join(root, "src", "v2");
+const jsFiles = readdirSync(join(src, "js")).filter((f) => f.endsWith(".js")).sort();
+const js = jsFiles.map((f) => `/* ---- ${f} ---- */\n` + readFileSync(join(src, "js", f), "utf8")).join("\n");
+const css = readFileSync(join(src, "styles.css"), "utf8");
+const shell = readFileSync(join(src, "shell.html"), "utf8");
+for (const m of ["/*__CSS__*/", "/*__CONTENT__*/null", "/*__JS__*/"]) if (!shell.includes(m)) throw new Error("Marqueur manquant dans shell.html : " + m);
+
+const json = JSON.stringify(levels)
+  .replace(/</g, "\\u003c")
+  .split(String.fromCharCode(0x2028)).join("\\u2028")
+  .split(String.fromCharCode(0x2029)).join("\\u2029");
+const page = shell.replace("/*__CSS__*/", () => css).replace("/*__CONTENT__*/null", () => json).replace("/*__JS__*/", () => js);
 
 const standalone =
   '<!doctype html>\n<html lang="fr">\n<head>\n<meta charset="utf-8">\n' +
@@ -39,4 +46,4 @@ mkdirSync(join(root, "dist"), { recursive: true });
 writeFileSync(join(root, "dist", "index.html"), standalone);
 writeFileSync(join(root, "dist", "artifact.html"), page);
 const total = levels.reduce((s, l) => s + l.questions.length, 0);
-console.log(`Build OK : ${levels.length} niveau(x), ${total} questions, ${(standalone.length / 1024).toFixed(0)} Ko → dist/index.html, dist/artifact.html`);
+console.log(`Build OK : ${levels.length} niveau(x), ${total} questions, ${jsFiles.length} fichiers JS, ${(standalone.length / 1024).toFixed(0)} Ko → dist/index.html, dist/artifact.html`);

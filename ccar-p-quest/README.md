@@ -2,30 +2,41 @@
 
 Jeu d’entraînement à l’examen **Claude Certified Architect – Professional (CCAR-P)** d’Anthropic.
 
-Dix étages, dix boss, 100 questions au format de l’examen. Les questions sont en anglais, comme le jour J. Les explications sont en français.
+Dix étages, dix boss à abattre au lance-pierre, 100 questions au format de l’examen. Les questions sont en anglais, comme le jour J ; les explications sont en français.
 
 ## Comment ça marche
 
 Chaque étage suit trois étapes :
 
-1. **Fiches** : 6 notions clés, chacune avec le piège classique de l’examen et un lien vers la doc officielle.
-2. **Échauffement** : 5 affirmations vrai/faux pour vérifier que les notions sont acquises. Il débloque le boss.
-3. **Boss** : 10 questions d’examen, dans un ordre aléatoire, avec 3 vies. Il faut au moins 8/10 pour le vaincre (l’examen demande 720/1000). Une victoire débloque l’étage suivant.
+1. **Fiches** : 6 cartes à retourner. Chacune donne la notion, le piège classique de l’examen et la page de doc officielle. Tu les classes en « Je sais » ou « À revoir ».
+2. **Échauffement** : deux mini-jeux.
+   - *Relier* : associer chaque notion à sa définition.
+   - *Tir aux pigeons* : un pigeon d’argile traverse l’écran ; tu tires si l’affirmation est vraie, tu le laisses passer si elle est fausse.
+3. **Boss** : 10 questions d’examen, 3 vies, au lance-pierre.
+   - Tu charges ta réponse (elle devient une pierre), tu tires vers l’arrière, tu vises, tu relâches. « Select TWO » : deux pierres partent ensemble.
+   - Bonne réponse : il perd de la vie. Mauvaise : ta pierre se brise et il riposte (−1 vie). Survis aux 10 questions pour le vaincre.
+   - Sa cible critique double presque les dégâts. **L’adresse rapporte des points, jamais la bonne réponse** ; le tir automatique (Espace) touche toujours, sans critique.
+   - Sa barre d’attaque est progressive : 3 min 37 par question à l’étage 1, 1 min 54 au sommet (le rythme réel de l’examen). Pleine, il frappe.
+   - Phase 2 à mi-vie, combos, coups critiques, coup de grâce final, sons synthétisés.
 
-Après chaque réponse, le jeu explique pourquoi chaque option est juste ou fausse, donne un réflexe d’examen et la page de doc officielle à relire. Les questions ratées vont dans la **salle de révision**, et en sortent quand tu les réussis.
+Les questions ratées vont dans la **salle de révision**, où tu les retravailles contre un mannequin, sans vies ni chrono. Une bonne réponse les retire de la pile.
 
-| Étage | Thème | Boss | Domaines |
+## Les dix boss
+
+Chaque boss incarne un anti-pattern d’architecte, et sa mécanique enseigne la leçon de son domaine.
+
+| Étage | Boss | Mécanique | La leçon |
 |---|---|---|---|
-| 1 | Modèles, prompting et contexte | L’Ambigu | D2 ×9, D1 ×1 |
-| 2 | Conception de solution | Le Sur-Ingénieur | D1 ×10 |
-| 3 | Intégration I : API, tool use, sorties structurées | Le Schéma Brisé | D3 ×10 |
-| 4 | Intégration II : MCP, RAG, clouds | L’Hydre des Connecteurs | D3 ×7, D2 ×3 |
-| 5 | Évaluation et tests | Le Vibe-Checker | D4 ×10 |
-| 6 | Optimisation : coût, latence, échelle | Le Gouffre à Tokens | D4 ×5, D1 ×4, D6 ×1 |
-| 7 | Gouvernance, sécurité et risques | L’Injecteur | D5 ×10 |
-| 8 | Parties prenantes et cycle de vie | La Promesse à 99,9 % | D6 ×10 |
-| 9 | Productivité des développeurs et opérations | Le Chaos Ops | D7 ×6, D6 ×2, D5 ×2 |
-| 10 | Simulation finale, tous domaines | L’Examinateur | les 7 domaines |
+| 1 | L’Ambigu | Brouillard qui cache sa cible et raccourcit ta visée ; chaque bonne réponse le dissipe | La clarté du prompt |
+| 2 | Le Sur-Ingénieur | Construit des tourelles « multi-agents » qui bloquent tes tirs ; une bonne réponse les fait tomber | La solution la plus simple d’abord |
+| 3 | Le Schéma Brisé | Sa cible est l’accolade manquante qui tourne autour de lui | Les sorties structurées |
+| 4 | L’Hydre des Connecteurs | Une tête leurre de plus à chaque erreur ; elle attaque plus vite | Trop d’outils exposés |
+| 5 | Le Vibe-Checker | Mélange tes pierres toutes les 25 s et après un tir raté | Lire au lieu de mémoriser |
+| 6 | Le Gouffre à Tokens | Sa barre file plus vite, mais une réponse rapide fait un « cache hit » ×2 | Coût et latence |
+| 7 | L’Injecteur | Glisse une pierre piégée « reçue d’un document externe » ; la lancer le soigne, la mettre en quarantaine rapporte | L’injection de prompt |
+| 8 | La Promesse à 99,9 % | Bouclier SLA qui divise tes dégâts tant que tu n’as pas 3 bonnes réponses d’affilée | Promettre ce qui est mesuré |
+| 9 | Le Chaos Ops | Incidents à acquitter d’un toucher ; un hook les bloque tous | Les contrôles déterministes |
+| 10 | L’Examinateur | Trois phases qui reprennent les pièges de la tour | La synthèse |
 
 Sur les 100 questions, chaque domaine pèse autant qu’à l’examen : D1 17, D2 13, D3 19, D4 16, D5 14, D6 14, D7 7.
 
@@ -34,25 +45,11 @@ Sur les 100 questions, chaque domaine pèse autant qu’à l’examen : D1 17, D
 - **En ligne** : la version publiée sur claude.ai synchronise ta progression avec ton compte Claude (ordinateur et téléphone).
 - **En local** : ouvre `dist/index.html` dans un navigateur. La progression reste dans ce navigateur.
 
-Raccourcis clavier pendant un combat : `A` à `E` (ou `1` à `5`) pour choisir, `Entrée` pour valider puis continuer. À l’échauffement : `V` pour vrai, `F` pour faux.
-
-## Prototype V2 : le combat au lance-pierre
-
-`src/prototype-injecteur.html` est un prototype jouable du combat V2, sur l’étage 7 (L’Injecteur) :
-
-- tu charges ta réponse comme une pierre, tu tires vers l’arrière et tu relâches ; la trajectoire s’affiche pendant la visée ;
-- le cœur de verre du boss donne un coup critique ; l’adresse rapporte des points, jamais la bonne réponse ;
-- une mauvaise pierre se brise et le boss riposte ; sa barre d’attaque suit un rythme progressif (2 min 28 s par question à l’étage 7, 1 min 54 s au sommet, comme à l’examen) ;
-- L’Injecteur glisse parfois une pierre piégée « reçue d’un document externe » : la lancer le soigne, la mettre en quarantaine rapporte des points ;
-- phase 2 à mi-vie, combos, sons synthétisés, coup de grâce final.
-
-```bash
-node scripts/build-prototype.mjs   # produit dist/prototype-injecteur.html
-```
+Clavier : `A` à `E` pour charger une pierre, `Espace` pour le tir automatique, `Entrée` pour continuer, `Échap` pour la pause. Échauffement : `V` (vrai, tirer) et `F` (faux, laisser passer).
 
 ## D’où viennent les questions
 
-Les questions sont **originales**. Elles sont rédigées à partir de la documentation officielle d’Anthropic :
+Les questions sont **originales**, rédigées à partir de la documentation officielle d’Anthropic :
 
 - https://platform.claude.com/docs (API, outils, évaluations, garde-fous, administration)
 - https://code.claude.com/docs (Claude Code)
@@ -60,21 +57,30 @@ Les questions sont **originales**. Elles sont rédigées à partir de la documen
 
 Elles imitent le format et le niveau de l’examen, mais ce ne sont pas les questions réelles, qui sont confidentielles. La répartition par domaine suit le blueprint du CCAR-P (7 domaines, 63 questions, 120 minutes, 720/1000). Le guide d’examen officiel est distribué via l’Anthropic Partner Academy : en cas d’écart, c’est lui qui fait foi.
 
-## Faire évoluer le contenu
+## Structure du code
 
 ```
-content/level-XX.json   un fichier par étage (fiches, échauffement, questions)
-content/CONTENT_GUIDE.md format et règles de style des questions
-src/app.html            le jeu (HTML, CSS et JavaScript sans dépendance)
-scripts/validate.mjs    vérifie la structure et l’équilibre des questions
-scripts/build.mjs       injecte le contenu et produit dist/
+content/level-XX.json      un fichier par étage : fiches, échauffement, 10 questions
+content/CONTENT_GUIDE.md   format et règles de style des questions
+src/v2/shell.html          squelette de la page
+src/v2/styles.css          styles
+src/v2/js/00-core.js       données, utilitaires, progression (navigateur + compte Claude)
+src/v2/js/10-sound.js      sons synthétisés (Web Audio)
+src/v2/js/20-engine.js     moteur de combat : arène, lance-pierre, boss, questions
+src/v2/js/30-mechanics.js  mécaniques des boss (brouillard, tourelles, injection…)
+src/v2/js/4x-boss-NN.js    un fichier par boss (voir src/v2/BOSS_API.md)
+src/v2/js/60-training.js   fiches à retourner, relier, tir aux pigeons
+src/v2/js/70-screens.js    la tour, la page d’étage, la salle de révision, l’ascenseur
+src/v2/js/90-main.js       navigation et démarrage
+scripts/validate.mjs       vérifie la structure et l’équilibre des questions
+scripts/build.mjs          assemble tout dans dist/index.html et dist/artifact.html
+scripts/preview-bosses.mjs page d’aperçu des boss (dist/dev/boss-preview.html)
 ```
-
-Pour modifier ou ajouter des questions :
 
 ```bash
-node scripts/validate.mjs     # vérifie tous les niveaux
-node scripts/build.mjs        # régénère dist/index.html et dist/artifact.html
+node scripts/validate.mjs        # vérifie les 10 niveaux
+node scripts/build.mjs           # régénère dist/index.html et dist/artifact.html
+node scripts/preview-bosses.mjs  # aperçu des boss dans six états
 ```
 
 Le validateur refuse un niveau si la répartition par domaine ne suit pas le plan, si une source n’est pas une page officielle, ou si la longueur des options trahit la bonne réponse.

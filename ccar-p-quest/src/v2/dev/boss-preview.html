@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aperçu des boss</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Big+Shoulders+Display:wght@800&family=JetBrains+Mono:wght@600&display=swap">
+<style>
+:root { --night: #0c111e; --slab: #141b2d; --slab-2: #1c2541; --line: #2b3657; --ink: #e8ecf6; --muted: #9aa5c3; --lamp: #f3b841; --ok: #57c48f; --bad: #ef6b5c; --toxic: #62f0a6; --rage: #ff4f9a; --glitch: #b38cff; color-scheme: dark; }
+body { margin: 0; background: var(--night); color: var(--ink); font: 14px "Source Sans 3", sans-serif; padding: 16px; }
+h2 { font: 800 22px "Big Shoulders Display", sans-serif; text-transform: uppercase; margin: 18px 0 6px; }
+.row { display: grid; grid-template-columns: repeat(6, 300px); gap: 8px; }
+figure { margin: 0; }
+canvas { width: 300px; height: 240px; background: linear-gradient(#0a0f1f, #1c2647); border: 1px solid var(--line); display: block; }
+figcaption { color: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+<div id="out"></div>
+<script>
+window.__LEVELS__ = [];
+(() => {
+/*__JS__*/
+const STATES = [
+  { label: "repos", s: {} },
+  { label: "coup reçu (flash, plissé)", s: { flash: 0.8, squint: 1, cracks: 3 } },
+  { label: "riposte (atk en boucle)", s: { atkLoop: true } },
+  { label: "rage, 40 % de vie", s: { rage: true, rageT: 1, hpFrac: 0.4, cracks: 8 } },
+  { label: "vie basse, étourdi", s: { rage: true, rageT: 1, hpFrac: 0.08, cracks: 16, stun: 1 } },
+  { label: "action spéciale (cast en boucle)", s: { castLoop: true } }
+];
+const out = document.getElementById("out");
+const ids = Object.keys(BOSSES).sort((a, b) => (a === "dummy") - (b === "dummy") || a - b);
+const cells = [];
+for (const id of ids) {
+  const B = BOSSES[id];
+  const h = document.createElement("h2"); h.textContent = "Boss " + id; out.appendChild(h);
+  const row = document.createElement("div"); row.className = "row"; out.appendChild(row);
+  STATES.forEach((st) => {
+    const fig = document.createElement("figure"); const cv = document.createElement("canvas"); cv.width = 600; cv.height = 480;
+    const cap = document.createElement("figcaption"); cap.textContent = st.label;
+    fig.appendChild(cv); fig.appendChild(cap); row.appendChild(fig);
+    const b = { t: 0, time: 0, hpFrac: st.s.hpFrac ?? 1, flash: st.s.flash || 0, squint: st.s.squint || 0, rage: !!st.s.rage, rageT: st.s.rageT || 0, atk: -1, cast: -1, stun: st.s.stun || 0, aiming: true, cracks: [], mech: { heads: { count: 3 }, shield: { up: true, streak: 1 }, fog: { shown: 0.5 }, incidents: { hook: false } }, phase: 0, own: {} };
+    const rnd = (a, c) => a + Math.random() * (c - a);
+    for (let k = 0; k < (st.s.cracks || 0); k++) { let x = rnd(-B.hit.rx * 0.7, B.hit.rx * 0.7), y = rnd(-B.hit.ry * 0.6, B.hit.ry * 0.6); const pts = [[x, y]]; let a = rnd(0, 6.28); for (let s = 0; s < 3; s++) { a += rnd(-0.7, 0.7); x += Math.cos(a) * 14; y += Math.sin(a) * 14; pts.push([x, y]); } b.cracks.push(pts); }
+    if (B.init) B.init(b);
+    cells.push({ cv, B, b, st, id });
+  });
+}
+let last = performance.now();
+function frame(now) {
+  const dt = Math.min(0.05, (now - last) / 1000); last = now;
+  for (const cell of cells) {
+    const { cv, B, b, st } = cell; const c = cv.getContext("2d");
+    b.t += dt; b.time += dt;
+    if (st.s.atkLoop) b.atk = (b.t % 1.2) < 0.75 ? (b.t % 1.2) : -1;
+    if (st.s.castLoop) b.cast = (b.t % 1.4) < 0.9 ? (b.t % 1.4) : -1;
+    if (st.s.phase != null) b.phase = st.s.phase;
+    if (cell.id === "10") b.phase = Math.floor(b.time / 3) % 3;
+    if (B.update) B.update(b, dt);
+    c.setTransform(1, 0, 0, 1, 0, 0); c.clearRect(0, 0, cv.width, cv.height);
+    c.setTransform(1, 0, 0, 1, 300, 250);
+    c.save(); c.scale(0.95, 0.95);
+    try { B.draw(c, b); } catch (e) { c.restore(); c.setTransform(1, 0, 0, 1, 0, 0); c.fillStyle = "#ef6b5c"; c.font = "16px monospace"; c.fillText(String(e.message).slice(0, 60), 10, 30); continue; }
+    c.restore();
+    c.save(); c.scale(0.95, 0.95);
+    c.setLineDash([4, 4]); c.strokeStyle = "rgba(243,184,65,0.5)"; c.lineWidth = 1.5;
+    c.beginPath(); c.ellipse(0, 0, B.hit.rx, B.hit.ry, 0, 0, Math.PI * 2); c.stroke();
+    const ws = B.weakSpot ? B.weakSpot(b) : { x: 0, y: 0 };
+    c.strokeStyle = "rgba(239,107,92,0.9)"; c.beginPath(); c.arc(ws.x, ws.y, B.hit.coreR, 0, Math.PI * 2); c.stroke();
+    c.setLineDash([]); c.fillStyle = "#ef6b5c"; c.beginPath(); c.arc(B.attackFrom.x, B.attackFrom.y, 5, 0, Math.PI * 2); c.fill();
+    c.strokeStyle = "rgba(232,236,246,0.5)"; c.beginPath(); c.moveTo(-20, -B.top); c.lineTo(20, -B.top); c.stroke();
+    if (B.headLocal) { for (let i = 0; i < 3; i++) { const p = B.headLocal(i, 3, b); c.strokeStyle = "rgba(87,196,143,0.9)"; c.beginPath(); c.arc(p.x, p.y, 16, 0, Math.PI * 2); c.stroke(); } }
+    c.restore();
+  }
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
