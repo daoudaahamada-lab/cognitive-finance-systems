@@ -4,15 +4,38 @@
    Règle commune : une mécanique change les dégâts, le temps ou la visée, jamais la justesse d'une réponse.
    ============================================================ */
 
-/* L'Ambigu — brouillard : cache la cible critique et raccourcit la visée. */
+/* L'Ambigu — brouillard : cache la cible critique et raccourcit la visée.
+   Par moments, un mirage (copie leurre du boss) vient barrer la route : il faut le contourner. */
 MECH.fog = {
   init(api, st) {
-    st.level = 0.85; st.shown = 0.85; st.puffs = [];
+    st.level = 0.85; st.shown = 0.85; st.puffs = []; st.mirage = null; st.mt = 7;
     for (let i = 0; i < 14; i++) st.puffs.push({ a: rand(0, 6.28), r: rand(20, 160), s: rand(0.1, 0.35) * (Math.random() < 0.5 ? -1 : 1), size: rand(70, 140) });
   },
-  tick(api, st, dt) { st.shown = lerp(st.shown, st.level, 1 - Math.exp(-dt * 2.5)); for (const p of st.puffs) p.a += p.s * dt; },
+  questionStart(api, st) { st.mirage = null; st.mt = rand(5, 8); },
+  tick(api, st, dt, real) {
+    st.shown = lerp(st.shown, st.level, 1 - Math.exp(-dt * 2.5)); for (const p of st.puffs) p.a += p.s * dt;
+    const F = api.F, m = st.mirage;
+    if (m) { m.t += dt; m.a = clamp(Math.min(m.t * 2, (m.life - m.t) * 2), 0, 1); if (m.t >= m.life) st.mirage = null; }
+    else if (F.phase === "question" && st.level > 0.2) {
+      st.mt -= real;
+      if (st.mt <= 0) {
+        // bas : il barre le tir tendu (il faut lober) ; haut : il barre le tir en cloche (il faut tirer tendu)
+        st.mirage = { dx: -(F.B.hit.rx * F.bs * 1.15 + 20), dy: Math.random() < 0.5 ? 95 : -75, t: 0, life: 9, a: 0 };
+        st.mt = rand(8, 12); api.sound("mirage"); api.cast(); api.sayLine("mirage", 0.9);
+        api.toast("Un mirage te barre la route : contourne-le", "glitch");
+      }
+    }
+  },
+  ghosts(api, st) { const m = st.mirage; return m ? [{ dx: m.dx, dy: m.dy + Math.sin(api.F.time * 1.3) * 6, alpha: 0.85 * m.a, scale: 0.9 }] : null; },
+  collide(api, st, p) {
+    const m = st.mirage, F = api.F; if (!m || m.a < 0.5) return null;
+    const cx = F.b.x + m.dx, cy = F.b.y + m.dy, rx = F.B.hit.rx * F.bs * 0.72 + p.r, ry = F.B.hit.ry * F.bs * 0.72 + p.r;
+    if (((p.x - cx) ** 2) / (rx * rx) + ((p.y - cy) ** 2) / (ry * ry) >= 1) return null;
+    st.mirage = null; api.burst(cx, cy, 16, { color: "#b0aace", min: 40, max: 200, g: -40, lmax: 1 }); api.sound("mirage");
+    return { type: "block", label: "C’était un mirage : il se dissipe, ta pierre revient" };
+  },
   correct(api, st) {
-    st.level = Math.max(0, st.level - 0.17);
+    st.level = Math.max(0, st.level - 0.17); st.mirage = null;
     api.sayLine("fog", 0.4);
     if (st.level < 0.45 && st.level + 0.17 >= 0.45) api.toast("Le brouillard se lève : sa cible critique réapparaît", "good");
     return null;
@@ -20,6 +43,7 @@ MECH.fog = {
   wrong(api, st) { st.level = Math.min(0.95, st.level + 0.12); api.sound("fog"); api.toast("Le brouillard s’épaissit : instructions floues, visée floue", "warn"); },
   critAllowed: (api, st) => st.shown < 0.45,
   previewScale: (api, st) => 1 - st.shown * 0.7,
+  status: (api, st) => ({ text: "Brouillard " + Math.round(st.level * 100) + " %" + (st.mirage ? " · mirage" : ""), kind: st.level < 0.45 ? "good" : "warn" }),
   draw(api, st, ctx, layer) {
     if (layer !== "front" || st.shown < 0.02) return;
     const F = api.F, b = F.b, bs = F.bs;
@@ -45,6 +69,7 @@ MECH.turrets = {
     api.later(0.7, () => { api.sound("build"); api.sayLine("build", 0.7); });
   },
   tick(api, st, dt) { for (const t of st.list) t.grow = Math.min(1, t.grow + dt * 1.6); },
+  status: (api, st) => (st.list.length ? { text: "Tourelles : " + st.list.length, kind: "warn" } : null),
   collide(api, st, p) {
     const F = api.F;
     for (let i = 0; i < st.list.length; i++) {
@@ -82,12 +107,36 @@ MECH.turrets = {
   }
 };
 
+/* Le Schéma Brisé — il alterne entre « valide » et « corrompu ».
+   Touché quand il est corrompu : dégâts réduits et pas de critique. Il faut tirer au bon moment. */
+MECH.parse = {
+  init(api, st) { st.bad = false; st.t = 0; st.k = 0; },
+  questionStart(api, st) { st.bad = false; st.t = 0; st.k = 0; },
+  tick(api, st, dt) {
+    const F = api.F; if (F.phase !== "question" && F.phase !== "flying") return;
+    const dur = st.bad ? (F.b.rage ? 2.0 : 1.6) : (F.b.rage ? 2.6 : 3.4);
+    st.t += dt; st.k = clamp(st.t / dur, 0, 1);
+    if (st.t < dur) return;
+    st.bad = !st.bad; st.t = 0; st.k = 0;
+    api.sound(st.bad ? "glitch" : "valid");
+    if (st.bad) api.sayLine("corrupt", 0.2);
+  },
+  critAllowed: (api, st) => !st.bad,
+  correct(api, st) {
+    if (st.bad) { api.toast("Touché pendant qu’il était corrompu : dégâts réduits", "warn"); return { mult: 0.6, label: "PARSE ERROR ×0,6" }; }
+    api.sayLine("valid", 0.3);
+    return { mult: 1.15, label: "JSON VALIDE" };
+  },
+  status: (api, st) => (st.bad ? { text: "Corrompu : attends", kind: "warn" } : { text: st.k > 0.8 ? "Valide : vite !" : "Valide : tire", kind: "good" })
+};
+
 /* L'Hydre des Connecteurs — têtes leurres : pas de critique dessus, la barre d'attaque accélère. */
 MECH.heads = {
   init(api, st) { st.count = 1; },
   wrong(api, st) { if (st.count < 4) { st.count++; api.sayLine("grow", 0.9); api.toast("Une tête de plus : trop d’outils exposés, il attaque plus vite", "warn"); } },
   correct(api, st) { if (st.count > 0) { st.count--; api.sayLine("cut", 0.6); api.toast("Une tête coupée : moins d’outils, meilleure sélection", "good"); } return null; },
   barMult: (api, st) => 1 + 0.08 * st.count,
+  status: (api, st) => ({ text: "Têtes leurres : " + st.count, kind: st.count >= 2 ? "warn" : "info" }),
   collide(api, st, p) {
     const F = api.F, B = F.B; if (!B.headLocal) return null;
     for (let i = 0; i < st.count; i++) { const w = api.local(B.headLocal(i, st.count, F.b)); if (Math.hypot(p.x - w.x, p.y - w.y) < 20 * F.bs + p.r) return { type: "decoy" }; }
@@ -103,6 +152,7 @@ MECH.shuffle = {
     const F = api.F; if (F.phase !== "question") return;
     st.t += real; if (st.t >= 25) { st.t = 0; MECH.shuffle.go(api); }
   },
+  status: (api, st) => ({ text: "Mélange dans " + Math.max(0, Math.ceil(25 - st.t)) + " s", kind: 25 - st.t < 6 ? "warn" : "info" }),
   miss(api, st) { st.t = 0; api.later(0.3, () => { if (api.F && (api.F.phase === "question" || api.F.phase === "flying")) MECH.shuffle.go(api); }); },
   go(api) { api.reshuffle(); api.sound("shuffle"); api.cast(); api.sayLine("shuffle", 0.7); api.toast("Il a mélangé tes pierres : relis avant de tirer", "glitch"); }
 };
@@ -111,6 +161,7 @@ MECH.shuffle = {
 MECH.tokens = {
   init(api, st) { st.acc = 0; },
   barMult: () => 1.15,
+  status: (api) => (api.F.bar / api.F.barMax < 0.4 ? { text: "Cache hit possible", kind: "good" } : { text: "Cache expiré", kind: "info" }),
   barZone: () => ({ from: 0, to: 0.4, label: "Zone cache hit : une bonne réponse ici fait ×2 dégâts" }),
   correct(api, st) {
     const F = api.F;
@@ -208,6 +259,7 @@ MECH.injection = {
     }));
     return true;
   },
+  status: (api, st) => (st.cur && st.cur.state === "shown" ? { text: "Pierre piégée dans ta main", kind: "glitch" } : null),
   feedbackNote(api, st) {
     const inj = st.cur;
     if (inj && inj.state === "shown") { inj.state = "gone"; return '<p class="small-note">La pierre injectée s’est dissoute. La prochaine fois, mets-la en quarantaine : +75 points et son attaque recule.</p>'; }
@@ -236,6 +288,7 @@ MECH.shield = {
     if (!st.up) { st.up = true; api.sound("shield"); api.sayLine("shieldUp", 1); api.toast("Il regonfle son bouclier SLA : enchaîne 3 bonnes réponses", "warn"); }
   },
   tick(api, st, dt) { st.pop = Math.max(0, st.pop - dt * 2); },
+  status: (api, st) => (st.up ? { text: "Bouclier SLA : " + Math.min(3, st.streak) + " / 3", kind: "warn" } : { text: "Bouclier brisé", kind: "good" }),
   draw(api, st, ctx, layer) {
     if (layer !== "front" || !st.up) return;
     const F = api.F, b = F.b, rx = (F.B.hit.rx + 34) * F.bs, ry = (F.B.hit.ry + 34) * F.bs, pulse = 1 + Math.sin(F.time * 3) * 0.02;
@@ -285,6 +338,7 @@ MECH.incidents = {
     }
     return false;
   },
+  status: (api, st) => (st.hook ? { text: "Hook actif", kind: "good" } : st.list.length ? { text: "Incidents : " + st.list.length, kind: "warn" } : null),
   arena(api, st) {
     const F = api.F; if (F.phase !== "question" && F.phase !== "flying") return "";
     if (st.hook) return '<span class="arena-tag">Hook actif : incidents bloqués</span>';

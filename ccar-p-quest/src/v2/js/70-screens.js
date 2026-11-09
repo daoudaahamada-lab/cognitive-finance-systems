@@ -9,7 +9,8 @@ const Thumbs = (() => {
     list = [...document.querySelectorAll("canvas[data-boss]")].map((cv) => {
       const key = cv.dataset.boss, B = BOSSES[key];
       if (!B) return null;
-      const b = { t: rand(0, 5), time: rand(0, 5), hpFrac: 1, flash: 0, squint: 0, rage: false, rageT: 0, atk: -1, cast: -1, stun: 0, aiming: false, cracks: [], mech: { heads: { count: 2 }, shield: { up: false, streak: 0 }, fog: { shown: 0.3 }, incidents: { hook: false } }, phase: 0, own: {} };
+      const b = { t: rand(0, 5), time: rand(0, 5), hpFrac: 1, flash: 0, squint: 0, rage: false, rageT: 0, atk: -1, cast: -1, stun: 0, aiming: false, cracks: [], mech: { heads: { count: 2 }, shield: { up: false, streak: 0 }, fog: { shown: 0.3 }, incidents: { hook: false } }, phase: 0, own: {},
+        enter: 1, dying: -1, dmg: 0, look: { x: -1, y: 0 }, threat: 0, gloat: 0, talk: 0, beat: 0, isMirage: false };
       if (B.init) try { B.init(b); } catch (e) { /* portrait sans état propre */ }
       return { cv, B, b, mode: cv.dataset.mode || "idle", fit: Number(cv.dataset.fit) || 1 };
     }).filter(Boolean);
@@ -24,7 +25,8 @@ const Thumbs = (() => {
   function draw(x, dt) {
     const c = x.cv.getContext("2d"), b = x.b;
     b.t += dt; b.time += dt;
-    if (x.mode === "won") { b.stun = 1; b.hpFrac = 0.1; }
+    if (x.mode === "won") { b.stun = 1; b.hpFrac = 0.1; b.dmg = 3; }
+    b.look.x = -0.7 + Math.sin(b.time * 0.7) * 0.3; b.look.y = Math.sin(b.time * 0.5) * 0.4; b.beat = Music.beat(b.time, Number(x.cv.dataset.boss) || 1);
     if (x.B.update) try { x.B.update(b, dt); } catch (e) { /* ignoré */ }
     c.setTransform(x.dpr, 0, 0, x.dpr, 0, 0); c.clearRect(0, 0, x.w, x.h);
     const s = Math.min(x.w / 560, x.h / 440) * x.fit;

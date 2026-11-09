@@ -110,5 +110,6 @@ function boot(data) {
   initRemote();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (!Arena.active) Thumbs.scan(); });
 }
+window.__tour = { Music, Sound, Arena };   // accès pour les tests automatiques
 const hot = window.claude && window.claude.hot;
 if (hot && hot.ready) hot.ready(boot); else boot((hot && hot.data) || {});

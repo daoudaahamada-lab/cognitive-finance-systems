@@ -59,7 +59,13 @@ const Sound = (() => {
     match: () => { tone(660, 0.1, "triangle", 0.16); tone(990, 0.16, "triangle", 0.14, null, 0.07); },
     nomatch: () => tone(200, 0.18, "square", 0.08, 150),
     ding: () => { tone(1046, 0.6, "sine", 0.18); tone(1568, 0.8, "sine", 0.1, null, 0.02); },
-    whoosh: () => noise(0.5, 900, 0.22, "bandpass")
+    whoosh: () => noise(0.5, 900, 0.22, "bandpass"),
+    entrance: () => { noise(1.1, 300, 0.3, "lowpass"); tone(55, 1.2, "sawtooth", 0.16, 110); tone(220, 0.5, "triangle", 0.12, 440, 0.9); },
+    telegraph: () => tone(520, 0.3, "square", 0.05, 880),
+    glitch: () => { for (let i = 0; i < 4; i++) tone(180 + Math.random() * 900, 0.04, "sawtooth", 0.05, null, i * 0.035); },
+    valid: () => { tone(880, 0.07, "triangle", 0.1); tone(1320, 0.1, "triangle", 0.1, null, 0.06); },
+    mirage: () => noise(0.4, 1400, 0.12, "bandpass"),
+    stamp: () => { tone(70, 0.25, "sine", 0.6, 40); noise(0.12, 900, 0.35, "lowpass"); }
   };
   return {
     ensure,

@@ -17,10 +17,11 @@ const Arena = (() => {
       mode: opts.mode, n: practice ? (opts.n || 0) : opts.n, level, B, opts, practiceKind: opts.practiceKind || null,
       questions, i: 0, hearts: HEARTS, prevHearts: HEARTS, hp: MAX_HP, score: 0, scoreShown: 0, combo: 0, bestCombo: 0, crits: 0, results: [], t0: 0,
       sel: [], perm: [], loaded: null, arriveAt: 0, bar: 0, barMax: practice ? Infinity : secondsFor(opts.n), warnT: 0, paused: false,
-      tutDone: !!state.seenTutorial, timeouts: 0, phase: "intro", phaseIdx: 0, mods: [], bonus: 0,
+      tutDone: !!state.seenTutorial, timeouts: 0, phase: "intro", phaseIdx: 0, mods: [], bonus: 0, punch: 0, statusKey: "", statusT: 0, env: null,
       W: 1000, H: 600, scale: 1, dpr: 1, groundY: 530, bs: 1, time: 0, hitStop: 0, timeScale: 1, shakeMag: 0, hurtFlash: 0, bubble: null, tickStep: 0,
       player: { x: 140, knock: 0, dy: 0, hurt: 0, blink: 0, blinkT: 2, mood: "idle" },
-      b: { x0: 700, y0: 230, x: 700, y: 230, t: 0, time: 0, rot: 0, knock: 0, flash: 0, squint: 0, rage: false, rageT: 0, hpFrac: 1, atk: -1, atkFired: false, atkCb: null, cast: -1, lean: 0, stun: 0, aiming: false, cracks: [], dead: false, gone: false, mech: {}, phase: 0, own: {} },
+      b: { x0: 700, y0: 230, x: 700, y: 230, t: 0, time: 0, rot: 0, knock: 0, flash: 0, squint: 0, rage: false, rageT: 0, hpFrac: 1, atk: -1, atkFired: false, atkCb: null, cast: -1, lean: 0, stun: 0, aiming: false, cracks: [], dead: false, gone: false, mech: {}, phase: 0, own: {},
+           enter: 1, dying: -1, dmg: 0, look: { x: -1, y: 0 }, threat: 0, gloat: 0, talk: 0, beat: 0, isMirage: false, offX: 0, offY: 0 },
       proj: null, drag: null, pull: { x: 0, y: 0 }, spring: { x: 0, y: 0, vx: 0, vy: 0 },
       particles: [], texts: [], darts: [], timers: [], stars: [], debris: [], els: {}
     };
@@ -28,7 +29,7 @@ const Arena = (() => {
     $("view").innerHTML = fightHTML();
     const els = F.els;
     ["stage", "stage-wrap", "arena-col", "boss-name", "phase-tag", "hp-num", "hp-bar", "hp-chip", "hp-fill", "combo", "score", "hearts", "sound-btn", "pause-btn", "quit-btn",
-     "arena-actions", "attack", "attack-fill", "attack-exam", "attack-zone", "attack-time", "banner", "toast", "hint", "pause-veil", "quit-veil",
+     "arena-actions", "arena-status", "plate", "stamp", "attack", "attack-fill", "attack-exam", "attack-zone", "attack-time", "banner", "toast", "hint", "pause-veil", "quit-veil",
      "q-count", "q-domain", "q-level", "dots", "q-stem", "lesson", "pick-hint", "stones", "actions", "auto-btn", "feedback"].forEach((id) => { els[id] = $(id); });
     els.ctx = els.stage.getContext("2d");
     els.bg = document.createElement("canvas");
@@ -57,7 +58,7 @@ const Arena = (() => {
     ro = null;
     document.querySelectorAll(".fly").forEach((d) => d.remove());
     document.body.classList.remove("in-fight");
-    hideOverlay();
+    hideOverlay(); Music.stop();
     F = null;
   }
   function fightHTML() {
@@ -72,10 +73,11 @@ const Arena = (() => {
         '<button class="icon-btn" type="button" id="pause-btn" aria-label="Pause"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="3" width="3" height="10" rx="1" fill="currentColor"/><rect x="9.5" y="3" width="3" height="10" rx="1" fill="currentColor"/></svg></button></div>' +
       '</header><div class="stage" id="stage-wrap">' +
         '<canvas id="stage" aria-label="Arène : ton architecte et son lance-pierre face au boss. Charge une réponse, tire vers l’arrière puis relâche."></canvas>' +
-        '<div class="arena-actions" id="arena-actions"></div>' +
+        '<div class="arena-actions" id="arena-actions"></div><div class="arena-status" id="arena-status"></div>' +
+        '<div class="plate" id="plate" hidden></div><div class="stamp" id="stamp" hidden></div>' +
         '<div class="attack" id="attack"><div class="attack-meta"><span>Attaque du boss</span><span>dans <b id="attack-time">—</b></span></div><div class="attack-track"><div class="attack-zone" id="attack-zone" hidden></div><div class="attack-fill" id="attack-fill"></div><div class="attack-exam" id="attack-exam" title="Rythme de l’examen : 1 min 54 par question"></div></div></div>' +
         '<div class="banner" id="banner"></div><div class="toast" id="toast"></div><div class="hint" id="hint" hidden></div>' +
-        '<div class="pause-veil" id="pause-veil" hidden><b>Pause</b><span>Touche l’arène pour reprendre</span></div>' +
+        '<div class="pause-veil" id="pause-veil" hidden><b>Pause</b><span>Touche l’arène pour reprendre</span><div class="btn-row"><button class="btn btn-small" type="button" data-audio="music"></button><button class="btn btn-small" type="button" data-audio="sound"></button></div></div>' +
         '<div class="quit-veil" id="quit-veil" hidden><p>Quitter ce combat ?' + (practice ? "" : " La tentative compte.") + '</p><div class="btn-row"><button class="btn" type="button" data-quit="yes">Quitter</button><button class="btn btn-primary" type="button" data-quit="no">Continuer</button></div></div>' +
       '</div></div>' +
       '<section class="panel" id="panel" aria-live="polite">' +
@@ -121,12 +123,13 @@ const Arena = (() => {
     F.scale = Math.min(r.height / 600, r.width / 760);
     F.W = r.width / F.scale; F.H = r.height / F.scale;
     F.groundY = F.H - 64;
-    F.bs = clamp(F.W / 980, 0.82, 1.05);
+    F.bs = (F.B.v === 2 ? ARENA_SCALE : 1) * clamp(F.W / 760, 1, 1.12);
     F.player.x = Math.max(96, F.W * 0.14);
     F.b.x0 = F.W * 0.71;
     F.b.y0 = F.B.ground ? F.groundY - F.B.ground * F.bs : F.groundY - Math.min(320, F.H * 0.52);
     const rnd = seeded(7 + (F.n || 0));
     F.stars = []; for (let i = 0; i < 80; i++) F.stars.push({ x: rnd() * F.W, y: rnd() * (F.groundY - 120), r: rnd() * 1.4 + 0.3, p: rnd() * 6, s: rnd() * 2 + 0.5 });
+    F.env = { W: F.W, H: F.H, groundY: F.groundY, n: F.n || 0, rnd: seeded(2000 + (F.n || 0)), time: F.time };
     buildBackground();
   }
   function buildBackground() {
@@ -174,11 +177,24 @@ const Arena = (() => {
   /* ---------------- Déroulé ---------------- */
   function start() {
     Sound.ensure();
-    F.t0 = performance.now();
     if (F.mode === "boss") { lv(F.n).attempts = (L(F.n).attempts || 0) + 1; save(); }
     hideOverlay();
+    if (F.mode !== "boss") { F.t0 = performance.now(); startQuestion(); return; }
+    Music.start(F.n);
+    F.phase = "entrance"; F.b.enter = 0; F.b.t = 0;
+    const plate = F.els.plate;
+    plate.innerHTML = '<span class="plate-floor">Étage ' + pad(F.n) + " · " + esc(F.level.title) + "</span><b>" + esc(F.level.boss.name) + "</b><span>" + esc(F.level.boss.epithet) + "</span>";
+    plate.hidden = false; F.els["stage-wrap"].classList.add("cine");
+    Sound.play("entrance");
+    later(T_ENTER + 0.8, endEntrance);
+  }
+  /** Fin de l'entrée en scène (ou passage direct si le joueur touche l'arène). */
+  function endEntrance() {
+    if (!F || F.phase !== "entrance") return;
+    F.b.enter = 1; F.els.plate.hidden = true; F.els["stage-wrap"].classList.remove("cine");
+    F.t0 = performance.now();
     startQuestion();
-    if (F.mode === "boss") later(0.4, () => say(unquote(F.level.boss.taunt), 4));
+    later(0.3, () => say(unquote(F.level.boss.taunt), 4));
   }
   function startQuestion() {
     const q = curQ();
@@ -312,6 +328,7 @@ const Arena = (() => {
       if (!F) return;
       Sound.ensure();
       if (F.paused) { setPause(false); return; }
+      if (F.phase === "entrance") { endEntrance(); return; }
       const p = pointerToWorld(e);
       if (call("tap", p).some(Boolean)) return;
       if (F.phase !== "question") return;
@@ -356,7 +373,12 @@ const Arena = (() => {
     });
     F.els["sound-btn"].addEventListener("click", () => { const on = Sound.toggle(); F.els["sound-btn"].setAttribute("aria-pressed", String(on)); });
     F.els["pause-btn"].addEventListener("click", () => setPause(!F.paused));
-    F.els["pause-veil"].addEventListener("click", () => setPause(false));
+    F.els["pause-veil"].addEventListener("click", (e) => {
+      const a = e.target.closest("[data-audio]");
+      if (!a) { setPause(false); return; }
+      if (a.dataset.audio === "music") Music.toggle(); else { Sound.toggle(); F.els["sound-btn"].setAttribute("aria-pressed", String(Sound.on)); }
+      audioLabels();
+    });
     F.els["quit-btn"].addEventListener("click", () => { if (F.phase === "intro" || F.phase === "end") { exit(); return; } F.els["quit-veil"].hidden = false; setPause(true, true); });
     F.els["quit-veil"].addEventListener("click", (e) => {
       const b = e.target.closest("[data-quit]"); if (!b) return;
@@ -440,7 +462,7 @@ const Arena = (() => {
       if (F.mode === "boss") F.hp = Math.max(1, F.hp - dmg);
       const speed = F.mode === "boss" ? Math.round(50 * Math.max(0, 1 - F.bar / F.barMax)) : 0;
       F.score += 100 + (crit ? 50 : 0) + 25 * Math.min(4, F.combo - 1) + speed;
-      F.hitStop = crit ? 0.13 : 0.07; shake(crit ? 17 : 9);
+      F.hitStop = crit ? 0.13 : 0.07; shake(crit ? 17 : 9); F.punch = crit ? 1 : 0.6;
       F.b.flash = 1; F.b.knock = crit ? 30 : 16; F.b.squint = 1;
       addCrack(hx, hy, crit);
       burst(hx, hy, crit ? 26 : 14, { color: pal.accent || "#d9e8ff", kind: "shard", min: 120, max: crit ? 520 : 380, smin: 4, smax: 9, lift: 120 });
@@ -504,15 +526,16 @@ const Arena = (() => {
   }
 
   /* ---------------- Riposte ---------------- */
-  function bossAttack(cb) { F.b.atk = 0; F.b.atkFired = false; F.b.atkCb = cb; }
+  function bossAttack(cb) { F.b.atk = 0; F.b.atkFired = false; F.b.atkCb = cb; Sound.play("telegraph"); }
   function fireDart() {
     const s = toWorld(F.B.attackFrom || { x: 0, y: 0 });
-    F.darts.push({ sx: s.x, sy: s.y, x: s.x, y: s.y, tx: F.player.x + 4, ty: F.groundY - 92, t: 0, dur: 0.42, trail: [], cb: F.b.atkCb });
+    F.darts.push({ sx: s.x, sy: s.y, x: s.x, y: s.y, px: s.x + 1, py: s.y, k: 0, tx: F.player.x + 4, ty: F.groundY - 92, t: 0, dur: 0.5, trail: [], cb: F.b.atkCb });
     F.b.atkCb = null; Sound.play("dart");
   }
   function playerHit(cb) {
     F.hearts = Math.max(0, F.hearts - 1);
-    F.player.hurt = 1; F.hurtFlash = 1; shake(15); F.hitStop = 0.06;
+    F.player.hurt = 1; F.hurtFlash = 1; shake(15); F.hitStop = 0.06; F.b.gloat = 1;
+    if (F.mode === "boss" && F.hearts > 0) later(0.3, () => sayMaybe(F.B.lines.gloat, 0.7));
     const pal = F.B.palette || {};
     burst(F.player.x + 4, F.groundY - 92, 16, { color: F.b.rage ? (pal.rage || C.rage) : (pal.main || C.toxic), min: 80, max: 320, smin: 2, smax: 5 });
     popText("-1 vie", F.player.x, F.groundY - 170, C.bad, 34);
@@ -573,20 +596,25 @@ const Arena = (() => {
       F.loaded = null; Sound.play("release");
     });
   }
+  /** Coup de grâce : le boss joue sa propre mort (b.dying), puis le moteur ajoute l'explosion finale. */
   function bossDie() {
+    const b = F.b;
+    b.dead = true; F.hp = 0; renderHUD(); setMods([]);
+    shake(20); F.hitStop = 0.15; F.punch = 1; b.flash = 1; Sound.play("crit"); Music.set(0, 0.5);
+    if (F.B.v === 2) { b.dying = 0; F.timeScale = reduceMotion ? 1 : 0.45; later(0.5, () => { if (F) F.timeScale = 1; }); }
+    else finishDeath();
+  }
+  function finishDeath() {
     const b = F.b, pal = F.B.palette || {}, bs = F.bs, B = F.B;
-    b.dead = true; F.hp = 0; renderHUD();
-    F.timeScale = reduceMotion ? 1 : 0.35; later(1.1, () => { if (F) F.timeScale = 1; });
-    shake(24); F.hitStop = 0.15; Sound.play("shatter");
-    for (let k = 0; k < 46; k++) F.particles.push({ x: b.x + rand(-B.hit.rx, B.hit.rx) * bs, y: b.y + rand(-B.hit.ry, B.hit.ry) * bs, vx: rand(-260, 260), vy: rand(-520, -120), life: 0, max: rand(1.2, 2.2), size: rand(5, 13), color: pick([pal.accent || "#d9e8ff", pal.main || C.toxic, pal.dark || C.slab2]), kind: "shard", rot: rand(0, 6), vr: rand(-12, 12), g: GRAV });
-    burst(b.x, b.y, 50, { color: pal.main || C.toxic, min: 80, max: 460, lift: 160, smin: 3, smax: 7, lmax: 1.6 });
-    F.debris = [
-      { x: b.x - B.hit.rx * 0.6 * bs, y: b.y, vx: -120, vy: -260, rot: b.rot, vr: -4, w: 70, h: 18, color: pal.dark || C.slab2 },
-      { x: b.x + B.hit.rx * 0.6 * bs, y: b.y, vx: 160, vy: -300, rot: b.rot, vr: 5, w: 50, h: 40, color: pal.main || C.toxic }
-    ];
-    b.gone = true; F.player.mood = "win";
-    later(0.9, () => { Sound.play("win"); for (let k = 0; k < 60; k++) F.particles.push({ x: rand(0, F.W), y: rand(-60, -10), vx: rand(-40, 40), vy: rand(60, 200), life: 0, max: rand(2, 3.4), size: rand(4, 8), color: pick([C.lamp, C.ok, C.ink, pal.main || C.toxic]), kind: "confetti", rot: rand(0, 6), vr: rand(-6, 6), g: 60 }); });
-    later(2.2, () => endFight(true));
+    b.dying = 1; b.gone = true; F.player.mood = "win"; F.timeScale = 1;
+    shake(24); Sound.play("shatter"); Music.stop();
+    for (let k = 0; k < 36; k++) F.particles.push({ x: b.x + rand(-B.hit.rx, B.hit.rx) * bs * 0.8, y: b.y + rand(-B.hit.ry, B.hit.ry) * bs * 0.8, vx: rand(-260, 260), vy: rand(-520, -120), life: 0, max: rand(1.2, 2.2), size: rand(5, 13), color: pick([pal.accent || "#d9e8ff", pal.main || C.toxic, pal.dark || C.slab2]), kind: "shard", rot: rand(0, 6), vr: rand(-12, 12), g: GRAV });
+    burst(b.x, b.y, 44, { color: pal.main || C.toxic, min: 80, max: 460, lift: 160, smin: 3, smax: 7, lmax: 1.6 });
+    burst(b.x, b.y, 22, { color: C.lamp, kind: "spark", min: 240, max: 620, g: 0, lmin: 0.25, lmax: 0.5 });
+    const st = F.els.stamp; st.textContent = B.epitaph || "VAINCU"; st.hidden = false; st.className = "stamp"; void st.offsetWidth; st.className = "stamp show";
+    later(0.3, () => Sound.play("stamp"));
+    later(0.8, () => { Sound.play("win"); for (let k = 0; k < 60; k++) F.particles.push({ x: rand(0, F.W), y: rand(-60, -10), vx: rand(-40, 40), vy: rand(60, 200), life: 0, max: rand(2, 3.4), size: rand(4, 8), color: pick([C.lamp, C.ok, C.ink, pal.main || C.toxic]), kind: "confetti", rot: rand(0, 6), vr: rand(-6, 6), g: 60 }); });
+    later(2.5, () => endFight(true));
   }
 
   /* ---------------- Fin ---------------- */
@@ -605,7 +633,7 @@ const Arena = (() => {
       s.bestTime = s.bestTime ? Math.min(s.bestTime, Math.round(elapsed)) : Math.round(elapsed);
     }
     save();
-    if (!win) { Sound.play("lose"); say(unquote(F.level.boss.victory), 5); }
+    if (!win) { Music.stop(); Sound.play("lose"); say(unquote(F.level.boss.victory), 5); }
     const stars = win ? F.hearts : 0, level = F.level, n = F.n, lastFloor = n === LEVELS[LEVELS.length - 1].id;
     let starHTML = ""; for (let k = 0; k < 3; k++) starHTML += '<span class="' + (k < stars ? "on" : "") + '">★</span>';
     const missList = misses.length ? '<div><p class="eyebrow" style="margin-bottom:8px">À revoir (ajoutées à ta salle de révision)</p><ul class="misslist">' + misses.map((r) => { const q = QINDEX[r.id].q; return '<li lang="en">' + fmt(q.stem.length > 150 ? q.stem.slice(0, 150) + "…" : q.stem) + "</li>"; }).join("") + "</ul></div>" : "";
@@ -613,8 +641,8 @@ const Arena = (() => {
       ? (lastFloor ? '<button class="btn btn-primary" type="button" data-end="tower">Contempler la tour</button>' : '<button class="btn btn-primary" type="button" data-end="next">Monter à l’étage ' + pad(n + 1) + " ↑</button>") + '<button class="btn" type="button" data-end="again">Rejouer</button>' + (lastFloor ? "" : '<button class="btn" type="button" data-end="tower">La tour</button>')
       : '<button class="btn btn-primary" type="button" data-end="again">Réessayer</button><button class="btn" type="button" data-end="cards">Revoir les fiches</button><button class="btn" type="button" data-end="tower">La tour</button>';
     showOverlay(
-      '<p class="eyebrow">Étage ' + pad(n) + " · " + (win ? "Victoire" : "Défaite") + "</p>" +
-      '<h1 id="ov-title">' + (win ? (lastFloor ? "La tour est à toi" : esc(level.boss.name) + (/^La /.test(level.boss.name) ? " est vaincue" : " est vaincu")) : esc(level.boss.name) + " garde l’étage") + "</h1>" +
+      '<div class="ov-head"><div><p class="eyebrow">Étage ' + pad(n) + " · " + (win ? "Victoire" : "Défaite") + "</p>" +
+      '<h1 id="ov-title">' + (win ? (lastFloor ? "La tour est à toi" : esc(level.boss.name) + (/^La /.test(level.boss.name) ? " est vaincue" : " est vaincu")) : esc(level.boss.name) + " garde l’étage") + "</h1></div>" + thumb(n, 190, 150, win ? "won" : "idle", 1.1) + "</div>" +
       '<p class="quote">« ' + esc(unquote(win ? level.boss.defeat : level.boss.victory)) + " »</p>" +
       (win ? '<div class="stars" aria-label="' + stars + ' étoiles sur 3">' + starHTML + "</div>" : "") +
       '<div><p class="eyebrow">Score</p><div class="big-score">' + F.score + "</div>" + (record ? '<p class="record">Nouveau record</p>' : s.bestScore ? '<p class="note">Record : ' + s.bestScore + "</p>" : "") + "</div>" +
@@ -652,8 +680,8 @@ const Arena = (() => {
         '<li><svg viewBox="0 0 34 34" aria-hidden="true"><path d="M17 31V18M17 18L10 6M17 18l7-12" stroke="#7a5a3f" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M10 6l-4 10M24 6l-18 10" stroke="#d9774b" stroke-width="1.6" fill="none"/><circle cx="6" cy="17" r="3.5" fill="#f3b841"/></svg><b>3. Tire</b><span>Tire vers l’arrière dans l’arène, vise, relâche. Sa cible critique vaut plus de dégâts.</span></li>' +
       "</ol>";
     showOverlay(
-      '<p class="eyebrow">Étage ' + pad(F.n) + " · " + esc(level.title) + "</p>" +
-      '<h1 id="ov-title">' + esc(level.boss.name) + '</h1><p class="epithet">' + esc(level.boss.epithet) + '</p><p class="quote">« ' + esc(unquote(level.boss.taunt)) + " »</p>" +
+      '<div class="ov-head"><div><p class="eyebrow">Étage ' + pad(F.n) + " · " + esc(level.title) + "</p>" +
+      '<h1 id="ov-title">' + esc(level.boss.name) + '</h1><p class="epithet">' + esc(level.boss.epithet) + "</p></div>" + thumb(F.n, 190, 150, "idle", 1.1) + '</div><p class="quote">« ' + esc(unquote(level.boss.taunt)) + " »</p>" +
       '<div class="mech-card"><b>' + esc(B.intro ? B.intro.title : "Sa mécanique") + "</b><span>" + esc(B.intro ? B.intro.text : "") + "</span></div>" +
       steps +
       '<ul class="rules"><li><strong>Bonne réponse</strong> : il perd de la vie. <strong>Mauvaise</strong> : ta pierre se brise et il riposte, −1 vie. 3 vies : survis aux 10 questions.</li>' +
@@ -669,14 +697,14 @@ const Arena = (() => {
   }
   function showOverlay(html, onClick) {
     const ov = $("overlay"), card = $("ov-card");
-    card.innerHTML = html; ov.hidden = false;
+    card.innerHTML = html; ov.hidden = false; Thumbs.scan();
     card.onclick = onClick || null;
     const first = card.querySelector(".btn-primary"); if (first) first.focus({ preventScroll: true });
   }
   function hideOverlay() { const ov = $("overlay"); if (ov) { ov.hidden = true; $("ov-card").onclick = null; } }
   function setPause(v, silent) {
     if (!F || F.phase === "intro" || F.phase === "end") return;
-    F.paused = v; F.els["pause-veil"].hidden = !v || !!silent; F.els.attack.classList.toggle("paused-bar", v);
+    F.paused = v; F.els["pause-veil"].hidden = !v || !!silent; if (v) audioLabels(); F.els.attack.classList.toggle("paused-bar", v);
     F.els["pause-btn"].setAttribute("aria-label", v ? "Reprendre" : "Pause");
   }
 
@@ -694,6 +722,8 @@ const Arena = (() => {
     }
     call("tick", dt, real);
     if (!F) return;
+    if (F.phase === "entrance") b.enter = Math.min(1, b.enter + real / T_ENTER);
+    if (b.dying >= 0 && b.dying < 1) { b.dying = Math.min(1, b.dying + dt / T_DIE); if (b.dying >= 1) { finishDeath(); if (!F) return; } }
     const p = F.player;
     p.blinkT -= dt; if (p.blinkT <= 0) { p.blink = 0.12; p.blinkT = rand(2.2, 4.5); }
     p.blink = Math.max(0, p.blink - dt); p.hurt = Math.max(0, p.hurt - dt * 1.6); p.knock = -18 * p.hurt;
@@ -702,29 +732,42 @@ const Arena = (() => {
     if (!F.drag) { sp.vx += (-320 * sp.x - 15 * sp.vx) * dt; sp.vy += (-320 * sp.y - 15 * sp.vy) * dt; sp.x += sp.vx * dt; sp.y += sp.vy * dt; }
     b.t += dt; b.time = F.time;
     const fast = b.rage ? 1.7 : 1;
-    b.x = b.x0 + (B.static ? 0 : b.rage ? Math.sin(b.t * 0.95) * 44 : Math.sin(b.t * 0.45) * 10);
-    b.y = b.y0 + (B.static ? 0 : Math.sin(b.t * 1.7 * fast) * 14 * F.bs);
+    let off = B.static ? { x: 0, y: 0 } : { x: b.rage ? Math.sin(b.t * 0.95) * 44 : Math.sin(b.t * 0.45) * 10, y: Math.sin(b.t * 1.7 * fast) * 14 };
+    if (B.motion && !b.dead && F.env) { try { off = B.motion(b, F.env) || off; } catch (e) { /* déplacement par défaut */ } }
+    const upMax = Math.max(10, b.y0 - ((B.top || 120) + 10) * F.bs), mk = 1 - Math.exp(-dt * 16);
+    b.offX = lerp(b.offX, clamp(off.x, -90, 40), mk); b.offY = lerp(b.offY, clamp(off.y, -Math.min(80, upMax), 70), mk);
+    b.x = b.x0 + b.offX; b.y = b.y0 + b.offY;
     b.flash = Math.max(0, b.flash - dt * 4); b.squint = Math.max(0, b.squint - dt * 2.5);
     b.knock = lerp(b.knock, 0, 1 - Math.exp(-dt * 7));
     b.rageT = clamp(b.rageT + (b.rage ? dt : -dt) * 1.2, 0, 1);
     b.hpFrac = lerp(b.hpFrac, F.hp / MAX_HP, 1 - Math.exp(-dt * 5));
     b.stun = Math.max(0, b.stun - dt);
     b.aiming = F.phase === "question" || F.phase === "flying";
+    if (F.mode === "boss") b.dmg = F.hp > 75 ? 0 : F.hp > 50 ? 1 : F.hp > 25 ? 2 : 3;
+    const tgt = F.proj ? F.proj : F.drag ? pouchWorld() : { x: F.player.x + 4, y: F.groundY - 130 };
+    const lx = tgt.x - b.x, ly = tgt.y - b.y, ld = Math.max(1, Math.hypot(lx, ly)), cr = Math.cos(-b.rot), sr = Math.sin(-b.rot), lk = 1 - Math.exp(-dt * 12);
+    b.look.x = lerp(b.look.x, (lx * cr - ly * sr) / ld, lk); b.look.y = lerp(b.look.y, (lx * sr + ly * cr) / ld, lk);
+    b.threat = lerp(b.threat, F.drag ? Math.min(1, Math.hypot(F.pull.x, F.pull.y) / MAX_PULL) : 0, 1 - Math.exp(-dt * 8));
+    b.gloat = Math.max(0, b.gloat - dt / 1.3);
+    b.talk = F.bubble ? 0.5 + 0.5 * Math.sin(F.time * 14) : 0;
+    b.beat = Music.beat(F.time, F.n);
+    F.punch = Math.max(0, F.punch - real * 4);
+    if (F.env) F.env.time = F.time;
     let lean = 0;
     if (b.atk >= 0) {
       b.atk += dt; const a = b.atk;
-      if (a < 0.22) lean = 0.07 * (a / 0.22);
-      else if (a < 0.34) { lean = -0.09; if (!b.atkFired) { b.atkFired = true; fireDart(); b.knock = -26; } }
-      else if (a < 0.75) lean = -0.09 * (1 - (a - 0.34) / 0.41);
+      const v1 = B.v !== 2;   // les boss v2 dessinent eux-mêmes leur pose de riposte
+      if (a < ATK_WIND) lean = v1 ? 0.07 * (a / ATK_WIND) : 0;
+      else if (a < ATK_END) { if (v1) lean = -0.09 * (1 - seg(a, ATK_HIT, ATK_END)); if (!b.atkFired) { b.atkFired = true; fireDart(); if (v1) b.knock = -26; } }
       else b.atk = -1;
     }
-    if (b.cast >= 0) { b.cast += dt; const a = b.cast, k = a < 0.25 ? a / 0.25 : a < 0.6 ? 1 : Math.max(0, 1 - (a - 0.6) / 0.3); lean += (B.castLean == null ? -0.15 : B.castLean) * k; if (a > 0.9) b.cast = -1; }
+    if (b.cast >= 0) { b.cast += dt; const a = b.cast, k = a < 0.25 ? a / 0.25 : a < 0.6 ? 1 : Math.max(0, 1 - (a - 0.6) / 0.3); lean += (B.castLean == null ? (B.v === 2 ? 0 : -0.15) : B.castLean) * k; if (a > 0.9) b.cast = -1; }
     if (b.stun > 0) lean += Math.sin(b.t * 32) * 0.03;
     b.lean = lerp(b.lean, lean, 1 - Math.exp(-dt * 18));
     b.rot = (B.static ? 0 : Math.sin(b.t * 1.1) * 0.045) + b.lean;
     if (B.update) B.update(b, dt);
     for (let i = F.darts.length - 1; i >= 0; i--) {
-      const d = F.darts[i]; d.t += dt; const k = Math.min(1, d.t / d.dur);
+      const d = F.darts[i]; d.t += dt; const k = Math.min(1, d.t / d.dur); d.px = d.x; d.py = d.y; d.k = k;
       d.x = lerp(d.sx, d.tx, k); d.y = lerp(d.sy, d.ty, k) - Math.sin(k * Math.PI) * 40;
       d.trail.push({ x: d.x, y: d.y }); if (d.trail.length > 10) d.trail.shift();
       if (k >= 1) { F.darts.splice(i, 1); playerHit(d.cb); if (!F) return; }
@@ -746,6 +789,11 @@ const Arena = (() => {
     F.shakeMag = Math.max(0, F.shakeMag - real * 40);
     F.hurtFlash = Math.max(0, F.hurtFlash - real * 2);
     if (Math.random() < dt * 6) { const bx = Math.random() < 0.5 ? F.W * 0.04 : F.W * 0.965; parts.push({ x: bx + rand(-4, 4), y: F.groundY - 74, vx: rand(-10, 10), vy: rand(-60, -30), life: 0, max: rand(0.8, 1.6), size: rand(1, 2.4), color: C.lamp, kind: "dot", rot: 0, vr: 0, g: -10 }); }
+    if (F.mode === "boss") {
+      const ph = F.phase, danger = ph === "question" && F.bar / F.barMax > 0.8;
+      Music.set(ph === "feedback" || ph === "end" ? 0 : b.rage ? 3 : ph === "question" && !danger ? 1 : 2, F.paused ? 0.15 : ph === "feedback" ? 0.45 : ph === "question" ? 0.75 : 1);
+      F.statusT -= real; if (F.statusT <= 0) { F.statusT = 0.2; refreshStatus(); }
+    }
     F.scoreShown = lerp(F.scoreShown, F.score, 1 - Math.exp(-real * 8));
     if (Math.abs(F.scoreShown - F.score) < 0.5) F.scoreShown = F.score;
     F.els.score.textContent = Math.round(F.scoreShown);
@@ -821,15 +869,45 @@ const Arena = (() => {
     ctx.strokeStyle = coat; ctx.lineWidth = 9; ctx.beginPath(); ctx.moveTo(sh2.x, sh2.y); ctx.lineTo(el.x, el.y); ctx.lineTo(pouch.x, pouch.y); ctx.stroke();
     ctx.fillStyle = skin; ctx.beginPath(); ctx.arc(pouch.x, pouch.y + 1, 5.5, 0, Math.PI * 2); ctx.fill();
   }
+  function drawBossAt(ctx, dx, dy, alpha, sc, mirage) {
+    const b = F.b;
+    ctx.save(); ctx.translate(b.x + b.knock + dx, b.y + dy); ctx.rotate(b.rot); ctx.scale(F.bs * sc, F.bs * sc);
+    if (F.B.v !== 2 && b.enter < 1) { alpha *= b.enter; ctx.translate(0, -(1 - easeOut(b.enter)) * 260); }
+    if (alpha < 1) ctx.globalAlpha = alpha;
+    b.isMirage = mirage;
+    try { F.B.draw(ctx, b); } catch (e) { /* un dessin raté ne doit pas casser le combat */ }
+    b.isMirage = false;
+    ctx.restore();
+  }
   function drawBoss(ctx) {
     const b = F.b; if (b.gone) return;
-    ctx.save(); ctx.translate(b.x + b.knock, b.y); ctx.rotate(b.rot); ctx.scale(F.bs, F.bs);
-    try { F.B.draw(ctx, b); } catch (e) { /* un dessin raté ne doit pas casser le combat */ }
-    ctx.restore();
+    for (const list of call("ghosts")) for (const g of list || []) drawBossAt(ctx, g.dx, g.dy, g.alpha, g.scale || 1, true);
+    drawBossAt(ctx, 0, 0, 1, 1, false);
     if ((F.phase === "question" || F.phase === "flying") && call("critAllowed").every((v) => v !== false)) {
       const ws = weakWorld(), r = (F.B.hit.coreR + 12) * F.bs;
       ctx.save(); ctx.translate(ws.x, ws.y); ctx.rotate(F.time * 0.8); ctx.setLineDash([6, 6]); ctx.strokeStyle = col(C.lamp, 0.65); ctx.lineWidth = 1.6; ctx.beginPath(); ctx.arc(0, 0, r, 0, Math.PI * 2); ctx.stroke(); ctx.restore();
     }
+  }
+  /** Avertit le joueur pendant l'armement de la riposte. */
+  function drawTelegraph(ctx) {
+    const b = F.b; if (b.atk < 0 || b.atk >= ATK_WIND || b.gone) return;
+    const k = b.atk / ATK_WIND, s = toWorld(F.B.attackFrom || { x: 0, y: 0 }), tx = F.player.x + 4, ty = F.groundY - 92;
+    ctx.save(); ctx.setLineDash([8, 8]); ctx.lineDashOffset = -F.time * 60; ctx.strokeStyle = col(C.bad, 0.25 + 0.5 * k); ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(s.x, s.y); ctx.quadraticCurveTo((s.x + tx) / 2, (s.y + ty) / 2 - 60, tx, ty); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = col(C.bad, 0.55 + 0.45 * Math.sin(F.time * 30)); ctx.font = "800 36px " + F_DISPLAY; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("!", F.player.x + 4, F.groundY - 188);
+    ctx.restore();
+  }
+  function refreshStatus() {
+    const items = F.mode === "boss" && F.phase !== "intro" && F.phase !== "entrance" && F.phase !== "end" && !F.b.dead ? call("status").filter(Boolean) : [];
+    const key = items.map((x) => x.kind + ":" + x.text).join("|");
+    if (key === F.statusKey) return;
+    F.statusKey = key;
+    F.els["arena-status"].innerHTML = items.map((x) => '<span class="st-' + (x.kind || "info") + '">' + esc(x.text) + "</span>").join("");
+  }
+  function audioLabels() {
+    const v = F.els["pause-veil"], m = v.querySelector('[data-audio="music"]'), so = v.querySelector('[data-audio="sound"]');
+    if (m) m.textContent = "Musique : " + (Music.on ? "oui" : "non");
+    if (so) so.textContent = "Tout le son : " + (Sound.on ? "oui" : "non");
   }
   function drawTorches(ctx) {
     for (const bx of [F.W * 0.04, F.W * 0.965]) {
@@ -891,17 +969,25 @@ const Arena = (() => {
     ctx.drawImage(F.els.bg, 0, 0, W, H);
     ctx.save();
     if (F.shakeMag > 0) ctx.translate(rand(-F.shakeMag, F.shakeMag), rand(-F.shakeMag, F.shakeMag));
+    if (F.punch > 0 && !reduceMotion) { const z = 1 + 0.035 * F.punch, bb = F.b; ctx.translate(bb.x, bb.y); ctx.scale(z, z); ctx.translate(-bb.x, -bb.y); }
     for (const s of F.stars) { ctx.fillStyle = "rgba(232,236,246," + (0.25 + 0.6 * Math.abs(Math.sin(F.time * s.s + s.p))) + ")"; ctx.fillRect(s.x, s.y, s.r, s.r); }
     drawTorches(ctx);
+    if (F.B.ambient && F.env) { ctx.save(); try { F.B.ambient(ctx, F.env, F.b); } catch (e) { /* décor animé ignoré */ } ctx.restore(); }
     call("draw", ctx, "back");
     drawBoss(ctx);
     call("draw", ctx, "front");
+    drawTelegraph(ctx);
     for (const d of F.debris) { ctx.save(); ctx.translate(d.x, d.y); ctx.rotate(d.rot); ctx.fillStyle = col(d.color); rr(ctx, -d.w / 2 * F.bs, -d.h / 2 * F.bs, d.w * F.bs, d.h * F.bs, 5); ctx.fill(); ctx.restore(); }
     const pal = F.B.palette || {};
     for (const d of F.darts) {
-      const dc = F.b.rage ? (pal.rage || C.rage) : (pal.main || C.toxic);
+      const shot = F.B.shot, dc = (shot && shot.color) || (F.b.rage ? (pal.rage || C.rage) : (pal.main || C.toxic));
       d.trail.forEach((t, k) => { ctx.fillStyle = col(dc, (k / d.trail.length) * 0.5); ctx.beginPath(); ctx.arc(t.x, t.y, 2 + k * 0.5, 0, Math.PI * 2); ctx.fill(); });
-      ctx.save(); ctx.shadowColor = col(dc); ctx.shadowBlur = 16; ctx.fillStyle = "#f8fbff"; ctx.beginPath(); ctx.arc(d.x, d.y, 7, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+      ctx.save(); ctx.translate(d.x, d.y);
+      if (shot && shot.draw) {
+        ctx.scale(F.bs, F.bs); ctx.rotate(shot.spin ? d.t * shot.spin : Math.atan2(d.y - d.py, d.x - d.px));
+        try { shot.draw(ctx, { t: d.t, k: d.k || 0, rage: F.b.rage }); } catch (e) { /* projectile ignoré */ }
+      } else { ctx.shadowColor = col(dc); ctx.shadowBlur = 16; ctx.fillStyle = "#f8fbff"; ctx.beginPath(); ctx.arc(0, 0, 7, 0, Math.PI * 2); ctx.fill(); }
+      ctx.restore();
     }
     drawPlayer(ctx); drawSling(ctx);
     const p = F.proj;
@@ -968,6 +1054,7 @@ const Arena = (() => {
     return { n: F.n, ids: F.questions.map((q) => q.id), i: F.i, hearts: F.hearts, hp: F.hp, score: F.score, combo: F.combo, bestCombo: F.bestCombo, crits: F.crits, results: F.results, bonus: F.bonus, phaseIdx: F.phaseIdx, rage: F.b.rage, elapsed: performance.now() - F.t0, advance: F.phase !== "question" && F.phase !== "flying" };
   }
   function resumeFrom(s) {
+    F.b.enter = 1; Music.start(F.n);
     F.questions = s.ids.map((id) => QINDEX[id] && QINDEX[id].q).filter(Boolean);
     Object.assign(F, { i: s.i, hearts: s.hearts, prevHearts: s.hearts, hp: s.hp, score: s.score, scoreShown: s.score, combo: s.combo, bestCombo: s.bestCombo, crits: s.crits, results: s.results || [], bonus: s.bonus || 0, t0: performance.now() - (s.elapsed || 0) });
     F.b.hpFrac = F.hp / MAX_HP;

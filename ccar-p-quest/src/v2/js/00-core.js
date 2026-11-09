@@ -116,7 +116,7 @@ function angryEyes(c, x, y, w, h, color, squint, glow) {
 }
 
 /* ---------- Progression (navigateur + compte Claude) ---------- */
-function blankState() { return { v: 2, updatedAt: 0, levels: {}, domains: {}, review: {}, unlockAll: false, settings: { sound: true }, seenTutorial: false }; }
+function blankState() { return { v: 2, updatedAt: 0, levels: {}, domains: {}, review: {}, unlockAll: false, settings: { sound: true, music: true }, seenTutorial: false }; }
 function normalize(s) {
   const b = blankState();
   if (!s || typeof s !== "object") return b;
@@ -125,7 +125,7 @@ function normalize(s) {
   b.domains = s.domains && typeof s.domains === "object" ? s.domains : {};
   b.review = s.review && typeof s.review === "object" ? s.review : {};
   b.unlockAll = !!s.unlockAll;
-  b.settings = Object.assign({ sound: true }, s.settings || {});
+  b.settings = Object.assign({ sound: true, music: true }, s.settings || {});
   b.seenTutorial = !!s.seenTutorial;
   return b;
 }

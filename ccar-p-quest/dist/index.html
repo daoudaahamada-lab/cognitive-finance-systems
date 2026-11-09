@@ -384,12 +384,39 @@ a.floor:hover .thumb { transform: scale(1.06); }
 .tip b { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lamp); }
 .small-note { font-size: 14px; color: var(--glitch); }
 
+/* État des mécaniques, entrée en scène, tampon de victoire */
+.arena-status { position: absolute; top: 12px; left: max(16px, env(safe-area-inset-left, 0px)); display: grid; gap: 6px; justify-items: start; z-index: 2; pointer-events: none; }
+.arena-status span { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; padding: 3px 8px; border-radius: 3px; background: rgba(12, 17, 30, 0.82); border: 1px solid var(--line); color: var(--ink); }
+.arena-status .st-good { border-color: var(--ok); color: var(--ok); }
+.arena-status .st-warn { border-color: var(--bad); color: var(--bad); }
+.arena-status .st-glitch { border-color: var(--glitch); color: var(--glitch); }
+.stage.cine::before, .stage.cine::after { content: ""; position: absolute; left: 0; right: 0; height: 11%; background: #05070d; z-index: 4; animation: bars 0.35s ease-out; }
+.stage.cine::before { top: 0; }
+.stage.cine::after { bottom: 0; }
+.stage.cine .attack, .stage.cine .arena-status { opacity: 0; }
+.plate { position: absolute; left: max(20px, env(safe-area-inset-left, 0px)); right: 16px; top: 15%; z-index: 5; display: grid; gap: 2px; justify-items: start; pointer-events: none; animation: plate-in 0.5s cubic-bezier(0.2, 0.9, 0.2, 1) 0.35s both; }
+.plate-floor { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lamp); }
+.plate b { font-family: var(--font-display); font-weight: 800; font-size: clamp(38px, 8vw, 76px); line-height: 0.92; text-transform: uppercase; text-shadow: 0 4px 0 var(--night); }
+.plate span:last-child { color: var(--ink); font-size: 18px; font-style: italic; text-shadow: 0 2px 0 var(--night); }
+.stamp { position: absolute; left: 50%; top: 36%; z-index: 5; pointer-events: none; font-family: var(--font-display); font-weight: 800; font-size: clamp(38px, 9vw, 84px); line-height: 1.1; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ok); border: 6px solid var(--ok); border-radius: 10px; padding: 2px 22px; white-space: nowrap; background: rgba(12, 17, 30, 0.6); transform: translate(-50%, -50%) rotate(-8deg); opacity: 0; }
+.stamp.show { animation: stamp 2.3s cubic-bezier(0.2, 1.4, 0.3, 1) forwards; }
+@keyframes stamp { 0% { opacity: 0; transform: translate(-50%, -50%) rotate(-8deg) scale(2.6); } 12% { opacity: 1; transform: translate(-50%, -50%) rotate(-8deg) scale(1); } 85% { opacity: 1; transform: translate(-50%, -50%) rotate(-8deg) scale(1); } 100% { opacity: 0; transform: translate(-50%, -50%) rotate(-8deg) scale(1); } }
+@keyframes plate-in { from { opacity: 0; transform: translateX(-40px) skewX(-8deg); } to { opacity: 1; transform: none; } }
+@keyframes bars { from { height: 0; } }
+.pause-veil .btn-row { justify-content: center; margin-top: 8px; }
+@media (max-width: 860px) { .toast { top: 40px; } .stage { height: 42vh; } }
+@media (prefers-reduced-motion: reduce) { .stamp.show { opacity: 1; } }
+
 /* Fenêtres de début et de fin de combat */
 .overlay { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; background: rgba(8, 11, 20, 0.74); backdrop-filter: blur(3px); padding-block: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-bottom, 0px)); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); overflow-y: auto; }
 .ov-card { width: min(680px, 100%); background: var(--slab); border: 1px solid var(--line); border-radius: 10px; padding: 26px; display: grid; gap: 16px; margin: auto; }
 .ov-card h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(38px, 8vw, 60px); line-height: 0.95; text-transform: uppercase; }
 .ov-card .epithet { color: var(--muted); font-size: 18px; }
 .quote { font-style: italic; color: var(--muted); font-size: 17px; }
+.ov-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: center; }
+.ov-head > div { display: grid; gap: 10px; }
+.ov-head .thumb { border-radius: 8px; background: radial-gradient(circle at 50% 60%, var(--slab-2), var(--night) 75%); border: 1px solid var(--line); }
+@media (max-width: 560px) { .ov-head { grid-template-columns: minmax(0, 1fr); } .ov-head .thumb { grid-row: 1; } }
 .ov-card .mech-card { margin-top: 0; }
 .ov-card .steps-list, .ov-card .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; border: 0; overflow: visible; }
 @media (max-width: 560px) { .ov-card .steps { grid-template-columns: minmax(0, 1fr); } }
@@ -598,7 +625,7 @@ function angryEyes(c, x, y, w, h, color, squint, glow) {
 }
 
 /* ---------- Progression (navigateur + compte Claude) ---------- */
-function blankState() { return { v: 2, updatedAt: 0, levels: {}, domains: {}, review: {}, unlockAll: false, settings: { sound: true }, seenTutorial: false }; }
+function blankState() { return { v: 2, updatedAt: 0, levels: {}, domains: {}, review: {}, unlockAll: false, settings: { sound: true, music: true }, seenTutorial: false }; }
 function normalize(s) {
   const b = blankState();
   if (!s || typeof s !== "object") return b;
@@ -607,7 +634,7 @@ function normalize(s) {
   b.domains = s.domains && typeof s.domains === "object" ? s.domains : {};
   b.review = s.review && typeof s.review === "object" ? s.review : {};
   b.unlockAll = !!s.unlockAll;
-  b.settings = Object.assign({ sound: true }, s.settings || {});
+  b.settings = Object.assign({ sound: true, music: true }, s.settings || {});
   b.seenTutorial = !!s.seenTutorial;
   return b;
 }
@@ -731,13 +758,113 @@ const Sound = (() => {
     match: () => { tone(660, 0.1, "triangle", 0.16); tone(990, 0.16, "triangle", 0.14, null, 0.07); },
     nomatch: () => tone(200, 0.18, "square", 0.08, 150),
     ding: () => { tone(1046, 0.6, "sine", 0.18); tone(1568, 0.8, "sine", 0.1, null, 0.02); },
-    whoosh: () => noise(0.5, 900, 0.22, "bandpass")
+    whoosh: () => noise(0.5, 900, 0.22, "bandpass"),
+    entrance: () => { noise(1.1, 300, 0.3, "lowpass"); tone(55, 1.2, "sawtooth", 0.16, 110); tone(220, 0.5, "triangle", 0.12, 440, 0.9); },
+    telegraph: () => tone(520, 0.3, "square", 0.05, 880),
+    glitch: () => { for (let i = 0; i < 4; i++) tone(180 + Math.random() * 900, 0.04, "sawtooth", 0.05, null, i * 0.035); },
+    valid: () => { tone(880, 0.07, "triangle", 0.1); tone(1320, 0.1, "triangle", 0.1, null, 0.06); },
+    mirage: () => noise(0.4, 1400, 0.12, "bandpass"),
+    stamp: () => { tone(70, 0.25, "sine", 0.6, 40); noise(0.12, 900, 0.35, "lowpass"); }
   };
   return {
     ensure,
     play(n, a) { try { if (sfx[n]) sfx[n](a); } catch (e) { /* audio indisponible */ } },
     get on() { return isOn(); },
     toggle() { state.settings.sound = !isOn(); save(); if (isOn()) ensure(); return isOn(); }
+  };
+})();
+
+/* ---- 11-music.js ---- */
+/* ============================================================
+   Musique de combat générée dans la page (Web Audio, aucun fichier).
+   Une boucle de 16 pas par boss : basse, arpège, percussions.
+   Elle s'allège pendant la lecture et s'intensifie avec l'action et la rage.
+   ============================================================ */
+const Music = (() => {
+  const SCALES = { minor: [0, 2, 3, 5, 7, 8, 10], dorian: [0, 2, 3, 5, 7, 9, 10], phrygian: [0, 1, 3, 5, 7, 8, 10], harmonic: [0, 2, 3, 5, 7, 8, 11] };
+  const DRUMS = {
+    steady: { kick: [0, 8], snare: [4, 12], hat: [2, 6, 10, 14] },
+    four: { kick: [0, 4, 8, 12], snare: [4, 12], hat: [2, 6, 10, 14] },
+    broken: { kick: [0, 3, 8, 11], snare: [4, 12], hat: [2, 6, 10, 14, 15] },
+    heavy: { kick: [0, 10], snare: [8], hat: [4, 12] }
+  };
+  const _ = null;
+  /* Notes en degrés de gamme (0 = fondamentale, 7 = octave au-dessus) ; _ = silence. */
+  const TRACKS = {
+    1: { bpm: 86, root: 45, scale: "dorian", drums: "steady", bass: [0, _, _, _, 0, _, _, 4, 0, _, _, _, 3, _, _, _], arp: [7, _, _, 9, _, _, 11, _, _, 9, _, _, 8, _, 7, _] },
+    2: { bpm: 112, root: 40, scale: "minor", drums: "four", bass: [0, _, 0, _, 0, _, 3, _, 4, _, 4, _, 6, _, 4, _], arp: [7, 9, 11, 9, 7, 9, 11, 14, 7, 9, 11, 9, 10, 9, 7, 4] },
+    3: { bpm: 104, root: 38, scale: "phrygian", drums: "broken", bass: [0, _, _, 0, _, _, 1, _, 0, _, _, 0, _, 4, _, 1], arp: [7, _, 8, _, _, 11, _, 8, 7, _, _, 12, _, 11, 8, _] },
+    4: { bpm: 96, root: 41, scale: "harmonic", drums: "steady", bass: [0, _, _, 0, _, 2, _, _, 4, _, _, 5, _, 4, _, 2], arp: [7, _, 9, 10, _, 9, _, 13, 11, _, 9, 10, _, 9, _, 6] },
+    5: { bpm: 118, root: 43, scale: "dorian", drums: "four", bass: [0, _, 7, _, 0, _, 7, _, 3, _, 10, _, 4, _, 11, _], arp: [_, _, 9, _, _, 11, _, 9, _, _, 12, _, _, 11, 9, _] },
+    6: { bpm: 80, root: 36, scale: "phrygian", drums: "heavy", bass: [0, _, _, _, _, _, 0, _, 1, _, _, _, _, _, 0, _], arp: [7, _, _, _, 8, _, _, _, 7, _, _, _, 11, _, 8, _] },
+    7: { bpm: 108, root: 35, scale: "harmonic", drums: "broken", bass: [0, _, 0, _, _, 0, _, 5, 0, _, 0, _, _, 6, _, 4], arp: [7, _, 13, _, 11, _, 9, _, 7, _, 13, _, 12, 11, 9, _] },
+    8: { bpm: 100, root: 46, scale: "dorian", drums: "steady", bass: [0, _, _, 4, _, _, 0, _, 3, _, _, 5, _, _, 4, _], arp: [9, _, 11, _, 12, _, 11, _, 9, _, 7, _, 9, 11, _, _] },
+    9: { bpm: 126, root: 40, scale: "phrygian", drums: "broken", bass: [0, 0, _, 0, _, 1, _, 0, 0, 0, _, 3, _, 1, _, 0], arp: [7, _, 8, 7, _, 11, _, 8, 7, _, 8, 7, _, 12, 11, 8] },
+    10: { bpm: 92, root: 38, scale: "harmonic", drums: "steady", bass: [0, _, _, _, 0, _, 4, _, 5, _, _, _, 4, _, 2, _], arp: [7, _, 9, _, 11, _, 13, _, 14, _, 13, _, 11, _, 9, _] }
+  };
+  let ctx = null, out = null, timer = null, step = 0, nextT = 0, t0 = 0, track = null, level = 1, duck = 1, noiseBuf = null;
+  const enabled = () => state.settings.sound !== false && state.settings.music !== false;
+  const hz = (m) => 440 * Math.pow(2, (m - 69) / 12);
+  const note = (deg) => track.root + 12 * Math.floor(deg / 7) + SCALES[track.scale][((deg % 7) + 7) % 7];
+  function tone(type, f, t, dur, vol, cutoff) {
+    const o = ctx.createOscillator(), g = ctx.createGain(), lp = ctx.createBiquadFilter();
+    o.type = type; o.frequency.setValueAtTime(f, t); lp.type = "lowpass"; lp.frequency.setValueAtTime(cutoff, t);
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + 0.012); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(lp); lp.connect(g); g.connect(out); o.start(t); o.stop(t + dur + 0.03);
+  }
+  function kick(t, vol) {
+    const o = ctx.createOscillator(), g = ctx.createGain();
+    o.frequency.setValueAtTime(130, t); o.frequency.exponentialRampToValueAtTime(42, t + 0.13);
+    g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.17);
+    o.connect(g); g.connect(out); o.start(t); o.stop(t + 0.2);
+  }
+  function noise(t, dur, vol, type, freq) {
+    if (!noiseBuf) { noiseBuf = ctx.createBuffer(1, ctx.sampleRate, ctx.sampleRate); const d = noiseBuf.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1; }
+    const s = ctx.createBufferSource(), f = ctx.createBiquadFilter(), g = ctx.createGain();
+    s.buffer = noiseBuf; f.type = type; f.frequency.value = freq;
+    g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    s.connect(f); f.connect(g); g.connect(out); s.start(t, Math.random() * 0.5); s.stop(t + dur + 0.03);
+  }
+  /* Niveaux : 0 lecture de l'explication, 1 question, 2 action ou danger, 3 rage. */
+  function schedule(s, t) {
+    const d = DRUMS[track.drums], rage = level >= 3;
+    const b = track.bass[s]; if (b != null) tone("triangle", hz(note(b)), t, 0.28, 0.5, 520);
+    const a = track.arp[s]; if (a != null && (level >= 1 || s % 4 === 0)) tone("square", hz(note(a) + 12 + (rage && s % 2 ? 12 : 0)), t, 0.15, 0.06, 2300);
+    if (level >= 1 ? d.kick.includes(s) : s === 0) kick(t, level >= 1 ? 0.6 : 0.35);
+    if (level >= 1 && (d.hat.includes(s) || (rage && s % 2 === 1))) noise(t, 0.035, 0.08, "highpass", 7000);
+    if (level >= 2 && d.snare.includes(s)) noise(t, 0.11, 0.2, "bandpass", 1900);
+  }
+  function pump() {
+    if (!ctx || !track || !out) return;
+    out.gain.setTargetAtTime(enabled() ? 0.3 * duck : 0, ctx.currentTime, 0.12);
+    const spb = 60 / (track.bpm * (level >= 3 ? 1.08 : 1)) / 4;
+    if (nextT < ctx.currentTime - 0.1) nextT = ctx.currentTime + 0.05;   // onglet resté en arrière-plan
+    while (nextT < ctx.currentTime + 0.18) { if (enabled()) schedule(step, nextT); step = (step + 1) % 16; nextT += spb; }
+  }
+  function stop() {
+    if (timer) clearInterval(timer); timer = null;
+    if (out && ctx) { const o = out; try { o.gain.setTargetAtTime(0, ctx.currentTime, 0.1); } catch (e) { /* contexte fermé */ } setTimeout(() => { try { o.disconnect(); } catch (e) { /* déjà débranché */ } }, 700); }
+    out = null; track = null;
+  }
+  return {
+    start(n) {
+      stop();
+      const c = Sound.ensure(); if (!c || !TRACKS[n]) return;
+      try { ctx = c; track = TRACKS[n]; out = ctx.createGain(); out.gain.value = 0; out.connect(ctx.destination); step = 0; nextT = ctx.currentTime + 0.08; t0 = nextT; level = 1; duck = 1; timer = setInterval(pump, 40); pump(); }
+      catch (e) { stop(); }
+    },
+    stop,
+    /** Niveau d'intensité (0 à 3) et volume relatif (0 à 1). */
+    set(lv, dk) { level = lv; duck = dk; },
+    /** Pulsation 1→0 à chaque temps : calée sur la musique si elle joue, sinon sur l'horloge du jeu. */
+    beat(time, n) {
+      const tr = track || TRACKS[n] || TRACKS[1];
+      const ph = track && ctx ? ((((ctx.currentTime - t0) * tr.bpm / 60) % 1) + 1) % 1 : (time * tr.bpm / 60) % 1;
+      return Math.max(0, 1 - ph * 2.4);
+    },
+    get on() { return state.settings.music !== false; },
+    toggle() { state.settings.music = !(state.settings.music !== false); save(); return state.settings.music; },
+    node: () => out
   };
 })();
 
@@ -827,10 +954,11 @@ const Arena = (() => {
       mode: opts.mode, n: practice ? (opts.n || 0) : opts.n, level, B, opts, practiceKind: opts.practiceKind || null,
       questions, i: 0, hearts: HEARTS, prevHearts: HEARTS, hp: MAX_HP, score: 0, scoreShown: 0, combo: 0, bestCombo: 0, crits: 0, results: [], t0: 0,
       sel: [], perm: [], loaded: null, arriveAt: 0, bar: 0, barMax: practice ? Infinity : secondsFor(opts.n), warnT: 0, paused: false,
-      tutDone: !!state.seenTutorial, timeouts: 0, phase: "intro", phaseIdx: 0, mods: [], bonus: 0,
+      tutDone: !!state.seenTutorial, timeouts: 0, phase: "intro", phaseIdx: 0, mods: [], bonus: 0, punch: 0, statusKey: "", statusT: 0, env: null,
       W: 1000, H: 600, scale: 1, dpr: 1, groundY: 530, bs: 1, time: 0, hitStop: 0, timeScale: 1, shakeMag: 0, hurtFlash: 0, bubble: null, tickStep: 0,
       player: { x: 140, knock: 0, dy: 0, hurt: 0, blink: 0, blinkT: 2, mood: "idle" },
-      b: { x0: 700, y0: 230, x: 700, y: 230, t: 0, time: 0, rot: 0, knock: 0, flash: 0, squint: 0, rage: false, rageT: 0, hpFrac: 1, atk: -1, atkFired: false, atkCb: null, cast: -1, lean: 0, stun: 0, aiming: false, cracks: [], dead: false, gone: false, mech: {}, phase: 0, own: {} },
+      b: { x0: 700, y0: 230, x: 700, y: 230, t: 0, time: 0, rot: 0, knock: 0, flash: 0, squint: 0, rage: false, rageT: 0, hpFrac: 1, atk: -1, atkFired: false, atkCb: null, cast: -1, lean: 0, stun: 0, aiming: false, cracks: [], dead: false, gone: false, mech: {}, phase: 0, own: {},
+           enter: 1, dying: -1, dmg: 0, look: { x: -1, y: 0 }, threat: 0, gloat: 0, talk: 0, beat: 0, isMirage: false, offX: 0, offY: 0 },
       proj: null, drag: null, pull: { x: 0, y: 0 }, spring: { x: 0, y: 0, vx: 0, vy: 0 },
       particles: [], texts: [], darts: [], timers: [], stars: [], debris: [], els: {}
     };
@@ -838,7 +966,7 @@ const Arena = (() => {
     $("view").innerHTML = fightHTML();
     const els = F.els;
     ["stage", "stage-wrap", "arena-col", "boss-name", "phase-tag", "hp-num", "hp-bar", "hp-chip", "hp-fill", "combo", "score", "hearts", "sound-btn", "pause-btn", "quit-btn",
-     "arena-actions", "attack", "attack-fill", "attack-exam", "attack-zone", "attack-time", "banner", "toast", "hint", "pause-veil", "quit-veil",
+     "arena-actions", "arena-status", "plate", "stamp", "attack", "attack-fill", "attack-exam", "attack-zone", "attack-time", "banner", "toast", "hint", "pause-veil", "quit-veil",
      "q-count", "q-domain", "q-level", "dots", "q-stem", "lesson", "pick-hint", "stones", "actions", "auto-btn", "feedback"].forEach((id) => { els[id] = $(id); });
     els.ctx = els.stage.getContext("2d");
     els.bg = document.createElement("canvas");
@@ -867,7 +995,7 @@ const Arena = (() => {
     ro = null;
     document.querySelectorAll(".fly").forEach((d) => d.remove());
     document.body.classList.remove("in-fight");
-    hideOverlay();
+    hideOverlay(); Music.stop();
     F = null;
   }
   function fightHTML() {
@@ -882,10 +1010,11 @@ const Arena = (() => {
         '<button class="icon-btn" type="button" id="pause-btn" aria-label="Pause"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="3" width="3" height="10" rx="1" fill="currentColor"/><rect x="9.5" y="3" width="3" height="10" rx="1" fill="currentColor"/></svg></button></div>' +
       '</header><div class="stage" id="stage-wrap">' +
         '<canvas id="stage" aria-label="Arène : ton architecte et son lance-pierre face au boss. Charge une réponse, tire vers l’arrière puis relâche."></canvas>' +
-        '<div class="arena-actions" id="arena-actions"></div>' +
+        '<div class="arena-actions" id="arena-actions"></div><div class="arena-status" id="arena-status"></div>' +
+        '<div class="plate" id="plate" hidden></div><div class="stamp" id="stamp" hidden></div>' +
         '<div class="attack" id="attack"><div class="attack-meta"><span>Attaque du boss</span><span>dans <b id="attack-time">—</b></span></div><div class="attack-track"><div class="attack-zone" id="attack-zone" hidden></div><div class="attack-fill" id="attack-fill"></div><div class="attack-exam" id="attack-exam" title="Rythme de l’examen : 1 min 54 par question"></div></div></div>' +
         '<div class="banner" id="banner"></div><div class="toast" id="toast"></div><div class="hint" id="hint" hidden></div>' +
-        '<div class="pause-veil" id="pause-veil" hidden><b>Pause</b><span>Touche l’arène pour reprendre</span></div>' +
+        '<div class="pause-veil" id="pause-veil" hidden><b>Pause</b><span>Touche l’arène pour reprendre</span><div class="btn-row"><button class="btn btn-small" type="button" data-audio="music"></button><button class="btn btn-small" type="button" data-audio="sound"></button></div></div>' +
         '<div class="quit-veil" id="quit-veil" hidden><p>Quitter ce combat ?' + (practice ? "" : " La tentative compte.") + '</p><div class="btn-row"><button class="btn" type="button" data-quit="yes">Quitter</button><button class="btn btn-primary" type="button" data-quit="no">Continuer</button></div></div>' +
       '</div></div>' +
       '<section class="panel" id="panel" aria-live="polite">' +
@@ -931,12 +1060,13 @@ const Arena = (() => {
     F.scale = Math.min(r.height / 600, r.width / 760);
     F.W = r.width / F.scale; F.H = r.height / F.scale;
     F.groundY = F.H - 64;
-    F.bs = clamp(F.W / 980, 0.82, 1.05);
+    F.bs = (F.B.v === 2 ? ARENA_SCALE : 1) * clamp(F.W / 760, 1, 1.12);
     F.player.x = Math.max(96, F.W * 0.14);
     F.b.x0 = F.W * 0.71;
     F.b.y0 = F.B.ground ? F.groundY - F.B.ground * F.bs : F.groundY - Math.min(320, F.H * 0.52);
     const rnd = seeded(7 + (F.n || 0));
     F.stars = []; for (let i = 0; i < 80; i++) F.stars.push({ x: rnd() * F.W, y: rnd() * (F.groundY - 120), r: rnd() * 1.4 + 0.3, p: rnd() * 6, s: rnd() * 2 + 0.5 });
+    F.env = { W: F.W, H: F.H, groundY: F.groundY, n: F.n || 0, rnd: seeded(2000 + (F.n || 0)), time: F.time };
     buildBackground();
   }
   function buildBackground() {
@@ -984,11 +1114,24 @@ const Arena = (() => {
   /* ---------------- Déroulé ---------------- */
   function start() {
     Sound.ensure();
-    F.t0 = performance.now();
     if (F.mode === "boss") { lv(F.n).attempts = (L(F.n).attempts || 0) + 1; save(); }
     hideOverlay();
+    if (F.mode !== "boss") { F.t0 = performance.now(); startQuestion(); return; }
+    Music.start(F.n);
+    F.phase = "entrance"; F.b.enter = 0; F.b.t = 0;
+    const plate = F.els.plate;
+    plate.innerHTML = '<span class="plate-floor">Étage ' + pad(F.n) + " · " + esc(F.level.title) + "</span><b>" + esc(F.level.boss.name) + "</b><span>" + esc(F.level.boss.epithet) + "</span>";
+    plate.hidden = false; F.els["stage-wrap"].classList.add("cine");
+    Sound.play("entrance");
+    later(T_ENTER + 0.8, endEntrance);
+  }
+  /** Fin de l'entrée en scène (ou passage direct si le joueur touche l'arène). */
+  function endEntrance() {
+    if (!F || F.phase !== "entrance") return;
+    F.b.enter = 1; F.els.plate.hidden = true; F.els["stage-wrap"].classList.remove("cine");
+    F.t0 = performance.now();
     startQuestion();
-    if (F.mode === "boss") later(0.4, () => say(unquote(F.level.boss.taunt), 4));
+    later(0.3, () => say(unquote(F.level.boss.taunt), 4));
   }
   function startQuestion() {
     const q = curQ();
@@ -1122,6 +1265,7 @@ const Arena = (() => {
       if (!F) return;
       Sound.ensure();
       if (F.paused) { setPause(false); return; }
+      if (F.phase === "entrance") { endEntrance(); return; }
       const p = pointerToWorld(e);
       if (call("tap", p).some(Boolean)) return;
       if (F.phase !== "question") return;
@@ -1166,7 +1310,12 @@ const Arena = (() => {
     });
     F.els["sound-btn"].addEventListener("click", () => { const on = Sound.toggle(); F.els["sound-btn"].setAttribute("aria-pressed", String(on)); });
     F.els["pause-btn"].addEventListener("click", () => setPause(!F.paused));
-    F.els["pause-veil"].addEventListener("click", () => setPause(false));
+    F.els["pause-veil"].addEventListener("click", (e) => {
+      const a = e.target.closest("[data-audio]");
+      if (!a) { setPause(false); return; }
+      if (a.dataset.audio === "music") Music.toggle(); else { Sound.toggle(); F.els["sound-btn"].setAttribute("aria-pressed", String(Sound.on)); }
+      audioLabels();
+    });
     F.els["quit-btn"].addEventListener("click", () => { if (F.phase === "intro" || F.phase === "end") { exit(); return; } F.els["quit-veil"].hidden = false; setPause(true, true); });
     F.els["quit-veil"].addEventListener("click", (e) => {
       const b = e.target.closest("[data-quit]"); if (!b) return;
@@ -1250,7 +1399,7 @@ const Arena = (() => {
       if (F.mode === "boss") F.hp = Math.max(1, F.hp - dmg);
       const speed = F.mode === "boss" ? Math.round(50 * Math.max(0, 1 - F.bar / F.barMax)) : 0;
       F.score += 100 + (crit ? 50 : 0) + 25 * Math.min(4, F.combo - 1) + speed;
-      F.hitStop = crit ? 0.13 : 0.07; shake(crit ? 17 : 9);
+      F.hitStop = crit ? 0.13 : 0.07; shake(crit ? 17 : 9); F.punch = crit ? 1 : 0.6;
       F.b.flash = 1; F.b.knock = crit ? 30 : 16; F.b.squint = 1;
       addCrack(hx, hy, crit);
       burst(hx, hy, crit ? 26 : 14, { color: pal.accent || "#d9e8ff", kind: "shard", min: 120, max: crit ? 520 : 380, smin: 4, smax: 9, lift: 120 });
@@ -1314,15 +1463,16 @@ const Arena = (() => {
   }
 
   /* ---------------- Riposte ---------------- */
-  function bossAttack(cb) { F.b.atk = 0; F.b.atkFired = false; F.b.atkCb = cb; }
+  function bossAttack(cb) { F.b.atk = 0; F.b.atkFired = false; F.b.atkCb = cb; Sound.play("telegraph"); }
   function fireDart() {
     const s = toWorld(F.B.attackFrom || { x: 0, y: 0 });
-    F.darts.push({ sx: s.x, sy: s.y, x: s.x, y: s.y, tx: F.player.x + 4, ty: F.groundY - 92, t: 0, dur: 0.42, trail: [], cb: F.b.atkCb });
+    F.darts.push({ sx: s.x, sy: s.y, x: s.x, y: s.y, px: s.x + 1, py: s.y, k: 0, tx: F.player.x + 4, ty: F.groundY - 92, t: 0, dur: 0.5, trail: [], cb: F.b.atkCb });
     F.b.atkCb = null; Sound.play("dart");
   }
   function playerHit(cb) {
     F.hearts = Math.max(0, F.hearts - 1);
-    F.player.hurt = 1; F.hurtFlash = 1; shake(15); F.hitStop = 0.06;
+    F.player.hurt = 1; F.hurtFlash = 1; shake(15); F.hitStop = 0.06; F.b.gloat = 1;
+    if (F.mode === "boss" && F.hearts > 0) later(0.3, () => sayMaybe(F.B.lines.gloat, 0.7));
     const pal = F.B.palette || {};
     burst(F.player.x + 4, F.groundY - 92, 16, { color: F.b.rage ? (pal.rage || C.rage) : (pal.main || C.toxic), min: 80, max: 320, smin: 2, smax: 5 });
     popText("-1 vie", F.player.x, F.groundY - 170, C.bad, 34);
@@ -1383,20 +1533,25 @@ const Arena = (() => {
       F.loaded = null; Sound.play("release");
     });
   }
+  /** Coup de grâce : le boss joue sa propre mort (b.dying), puis le moteur ajoute l'explosion finale. */
   function bossDie() {
+    const b = F.b;
+    b.dead = true; F.hp = 0; renderHUD(); setMods([]);
+    shake(20); F.hitStop = 0.15; F.punch = 1; b.flash = 1; Sound.play("crit"); Music.set(0, 0.5);
+    if (F.B.v === 2) { b.dying = 0; F.timeScale = reduceMotion ? 1 : 0.45; later(0.5, () => { if (F) F.timeScale = 1; }); }
+    else finishDeath();
+  }
+  function finishDeath() {
     const b = F.b, pal = F.B.palette || {}, bs = F.bs, B = F.B;
-    b.dead = true; F.hp = 0; renderHUD();
-    F.timeScale = reduceMotion ? 1 : 0.35; later(1.1, () => { if (F) F.timeScale = 1; });
-    shake(24); F.hitStop = 0.15; Sound.play("shatter");
-    for (let k = 0; k < 46; k++) F.particles.push({ x: b.x + rand(-B.hit.rx, B.hit.rx) * bs, y: b.y + rand(-B.hit.ry, B.hit.ry) * bs, vx: rand(-260, 260), vy: rand(-520, -120), life: 0, max: rand(1.2, 2.2), size: rand(5, 13), color: pick([pal.accent || "#d9e8ff", pal.main || C.toxic, pal.dark || C.slab2]), kind: "shard", rot: rand(0, 6), vr: rand(-12, 12), g: GRAV });
-    burst(b.x, b.y, 50, { color: pal.main || C.toxic, min: 80, max: 460, lift: 160, smin: 3, smax: 7, lmax: 1.6 });
-    F.debris = [
-      { x: b.x - B.hit.rx * 0.6 * bs, y: b.y, vx: -120, vy: -260, rot: b.rot, vr: -4, w: 70, h: 18, color: pal.dark || C.slab2 },
-      { x: b.x + B.hit.rx * 0.6 * bs, y: b.y, vx: 160, vy: -300, rot: b.rot, vr: 5, w: 50, h: 40, color: pal.main || C.toxic }
-    ];
-    b.gone = true; F.player.mood = "win";
-    later(0.9, () => { Sound.play("win"); for (let k = 0; k < 60; k++) F.particles.push({ x: rand(0, F.W), y: rand(-60, -10), vx: rand(-40, 40), vy: rand(60, 200), life: 0, max: rand(2, 3.4), size: rand(4, 8), color: pick([C.lamp, C.ok, C.ink, pal.main || C.toxic]), kind: "confetti", rot: rand(0, 6), vr: rand(-6, 6), g: 60 }); });
-    later(2.2, () => endFight(true));
+    b.dying = 1; b.gone = true; F.player.mood = "win"; F.timeScale = 1;
+    shake(24); Sound.play("shatter"); Music.stop();
+    for (let k = 0; k < 36; k++) F.particles.push({ x: b.x + rand(-B.hit.rx, B.hit.rx) * bs * 0.8, y: b.y + rand(-B.hit.ry, B.hit.ry) * bs * 0.8, vx: rand(-260, 260), vy: rand(-520, -120), life: 0, max: rand(1.2, 2.2), size: rand(5, 13), color: pick([pal.accent || "#d9e8ff", pal.main || C.toxic, pal.dark || C.slab2]), kind: "shard", rot: rand(0, 6), vr: rand(-12, 12), g: GRAV });
+    burst(b.x, b.y, 44, { color: pal.main || C.toxic, min: 80, max: 460, lift: 160, smin: 3, smax: 7, lmax: 1.6 });
+    burst(b.x, b.y, 22, { color: C.lamp, kind: "spark", min: 240, max: 620, g: 0, lmin: 0.25, lmax: 0.5 });
+    const st = F.els.stamp; st.textContent = B.epitaph || "VAINCU"; st.hidden = false; st.className = "stamp"; void st.offsetWidth; st.className = "stamp show";
+    later(0.3, () => Sound.play("stamp"));
+    later(0.8, () => { Sound.play("win"); for (let k = 0; k < 60; k++) F.particles.push({ x: rand(0, F.W), y: rand(-60, -10), vx: rand(-40, 40), vy: rand(60, 200), life: 0, max: rand(2, 3.4), size: rand(4, 8), color: pick([C.lamp, C.ok, C.ink, pal.main || C.toxic]), kind: "confetti", rot: rand(0, 6), vr: rand(-6, 6), g: 60 }); });
+    later(2.5, () => endFight(true));
   }
 
   /* ---------------- Fin ---------------- */
@@ -1415,7 +1570,7 @@ const Arena = (() => {
       s.bestTime = s.bestTime ? Math.min(s.bestTime, Math.round(elapsed)) : Math.round(elapsed);
     }
     save();
-    if (!win) { Sound.play("lose"); say(unquote(F.level.boss.victory), 5); }
+    if (!win) { Music.stop(); Sound.play("lose"); say(unquote(F.level.boss.victory), 5); }
     const stars = win ? F.hearts : 0, level = F.level, n = F.n, lastFloor = n === LEVELS[LEVELS.length - 1].id;
     let starHTML = ""; for (let k = 0; k < 3; k++) starHTML += '<span class="' + (k < stars ? "on" : "") + '">★</span>';
     const missList = misses.length ? '<div><p class="eyebrow" style="margin-bottom:8px">À revoir (ajoutées à ta salle de révision)</p><ul class="misslist">' + misses.map((r) => { const q = QINDEX[r.id].q; return '<li lang="en">' + fmt(q.stem.length > 150 ? q.stem.slice(0, 150) + "…" : q.stem) + "</li>"; }).join("") + "</ul></div>" : "";
@@ -1423,8 +1578,8 @@ const Arena = (() => {
       ? (lastFloor ? '<button class="btn btn-primary" type="button" data-end="tower">Contempler la tour</button>' : '<button class="btn btn-primary" type="button" data-end="next">Monter à l’étage ' + pad(n + 1) + " ↑</button>") + '<button class="btn" type="button" data-end="again">Rejouer</button>' + (lastFloor ? "" : '<button class="btn" type="button" data-end="tower">La tour</button>')
       : '<button class="btn btn-primary" type="button" data-end="again">Réessayer</button><button class="btn" type="button" data-end="cards">Revoir les fiches</button><button class="btn" type="button" data-end="tower">La tour</button>';
     showOverlay(
-      '<p class="eyebrow">Étage ' + pad(n) + " · " + (win ? "Victoire" : "Défaite") + "</p>" +
-      '<h1 id="ov-title">' + (win ? (lastFloor ? "La tour est à toi" : esc(level.boss.name) + (/^La /.test(level.boss.name) ? " est vaincue" : " est vaincu")) : esc(level.boss.name) + " garde l’étage") + "</h1>" +
+      '<div class="ov-head"><div><p class="eyebrow">Étage ' + pad(n) + " · " + (win ? "Victoire" : "Défaite") + "</p>" +
+      '<h1 id="ov-title">' + (win ? (lastFloor ? "La tour est à toi" : esc(level.boss.name) + (/^La /.test(level.boss.name) ? " est vaincue" : " est vaincu")) : esc(level.boss.name) + " garde l’étage") + "</h1></div>" + thumb(n, 190, 150, win ? "won" : "idle", 1.1) + "</div>" +
       '<p class="quote">« ' + esc(unquote(win ? level.boss.defeat : level.boss.victory)) + " »</p>" +
       (win ? '<div class="stars" aria-label="' + stars + ' étoiles sur 3">' + starHTML + "</div>" : "") +
       '<div><p class="eyebrow">Score</p><div class="big-score">' + F.score + "</div>" + (record ? '<p class="record">Nouveau record</p>' : s.bestScore ? '<p class="note">Record : ' + s.bestScore + "</p>" : "") + "</div>" +
@@ -1462,8 +1617,8 @@ const Arena = (() => {
         '<li><svg viewBox="0 0 34 34" aria-hidden="true"><path d="M17 31V18M17 18L10 6M17 18l7-12" stroke="#7a5a3f" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M10 6l-4 10M24 6l-18 10" stroke="#d9774b" stroke-width="1.6" fill="none"/><circle cx="6" cy="17" r="3.5" fill="#f3b841"/></svg><b>3. Tire</b><span>Tire vers l’arrière dans l’arène, vise, relâche. Sa cible critique vaut plus de dégâts.</span></li>' +
       "</ol>";
     showOverlay(
-      '<p class="eyebrow">Étage ' + pad(F.n) + " · " + esc(level.title) + "</p>" +
-      '<h1 id="ov-title">' + esc(level.boss.name) + '</h1><p class="epithet">' + esc(level.boss.epithet) + '</p><p class="quote">« ' + esc(unquote(level.boss.taunt)) + " »</p>" +
+      '<div class="ov-head"><div><p class="eyebrow">Étage ' + pad(F.n) + " · " + esc(level.title) + "</p>" +
+      '<h1 id="ov-title">' + esc(level.boss.name) + '</h1><p class="epithet">' + esc(level.boss.epithet) + "</p></div>" + thumb(F.n, 190, 150, "idle", 1.1) + '</div><p class="quote">« ' + esc(unquote(level.boss.taunt)) + " »</p>" +
       '<div class="mech-card"><b>' + esc(B.intro ? B.intro.title : "Sa mécanique") + "</b><span>" + esc(B.intro ? B.intro.text : "") + "</span></div>" +
       steps +
       '<ul class="rules"><li><strong>Bonne réponse</strong> : il perd de la vie. <strong>Mauvaise</strong> : ta pierre se brise et il riposte, −1 vie. 3 vies : survis aux 10 questions.</li>' +
@@ -1479,14 +1634,14 @@ const Arena = (() => {
   }
   function showOverlay(html, onClick) {
     const ov = $("overlay"), card = $("ov-card");
-    card.innerHTML = html; ov.hidden = false;
+    card.innerHTML = html; ov.hidden = false; Thumbs.scan();
     card.onclick = onClick || null;
     const first = card.querySelector(".btn-primary"); if (first) first.focus({ preventScroll: true });
   }
   function hideOverlay() { const ov = $("overlay"); if (ov) { ov.hidden = true; $("ov-card").onclick = null; } }
   function setPause(v, silent) {
     if (!F || F.phase === "intro" || F.phase === "end") return;
-    F.paused = v; F.els["pause-veil"].hidden = !v || !!silent; F.els.attack.classList.toggle("paused-bar", v);
+    F.paused = v; F.els["pause-veil"].hidden = !v || !!silent; if (v) audioLabels(); F.els.attack.classList.toggle("paused-bar", v);
     F.els["pause-btn"].setAttribute("aria-label", v ? "Reprendre" : "Pause");
   }
 
@@ -1504,6 +1659,8 @@ const Arena = (() => {
     }
     call("tick", dt, real);
     if (!F) return;
+    if (F.phase === "entrance") b.enter = Math.min(1, b.enter + real / T_ENTER);
+    if (b.dying >= 0 && b.dying < 1) { b.dying = Math.min(1, b.dying + dt / T_DIE); if (b.dying >= 1) { finishDeath(); if (!F) return; } }
     const p = F.player;
     p.blinkT -= dt; if (p.blinkT <= 0) { p.blink = 0.12; p.blinkT = rand(2.2, 4.5); }
     p.blink = Math.max(0, p.blink - dt); p.hurt = Math.max(0, p.hurt - dt * 1.6); p.knock = -18 * p.hurt;
@@ -1512,29 +1669,42 @@ const Arena = (() => {
     if (!F.drag) { sp.vx += (-320 * sp.x - 15 * sp.vx) * dt; sp.vy += (-320 * sp.y - 15 * sp.vy) * dt; sp.x += sp.vx * dt; sp.y += sp.vy * dt; }
     b.t += dt; b.time = F.time;
     const fast = b.rage ? 1.7 : 1;
-    b.x = b.x0 + (B.static ? 0 : b.rage ? Math.sin(b.t * 0.95) * 44 : Math.sin(b.t * 0.45) * 10);
-    b.y = b.y0 + (B.static ? 0 : Math.sin(b.t * 1.7 * fast) * 14 * F.bs);
+    let off = B.static ? { x: 0, y: 0 } : { x: b.rage ? Math.sin(b.t * 0.95) * 44 : Math.sin(b.t * 0.45) * 10, y: Math.sin(b.t * 1.7 * fast) * 14 };
+    if (B.motion && !b.dead && F.env) { try { off = B.motion(b, F.env) || off; } catch (e) { /* déplacement par défaut */ } }
+    const upMax = Math.max(10, b.y0 - ((B.top || 120) + 10) * F.bs), mk = 1 - Math.exp(-dt * 16);
+    b.offX = lerp(b.offX, clamp(off.x, -90, 40), mk); b.offY = lerp(b.offY, clamp(off.y, -Math.min(80, upMax), 70), mk);
+    b.x = b.x0 + b.offX; b.y = b.y0 + b.offY;
     b.flash = Math.max(0, b.flash - dt * 4); b.squint = Math.max(0, b.squint - dt * 2.5);
     b.knock = lerp(b.knock, 0, 1 - Math.exp(-dt * 7));
     b.rageT = clamp(b.rageT + (b.rage ? dt : -dt) * 1.2, 0, 1);
     b.hpFrac = lerp(b.hpFrac, F.hp / MAX_HP, 1 - Math.exp(-dt * 5));
     b.stun = Math.max(0, b.stun - dt);
     b.aiming = F.phase === "question" || F.phase === "flying";
+    if (F.mode === "boss") b.dmg = F.hp > 75 ? 0 : F.hp > 50 ? 1 : F.hp > 25 ? 2 : 3;
+    const tgt = F.proj ? F.proj : F.drag ? pouchWorld() : { x: F.player.x + 4, y: F.groundY - 130 };
+    const lx = tgt.x - b.x, ly = tgt.y - b.y, ld = Math.max(1, Math.hypot(lx, ly)), cr = Math.cos(-b.rot), sr = Math.sin(-b.rot), lk = 1 - Math.exp(-dt * 12);
+    b.look.x = lerp(b.look.x, (lx * cr - ly * sr) / ld, lk); b.look.y = lerp(b.look.y, (lx * sr + ly * cr) / ld, lk);
+    b.threat = lerp(b.threat, F.drag ? Math.min(1, Math.hypot(F.pull.x, F.pull.y) / MAX_PULL) : 0, 1 - Math.exp(-dt * 8));
+    b.gloat = Math.max(0, b.gloat - dt / 1.3);
+    b.talk = F.bubble ? 0.5 + 0.5 * Math.sin(F.time * 14) : 0;
+    b.beat = Music.beat(F.time, F.n);
+    F.punch = Math.max(0, F.punch - real * 4);
+    if (F.env) F.env.time = F.time;
     let lean = 0;
     if (b.atk >= 0) {
       b.atk += dt; const a = b.atk;
-      if (a < 0.22) lean = 0.07 * (a / 0.22);
-      else if (a < 0.34) { lean = -0.09; if (!b.atkFired) { b.atkFired = true; fireDart(); b.knock = -26; } }
-      else if (a < 0.75) lean = -0.09 * (1 - (a - 0.34) / 0.41);
+      const v1 = B.v !== 2;   // les boss v2 dessinent eux-mêmes leur pose de riposte
+      if (a < ATK_WIND) lean = v1 ? 0.07 * (a / ATK_WIND) : 0;
+      else if (a < ATK_END) { if (v1) lean = -0.09 * (1 - seg(a, ATK_HIT, ATK_END)); if (!b.atkFired) { b.atkFired = true; fireDart(); if (v1) b.knock = -26; } }
       else b.atk = -1;
     }
-    if (b.cast >= 0) { b.cast += dt; const a = b.cast, k = a < 0.25 ? a / 0.25 : a < 0.6 ? 1 : Math.max(0, 1 - (a - 0.6) / 0.3); lean += (B.castLean == null ? -0.15 : B.castLean) * k; if (a > 0.9) b.cast = -1; }
+    if (b.cast >= 0) { b.cast += dt; const a = b.cast, k = a < 0.25 ? a / 0.25 : a < 0.6 ? 1 : Math.max(0, 1 - (a - 0.6) / 0.3); lean += (B.castLean == null ? (B.v === 2 ? 0 : -0.15) : B.castLean) * k; if (a > 0.9) b.cast = -1; }
     if (b.stun > 0) lean += Math.sin(b.t * 32) * 0.03;
     b.lean = lerp(b.lean, lean, 1 - Math.exp(-dt * 18));
     b.rot = (B.static ? 0 : Math.sin(b.t * 1.1) * 0.045) + b.lean;
     if (B.update) B.update(b, dt);
     for (let i = F.darts.length - 1; i >= 0; i--) {
-      const d = F.darts[i]; d.t += dt; const k = Math.min(1, d.t / d.dur);
+      const d = F.darts[i]; d.t += dt; const k = Math.min(1, d.t / d.dur); d.px = d.x; d.py = d.y; d.k = k;
       d.x = lerp(d.sx, d.tx, k); d.y = lerp(d.sy, d.ty, k) - Math.sin(k * Math.PI) * 40;
       d.trail.push({ x: d.x, y: d.y }); if (d.trail.length > 10) d.trail.shift();
       if (k >= 1) { F.darts.splice(i, 1); playerHit(d.cb); if (!F) return; }
@@ -1556,6 +1726,11 @@ const Arena = (() => {
     F.shakeMag = Math.max(0, F.shakeMag - real * 40);
     F.hurtFlash = Math.max(0, F.hurtFlash - real * 2);
     if (Math.random() < dt * 6) { const bx = Math.random() < 0.5 ? F.W * 0.04 : F.W * 0.965; parts.push({ x: bx + rand(-4, 4), y: F.groundY - 74, vx: rand(-10, 10), vy: rand(-60, -30), life: 0, max: rand(0.8, 1.6), size: rand(1, 2.4), color: C.lamp, kind: "dot", rot: 0, vr: 0, g: -10 }); }
+    if (F.mode === "boss") {
+      const ph = F.phase, danger = ph === "question" && F.bar / F.barMax > 0.8;
+      Music.set(ph === "feedback" || ph === "end" ? 0 : b.rage ? 3 : ph === "question" && !danger ? 1 : 2, F.paused ? 0.15 : ph === "feedback" ? 0.45 : ph === "question" ? 0.75 : 1);
+      F.statusT -= real; if (F.statusT <= 0) { F.statusT = 0.2; refreshStatus(); }
+    }
     F.scoreShown = lerp(F.scoreShown, F.score, 1 - Math.exp(-real * 8));
     if (Math.abs(F.scoreShown - F.score) < 0.5) F.scoreShown = F.score;
     F.els.score.textContent = Math.round(F.scoreShown);
@@ -1631,15 +1806,45 @@ const Arena = (() => {
     ctx.strokeStyle = coat; ctx.lineWidth = 9; ctx.beginPath(); ctx.moveTo(sh2.x, sh2.y); ctx.lineTo(el.x, el.y); ctx.lineTo(pouch.x, pouch.y); ctx.stroke();
     ctx.fillStyle = skin; ctx.beginPath(); ctx.arc(pouch.x, pouch.y + 1, 5.5, 0, Math.PI * 2); ctx.fill();
   }
+  function drawBossAt(ctx, dx, dy, alpha, sc, mirage) {
+    const b = F.b;
+    ctx.save(); ctx.translate(b.x + b.knock + dx, b.y + dy); ctx.rotate(b.rot); ctx.scale(F.bs * sc, F.bs * sc);
+    if (F.B.v !== 2 && b.enter < 1) { alpha *= b.enter; ctx.translate(0, -(1 - easeOut(b.enter)) * 260); }
+    if (alpha < 1) ctx.globalAlpha = alpha;
+    b.isMirage = mirage;
+    try { F.B.draw(ctx, b); } catch (e) { /* un dessin raté ne doit pas casser le combat */ }
+    b.isMirage = false;
+    ctx.restore();
+  }
   function drawBoss(ctx) {
     const b = F.b; if (b.gone) return;
-    ctx.save(); ctx.translate(b.x + b.knock, b.y); ctx.rotate(b.rot); ctx.scale(F.bs, F.bs);
-    try { F.B.draw(ctx, b); } catch (e) { /* un dessin raté ne doit pas casser le combat */ }
-    ctx.restore();
+    for (const list of call("ghosts")) for (const g of list || []) drawBossAt(ctx, g.dx, g.dy, g.alpha, g.scale || 1, true);
+    drawBossAt(ctx, 0, 0, 1, 1, false);
     if ((F.phase === "question" || F.phase === "flying") && call("critAllowed").every((v) => v !== false)) {
       const ws = weakWorld(), r = (F.B.hit.coreR + 12) * F.bs;
       ctx.save(); ctx.translate(ws.x, ws.y); ctx.rotate(F.time * 0.8); ctx.setLineDash([6, 6]); ctx.strokeStyle = col(C.lamp, 0.65); ctx.lineWidth = 1.6; ctx.beginPath(); ctx.arc(0, 0, r, 0, Math.PI * 2); ctx.stroke(); ctx.restore();
     }
+  }
+  /** Avertit le joueur pendant l'armement de la riposte. */
+  function drawTelegraph(ctx) {
+    const b = F.b; if (b.atk < 0 || b.atk >= ATK_WIND || b.gone) return;
+    const k = b.atk / ATK_WIND, s = toWorld(F.B.attackFrom || { x: 0, y: 0 }), tx = F.player.x + 4, ty = F.groundY - 92;
+    ctx.save(); ctx.setLineDash([8, 8]); ctx.lineDashOffset = -F.time * 60; ctx.strokeStyle = col(C.bad, 0.25 + 0.5 * k); ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(s.x, s.y); ctx.quadraticCurveTo((s.x + tx) / 2, (s.y + ty) / 2 - 60, tx, ty); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = col(C.bad, 0.55 + 0.45 * Math.sin(F.time * 30)); ctx.font = "800 36px " + F_DISPLAY; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("!", F.player.x + 4, F.groundY - 188);
+    ctx.restore();
+  }
+  function refreshStatus() {
+    const items = F.mode === "boss" && F.phase !== "intro" && F.phase !== "entrance" && F.phase !== "end" && !F.b.dead ? call("status").filter(Boolean) : [];
+    const key = items.map((x) => x.kind + ":" + x.text).join("|");
+    if (key === F.statusKey) return;
+    F.statusKey = key;
+    F.els["arena-status"].innerHTML = items.map((x) => '<span class="st-' + (x.kind || "info") + '">' + esc(x.text) + "</span>").join("");
+  }
+  function audioLabels() {
+    const v = F.els["pause-veil"], m = v.querySelector('[data-audio="music"]'), so = v.querySelector('[data-audio="sound"]');
+    if (m) m.textContent = "Musique : " + (Music.on ? "oui" : "non");
+    if (so) so.textContent = "Tout le son : " + (Sound.on ? "oui" : "non");
   }
   function drawTorches(ctx) {
     for (const bx of [F.W * 0.04, F.W * 0.965]) {
@@ -1701,17 +1906,25 @@ const Arena = (() => {
     ctx.drawImage(F.els.bg, 0, 0, W, H);
     ctx.save();
     if (F.shakeMag > 0) ctx.translate(rand(-F.shakeMag, F.shakeMag), rand(-F.shakeMag, F.shakeMag));
+    if (F.punch > 0 && !reduceMotion) { const z = 1 + 0.035 * F.punch, bb = F.b; ctx.translate(bb.x, bb.y); ctx.scale(z, z); ctx.translate(-bb.x, -bb.y); }
     for (const s of F.stars) { ctx.fillStyle = "rgba(232,236,246," + (0.25 + 0.6 * Math.abs(Math.sin(F.time * s.s + s.p))) + ")"; ctx.fillRect(s.x, s.y, s.r, s.r); }
     drawTorches(ctx);
+    if (F.B.ambient && F.env) { ctx.save(); try { F.B.ambient(ctx, F.env, F.b); } catch (e) { /* décor animé ignoré */ } ctx.restore(); }
     call("draw", ctx, "back");
     drawBoss(ctx);
     call("draw", ctx, "front");
+    drawTelegraph(ctx);
     for (const d of F.debris) { ctx.save(); ctx.translate(d.x, d.y); ctx.rotate(d.rot); ctx.fillStyle = col(d.color); rr(ctx, -d.w / 2 * F.bs, -d.h / 2 * F.bs, d.w * F.bs, d.h * F.bs, 5); ctx.fill(); ctx.restore(); }
     const pal = F.B.palette || {};
     for (const d of F.darts) {
-      const dc = F.b.rage ? (pal.rage || C.rage) : (pal.main || C.toxic);
+      const shot = F.B.shot, dc = (shot && shot.color) || (F.b.rage ? (pal.rage || C.rage) : (pal.main || C.toxic));
       d.trail.forEach((t, k) => { ctx.fillStyle = col(dc, (k / d.trail.length) * 0.5); ctx.beginPath(); ctx.arc(t.x, t.y, 2 + k * 0.5, 0, Math.PI * 2); ctx.fill(); });
-      ctx.save(); ctx.shadowColor = col(dc); ctx.shadowBlur = 16; ctx.fillStyle = "#f8fbff"; ctx.beginPath(); ctx.arc(d.x, d.y, 7, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+      ctx.save(); ctx.translate(d.x, d.y);
+      if (shot && shot.draw) {
+        ctx.scale(F.bs, F.bs); ctx.rotate(shot.spin ? d.t * shot.spin : Math.atan2(d.y - d.py, d.x - d.px));
+        try { shot.draw(ctx, { t: d.t, k: d.k || 0, rage: F.b.rage }); } catch (e) { /* projectile ignoré */ }
+      } else { ctx.shadowColor = col(dc); ctx.shadowBlur = 16; ctx.fillStyle = "#f8fbff"; ctx.beginPath(); ctx.arc(0, 0, 7, 0, Math.PI * 2); ctx.fill(); }
+      ctx.restore();
     }
     drawPlayer(ctx); drawSling(ctx);
     const p = F.proj;
@@ -1778,6 +1991,7 @@ const Arena = (() => {
     return { n: F.n, ids: F.questions.map((q) => q.id), i: F.i, hearts: F.hearts, hp: F.hp, score: F.score, combo: F.combo, bestCombo: F.bestCombo, crits: F.crits, results: F.results, bonus: F.bonus, phaseIdx: F.phaseIdx, rage: F.b.rage, elapsed: performance.now() - F.t0, advance: F.phase !== "question" && F.phase !== "flying" };
   }
   function resumeFrom(s) {
+    F.b.enter = 1; Music.start(F.n);
     F.questions = s.ids.map((id) => QINDEX[id] && QINDEX[id].q).filter(Boolean);
     Object.assign(F, { i: s.i, hearts: s.hearts, prevHearts: s.hearts, hp: s.hp, score: s.score, scoreShown: s.score, combo: s.combo, bestCombo: s.bestCombo, crits: s.crits, results: s.results || [], bonus: s.bonus || 0, t0: performance.now() - (s.elapsed || 0) });
     F.b.hpFrac = F.hp / MAX_HP;
@@ -1798,15 +2012,38 @@ const Arena = (() => {
    Règle commune : une mécanique change les dégâts, le temps ou la visée, jamais la justesse d'une réponse.
    ============================================================ */
 
-/* L'Ambigu — brouillard : cache la cible critique et raccourcit la visée. */
+/* L'Ambigu — brouillard : cache la cible critique et raccourcit la visée.
+   Par moments, un mirage (copie leurre du boss) vient barrer la route : il faut le contourner. */
 MECH.fog = {
   init(api, st) {
-    st.level = 0.85; st.shown = 0.85; st.puffs = [];
+    st.level = 0.85; st.shown = 0.85; st.puffs = []; st.mirage = null; st.mt = 7;
     for (let i = 0; i < 14; i++) st.puffs.push({ a: rand(0, 6.28), r: rand(20, 160), s: rand(0.1, 0.35) * (Math.random() < 0.5 ? -1 : 1), size: rand(70, 140) });
   },
-  tick(api, st, dt) { st.shown = lerp(st.shown, st.level, 1 - Math.exp(-dt * 2.5)); for (const p of st.puffs) p.a += p.s * dt; },
+  questionStart(api, st) { st.mirage = null; st.mt = rand(5, 8); },
+  tick(api, st, dt, real) {
+    st.shown = lerp(st.shown, st.level, 1 - Math.exp(-dt * 2.5)); for (const p of st.puffs) p.a += p.s * dt;
+    const F = api.F, m = st.mirage;
+    if (m) { m.t += dt; m.a = clamp(Math.min(m.t * 2, (m.life - m.t) * 2), 0, 1); if (m.t >= m.life) st.mirage = null; }
+    else if (F.phase === "question" && st.level > 0.2) {
+      st.mt -= real;
+      if (st.mt <= 0) {
+        // bas : il barre le tir tendu (il faut lober) ; haut : il barre le tir en cloche (il faut tirer tendu)
+        st.mirage = { dx: -(F.B.hit.rx * F.bs * 1.15 + 20), dy: Math.random() < 0.5 ? 95 : -75, t: 0, life: 9, a: 0 };
+        st.mt = rand(8, 12); api.sound("mirage"); api.cast(); api.sayLine("mirage", 0.9);
+        api.toast("Un mirage te barre la route : contourne-le", "glitch");
+      }
+    }
+  },
+  ghosts(api, st) { const m = st.mirage; return m ? [{ dx: m.dx, dy: m.dy + Math.sin(api.F.time * 1.3) * 6, alpha: 0.85 * m.a, scale: 0.9 }] : null; },
+  collide(api, st, p) {
+    const m = st.mirage, F = api.F; if (!m || m.a < 0.5) return null;
+    const cx = F.b.x + m.dx, cy = F.b.y + m.dy, rx = F.B.hit.rx * F.bs * 0.72 + p.r, ry = F.B.hit.ry * F.bs * 0.72 + p.r;
+    if (((p.x - cx) ** 2) / (rx * rx) + ((p.y - cy) ** 2) / (ry * ry) >= 1) return null;
+    st.mirage = null; api.burst(cx, cy, 16, { color: "#b0aace", min: 40, max: 200, g: -40, lmax: 1 }); api.sound("mirage");
+    return { type: "block", label: "C’était un mirage : il se dissipe, ta pierre revient" };
+  },
   correct(api, st) {
-    st.level = Math.max(0, st.level - 0.17);
+    st.level = Math.max(0, st.level - 0.17); st.mirage = null;
     api.sayLine("fog", 0.4);
     if (st.level < 0.45 && st.level + 0.17 >= 0.45) api.toast("Le brouillard se lève : sa cible critique réapparaît", "good");
     return null;
@@ -1814,6 +2051,7 @@ MECH.fog = {
   wrong(api, st) { st.level = Math.min(0.95, st.level + 0.12); api.sound("fog"); api.toast("Le brouillard s’épaissit : instructions floues, visée floue", "warn"); },
   critAllowed: (api, st) => st.shown < 0.45,
   previewScale: (api, st) => 1 - st.shown * 0.7,
+  status: (api, st) => ({ text: "Brouillard " + Math.round(st.level * 100) + " %" + (st.mirage ? " · mirage" : ""), kind: st.level < 0.45 ? "good" : "warn" }),
   draw(api, st, ctx, layer) {
     if (layer !== "front" || st.shown < 0.02) return;
     const F = api.F, b = F.b, bs = F.bs;
@@ -1839,6 +2077,7 @@ MECH.turrets = {
     api.later(0.7, () => { api.sound("build"); api.sayLine("build", 0.7); });
   },
   tick(api, st, dt) { for (const t of st.list) t.grow = Math.min(1, t.grow + dt * 1.6); },
+  status: (api, st) => (st.list.length ? { text: "Tourelles : " + st.list.length, kind: "warn" } : null),
   collide(api, st, p) {
     const F = api.F;
     for (let i = 0; i < st.list.length; i++) {
@@ -1876,12 +2115,36 @@ MECH.turrets = {
   }
 };
 
+/* Le Schéma Brisé — il alterne entre « valide » et « corrompu ».
+   Touché quand il est corrompu : dégâts réduits et pas de critique. Il faut tirer au bon moment. */
+MECH.parse = {
+  init(api, st) { st.bad = false; st.t = 0; st.k = 0; },
+  questionStart(api, st) { st.bad = false; st.t = 0; st.k = 0; },
+  tick(api, st, dt) {
+    const F = api.F; if (F.phase !== "question" && F.phase !== "flying") return;
+    const dur = st.bad ? (F.b.rage ? 2.0 : 1.6) : (F.b.rage ? 2.6 : 3.4);
+    st.t += dt; st.k = clamp(st.t / dur, 0, 1);
+    if (st.t < dur) return;
+    st.bad = !st.bad; st.t = 0; st.k = 0;
+    api.sound(st.bad ? "glitch" : "valid");
+    if (st.bad) api.sayLine("corrupt", 0.2);
+  },
+  critAllowed: (api, st) => !st.bad,
+  correct(api, st) {
+    if (st.bad) { api.toast("Touché pendant qu’il était corrompu : dégâts réduits", "warn"); return { mult: 0.6, label: "PARSE ERROR ×0,6" }; }
+    api.sayLine("valid", 0.3);
+    return { mult: 1.15, label: "JSON VALIDE" };
+  },
+  status: (api, st) => (st.bad ? { text: "Corrompu : attends", kind: "warn" } : { text: st.k > 0.8 ? "Valide : vite !" : "Valide : tire", kind: "good" })
+};
+
 /* L'Hydre des Connecteurs — têtes leurres : pas de critique dessus, la barre d'attaque accélère. */
 MECH.heads = {
   init(api, st) { st.count = 1; },
   wrong(api, st) { if (st.count < 4) { st.count++; api.sayLine("grow", 0.9); api.toast("Une tête de plus : trop d’outils exposés, il attaque plus vite", "warn"); } },
   correct(api, st) { if (st.count > 0) { st.count--; api.sayLine("cut", 0.6); api.toast("Une tête coupée : moins d’outils, meilleure sélection", "good"); } return null; },
   barMult: (api, st) => 1 + 0.08 * st.count,
+  status: (api, st) => ({ text: "Têtes leurres : " + st.count, kind: st.count >= 2 ? "warn" : "info" }),
   collide(api, st, p) {
     const F = api.F, B = F.B; if (!B.headLocal) return null;
     for (let i = 0; i < st.count; i++) { const w = api.local(B.headLocal(i, st.count, F.b)); if (Math.hypot(p.x - w.x, p.y - w.y) < 20 * F.bs + p.r) return { type: "decoy" }; }
@@ -1897,6 +2160,7 @@ MECH.shuffle = {
     const F = api.F; if (F.phase !== "question") return;
     st.t += real; if (st.t >= 25) { st.t = 0; MECH.shuffle.go(api); }
   },
+  status: (api, st) => ({ text: "Mélange dans " + Math.max(0, Math.ceil(25 - st.t)) + " s", kind: 25 - st.t < 6 ? "warn" : "info" }),
   miss(api, st) { st.t = 0; api.later(0.3, () => { if (api.F && (api.F.phase === "question" || api.F.phase === "flying")) MECH.shuffle.go(api); }); },
   go(api) { api.reshuffle(); api.sound("shuffle"); api.cast(); api.sayLine("shuffle", 0.7); api.toast("Il a mélangé tes pierres : relis avant de tirer", "glitch"); }
 };
@@ -1905,6 +2169,7 @@ MECH.shuffle = {
 MECH.tokens = {
   init(api, st) { st.acc = 0; },
   barMult: () => 1.15,
+  status: (api) => (api.F.bar / api.F.barMax < 0.4 ? { text: "Cache hit possible", kind: "good" } : { text: "Cache expiré", kind: "info" }),
   barZone: () => ({ from: 0, to: 0.4, label: "Zone cache hit : une bonne réponse ici fait ×2 dégâts" }),
   correct(api, st) {
     const F = api.F;
@@ -2002,6 +2267,7 @@ MECH.injection = {
     }));
     return true;
   },
+  status: (api, st) => (st.cur && st.cur.state === "shown" ? { text: "Pierre piégée dans ta main", kind: "glitch" } : null),
   feedbackNote(api, st) {
     const inj = st.cur;
     if (inj && inj.state === "shown") { inj.state = "gone"; return '<p class="small-note">La pierre injectée s’est dissoute. La prochaine fois, mets-la en quarantaine : +75 points et son attaque recule.</p>'; }
@@ -2030,6 +2296,7 @@ MECH.shield = {
     if (!st.up) { st.up = true; api.sound("shield"); api.sayLine("shieldUp", 1); api.toast("Il regonfle son bouclier SLA : enchaîne 3 bonnes réponses", "warn"); }
   },
   tick(api, st, dt) { st.pop = Math.max(0, st.pop - dt * 2); },
+  status: (api, st) => (st.up ? { text: "Bouclier SLA : " + Math.min(3, st.streak) + " / 3", kind: "warn" } : { text: "Bouclier brisé", kind: "good" }),
   draw(api, st, ctx, layer) {
     if (layer !== "front" || !st.up) return;
     const F = api.F, b = F.b, rx = (F.B.hit.rx + 34) * F.bs, ry = (F.B.hit.ry + 34) * F.bs, pulse = 1 + Math.sin(F.time * 3) * 0.02;
@@ -2079,6 +2346,7 @@ MECH.incidents = {
     }
     return false;
   },
+  status: (api, st) => (st.hook ? { text: "Hook actif", kind: "good" } : st.list.length ? { text: "Incidents : " + st.list.length, kind: "warn" } : null),
   arena(api, st) {
     const F = api.F; if (F.phase !== "question" && F.phase !== "flying") return "";
     if (st.hook) return '<span class="arena-tag">Hook actif : incidents bloqués</span>';
@@ -3979,7 +4247,8 @@ const Thumbs = (() => {
     list = [...document.querySelectorAll("canvas[data-boss]")].map((cv) => {
       const key = cv.dataset.boss, B = BOSSES[key];
       if (!B) return null;
-      const b = { t: rand(0, 5), time: rand(0, 5), hpFrac: 1, flash: 0, squint: 0, rage: false, rageT: 0, atk: -1, cast: -1, stun: 0, aiming: false, cracks: [], mech: { heads: { count: 2 }, shield: { up: false, streak: 0 }, fog: { shown: 0.3 }, incidents: { hook: false } }, phase: 0, own: {} };
+      const b = { t: rand(0, 5), time: rand(0, 5), hpFrac: 1, flash: 0, squint: 0, rage: false, rageT: 0, atk: -1, cast: -1, stun: 0, aiming: false, cracks: [], mech: { heads: { count: 2 }, shield: { up: false, streak: 0 }, fog: { shown: 0.3 }, incidents: { hook: false } }, phase: 0, own: {},
+        enter: 1, dying: -1, dmg: 0, look: { x: -1, y: 0 }, threat: 0, gloat: 0, talk: 0, beat: 0, isMirage: false };
       if (B.init) try { B.init(b); } catch (e) { /* portrait sans état propre */ }
       return { cv, B, b, mode: cv.dataset.mode || "idle", fit: Number(cv.dataset.fit) || 1 };
     }).filter(Boolean);
@@ -3994,7 +4263,8 @@ const Thumbs = (() => {
   function draw(x, dt) {
     const c = x.cv.getContext("2d"), b = x.b;
     b.t += dt; b.time += dt;
-    if (x.mode === "won") { b.stun = 1; b.hpFrac = 0.1; }
+    if (x.mode === "won") { b.stun = 1; b.hpFrac = 0.1; b.dmg = 3; }
+    b.look.x = -0.7 + Math.sin(b.time * 0.7) * 0.3; b.look.y = Math.sin(b.time * 0.5) * 0.4; b.beat = Music.beat(b.time, Number(x.cv.dataset.boss) || 1);
     if (x.B.update) try { x.B.update(b, dt); } catch (e) { /* ignoré */ }
     c.setTransform(x.dpr, 0, 0, x.dpr, 0, 0); c.clearRect(0, 0, x.w, x.h);
     const s = Math.min(x.w / 560, x.h / 440) * x.fit;
@@ -4284,6 +4554,7 @@ function boot(data) {
   initRemote();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (!Arena.active) Thumbs.scan(); });
 }
+window.__tour = { Music, Sound, Arena };   // accès pour les tests automatiques
 const hot = window.claude && window.claude.hot;
 if (hot && hot.ready) hot.ready(boot); else boot((hot && hot.data) || {});
 
