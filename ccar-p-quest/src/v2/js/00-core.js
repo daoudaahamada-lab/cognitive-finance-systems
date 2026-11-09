@@ -48,6 +48,24 @@ const pad = (n) => (n < 10 ? "0" : "") + n;
 const fmtMS = (sec) => { sec = Math.max(0, Math.ceil(sec)); return Math.floor(sec / 60) + ":" + String(sec % 60).padStart(2, "0"); };
 const plural = (n, word) => n + " " + word + (n > 1 ? "s" : "");
 
+/* Animation : courbes et pose de riposte, partagées par le moteur et les boss. */
+const easeOut = (t) => 1 - (1 - clamp(t, 0, 1)) ** 3;
+const easeIn = (t) => clamp(t, 0, 1) ** 3;
+const easeInOut = (t) => { t = clamp(t, 0, 1); return t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2; };
+const backOut = (t) => { t = clamp(t, 0, 1); const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * (t - 1) ** 3 + c1 * (t - 1) ** 2; };
+/** Avancement 0→1 de t à l'intérieur de [a, b]. */
+const seg = (t, a, b) => clamp((t - a) / (b - a), 0, 1);
+/* Riposte du boss (b.atk en secondes) : armement 0–0,45 s, détente 0,45–0,6 s (le projectile part à 0,45), retour jusqu'à 1 s. */
+const ATK_WIND = 0.45, ATK_HIT = 0.6, ATK_END = 1.0;
+/** Pose de riposte : wind (armement), strike (détente) et rec (retour) vont chacun de 0 à 1 ; on = riposte en cours. */
+function atkPose(b) {
+  const a = b.atk;
+  if (a == null || a < 0) return { on: false, wind: 0, strike: 0, rec: 0 };
+  return { on: true, wind: seg(a, 0, ATK_WIND), strike: seg(a, ATK_WIND, ATK_HIT), rec: seg(a, ATK_HIT, ATK_END) };
+}
+/* Entrée en scène et mort : durées en secondes (b.enter et b.dying vont de 0 à 1). */
+const T_ENTER = 1.5, T_DIE = 1.7;
+
 /* Couleurs : les jetons CSS sont lus une fois, puis mélangés pour le canvas. */
 const cssTok = getComputedStyle(document.documentElement);
 const tok = (n, fallback) => (cssTok.getPropertyValue(n) || "").trim() || fallback;

@@ -2,13 +2,6 @@
    Moteur de combat : arène canvas, lance-pierre, boss, questions.
    Un seul combat à la fois : Arena.mount(opts) / Arena.unmount().
    ============================================================ */
-const SKIES = [
-  ["#060a15", "#10182f", "#1c2647"], ["#070b18", "#121a35", "#22294f"], ["#080b1b", "#141b3a", "#282c56"],
-  ["#0a0c1e", "#181c40", "#30305e"], ["#0c0d22", "#1d1e46", "#3b3364"], ["#0e0e25", "#221f4a", "#483667"],
-  ["#0f0f27", "#27214d", "#563a69"], ["#11102a", "#2c2350", "#6a4068"], ["#131130", "#332655", "#8a4a62"],
-  ["#15132f", "#3a2a5a", "#c0644f"]
-];
-
 const Arena = (() => {
   let F = null, raf = 0, ro = null, lastFrame = 0;
 
@@ -137,44 +130,10 @@ const Arena = (() => {
     buildBackground();
   }
   function buildBackground() {
-    const { W, H, groundY } = F, bg = F.els.bg, cv = F.els.stage;
+    const bg = F.els.bg, cv = F.els.stage;
     bg.width = cv.width; bg.height = cv.height;
     const b = bg.getContext("2d"); b.setTransform(F.dpr * F.scale, 0, 0, F.dpr * F.scale, 0, 0);
-    const lvl = clamp(F.n || 1, 1, 10), sky = SKIES[lvl - 1], alt = (lvl - 1) / 9;
-    const g = b.createLinearGradient(0, 0, 0, groundY); g.addColorStop(0, sky[0]); g.addColorStop(0.7, sky[1]); g.addColorStop(1, sky[2]);
-    b.fillStyle = g; b.fillRect(0, 0, W, groundY);
-    const mx = W * 0.88, my = Math.max(60, groundY - 470);
-    if (lvl < 10) {
-      const mg = b.createRadialGradient(mx, my, 10, mx, my, 120); mg.addColorStop(0, "rgba(232,236,246," + (0.18 * (1 - alt * 0.6)) + ")"); mg.addColorStop(1, "rgba(232,236,246,0)");
-      b.fillStyle = mg; b.fillRect(mx - 120, my - 120, 240, 240);
-      b.globalAlpha = 1 - alt * 0.55; b.fillStyle = "#dfe5f3"; b.beginPath(); b.arc(mx, my, 30, 0, Math.PI * 2); b.fill();
-      b.fillStyle = sky[1]; b.beginPath(); b.arc(mx + 12, my - 7, 26, 0, Math.PI * 2); b.fill(); b.globalAlpha = 1;
-    } else {
-      const sg = b.createRadialGradient(W * 0.5, groundY - 30, 10, W * 0.5, groundY - 30, W * 0.6); sg.addColorStop(0, "rgba(243,184,65,0.45)"); sg.addColorStop(1, "rgba(243,184,65,0)");
-      b.fillStyle = sg; b.fillRect(0, 0, W, groundY);
-    }
-    // ville : elle s'éloigne à mesure qu'on monte, puis passe sous les nuages
-    const rnd = seeded(42); let x = -10;
-    const drop = alt * 70, maxH = 150 * (1 - alt * 0.6);
-    while (x < W + 20) {
-      const w = 26 + rnd() * 50, h = 30 + rnd() * maxH, top = groundY - 40 - h + drop;
-      b.fillStyle = col(mixv("#0e1528", sky[2], alt * 0.35)); b.fillRect(x, top, w, h + 40);
-      for (let wy = top + 8; wy < groundY - 46; wy += 12) for (let wx = x + 5; wx < x + w - 6; wx += 9) if (rnd() < 0.16) { b.fillStyle = rnd() < 0.8 ? "rgba(243,184,65," + (0.55 - alt * 0.3) + ")" : "rgba(232,236,246,0.3)"; b.fillRect(wx, wy, 3, 5); }
-      x += w + 2 + rnd() * 8;
-    }
-    if (alt > 0.3) {
-      const cr = seeded(9);
-      for (let k = 0; k < 14; k++) { const cx = cr() * W, cy = groundY - 40 - cr() * 40 * alt, rw = 90 + cr() * 140; b.fillStyle = "rgba(232,236,246," + (0.05 + alt * 0.1) + ")"; b.beginPath(); b.ellipse(cx, cy, rw, 18 + cr() * 14, 0, 0, Math.PI * 2); b.fill(); }
-    }
-    b.fillStyle = "#1a2238"; b.fillRect(0, groundY - 34, W, 34);
-    b.strokeStyle = "#2b3657"; b.lineWidth = 1.5;
-    for (let mxp = -10; mxp < W + 40; mxp += 64) { b.fillStyle = "#1d2643"; b.fillRect(mxp, groundY - 58, 40, 26); b.strokeRect(mxp + 0.5, groundY - 57.5, 39, 25); }
-    b.beginPath(); b.moveTo(0, groundY - 34); b.lineTo(W, groundY - 34); b.stroke();
-    for (let row = 0; row < 2; row++) for (let jx = (row % 2) * 30; jx < W; jx += 60) { b.beginPath(); b.moveTo(jx, groundY - 34 + row * 17); b.lineTo(jx, groundY - 17 + row * 17); b.stroke(); }
-    b.fillStyle = "#141b2f"; b.fillRect(0, groundY, W, H - groundY);
-    b.strokeStyle = "#232d4b"; b.beginPath(); b.moveTo(0, groundY + 0.5); b.lineTo(W, groundY + 0.5); b.stroke();
-    for (let jx = 20; jx < W; jx += 80) { b.beginPath(); b.moveTo(jx, groundY); b.lineTo(jx - 30, H); b.stroke(); }
-    if (F.n) { b.fillStyle = "rgba(232,236,246,0.08)"; b.font = "800 120px " + F_DISPLAY; b.textAlign = "left"; b.textBaseline = "alphabetic"; b.fillText(pad(F.n), 18, groundY - 66); }
+    paintBackground(b, { W: F.W, H: F.H, groundY: F.groundY, n: F.n || 0, rnd: seeded(1000 + (F.n || 0)) }, F.B);
   }
   const pointerToWorld = (e) => { const r = F.els.stage.getBoundingClientRect(); return { x: (e.clientX - r.left) / F.scale, y: (e.clientY - r.top) / F.scale }; };
   const restPouch = () => ({ x: F.player.x + F.player.knock + 46, y: F.groundY + F.player.dy - 126 });
