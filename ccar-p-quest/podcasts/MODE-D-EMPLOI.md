@@ -50,6 +50,6 @@ La synthèse vocale de Google AI Studio lit le texte tel quel, avec deux voix au
 ## À savoir
 
 - Les scripts n'ont été testés ni dans NotebookLM ni dans AI Studio. Écoute le premier épisode avec le script sous les yeux et vérifie que les chiffres et les termes techniques sont restés exacts avant de générer les neuf autres.
-- La durée de 5 minutes vaut pour une lecture mot pour mot (750 à 780 mots par épisode). Avec NotebookLM, c'est lui qui choisit la durée.
+- La durée de 5 minutes vaut pour une lecture mot pour mot (720 à 790 mots par épisode). Avec NotebookLM, c'est lui qui choisit la durée.
 - Chaque épisode contient deux histoires. Trois ne tiennent pas en 5 minutes avec la pause et l'explication des mauvaises pistes.
 - Les entreprises et les personnages sont fictifs. Les notions viennent du contenu du jeu, lui-même rédigé à partir de la documentation officielle d'Anthropic. Ce ne sont pas des questions officielles de l'examen.
