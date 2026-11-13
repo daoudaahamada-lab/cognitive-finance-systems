@@ -169,7 +169,11 @@ MECH.tokens = {
     return null;
   },
   tick(api, st, dt) {
-    const F = api.F; if (F.b.dead || F.phase === "intro" || reduceMotion) return;
+    const F = api.F; if (F.b.dead || F.phase === "intro") return;
+    const inZone = F.bar / F.barMax < 0.4;
+    if (st.zone && !inZone && F.phase === "question") api.cast();   // le cache expire : il aspire
+    st.zone = inZone;
+    if (reduceMotion) return;
     st.acc += dt * 9;
     while (st.acc > 1) {
       st.acc--;

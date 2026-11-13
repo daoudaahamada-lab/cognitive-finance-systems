@@ -350,8 +350,8 @@ BOSSES[6] = {
         const at = (a, r) => [Math.cos(a) * r, Math.sin(a) * r];
         for (const a of dmg >= 3 ? [0.95, 2.45] : [0.95]) {
           c.beginPath();
-          [[-0.15, R + 2], [-0.05, R - 15], [0.01, R - 7], [0.07, R - 25], [0.17, R + 2]].forEach(([da, r], i) => { const p = at(a + da, r); if (i) c.lineTo(p[0], p[1]); else c.moveTo(p[0], p[1]); });
-          c.fillStyle = "#070410"; c.fill(); c.strokeStyle = col(gold, 0.85); c.lineWidth = 1.8; c.lineJoin = "round"; c.stroke();
+          [[-0.075, R + 2], [-0.02, R - 13], [-0.065, R - 19], [0.01, R - 38], [0.05, R - 19], [0.02, R - 12], [0.085, R + 2]].forEach(([da, r], i) => { const p = at(a + da, r); if (i) c.lineTo(p[0], p[1]); else c.moveTo(p[0], p[1]); });
+          c.fillStyle = "#070410"; c.fill(); c.strokeStyle = col(gold, 0.7); c.lineWidth = 1.3; c.lineJoin = "round"; c.stroke();
         }
       }
       drawCracks(c, b, "rgba(255,226,180,0.5)", 1.5);

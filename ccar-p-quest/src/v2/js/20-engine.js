@@ -642,7 +642,7 @@ const Arena = (() => {
       : '<button class="btn btn-primary" type="button" data-end="again">Réessayer</button><button class="btn" type="button" data-end="cards">Revoir les fiches</button><button class="btn" type="button" data-end="tower">La tour</button>';
     showOverlay(
       '<div class="ov-head"><div><p class="eyebrow">Étage ' + pad(n) + " · " + (win ? "Victoire" : "Défaite") + "</p>" +
-      '<h1 id="ov-title">' + (win ? (lastFloor ? "La tour est à toi" : esc(level.boss.name) + (/^La /.test(level.boss.name) ? " est vaincue" : " est vaincu")) : esc(level.boss.name) + " garde l’étage") + "</h1></div>" + thumb(n, 190, 150, win ? "won" : "idle", 1.1) + "</div>" +
+      '<h1 id="ov-title">' + (win ? (lastFloor ? "La tour est à toi" : esc(level.boss.name) + (/^(La |L[’']Hydre)/.test(level.boss.name) ? " est vaincue" : " est vaincu")) : esc(level.boss.name) + " garde l’étage") + "</h1></div>" + thumb(n, 190, 150, win ? "won" : "idle", 1.1) + "</div>" +
       '<p class="quote">« ' + esc(unquote(win ? level.boss.defeat : level.boss.victory)) + " »</p>" +
       (win ? '<div class="stars" aria-label="' + stars + ' étoiles sur 3">' + starHTML + "</div>" : "") +
       '<div><p class="eyebrow">Score</p><div class="big-score">' + F.score + "</div>" + (record ? '<p class="record">Nouveau record</p>' : s.bestScore ? '<p class="note">Record : ' + s.bestScore + "</p>" : "") + "</div>" +
