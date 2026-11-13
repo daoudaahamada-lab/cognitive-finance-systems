@@ -1,0 +1,23 @@
+NARRATEUR : Bienvenue dans La Tour de l'Architecte, le podcast. Épisode 5 : le Banc d'Essai. Deux histoires aujourd'hui sur l'évaluation : comment savoir, chiffres à l'appui, que ça marche. On pose la situation, tu réfléchis, et Nora, notre architecte, tranche.
+
+NARRATEUR : Première histoire. Une banque de détail a construit avec Claude une chaîne d'extraction pour ses documents KYC, les pièces qui servent à vérifier l'identité des clients. Le jeu d'évaluation de l'équipe, son eval set, contient deux cents PDF propres, générés numériquement. Dessus, la chaîne obtient quatre-vingt-dix-huit pour cent de champs corrects. Mise en production. Et là, les opérations signalent des erreurs fréquentes sur ce que les clients envoient vraiment : des photos de pièces d'identité prises au téléphone, des scans de plusieurs pages en deux langues, et même des documents qui n'ont rien à voir avec le KYC.
+
+NORA : Quatre-vingt-dix-huit pour cent en test, et des erreurs tous les jours en production. Ce score mesure donc autre chose que ce que vivent les clients.
+
+NARRATEUR : Trois pistes pour améliorer l'évaluation. Passer de deux cents à deux mille PDF propres, issus des mêmes modèles, pour un score plus précis. Relever le seuil de mise en production à quatre-vingt-dix-neuf et demi pour cent sur le jeu actuel. Ou remplacer la notation automatique par une revue hebdomadaire des deux cents documents par l'équipe conformité. Mets sur pause si tu veux. À la place de Nora, tu fais quoi ?
+
+NORA : Je reconstruis l'eval set à partir de la production. Un échantillon stratifié des vrais envois : mauvais scans, fichiers bilingues, champs manquants, documents hors sujet, chacun avec la sortie attendue. Dix fois plus de PDF propres, c'est un intervalle de confiance plus serré autour d'un score biaisé. Il restera excellent en ignorant tout ce qui échoue. Relever le seuil sur un jeu qui ne ressemble pas au trafic ne mesure toujours pas les cas à problème. Et la revue humaine est plus lente, plus chère, et porte encore sur les mêmes documents propres. Le problème n'est ni la taille, ni le seuil. C'est la représentativité.
+
+NARRATEUR : À retenir : un score excellent en test et mauvais en production signale presque toujours un eval set qui ne ressemble pas au trafic réel. Un bon jeu reflète la distribution des vraies entrées, cas limites compris.
+
+NARRATEUR : Deuxième histoire. Un opérateur télécom utilise un assistant qui rédige les réponses aux réclamations de ses clients. Pour contrôler la qualité, l'équipe a mis en place un LLM grader, un modèle qui joue le rôle de juge. Il doit vérifier que chaque réponse respecte la charte de ton, et ne promet aucun geste commercial non autorisé. Son prompt tient en une ligne : is this answer good ? Explain. Les notes changent d'une exécution à l'autre sur les mêmes réponses, et l'équipe qualité est souvent en désaccord avec ses verdicts. Elle veut pourtant garder une notation automatique.
+
+NORA : Je demande à trois personnes de l'équipe ce que veut dire good. J'obtiens trois définitions. Le juge a le même problème que nous.
+
+NARRATEUR : Trois pistes. Lancer le juge trois fois par réponse et garder le verdict majoritaire. Donner au juge le même modèle et le même system prompt que l'assistant, pour qu'ils aient la même compréhension. Ou remplacer le juge par une relecture humaine de chaque réponse. À toi : tu commences par quoi ?
+
+NORA : Par réécrire le juge. D'abord une rubrique explicite : ce qui compte comme une faute, avec des cas précis. Ensuite une sortie contrainte : correct ou incorrect, ou une note de un à cinq, pas un texte libre. Et le juge raisonne étape par étape avant de donner son verdict. Puis je le calibre : je compare ses verdicts à ceux des experts sur un sous-ensemble étiqueté, avant de lui confier toute la suite. Le vote majoritaire réduit un peu le bruit, mais ne corrige pas une rubrique floue. Reprendre le contexte du système évalué rend le juge complaisant envers ses propres erreurs. Et les humains sont lents et coûteux : ils servent à calibrer le juge, pas à le remplacer.
+
+NARRATEUR : À retenir : un juge LLM instable se corrige par une rubrique explicite, une sortie contrainte, un raisonnement avant la note, et une calibration sur des étiquettes humaines. Pas par davantage d'exécutions.
+
+NARRATEUR : C'était l'épisode 5. Deux idées à garder : on évalue sur ce que la production reçoit vraiment, et un juge se règle comme un instrument de mesure. Pour t'entraîner, c'est le cinquième étage de la Tour, face au Vibe-Checker. Au prochain épisode : la Salle des Machines, et un cache qui ne sert jamais.

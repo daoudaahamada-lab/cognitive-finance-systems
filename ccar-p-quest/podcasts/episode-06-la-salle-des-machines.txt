@@ -1,0 +1,23 @@
+NARRATEUR : Bienvenue dans La Tour de l'Architecte, le podcast. Épisode 6 : la Salle des Machines. Deux histoires aujourd'hui sur le coût et la latence. On pose la situation, tu réfléchis, et Nora, notre architecte, tranche.
+
+NARRATEUR : Première histoire. Un cabinet de conseil fiscal a un assistant qui envoie, à chaque requête, un bloc de soixante mille tokens de réglementation, un long system prompt, puis la question de l'utilisateur. L'équipe a activé le prompt caching, avec un point de cache placé après la réglementation. Et pour faciliter les audits, elle a ajouté tout au début du prompt l'horodatage et un identifiant de requête. Un mois plus tard, la facture n'a pas bougé. Dans les données d'usage, le compteur cache read input tokens affiche zéro, à chaque appel.
+
+NORA : Zéro lecture en cache, jamais. Ce n'est pas un cache qui expire de temps en temps. C'est un cache qui ne peut pas fonctionner.
+
+NARRATEUR : Trois explications circulent. La première : la durée de vie par défaut, cinq minutes, expire entre deux requêtes, il faut passer au cache d'une heure. La deuxième : le point de cache doit être sur le dernier bloc de la requête, donc sur la question de l'utilisateur. La troisième : le cache ne s'appliquerait qu'aux messages, il faudrait donc déplacer la réglementation dans le premier message utilisateur. Mets sur pause si tu veux. Toi, tu cherches où ?
+
+NORA : Je cherche ce qui change avant le point de cache. Et je le trouve tout de suite : l'horodatage et l'identifiant de requête. Le cache porte sur le préfixe du prompt, dans l'ordre tools, system, messages, jusqu'au point de cache. Et un cache hit exige un préfixe identique à cent pour cent. Ici, le tout début change à chaque appel. Je déplace donc ces valeurs après le contenu mis en cache, et je garde le point de cache sur le dernier bloc stable. La durée de vie n'est pas en cause : même avec des requêtes très rapprochées, un préfixe qui change ne sera jamais retrouvé. Mettre le point de cache sur la question, qui change à chaque fois, garantit qu'il n'y aura aucun hit. Et les tools, le system prompt et les messages sont tous cachables.
+
+NARRATEUR : À retenir : quand les lectures en cache restent à zéro, cherche ce qui varie avant le point de cache. Le contenu stable d'abord, le contenu variable après.
+
+NARRATEUR : Deuxième histoire. Un groupe de presse régional veut indexer ses archives. Chaque nuit, environ deux cent mille articles doivent recevoir des étiquettes : thèmes, lieux, personnes citées. Les résultats doivent être prêts pour la rédaction à sept heures du matin. Aujourd'hui, un traitement envoie des requêtes synchrones en parallèle. Il se heurte régulièrement à des erreurs 429 au plus fort de la charge, et la facture est devenue le deuxième poste du budget IA. Chaque requête reprend le même bloc d'instructions, d'environ trois mille tokens.
+
+NORA : Je pose la question qui décide de tout : est-ce que quelqu'un attend la réponse en direct ? Non. Personne, avant sept heures du matin.
+
+NARRATEUR : Trois pistes dans l'équipe. Activer le fast mode, pour finir plus tôt. Répartir le traitement sur des clés API dans plusieurs organisations, pour passer sous les limites. Ou streamer chaque réponse, pour libérer les connexions plus vite. À toi : tu fais quoi ?
+
+NORA : Je passe tout par la Message Batches API, en plusieurs lots, avec le même bloc d'instructions marqué pour le cache dans chaque requête. Le batch est asynchrone, et il donne cinquante pour cent de remise sur tous les tokens. La plupart des lots se terminent en moins d'une heure, avec une limite de vingt-quatre heures : l'échéance du matin est tenue. Et le prompt caching se cumule avec la remise, même si les hits ne sont pas garantis en batch. Le fast mode accélère la sortie à un tarif premium : il augmente le coût, alors que le problème est le budget. Multiplier les organisations, c'est contourner les limites, et ça n'économise pas un centime. Et le streaming améliore la latence perçue par un utilisateur. Il ne réduit ni le coût, ni les tokens comptés dans les limites.
+
+NARRATEUR : À retenir : gros volume, personne en attente, échéance de plusieurs heures, c'est la Message Batches API, cumulée avec le prompt caching. Mais jamais quand un utilisateur attend la réponse en direct : le batch échange de la latence contre une remise.
+
+NARRATEUR : C'était l'épisode 6. Deux idées à garder : un cache se joue sur un préfixe stable, et ce qui peut attendre coûte moitié moins. Pour t'entraîner, c'est le sixième étage de la Tour, face au Gouffre à Tokens. Au prochain épisode : la Citadelle des Garde-fous, et un e-mail qui donne des ordres.

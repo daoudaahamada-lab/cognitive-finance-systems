@@ -1,0 +1,23 @@
+NARRATEUR : Bienvenue dans La Tour de l'Architecte, le podcast. Épisode 3 : l'Atelier des Outils. Deux histoires aujourd'hui sur ce qui se passe quand Claude doit produire un format exact, ou choisir le bon outil. On pose la situation, tu réfléchis, et Nora, notre architecte, tranche.
+
+NARRATEUR : Première histoire. Une entreprise de logistique extrait les données d'expédition des e-mails de ses transporteurs, et les envoie en JSON à son ERP. Le prompt dit : respond only with valid JSON matching this schema. Derrière, une expression régulière répare les sorties abîmées. Malgré tout, environ deux pour cent des réponses échouent encore : JSON illisible, ou champ obligatoire manquant. Et chaque échec crée un ticket à traiter à la main. L'équipe ERP ne demande pas une amélioration. Elle demande une garantie : toute réponse réussie doit respecter le schéma.
+
+NORA : Le mot important, c'est garantie. Une consigne dans un prompt encourage un format. Elle ne l'impose pas.
+
+NARRATEUR : Trois pistes dans l'équipe. Ajouter cinq exemples de JSON valide, et relancer automatiquement toute réponse en échec. Mettre la température à zéro, pour supprimer la variance. Ou faire réparer le JSON par un second modèle, plus petit, avant l'ERP. Mets sur pause si tu veux. À la place de Nora, tu fais quoi ?
+
+NORA : Je passe le JSON Schema à l'API avec les structured outputs. Là, ce n'est plus une consigne : le décodage lui-même est contraint par le schéma. On parle de grammar-constrained sampling. Il reste deux cas à traiter dans le code, et ils sont signalés par le stop reason. Refusal, quand Claude refuse de répondre. Et max tokens, quand la sortie est tronquée. Les exemples et les relances réduisent le taux d'échec sans rien garantir, et chaque relance ajoute de la latence et du coût. La température à zéro rend les sorties plus stables, pas conformes : un champ obligatoire peut toujours manquer. Et le second modèle ajoute un appel, un coût, et un nouveau point de défaillance.
+
+NARRATEUR : À retenir : dès qu'on te demande une garantie de format, la réponse est un mécanisme déterministe, structured outputs ou strict tool use, avec la gestion du refus et de la troncature. Pas un meilleur prompt, pas des relances.
+
+NARRATEUR : Deuxième histoire. Une chaîne hôtelière a construit un agent de réservation qui dispose d'une vingtaine d'outils, appelés par la Messages API. Trois d'entre eux se ressemblent beaucoup : get booking, fetch reservation details, lookup stay. Et la plupart des descriptions tiennent en une ligne, du genre : gets booking data. Dans les traces, Claude appelle souvent le mauvais outil, ou oublie un paramètre obligatoire. Résultat : deux ou trois allers-retours de trop par demande, et des clients qui attendent. L'équipe veut l'amélioration la plus rapide possible, sans changer de modèle.
+
+NORA : Je relis les définitions d'outils comme si j'étais un nouveau collègue. Et honnêtement, moi non plus, je ne saurais pas lequel choisir.
+
+NARRATEUR : Trois pistes. Lancer un fine-tuning sur les bons appels du dernier trimestre. Ajouter dans le system prompt un classement des outils par ordre de préférence. Ou régler tool choice sur any, pour obliger Claude à toujours appeler un outil. À toi : tu commences par quoi ?
+
+NORA : Par les descriptions. Pour chaque outil, j'écris ce qu'il fait, quand l'utiliser, quand ne pas l'utiliser, le sens de chaque paramètre et ses limites. Ensuite je fusionne les trois outils qui se chevauchent en un seul, avec un nom préfixé par le service. Et pour les entrées complexes, j'ajoute des exemples d'appel. La description détaillée est de loin le premier facteur de performance d'un outil. Le fine-tuning est lent, coûteux, et ne corrige pas la cause : des outils mal décrits et redondants. Un classement ne dit pas à Claude ce que fait chaque outil. Et forcer un appel d'outil n'aide pas à choisir le bon : ça empêche même Claude de répondre directement quand aucun outil n'est nécessaire.
+
+NARRATEUR : À retenir : quand Claude choisit mal ses outils, le premier suspect est la définition des outils, pas le modèle. On réécrit les descriptions et on consolide, avant toute autre chose.
+
+NARRATEUR : C'était l'épisode 3. Deux idées à garder : une garantie de format passe par un mécanisme, et un bon outil commence par une bonne description. Pour t'entraîner, c'est le troisième étage de la Tour, face au Schéma Brisé. Au prochain épisode : le Réseau des Connecteurs, et un agent noyé sous cent quarante outils.

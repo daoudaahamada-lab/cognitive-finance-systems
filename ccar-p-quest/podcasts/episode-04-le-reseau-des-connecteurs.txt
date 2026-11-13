@@ -1,0 +1,23 @@
+NARRATEUR : Bienvenue dans La Tour de l'Architecte, le podcast. Épisode 4 : le Réseau des Connecteurs. Deux histoires aujourd'hui sur la façon de brancher Claude aux outils et aux documents de l'entreprise. On pose la situation, tu réfléchis, et Nora, notre architecte, tranche.
+
+NARRATEUR : Première histoire. Un cabinet d'audit a connecté neuf serveurs MCP à son agent de recherche interne : le CRM, les tickets, le wiki, la finance, les ressources humaines, et quelques autres. Au total, environ cent quarante outils. Avant même que l'agent commence à travailler, les définitions d'outils occupent une grande part de la fenêtre de contexte. Et dans les traces, le taux d'appels au mauvais outil ne cesse de monter. Pourtant, la plupart des demandes n'ont besoin que de trois à cinq outils.
+
+NORA : Il y a donc deux problèmes à la fois : le coût en contexte, et la précision du choix. Une bonne solution doit traiter les deux.
+
+NARRATEUR : Trois pistes dans l'équipe. Passer au modèle qui a la plus grande fenêtre de contexte, pour que tout tienne largement. Fusionner tous les outils en un seul, do anything, qui reçoit une instruction libre et se débrouille en interne. Ou coller dans le system prompt la liste des cent quarante noms d'outils, avec un résumé d'une ligne chacun. Mets sur pause si tu veux. À la place de Nora, tu fais quoi ?
+
+NORA : Aucune des trois. Je marque la plupart des outils en defer loading, et j'ajoute le tool search tool. Les définitions restent hors du contexte, et Claude charge à la demande les trois à cinq outils utiles. Je ne garde chargés au départ que les quelques outils les plus utilisés. Une fenêtre plus grande donne de la place, mais ne règle pas la précision de sélection, qui se dégrade au-delà de trente à cinquante outils disponibles. L'outil fourre-tout déplace l'ambiguïté dans notre code, et on perd la validation des paramètres. Et la liste dans le system prompt ajoute encore du contexte, sans retirer une seule définition.
+
+NARRATEUR : À retenir : beaucoup d'outils, mais peu d'utiles à chaque requête, c'est tool search avec defer loading. Répondre fenêtre de contexte plus grande, c'est le piège.
+
+NARRATEUR : Deuxième histoire. Dans une banque régionale, l'équipe conformité utilise un assistant qui répond aux questions des collaborateurs à partir des procédures internes. Ces procédures sont renvoyées par un outil de recherche maison. L'audit interne pose une exigence : chaque affirmation d'une réponse doit renvoyer au passage exact de la procédure qui la soutient. Aujourd'hui, le prompt demande simplement à Claude de citer ses sources entre crochets. Et les contrôles ont trouvé, de temps en temps, des citations qui pointent vers la mauvaise procédure.
+
+NORA : Une source entre crochets, c'est du texte écrit par le modèle. Rien ne la relie réellement au passage. C'est ce lien qu'il faut construire.
+
+NARRATEUR : Trois pistes. Activer les structured outputs avec un tableau sources dans le schéma, et activer en plus les citations sur les mêmes requêtes, pour plus de sécurité. Garder les crochets, et vérifier après coup que chaque identifiant existe bien dans l'index des procédures. Ou lancer un fine-tuning sur les réponses déjà validées par les auditeurs. À toi : tu fais quoi ?
+
+NORA : Je modifie l'outil de recherche pour qu'il renvoie des blocs search result, avec la source, le titre et le contenu de chaque passage. L'API renvoie alors des citations structurées, qui pointent vers le contenu fourni. Le lien entre l'affirmation et le passage devient vérifiable. La première piste ne marche tout simplement pas : les citations et les structured outputs sont incompatibles, et la combinaison renvoie une erreur 400. Et un tableau sources rempli par le modèle reste une affirmation non vérifiée. La vérification des identifiants repère une procédure qui n'existe pas, mais pas une citation qui pointe vers une vraie procédure qui ne dit pas ça. Quant au fine-tuning, il travaille le format, alors que le format n'est pas le problème.
+
+NARRATEUR : À retenir : quand on exige des sources vérifiables, on utilise les mécanismes natifs, les citations ou les blocs search result. Et jamais en même temps que les structured outputs : il faut choisir entre sources vérifiables et JSON strict.
+
+NARRATEUR : C'était l'épisode 4. Deux idées à garder : on ne charge que les outils utiles, et une source se prouve par un lien structuré. Pour t'entraîner, c'est le quatrième étage de la Tour, face à L'Hydre des Connecteurs. Au prochain épisode : le Banc d'Essai, où un score de quatre-vingt-dix-huit pour cent ne prouve rien.

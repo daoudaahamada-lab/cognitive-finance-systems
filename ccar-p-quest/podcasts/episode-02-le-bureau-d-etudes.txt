@@ -1,0 +1,23 @@
+NARRATEUR : Bienvenue dans La Tour de l'Architecte, le podcast. Épisode 2 : le Bureau d'Études. Deux histoires aujourd'hui sur une tentation très répandue : construire plus compliqué que nécessaire. On pose la situation, tu réfléchis, et Nora, notre architecte, tranche.
+
+NARRATEUR : Première histoire. Cette fois, le client de Nora, c'est son propre cabinet de conseil. Deux équipes réclament une architecture multi-agents. L'équipe A veut des agents qui cherchent des données de marché dans des centaines de sources publiques indépendantes, pour des rapports de stratégie à forte valeur. L'équipe B veut plusieurs agents qui modifient ensemble le code d'un outil de facturation interne. Un code très couplé, où chaque changement dépend souvent des autres. La direction pose une question simple : laquelle de ces deux demandes justifie le surcoût ?
+
+NORA : Avant de répondre, je rappelle un ordre de grandeur donné par Anthropic. Un agent consomme environ quatre fois plus de tokens qu'un chat. Un système multi-agents, environ quinze fois plus.
+
+NARRATEUR : Trois avis s'affrontent en réunion. Premier avis : les deux équipes, parce que des agents spécialisés font mieux partout. Deuxième avis : seulement l'équipe B, parce qu'un code partagé profite de plusieurs agents qui travaillent en même temps. Troisième avis : aucune des deux, parce que le multi-agents coûterait à peu près comme un chat, tout en étant bien plus difficile à déboguer. Mets sur pause si tu veux. Tu réponds quoi à la direction ?
+
+NORA : L'équipe A, et seulement elle. Sa tâche a une forte valeur, elle se découpe en recherches indépendantes qu'on lance en parallèle, et l'information dépasse ce qui tient dans une seule fenêtre de contexte. C'est exactement le profil sur lequel le multi-agents excelle. L'équipe B, c'est l'inverse : tous les agents devraient partager le même contexte, et chacun dépend du travail des autres. Ce genre de tâche s'y prête mal aujourd'hui. Quant au troisième avis, il part d'un chiffre faux : le multi-agents ne coûte pas comme un chat, il coûte environ quinze fois plus. C'est justement pour ça qu'il faut une tâche qui le mérite.
+
+NARRATEUR : À retenir : le multi-agents se justifie pour une tâche à forte valeur, très parallélisable, avec peu de dépendances entre les sous-tâches. Plus d'agents ne veut pas dire meilleur résultat.
+
+NARRATEUR : Deuxième histoire. Un groupe de distribution traite chaque mois des dizaines de milliers de notes de frais. Le parcours est toujours le même : lire le justificatif, extraire le montant, la date et la catégorie, vérifier la politique de dépenses, signaler les dépassements, puis transmettre au manager. La direction financière exige un processus prévisible, où chaque étape laisse une trace pour l'audit. Un éditeur vient de présenter au directeur des systèmes d'information un agent autonome, qui décide lui-même de ses étapes pour chaque note.
+
+NORA : La démonstration est impressionnante. Mais je pose une question : est-ce qu'on connaît déjà les étapes ? Oui. Elles n'ont pas changé depuis des années.
+
+NARRATEUR : Trois options sur la table. L'agent autonome de l'éditeur. Un agent par étape, extraction, contrôle, transmission, qui se passent le relais entre eux. Ou une chaîne d'étapes fixes écrites dans le code, où Claude intervient pour extraire les données et pour expliquer les anomalies. À toi : laquelle tu recommandes ?
+
+NORA : La chaîne d'étapes fixes. C'est un workflow, et plus précisément du prompt chaining : chaque étape fait une seule chose, et entre deux étapes le code vérifie le résultat avant de continuer. On y gagne la prévisibilité, la cohérence, et des points de contrôle que l'auditeur peut suivre. L'agent autonome sacrifie tout ça pour une flexibilité dont personne n'a besoin ici. Un agent, je le réserve aux problèmes ouverts, quand on ne peut pas prévoir le nombre d'étapes. Et l'agent par étape ajoute du coût en tokens, avec des passages de relais moins prévisibles que du code. Si un jour il faut vraiment un agent, il viendra avec ses garde-fous : un nombre maximal d'itérations, des tests en sandbox et des points de validation humaine.
+
+NARRATEUR : À retenir : étapes connues et exigence d'audit, c'est un workflow. Étapes imprévisibles, c'est un agent. Et dans le doute, on commence par la solution la plus simple, et on n'ajoute de la complexité que si elle améliore le résultat de façon démontrée.
+
+NARRATEUR : C'était l'épisode 2. Pour t'entraîner, direction le deuxième étage de la Tour, face au Sur-Ingénieur. Au prochain épisode : l'Atelier des Outils, où un format presque toujours valide ne suffit pas.
