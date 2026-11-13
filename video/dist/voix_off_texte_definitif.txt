@@ -1,5 +1,6 @@
 Agentic Wealth | On audite un cabinet de gestion de patrimoine
 Texte définitif de la voix off (simulation pédagogique, cabinet et chiffres fictifs)
+Voix : ElevenLabs, « Bastien - Calm & Clear French Teacher », modèle eleven_multilingual_v2
 Mots prononcés : 2595
 
 ## L'accroche

@@ -4,7 +4,11 @@ set -euo pipefail
 cd "$(dirname "$0")"
 OUT=dist/agentic-wealth_audit-cgp_fr.mp4
 
-python3 tools/tts.py            # voix off locale (Piper) + timeline + SRT + texte définitif
+if [ "${VOICE:-eleven}" = "piper" ]; then
+  python3 tools/tts.py          # voix locale gratuite (Piper) + timeline + SRT + texte définitif
+else
+  python3 tools/eleven_align.py # voix ElevenLabs (build/eleven/*.mp3) alignée + timeline + SRT + texte définitif
+fi
 python3 tools/mix_audio.py      # voix + nappe originale, -16 LUFS
 python3 tools/conducteur.py     # conducteur scène par scène
 node tools/render.js --workers "${WORKERS:-4}"   # images 1920x1080 25 i/s -> build/video_noaudio.mp4

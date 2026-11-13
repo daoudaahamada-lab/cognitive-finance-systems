@@ -177,7 +177,7 @@ registerScene('deploy', (root) => {
     <div class="abs" style="left:160px;top:300px;width:1600px">
       <div style="font-size:40px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)" data-in="y_end">Agentic Wealth</div>
       <div style="font-size:80px;font-weight:800;color:#fff;margin-top:26px;letter-spacing:-.02em;line-height:1.1" data-in="y_end@1">L'agent prépare.<br><span data-in="y_end@2" style="color:#8FD6B8">Le CGP valide et décide.</span></div>
-      <div style="font-size:22px;color:#93A3B8;margin-top:60px;line-height:1.6" data-in="y_end@2+0.8">Simulation pédagogique : cabinet, personnes, dossiers et chiffres fictifs. Gains présentés comme hypothèses.<br>Voix de synthèse locale : Piper, voix « siwis » (jeu de données SIWIS, licence CC BY 4.0).</div>
+      <div style="font-size:22px;color:#93A3B8;margin-top:60px;line-height:1.6" data-in="y_end@2+0.8">Simulation pédagogique : cabinet, personnes, dossiers et chiffres fictifs. Gains présentés comme hypothèses.<br>Voix off de synthèse : ElevenLabs, voix « Bastien ».</div>
     </div>
   </div>`;
   return { chromeUntil: 'y_end' };

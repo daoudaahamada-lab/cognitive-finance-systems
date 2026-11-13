@@ -1,8 +1,9 @@
 # Vidéo Agentic Wealth : « On audite un cabinet de gestion de patrimoine »
 
 Vidéo pédagogique française (simulation) : un cabinet fictif, Horizon Patrimoine, est audité puis trois agents
-sont mis en situation, avec un CGP qui vérifie, décide et autorise chaque envoi. Tout est produit localement,
-sans service payant.
+sont mis en situation, avec un CGP qui vérifie, décide et autorise chaque envoi. Les images, le montage et les
+sous-titres sont produits localement ; la voix off est générée avec ElevenLabs (voix « Bastien »), avec une voix
+locale gratuite (Piper) en solution de repli.
 
 ## Livrables (dossier `dist/`)
 
@@ -19,7 +20,8 @@ sans service payant.
 ```
 script/script.py        Source unique du texte : scènes, beats (ancres temporelles), pauses
 tools/pronunciation.py  Ajustements phonétiques pour la synthèse (n'affecte pas les sous-titres)
-tools/tts.py            Voix Piper locale, timeline, SRT, texte définitif (meilleure prise via Whisper local pour les mots difficiles)
+tools/eleven_align.py   Voix ElevenLabs (build/eleven/<scène>.mp3) alignée mot à mot par Whisper : timeline, SRT, texte définitif
+tools/tts.py            Repli : voix Piper locale, même format de sortie (VOICE=piper ./build.sh)
 tools/mix_audio.py      Mixage voix + nappe originale générée par calcul, normalisation -16 LUFS
 tools/render.js         Rendu image par image (Playwright/Chromium -> ffmpeg), en parallèle
 tools/preview.js        Captures de contrôle à un instant ou une ancre : node tools/preview.js DOSSIER p_7+2 120
@@ -35,7 +37,12 @@ automatiquement images, voix et sous-titres.
 ## Reconstruire
 
 Prérequis : Python 3, Node 18+, ffmpeg, Playwright avec Chromium, `pip install piper-tts faster-whisper numpy`.
-Modèle de voix (non versionné, 63 Mo) à placer dans `models/` :
+Voix ElevenLabs : les 11 MP3 (un par scène, voix « Bastien », modèle `eleven_multilingual_v2`) sont placés dans
+`build/eleven/` sous le nom de la scène (`hook.mp3`, `title.mp3`, `cabinet.mp3`, …). Le texte envoyé est exactement
+celui des beats de chaque scène, séparés par une ligne vide (fichiers `build/eleven/<scène>.txt`). Ils restent aussi
+disponibles dans le flow ElevenLabs « Agentic Wealth : voix off audit CGP (Bastien) ».
+
+Repli Piper : modèle de voix (non versionné, 63 Mo) à placer dans `models/` :
 
 ```bash
 curl -L -o models/fr_FR-siwis-medium.onnx https://huggingface.co/rhasspy/piper-voices/resolve/main/fr/fr_FR/siwis/medium/fr_FR-siwis-medium.onnx
@@ -53,8 +60,8 @@ Le contrôle d'intelligibilité utilise le modèle Whisper « small » (téléch
 
 ## Licences et crédits
 
-- Voix : Piper, voix `fr_FR-siwis-medium`, entraînée sur le corpus SIWIS (licence CC BY 4.0) : attribution
-  affichée sur le carton final.
+- Voix : ElevenLabs, voix de bibliothèque « Bastien - Calm & Clear French Teacher » (vérifier les conditions
+  d'usage commercial de votre abonnement ElevenLabs). Repli : Piper `fr_FR-siwis-medium` (CC BY 4.0).
 - Police : Inter (SIL Open Font License).
 - Nappe musicale : générée par `tools/mix_audio.py` (aucun échantillon tiers).
 - Identité : wordmark texte « Agentic Wealth » ; aucun logo officiel n'existait dans le projet, aucun n'a été inventé.

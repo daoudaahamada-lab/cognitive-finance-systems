@@ -8,7 +8,7 @@ Tous sous `/home/user/cognitive-finance-systems/video/` :
 
 | Livrable | Chemin |
 |---|---|
-| Vidéo finale | `dist/agentic-wealth_audit-cgp_fr.mp4` (56,5 Mo) |
+| Vidéo finale | `dist/agentic-wealth_audit-cgp_fr.mp4` (56,9 Mo) |
 | Sous-titres SRT | `dist/agentic-wealth_audit-cgp.fr.srt` |
 | Texte définitif de la voix off | `dist/voix_off_texte_definitif.txt` |
 | Conducteur scène par scène | `dist/conducteur.md` |
@@ -19,25 +19,32 @@ Tous sous `/home/user/cognitive-finance-systems/video/` :
 
 | Critère | Résultat |
 |---|---|
-| Durée réelle | **1 008,2 s = 16 min 48 s** (minimum demandé : 10 min 30 s) |
+| Durée réelle | **1 018,9 s = 16 min 59 s** (minimum demandé : 10 min 30 s) |
 | Vidéo | H.264, **1920 × 1080**, 25 i/s |
 | Audio | **piste présente** : AAC, 48 kHz, stéréo, 192 kb/s |
 | Loudness intégrée | -16,0 LUFS |
 | Silences > 2,5 s (sous -45 dB) | aucun |
-| Plus longue pause entre deux phrases | 1,79 s (fin de l'accroche, transition volontaire) |
-| Mots prononcés | **2 595** (≈ 154 mots/min, pauses comprises) |
+| Plus longue pause entre deux phrases | 1,65 s (changements de scène) |
+| Mots prononcés | **2 595** (≈ 153 mots/min, pauses comprises) |
 | Sous-titres | 323 blocs, 2 lignes maximum, 42 caractères maximum par ligne, incrustés dans l'image et fournis en SRT |
 | Tirets cadratin / demi-cadratin | 0 dans la voix, 0 dans le SRT, 0 dans les textes à l'écran |
 
-**Synchronisation.** Les sous-titres et les animations sont calculés à partir des horodatages réels de chaque phrase
-synthétisée, donc synchrones par construction. Contrôle indépendant : transcription Whisper du MP4 final, décalage
-médian de 0,14 s entre les segments reconnus et la timeline (127 segments appariés). L'imprécision vient surtout de
-l'horodatage de Whisper.
+**Voix off.** ElevenLabs, voix de bibliothèque « Bastien - Calm & Clear French Teacher », modèle
+`eleven_multilingual_v2`. Une génération par scène, soit 11 fichiers, environ 17 250 crédits (≈ 3,1 $ estimés par
+ElevenLabs). Le texte envoyé est le texte définitif, sans aucune modification phonétique. Les MP3 sont dans
+`build/eleven/` et dans le flow ElevenLabs « Agentic Wealth : voix off audit CGP (Bastien) ». Le repli gratuit (Piper)
+reste disponible avec `VOICE=piper ./build.sh`.
 
-**Intelligibilité.** Whisper retrouve 86,6 % des mots du script à l'identique. La plupart des écarts sont des
-normalisations (« vingt-quatre » transcrit « 24 ») ou des accords de pluriel inaudibles en français. Pour les phrases
-à mots difficiles, plusieurs prises sont synthétisées et la mieux reconnue est conservée (journal :
-`build/tts_bestof.log`).
+**Synchronisation.** Chaque phrase est recalée sur l'audio ElevenLabs par alignement mot à mot (Whisper local). Les 222
+phrases ont toutes une durée plausible ; 88 à 100 % des mots sont appariés selon la scène, et le reste correspond surtout
+à des nombres écrits en chiffres par Whisper. Les sous-titres et les animations sont calculés à partir de ces horaires.
+Contrôle indépendant sur le MP4 final : décalage médian de 0,06 s entre les segments reconnus et la timeline
+(95 % sous 0,44 s, 139 segments).
+
+**Intelligibilité.** Whisper retrouve 90,9 % des mots du script à l'identique. Les écarts restants sont des chiffres
+(« 24 » pour « vingt-quatre »), des accords de pluriel inaudibles et des graphies (« Agenteek Wealth »,
+« chat de botte »). Les noms « Léa », « Sophie », « Karim », « Camille » et les sigles CGP, CRM, AMF, CNIL sont
+correctement restitués.
 
 ## Calculs vérifiés
 
@@ -96,8 +103,8 @@ Après correction, les critères sont respectés :
 - **Formulation réglementaire modifiée** par rapport au script d'origine. « Déclaration d'adéquation remise après le
   conseil » devient « remise au client avant la réalisation de l'opération conseillée », sur l'avis du relecteur. À
   confirmer par un juriste.
-- **Voix de synthèse** : Piper, voix française « siwis », exécutée localement et gratuitement. Elle est intelligible
-  mais reste reconnaissable comme une voix de synthèse : ce n'est pas une voix humaine.
+- **Voix ElevenLabs** : générée sur votre compte après votre accord (environ 17 250 crédits). Elle reste une voix de
+  synthèse : à mentionner si votre canal l'exige.
 - **Musique** : nappe discrète générée par calcul (`tools/mix_audio.py`), aucune banque sonore.
 - **Identité visuelle** : aucun logo ni charte Agentic Wealth n'existait dans le projet. J'ai utilisé un simple
   wordmark texte, sans inventer de logo. Les tableaux Miro n'étaient pas accessibles ici : les cinq domaines suivent le
@@ -108,12 +115,8 @@ Après correction, les critères sont respectés :
 1. **Mentions réglementaires** : repère AMF (informations à recueillir, déclaration d'adéquation et moment de sa
    remise), vigilance « pour les professionnels assujettis » et « approche fondée sur les risques », points d'attention
    « rappelés par la CNIL ». Ce sont des formulations générales, sans source citée à l'écran.
-2. **Écoute intégrale de la voix**, en particulier sur ces mots :
-   - « Léa », que Whisper confond parfois avec « l'IA » ;
-   - « Aix-en-Provence » ;
-   - « chatbot » ;
-   - « onze étapes » ;
-   - « Agentic Wealth », prononcé à la française.
+2. **Écoute intégrale de la voix** : prononciation de « Agentic Wealth », « chatbot », « Aix-en-Provence » et
+   « onze étapes » ; rythme général.
 3. **Chiffres affichés** : vérifier que les mentions « simulation », « hypothèse », « gain cible », « capacité
    théorique » et « valorisation interne illustrative » vous conviennent. La valeur de 60 € de l'heure est
    illustrative.
@@ -124,7 +127,7 @@ Après correction, les critères sont respectés :
    - nom « Horizon Patrimoine ». Vérifier qu'aucun cabinet réel ne porte ce nom dans votre zone.
 5. **Planning de mission et appel à l'action** (« Montrez-nous un dossier et une semaine réelle ») : vérifier qu'ils
    correspondent à votre offre réelle.
-6. **Licence de la voix** : CC BY 4.0 (corpus SIWIS). L'attribution figure sur le carton final ; vérifier qu'elle suffit
-   pour votre canal de diffusion.
+6. **Droits d'usage de la voix** : vérifier que votre abonnement ElevenLabs autorise l'usage commercial de la voix de
+   bibliothèque « Bastien ». Le crédit figure sur le carton final.
 7. **Sous-titres incrustés** : ils sont gravés dans l'image. Si la plateforme affiche aussi le SRT, désactiver l'un des
    deux.
