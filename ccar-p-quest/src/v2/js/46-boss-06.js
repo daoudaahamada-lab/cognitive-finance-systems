@@ -228,7 +228,7 @@ BOSSES[6] = {
     c.strokeStyle = col(o.main, 0.4); c.lineWidth = 1.5; c.beginPath(); c.ellipse(0, 0, rx * 0.64, ry * 0.64, 0, 0, TAU); c.stroke();
     const tooth = (a, hw, base, tip) => { c.moveTo(Math.cos(a - hw) * rx * base, Math.sin(a - hw) * ry * base); c.lineTo(Math.cos(a) * rx * tip, Math.sin(a) * ry * tip); c.lineTo(Math.cos(a + hw) * rx * base, Math.sin(a + hw) * ry * base); c.closePath(); };
     c.fillStyle = col(mixv("#8573b4", C.white, o.fl)); c.beginPath();
-    for (let i = 0; i < 8; i++) tooth((i / 8) * TAU + o.spin * 0.5, 0.22, 0.65, 0.65 - 0.2 * o.teeth);
+    for (let i = 0; i < 8; i++) tooth((i / 8) * TAU + o.spin * 0.5, 0.34, 0.66, 0.66 - 0.22 * o.teeth);
     c.fill();
     // œil de la singularité : la cible critique
     if (o.eye > 0.01) {
@@ -245,7 +245,7 @@ BOSSES[6] = {
     for (let i = 0; i < 12; i++) {
       const gone = (o.dmg >= 2 && i === 4) || (o.dmg >= 3 && (i === 9 || i === 1)), chip = (o.dmg >= 1 && i === 4) || (o.dmg >= 2 && i === 9) || (o.dmg >= 3 && (i === 6 || i === 11));
       if (gone) continue;
-      tooth((i / 12) * TAU - o.spin * 0.3, 0.175, 1.01, 1 - o.len * o.teeth * (chip ? 0.45 : i % 2 ? 0.84 : 1));
+      tooth((i / 12) * TAU - o.spin * 0.3, 0.25, 1.01, 1 - o.len * o.teeth * (chip ? 0.4 : i % 2 ? 0.8 : 1));
     }
     c.fill(); c.strokeStyle = "rgba(60,30,90,0.55)"; c.lineWidth = 1.2; c.stroke();
     c.save(); c.shadowColor = col(o.lip); c.shadowBlur = 12; c.strokeStyle = col(mixv(o.lip, C.white, 0.35 + o.fl * 0.5)); c.lineWidth = 3.6; c.beginPath(); c.ellipse(0, 0, rx, ry, 0, 0, TAU); c.stroke(); c.restore();
@@ -309,7 +309,7 @@ BOSSES[6] = {
     const R1 = { cx: offX, cy: 10 + offY, tilt, rx: 162, ry, k: ringK, spin: rspin, time: t, n: 16, count: 3 + 13 * hp, fall: dmg >= 3 ? 2 : dmg >= 2 ? 4 : 6, pull: 1 + wind * 2 + castK * 1.5,
       tint: gold, dark: goldDark, band: (0.55 + beat * 0.2) * (dead ? 1 - seg(d, 0.2, 0.5) : 1), dash: dmg ? 10 + dmg * 14 : 0, alpha: 1, mawR };
     const R2 = rg > 0.02 ? { cx: offX, cy: 8 + offY, tilt: 0.62 - Math.sin(t * 0.35) * 0.09, rx: 150, ry: 40, k: ringK * (0.4 + 0.6 * backOut(rg)), spin: -rspin * 1.35, time: t + 9, n: 8, count: 8, fall: 0, pull: 1,
-      tint: mixv(P.rage, "#ffb070", 0.35 + fl * 0.4), dark: "#5a1024", band: rg * (0.8 + beat * 0.2) * (dead ? 1 - seg(d, 0.2, 0.5) : 1), dash: 0, alpha: rg, mawR } : null;
+      tint: mixv(P.rage, "#ffb070", 0.35 + fl * 0.4), dark: "#5a1024", band: rg * (1 + beat * 0.25) * (dead ? 1 - seg(d, 0.2, 0.5) : 1), dash: 0, alpha: rg, mawR } : null;
 
     // halo
     const lifeA = clamp(grow, 0, 1) * (1 - imp);
@@ -347,8 +347,12 @@ BOSSES[6] = {
       B.swirl(c, { R, spin, arms: 4, sweep: 1.7 + rg * 0.25 + imp * 1.6, r0: 58, reach: 118 + rg * 12 + strike * 6, w: 14 - rg * 2, main, deep, lite });
       // entailles par où il fuit (stades 2 et 3)
       if (dmg >= 2) {
-        c.fillStyle = "#070410";
-        for (const a of dmg >= 3 ? [0.95, 2.45] : [0.95]) { c.beginPath(); c.moveTo(Math.cos(a - 0.2) * (R + 2), Math.sin(a - 0.2) * (R + 2)); c.lineTo(Math.cos(a - 0.05) * (R - 20), Math.sin(a - 0.05) * (R - 20)); c.lineTo(Math.cos(a + 0.03) * (R - 8), Math.sin(a + 0.03) * (R - 8)); c.lineTo(Math.cos(a + 0.1) * (R - 24), Math.sin(a + 0.1) * (R - 24)); c.lineTo(Math.cos(a + 0.22) * (R + 2), Math.sin(a + 0.22) * (R + 2)); c.closePath(); c.fill(); }
+        const at = (a, r) => [Math.cos(a) * r, Math.sin(a) * r];
+        for (const a of dmg >= 3 ? [0.95, 2.45] : [0.95]) {
+          c.beginPath();
+          [[-0.15, R + 2], [-0.05, R - 15], [0.01, R - 7], [0.07, R - 25], [0.17, R + 2]].forEach(([da, r], i) => { const p = at(a + da, r); if (i) c.lineTo(p[0], p[1]); else c.moveTo(p[0], p[1]); });
+          c.fillStyle = "#070410"; c.fill(); c.strokeStyle = col(gold, 0.85); c.lineWidth = 1.8; c.lineJoin = "round"; c.stroke();
+        }
       }
       drawCracks(c, b, "rgba(255,226,180,0.5)", 1.5);
       // gueule
