@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Agentic Wealth : audit d'un cabinet</title>
+<style>
+@font-face { font-family: 'Inter'; src: url('fonts/Inter-Regular.otf'); font-weight: 400; }
+@font-face { font-family: 'Inter'; src: url('fonts/Inter-Italic.otf'); font-weight: 400; font-style: italic; }
+@font-face { font-family: 'Inter'; src: url('fonts/Inter-Medium.otf'); font-weight: 500; }
+@font-face { font-family: 'Inter'; src: url('fonts/Inter-SemiBold.otf'); font-weight: 600; }
+@font-face { font-family: 'Inter'; src: url('fonts/Inter-Bold.otf'); font-weight: 700; }
+@font-face { font-family: 'Inter'; src: url('fonts/Inter-ExtraBold.otf'); font-weight: 800; }
+</style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage"></div>
+<div id="chrome">
+  <div class="brand">Agentic <b>Wealth</b></div><div class="sep"></div>
+  <div id="chrome-title"></div>
+  <div class="sim">Simulation · données fictives</div>
+  <div class="bar"><div id="chrome-progress"></div></div>
+</div>
+<div id="subs"><div class="lines"></div></div>
+<script src="timeline.js"></script>
+<script src="engine.js"></script>
+<script src="scenes1.js"></script>
+<script src="scenes2.js"></script>
+<script src="scenes3.js"></script>
+<script src="scenes4.js"></script>
+<script>
+window.READY = (async () => { await document.fonts.ready; buildAll(); render(0); return true; })();
+</script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+Agentic Wealth | On audite un cabinet de gestion de patrimoine
+Texte définitif de la voix off (simulation pédagogique, cabinet et chiffres fictifs)
+Mots prononcés : 2595
+
+## L'accroche
+Prenons un cabinet de gestion de patrimoine fictif. Il passe environ vingt-quatre heures par semaine à rechercher des informations, préparer des rendez-vous, vérifier des pièces et reconstruire ses suivis clients.
+Sur ces vingt-quatre heures, notre hypothèse est qu'il pourrait en récupérer dix, sans laisser une intelligence artificielle conseiller à la place du CGP.
+Dix heures par semaine, sur quarante-six semaines travaillées, cela représente quatre cent soixante heures de capacité potentielle sur une année.
+Ce n'est pas du chiffre d'affaires supplémentaire promis. C'est du temps que le cabinet pourrait consacrer à ses clients, à ses dossiers ou à son développement, si les mesures du pilote confirment l'hypothèse.
+Mais il y a une condition. Dès qu'on touche à des situations patrimoniales, à des documents d'identité ou à des échanges privés, on ne branche pas simplement un chatbot sur tous les fichiers du cabinet.
+Aujourd'hui, on va suivre une mission, du premier diagnostic jusqu'à la décision de déployer ou d'arrêter.
+On va noter le fonctionnement du cabinet, voir où passe son temps, puis mettre trois agents au travail, avec un CGP qui garde la main à chaque étape.
+
+## Titre
+Précision avant de commencer : ceci est une simulation pédagogique. Le cabinet, les personnes, les dossiers et les chiffres sont fictifs.
+
+## Le cabinet que l'on audite
+Notre cabinet fictif s'appelle Horizon Patrimoine. Il est installé à Aix-en-Provence et compte trois personnes.
+Sophie dirige le cabinet. Elle conduit les rendez-vous patrimoniaux, prend les décisions de conseil et valide les communications importantes.
+Karim est conseiller. Il prépare les dossiers, suit une partie des clients et réalise des rendez-vous.
+Léa coordonne l'accueil, l'agenda, les demandes de pièces et le suivi administratif. Elle travaille quatre jours par semaine.
+Dans notre simulation, le cabinet suit environ cent quatre-vingts foyers clients et reçoit régulièrement de nouveaux prospects.
+On ne suppose aucun statut réglementaire unique : une vraie mission vérifierait les statuts du cabinet, ses prestations et ses procédures.
+L'équipe utilise un CRM, une messagerie, un agenda, un espace documentaire et des modèles de documents. Les outils existent. Le problème, ce sont les passages de l'un à l'autre.
+Avant un rendez-vous, Sophie retrouve une note dans le CRM, cherche le dernier échange dans sa messagerie, ouvre les pièces dans un dossier partagé et vérifie si une action promise a été faite.
+Après le rendez-vous, elle refait une partie du chemin pour rédiger le compte rendu et organiser la suite.
+C'est sur ces passages de relais que porte notre audit.
+
+## L'audit, avant de parler d'agents
+La mission commence avec les personnes, pas avec une démonstration d'IA.
+Pendant le diagnostic, on demande à chacun de montrer un dossier de bout en bout.
+Comment arrive une demande ? Quelles sources sont consultées ? Qui repère une pièce manquante ? Qui valide le compte rendu ? Où voit-on la prochaine action ?
+On distingue ce que l'équipe déclare faire, ce qu'on peut observer dans les outils, et ce qu'il faudra mesurer pendant le pilote.
+On répartit ensuite vingt-quatre heures hebdomadaires de travail répétitif en trois blocs, sans compter deux fois la même tâche.
+Huit heures pour préparer les rendez-vous, rassembler le contexte et remettre les notes en forme après l'échange.
+Neuf heures pour rechercher les pièces, vérifier des listes de contrôle et préparer les revues de dossiers.
+Sept heures pour retrouver les engagements, rédiger des brouillons de suivi et préparer les priorités de la semaine.
+Huit plus neuf plus sept : vingt-quatre heures. Ce sont des hypothèses de départ. Dans un vrai cabinet, il faudrait chronométrer un échantillon de tâches et tenir compte des différences entre dossiers.
+On note aussi le fonctionnement du cabinet sur cinq critères, chacun sur vingt.
+Processus : treize sur vingt. L'équipe connaît les étapes, mais elles sont peu documentées.
+Interconnexion des outils : six sur vingt. Plusieurs informations doivent être recherchées et ressaisies.
+Maîtrise des accès et des données : sept sur vingt. Les règles d'usage des outils d'IA restent à préciser.
+Appropriation par l'équipe : neuf sur vingt. Chacun est intéressé, personne n'a encore testé un workflow complet.
+Validations et traçabilité : dix sur vingt. Les décisions humaines existent, mais leur historique est difficile à retrouver.
+Total : quarante-cinq sur cent.
+Ce n'est pas une mesure du professionnalisme des conseillers, mais la photographie fictive d'un système de travail, selon notre grille. La mission devra rendre chaque critère vérifiable.
+On range ensuite les tâches observées dans les cinq domaines de la cartographie Agentic Wealth.
+Acquisition et conversion : prospects, premiers rendez-vous, relances.
+Conseil et préparation : briefs, comptes rendus, questions à poser.
+Conformité et traçabilité : pièces, listes de contrôle, journaux de validation.
+Service et relation client : demandes entrantes, engagements, réponses.
+Pilotage du cabinet : priorités, échéances, dossiers sans action récente.
+Partout, la même règle : l'agent prépare, le conseiller décide. Voyons trois agents à l'œuvre, sur une semaine type.
+
+## Agent 1 : préparer le rendez-vous et sa suite
+Première scène. Mardi, huit heures trente-cinq. Sophie a un rendez-vous de suivi à quatorze heures avec Camille, une cliente fictive.
+Sans agent, elle ouvre le CRM, cherche le dernier compte rendu, relit trois échanges, vérifie les documents et note ses questions. Après le rendez-vous, elle rédige le compte rendu et crée les actions.
+Cette chaîne pèse lourd dans les huit heures du premier bloc.
+Voici le parcours à tester : onze étapes, dont trois validations humaines.
+Étape un : Sophie sélectionne elle-même le rendez-vous. L'agent ne choisit pas seul les dossiers.
+Étape deux : elle autorise les sources utiles pour ce dossier : fiche CRM, comptes rendus validés, échanges professionnels pertinents, documents auxquels elle est habilitée à accéder.
+Une archive ancienne et la messagerie complète restent grisées : elles sont hors périmètre.
+Étape trois : la collecte. L'agent ne lit que ces sources, et garde l'origine de chaque information.
+Étape quatre : le rapprochement. La fiche CRM indique une dernière revue le douze mars, le compte rendu validé le quatorze mars. L'agent ne choisit pas : il signale l'écart.
+Étape cinq : les manques. Un justificatif introuvable, une échéance citée dans un échange mais absente du suivi, une information vieille de deux ans. Chaque point est listé avec sa source.
+Étape six : le brief. En haut, les faits sourcés : dernier échange, objectifs exprimés par la cliente, actions convenues, documents disponibles. Plus bas, les points à vérifier.
+Puis des questions pour l'entretien, comme : « L'objectif formulé au dernier rendez-vous est-il toujours d'actualité ? » Une question aide la conversation. Elle ne conclut rien sur la situation de Camille.
+Étape sept : la correction. Sophie voit d'où vient chaque élément. Elle retire une question peu pertinente, corrige la date de la dernière revue, puis valide sa version. C'est Sophie qui mène le rendez-vous et interprète les réponses.
+Étape huit : le rendez-vous, de quatorze heures à quinze heures dix. Pas d'écran d'IA : la conversation appartient à la cliente et à sa conseillère.
+Étape neuf : le brouillon de compte rendu. À quinze heures dix, Sophie saisit ses notes, ou une transcription si celle-ci est autorisée et encadrée.
+L'agent sépare quatre choses : les faits rapportés par la cliente, les questions ouvertes, les décisions réellement prises par Sophie, et les actions proposées.
+Il signale une phrase ambiguë : « revoir le dossier le mois prochain ». Revoir quoi, avec qui, à quelle date ? Il ne complète pas la promesse de lui-même.
+Étape dix : la validation. Sophie précise : un point téléphonique dans quatre semaines, qu'elle mènera elle-même. Puis elle valide le compte rendu.
+Étape onze : les tâches et le suivi. L'agent propose deux tâches, avec responsable et échéance à confirmer. Une fois validées par Sophie, elles rejoignent l'outil de suivi autorisé.
+Un message à Camille reste un brouillon. Sophie contrôle le destinataire, le contenu et l'envoi. Rien ne part sans son clic.
+Sur les huit heures de ce bloc, l'objectif de test est d'en récupérer quatre. C'est un gain cible, pas un résultat.
+On mesurera le temps avant et après, les corrections, les erreurs, et l'utilité réelle des briefs.
+Premier jalon, volontairement petit : trois briefs, puis une décision de Sophie. Continuer, ajuster, ou retirer l'accès.
+
+## Agent 2 : voir les manques, sans déclarer un dossier conforme
+Deuxième scène. Mercredi, dix heures vingt. Léa prépare plusieurs dossiers pour des rendez-vous et une revue périodique.
+Elle parcourt les répertoires, compare les fichiers aux listes du cabinet, cherche des dates, et fait trancher les cas incertains par Sophie ou Karim.
+Dans notre simulation, ce travail représente neuf heures par semaine.
+Première limite : l'agent n'invente pas les règles de contrôle. La liste applicable vient du cabinet, validée par la personne compétente.
+On vérifie aussi le cadre d'accès aux données : quelles sources, quelles personnes habilitées, quelle finalité, quel sous-traitant éventuel, quelle conservation.
+Pour un dossier sélectionné, l'agent lit la liste approuvée, inventorie seulement les documents autorisés, et range chaque ligne en quatre colonnes : présent, absent, ambigu, ou non vérifié.
+Supposons un justificatif présent, mais dont la date est illisible. L'agent ne le marque ni « valide », ni « périmé ». Il le classe en ambigu, et montre le document source avec la raison du signalement.
+Léa retrouve une meilleure version, ou demande à Sophie quelle suite donner.
+Pour une revue périodique, il compare avec la dernière revue : éléments nouveaux, inchangés, pièces à examiner, contrôles sans réponse.
+Si une information essentielle manque, l'écran indique : décision humaine requise. Jamais de badge « dossier conforme » sur la seule base de sa lecture.
+C'est essentiel pour la connaissance client et la vigilance. Selon les activités exercées, le professionnel applique les exigences qui lui sont propres.
+Pour le conseil en investissements financiers, l'AMF décrit notamment les informations à recueillir avant de conseiller, et la déclaration d'adéquation remise au client avant la réalisation de l'opération conseillée. Pour les professionnels assujettis, les obligations de vigilance suivent une approche fondée sur les risques.
+L'agent aide à préparer et à retrouver des éléments, sans statuer sur leur suffisance. Et cette vidéo n'est pas un modèle universel de dossier réglementaire.
+Après la revue, un journal conserve les sources consultées, la version du résultat, la correction de Léa, la validation de Sophie et l'horodatage, selon les règles de conservation du cabinet.
+Mais un journal technique n'est pas, à lui seul, la preuve que les obligations réglementaires sont remplies.
+Hypothèse : ramener ce bloc de neuf à six heures par semaine, soit trois heures récupérées.
+Le pilote suivra aussi les faux positifs, les vrais manques détectés, et les situations correctement laissées à l'équipe.
+
+## Agent 3 : relation client et pilotage de la semaine
+Troisième scène. Jeudi, seize heures quarante. Une cliente écrit : « Pouvez-vous me rappeler ce que nous avions convenu pour la suite ? »
+Léa cherche le dernier compte rendu, vérifie la tâche, puis demande à Karim si l'action est faite. En parallèle, un prospect attend un retour et deux échéances approchent.
+L'agent de service classe la demande, puis rassemble les seuls éléments autorisés : le message, le compte rendu validé, la tâche et son statut.
+Il prépare une fiche. Voici l'engagement retrouvé. Voici sa source. Voici l'état connu. Et voici ce que nous ne savons pas encore.
+Il peut rédiger un brouillon de réponse. Ici, la tâche n'a pas de statut fiable : le brouillon n'affirme donc pas qu'elle est terminée.
+Karim vérifie, complète, puis décide de l'envoi. Seul Karim dispose du bouton « vérifier et envoyer ». L'agent n'a qu'un bouton : « préparer ».
+Même logique pour un prospect. L'agent propose une fiche de qualification à partir du formulaire et des échanges autorisés, des questions pour un premier rendez-vous, et une relance contextualisée.
+Le conseiller choisit de prendre contact, d'accepter ou non le prospect, et d'envoyer chaque message. Aucun score automatique de « valeur » de la personne.
+Le lundi suivant, à neuf heures, Sophie ouvre une vue de pilotage.
+L'agent a rapproché agenda, tâches et statuts du CRM en quatre listes : rendez-vous à préparer, engagements sans responsable confirmé, échéances à vérifier, et dossiers sans action récente, selon une règle choisie par le cabinet.
+Chaque signal comporte une raison. Un dossier sans activité récente n'est pas étiqueté « client négligé ».
+Sophie répond : « celui-ci attend volontairement une date », « celui-là mérite un appel », « cette donnée du CRM est incorrecte ». C'est elle qui arbitre.
+Notre hypothèse : ramener ce bloc de sept à quatre heures par semaine, soit trois heures récupérées.
+On compte aussi les alertes utiles ou écartées, les brouillons corrigés et les engagements retrouvés. Si le tableau produit du bruit, on réduit son périmètre : un cockpit que personne n'ouvre n'est pas un gain.
+
+## La question des données et des limites
+Sophie pose alors la bonne question : « Pour préparer tout ça, l'agent doit-il lire tous mes mails et tous mes dossiers ? »
+La réponse de la mission est non.
+Chaque workflow a un objectif défini, des sources approuvées, des droits limités et des personnes habilitées. Source autorisée, accès limité, préparation, validation humaine, destination autorisée.
+Avant d'utiliser des données clients, le cabinet examine ses responsabilités, ses contrats avec les prestataires, la sécurité, la conservation et les éventuels transferts.
+Héberger un modèle soi-même, ou choisir un modèle open source, ne suffit pas à rendre un traitement conforme. La CNIL rappelle notamment l'importance d'encadrer la sous-traitance, de protéger les données et de garder une intervention humaine adaptée.
+Concrètement, l'agent sait s'arrêter.
+S'il ne retrouve pas la source d'un fait, il écrit : information non vérifiée.
+Si une pièce est illisible, il demande une vérification.
+Si une demande implique une interprétation patrimoniale ou une décision de conseil, il la transmet au CGP.
+Il ne recommande aucun produit. Il ne détermine pas seul un profil de risque. Il ne déclare pas un dossier conforme. Il ne contacte personne automatiquement. Il ne modifie pas un engagement client sans validation.
+C'est pourquoi un vrai déploiement commence avec des données de démonstration et un accès limité. Les données réelles arrivent seulement après revue du cadre applicable et autorisation du cabinet.
+
+## Le bilan chiffré
+Reprenons nos chiffres, sans additionner des promesses incompatibles.
+Préparation des rendez-vous et suivi : huit heures avant, quatre visées après. Quatre heures à confirmer.
+Contrôles et revues : neuf heures avant, six visées. Trois heures à confirmer.
+Relation client et pilotage : sept heures avant, quatre visées. Trois heures à confirmer.
+Avant : huit plus neuf plus sept, vingt-quatre heures. Après, visé : quatre plus six plus quatre, quatorze heures. L'écart visé : dix heures par semaine.
+Dix heures de capacité potentielle, à condition que les gains résistent à l'observation. La mesure réelle reste à établir.
+Sur une année, dix heures multipliées par quarante-six semaines travaillées donnent quatre cent soixante heures.
+À titre d'illustration seulement, avec une heure interne valorisée à soixante euros, cela représenterait vingt-sept mille six cents euros de capacité théorique annuelle.
+Ce n'est ni une économie de trésorerie acquise, ni un revenu additionnel. Capacité théorique, économies encaissées et chiffre d'affaires sont trois choses différentes.
+Il faut encore déduire le temps de contrôle humain, le coût des outils, la maintenance et les erreurs à corriger.
+
+## Déploiement et conclusion
+Quel agent déployer en premier ? Ici, je commencerais par la préparation d'un rendez-vous, sur trois briefs : un périmètre étroit, compréhensible par Sophie, et mesurable.
+Si les briefs sont utiles et les accès maîtrisés, on ajoute le compte rendu et les tâches, puis les contrôles documentaires, et enfin la relation client et le cockpit.
+Voici le planning proposé.
+Semaines un et deux : diagnostic réel, chronométrage, cartographie des données, et choix d'un seul cas d'usage.
+Semaines trois à cinq : construction et test du premier workflow, d'abord sur des données fictives, puis sur un périmètre autorisé. Trois briefs, relus intégralement par Sophie.
+Semaines six à huit : décision d'étendre, d'ajuster ou d'arrêter. Les autres agents n'entrent dans le pilote que si le premier a fait ses preuves et si leurs accès sont approuvés.
+Huit semaines ne promettent donc pas trois agents achevés dans tous les cabinets.
+Le résultat recherché n'est pas un cabinet où l'intelligence artificielle parle à la place du conseiller. C'est un cabinet où le conseiller retrouve le contexte, voit les manques, et décide avec moins de recherches dispersées.
+Si vous dirigez un cabinet de gestion de patrimoine, le point de départ est simple : montrez-nous un dossier et une semaine réelle.
+On identifiera ce qui mérite d'être préparé, ce qui doit rester humain, et ce qu'un pilote permettrait réellement de mesurer.
+Agentic Wealth. L'agent prépare. Le CGP valide et décide.

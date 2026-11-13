@@ -1,0 +1,5 @@
+build/
+models/*.onnx
+dist/*.mp4
+dist/frames/
+__pycache__/
